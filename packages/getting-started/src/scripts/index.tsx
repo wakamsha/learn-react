@@ -3,7 +3,8 @@ import * as React from 'react';
 // import { Calculator } from './components/liftings/Calculator';
 import { render } from 'react-dom';
 // import { WelcomeDialog } from './components/compositions/WelcomeDialog';
-import { SignUpDialog } from './components/compositions/SignupDialog';
+// import { SignUpDialog } from './components/compositions/SignupDialog';
+import { FilterableProductTable, PRODUCTS } from './components/thinking/FilterableProductTable';
 // import { NameForm } from './components/NameForm';
 // import { FlavorForm } from './components/FlavorForm';
 // import { Reservation } from './components/Reservation';
@@ -25,6 +26,7 @@ render(
   // <Reservation />,
   // <Calculator />,
   // <WelcomeDialog />,
-  <SignUpDialog />,
+  // <SignUpDialog />,
+  <FilterableProductTable products={PRODUCTS} />,
   document.getElementById('app'),
 );
