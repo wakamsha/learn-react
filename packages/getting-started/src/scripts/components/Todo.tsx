@@ -31,9 +31,7 @@ export class Todo extends React.Component<{}, TodoState> {
     };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ text: e.target.value });
-  };
+  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({ text: e.target.value });
 
   private handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

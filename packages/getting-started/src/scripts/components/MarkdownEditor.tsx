@@ -13,9 +13,7 @@ export class MarkdownEditor extends React.Component<{}, State> {
     };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    this.setState({ value: e.target.value });
-  };
+  private handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => this.setState({ value: e.target.value });
 
   public render() {
     return (
