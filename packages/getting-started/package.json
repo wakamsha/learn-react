@@ -1,0 +1,11 @@
+{
+  "name": "@react-study/getting-started",
+  "version": "1.0.0",
+  "scripts": {
+    "reset": "rm -rf dist/; mkdir -p dist/assets/;",
+    "copy": "cp src/index.html dist/index.html;",
+    "script": "webpack --progress --colors --config ../../webpack.config.js -d --develop",
+    "serve": "browser-sync start -c ../../bs-config.js",
+    "start": "yarn reset && yarn copy && run-p \"script --watch\" \"serve\""
+  }
+}
