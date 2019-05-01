@@ -29,9 +29,26 @@ export class Todo extends React.Component<{}, TodoState> {
       items: [],
       text: '',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ text: e.target.value });
+  };
+
+  private handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!this.state.text) {
+      return;
+    }
+    const newItem = {
+      text: this.state.text,
+      id: Date.now(),
+    };
+    this.setState(state => ({
+      items: state.items.concat(newItem),
+      text: '',
+    }));
+  };
 
   public render() {
     return (
@@ -47,24 +64,5 @@ export class Todo extends React.Component<{}, TodoState> {
         </form>
       </div>
     );
-  }
-
-  private handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ text: e.target.value });
-  }
-
-  private handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!this.state.text) {
-      return;
-    }
-    const newItem = {
-      text: this.state.text,
-      id: Date.now(),
-    };
-    this.setState(state => ({
-      items: state.items.concat(newItem),
-      text: '',
-    }));
   }
 }

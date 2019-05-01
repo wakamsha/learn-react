@@ -11,8 +11,11 @@ export class MarkdownEditor extends React.Component<{}, State> {
     this.state = {
       value: 'Hello, **world**!',
     };
-    this.handleChange = this.handleChange.bind(this);
   }
+
+  private handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ value: e.target.value });
+  };
 
   public render() {
     return (
@@ -32,10 +35,6 @@ export class MarkdownEditor extends React.Component<{}, State> {
         <div className="content" dangerouslySetInnerHTML={this.getRawMarkup()} />
       </div>
     );
-  }
-
-  private handleChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    this.setState({ value: e.target.value });
   }
 
   private getRawMarkup() {
