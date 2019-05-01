@@ -1,0 +1,54 @@
+{
+  "name": "react-study",
+  "version": "1.0.0",
+  "repository": "git@github.com:wakamsha/react-study.git",
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "emotion": "^10.0.9",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "browser-sync": "^2.26.5",
+    "connect-modrewrite": "^0.10.2",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.4.0",
+    "husky": "^2.1.0",
+    "lint-staged": "^8.1.5",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.0",
+    "ts-loader": "^5.4.4",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "yargs": "^13.2.2"
+  },
+  "lint-staged": {
+    "packages/**/src/**/*.{ts,tsx}": [
+      "eslint -c .eslintrc.json --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "scripts": {
+    "format": "yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
+    "getting-started": "yarn workspace @react-study/getting-started"
+  }
+}

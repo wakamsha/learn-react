@@ -1,0 +1,66 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["@typescript-eslint", "@typescript-eslint/tslint", "sort-imports-es6-autofix", "prettier"],
+  "extends": ["prettier/@typescript-eslint"],
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "rules": {
+    "no-plusplus": [0],
+    "arrow-body-style": [2, "as-needed"],
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      2,
+      {
+        "ignoreCase": false,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "prettier/prettier": [
+      2,
+      {
+        "printWidth": 120,
+        "tabWidth": 2,
+        "useTabs": false,
+        "singleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "arrowParens": "avoid"
+      }
+    ],
+    "@typescript-eslint/tslint/config": [
+      2,
+      {
+        "rules": {
+          "function-name": [
+            true,
+            {
+              "method-regex": "^[a-zA-Z][\\w\\d]+$",
+              "private-method-regex": "^[a-zA-Z][\\w\\d]+$",
+              "protected-method-regex": "^[a-zA-Z][\\w\\d]+$",
+              "static-method-regex": "^[a-zA-Z_\\d]+$",
+              "function-regex": "^[a-zA-Z][\\w\\d]+$"
+            }
+          ],
+          "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-pascal-case",
+            "allow-leading-underscore",
+            "allow-snake-case"
+          ]
+        }
+      }
+    ]
+  }
+}
