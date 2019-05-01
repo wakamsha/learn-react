@@ -8,24 +8,20 @@ type TodoItem = {
 type ListProps = {
   items: TodoItem[];
 };
-
-class TodoList extends React.Component<ListProps> {
-  public render() {
-    return (
-      <ul>
-        {this.props.items.map(item => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
-    );
-  }
+function TodoList(props: ListProps): JSX.Element {
+  return (
+    <ul>
+      {props.items.map(item => (
+        <li key={item.id}>{item.text}</li>
+      ))}
+    </ul>
+  );
 }
 
 type TodoState = {
   items: TodoItem[];
   text: string;
 };
-
 export class Todo extends React.Component<{}, TodoState> {
   constructor(props: {}) {
     super(props);
