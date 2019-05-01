@@ -1,7 +1,9 @@
 import * as React from 'react';
 // import { NumberList } from './components/NumberList';
-import { Calculator } from './components/liftings/Calculator';
+// import { Calculator } from './components/liftings/Calculator';
 import { render } from 'react-dom';
+// import { WelcomeDialog } from './components/compositions/WelcomeDialog';
+import { SignUpDialog } from './components/compositions/SignupDialog';
 // import { NameForm } from './components/NameForm';
 // import { FlavorForm } from './components/FlavorForm';
 // import { Reservation } from './components/Reservation';
@@ -21,6 +23,8 @@ render(
   // <NameForm />,
   // <FlavorForm />,
   // <Reservation />,
-  <Calculator />,
+  // <Calculator />,
+  // <WelcomeDialog />,
+  <SignUpDialog />,
   document.getElementById('app'),
 );
