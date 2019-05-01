@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Timer } from './components/Timer';
+// import { Timer } from './components/Timer';
+import { Todo } from './components/Todo';
 import { render } from 'react-dom';
-// import { HelloMessage } from './components/HelloMessage';
 
 render(
   // <HelloMessage name="wakamsha" />,
-  <Timer />,
+  // <Timer />,
+  <Todo />,
   document.getElementById('app'),
 );
