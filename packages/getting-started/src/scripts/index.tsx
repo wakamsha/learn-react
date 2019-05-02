@@ -5,7 +5,8 @@ import { render } from 'react-dom';
 // import { WelcomeDialog } from './components/compositions/WelcomeDialog';
 // import { SignUpDialog } from './components/compositions/SignupDialog';
 // import { FilterableProductTable, PRODUCTS } from './components/thinking/FilterableProductTable';
-import { ContextApp } from './components/contexts/ContextApp';
+// import { ContextApp } from './components/contexts/ContextApp';
+import { CommentList } from './components/hoc/CommentList';
 // import { NameForm } from './components/NameForm';
 // import { FlavorForm } from './components/FlavorForm';
 // import { Reservation } from './components/Reservation';
@@ -29,6 +30,7 @@ render(
   // <WelcomeDialog />,
   // <SignUpDialog />,
   // <FilterableProductTable products={PRODUCTS} />,
-  <ContextApp />,
+  // <ContextApp />,
+  <CommentList />,
   document.getElementById('app'),
 );
