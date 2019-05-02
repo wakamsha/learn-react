@@ -22,33 +22,25 @@ function tryConvert(temperature: string, convert: (val: number) => number): stri
   return `${rounded}`;
 }
 
-export class Calculator extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      temperature: '',
-      scale: ScaleNames.C,
-    };
-  }
+export function Calculator() {
+  const [state, setState] = React.useState<State>({ temperature: '', scale: ScaleNames.C });
+  const handleCelsiusChange = React.useCallback(
+    (temperature: string) => setState({ temperature, scale: ScaleNames.C }),
+    [state.scale],
+  );
+  const handleFahrenheitChange = React.useCallback(
+    (temperature: string) => setState({ temperature, scale: ScaleNames.F }),
+    [state.scale],
+  );
+  const { scale, temperature } = state;
+  const celsius = scale === ScaleNames.F ? tryConvert(temperature, toCelsius) : temperature;
+  const fahrenheit = scale === ScaleNames.C ? tryConvert(temperature, toFahrenheit) : temperature;
 
-  private handleCelsiusChange = (temperature: string) => this.setState({ temperature, scale: ScaleNames.C });
-  private handleFahrenheitChange = (temperature: string) => this.setState({ temperature, scale: ScaleNames.F });
-
-  public render() {
-    const { scale, temperature } = this.state;
-    const celsius = scale === ScaleNames.F ? tryConvert(temperature, toCelsius) : temperature;
-    const fahrenheit = scale === ScaleNames.C ? tryConvert(temperature, toFahrenheit) : temperature;
-
-    return (
-      <>
-        <TemperatureInput scale={ScaleNames.C} temperature={celsius} onTemperatureChange={this.handleCelsiusChange} />
-        <TemperatureInput
-          scale={ScaleNames.F}
-          temperature={fahrenheit}
-          onTemperatureChange={this.handleFahrenheitChange}
-        />
-        <BoilingVerdict celsius={Number(temperature)} />
-      </>
-    );
-  }
+  return (
+    <>
+      <TemperatureInput scale={ScaleNames.C} temperature={celsius} onTemperatureChange={handleCelsiusChange} />
+      <TemperatureInput scale={ScaleNames.F} temperature={fahrenheit} onTemperatureChange={handleFahrenheitChange} />
+      <BoilingVerdict celsius={Number(temperature)} />
+    </>
+  );
 }

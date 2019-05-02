@@ -1,8 +1,8 @@
 import * as React from 'react';
-// import { NumberList } from './components/NumberList';
-// import { Calculator } from './components/liftings/Calculator';
-import { HookApp } from './components/hooks/HookApp';
+// import { HookApp } from './components/hooks/HookApp';
 import { render } from 'react-dom';
+// import { NumberList } from './components/NumberList';
+import { Calculator } from './components/liftings/Calculator';
 // import { WelcomeDialog } from './components/compositions/WelcomeDialog';
 // import { SignUpDialog } from './components/compositions/SignupDialog';
 // import { FilterableProductTable, PRODUCTS } from './components/thinking/FilterableProductTable';
@@ -28,13 +28,13 @@ render(
   // <NameForm />,
   // <FlavorForm />,
   // <Reservation />,
-  // <Calculator />,
+  <Calculator />,
   // <WelcomeDialog />,
   // <SignUpDialog />,
   // <FilterableProductTable products={PRODUCTS} />,
   // <ContextApp />,
   // <CommentList />,
   // <CustomTextInput />,
-  <HookApp count={10} />,
+  // <HookApp count={10} />,
   document.getElementById('app'),
 );
