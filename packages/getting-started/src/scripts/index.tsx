@@ -4,7 +4,8 @@ import * as React from 'react';
 import { render } from 'react-dom';
 // import { WelcomeDialog } from './components/compositions/WelcomeDialog';
 // import { SignUpDialog } from './components/compositions/SignupDialog';
-import { FilterableProductTable, PRODUCTS } from './components/thinking/FilterableProductTable';
+// import { FilterableProductTable, PRODUCTS } from './components/thinking/FilterableProductTable';
+import { ContextApp } from './components/contexts/ContextApp';
 // import { NameForm } from './components/NameForm';
 // import { FlavorForm } from './components/FlavorForm';
 // import { Reservation } from './components/Reservation';
@@ -27,6 +28,7 @@ render(
   // <Calculator />,
   // <WelcomeDialog />,
   // <SignUpDialog />,
-  <FilterableProductTable products={PRODUCTS} />,
+  // <FilterableProductTable products={PRODUCTS} />,
+  <ContextApp />,
   document.getElementById('app'),
 );
