@@ -49,6 +49,7 @@
   },
   "scripts": {
     "format": "yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
-    "getting-started": "yarn workspace @react-study/getting-started"
+    "getting-started": "yarn workspace @react-study/getting-started",
+    "bmi": "yarn workspace @react-study/bmi"
   }
 }

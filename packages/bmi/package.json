@@ -1,12 +1,6 @@
 {
-  "name": "@react-study/getting-started",
+  "name": "@react-study/bmi",
   "version": "1.0.0",
-  "dependencies": {
-    "remarkable": "^1.7.1"
-  },
-  "devDependencies": {
-    "@types/remarkable": "^1.7.4"
-  },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp src/index.html dist/index.html;",
