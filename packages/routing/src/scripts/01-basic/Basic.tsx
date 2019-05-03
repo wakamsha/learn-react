@@ -20,7 +20,8 @@ export function Basic() {
       </ul>
       <hr />
       <div>
-        <Switch>
+        {/* location プロパティを指定すると子Routeに値を伝達出来るようになる */}
+        <Switch location={{ ...window.location, state: { hoge: 'aaaaaaa' } }}>
           <Route path="/" component={Home} exact />
           <Route path="/about" component={About} />
           <Route path="/friends" component={Friends} />
