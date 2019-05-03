@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Basic } from './1-basic/Basic';
+// import { Basic } from './1-basic/Basic';
+import { Redirects } from './3-redirects/Redirects';
 import { render } from 'react-dom';
 
-render(<Basic />, document.getElementById('app'));
+render(
+  // <Basic />,
+  <Redirects />,
+  document.getElementById('app'),
+);
