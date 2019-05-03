@@ -1,14 +1,20 @@
 import * as React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
-import { withRouter } from 'react-router';
 
-export const AuthButton = withRouter(({ history }) =>
-  fakeAuth.isAuthenticated ? (
+type Props = RouteComponentProps;
+
+function Component(props: Props) {
+  const handleClick = React.useCallback(() => fakeAuth.signOut(() => props.history.push('/')), []);
+
+  return fakeAuth.isAuthenticated ? (
     <>
       <p>Welcome!</p>
-      <button onClick={() => fakeAuth.signOut(() => history.push('/'))}>Sign out</button>
+      <button onClick={handleClick}>Sign out</button>
     </>
   ) : (
     <p>You are not logged in.</p>
-  ),
-);
+  );
+}
+
+export const AuthButton = withRouter(Component);
