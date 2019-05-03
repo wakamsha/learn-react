@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NoMatchApp } from './6-no-match/NoMatchApp';
+import { SidebarApp } from './8-sidebar/SidebarApp';
 import { render } from 'react-dom';
 
 render(
@@ -7,6 +7,7 @@ render(
   // <Redirects />,
   // <CustomLink />,
   // <PreventingTransitions />,
-  <NoMatchApp />,
+  // <NoMatchApp />,
+  <SidebarApp />,
   document.getElementById('app'),
 );
