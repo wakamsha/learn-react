@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SidebarApp } from './08-sidebar/SidebarApp';
+import { QueryParams } from './14-query-params/QueryParams';
 import { render } from 'react-dom';
 
 render(
@@ -8,6 +8,7 @@ render(
   // <CustomLink />,
   // <PreventingTransitions />,
   // <NoMatchApp />,
-  <SidebarApp />,
+  // <SidebarApp />,
+  <QueryParams />,
   document.getElementById('app'),
 );
