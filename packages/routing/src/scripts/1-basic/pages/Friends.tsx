@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Friend } from './friends/Friend';
 import { FriendList } from './friends/FriendList';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 
 type FriendType = {
   id: string;
@@ -39,8 +39,10 @@ export function Friends() {
   return (
     <main>
       <h1>Friends page</h1>
-      <Route path="/friends" render={() => <FriendList foo="value from props" />} exact />
-      <Route path="/friends/:id" component={Friend} />
+      <Switch>
+        <Route path="/friends" render={props => <FriendList foo="value from props" {...props} />} exact />
+        <Route path="/friends/:id" component={Friend} />
+      </Switch>
     </main>
   );
 }

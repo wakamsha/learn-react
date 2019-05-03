@@ -1,15 +1,13 @@
 import * as React from 'react';
+import { RouteComponentProps } from 'react-router';
 import { css } from 'emotion';
 import { getFriendById } from '../Friends';
 
-type Props = {
-  match: {
-    params: {
-      id: string;
-    };
-    url: string;
-  };
+type Params = {
+  id: string;
 };
+
+type Props = RouteComponentProps<Params>;
 
 const containerStyle = css({
   padding: 16,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { About } from './pages/About';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { Friends } from './pages/Friends';
 import { Home } from './pages/Home';
 
@@ -20,9 +20,11 @@ export function Basic() {
       </ul>
       <hr />
       <div>
-        <Route path="/" component={Home} exact />
-        <Route path="/about" component={About} />
-        <Route path="/friends" component={Friends} />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/about" component={About} />
+          <Route path="/friends" component={Friends} />
+        </Switch>
       </div>
     </BrowserRouter>
   );

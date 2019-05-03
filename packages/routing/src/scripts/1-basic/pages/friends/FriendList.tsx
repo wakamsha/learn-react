@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { FRIENDS } from '../Friends';
-import { Link, RouteProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 
 type Props = {
   foo: string;
-} & RouteProps;
+} & RouteComponentProps;
 
 export function FriendList({ foo }: Props) {
   return (
