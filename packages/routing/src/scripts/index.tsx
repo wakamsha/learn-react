@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { CustomLink } from './4-custom-link/CustomLink';
+import { PreventingTransitions } from './5-preventing-transitions/PreventingTransitions';
 import { render } from 'react-dom';
 
 render(
   // <Basic />,
   // <Redirects />,
-  <CustomLink />,
+  // <CustomLink />,
+  <PreventingTransitions />,
   document.getElementById('app'),
 );
