@@ -56,6 +56,7 @@
     "getting-started": "yarn workspace @react-study/getting-started",
     "bmi": "yarn workspace @react-study/bmi",
     "routing": "yarn workspace @react-study/routing",
-    "mobx": "yarn workspace @react-study/mobx"
+    "mobx": "yarn workspace @react-study/mobx",
+    "esnext": "yarn workspace @react-study/esnext"
   }
 }
