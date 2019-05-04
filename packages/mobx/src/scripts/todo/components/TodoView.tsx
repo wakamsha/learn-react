@@ -6,6 +6,8 @@ type Props = {
   todo: Todo;
 };
 
+// @MEMO
+// observer に hook を使ったコンポーネントを渡すと壊れるので、ひとまずクラスコンポーネントを使うようにしている
 @observer
 export class TodoView extends React.Component<Props> {
   private handleToggleCompleted = () => {
