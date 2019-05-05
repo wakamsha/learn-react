@@ -1,36 +1,35 @@
+// https://ja.reactjs.org/docs/context.html
 import * as React from 'react';
-import { Button } from './components/Button';
-import { Content } from './components/Content';
-import { Theme, ThemeContext, themes } from './components/ThemeContext';
+import { Toolbar } from './components/Toolbar';
 
-type State = {
-  theme: Theme;
-  toggleTheme: () => void;
+export type Theme = 'dark' | 'light';
+
+// Before
+// ----------------
+
+// export const ContextApp = () => {
+//   return <Toolbar theme="dark" />;
+// };
+
+// After
+// ----------------
+
+export const ThemeContext = React.createContext<Theme>('light');
+
+export const ContextApp = () => {
+  const [theme, setTheme] = React.useState<Theme>('dark');
+
+  const handleClick = React.useCallback(() => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+  }, [theme]);
+
+  return (
+    <>
+      <ThemeContext.Provider value={theme}>
+        <Toolbar />
+      </ThemeContext.Provider>
+      <button onClick={handleClick}>Toggle Theme</button>
+    </>
+  );
 };
-
-export class ContextApp extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      theme: themes.light,
-      toggleTheme: this.toggleTheme,
-    };
-  }
-
-  private toggleTheme = () =>
-    this.setState(state => ({ theme: state.theme === themes.dark ? themes.light : themes.dark }));
-
-  public render() {
-    return (
-      <>
-        <ThemeContext.Provider value={this.state}>
-          {/* <Toolbar changeTheme={this.toggleTheme} /> */}
-          <Content />
-        </ThemeContext.Provider>
-        <div>
-          <Button label="hoge" onClick={this.toggleTheme} />
-        </div>
-      </>
-    );
-  }
-}

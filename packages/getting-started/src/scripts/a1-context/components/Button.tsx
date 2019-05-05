@@ -1,30 +1,33 @@
 import * as React from 'react';
-import { ThemeContext } from './ThemeContext';
+import { Theme } from '../App';
 import { css } from 'emotion';
 
 const baseStyle = css({
-  padding: `8px 32px`,
+  padding: `8px 48px`,
   fontSize: 14,
 });
 
 type Props = {
+  theme: Theme;
   label: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export class Button extends React.Component<Props> {
-  public render() {
-    return (
-      <button
-        {...this.props}
-        className={baseStyle}
-        style={{
-          background: this.context.background,
-        }}
-      >
-        {this.props.label}
-      </button>
-    );
+function getStyle(theme: Theme) {
+  switch (theme) {
+    case 'dark':
+      return {
+        color: 'white',
+        background: '#666',
+      };
+    case 'light':
+      return {
+        background: '#eee',
+      };
   }
 }
-Button.contextType = ThemeContext;
+
+export const Button = ({ theme, label }: Props) => (
+  <button className={baseStyle} style={getStyle(theme)}>
+    {label}
+  </button>
+);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Calculator } from './10-lifting-state-up/App';
+import { ContextApp } from './a1-context/App';
 import { render } from 'react-dom';
 
 render(
@@ -12,11 +12,11 @@ render(
   // <NameForm />,
   // <FlavorForm />,
   // <Reservation />,
-  <Calculator />,
+  // <Calculator />,
   // <WelcomeDialog />,
   // <SignUpDialog />,
   // <FilterableProductTable products={PRODUCTS} />,
-  // <ContextApp />,
+  <ContextApp />,
   // <CommentList />,
   // <CustomTextInput />,
   // <HookApp count={10} />,
