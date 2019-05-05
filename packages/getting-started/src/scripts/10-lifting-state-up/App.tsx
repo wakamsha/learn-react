@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { BoilingVerdict } from './BoilingVerdict';
-import { ScaleNames, TemperatureInput } from './TemperatureInput';
+import { BoilingVerdict } from './components/BoilingVerdict';
+import { ScaleNames, TemperatureInput } from './components/TemperatureInput';
 
 type State = {
   temperature: string;

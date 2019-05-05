@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Button } from './Button';
-import { Content } from './Content';
-import { Theme, ThemeContext, themes } from './ThemeContext';
+import { Button } from './components/Button';
+import { Content } from './components/Content';
+import { Theme, ThemeContext, themes } from './components/ThemeContext';
 
 type State = {
   theme: Theme;

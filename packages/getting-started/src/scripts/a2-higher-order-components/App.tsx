@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Comment } from './Comment';
+import { Comment } from './components/Comment';
 
 type State = {
   comments: string[];

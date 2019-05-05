@@ -1,6 +1,7 @@
+// https://ja.reactjs.org/docs/thinking-in-react.html
 import * as React from 'react';
-import { ProductTable } from './ProductTable';
-import { SearchBar } from './SearchBar';
+import { ProductTable } from './components/ProductTable';
+import { SearchBar } from './components/SearchBar';
 
 export type Product = {
   category: string;

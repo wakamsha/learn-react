@@ -1,3 +1,4 @@
+// https://ja.reactjs.org/docs/refs-and-the-dom.html
 import * as React from 'react';
 
 // 原則コールバック ref を使う

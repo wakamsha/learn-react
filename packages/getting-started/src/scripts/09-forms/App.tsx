@@ -1,8 +1,10 @@
+// https://ja.reactjs.org/docs/forms.html
 import * as React from 'react';
 
 type State = {
   value: string;
 };
+
 export class NameForm extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);

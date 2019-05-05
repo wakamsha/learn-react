@@ -1,3 +1,4 @@
+// https://ja.reactjs.org/docs/forms.html
 import * as React from 'react';
 
 type State = {
@@ -12,7 +13,7 @@ export class FlavorForm extends React.Component<{}, State> {
   private handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => this.setState({ value: e.target.value });
 
   private handleSubmit = (e: React.FormEvent) => {
-    alert(`Your favorite flavoe is ${this.state.value}`);
+    alert(`Your favorite flavor is ${this.state.value}`);
     e.preventDefault();
   };
 

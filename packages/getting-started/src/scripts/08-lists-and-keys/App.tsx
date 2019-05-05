@@ -1,3 +1,4 @@
+// https://ja.reactjs.org/docs/lists-and-keys.html
 import * as React from 'react';
 
 function ListItem(props: { value: number }): JSX.Element {

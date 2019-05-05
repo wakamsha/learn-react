@@ -1,3 +1,4 @@
+// https://ja.reactjs.org/docs/hello-world.html
 import * as React from 'react';
 
 type Props = {

@@ -1,3 +1,4 @@
+// https://ja.reactjs.org/docs/conditional-rendering.html
 import * as React from 'react';
 
 function UserGreeting(): JSX.Element {

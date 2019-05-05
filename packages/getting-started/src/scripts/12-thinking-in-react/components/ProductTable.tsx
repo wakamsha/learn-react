@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Product } from './FilterableProductTable';
+import { Product } from '../App';
 import { ProductCategoryRaw } from './ProductCategoryRaw';
 import { ProductRaw } from './ProductRaw';
 
