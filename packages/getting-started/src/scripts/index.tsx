@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HOCExample } from './a2-higher-order-components/App';
+import { CustomTextInput } from './a3-refs-and-the-dom/App';
 import { render } from 'react-dom';
 
 render(
@@ -17,8 +17,8 @@ render(
   // <SignUpDialog />,
   // <FilterableProductTable products={PRODUCTS} />,
   // <ContextApp />,
-  <HOCExample />,
-  // <CustomTextInput />,
+  // <HOCExample />,
+  <CustomTextInput />,
   // <HookApp count={10} />,
   document.getElementById('app'),
 );
