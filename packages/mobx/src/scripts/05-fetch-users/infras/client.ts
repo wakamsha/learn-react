@@ -1,6 +1,14 @@
-import { User } from './model';
+import { CreateUserRequest, CreateUserResponse, User } from './model';
 
-async function request<RES>(method: 'GET' | 'POST', path: string): Promise<RES> {
+async function request<REQ extends {}, RES>(
+  method: 'GET' | 'POST',
+  path: string,
+  {
+    send,
+  }: {
+    send?: REQ;
+  },
+): Promise<RES> {
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -9,16 +17,25 @@ async function request<RES>(method: 'GET' | 'POST', path: string): Promise<RES> 
   const res = await fetch(url, {
     headers,
     method,
+    ...(send ? { body: JSON.stringify(send) } : {}),
   });
   if (!res.ok) {
-    await res.json().catch(err => {
-      console.log('ここでエラー処理をしてください');
-      throw new Error(err);
-    });
+    console.log('ここでエラー処理をしてください');
+    throw new Error(res.statusText);
   }
   return await res.json();
 }
 
 export async function requestGetUsers(): Promise<User[]> {
-  return request<User[]>('GET', '/users');
+  return request<{}, User[]>('GET', '/users', {});
+}
+
+export async function requestGetUser({ path }: { path: string }): Promise<User> {
+  return request<{}, User>('GET', `/users/${path}`, {});
+}
+
+export async function requestPostUser({ send }: { send: CreateUserRequest }): Promise<CreateUserResponse> {
+  return request<CreateUserRequest, CreateUserResponse>('POST', '/users', {
+    send,
+  });
 }

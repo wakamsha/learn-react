@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { GetForm } from './components/GetForm';
+import { GetWithParamForm } from './components/GetWithParamForm';
 import { Log } from './components/Log';
+import { PostForm } from './components/PostForm';
 import { Stores } from './stores';
 import { css } from 'emotion';
 
@@ -11,10 +13,11 @@ const baseStyle = css({
 const formColumnStyle = css({
   padding: '0 16px',
   flexShrink: 0,
+  flexGrow: 1,
 });
 
 const logColumnStyle = css({
-  flexGrow: 1,
+  flexGrow: 1.618,
 });
 
 const JSONPlaceholderContext = React.createContext(Stores.jsonPlaceholderStore);
@@ -24,6 +27,10 @@ export const FetchUsers = () => (
     <div className={baseStyle}>
       <div className={formColumnStyle}>
         <JSONPlaceholderContext.Consumer>{store => <GetForm store={store} />}</JSONPlaceholderContext.Consumer>
+        <hr />
+        <JSONPlaceholderContext.Consumer>{store => <GetWithParamForm store={store} />}</JSONPlaceholderContext.Consumer>
+        <hr />
+        <JSONPlaceholderContext.Consumer>{store => <PostForm store={store} />}</JSONPlaceholderContext.Consumer>
       </div>
       <div className={logColumnStyle}>
         <JSONPlaceholderContext.Consumer>{store => <Log store={store} />}</JSONPlaceholderContext.Consumer>

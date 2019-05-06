@@ -21,3 +21,14 @@ export type User = {
     bs: string;
   };
 };
+
+export type CreateUserRequest = {
+  name: string;
+  job: string;
+};
+
+export type CreateUserResponse = {
+  name: string;
+  job: string;
+  id: number;
+};

@@ -14,7 +14,9 @@ export class GetForm extends React.Component<Props> {
     return (
       <>
         <h3>GET</h3>
-        <button onClick={this.handleClick}>GET</button>
+        <p>
+          <button onClick={this.handleClick}>GET</button>
+        </p>
       </>
     );
   }
