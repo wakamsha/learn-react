@@ -9,7 +9,7 @@ export const TodoWithContext = () => (
   <>
     <h1>Todo - MobX-React w/ ContextAPI</h1>
     <TodoContext.Provider value={Stores.todoListStore}>
-      <>
+      {/* <>
         <TodoContext.Consumer>
           {store => (
             <>
@@ -18,7 +18,10 @@ export const TodoWithContext = () => (
             </>
           )}
         </TodoContext.Consumer>
-      </>
+      </> */}
+      <TodoContext.Consumer>{store => <TodoAdd store={store} />}</TodoContext.Consumer>
+      <hr />
+      <TodoContext.Consumer>{store => <TodoList store={store} />}</TodoContext.Consumer>
     </TodoContext.Provider>
   </>
 );
