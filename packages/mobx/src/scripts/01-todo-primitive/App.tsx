@@ -1,7 +1,9 @@
+// https://mobx.js.org/getting-started.html
+
 import * as React from 'react';
 import { Stores } from './stores';
 
-export const PrimitiveTodo = () => {
+export const TodoPrimitive = () => {
   React.useEffect(() => {
     // Stores.todoStore.addTodo('foo');
     // console.log(Stores.todoStore.report());
