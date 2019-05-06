@@ -5,10 +5,13 @@ import { TodoAdd } from './components/TodoAdd';
 import { TodoList } from './components/TodoList';
 
 export const TodoPro = () => (
-  <Provider store={Stores.todoListStore}>
-    <>
-      <TodoAdd />
-      <TodoList />
-    </>
-  </Provider>
+  <>
+    <h1>Todo - Using Inject</h1>
+    <Provider store={Stores.todoListStore}>
+      <>
+        <TodoAdd />
+        <TodoList />
+      </>
+    </Provider>
+  </>
 );
