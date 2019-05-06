@@ -17,18 +17,24 @@ export class PostForm extends React.Component<Props> {
     this.props.store.postUser();
   };
 
+  private checkInput(): boolean {
+    const { name, job, fetching } = this.props.store;
+    return !name || !job || fetching;
+  }
+
   public render() {
+    const { fetching } = this.props.store;
     return (
       <form onSubmit={this.handleSubmit}>
         <h3>POST</h3>
         <p>
-          <input placeholder="Name ..." onChange={this.handleNameChange} />
+          <input placeholder="Name ..." onChange={this.handleNameChange} disabled={fetching} />
         </p>
         <p>
-          <textarea placeholder="Job ..." onChange={this.handleJobChange} />
+          <textarea placeholder="Job ..." onChange={this.handleJobChange} disabled={fetching} />
         </p>
         <p>
-          <button>POST</button>
+          <button disabled={this.checkInput()}>POST</button>
         </p>
       </form>
     );

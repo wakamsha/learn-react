@@ -1,5 +1,6 @@
 import { User } from '../infras/model';
-import { action, flow, observable } from 'mobx';
+import { action, observable } from 'mobx';
+import { flow } from '../utils/Decorator';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infras/client';
 
 export class JSONPlaceholderStore {
@@ -14,6 +15,9 @@ export class JSONPlaceholderStore {
 
   @observable
   public job = '';
+
+  @observable
+  public fetching = false;
 
   @action
   public setUserId(id: number) {
@@ -30,22 +34,29 @@ export class JSONPlaceholderStore {
     this.job = job;
   }
 
-  public getAllUsers = flow(function*(this: JSONPlaceholderStore) {
+  @flow
+  public *getAllUsers() {
+    this.fetching = true;
     this.users = yield requestGetUsers();
-  });
+    this.fetching = false;
+  }
 
-  public getUser = flow(function*(this: JSONPlaceholderStore) {
+  @flow
+  public *getUser() {
     this.users = yield requestGetUser({
       path: this.userId ? `/${this.userId}` : '',
     });
-  });
+  }
 
-  public postUser = flow(function*(this: JSONPlaceholderStore) {
+  @flow
+  public *postUser() {
+    this.fetching = true;
     this.users = yield requestPostUser({
       send: {
         name: this.name,
         job: this.job,
       },
     });
-  });
+    this.fetching = false;
+  }
 }

@@ -16,15 +16,16 @@ export class GetWithParamForm extends React.Component<Props> {
   };
 
   public render() {
+    const { store } = this.props;
     return (
       <form onSubmit={this.onSubmit}>
         <h3>Get w/ Params</h3>
         <p>取得する User の id を指定</p>
-        <input type="number" max={100} onChange={this.onChangeId} />
+        <input type="number" max={100} disabled={store.fetching} onChange={this.onChangeId} />
         <p>
-          ID: <code>{this.props.store.userId}</code>
+          ID: <code>{store.userId}</code>
         </p>
-        <button>GET</button>
+        <button disabled={store.fetching}>GET</button>
       </form>
     );
   }
