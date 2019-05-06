@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ContextApp } from './a1-context/App';
+import { HOCExample } from './a2-higher-order-components/App';
 import { render } from 'react-dom';
 
 render(
@@ -16,8 +16,8 @@ render(
   // <WelcomeDialog />,
   // <SignUpDialog />,
   // <FilterableProductTable products={PRODUCTS} />,
-  <ContextApp />,
-  // <CommentList />,
+  // <ContextApp />,
+  <HOCExample />,
   // <CustomTextInput />,
   // <HookApp count={10} />,
   document.getElementById('app'),

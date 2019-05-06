@@ -1,33 +1,13 @@
 import * as React from 'react';
-import { Comment } from './components/Comment';
+import { Logger } from './decorators/Decorator';
 
-type State = {
-  comments: string[];
+type Props = {
+  inject?: string;
 };
 
-export class CommentList extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      comments: ['good morning, foo!', 'good afternoon, bar!!', 'good evening, baz!!!'],
-    };
-  }
-
-  public componentDidMount() {
-    console.log('commentList is mounted!!!');
-  }
-
-  public componentWillUnmount() {
-    console.log('commentList will remove...');
-  }
-
+@Logger('Hello world!', 'render log')
+export class HOCExample extends React.Component<Props> {
   public render() {
-    return (
-      <div>
-        {this.state.comments.map((comment, i) => (
-          <Comment comment={comment} key={`${i}`} />
-        ))}
-      </div>
-    );
+    return <div>{this.props.inject}</div>;
   }
 }
