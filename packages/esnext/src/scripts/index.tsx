@@ -1,3 +1,4 @@
-import { runDecorator } from './decorator';
+import { runGenerator } from './generator';
 
-runDecorator();
+// runDecorator();
+runGenerator();
