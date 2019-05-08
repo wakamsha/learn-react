@@ -16,7 +16,8 @@ console.log(`Polyfill: ${polyfill}`);
 module.exports = {
   mode,
   entry: [
-    ...(polyfill ? ['@babel/polyfill', 'whatwg-fetch', 'url-search-params-polyfill'] : []),
+    ...(polyfill ? ['whatwg-fetch', 'url-search-params-polyfill'] : []),
+    '@babel/polyfill',
     './src/scripts/index.tsx',
   ],
   output: {

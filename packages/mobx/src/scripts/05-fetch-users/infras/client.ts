@@ -13,7 +13,7 @@ async function request<REQ extends {}, RES>(
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
-  const url = `http://jsonplaceholder.typicode.com${path}`;
+  const url = `https://jsonplaceholder.typicode.com${path}`;
   const res = await fetch(url, {
     headers,
     method,
