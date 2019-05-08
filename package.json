@@ -9,20 +9,25 @@
     "packages/*"
   ],
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "emotion": "^10.0.9",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.0.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "@types/react": "^16.8.15",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/eslint-plugin-tslint": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.5",
     "connect-modrewrite": "^0.10.2",
     "eslint": "^5.16.0",
