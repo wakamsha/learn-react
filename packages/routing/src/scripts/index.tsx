@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Basic } from './01-basic/Basic';
+import { QueryParams } from './14-query-params/QueryParams';
 import { render } from 'react-dom';
 
 render(
-  <Basic />,
+  // <Basic />,
   // <Redirects />,
   // <CustomLink />,
   // <PreventingTransitions />,
   // <NoMatchApp />,
   // <SidebarApp />,
-  // <QueryParams />,
+  <QueryParams />,
   document.getElementById('app'),
 );
