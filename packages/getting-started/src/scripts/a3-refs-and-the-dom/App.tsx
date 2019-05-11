@@ -21,10 +21,6 @@ export class CustomTextInput extends React.Component {
   private fileInput: HTMLInputElement;
   private report: HTMLParagraphElement;
 
-  constructor(props: {}) {
-    super(props);
-  }
-
   private handleInputTextRef = (input: HTMLInputElement) => (this.textInput = input);
   private handleInputFileRef = (input: HTMLInputElement) => (this.fileInput = input);
   private handleReportRef = (elm: HTMLParagraphElement) => (this.report = elm);

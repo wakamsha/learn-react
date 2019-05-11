@@ -18,11 +18,13 @@ const inputStyle = css({
   width: '100%',
 });
 
-export function LabeledSlider(props: Props) {
-  const handleChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value),
-    [],
-  );
+export const LabeledSlider: React.FC<Props> = (props: Props) => {
+  // const handleChange = React.useCallback(
+  //   (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value),
+  //   [],
+  // );
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value);
+
   const { label, unit, min, max, value } = props;
   return (
     <div>
@@ -33,4 +35,4 @@ export function LabeledSlider(props: Props) {
       <input type="range" className={inputStyle} min={min} max={max} value={value} onChange={handleChange} />
     </div>
   );
-}
+};

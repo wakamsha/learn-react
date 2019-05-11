@@ -1,51 +1,23 @@
 import * as React from 'react';
 import { LabeledSlider } from './components/LabeledSlider';
 
-type State = {
-  weight: number;
-  height: number;
+export const BMI: React.FC = () => {
+  const [weight, setWeight] = React.useState<number>(60);
+  const [height, setHeight] = React.useState<number>(170);
+
+  const handleWeightChange = React.useCallback((w: string) => setWeight(Number(w)), []);
+  const handleHeightChange = React.useCallback((h: string) => setHeight(Number(h)), []);
+
+  const calcBMI = React.useMemo<number>(() => {
+    const heightMeters = height * 0.01;
+    return Math.round(weight / (heightMeters * heightMeters));
+  }, [weight, height]);
+
+  return (
+    <>
+      <LabeledSlider label="Weight" unit="kg" min={40} max={150} value={weight} onValueChange={handleWeightChange} />
+      <LabeledSlider label="Height" unit="cm" min={140} max={220} value={height} onValueChange={handleHeightChange} />
+      <p>BMI: {calcBMI}</p>
+    </>
+  );
 };
-
-export class BMI extends React.Component<{}, State> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      weight: 60,
-      height: 170,
-    };
-  }
-
-  private handleWeightChange = (weight: string) => this.setState({ weight: Number(weight) });
-  private handleHeightChange = (height: string) => this.setState({ height: Number(height) });
-
-  private calcBMI(w: number, h: number): number {
-    const heightMeters = h * 0.01;
-    return Math.round(w / (heightMeters * heightMeters));
-  }
-
-  public render() {
-    const { weight, height } = this.state;
-
-    return (
-      <>
-        <LabeledSlider
-          label="Weight"
-          unit="kg"
-          min={40}
-          max={150}
-          value={weight}
-          onValueChange={this.handleWeightChange}
-        />
-        <LabeledSlider
-          label="Height"
-          unit="cm"
-          min={140}
-          max={220}
-          value={height}
-          onValueChange={this.handleHeightChange}
-        />
-        <p>BMI: {this.calcBMI(weight, height)}</p>
-      </>
-    );
-  }
-}
