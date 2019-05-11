@@ -16,9 +16,6 @@ export class JSONPlaceholderStore {
   @observable
   private _job = '';
 
-  @observable
-  private _fetching = false;
-
   public get users(): User[] {
     return this._users;
   }
@@ -33,10 +30,6 @@ export class JSONPlaceholderStore {
 
   public get job(): string {
     return this._job;
-  }
-
-  public get fetching(): boolean {
-    return this._fetching;
   }
 
   @action
@@ -56,29 +49,23 @@ export class JSONPlaceholderStore {
 
   @flow
   public *getAllUsers() {
-    this._fetching = true;
     this._users = yield requestGetUsers();
-    this._fetching = false;
   }
 
   @flow
   public *getUser() {
-    this._fetching = true;
     this._users = yield requestGetUser({
       path: this._userId ? `/${this._userId}` : '',
     });
-    this._fetching = false;
   }
 
   @flow
   public *postUser() {
-    this._fetching = true;
     this._users = yield requestPostUser({
       send: {
         name: this._name,
         job: this._job,
       },
     });
-    this._fetching = false;
   }
 }

@@ -1,32 +1,50 @@
 import * as React from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
+import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
 
 type Props = {
   store: JSONPlaceholderStore;
 };
 
+type State = {
+  status: TransactionStatus;
+};
+
 @observer
-export class GetWithParamForm extends React.Component<Props> {
+export class GetWithParamForm extends React.Component<Props, State> {
   private onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => this.props.store.setUserId(Number(e.target.value));
 
   private onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    this.props.store.getUser();
+    this.handleGetUser();
   };
+
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      status: 'Idling',
+    };
+  }
 
   public render() {
     const { store } = this.props;
+    const fetching = this.state.status === 'Running';
     return (
       <form onSubmit={this.onSubmit}>
         <h3>Get w/ Params</h3>
         <p>取得する User の id を指定</p>
-        <input type="number" max={100} disabled={store.fetching} onChange={this.onChangeId} />
+        <input type="number" max={100} disabled={fetching} onChange={this.onChangeId} />
         <p>
           ID: <code>{store.userId}</code>
         </p>
-        <button disabled={store.fetching}>GET</button>
+        <button disabled={fetching}>GET</button>
       </form>
     );
+  }
+
+  @transaction('status')
+  private *handleGetUser() {
+    yield this.props.store.getUser();
   }
 }
