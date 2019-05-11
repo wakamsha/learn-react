@@ -5,58 +5,80 @@ import { requestGetUser, requestGetUsers, requestPostUser } from '../infras/clie
 
 export class JSONPlaceholderStore {
   @observable
-  public users: User[] = [];
+  private _users: User[] = [];
 
   @observable
-  public userId = 0;
+  private _userId = 0;
 
   @observable
-  public name = '';
+  private _name = '';
 
   @observable
-  public job = '';
+  private _job = '';
 
   @observable
-  public fetching = false;
+  private _fetching = false;
+
+  public get users(): User[] {
+    return this._users;
+  }
+
+  public get userId(): number {
+    return this._userId;
+  }
+
+  public get name(): string {
+    return this._name;
+  }
+
+  public get job(): string {
+    return this._job;
+  }
+
+  public get fetching(): boolean {
+    return this._fetching;
+  }
 
   @action
   public setUserId(id: number) {
-    this.userId = id;
+    this._userId = id;
   }
 
   @action
   public setName(name: string) {
-    this.name = name;
+    this._name = name;
   }
 
   @action
   public setJob(job: string) {
-    this.job = job;
+    this._job = job;
   }
 
   @flow
   public *getAllUsers() {
-    this.fetching = true;
-    this.users = yield requestGetUsers();
-    this.fetching = false;
+    this._fetching = true;
+    this._users = yield requestGetUsers();
+    this._fetching = false;
   }
 
   @flow
   public *getUser() {
-    this.users = yield requestGetUser({
-      path: this.userId ? `/${this.userId}` : '',
+    this._fetching = true;
+    this._users = yield requestGetUser({
+      path: this._userId ? `/${this._userId}` : '',
     });
+    this._fetching = false;
   }
 
   @flow
   public *postUser() {
-    this.fetching = true;
-    this.users = yield requestPostUser({
+    this._fetching = true;
+    this._users = yield requestPostUser({
       send: {
-        name: this.name,
-        job: this.job,
+        name: this._name,
+        job: this._job,
       },
     });
-    this.fetching = false;
+    this._fetching = false;
   }
 }

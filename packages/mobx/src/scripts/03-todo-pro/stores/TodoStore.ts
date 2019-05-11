@@ -4,13 +4,21 @@ export class TodoStore {
   private _id = Math.random();
 
   @observable
-  public task = '';
+  private _task = '';
 
   @observable
-  public completed = false;
+  private _completed = false;
+
+  public get task(): string {
+    return this._task;
+  }
+
+  public get completed(): boolean {
+    return this._completed;
+  }
 
   constructor(task: string) {
-    this.task = task;
+    this._task = task;
   }
 
   public get id(): number {
@@ -19,11 +27,11 @@ export class TodoStore {
 
   @action
   public toggleCompleted() {
-    this.completed = !this.completed;
+    this._completed = !this._completed;
   }
 
   @action
   public updateTask(task: string) {
-    this.task = task;
+    this._task = task;
   }
 }

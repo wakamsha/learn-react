@@ -13,10 +13,10 @@ export class TodoList extends React.Component<Props> {
 
   private handleClickAsync = () => {
     const { store } = this.props;
-    store.pendingRequests++;
+    store.addPendingRequests(1);
     setTimeout(() => {
       store.addTodo(`Random Todo - ${Math.random()}`);
-      store.pendingRequests--;
+      store.addPendingRequests(-1);
     }, 2000);
   };
 
