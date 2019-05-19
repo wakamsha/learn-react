@@ -6,7 +6,7 @@ type Props = {
 export function HookApp(props: Props) {
   const [count, setCount] = React.useState<number>(props.count);
   // @MEMO プリミティブ型にしか使えない。
-  // オブジェクト型だと値の変更を検知できないため。その場合ははコールバックref を使うこと
+  // オブジェクト型だと値の変更を検知できないため。その場合はコールバックref を使うこと
   const prevCountRef = React.useRef<number>();
 
   const handleClick = () => setCount(count + 2);
