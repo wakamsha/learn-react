@@ -1,6 +1,7 @@
 {
   "name": "@react-study/esnext",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp src/index.html dist/index.html;",
