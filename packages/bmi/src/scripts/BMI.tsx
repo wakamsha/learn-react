@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { LabeledSlider } from './components/LabeledSlider';
+import { hot } from 'react-hot-loader/root';
 
-export const BMI: React.FC = () => {
+const Component: React.FC = () => {
   const [weight, setWeight] = React.useState<number>(60);
   const [height, setHeight] = React.useState<number>(170);
 
@@ -21,3 +22,5 @@ export const BMI: React.FC = () => {
     </>
   );
 };
+
+export const BMI = hot(Component);

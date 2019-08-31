@@ -3,11 +3,8 @@ import { action, observable } from 'mobx';
 export class TodoStore {
   private _id = Math.random();
 
-  @observable
-  private _task = '';
-
-  @observable
-  private _completed = false;
+  @observable private _task = '';
+  @observable private _completed = false;
 
   public get task(): string {
     return this._task;

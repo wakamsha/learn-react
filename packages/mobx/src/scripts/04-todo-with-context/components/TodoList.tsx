@@ -7,19 +7,13 @@ type Props = {
   store: TodoListStore;
 };
 
-@observer
-export class TodoList extends React.Component<Props> {
-  public render() {
-    const { store } = this.props;
-    return (
-      <>
-        <p>{store.report}</p>
-        <ul>
-          {store.todos.map((todo, i) => (
-            <TodoView key={i} todo={todo} />
-          ))}
-        </ul>
-      </>
-    );
-  }
-}
+export const TodoList = observer(({ store }: Props) => (
+  <>
+    <p>{store.report}</p>
+    <ul>
+      {store.todos.map((todo, i) => (
+        <TodoView key={i} todo={todo} />
+      ))}
+    </ul>
+  </>
+));

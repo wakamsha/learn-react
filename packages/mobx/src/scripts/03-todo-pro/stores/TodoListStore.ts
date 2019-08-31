@@ -2,11 +2,8 @@ import { TodoStore } from './TodoStore';
 import { action, computed, observable } from 'mobx';
 
 export class TodoListStore {
-  @observable
-  private _task = '';
-
-  @observable
-  private _todos: TodoStore[] = [];
+  @observable private _task = '';
+  @observable private _todos: TodoStore[] = [];
 
   public get task(): string {
     return this._task;

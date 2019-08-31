@@ -1,5 +1,6 @@
 const path = require('path');
 const argv = require('yargs').argv;
+const webpack = require('webpack');
 
 const mode = !!argv.develop ? 'development' : 'production';
 const polyfill = !!argv.polyfill;
@@ -18,6 +19,8 @@ module.exports = {
   entry: [
     ...(polyfill ? ['whatwg-fetch', 'url-search-params-polyfill'] : []),
     '@babel/polyfill',
+    'webpack/hot/dev-server',
+    'webpack-hot-middleware/client',
     './src/scripts/index.tsx',
   ],
   output: {
@@ -28,16 +31,21 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js'],
     modules: ['node_modules'],
   },
+  plugins: [
+    // new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [babelLoaderOption, 'ts-loader'],
+        use: ['react-hot-loader/webpack', babelLoaderOption, 'ts-loader'],
         exclude: /node_modules/,
       },
       {
         test: /\.jsx?$/,
-        use: [babelLoaderOption],
+        use: ['react-hot-loader/webpack', babelLoaderOption],
         exclude: /node_modules/,
       },
     ],

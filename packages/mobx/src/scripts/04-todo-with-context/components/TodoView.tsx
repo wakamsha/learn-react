@@ -6,20 +6,14 @@ type Props = {
   todo: TodoStore;
 };
 
-@observer
-export class TodoView extends React.Component<Props> {
-  private handleToggleCompleted = () => this.props.todo.toggleCompleted();
+export const TodoView = observer(({ todo }: Props) => {
+  const handleToggleCompleted = () => todo.toggleCompleted();
+  const handleRename = () => todo.updateTask(prompt(`Task name`, todo.task) || todo.task);
 
-  private handleRename = () =>
-    this.props.todo.updateTask(prompt(`Task name`, this.props.todo.task) || this.props.todo.task);
-
-  public render() {
-    const { todo } = this.props;
-    return (
-      <li onDoubleClick={this.handleRename}>
-        <input type="checkbox" checked={todo.completed} onChange={this.handleToggleCompleted} />
-        {todo.task}
-      </li>
-    );
-  }
-}
+  return (
+    <li onDoubleClick={handleRename}>
+      <input type="checkbox" checked={todo.completed} onChange={handleToggleCompleted} />
+      {todo.task}
+    </li>
+  );
+});
