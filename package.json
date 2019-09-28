@@ -13,6 +13,7 @@
     "emotion": "^10.0.9",
     "mobx": "~4.x",
     "mobx-react": "^5.4.3",
+    "mobx-react-lite": "^1.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
@@ -63,10 +64,11 @@
   },
   "scripts": {
     "format": "yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
-    "getting-started": "yarn workspace @react-study/getting-started",
     "bmi": "yarn workspace @react-study/bmi",
-    "routing": "yarn workspace @react-study/routing",
+    "esnext": "yarn workspace @react-study/esnext",
+    "getting-started": "yarn workspace @react-study/getting-started",
     "mobx": "yarn workspace @react-study/mobx",
-    "esnext": "yarn workspace @react-study/esnext"
+    "routing": "yarn workspace @react-study/routing",
+    "routing-mobx": "yarn workspace @react-study/routing-mobx"
   }
 }
