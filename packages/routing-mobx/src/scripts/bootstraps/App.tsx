@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { HistoryStore } from '../stores/HistoryStore';
 import { HomePage } from '../pages/Home';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import { NotFoundPage } from '../pages/NotFoundPage';
+import { PageTransition } from '../components/PageTransition';
 import { Profile } from '../pages/profiles/Profile';
 import { Router } from '../Router';
 import { css } from 'emotion';
@@ -54,10 +56,11 @@ export const App = observer(({ historyStore }: Props) => (
       </li>
     </ul>
     <div className={contentStyle}>
-      <Switch location={historyStore.location}>
+      <PageTransition historyStore={historyStore}>
         <Route path={Router.paths.home} component={HomePage} exact />
-        <Route component={Profile} />
-      </Switch>
+        <Route path={Router.paths.profile} component={Profile} />
+        <Route component={NotFoundPage} />
+      </PageTransition>
     </div>
   </div>
 ));

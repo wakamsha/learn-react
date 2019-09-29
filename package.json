@@ -23,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@types/classnames": "^2.2.9",
     "@types/node": "^12.0.3",
     "@types/react": "^16.8.15",
     "@types/react-dom": "^16.8.4",
@@ -32,6 +33,7 @@
     "@typescript-eslint/parser": "^1.7.0",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.5",
+    "classnames": "^2.2.6",
     "connect-modrewrite": "^0.10.2",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",

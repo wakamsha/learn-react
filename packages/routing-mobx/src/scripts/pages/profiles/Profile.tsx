@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { PageTransition } from '../../components/PageTransition';
 import { ProfileEditPage } from './EditPage';
 import { ProfileShowPage } from './ShowPage';
 import { ProfileStore } from '../../stores/ProfileStore';
-import { Redirect, Route, Switch } from 'react-router';
+import { Redirect, Route } from 'react-router';
 import { Router } from '../../Router';
 import { Stores } from '../../stores';
 
@@ -67,7 +68,7 @@ export const Profile = () => {
     <>
       <h1>Profile</h1>
       <Context.Provider value={store}>
-        <Switch location={Stores.historyStore.location}>
+        <PageTransition historyStore={Stores.historyStore}>
           <Route
             path={Router.paths.profileShow}
             render={() => <Context.Consumer>{store => <ProfileShowPage store={store} />}</Context.Consumer>}
@@ -77,7 +78,7 @@ export const Profile = () => {
             render={() => <Context.Consumer>{store => <ProfileEditPage store={store} />}</Context.Consumer>}
           />
           <Redirect to={Router.paths.profileShow} />
-        </Switch>
+        </PageTransition>
       </Context.Provider>
     </>
   );
