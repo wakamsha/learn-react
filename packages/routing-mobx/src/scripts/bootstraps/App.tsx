@@ -4,18 +4,19 @@ import { HomePage } from '../pages/Home';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Profile } from '../pages/profiles/Profile';
 import { Router } from '../Router';
+import { css } from 'emotion';
 import { observer } from 'mobx-react-lite';
 
 type Props = {
   historyStore: HistoryStore;
 };
 
-const baseStyle = {
+const baseStyle = css({
   display: 'flex',
   width: '100%',
-};
+});
 
-const navStyle = {
+const navStyle = css({
   listStyle: 'none',
   margin: 0,
   padding: 16,
@@ -23,17 +24,20 @@ const navStyle = {
   borderLeft: '1px solid gray',
   background: 'silver',
   flexShrink: 0,
-};
+  li: {
+    marginBottom: 8,
+  },
+});
 
-const contentStyle = {
+const contentStyle = css({
   padding: 16,
   height: '100vh',
   flexGrow: 1,
-};
+});
 
 export const App = observer(({ historyStore }: Props) => (
-  <div style={baseStyle}>
-    <ul style={navStyle}>
+  <div className={baseStyle}>
+    <ul className={navStyle}>
       <li>
         <Link to={Router.paths.home}>Home</Link>
       </li>
@@ -49,7 +53,7 @@ export const App = observer(({ historyStore }: Props) => (
         </ul>
       </li>
     </ul>
-    <div style={contentStyle}>
+    <div className={contentStyle}>
       <Switch location={historyStore.location}>
         <Route path={Router.paths.home} component={HomePage} exact />
         <Route component={Profile} />
