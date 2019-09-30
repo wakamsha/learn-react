@@ -10,27 +10,30 @@
   ],
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "emotion": "^10.0.9",
+    "emotion": "^10.0.17",
     "mobx": "~4.x",
     "mobx-react": "^5.4.3",
+    "mobx-react-lite": "^1.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
+    "react-router-dom": "^5.1.1",
     "url-search-params-polyfill": "^6.0.0",
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "@types/classnames": "^2.2.9",
     "@types/node": "^12.0.3",
     "@types/react": "^16.8.15",
     "@types/react-dom": "^16.8.4",
-    "@types/react-router-dom": "^4.3.2",
+    "@types/react-router-dom": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/eslint-plugin-tslint": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.5",
+    "classnames": "^2.2.6",
     "connect-modrewrite": "^0.10.2",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
@@ -63,10 +66,11 @@
   },
   "scripts": {
     "format": "yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
-    "getting-started": "yarn workspace @react-study/getting-started",
     "bmi": "yarn workspace @react-study/bmi",
-    "routing": "yarn workspace @react-study/routing",
+    "esnext": "yarn workspace @react-study/esnext",
+    "getting-started": "yarn workspace @react-study/getting-started",
     "mobx": "yarn workspace @react-study/mobx",
-    "esnext": "yarn workspace @react-study/esnext"
+    "routing": "yarn workspace @react-study/routing",
+    "routing-mobx": "yarn workspace @react-study/routing-mobx"
   }
 }
