@@ -77,7 +77,7 @@ export const Profile = () => {
             path={Router.paths.profileEdit}
             render={() => <Context.Consumer>{store => <ProfileEditPage store={store} />}</Context.Consumer>}
           />
-          <Redirect to={Router.paths.profileShow} />
+          <Redirect to={Router.paths.profileEdit} />
         </PageTransition>
       </Context.Provider>
     </>
