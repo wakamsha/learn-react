@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CustomTextInput } from './a3-refs-and-the-dom/App';
+import { EqualApp } from './xx-dependency-list/App';
 import { render } from 'react-dom';
 
 render(
@@ -18,7 +18,8 @@ render(
   // <FilterableProductTable products={PRODUCTS} />,
   // <ContextApp />,
   // <HOCExample />,
-  <CustomTextInput />,
+  // <CustomTextInput />,
   // <HookApp count={10} />,
+  <EqualApp />,
   document.getElementById('app'),
 );
