@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { EqualApp } from './xx-dependency-list/App';
+import { Bubbling } from './xx-bubbling/App';
 import { render } from 'react-dom';
 
 render(
@@ -20,6 +20,7 @@ render(
   // <HOCExample />,
   // <CustomTextInput />,
   // <HookApp count={10} />,
-  <EqualApp />,
+  // <EqualApp />,
+  <Bubbling />,
   document.getElementById('app'),
 );
