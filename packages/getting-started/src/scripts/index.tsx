@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Bubbling } from './xx-bubbling/App';
+import { Asyncable } from './xx-custom-hook/App';
 import { render } from 'react-dom';
 
 render(
@@ -21,6 +21,7 @@ render(
   // <CustomTextInput />,
   // <HookApp count={10} />,
   // <EqualApp />,
-  <Bubbling />,
+  // <Bubbling />,
+  <Asyncable />,
   document.getElementById('app'),
 );
