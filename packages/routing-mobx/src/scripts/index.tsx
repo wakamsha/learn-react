@@ -2,7 +2,7 @@ import * as React from 'react';
 import { App } from './bootstraps/App';
 import { Router } from 'react-router-dom';
 import { Stores } from './stores';
-import { observer } from 'mobx-react-lite';
+import { observer } from 'mobx-react';
 import { render } from 'react-dom';
 
 const Bootstrap = observer(() => (

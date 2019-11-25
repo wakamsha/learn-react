@@ -7,7 +7,7 @@ import { PageTransition } from '../components/PageTransition';
 import { Profile } from '../pages/profiles/Profile';
 import { Router } from '../Router';
 import { css } from 'emotion';
-import { observer } from 'mobx-react-lite';
+import { observer } from 'mobx-react';
 
 type Props = {
   historyStore: HistoryStore;
