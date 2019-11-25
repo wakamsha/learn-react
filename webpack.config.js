@@ -1,8 +1,9 @@
+/* eslint-disable */
 const path = require('path');
 const argv = require('yargs').argv;
-const webpack = require('webpack');
+/* eslint-enable */
 
-const mode = !!argv.develop ? 'development' : 'production';
+const mode = argv.develop ? 'development' : 'production';
 const polyfill = !!argv.polyfill;
 
 const babelLoaderOption = {
