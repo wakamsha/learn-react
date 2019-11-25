@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { TodoWithContext } from './04-todo-with-context/App';
+import { TodoGettingStarted } from './02-todo-getting-started/App';
 import { render } from 'react-dom';
 
 render(
   // <TodoPrimitive />,
-  // <TodoGettingStarted />,
+  <TodoGettingStarted />,
   // <TodoPro />,
-  <TodoWithContext />,
+  // <TodoWithContext />,
   // <FetchUsers />,
   document.getElementById('app'),
 );

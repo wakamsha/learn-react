@@ -7,34 +7,31 @@ type Props = {
   store: TodoStore;
 };
 
-@observer
-export class TodoList extends React.Component<Props> {
-  private handleClick = () => this.props.store.addTodo(prompt(`Enter a new Todo:`, 'コーヒー入れる') || '');
+export const TodoList = observer(({ store }: Props) => {
+  const handleClick = React.useCallback(() => store.addTodo(prompt(`Enter a new Todo:`, 'コーヒー入れる!') || ''), [
+    store,
+  ]);
 
-  private handleClickAsync = () => {
-    const { store } = this.props;
+  const handleClickAsync = React.useCallback(() => {
     store.addPendingRequests(1);
     setTimeout(() => {
       store.addTodo(`Random Todo - ${Math.random()}`);
       store.addPendingRequests(-1);
     }, 2000);
-  };
+  }, [store]);
 
-  public render() {
-    const { store } = this.props;
-    return (
-      <>
-        <p>{store.report}</p>
-        <ul>
-          {store.todos.map((todo, i) => (
-            <TodoView key={i} todo={todo} />
-          ))}
-        </ul>
-        {store.pendingRequests ? <strong>Loading...</strong> : null}
-        <button onClick={this.handleClick}>New Todo</button>
-        <hr />
-        <button onClick={this.handleClickAsync}>Add Todo Async</button>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <p>{store.report}</p>
+      <ul>
+        {store.todos.map((todo, i) => (
+          <TodoView key={i} todo={todo} />
+        ))}
+      </ul>
+      {store.pendingRequests ? <strong>Loading...</strong> : null}
+      <button onClick={handleClick}>New Todo</button>
+      <hr />
+      <button onClick={handleClickAsync}>Add Todo Async!</button>
+    </>
+  );
+});

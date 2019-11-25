@@ -6,28 +6,15 @@ type Props = {
   todo: Todo;
 };
 
-// @MEMO
-// observer に hook を使ったコンポーネントを渡すと壊れるので、ひとまずクラスコンポーネントを使うようにしている
-@observer
-export class TodoView extends React.Component<Props> {
-  private handleToggleCompleted = () => {
-    const { todo } = this.props;
-    todo.completed = !todo.completed;
-  };
+export const TodoView = observer(({ todo }: Props) => {
+  const handleToggleCompleted = React.useCallback(() => (todo.completed = !todo.completed), [todo]);
+  const handleRename = React.useCallback(() => (todo.task = prompt(`Task name!`, todo.task) || todo.task), [todo]);
 
-  private handleRename = () => {
-    const { todo } = this.props;
-    todo.task = prompt(`Task name`, todo.task) || todo.task;
-  };
-
-  public render() {
-    const { todo } = this.props;
-    return (
-      <li onDoubleClick={this.handleRename}>
-        <input type="checkbox" checked={todo.completed} onChange={this.handleToggleCompleted} />
-        {todo.task}
-        {todo.assignee ? <small>{todo.assignee}</small> : null}
-      </li>
-    );
-  }
-}
+  return (
+    <li onDoubleClick={handleRename}>
+      <input type="checkbox" checked={todo.completed} onChange={handleToggleCompleted} />
+      {todo.task}
+      {todo.assignee ? <small>{todo.assignee}</small> : null}
+    </li>
+  );
+});
