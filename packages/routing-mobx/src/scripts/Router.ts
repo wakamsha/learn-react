@@ -1,9 +1,10 @@
-export namespace Router {
-  export const paths = {
+export const Router = {
+  paths: {
     home: '/',
     profile: '/profile',
-    profileShow: '/profile/show',
     profileEdit: '/profile/edit',
+    profileShow: '/profile/show',
     profileFoo: '/profile/foo',
-  };
-}
+    list: '/list',
+  },
+} as const;
