@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { HistoryStore } from '../stores/HistoryStore';
 import { HomePage } from '../pages/Home';
 import { Link, Route } from 'react-router-dom';
@@ -8,34 +7,11 @@ import { Profile } from '../pages/profiles/Profile';
 import { Router } from '../Router';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
+import React from 'react';
 
 type Props = {
   historyStore: HistoryStore;
 };
-
-const baseStyle = css({
-  display: 'flex',
-  width: '100%',
-});
-
-const navStyle = css({
-  listStyle: 'none',
-  margin: 0,
-  padding: 16,
-  height: '100vh',
-  borderLeft: '1px solid gray',
-  background: 'silver',
-  flexShrink: 0,
-  li: {
-    marginBottom: 8,
-  },
-});
-
-const contentStyle = css({
-  padding: 16,
-  height: '100vh',
-  flexGrow: 1,
-});
 
 export const App = observer(({ historyStore }: Props) => (
   <div className={baseStyle}>
@@ -64,3 +40,27 @@ export const App = observer(({ historyStore }: Props) => (
     </div>
   </div>
 ));
+
+const baseStyle = css({
+  display: 'flex',
+  width: '100%',
+});
+
+const navStyle = css({
+  listStyle: 'none',
+  margin: 0,
+  padding: 16,
+  height: '100vh',
+  borderLeft: '1px solid gray',
+  background: 'silver',
+  flexShrink: 0,
+  li: {
+    marginBottom: 8,
+  },
+});
+
+const contentStyle = css({
+  padding: 16,
+  height: '100vh',
+  flexGrow: 1,
+});
