@@ -1,67 +1,30 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-  },
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint', // https://github.com/prettier/eslint-config-prettier/blob/master/%40typescript-eslint.js
-    'prettier/react', // https://github.com/prettier/eslint-config-prettier/blob/master/react.js
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-    Office: 'readonly',
+  env: {
+    browser: true,
+    es6: true,
   },
-  parserOptions: {
-    project: 'tsconfig.json',
-  },
-  plugins: ['sort-imports-es6-autofix'],
+  globals: {},
+  plugins: ['react', 'react-hooks', 'sort-imports-es6-autofix'],
   rules: {
-    '@typescript-eslint/camelcase': ['off'],
-    '@typescript-eslint/explicit-function-return-type': ['off'],
-    '@typescript-eslint/no-explicit-any': ['off'],
-    '@typescript-eslint/no-non-null-assertion': ['off'],
-    '@typescript-eslint/no-use-before-define': ['off'],
-    '@typescript-eslint/no-namespace': ['off'],
-    'class-methods-use-this': ['off'],
-    'consistent-return': ['off'],
-    'default-case': ['off'],
-    'func-names': ['off'],
-    'import/no-extraneous-dependencies': ['off'],
-    'import/no-unresolved': ['off'],
-    'import/order': ['off'],
-    'import/prefer-default-export': ['off'],
-    'jsx-a11y/anchor-has-content': ['off'],
-    'jsx-a11y/click-events-have-key-events': ['off'],
-    'jsx-a11y/control-has-associated-label': ['off'],
-    'jsx-a11y/label-has-associated-control': ['off'],
-    'jsx-a11y/mouse-events-have-key-events': ['off'],
-    'jsx-a11y/no-noninteractive-element-interactions': ['off'],
-    'jsx-a11y/no-static-element-interactions': ['off'],
-    'no-alert': ['off'],
-    'no-await-in-loop': ['off'],
-    'no-case-declarations': ['error'],
-    'no-console': ['off'],
-    'no-inner-declarations': ['off'],
-    'no-multi-assign': ['off'],
-    'no-nested-ternary': ['off'],
-    'no-plusplus': ['off'],
-    'no-restricted-syntax': ['off'],
-    'no-return-assign': ['off'],
-    'no-param-reassign': ['off'],
-    'no-throw-literal': ['off'],
-    'no-underscore-dangle': ['off'],
-    'no-useless-constructor': ['off'],
-    'no-shadow': ['off'],
-    'no-unused-expressions': [
+    // Enable
+    '@typescript-eslint/no-unused-expressions': [
       'error',
       {
         allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
       },
     ],
+    '@typescript-eslint/no-useless-constructor': ['error'],
+    'arrow-body-style': ['error', 'as-needed'],
+    'func-names': ['error'],
     'lines-between-class-members': [
       'error',
       'always',
@@ -69,14 +32,28 @@ module.exports = {
         exceptAfterSingleLine: true,
       },
     ],
-    'arrow-body-style': ['error', 'as-needed'],
-    'max-classes-per-file': ['error', 3],
-    'react/button-has-type': ['off'],
-    'react/no-array-index-key': ['off'],
-    'react/no-danger': ['off'],
-    'react/destructuring-assignment': ['off'],
-    'react/jsx-props-no-spreading': ['off'],
-    'react/prop-types': ['off'],
+    'no-case-declarations': ['error'],
+    'no-console': [
+      'error',
+      {
+        allow: ['info', 'warn', 'error'],
+      }
+    ],
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['draft'],
+      },
+    ],
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector: 'TSEnumDeclaration',
+        message: 'Do not declare enums',
+      },
+    ],
+    'prettier/prettier': ['warn', {}, { usePrettierrc: true }],
     'react/jsx-filename-extension': [
       'error',
       {
@@ -85,6 +62,8 @@ module.exports = {
     ],
     'react/jsx-no-target-blank': ['error'],
     'react/sort-comp': ['error'],
+    'react-hooks/exhaustive-deps': 'warn',
+    'react-hooks/rules-of-hooks': 'error',
     'sort-imports-es6-autofix/sort-imports-es6': [
       'error',
       {
@@ -93,13 +72,49 @@ module.exports = {
         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
       },
     ],
-    'prettier/prettier': [
-      'warn',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
+
+    // Disable
+    '@typescript-eslint/camelcase': ['off'],
+    '@typescript-eslint/explicit-function-return-type': ['off'],
+    '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/no-use-before-define': ['off'],
+    'import/extensions': ['off'],
+    'import/no-extraneous-dependencies': ['off'],
+    'import/no-unresolved': ['off'],
+    'import/order': ['off'],
+    'import/prefer-default-export': ['off'],
+    'jsx-a11y/accessible-emoji': ['off'],
+    'jsx-a11y/control-has-associated-label': ['off'],
+    'jsx-a11y/click-events-have-key-events': ['off'],
+    'jsx-a11y/interactive-supports-focus': ['off'],
+    'jsx-a11y/label-has-associated-control': ['off'],
+    'jsx-a11y/media-has-caption': ['off'],
+    'jsx-a11y/mouse-events-have-key-events': ['off'],
+    'jsx-a11y/no-noninteractive-element-interactions': ['off'],
+    'jsx-a11y/no-static-element-interactions': ['off'],
+    'default-case': ['off'],
+    'max-classes-per-file': ['off'],
+    'no-bitwise': ['off'],
+    'no-undef': ['off'],
+    'no-useless-constructor': ['off'],
     'no-nested-ternary': ['off'],
+    'no-plusplus': ['off'],
+    'no-return-assign': ['off'],
+    'no-shadow': ['off'],
+    'no-throw-literal': ['off'],
+    'no-unused-expressions': ['off'],
+    'sort-imports': ['off'],
+    'react/button-has-type': ['off'],
+    'react/jsx-indent': ['off'],
+    'react/jsx-props-no-spreading': ['off'],
+    'react/no-array-index-key': ['off'],
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': ['off'],
+      },
+    },
+  ],
 };

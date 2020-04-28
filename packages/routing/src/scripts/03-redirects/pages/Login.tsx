@@ -2,9 +2,15 @@ import * as React from 'react';
 import { Redirect, RouteComponentProps } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
 
-type Props = RouteComponentProps;
+type LocationState = {
+  from: {
+    pathname: string;
+  };
+};
 
-export const Login = (props: Props) => {
+type Props = RouteComponentProps<{}, {}, LocationState>;
+
+export const Login = ({ location }: Props) => {
   const [redirectTiReferrer, setState] = React.useState(false);
 
   const handleClick = React.useCallback(
@@ -15,7 +21,7 @@ export const Login = (props: Props) => {
     [],
   );
 
-  const { from } = props.location.state || { from: { pathname: '/' } };
+  const { from } = location.state || { from: { pathname: '/' } };
 
   return redirectTiReferrer ? (
     <Redirect to={from} />
