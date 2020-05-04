@@ -61,7 +61,11 @@
       "git add"
     ]
   },
-
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
     "bmi": "            yarn workspace @react-study/bmi",
     "esnext": "         yarn workspace @react-study/esnext",
