@@ -1,6 +1,6 @@
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
 import { css } from 'emotion';
-import React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 const inputFileStyle = css({
   display: 'none',
@@ -16,7 +16,7 @@ const reportStyleActive = css(reportStyle, {
 
 // 原則コールバック ref を使う
 // React.createRef は特に使う必要もなさそう
-export class CustomTextInput extends React.Component {
+export class CustomTextInput extends Component {
   private textInput: HTMLInputElement;
   private fileInput: HTMLInputElement;
   private report: HTMLParagraphElement;
@@ -31,7 +31,7 @@ export class CustomTextInput extends React.Component {
 
   private focusTextInput = () => this.textInput && this.textInput.focus();
 
-  private handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files![0];
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');

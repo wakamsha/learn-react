@@ -6,7 +6,7 @@ import React from 'react';
 
 type Props = {
   historyStore: HistoryStore;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const PageTransition = observer(({ historyStore, children }: Props) => {

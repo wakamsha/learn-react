@@ -11,7 +11,7 @@
     "copy": "cp src/index.html dist/index.html;",
     "script": "webpack --progress --colors --config ../../webpack.config.js",
     "serve": "browser-sync start -c ../../bs-config.js",
-    "start": "yarn reset; yarn copy; run-p \"script -- -d --develop {1}\" \"serve -- {2}\" --",
+    "start": "yarn reset; yarn copy; run-p \"script -- -d -w --develop {1}\" \"serve -- {2}\" --",
     "build": "yarn reset; yarn copy; yarn script"
   }
 }

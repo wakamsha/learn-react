@@ -1,5 +1,5 @@
 import { css } from 'emotion';
-import React from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 type Props = {
   label: string;
@@ -18,12 +18,12 @@ const inputStyle = css({
   width: '100%',
 });
 
-export const LabeledSlider: React.FC<Props> = (props: Props) => {
+export const LabeledSlider: FC<Props> = (props: Props) => {
   // const handleChange = useCallback(
-  //   (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value),
+  //   (e: ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value),
   //   [],
   // );
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value);
 
   const { label, unit, min, max, value } = props;
   return (

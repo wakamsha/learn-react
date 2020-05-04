@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 type State = {
   blogPost: string;
 };
 
-export class BlogPost extends React.Component<{}, State> {
+export class BlogPost extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {

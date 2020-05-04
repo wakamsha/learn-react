@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type State = {
   going: boolean;
   numOfGuest: number;
 };
-export class Reservation extends React.Component<{}, State> {
+export class Reservation extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export class Reservation extends React.Component<{}, State> {
     };
   }
 
-  private handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const { name } = target;

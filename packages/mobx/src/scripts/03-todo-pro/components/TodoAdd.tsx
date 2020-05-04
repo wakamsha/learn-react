@@ -1,6 +1,6 @@
 import { TodoListStore } from '../stores/TodoListStore';
 import { inject, observer } from 'mobx-react';
-import React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type Props = {
   store?: TodoListStore;
@@ -8,8 +8,8 @@ type Props = {
 
 @inject('store')
 @observer
-export class TodoAdd extends React.Component<Props> {
-  private handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+export class TodoAdd extends Component<Props> {
+  private handleTaskChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { store } = this.props;
 
     if (!store) return;

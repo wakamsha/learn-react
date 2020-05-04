@@ -1,7 +1,7 @@
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -12,7 +12,7 @@ type State = {
 };
 
 @observer
-export class PostForm extends React.Component<Props, State> {
+export class PostForm extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -20,13 +20,13 @@ export class PostForm extends React.Component<Props, State> {
     };
   }
 
-  private handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { store } = this.props;
 
     store.setName(e.target.value);
   };
 
-  private handleJobChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  private handleJobChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const { store } = this.props;
 
     store.setJob(e.target.value);

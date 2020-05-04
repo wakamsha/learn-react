@@ -1,17 +1,17 @@
 import { Dialog } from './Dialog';
-import React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type State = {
   login: string;
 };
 
-export class SignUpDialog extends React.Component<{}, State> {
+export class SignUpDialog extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = { login: '' };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({ login: e.target.value });
+  private handleChange = (e: ChangeEvent<HTMLInputElement>) => this.setState({ login: e.target.value });
 
   private handleSignUp = () => {
     const { login } = this.state;

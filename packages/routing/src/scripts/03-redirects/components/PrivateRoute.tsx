@@ -3,7 +3,7 @@ import { fakeAuth } from '../stores/Auth';
 import React from 'react';
 
 type Props = {
-  component: React.ComponentType<any>;
+  component: ComponentType<any>;
   path: string;
 };
 

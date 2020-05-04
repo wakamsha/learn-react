@@ -1,7 +1,7 @@
 import { AddTodo } from '../components/AddTodo';
 import { addTodo } from '../../state/todos/actions';
 import { useDispatch } from 'react-redux';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 export const AddTodoContainer = () => {
   const dispatch = useDispatch();

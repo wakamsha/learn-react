@@ -1,11 +1,11 @@
 // https://ja.reactjs.org/docs/forms.html
-import React from 'react';
+import React, { Component } from 'react';
 
 type State = {
   value: string;
 };
 
-export class NameForm extends React.Component<{}, State> {
+export class NameForm extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export class NameForm extends React.Component<{}, State> {
     };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLInputElement>) => this.setState({ value: e.target.value });
+  private handleChange = (e: ChangeEvent<HTMLInputElement>) => this.setState({ value: e.target.value });
 
   private handleSubmit = (e: React.FormEvent) => {
     const { value } = this.state;

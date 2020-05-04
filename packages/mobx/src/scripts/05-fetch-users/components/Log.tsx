@@ -1,7 +1,7 @@
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -26,7 +26,7 @@ const baseStyle = css({
 });
 
 @observer
-export class Log extends React.Component<Props> {
+export class Log extends Component<Props> {
   // public componentDidMount() {
   //   this.props.store.getAllUsers();
   // }

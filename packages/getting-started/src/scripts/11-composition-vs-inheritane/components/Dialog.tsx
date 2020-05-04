@@ -5,7 +5,7 @@ import React from 'react';
 type Props = {
   title: string;
   message: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 const titleStyle = css({

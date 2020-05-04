@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { Todo } from '../stores/TodoStore';
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 type Props = {
   todo: Todo;

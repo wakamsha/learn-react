@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React from 'react';
+import React, { useMemo } from 'react';
 
 type Item = {
   foo: string;

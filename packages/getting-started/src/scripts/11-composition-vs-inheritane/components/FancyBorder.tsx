@@ -1,11 +1,11 @@
 import { css } from 'emotion';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 export type BorderColors = 'blue';
 
 type Props = {
   color: BorderColors;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 const baseStyle = css({

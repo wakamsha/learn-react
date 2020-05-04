@@ -1,12 +1,12 @@
 import { Logger } from './decorators/Decorator';
-import React from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   inject?: string;
 };
 
 @Logger('Hello world!', 'render log')
-export class HOCExample extends React.Component<Props> {
+export class HOCExample extends Component<Props> {
   public render() {
     const { inject } = this.props;
 

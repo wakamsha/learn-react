@@ -1,7 +1,7 @@
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
-import React from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -12,7 +12,7 @@ type State = {
 };
 
 @observer
-export class GetWithParamForm extends React.Component<Props, State> {
+export class GetWithParamForm extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ export class GetWithParamForm extends React.Component<Props, State> {
     };
   }
 
-  private onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private onChangeId = (e: ChangeEvent<HTMLInputElement>) => {
     const { store } = this.props;
 
     store.setUserId(Number(e.target.value));

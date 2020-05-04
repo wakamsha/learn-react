@@ -11,7 +11,7 @@ export const Form = () => {
     setState(false);
   }, []);
 
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => setState(!!e.target.value.length), []);
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => setState(!!e.target.value.length), []);
 
   const handleMessage = useCallback(
     (location: Location) => `このページを離れて ${location.pathname} へ移動しますか？`,

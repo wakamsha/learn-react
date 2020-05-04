@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Asyncable = () => {
   const [count, setCount] = useState<any>({});

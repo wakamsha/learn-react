@@ -5,7 +5,7 @@ import React from 'react';
 
 type Props = {
   id: React.ReactText;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 type State = {
@@ -46,7 +46,7 @@ const horizontalStyle = css({
   },
 });
 
-export class Transition extends React.Component<Props, State> {
+export class Transition extends Component<Props, State> {
   private nextElm: HTMLDivElement;
 
   constructor(props: Props) {

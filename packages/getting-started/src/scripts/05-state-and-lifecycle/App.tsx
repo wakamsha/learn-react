@@ -1,11 +1,11 @@
 // https://ja.reactjs.org/docs/state-and-lifecycle.html
-import React from 'react';
+import React, { Component } from 'react';
 
 type State = {
   seconds: number;
 };
 
-export class Timer extends React.Component<{}, State> {
+export class Timer extends Component<{}, State> {
   private interval: number;
 
   constructor(props: {}) {
