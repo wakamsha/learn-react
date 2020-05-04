@@ -7,27 +7,17 @@ export type Todo = {
 };
 
 export class TodoStore {
-  @observable
-  private _todos: Todo[] = [];
+  @observable public todos: Todo[] = [];
 
-  @observable
-  private _pendingRequests = 0;
-
-  public get todos(): Todo[] {
-    return this._todos;
-  }
-
-  public get pendingRequests(): number {
-    return this._pendingRequests;
-  }
+  @observable public pendingRequests = 0;
 
   constructor() {
-    autorun(() => console.log(this.report));
+    autorun(() => console.info(this.report));
   }
 
   @action
   public addTodo(task: string) {
-    this._todos.push({
+    this.todos.push({
       task,
       completed: false,
     });
@@ -35,20 +25,20 @@ export class TodoStore {
 
   @action
   public addPendingRequests(val: number) {
-    this._pendingRequests += val;
+    this.pendingRequests += val;
   }
 
   @computed
   public get report(): string {
-    const filteredTodos = this._todos.filter(todo => !todo.completed);
+    const filteredTodos = this.todos.filter(todo => !todo.completed);
     if (!filteredTodos.length) {
       return '<none>';
     }
-    return `Next todo: "${filteredTodos[0].task}". Progress: ${this.completedTodosCount}/${this._todos.length}`;
+    return `Next todo: "${filteredTodos[0].task}". Progress: ${this.completedTodosCount}/${this.todos.length}`;
   }
 
   @computed
   private get completedTodosCount(): number {
-    return this._todos.filter(todo => todo.completed).length;
+    return this.todos.filter(todo => todo.completed).length;
   }
 }

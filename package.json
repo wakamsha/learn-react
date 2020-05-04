@@ -61,19 +61,16 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+
   "scripts": {
-    "format": "         yarn eslint -c .eslintrc.json --fix packages/**/*.{ts,tsx}",
     "bmi": "            yarn workspace @react-study/bmi",
     "esnext": "         yarn workspace @react-study/esnext",
     "getting-started": "yarn workspace @react-study/getting-started",
     "mobx": "           yarn workspace @react-study/mobx",
     "redux": "          yarn workspace @react-study/redux",
     "routing": "        yarn workspace @react-study/routing",
-    "routing-mobx": "   yarn workspace @react-study/routing-mobx"
+    "routing-mobx": "   yarn workspace @react-study/routing-mobx",
+    "format": "         yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}",
+    "lint": "           yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   }
 }

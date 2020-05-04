@@ -14,15 +14,12 @@ export function stringify(query: QueryHash): string {
 }
 
 export function parse(location: HLocation | Location) {
-  const search = location.search;
+  const { search } = location;
   const queries = search.slice(1).split('&');
-  const queryHash = queries.reduce(
-    (hash, query) => {
-      const [key, value] = query.split('=');
-      hash[key] = value;
-      return hash;
-    },
-    {} as QueryHash,
-  );
+  const queryHash = queries.reduce((hash, query) => {
+    const [key, value] = query.split('=');
+    hash[key] = value;
+    return hash;
+  }, {} as QueryHash);
   return queryHash;
 }

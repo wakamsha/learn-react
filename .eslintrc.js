@@ -36,7 +36,7 @@ module.exports = {
     'no-console': [
       'error',
       {
-        allow: ['info', 'warn', 'error'],
+        allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       }
     ],
     'no-param-reassign': [
@@ -110,6 +110,12 @@ module.exports = {
     'react/no-array-index-key': ['off'],
   },
   overrides: [
+    {
+      files: ['./**/stores/**/*.ts'],
+      rules: {
+        'react-hooks/rules-of-hooks': ['off'],
+      }
+    },
     {
       files: ['*.js'],
       rules: {

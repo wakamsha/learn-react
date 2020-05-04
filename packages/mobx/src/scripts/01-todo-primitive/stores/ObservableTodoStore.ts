@@ -14,7 +14,7 @@ export class ObservableTodoStore {
   public pendingRequests = 0;
 
   constructor() {
-    autorun(() => console.log(this.report));
+    autorun(() => console.info(this.report));
   }
 
   public addTodo(task: string) {

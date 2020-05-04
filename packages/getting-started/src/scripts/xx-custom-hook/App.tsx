@@ -10,9 +10,9 @@ export const Asyncable = () => {
       if (!unmounted) {
         setCount(res);
       }
-      console.log(1);
+      console.info(1);
     })();
-    console.log(0);
+    console.info(0);
 
     return () => {
       unmounted = true;

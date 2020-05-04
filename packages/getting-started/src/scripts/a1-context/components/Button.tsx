@@ -12,6 +12,7 @@ type Props = {
   label: string;
 };
 
+// eslint-disable-next-line consistent-return
 function getStyle(theme: Theme) {
   switch (theme) {
     case 'dark':

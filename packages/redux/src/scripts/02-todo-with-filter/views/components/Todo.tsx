@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const Todo = ({ todo, onClick }: Props) => {
-  const handleClick = React.useCallback(() => onClick(todo.id), [todo]);
+  const handleClick = React.useCallback(() => onClick(todo.id), [onClick, todo.id]);
 
   return (
     <li onClick={handleClick} style={todo.completed ? { textDecoration: 'line-through' } : {}}>

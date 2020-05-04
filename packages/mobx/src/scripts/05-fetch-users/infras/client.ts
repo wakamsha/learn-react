@@ -42,14 +42,14 @@ async function request<REQ extends {}, RES>({
     ...(send ? { body: JSON.stringify(send) } : {}),
   });
   if (!res.ok) {
-    console.log('ここでエラー処理をしてください');
+    console.info('ここでエラー処理をしてください');
     const error = await res.json();
     throw {
       code: res.status,
       ...error,
     };
   }
-  return await res.json();
+  return res.json();
 }
 
 export async function requestGetUsers(): Promise<User[]> {

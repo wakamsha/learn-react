@@ -33,16 +33,16 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
   });
   if (!res.ok) {
     await res.json().catch(err => {
-      console.log('ここでエラー処理をしてください');
+      console.info('ここでエラー処理をしてください');
       throw new Error(err);
     });
   }
-  return await res.json().then(res => res);
+  return res.json().then(res => res);
 }
 
 export async function requestGetRandomUser(): Promise<any> {
   const url = 'https://randomuser.me/api/';
-  return await request<any>(url).then(res => res.results);
+  return request<any>(url).then(res => res.results);
 }
 
 export function requestGetPlaceholderUsers(): Promise<PlaceholderUser[]> {

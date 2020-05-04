@@ -9,14 +9,13 @@ import { Profile } from '../pages/profiles/Profile';
 import { Router } from '../Router';
 import { Stores } from '../stores';
 import { css } from 'emotion';
-import { observer } from 'mobx-react';
 import React from 'react';
 
 type Props = {
   historyStore: HistoryStore;
 };
 
-export const App = observer(({ historyStore }: Props) => (
+export const App = ({ historyStore }: Props) => (
   <ListStore.Context.Provider value={Stores.listStore}>
     <div className={baseStyle}>
       <ul className={navStyle}>
@@ -48,7 +47,7 @@ export const App = observer(({ historyStore }: Props) => (
       </div>
     </div>
   </ListStore.Context.Provider>
-));
+);
 
 const baseStyle = css({
   display: 'flex',

@@ -2,7 +2,6 @@ import { ListStore } from '../stores/ListStore';
 import { css } from 'emotion';
 import { toJS } from 'mobx';
 import { useContext } from '../hooks/useContext';
-import { useObserver } from 'mobx-react';
 import React, { ChangeEvent, useCallback, useState } from 'react';
 
 export const ListPage = () => (
@@ -111,7 +110,7 @@ const EditForm = () => {
 const ShowSection = () => {
   const listStore = useContext(ListStore.Context);
 
-  const [items] = useObserver(() => [toJS(listStore.items)]);
+  const [items] = ListStore.useStore(() => [toJS(listStore.items)]);
 
   return (
     <div className={columnStyle}>

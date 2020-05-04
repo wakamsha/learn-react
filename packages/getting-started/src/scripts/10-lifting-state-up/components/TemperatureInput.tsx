@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-export enum ScaleNames {
-  C = 'Celsius',
-  F = 'Fahrenheit',
-}
+export const ScaleNames = {
+  C: 'Celsius',
+  F: 'Fahrenheit',
+} as const;
+export type ScaleNames = typeof ScaleNames[keyof typeof ScaleNames];
 
 type Props = {
   scale: ScaleNames;
@@ -14,7 +15,7 @@ type Props = {
 export function TemperatureInput(props: Props) {
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => props.onTemperatureChange(e.target.value),
-    [props.onTemperatureChange],
+    [props],
   );
   const { scale, temperature } = props;
   return (

@@ -1,8 +1,8 @@
 // https://ja.reactjs.org/docs/lists-and-keys.html
 import * as React from 'react';
 
-function ListItem(props: { value: number }): JSX.Element {
-  return <li>{props.value}</li>;
+function ListItem({ value }: { value: number }): JSX.Element {
+  return <li>{value}</li>;
 }
 
 type Props = {

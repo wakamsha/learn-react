@@ -1,5 +1,7 @@
 import { TodoListStore } from './TodoListStore';
 
-export namespace Stores {
-  export const todoListStore = new TodoListStore();
-}
+const todoListStore = new TodoListStore();
+
+export const Stores = {
+  todoListStore,
+};

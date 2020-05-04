@@ -23,9 +23,7 @@ const baseStyle = css({
 const animationStyle = css({
   opacity: 1,
   transform: 'none',
-  transition: `transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}, opacity ${
-    Duration.Enter
-  } ${ENTER_DELAY}ms ${Easing.Enter}`,
+  transition: `transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}, opacity ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}`,
 });
 
 const enterStyle = css({

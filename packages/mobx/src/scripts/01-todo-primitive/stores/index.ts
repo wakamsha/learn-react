@@ -1,7 +1,10 @@
 import { ObservableTodoStore } from './ObservableTodoStore';
 import { TodoStore } from './TodoStore';
 
-export namespace Stores {
-  export const todoStore = new TodoStore();
-  export const observableTodoStore = new ObservableTodoStore();
-}
+const todoStore = new TodoStore();
+const observableTodoStore = new ObservableTodoStore();
+
+export const Stores = {
+  todoStore,
+  observableTodoStore,
+} as const;

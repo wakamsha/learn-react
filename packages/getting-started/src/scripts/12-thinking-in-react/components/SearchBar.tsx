@@ -8,13 +8,15 @@ type Props = {
 };
 
 export class SearchBar extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
+  private handleFilterTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onFilterTextChange } = this.props;
+    onFilterTextChange(e.target.value);
+  };
 
-  private handleFilterTextChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    this.props.onFilterTextChange(e.target.value);
-  private handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => this.props.onStockChange(e.target.checked);
+  private handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onStockChange } = this.props;
+    onStockChange(e.target.checked);
+  };
 
   public render() {
     const { filterText, stockOnly } = this.props;

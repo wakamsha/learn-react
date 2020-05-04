@@ -15,12 +15,6 @@ export class Timer extends React.Component<{}, State> {
     };
   }
 
-  public tick() {
-    this.setState(state => ({
-      seconds: state.seconds + 1,
-    }));
-  }
-
   public componentDidMount() {
     this.interval = window.setInterval(() => this.tick(), 1000);
   }
@@ -29,7 +23,14 @@ export class Timer extends React.Component<{}, State> {
     window.clearInterval(this.interval);
   }
 
+  public tick() {
+    this.setState(state => ({
+      seconds: state.seconds + 1,
+    }));
+  }
+
   public render() {
-    return <div>Seconds: {this.state.seconds}</div>;
+    const { seconds } = this.state;
+    return <div>Seconds: {seconds}</div>;
   }
 }

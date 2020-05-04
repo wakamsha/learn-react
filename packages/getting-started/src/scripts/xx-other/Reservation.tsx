@@ -16,7 +16,7 @@ export class Reservation extends React.Component<{}, State> {
   private handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const { name } = target;
 
     name === 'going' ? this.setState({ going: !!value }) : this.setState({ numOfGuest: Number(value) });
   };

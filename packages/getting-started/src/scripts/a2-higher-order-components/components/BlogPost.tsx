@@ -13,17 +13,19 @@ export class BlogPost extends React.Component<{}, State> {
   }
 
   public componentDidMount() {
-    console.log('BlogPost is mounted!!!');
+    console.info('BlogPost is mounted!!!');
   }
 
   public componentWillUnmount() {
-    console.log('BlogPost will remove...');
+    console.info('BlogPost will remove...');
   }
 
   public render() {
+    const { blogPost } = this.state;
+
     return (
       <p>
-        <strong>{this.state.blogPost}</strong>
+        <strong>{blogPost}</strong>
       </p>
     );
   }

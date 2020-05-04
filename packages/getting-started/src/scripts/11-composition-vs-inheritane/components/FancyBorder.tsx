@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 
-export enum BorderColors {
-  blue,
-}
+export type BorderColors = 'blue';
 
 type Props = {
   color: BorderColors;
@@ -19,6 +17,6 @@ const blueStyle = css({
   borderColor: 'blue',
 });
 
-export function FancyBorder(props: Props): JSX.Element {
-  return <div className={`${baseStyle} ${props.color === BorderColors.blue ? blueStyle : ''}`}>{props.children}</div>;
+export function FancyBorder({ color, children }: Props): JSX.Element {
+  return <div className={`${baseStyle} ${color === 'blue' ? blueStyle : ''}`}>{children}</div>;
 }

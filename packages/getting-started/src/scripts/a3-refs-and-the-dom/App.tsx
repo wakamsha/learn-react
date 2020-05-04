@@ -21,6 +21,10 @@ export class CustomTextInput extends React.Component {
   private fileInput: HTMLInputElement;
   private report: HTMLParagraphElement;
 
+  public componentDidMount() {
+    this.focusTextInput();
+  }
+
   private handleInputTextRef = (input: HTMLInputElement) => (this.textInput = input);
   private handleInputFileRef = (input: HTMLInputElement) => (this.fileInput = input);
   private handleReportRef = (elm: HTMLParagraphElement) => (this.report = elm);
@@ -31,17 +35,13 @@ export class CustomTextInput extends React.Component {
     const file = e.target.files![0];
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
-    reader.onload = (e: any) => alert(e.target.result);
+    reader.onload = (e: any) => console.info(e.target.result);
     e.target.value = '';
 
     this.report.classList.add(reportStyleActive);
   };
 
   private handleClick = () => this.fileInput.click();
-
-  public componentDidMount() {
-    this.focusTextInput();
-  }
 
   public render() {
     return (

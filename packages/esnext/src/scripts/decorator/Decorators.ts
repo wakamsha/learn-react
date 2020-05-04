@@ -6,9 +6,9 @@
  */
 export function outputLog(target: any, propKey: string, descriptor: PropertyDescriptor) {
   const origin = descriptor.value;
-  descriptor.value = function() {
+  descriptor.value = function () {
     const key = `${target.constructor.name}#${propKey}`;
-    console.log(`${key}: start`);
+    console.info(`${key}: start`);
     console.time(key);
     const ret = Reflect.apply(origin, this, arguments);
     if (ret) {
@@ -28,7 +28,7 @@ export function classDecorator<T extends { new (...args: any[]): {} }>(target: T
     hello = 'override';
     constructor(...args: any[]) {
       super(...args);
-      console.log('from class デコレータ');
+      console.info('from class デコレータ');
     }
   };
 }

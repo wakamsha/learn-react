@@ -1,4 +1,4 @@
-// import { Selector, useMobxStore } from '../hooks/useMobxStore';
+import { Selector, useMobxStore } from '../hooks/useMobxStore';
 import { action, observable } from 'mobx';
 import { createContext } from 'react';
 
@@ -10,9 +10,9 @@ type Item = {
 export class ListStore {
   public static Context = createContext<ListStore | null>(null);
 
-  // public static useStore<S>(selector: Selector<ListStore, S>) {
-  //   return useMobxStore(ListStore.Context, selector);
-  // }
+  public static useStore<S>(selector: Selector<ListStore, S>) {
+    return useMobxStore(ListStore.Context, selector);
+  }
 
   @observable public items: Item[] = [
     {

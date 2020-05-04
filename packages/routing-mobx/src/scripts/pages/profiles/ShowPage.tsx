@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const ProfileShowPage = observer(({ store }: Props) => {
-  const handleReset = useCallback(() => store.setName(''), []);
+  const handleReset = useCallback(() => store.setName(''), [store]);
 
   return (
     <>

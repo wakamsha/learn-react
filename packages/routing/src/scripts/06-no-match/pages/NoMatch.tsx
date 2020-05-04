@@ -7,7 +7,7 @@ export const NoMatch = (props: Props) => (
   <>
     <h1>Opps!!</h1>
     <p>
-      No match form <code>{props.location.pathname}</code>
+      No match form <code>{props.window.location.pathname}</code>
     </p>
   </>
 );

@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const Component = (props: Props) => {
-  const params = new URLSearchParams(props.location.search); // @FIXME babel/polyfill サポート外のため、別途 polyfill が必要
+  const params = new URLSearchParams(props.window.location.search); // @FIXME babel/polyfill サポート外のため、別途 polyfill が必要
 
   return (
     <>

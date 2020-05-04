@@ -1,34 +1,26 @@
 import { action, observable } from 'mobx';
 
 export class TodoStore {
-  private _id = Math.random();
+  private internalId = Math.random();
 
-  @observable private _task = '';
-  @observable private _completed = false;
-
-  public get task(): string {
-    return this._task;
-  }
-
-  public get completed(): boolean {
-    return this._completed;
-  }
+  @observable public task = '';
+  @observable public completed = false;
 
   constructor(task: string) {
-    this._task = task;
+    this.task = task;
   }
 
   public get id(): number {
-    return this._id;
+    return this.internalId;
   }
 
   @action
   public toggleCompleted() {
-    this._completed = !this._completed;
+    this.completed = !this.completed;
   }
 
   @action
   public updateTask(task: string) {
-    this._task = task;
+    this.task = task;
   }
 }
