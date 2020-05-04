@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { FancyBorder } from './FancyBorder';
 import { css } from 'emotion';
+import React from 'react';
 
 type Props = {
   title: string;

@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/forms.html
-import * as React from 'react';
+import React from 'react';
 
 type State = {
   value: string;

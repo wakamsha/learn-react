@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { css } from 'emotion';
+import React from 'react';
 
 type Props = {
   label: string;
@@ -19,7 +19,7 @@ const inputStyle = css({
 });
 
 export const LabeledSlider: React.FC<Props> = (props: Props) => {
-  // const handleChange = React.useCallback(
+  // const handleChange = useCallback(
   //   (e: React.ChangeEvent<HTMLInputElement>) => props.onValueChange(e.target.value),
   //   [],
   // );

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Todo } from './Todo';
 import { Todo as TodoState } from '../reducers';
+import React from 'react';
 
 export type Props = {
   todos: TodoState[];

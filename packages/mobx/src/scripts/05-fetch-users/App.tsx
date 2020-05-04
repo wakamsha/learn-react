@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { GetForm } from './components/GetForm';
 import { GetWithParamForm } from './components/GetWithParamForm';
 import { Log } from './components/Log';
 import { PostForm } from './components/PostForm';
 import { Stores } from './stores';
 import { css } from 'emotion';
+import React from 'react';
 
 const baseStyle = css({
   display: 'flex',

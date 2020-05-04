@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { css } from 'emotion';
 import { getFriendById } from '../Friends';
+import React from 'react';
 
 type Params = {
   id: string;

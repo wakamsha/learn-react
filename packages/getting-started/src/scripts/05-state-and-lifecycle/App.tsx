@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/state-and-lifecycle.html
-import * as React from 'react';
+import React from 'react';
 
 type State = {
   seconds: number;

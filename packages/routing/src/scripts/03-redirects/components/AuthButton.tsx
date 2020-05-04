@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
+import React from 'react';
 
 type Props = RouteComponentProps;
 
 function Component({ history }: Props) {
-  const handleClick = React.useCallback(() => fakeAuth.signOut(() => history.push('/')), [history]);
+  const handleClick = useCallback(() => fakeAuth.signOut(() => history.push('/')), [history]);
 
   return fakeAuth.isAuthenticated ? (
     <>

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { BoilingVerdict } from './components/BoilingVerdict';
 import { ScaleNames, TemperatureInput } from './components/TemperatureInput';
+import React from 'react';
 
 type State = {
   temperature: string;
@@ -23,12 +23,9 @@ function tryConvert(temperature: string, convert: (val: number) => number): stri
 }
 
 export function Calculator() {
-  const [state, setState] = React.useState<State>({ temperature: '', scale: ScaleNames.C });
-  const handleCelsiusChange = React.useCallback(
-    (temperature: string) => setState({ temperature, scale: ScaleNames.C }),
-    [],
-  );
-  const handleFahrenheitChange = React.useCallback(
+  const [state, setState] = useState<State>({ temperature: '', scale: ScaleNames.C });
+  const handleCelsiusChange = useCallback((temperature: string) => setState({ temperature, scale: ScaleNames.C }), []);
+  const handleFahrenheitChange = useCallback(
     (temperature: string) => setState({ temperature, scale: ScaleNames.F }),
     [],
   );

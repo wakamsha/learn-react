@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/lists-and-keys.html
-import * as React from 'react';
+import React from 'react';
 
 function ListItem({ value }: { value: number }): JSX.Element {
   return <li>{value}</li>;

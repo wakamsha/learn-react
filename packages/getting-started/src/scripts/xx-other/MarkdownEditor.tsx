@@ -1,5 +1,5 @@
-import * as React from 'react';
 import * as Remarkable from 'remarkable';
+import React from 'react';
 
 type State = {
   value: string;

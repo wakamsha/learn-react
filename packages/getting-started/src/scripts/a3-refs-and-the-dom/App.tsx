@@ -1,6 +1,6 @@
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
-import * as React from 'react';
 import { css } from 'emotion';
+import React from 'react';
 
 const inputFileStyle = css({
   display: 'none',

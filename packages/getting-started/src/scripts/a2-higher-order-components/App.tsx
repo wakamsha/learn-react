@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Logger } from './decorators/Decorator';
+import React from 'react';
 
 type Props = {
   inject?: string;

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { HistoryStore } from '../stores/HistoryStore';
 import { Route, Switch, matchPath } from 'react-router';
 import { Transition } from './Transition';
 import { observer } from 'mobx-react';
+import React from 'react';
 
 type Props = {
   historyStore: HistoryStore;

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { css } from 'emotion';
+import React from 'react';
 
 export type BorderColors = 'blue';
 

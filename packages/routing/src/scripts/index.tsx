@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { QueryParams } from './14-query-params/QueryParams';
 import { render } from 'react-dom';
+import React from 'react';
 
 render(
   // <Basic />,

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { TodoGettingStarted } from './02-todo-getting-started/App';
 import { render } from 'react-dom';
+import React from 'react';
 
 render(
   // <TodoPrimitive />,

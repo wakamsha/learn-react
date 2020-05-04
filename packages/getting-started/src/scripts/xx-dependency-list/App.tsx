@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import * as React from 'react';
+import React from 'react';
 
 type Item = {
   foo: string;
@@ -21,7 +21,7 @@ const MyComponent = ({ item }: Props) => {
   React.useEffect(() => {
     console.info('changed', item.baz.qux);
   }, [item]);
-  const hoge = React.useMemo(() => item.baz.qux * 10, [item]);
+  const hoge = useMemo(() => item.baz.qux * 10, [item]);
 
   return <p>{hoge}</p>;
 };
@@ -39,7 +39,7 @@ const initialItem = {
 
 export const EqualApp = () => {
   console.info(1111111);
-  // const [item, setItem] = React.useState(initialItem);
+  // const [item, setItem] = useState(initialItem);
   // const handleClick = () => setItem(item => over(lensPath(['baz', 'qux']), inc, item));
   const handleClick = () => {
     initialItem.baz.qux + 1;

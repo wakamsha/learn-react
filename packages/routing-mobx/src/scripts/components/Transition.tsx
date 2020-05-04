@@ -1,7 +1,7 @@
 import * as Classnames from 'classnames';
-import * as React from 'react';
 import { Duration, Easing } from '../constants/VO';
 import { css } from 'emotion';
+import React from 'react';
 
 type Props = {
   id: React.ReactText;

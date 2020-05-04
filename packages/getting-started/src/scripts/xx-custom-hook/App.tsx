@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 
 export const Asyncable = () => {
-  const [count, setCount] = React.useState<any>({});
+  const [count, setCount] = useState<any>({});
 
   React.useEffect(() => {
     let unmounted = false;

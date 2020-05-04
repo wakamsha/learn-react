@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Dialog } from './Dialog';
+import React from 'react';
 
 type State = {
   login: string;

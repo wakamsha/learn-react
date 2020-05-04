@@ -1,6 +1,6 @@
 // https://ja.reactjs.org/docs/context.html
-import * as React from 'react';
 import { Toolbar } from './components/Toolbar';
+import React from 'react';
 
 export type Theme = 'dark' | 'light';
 
@@ -17,9 +17,9 @@ export type Theme = 'dark' | 'light';
 export const ThemeContext = React.createContext<Theme>('light');
 
 export const ContextApp = () => {
-  const [theme, setTheme] = React.useState<Theme>('dark');
+  const [theme, setTheme] = useState<Theme>('dark');
 
-  const handleClick = React.useCallback(() => {
+  const handleClick = useCallback(() => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
   }, [theme]);

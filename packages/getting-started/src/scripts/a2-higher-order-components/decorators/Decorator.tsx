@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export function Logger(inject: string, message: string) {
   // Wrap する React Component引数

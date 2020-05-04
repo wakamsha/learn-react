@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/conditional-rendering.html
-import * as React from 'react';
+import React from 'react';
 
 function UserGreeting(): JSX.Element {
   return <h1>Welcome back!</h1>;

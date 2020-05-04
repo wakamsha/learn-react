@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
+import React from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;

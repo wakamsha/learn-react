@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { TodoListStore } from '../stores/TodoListStore';
 import { inject, observer } from 'mobx-react';
+import React from 'react';
 
 type Props = {
   store?: TodoListStore;

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import { Child } from './pages/Child';
+import React from 'react';
 
 type Props = {
   location: Location;

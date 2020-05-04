@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Stores } from './stores';
 import { TodoAdd } from './components/TodoAdd';
 import { TodoList } from './components/TodoList';
+import React from 'react';
 
 export const TodoWithContext = () => {
   const TodoContext = React.createContext(Stores.todoListStore);

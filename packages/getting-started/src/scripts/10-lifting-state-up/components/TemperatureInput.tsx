@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 export const ScaleNames = {
   C: 'Celsius',
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export function TemperatureInput(props: Props) {
-  const handleChange = React.useCallback(
+  const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => props.onTemperatureChange(e.target.value),
     [props],
   );

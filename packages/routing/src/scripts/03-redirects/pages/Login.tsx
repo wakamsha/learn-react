@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Redirect, RouteComponentProps } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
+import React from 'react';
 
 type LocationState = {
   from: {
@@ -11,9 +11,9 @@ type LocationState = {
 type Props = RouteComponentProps<{}, {}, LocationState>;
 
 export const Login = ({ location }: Props) => {
-  const [redirectTiReferrer, setState] = React.useState(false);
+  const [redirectTiReferrer, setState] = useState(false);
 
-  const handleClick = React.useCallback(
+  const handleClick = useCallback(
     () =>
       fakeAuth.authenticate(() => {
         setState(true);

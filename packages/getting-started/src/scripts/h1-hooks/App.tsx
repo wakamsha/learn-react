@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 
 type Props = {
   count: number;
 };
 export function HookApp({ count: initCount }: Props) {
-  const [count, setCount] = React.useState<number>(initCount);
+  const [count, setCount] = useState<number>(initCount);
   // @MEMO プリミティブ型にしか使えない。
   // オブジェクト型だと値の変更を検知できないため。その場合はコールバックref を使うこと
   const prevCountRef = React.useRef<number>();
@@ -26,7 +26,7 @@ export function HookApp({ count: initCount }: Props) {
       <button onClick={handleClick}>Click me</button>
     </>
   );
-  // const [count, setCount] = React.useState(0);
+  // const [count, setCount] = useState(0);
   // return (
   //   <>
   //     <p>you clicked {count} times</p>
