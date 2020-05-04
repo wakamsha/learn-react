@@ -13,15 +13,6 @@ type State = {
 
 @observer
 export class PostForm extends React.Component<Props, State> {
-  private handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => this.props.store.setName(e.target.value);
-
-  private handleJobChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => this.props.store.setJob(e.target.value);
-
-  private handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    this.handlePostUser();
-  };
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -29,8 +20,42 @@ export class PostForm extends React.Component<Props, State> {
     };
   }
 
+  private handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { store } = this.props;
+
+    store.setName(e.target.value);
+  };
+
+  private handleJobChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { store } = this.props;
+
+    store.setJob(e.target.value);
+  };
+
+  private handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    this.handlePostUser();
+  };
+
+  private checkInput(): boolean {
+    const {
+      store: { name, job },
+    } = this.props;
+    return !name || !job;
+  }
+
+  @transaction('status')
+  private *handlePostUser() {
+    const { store } = this.props;
+
+    yield store.postUser();
+    yield store.getUser();
+  }
+
   public render() {
-    const fetching = this.state.status === 'Running';
+    const { status } = this.state;
+    const fetching = status === 'Running';
+
     return (
       <form onSubmit={this.handleSubmit}>
         <h3>POST</h3>
@@ -45,16 +70,5 @@ export class PostForm extends React.Component<Props, State> {
         </p>
       </form>
     );
-  }
-
-  private checkInput(): boolean {
-    const { name, job } = this.props.store;
-    return !name || !job;
-  }
-
-  @transaction('status')
-  private *handlePostUser() {
-    yield this.props.store.postUser();
-    yield this.props.store.getUser();
   }
 }

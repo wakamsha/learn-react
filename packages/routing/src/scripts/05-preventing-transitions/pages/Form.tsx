@@ -17,7 +17,7 @@ export const Form = () => {
   );
 
   const handleMessage = React.useCallback(
-    (location: Location) => `このページを離れて ${window.location.pathname} へ移動しますか？`,
+    (location: Location) => `このページを離れて ${location.pathname} へ移動しますか？`,
     [],
   );
 

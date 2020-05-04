@@ -36,6 +36,7 @@ export class CustomTextInput extends React.Component {
     const reader = new FileReader();
     reader.readAsText(file, 'UTF-8');
     reader.onload = (e: any) => console.info(e.target.result);
+    // eslint-disable-next-line no-param-reassign
     e.target.value = '';
 
     this.report.classList.add(reportStyleActive);

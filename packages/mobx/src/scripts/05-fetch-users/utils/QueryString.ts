@@ -6,7 +6,7 @@ export function stringify(query: QueryHash): string {
   const params = Object.keys(query).map(key => {
     const value = query[key];
     if (!value) {
-      return;
+      return '';
     }
     return `${key}=${encodeURIComponent(`${value}`)}`;
   });
@@ -18,8 +18,10 @@ export function parse(location: HLocation | Location) {
   const queries = search.slice(1).split('&');
   const queryHash = queries.reduce((hash, query) => {
     const [key, value] = query.split('=');
-    hash[key] = value;
-    return hash;
+    return {
+      ...hash,
+      [key]: value,
+    };
   }, {} as QueryHash);
   return queryHash;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import * as React from 'react';
 import { Todo } from '../stores/TodoStore';
 import { observer } from 'mobx-react';

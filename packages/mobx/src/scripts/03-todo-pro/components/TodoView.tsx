@@ -8,13 +8,21 @@ type Props = {
 
 @observer
 export class TodoView extends React.Component<Props> {
-  private handleToggleCompleted = () => this.props.todo.toggleCompleted();
+  private handleToggleCompleted = () => {
+    const { todo } = this.props;
 
-  private handleRename = () =>
-    this.props.todo.updateTask(prompt(`Task name`, this.props.todo.task) || this.props.todo.task);
+    todo.toggleCompleted();
+  };
+
+  private handleRename = () => {
+    const { todo } = this.props;
+
+    todo.updateTask(prompt(`Task name`, todo.task) || todo.task);
+  };
 
   public render() {
     const { todo } = this.props;
+
     return (
       <li onDoubleClick={this.handleRename}>
         <input type="checkbox" checked={todo.completed} onChange={this.handleToggleCompleted} />

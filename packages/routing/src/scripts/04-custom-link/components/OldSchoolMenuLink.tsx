@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
@@ -20,13 +21,13 @@ const activeStyle = css({
   },
 });
 
-export const OldSchoolMenuLink = (props: Props) => (
+export const OldSchoolMenuLink = ({ label, to, activeOnlyWhenExact }: Props) => (
   <Route
-    path={props.to}
-    exact={props.activeOnlyWhenExact}
+    path={to}
+    exact={activeOnlyWhenExact}
     children={({ match }) => (
       <div className={match ? activeStyle : ''}>
-        <Link to={props.to}>{props.label}</Link>
+        <Link to={to}>{label}</Link>
       </div>
     )}
   />

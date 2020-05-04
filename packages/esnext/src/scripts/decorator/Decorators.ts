@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-param-reassign */
 /**
  * 関数デコレータ
  * @param target 対象クラスの prototype
@@ -10,6 +12,7 @@ export function outputLog(target: any, propKey: string, descriptor: PropertyDesc
     const key = `${target.constructor.name}#${propKey}`;
     console.info(`${key}: start`);
     console.time(key);
+    // eslint-disable-next-line prefer-rest-params
     const ret = Reflect.apply(origin, this, arguments);
     if (ret) {
       return ret.then((ret: any) => {

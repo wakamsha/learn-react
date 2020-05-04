@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BorderColors, FancyBorder } from './FancyBorder';
+import { FancyBorder } from './FancyBorder';
 import { css } from 'emotion';
 
 type Props = {
@@ -19,7 +19,7 @@ const messageStyle = css({
 
 export function Dialog({ title, message, children }: Props) {
   return (
-    <FancyBorder color={BorderColors.blue}>
+    <FancyBorder color="blue">
       <h1 className={titleStyle}>{title}</h1>
       <p className={messageStyle}>{message}</p>
       {children}

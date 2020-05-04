@@ -21,7 +21,7 @@ export const Login = ({ location }: Props) => {
     [],
   );
 
-  const { from } = window.location.state || { from: { pathname: '/' } };
+  const { from } = location.state || { from: { pathname: '/' } };
 
   return redirectTiReferrer ? (
     <Redirect to={from} />
