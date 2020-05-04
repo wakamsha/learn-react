@@ -16,22 +16,24 @@ export class Reservation extends React.Component<{}, State> {
   private handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = e;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const { name } = target;
 
     name === 'going' ? this.setState({ going: !!value }) : this.setState({ numOfGuest: Number(value) });
   };
 
   public render() {
+    const { going, numOfGuest } = this.state;
+
     return (
       <form>
         <label>
           Is going:
-          <input type="checkbox" name="going" checked={this.state.going} onChange={this.handleInputChange} />
+          <input type="checkbox" name="going" checked={going} onChange={this.handleInputChange} />
         </label>
         <br />
         <label>
           Num of guest:
-          <input type="number" name="numOfGuest" value={this.state.numOfGuest} onChange={this.handleInputChange} />
+          <input type="number" name="numOfGuest" value={numOfGuest} onChange={this.handleInputChange} />
         </label>
       </form>
     );

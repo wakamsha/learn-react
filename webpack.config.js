@@ -1,7 +1,5 @@
-/* eslint-disable */
 const path = require('path');
-const argv = require('yargs').argv;
-/* eslint-enable */
+const { argv } = require('yargs');
 
 const mode = argv.develop ? 'development' : 'production';
 const polyfill = !!argv.polyfill;
@@ -13,7 +11,7 @@ const babelLoaderOption = {
   },
 };
 
-console.log(`Polyfill: ${polyfill}`);
+console.info(`Polyfill: ${polyfill}`);
 
 module.exports = {
   mode,

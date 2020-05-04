@@ -1,6 +1,6 @@
 import { PlaceholderUser, requestGetPlaceholderUsers, requestGetRandomUser } from './api-client';
 
-function p(str: string, delay: number = 1000): Promise<string> {
+function p(str: string, delay = 1000): Promise<string> {
   return new Promise(resolve =>
     setTimeout(() => {
       resolve(str);
@@ -19,7 +19,7 @@ function loop<T>(g: IterableIterator<Promise<T>>) {
   const p = g.next();
   if (p.done) return;
   p.value.then(value => {
-    console.log(value);
+    console.info(value);
     loop(g);
   });
 }
@@ -35,7 +35,7 @@ function* connectPlaceholderUsersAPI(): IterableIterator<Promise<PlaceholderUser
 export async function runGenerator() {
   const g = gfn();
   loop<string>(g);
-  console.log('Sync 1');
+  console.info('Sync 1');
 
   loop<PlaceholderUser[]>(connectPlaceholderUsersAPI());
   loop<any>(connectRandomUserAPI());

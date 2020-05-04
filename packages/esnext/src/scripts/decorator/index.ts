@@ -19,13 +19,13 @@ class Example {
   @outputLog
   public greet() {
     sleep(3);
-    console.log(`hello, ${this.name}`);
+    console.info(`hello, ${this.name}`);
   }
 
   @outputLog
   public async greetAsync() {
     await delay(3);
-    console.log(`hello, ${this.name}`);
+    console.info(`hello, ${this.name}`);
   }
 }
 

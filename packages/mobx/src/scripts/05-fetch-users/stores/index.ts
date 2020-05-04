@@ -1,5 +1,7 @@
 import { JSONPlaceholderStore } from './JSONPlaceholderStore';
 
-export namespace Stores {
-  export const jsonPlaceholderStore = new JSONPlaceholderStore();
-}
+const jsonPlaceholderStore = new JSONPlaceholderStore();
+
+export const Stores = {
+  jsonPlaceholderStore,
+} as const;

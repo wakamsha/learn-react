@@ -2,12 +2,12 @@ import * as React from 'react';
 
 export const Bubbling = () => {
   const handleClickOuter = (e: React.MouseEvent<HTMLDivElement>) => {
-    console.log('outer', e);
+    console.info('outer', e);
   };
 
   const handleClickInner = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    console.log('inner', e);
+    console.info('inner', e);
   };
 
   const handleClickLabel = (e: React.MouseEvent<HTMLLabelElement>) => e.stopPropagation();

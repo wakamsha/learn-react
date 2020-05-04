@@ -6,19 +6,19 @@ import { Stores } from './stores';
 export const TodoPrimitive = () => {
   React.useEffect(() => {
     // Stores.todoStore.addTodo('foo');
-    // console.log(Stores.todoStore.report());
+    // console.info(Stores.todoStore.report());
 
     // Stores.todoStore.addTodo('bar');
-    // console.log(Stores.todoStore.report());
+    // console.info(Stores.todoStore.report());
 
     // Stores.todoStore.todos[0].completed = true;
-    // console.log(Stores.todoStore.report());
+    // console.info(Stores.todoStore.report());
 
     // Stores.todoStore.todos[1].task = 'fuga';
-    // console.log(Stores.todoStore.report());
+    // console.info(Stores.todoStore.report());
 
     // Stores.todoStore.todos[0].task = 'hoge';
-    // console.log(Stores.todoStore.report());
+    // console.info(Stores.todoStore.report());
 
     Stores.observableTodoStore.addTodo('foo');
     Stores.observableTodoStore.addTodo('bar');

@@ -1,5 +1,10 @@
 import { HistoryStore } from './HistoryStore';
+import { ListStore } from './ListStore';
 
-export namespace Stores {
-  export const historyStore = new HistoryStore();
-}
+const historyStore = new HistoryStore();
+const listStore = new ListStore();
+
+export const Stores = {
+  historyStore,
+  listStore,
+} as const;

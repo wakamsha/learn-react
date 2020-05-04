@@ -23,9 +23,7 @@ const baseStyle = css({
 const animationStyle = css({
   opacity: 1,
   transform: 'none',
-  transition: `transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}, opacity ${
-    Duration.Enter
-  } ${ENTER_DELAY}ms ${Easing.Enter}`,
+  transition: `transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}, opacity ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter}`,
 });
 
 const enterStyle = css({
@@ -59,7 +57,10 @@ export class Transition extends React.Component<Props, State> {
   }
 
   public getSnapshotBeforeUpdate(prevProps: Props): null {
-    if (this.props.id !== prevProps.id && !this.state.html && this.nextElm) {
+    const { id } = this.props;
+    const { html } = this.state;
+
+    if (id !== prevProps.id && !html && this.nextElm) {
       this.setState({
         html: this.nextElm.innerHTML,
       });
@@ -69,7 +70,9 @@ export class Transition extends React.Component<Props, State> {
   }
 
   public componentDidUpdate(prevProps: Props) {
-    if (this.props.id !== prevProps.id) {
+    const { id } = this.props;
+
+    if (id !== prevProps.id) {
       window.setTimeout(() => {
         this.setState({ html: '' });
         this.nextElm.classList.remove(enterStyle);
@@ -80,14 +83,17 @@ export class Transition extends React.Component<Props, State> {
   private handleRef = (elm: HTMLDivElement) => (this.nextElm = elm);
 
   public render() {
+    const { children } = this.props;
+    const { html } = this.state;
+
     return (
       <div className={baseStyle}>
         <div className={Classnames(animationStyle, horizontalStyle)} ref={this.handleRef}>
-          {this.props.children}
+          {children}
         </div>
         <div
-          className={Classnames(animationStyle, horizontalStyle, this.state.html && leaveStyle)}
-          dangerouslySetInnerHTML={{ __html: this.state.html }}
+          className={Classnames(animationStyle, horizontalStyle, html && leaveStyle)}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
     );

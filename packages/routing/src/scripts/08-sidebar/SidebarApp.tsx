@@ -22,12 +22,12 @@ const contentWrapperStyle = css({
 });
 
 export const SidebarApp = () => {
-  const [currentPath, setState] = React.useState(location.pathname);
+  const [currentPath, setState] = React.useState(window.location.pathname);
 
   const handleClick = React.useCallback((path: string) => setState(path), []);
 
   React.useEffect(() => {
-    window.addEventListener('popstate', () => setState(location.pathname));
+    window.addEventListener('popstate', () => setState(window.location.pathname));
   }, []);
 
   return (

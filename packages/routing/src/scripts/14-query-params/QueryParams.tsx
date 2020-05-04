@@ -6,8 +6,8 @@ type Props = {
   location: Location;
 };
 
-export const Component = (props: Props) => {
-  const params = new URLSearchParams(props.location.search); // @FIXME babel/polyfill サポート外のため、別途 polyfill が必要
+export const Component = ({ location }: Props) => {
+  const params = new URLSearchParams(location.search); // @FIXME babel/polyfill サポート外のため、別途 polyfill が必要
 
   return (
     <>

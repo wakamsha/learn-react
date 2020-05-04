@@ -4,7 +4,7 @@ import { action, observable } from 'mobx';
 export class HistoryStore {
   public readonly history = createBrowserHistory({});
 
-  @observable public pathname = location.pathname;
+  @observable public pathname = window.location.pathname;
   @observable public referrer = '';
   @observable public location: Location = {
     ...window.location,
@@ -21,7 +21,7 @@ export class HistoryStore {
       window.scrollTo(0, 0);
     }
     this.referrer = this.pathname;
-    this.pathname = location.pathname;
+    this.pathname = window.location.pathname;
     this.location = location;
   };
 }

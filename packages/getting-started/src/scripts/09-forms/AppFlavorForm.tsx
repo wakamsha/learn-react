@@ -13,16 +13,20 @@ export class FlavorForm extends React.Component<{}, State> {
   private handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => this.setState({ value: e.target.value });
 
   private handleSubmit = (e: React.FormEvent) => {
-    alert(`Your favorite flavor is ${this.state.value}`);
+    const { value } = this.state;
+
     e.preventDefault();
+    console.info(`Your favorite flavor is ${value}`);
   };
 
   public render() {
+    const { value } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Pick your favorite flavor:
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={value} onChange={this.handleChange}>
             <option value="grapefruit">Grapefruit</option>
             <option value="lime">Lime</option>
             <option value="coconut">Coconut</option>

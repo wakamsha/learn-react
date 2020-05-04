@@ -26,11 +26,11 @@ export function Calculator() {
   const [state, setState] = React.useState<State>({ temperature: '', scale: ScaleNames.C });
   const handleCelsiusChange = React.useCallback(
     (temperature: string) => setState({ temperature, scale: ScaleNames.C }),
-    [state.scale],
+    [],
   );
   const handleFahrenheitChange = React.useCallback(
     (temperature: string) => setState({ temperature, scale: ScaleNames.F }),
-    [state.scale],
+    [],
   );
   const { scale, temperature } = state;
   const celsius = scale === ScaleNames.F ? tryConvert(temperature, toCelsius) : temperature;

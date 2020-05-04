@@ -9,16 +9,26 @@ type Props = {
 @inject('store')
 @observer
 export class TodoAdd extends React.Component<Props> {
-  private handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>) => this.props.store!.setTask(e.target.value);
+  private handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { store } = this.props;
+
+    if (!store) return;
+
+    store.setTask(e.target.value);
+  };
 
   private handleAddTodo = (e: React.FormEvent) => {
+    const { store } = this.props;
+
     e.preventDefault();
-    if (!this.props.store!.task) return;
-    this.props.store!.addTodo();
+    if (!store!.task) return;
+
+    store!.addTodo();
   };
 
   public render() {
-    const { task } = this.props.store!;
+    const { store } = this.props;
+    const { task } = store!;
     return (
       <form onSubmit={this.handleAddTodo}>
         <label>New Task: </label>

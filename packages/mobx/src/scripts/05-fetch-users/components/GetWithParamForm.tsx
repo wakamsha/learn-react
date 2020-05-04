@@ -13,13 +13,6 @@ type State = {
 
 @observer
 export class GetWithParamForm extends React.Component<Props, State> {
-  private onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => this.props.store.setUserId(Number(e.target.value));
-
-  private onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    this.handleGetUser();
-  };
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -27,9 +20,29 @@ export class GetWithParamForm extends React.Component<Props, State> {
     };
   }
 
+  private onChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { store } = this.props;
+
+    store.setUserId(Number(e.target.value));
+  };
+
+  private onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    this.handleGetUser();
+  };
+
+  @transaction('status')
+  private *handleGetUser() {
+    const { store } = this.props;
+
+    yield store.getUser();
+  }
+
   public render() {
     const { store } = this.props;
-    const fetching = this.state.status === 'Running';
+    const { status } = this.state;
+    const fetching = status === 'Running';
+
     return (
       <form onSubmit={this.onSubmit}>
         <h3>Get w/ Params</h3>
@@ -41,10 +54,5 @@ export class GetWithParamForm extends React.Component<Props, State> {
         <button disabled={fetching}>GET</button>
       </form>
     );
-  }
-
-  @transaction('status')
-  private *handleGetUser() {
-    yield this.props.store.getUser();
   }
 }

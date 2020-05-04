@@ -1,10 +1,15 @@
+/* eslint-disable prefer-rest-params */
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable no-param-reassign */
+/* eslint-disable func-names */
+/* eslint-disable no-underscore-dangle */
 import { flow as flowOrigin } from 'mobx';
 
 export type TransactionStatus = 'Idling' | 'Running' | 'Error' | 'Success';
 
 export function transaction<T extends string>(name: T) {
   function decorate(fn: Function) {
-    return flowOrigin(function*(this: any) {
+    return flowOrigin(function* (this: any) {
       this.setState({
         [name]: 'Running',
       });
@@ -25,7 +30,7 @@ export function transaction<T extends string>(name: T) {
     });
   }
 
-  return function(
+  return function (
     target: { state: { [name in T]: TransactionStatus } },
     propKey: string,
     descriptor: PropertyDescriptor,
@@ -44,7 +49,7 @@ export function transaction<T extends string>(name: T) {
         }
         const unmount = (this as any).componentWillUnmount;
         if (!unmount || !unmount._transaction) {
-          const cb = function(this: any) {
+          const cb = function (this: any) {
             this._unmount = true;
             unmount && unmount.call(this);
           }.bind(this);

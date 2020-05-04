@@ -4,10 +4,10 @@ type Props = {
   category: string;
 };
 
-export function ProductCategoryRaw(props: Props) {
+export function ProductCategoryRaw({ category }: Props) {
   return (
     <tr>
-      <th colSpan={2}>{props.category}</th>
+      <th colSpan={2}>{category}</th>
     </tr>
   );
 }

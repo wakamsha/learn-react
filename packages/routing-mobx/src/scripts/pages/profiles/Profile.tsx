@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { PageTransition } from '../../components/PageTransition';
 import { ProfileEditPage } from './EditPage';
 import { ProfileShowPage } from './ShowPage';
@@ -6,11 +5,12 @@ import { ProfileStore } from '../../stores/ProfileStore';
 import { Redirect, Route } from 'react-router';
 import { Router } from '../../Router';
 import { Stores } from '../../stores';
+import React, { createContext, useMemo } from 'react';
 
 /**
  * クラスコンポーネントと Provider を使ったレガシーなパターン
  */
-// export class Profile extends React.Component {
+// export class Profile extends Component {
 //   private readonly store = new ProfileStore();
 
 //   public render () {
@@ -32,9 +32,9 @@ import { Stores } from '../../stores';
 /**
  * クラスコンポーネントと ContextAPI を使ったパターン
  */
-// export class Profile extends React.Component {
+// export class Profile extends Component {
 //   private readonly store = new ProfileStore();
-//   private readonly Context = React.createContext(this.store);
+//   private readonly Context = createContext(this.store);
 
 //   public render() {
 //     return (
@@ -61,8 +61,9 @@ import { Stores } from '../../stores';
  * FC と ContextAPI を使ったモダンなパターン
  */
 export const Profile = () => {
-  const store = React.useRef(new ProfileStore()).current;
-  const Context = React.useMemo(() => React.createContext(store), [store]);
+  const store = useMemo(() => new ProfileStore(), []);
+
+  const Context = useMemo(() => createContext(store), [store]);
 
   return (
     <>

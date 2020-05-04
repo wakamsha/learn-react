@@ -17,12 +17,12 @@ function Greeting(props: GreetingProps): JSX.Element {
   return loggedIn ? <UserGreeting /> : <GuestGreeting />;
 }
 
-function LoginButton(props: { onClick: (e: React.MouseEvent) => void }): JSX.Element {
-  return <button onClick={props.onClick}>Login</button>;
+function LoginButton({ onClick }: { onClick: (e: React.MouseEvent) => void }): JSX.Element {
+  return <button onClick={onClick}>Login</button>;
 }
 
-function LogoutButton(props: { onClick: (e: React.MouseEvent) => void }) {
-  return <button onClick={props.onClick}>Logout</button>;
+function LogoutButton({ onClick }: { onClick: (e: React.MouseEvent) => void }) {
+  return <button onClick={onClick}>Logout</button>;
 }
 
 type State = {

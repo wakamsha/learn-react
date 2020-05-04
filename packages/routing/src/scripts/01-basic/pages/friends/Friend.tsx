@@ -14,8 +14,11 @@ const containerStyle = css({
   border: '1px solid',
 });
 
-export function Friend(props: Props) {
-  const { id } = props.match.params;
+export function Friend({
+  match: {
+    params: { id },
+  },
+}: Props) {
   const friend = getFriendById(id);
   if (!friend) {
     return <p>Friends with id {id} does not exist.</p>;

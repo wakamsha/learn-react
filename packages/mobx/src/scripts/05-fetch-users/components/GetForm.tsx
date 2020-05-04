@@ -13,8 +13,6 @@ type State = {
 
 @observer
 export class GetForm extends React.Component<Props, State> {
-  private handleClick = () => this.handleGetAllUsers();
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -22,13 +20,19 @@ export class GetForm extends React.Component<Props, State> {
     };
   }
 
+  private handleClick = () => this.handleGetAllUsers();
+
   @transaction('status')
   private *handleGetAllUsers() {
-    yield this.props.store.getAllUsers();
+    const { store } = this.props;
+
+    yield store.getAllUsers();
   }
 
   public render() {
-    const fetching = this.state.status === 'Running';
+    const { status } = this.state;
+    const fetching = status === 'Running';
+
     return (
       <>
         <h3>GET</h3>

@@ -8,6 +8,8 @@ type Props = {
 @Logger('Hello world!', 'render log')
 export class HOCExample extends React.Component<Props> {
   public render() {
-    return <div>{this.props.inject}</div>;
+    const { inject } = this.props;
+
+    return <div>{inject}</div>;
   }
 }

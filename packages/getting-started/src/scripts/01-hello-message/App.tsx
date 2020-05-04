@@ -1,9 +1,9 @@
 // https://ja.reactjs.org/docs/hello-world.html
-import * as React from 'react';
+import React from 'react';
 
 type Props = {
   name: string;
 };
-export function HelloMessage(props: Props): JSX.Element {
-  return <div>Hello {props.name}!</div>;
+export function HelloMessage({ name }: Props): JSX.Element {
+  return <div>Hello {name}!</div>;
 }
