@@ -32,10 +32,10 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
-      - name: Install Dependencies
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install
+      # - name: Install Dependencies
+      #   uses: borales/actions-yarn@v2.0.0
+      #   with:
+      #     cmd: install
 
   lint:
     name: Lint
@@ -62,10 +62,10 @@ jobs:
     #       ${{ runner.os }}-build-
     #       ${{ runner.os }}-
 
-    # - name: Install Dependencies
-    #   uses: borales/actions-yarn@v2.0.0
-    #   with:
-    #     cmd: install
+    - name: Install Dependencies
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
 
     - name: Run Lint
       uses: borales/actions-yarn@v2.0.0
