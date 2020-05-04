@@ -1,6 +1,6 @@
 import { Redirect, RouteComponentProps } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 type LocationState = {
   from: {

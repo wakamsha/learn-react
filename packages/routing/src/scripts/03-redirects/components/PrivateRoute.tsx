@@ -1,6 +1,6 @@
 import { Redirect, Route, RouteComponentProps } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
-import React from 'react';
+import React, { ComponentType } from 'react';
 
 type Props = {
   component: ComponentType<any>;

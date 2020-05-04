@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router';
 import { Shoelaces } from './pages/Shoelaces';
 import { Sidebar } from './components/Sidebar';
 import { css } from 'emotion';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 const baseStyle = css({
   display: 'flex',

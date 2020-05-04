@@ -1,5 +1,5 @@
 import * as Remarkable from 'remarkable';
-import React, { Component } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type State = {
   value: string;

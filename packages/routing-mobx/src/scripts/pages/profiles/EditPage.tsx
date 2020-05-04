@@ -1,6 +1,6 @@
 import { ProfileStore } from '../../stores/ProfileStore';
 import { observer } from 'mobx-react';
-import React, { useCallback } from 'react';
+import React, { ChangeEvent, useCallback } from 'react';
 
 type Props = {
   store: ProfileStore;
