@@ -6,6 +6,34 @@ name: Syntax Check CI
 on: [pull_request]
 
 jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -14,25 +42,27 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    needs: setup
+
     steps:
-    - uses: actions/checkout@v2
+    # - uses: actions/checkout@v2
 
-    - name: Cache node modules
-      uses: actions/cache@v1
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+    # - name: Cache node modules
+    #   uses: actions/cache@v1
+    #   env:
+    #     cache-name: cache-node-modules
+    #   with:
+    #     path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+    #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-build-${{ env.cache-name }}-
+    #       ${{ runner.os }}-build-
+    #       ${{ runner.os }}-
 
-    - name: Install Dependencies
-      uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
+    # - name: Install Dependencies
+    #   uses: borales/actions-yarn@v2.0.0
+    #   with:
+    #     cmd: install
 
     - name: Run Lint
       uses: borales/actions-yarn@v2.0.0
