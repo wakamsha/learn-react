@@ -4,7 +4,7 @@ import { Log } from './components/Log';
 import { PostForm } from './components/PostForm';
 import { Stores } from './stores';
 import { css } from 'emotion';
-import React from 'react';
+import React, { createContext } from 'react';
 
 const baseStyle = css({
   display: 'flex',
@@ -20,7 +20,7 @@ const logColumnStyle = css({
   flexGrow: 1.618,
 });
 
-const JSONPlaceholderContext = React.createContext(Stores.jsonPlaceholderStore);
+const JSONPlaceholderContext = createContext(Stores.jsonPlaceholderStore);
 
 export const FetchUsers = () => (
   <JSONPlaceholderContext.Provider value={Stores.jsonPlaceholderStore}>

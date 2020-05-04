@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/forms.html
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type State = {
   value: string;
@@ -15,7 +15,7 @@ export class NameForm extends Component<{}, State> {
 
   private handleChange = (e: ChangeEvent<HTMLInputElement>) => this.setState({ value: e.target.value });
 
-  private handleSubmit = (e: React.FormEvent) => {
+  private handleSubmit = (e: FormEvent) => {
     const { value } = this.state;
     e.preventDefault();
     console.info(`A name was submitted: ${value}`);

@@ -1,7 +1,7 @@
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -32,7 +32,7 @@ export class PostForm extends Component<Props, State> {
     store.setJob(e.target.value);
   };
 
-  private handleSubmit = (e: React.FormEvent) => {
+  private handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     this.handlePostUser();
   };

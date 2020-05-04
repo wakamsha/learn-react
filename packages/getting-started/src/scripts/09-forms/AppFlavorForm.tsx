@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/forms.html
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type State = {
   value: string;
@@ -12,7 +12,7 @@ export class FlavorForm extends Component<{}, State> {
 
   private handleChange = (e: ChangeEvent<HTMLSelectElement>) => this.setState({ value: e.target.value });
 
-  private handleSubmit = (e: React.FormEvent) => {
+  private handleSubmit = (e: FormEvent) => {
     const { value } = this.state;
 
     e.preventDefault();

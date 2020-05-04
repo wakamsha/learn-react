@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router';
 import { Shoelaces } from './pages/Shoelaces';
 import { Sidebar } from './components/Sidebar';
 import { css } from 'emotion';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const baseStyle = css({
   display: 'flex',
@@ -26,7 +26,7 @@ export const SidebarApp = () => {
 
   const handleClick = useCallback((path: string) => setState(path), []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('popstate', () => setState(window.location.pathname));
   }, []);
 

@@ -1,10 +1,10 @@
 import { Stores } from './stores';
 import { TodoAdd } from './components/TodoAdd';
 import { TodoList } from './components/TodoList';
-import React from 'react';
+import React, { createContext } from 'react';
 
 export const TodoWithContext = () => {
-  const TodoContext = React.createContext(Stores.todoListStore);
+  const TodoContext = createContext(Stores.todoListStore);
   return (
     <>
       <h1>Todo - MobX-React w/ ContextAPI</h1>

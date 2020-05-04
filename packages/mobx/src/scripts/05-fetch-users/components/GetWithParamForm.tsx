@@ -1,7 +1,7 @@
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
-import React, { ChangeEvent, Component } from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -26,7 +26,7 @@ export class GetWithParamForm extends Component<Props, State> {
     store.setUserId(Number(e.target.value));
   };
 
-  private onSubmit = (e: React.FormEvent) => {
+  private onSubmit = (e: FormEvent) => {
     e.preventDefault();
     this.handleGetUser();
   };

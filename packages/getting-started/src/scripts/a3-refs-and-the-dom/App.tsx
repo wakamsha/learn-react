@@ -15,7 +15,7 @@ const reportStyleActive = css(reportStyle, {
 });
 
 // 原則コールバック ref を使う
-// React.createRef は特に使う必要もなさそう
+// createRef は特に使う必要もなさそう
 export class CustomTextInput extends Component {
   private textInput: HTMLInputElement;
   private fileInput: HTMLInputElement;

@@ -1,10 +1,10 @@
 import * as Classnames from 'classnames';
 import { Duration, Easing } from '../constants/VO';
 import { css } from 'emotion';
-import React, { Component, ReactNode } from 'react';
+import React, { Component, ReactNode, ReactText } from 'react';
 
 type Props = {
-  id: React.ReactText;
+  id: ReactText;
   children: ReactNode;
 };
 

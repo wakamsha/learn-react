@@ -1,5 +1,5 @@
 import { AddAction } from '../../state/todos/actions';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 export type Props = {
   onSubmit: (text: string) => AddAction;
@@ -9,7 +9,7 @@ export const AddTodo = ({ onSubmit }: Props) => {
   const [input, setInput] = useState('');
 
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => setInput(e.currentTarget.value);
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     onSubmit(input);
     setInput('');

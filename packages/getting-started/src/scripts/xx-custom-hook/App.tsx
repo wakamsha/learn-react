@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Asyncable = () => {
   const [count, setCount] = useState<any>({});
 
-  React.useEffect(() => {
+  useEffect(() => {
     let unmounted = false;
     (async () => {
       const res = await fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => response.json());
