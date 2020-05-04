@@ -35,7 +35,7 @@ jobs:
     - name: Run Lint
       run: yarn lint
 
-  build:
+  build-routing-mobx:
     name: Build - routing mobx
     runs-on: ubuntu-latest
     needs: lint
@@ -51,7 +51,7 @@ jobs:
     - name: Build
       run: yarn routing-mobx build
 
-  build:
+  build-mobx:
     name: Build - mobx
     runs-on: ubuntu-latest
     needs: lint
