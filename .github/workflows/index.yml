@@ -13,7 +13,7 @@ on:
 
 jobs:
   lint:
-    name: Test
+    name: Lint
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,9 +22,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: borales/actions-yarn@v2.0.0
+
+    - name: Cache node modules
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Install Dependencies
+      uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
-    - uses: borales/actions-yarn@v2.0.0
+
+    - name: Run Lint
+      uses: borales/actions-yarn@v2.0.0
       with:
         cmd: lint
