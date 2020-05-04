@@ -1,11 +1,11 @@
-import * as React from 'react';
 import * as Remarkable from 'remarkable';
+import React, { ChangeEvent, Component } from 'react';
 
 type State = {
   value: string;
 };
 
-export class MarkdownEditor extends React.Component<{}, State> {
+export class MarkdownEditor extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ export class MarkdownEditor extends React.Component<{}, State> {
     };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => this.setState({ value: e.target.value });
+  private handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => this.setState({ value: e.target.value });
 
   public render() {
     const { value } = this.state;

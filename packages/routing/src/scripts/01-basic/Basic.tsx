@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { About } from './pages/About';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { Friends } from './pages/Friends';
 import { Home } from './pages/Home';
+import React from 'react';
 
 export function Basic() {
   return (

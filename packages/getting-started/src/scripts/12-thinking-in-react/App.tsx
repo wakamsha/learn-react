@@ -1,7 +1,7 @@
 // https://ja.reactjs.org/docs/thinking-in-react.html
-import * as React from 'react';
 import { ProductTable } from './components/ProductTable';
 import { SearchBar } from './components/SearchBar';
+import React, { Component } from 'react';
 
 export type Product = {
   category: string;
@@ -28,7 +28,7 @@ export const PRODUCTS = [
   { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' },
 ];
 
-export class FilterableProductTable extends React.Component<Props, State> {
+export class FilterableProductTable extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {

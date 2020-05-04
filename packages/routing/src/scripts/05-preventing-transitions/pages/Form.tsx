@@ -1,22 +1,19 @@
-import * as React from 'react';
 import { Location } from 'history';
 import { Prompt } from 'react-router';
+import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
 export const Form = () => {
-  const [blocking, setState] = React.useState(false);
+  const [blocking, setState] = useState(false);
 
-  const handleSubmit = React.useCallback((e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     (e.target as HTMLFormElement).reset();
     setState(false);
   }, []);
 
-  const handleChange = React.useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setState(!!e.target.value.length),
-    [],
-  );
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => setState(!!e.target.value.length), []);
 
-  const handleMessage = React.useCallback(
+  const handleMessage = useCallback(
     (location: Location) => `このページを離れて ${location.pathname} へ移動しますか？`,
     [],
   );

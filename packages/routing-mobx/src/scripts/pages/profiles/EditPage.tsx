@@ -1,6 +1,6 @@
 import { ProfileStore } from '../../stores/ProfileStore';
 import { observer } from 'mobx-react';
-import React, { useCallback } from 'react';
+import React, { ChangeEvent, useCallback } from 'react';
 
 type Props = {
   store: ProfileStore;
@@ -8,7 +8,7 @@ type Props = {
 
 export const ProfileEditPage = observer(({ store }: Props) => {
   const handleChange = useCallback(
-    ({ currentTarget: { value } }: React.ChangeEvent<HTMLInputElement>) => store.setName(value),
+    ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => store.setName(value),
     [store],
   );
 

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { TodoListStore } from '../stores/TodoListStore';
 import { TodoView } from './TodoView';
 import { observer } from 'mobx-react';
+import React from 'react';
 
 type Props = {
   store: TodoListStore;

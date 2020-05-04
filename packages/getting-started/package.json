@@ -11,8 +11,9 @@
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp src/index.html dist/index.html;",
-    "script": "webpack --progress --colors --config ../../webpack.config.js -d --develop",
+    "script": "webpack --progress --colors --config ../../webpack.config.js",
     "serve": "browser-sync start -c ../../bs-config.js",
-    "start": "yarn reset && yarn copy && run-p \"script -- {1} {2}\" \"serve -- {3}\" --"
+    "start": "yarn reset; yarn copy; run-p \"script -- -d --develop {1} {2}\" \"serve -- {3}\" --",
+    "build": "yarn reset; yarn copy; yarn script"
   }
 }

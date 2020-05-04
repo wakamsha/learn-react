@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 type Props = {
   filterText: string;
@@ -7,13 +7,13 @@ type Props = {
   onStockChange: (val: boolean) => void;
 };
 
-export class SearchBar extends React.Component<Props> {
-  private handleFilterTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+export class SearchBar extends Component<Props> {
+  private handleFilterTextChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { onFilterTextChange } = this.props;
     onFilterTextChange(e.target.value);
   };
 
-  private handleStockChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  private handleStockChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { onStockChange } = this.props;
     onStockChange(e.target.checked);
   };

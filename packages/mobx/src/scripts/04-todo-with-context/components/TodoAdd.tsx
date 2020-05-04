@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { TodoListStore } from '../stores/TodoListStore';
 import { observer } from 'mobx-react';
+import React, { ChangeEvent, FormEvent } from 'react';
 
 type Props = {
   store: TodoListStore;
 };
 
 export const TodoAdd = observer(({ store }: Props) => {
-  const handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>) => store.setTask(e.target.value);
-  const handleAddTodo = (e: React.FormEvent) => {
+  const handleTaskChange = (e: ChangeEvent<HTMLInputElement>) => store.setTask(e.target.value);
+  const handleAddTodo = (e: FormEvent) => {
     e.preventDefault();
     if (!store.task) return;
     store.addTodo();

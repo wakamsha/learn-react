@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { About } from './pages/About';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import { Form } from './pages/Form';
 import { Home } from './pages/Home';
+import React from 'react';
 
 export const PreventingTransitions = () => (
   <BrowserRouter>

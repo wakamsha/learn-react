@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Button } from './Button';
 import { Theme, ThemeContext } from '../App';
+import React from 'react';
 
 // Before
 // ----------------

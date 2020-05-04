@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { FancyBorder } from './FancyBorder';
 import { css } from 'emotion';
+import React, { ReactNode } from 'react';
 
 type Props = {
   title: string;
   message: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 const titleStyle = css({

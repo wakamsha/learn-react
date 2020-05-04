@@ -1,15 +1,15 @@
 /* eslint-disable no-param-reassign */
-import * as React from 'react';
 import { Todo } from '../stores/TodoStore';
 import { observer } from 'mobx-react';
+import React, { useCallback } from 'react';
 
 type Props = {
   todo: Todo;
 };
 
 export const TodoView = observer(({ todo }: Props) => {
-  const handleToggleCompleted = React.useCallback(() => (todo.completed = !todo.completed), [todo]);
-  const handleRename = React.useCallback(() => (todo.task = prompt(`Task name!`, todo.task) || todo.task), [todo]);
+  const handleToggleCompleted = useCallback(() => (todo.completed = !todo.completed), [todo]);
+  const handleRename = useCallback(() => (todo.task = prompt(`Task name!`, todo.task) || todo.task), [todo]);
 
   return (
     <li onDoubleClick={handleRename}>

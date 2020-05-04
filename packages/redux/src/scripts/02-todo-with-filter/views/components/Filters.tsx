@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { FilterType } from '../../state/filters/reducers';
+import React from 'react';
 
 export type Props = {
   currentFilter: FilterType;

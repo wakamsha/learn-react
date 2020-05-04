@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { TodoListStore } from '../stores/TodoListStore';
 import { TodoView } from './TodoView';
 import { inject, observer } from 'mobx-react';
+import React, { Component } from 'react';
 
 type Props = {
   store?: TodoListStore;
@@ -9,7 +9,7 @@ type Props = {
 
 @inject('store')
 @observer
-export class TodoList extends React.Component<Props> {
+export class TodoList extends Component<Props> {
   public render() {
     const { store } = this.props;
     return (

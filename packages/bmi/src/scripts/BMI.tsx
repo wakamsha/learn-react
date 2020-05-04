@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { LabeledSlider } from './components/LabeledSlider';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 
-const Component: React.FC = () => {
-  const [weight, setWeight] = React.useState<number>(60);
-  const [height, setHeight] = React.useState<number>(170);
+const Component: FC = () => {
+  const [weight, setWeight] = useState<number>(60);
+  const [height, setHeight] = useState<number>(170);
 
-  const handleWeightChange = React.useCallback((w: string) => setWeight(Number(w)), []);
-  const handleHeightChange = React.useCallback((h: string) => setHeight(Number(h)), []);
+  const handleWeightChange = useCallback((w: string) => setWeight(Number(w)), []);
+  const handleHeightChange = useCallback((h: string) => setHeight(Number(h)), []);
 
-  const calcBMI = React.useMemo<number>(() => {
+  const calcBMI = useMemo<number>(() => {
     const heightMeters = height * 0.01;
     return Math.round(weight / (heightMeters * heightMeters));
   }, [weight, height]);

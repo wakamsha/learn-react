@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Asyncable } from './xx-custom-hook/App';
 import { render } from 'react-dom';
+import React from 'react';
 
 render(
   // <HelloMessage name="wakamsha" />,

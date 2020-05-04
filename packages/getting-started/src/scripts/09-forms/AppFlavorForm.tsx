@@ -1,18 +1,18 @@
 // https://ja.reactjs.org/docs/forms.html
-import * as React from 'react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type State = {
   value: string;
 };
-export class FlavorForm extends React.Component<{}, State> {
+export class FlavorForm extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = { value: 'coconut' };
   }
 
-  private handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => this.setState({ value: e.target.value });
+  private handleChange = (e: ChangeEvent<HTMLSelectElement>) => this.setState({ value: e.target.value });
 
-  private handleSubmit = (e: React.FormEvent) => {
+  private handleSubmit = (e: FormEvent) => {
     const { value } = this.state;
 
     e.preventDefault();

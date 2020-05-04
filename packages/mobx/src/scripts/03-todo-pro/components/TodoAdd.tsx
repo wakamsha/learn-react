@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { TodoListStore } from '../stores/TodoListStore';
 import { inject, observer } from 'mobx-react';
+import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type Props = {
   store?: TodoListStore;
@@ -8,8 +8,8 @@ type Props = {
 
 @inject('store')
 @observer
-export class TodoAdd extends React.Component<Props> {
-  private handleTaskChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+export class TodoAdd extends Component<Props> {
+  private handleTaskChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { store } = this.props;
 
     if (!store) return;
@@ -17,7 +17,7 @@ export class TodoAdd extends React.Component<Props> {
     store.setTask(e.target.value);
   };
 
-  private handleAddTodo = (e: React.FormEvent) => {
+  private handleAddTodo = (e: FormEvent) => {
     const { store } = this.props;
 
     e.preventDefault();

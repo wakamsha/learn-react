@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Todo as TodoState } from '../reducers';
+import React, { useCallback } from 'react';
 
 type Props = {
   todo: TodoState;
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const Todo = ({ todo, onClick }: Props) => {
-  const handleClick = React.useCallback(() => onClick(todo.id), [onClick, todo.id]);
+  const handleClick = useCallback(() => onClick(todo.id), [onClick, todo.id]);
 
   return (
     <li onClick={handleClick} style={todo.completed ? { textDecoration: 'line-through' } : {}}>

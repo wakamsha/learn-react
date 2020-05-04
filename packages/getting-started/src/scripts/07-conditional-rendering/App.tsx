@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/conditional-rendering.html
-import * as React from 'react';
+import React, { Component, MouseEvent } from 'react';
 
 function UserGreeting(): JSX.Element {
   return <h1>Welcome back!</h1>;
@@ -17,18 +17,18 @@ function Greeting(props: GreetingProps): JSX.Element {
   return loggedIn ? <UserGreeting /> : <GuestGreeting />;
 }
 
-function LoginButton({ onClick }: { onClick: (e: React.MouseEvent) => void }): JSX.Element {
+function LoginButton({ onClick }: { onClick: (e: MouseEvent) => void }): JSX.Element {
   return <button onClick={onClick}>Login</button>;
 }
 
-function LogoutButton({ onClick }: { onClick: (e: React.MouseEvent) => void }) {
+function LogoutButton({ onClick }: { onClick: (e: MouseEvent) => void }) {
   return <button onClick={onClick}>Logout</button>;
 }
 
 type State = {
   loggedIn: boolean;
 };
-export class LoginControl extends React.Component<{}, State> {
+export class LoginControl extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {

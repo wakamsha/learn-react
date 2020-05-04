@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Bubblegum } from './pages/Bubblegum';
 import { Home } from './pages/Home';
@@ -6,6 +5,7 @@ import { Route, Switch } from 'react-router';
 import { Shoelaces } from './pages/Shoelaces';
 import { Sidebar } from './components/Sidebar';
 import { css } from 'emotion';
+import React, { useCallback, useEffect, useState } from 'react';
 
 const baseStyle = css({
   display: 'flex',
@@ -22,11 +22,11 @@ const contentWrapperStyle = css({
 });
 
 export const SidebarApp = () => {
-  const [currentPath, setState] = React.useState(window.location.pathname);
+  const [currentPath, setState] = useState(window.location.pathname);
 
-  const handleClick = React.useCallback((path: string) => setState(path), []);
+  const handleClick = useCallback((path: string) => setState(path), []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('popstate', () => setState(window.location.pathname));
   }, []);
 

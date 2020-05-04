@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { FRIENDS } from '../Friends';
 import { Link, RouteComponentProps } from 'react-router-dom';
+import React from 'react';
 
 type Props = {
   foo: string;

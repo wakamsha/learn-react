@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { decCount, incCount } from '../../state/counter/actions';
 import { useDispatch } from 'react-redux';
+import React, { useCallback } from 'react';
 
 export const Counter = () => {
   const dispatch = useDispatch();
 
-  const handleClickInc = React.useCallback(() => dispatch(incCount(1)), [dispatch]);
-  const handleClickDec = React.useCallback(() => dispatch(decCount(1)), [dispatch]);
+  const handleClickInc = useCallback(() => dispatch(incCount(1)), [dispatch]);
+  const handleClickDec = useCallback(() => dispatch(decCount(1)), [dispatch]);
 
   return (
     <>

@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { TodoStore } from '../stores/TodoStore';
 import { observer } from 'mobx-react';
+import React, { Component } from 'react';
 
 type Props = {
   todo: TodoStore;
 };
 
 @observer
-export class TodoView extends React.Component<Props> {
+export class TodoView extends Component<Props> {
   private handleToggleCompleted = () => {
     const { todo } = this.props;
 

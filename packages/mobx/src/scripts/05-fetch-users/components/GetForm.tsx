@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
 import { observer } from 'mobx-react';
+import React, { Component } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -12,7 +12,7 @@ type State = {
 };
 
 @observer
-export class GetForm extends React.Component<Props, State> {
+export class GetForm extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
