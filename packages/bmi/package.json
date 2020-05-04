@@ -7,6 +7,6 @@
     "script": "webpack --progress --colors --config ../../webpack.config.js",
     "serve": "browser-sync start -c ../../bs-config.js",
     "start": "yarn reset; yarn copy; run-p \"script -d --develop --watch\" \"serve\"",
-    "build": "yarn reset; yarn copy; script"
+    "build": "yarn reset; yarn copy; yarn script"
   }
 }
