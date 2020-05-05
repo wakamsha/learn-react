@@ -1,5 +1,5 @@
 {
-  "name": "@react-study/bmi",
+  "name": "@learn-react/bmi",
   "version": "1.0.0",
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",

@@ -1,9 +1,9 @@
-import { Asyncable } from './xx-custom-hook/App';
+import { HelloMessage } from './01-hello-message/App';
 import { render } from 'react-dom';
 import React from 'react';
 
 render(
-  // <HelloMessage name="wakamsha" />,
+  <HelloMessage name="wakamsha" />,
   // <Timer />,
   // <Todo />,
   // <MarkdownEditor />,
@@ -22,6 +22,5 @@ render(
   // <HookApp count={10} />,
   // <EqualApp />,
   // <Bubbling />,
-  <Asyncable />,
   document.getElementById('app'),
 );
