@@ -1,7 +1,7 @@
 {
-  "name": "react-study",
+  "name": "learn-react",
   "version": "1.0.0",
-  "repository": "git@github.com:wakamsha/react-study.git",
+  "repository": "git@github.com:wakamsha/learn-react.git",
   "author": "wakamsha <wakamsha@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
@@ -67,13 +67,13 @@
     }
   },
   "scripts": {
-    "bmi": "            yarn workspace @react-study/bmi",
-    "esnext": "         yarn workspace @react-study/esnext",
-    "getting-started": "yarn workspace @react-study/getting-started",
-    "mobx": "           yarn workspace @react-study/mobx",
-    "redux": "          yarn workspace @react-study/redux",
-    "routing": "        yarn workspace @react-study/routing",
-    "routing-mobx": "   yarn workspace @react-study/routing-mobx",
+    "bmi": "            yarn workspace @learn-react/bmi",
+    "esnext": "         yarn workspace @learn-react/esnext",
+    "getting-started": "yarn workspace @learn-react/getting-started",
+    "mobx": "           yarn workspace @learn-react/mobx",
+    "redux": "          yarn workspace @learn-react/redux",
+    "routing": "        yarn workspace @learn-react/routing",
+    "routing-mobx": "   yarn workspace @learn-react/routing-mobx",
     "format": "         yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}",
     "lint": "           yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   }
