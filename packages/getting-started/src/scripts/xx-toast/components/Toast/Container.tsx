@@ -11,8 +11,8 @@ type Props = {
 export const Container = ({ toasts }: Props): JSX.Element =>
   createPortal(
     <div className={baseStyle}>
-      {toasts.map(({ id, content }) => (
-        <Item key={id} id={id}>
+      {toasts.map(({ id, content, theme }) => (
+        <Item key={id} id={id} theme={theme}>
           {content}
         </Item>
       ))}
@@ -22,8 +22,10 @@ export const Container = ({ toasts }: Props): JSX.Element =>
 
 const baseStyle = css({
   position: 'absolute',
-  top: 0,
-  right: 0,
+  bottom: 0,
+  left: 0,
   zIndex: 1,
-  padding: 8,
+  padding: 16,
+  display: 'flex',
+  flexDirection: 'column-reverse',
 });

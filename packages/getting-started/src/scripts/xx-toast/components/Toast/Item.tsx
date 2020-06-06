@@ -1,40 +1,38 @@
+import { Toast, useToast } from '.';
 import { css, keyframes } from 'emotion';
-import { useToast } from '.';
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 
 type Props = {
   id: number;
   children: ReactNode;
+  theme: Toast['theme'];
 };
 
-export const Item = ({ id, children }: Props): JSX.Element => {
+export const Item = ({ id, children, theme = 'success' }: Props): JSX.Element => {
   const { removeToast } = useToast();
-
-  const ref = useRef<HTMLDivElement>(null);
 
   const [addonStyle, setAddonStyle] = useState('');
 
-  const handleAnimationEnd = () => {
-    if (!ref.current) return;
-
-    window.getComputedStyle(ref.current).opacity === '0' && removeToast(id);
-  };
+  const handleAnimationEnd = (e: AnimationEvent<HTMLDivElement>) =>
+    window.getComputedStyle(e.currentTarget).opacity === '0' && removeToast(id);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setAddonStyle(removeStyle), 3000);
+    const timer = window.setTimeout(() => setAddonStyle(removeStyle), hideDurationTime);
 
     return () => window.clearTimeout(timer);
   }, [id, removeToast]);
 
   return (
-    <div className={`${itemStyle} ${addonStyle}`} ref={ref} onAnimationEnd={handleAnimationEnd}>
+    <div className={`${itemStyle} ${Theme[theme]} ${addonStyle}`} onAnimationEnd={handleAnimationEnd}>
       {children}
     </div>
   );
 };
 
+const hideDurationTime = 5000;
+
 const itemStyle = css({
-  width: 200,
+  minWidth: 256,
   position: 'relative',
   padding: 16,
   border: `1px solid #d7d7d7`,
@@ -43,15 +41,15 @@ const itemStyle = css({
   animation: `${keyframes({
     from: {
       opacity: 0,
-      transform: 'translate3d(200px, 0, 0)',
+      transform: 'translate3d(-10%, 0, 0)',
     },
     to: {
       opacity: 1,
       transform: 'translate3d(0, 0, 0)',
     },
-  })} .2s ease-in-out 0s`,
+  })} .2s ease-in-out`,
   '& + &': {
-    marginTop: 16,
+    marginBottom: 16,
   },
 });
 
@@ -64,7 +62,16 @@ const removeStyle = css({
     },
     to: {
       opacity: 0,
-      transform: 'translate3d(200px, 0, 0)',
+      transform: 'translate3d(-40%, 0, 0)',
     },
-  })} .2s linear 0s`,
+  })} .2s ease-in-out`,
 });
+
+const Theme = {
+  danger: css({
+    background: 'red',
+  }),
+  success: css({
+    background: 'lime',
+  }),
+};
