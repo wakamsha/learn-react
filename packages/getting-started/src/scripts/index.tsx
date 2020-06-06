@@ -1,9 +1,9 @@
-import { HelloMessage } from './01-hello-message/App';
+import { ToastApp } from './xx-toast/App';
 import { render } from 'react-dom';
 import React from 'react';
 
 render(
-  <HelloMessage name="wakamsha" />,
+  // <HelloMessage name="wakamsha" />,
   // <Timer />,
   // <Todo />,
   // <MarkdownEditor />,
@@ -22,5 +22,6 @@ render(
   // <HookApp count={10} />,
   // <EqualApp />,
   // <Bubbling />,
+  <ToastApp />,
   document.getElementById('app'),
 );
