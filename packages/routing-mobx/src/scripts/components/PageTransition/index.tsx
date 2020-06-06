@@ -1,6 +1,6 @@
-import { HistoryStore } from '../stores/HistoryStore';
+import { HistoryStore } from '../../stores/HistoryStore';
 import { Route, Switch, matchPath } from 'react-router';
-import { Transition } from './Transition';
+import { Transition } from '../Transition';
 import { observer } from 'mobx-react';
 import React, { Children, ReactNode } from 'react';
 

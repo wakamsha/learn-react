@@ -6,6 +6,10 @@ module.exports = {
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json', './packages/*/tsconfig.json'],
+  },
   env: {
     browser: true,
     es6: true,
@@ -14,6 +18,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'sort-imports-es6-autofix'],
   rules: {
     // Enable
+    '@typescript-eslint/dot-notation': ['error'],
     '@typescript-eslint/no-unused-expressions': [
       'error',
       {
@@ -23,6 +28,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-useless-constructor': ['error'],
+    '@typescript-eslint/switch-exhaustiveness-check': ['error'],
     'arrow-body-style': ['error', 'as-needed'],
     'func-names': ['error'],
     'lines-between-class-members': [
@@ -60,6 +66,7 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     ],
+    'react/jsx-key': ['error'],
     'react/jsx-no-target-blank': ['error'],
     'react/sort-comp': ['error'],
     'react-hooks/exhaustive-deps': 'warn',
@@ -96,6 +103,7 @@ module.exports = {
     'max-classes-per-file': ['off'],
     'no-bitwise': ['off'],
     'no-undef': ['off'],
+    'no-use-before-define': ['off'],
     'no-useless-constructor': ['off'],
     'no-nested-ternary': ['off'],
     'no-plusplus': ['off'],
