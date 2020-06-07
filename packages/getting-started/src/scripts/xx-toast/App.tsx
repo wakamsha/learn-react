@@ -4,7 +4,7 @@ import React from 'react';
 
 export const ToastApp = (): JSX.Element => (
   <ToastProvider>
-    <h1>Toast App</h1>
+    <h1>Snackbar App</h1>
     <AddMessage />
   </ToastProvider>
 );
