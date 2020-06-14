@@ -1,34 +1,38 @@
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { Child } from './pages/Child';
+import { Navigation } from './components/Navigation';
+import { css } from 'emotion';
 import React from 'react';
 
 type Props = {
   location: Location;
 };
 
-export const Component = ({ location }: Props) => {
+const Component = ({ location }: Props): JSX.Element => {
   const params = new URLSearchParams(location.search); // @FIXME babel/polyfill サポート外のため、別途 polyfill が必要
 
   return (
-    <>
-      <h1>Account</h1>
-      <ul>
-        <li>
-          <Link to={{ pathname: '/account', search: '?name=netflix' }}>Netflix</Link>
-        </li>
-        <li>
-          <Link to={{ pathname: '/account', search: '?name=zillow-group' }}>Zillow Group</Link>
-        </li>
-        <li>
-          <Link to={{ pathname: '/account', search: '?name=yahoo' }}>Yahoo</Link>
-        </li>
-      </ul>
-      <Child name={params.get('name') || ''} />
-    </>
+    <div className={baseStyle}>
+      <Navigation />
+      <main className={contentStyle}>
+        <Child name={params.get('name') || ''} />
+      </main>
+    </div>
   );
 };
 
-export const QueryParams = () => (
+const baseStyle = css({
+  display: 'flex',
+  width: '100%',
+});
+
+const contentStyle = css({
+  padding: 16,
+  height: '100vh',
+  flexGrow: 1,
+});
+
+export const QueryParams = (): JSX.Element => (
   <BrowserRouter>
     <Route component={Component} />
   </BrowserRouter>

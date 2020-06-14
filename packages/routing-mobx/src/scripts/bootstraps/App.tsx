@@ -15,7 +15,7 @@ type Props = {
   historyStore: HistoryStore;
 };
 
-export const App = ({ historyStore }: Props) => (
+export const App = ({ historyStore }: Props): JSX.Element => (
   <ListStore.Context.Provider value={Stores.listStore}>
     <div className={baseStyle}>
       <ul className={navStyle}>

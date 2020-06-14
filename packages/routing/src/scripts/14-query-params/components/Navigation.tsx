@@ -1,0 +1,31 @@
+import { Link } from 'react-router-dom';
+import { css } from 'emotion';
+import React from 'react';
+
+export const Navigation = (): JSX.Element => (
+  <ul className={navStyle}>
+    <li>
+      <Link to={{ pathname: '/account', search: '?name=netflix' }}>Netflix</Link>
+    </li>
+    <li>
+      <Link to={{ pathname: '/account', search: '?name=zillow-group' }}>Zillow Group</Link>
+    </li>
+    <li>
+      <Link to={{ pathname: '/account', search: '?name=yahoo' }}>Yahoo</Link>
+    </li>
+  </ul>
+);
+
+const navStyle = css({
+  listStyle: 'none',
+  margin: 0,
+  padding: 16,
+  height: '100vh',
+  borderLeft: '1px solid gray',
+  background: 'silver',
+  flexShrink: 0,
+
+  li: {
+    marginBottom: 8,
+  },
+});
