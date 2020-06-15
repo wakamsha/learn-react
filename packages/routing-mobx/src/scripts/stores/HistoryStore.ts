@@ -13,11 +13,11 @@ export class HistoryStore {
   } as any;
 
   constructor() {
-    this.history.listen(this.handlePopState);
+    this.history.listen(this.handleChangeState);
   }
 
   @action
-  private handlePopState = (location: Location, action: Action) => {
+  private handleChangeState = (location: Location, action: Action) => {
     if (action === 'PUSH' || action === 'REPLACE') {
       window.scrollTo(0, 0);
     }

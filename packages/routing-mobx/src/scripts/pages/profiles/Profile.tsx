@@ -1,10 +1,11 @@
+import { HistoryStore } from '../../stores/HistoryStore';
 import { PageTransition } from '../../components/PageTransition';
 import { ProfileEditPage } from './EditPage';
 import { ProfileShowPage } from './ShowPage';
 import { ProfileStore } from '../../stores/ProfileStore';
 import { Redirect, Route } from 'react-router';
 import { Router } from '../../Router';
-import { Stores } from '../../stores';
+import { useContext } from '../../hooks/useContext';
 import React, { createContext, useMemo } from 'react';
 
 /**
@@ -61,6 +62,8 @@ import React, { createContext, useMemo } from 'react';
  * FC と ContextAPI を使ったモダンなパターン
  */
 export const Profile = () => {
+  const historyStore = useContext(HistoryStore.Context);
+
   const store = useMemo(() => new ProfileStore(), []);
 
   const Context = useMemo(() => createContext(store), [store]);
@@ -69,7 +72,7 @@ export const Profile = () => {
     <>
       <h1>Profile</h1>
       <Context.Provider value={store}>
-        <PageTransition historyStore={Stores.historyStore}>
+        <PageTransition historyStore={historyStore}>
           <Route
             path={Router.paths.profileShow}
             render={() => <Context.Consumer>{store => <ProfileShowPage store={store} />}</Context.Consumer>}

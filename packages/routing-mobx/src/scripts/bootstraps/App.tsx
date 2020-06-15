@@ -1,11 +1,12 @@
 import { HistoryStore } from '../stores/HistoryStore';
 import { HomePage } from '../pages/Home';
-import { Link, Route } from 'react-router-dom';
 import { ListPage } from '../pages/ListPage';
 import { ListStore } from '../stores/ListStore';
+import { Navigation } from '../components/Navigation';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { PageTransition } from '../components/PageTransition';
+// import { PageTransition } from '../components/PageTransition';
 import { Profile } from '../pages/profiles/Profile';
+import { Route, Switch } from 'react-router-dom';
 import { Router } from '../Router';
 import { Stores } from '../stores';
 import { css } from 'emotion';
@@ -15,32 +16,16 @@ export const App = () => (
   <HistoryStore.Context.Provider value={Stores.historyStore}>
     <ListStore.Context.Provider value={Stores.listStore}>
       <div className={baseStyle}>
-        <ul className={navStyle}>
-          <li>
-            <Link to={Router.paths.home}>Home</Link>
-          </li>
-          <li>
-            Profile
-            <ul>
-              <li>
-                <Link to={Router.paths.profileEdit}>Edit</Link>
-              </li>
-              <li>
-                <Link to={Router.paths.profileShow}>Show</Link>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <Link to={Router.paths.list}>List</Link>
-          </li>
-        </ul>
+        <Navigation />
         <div className={contentStyle}>
-          <PageTransition historyStore={Stores.historyStore}>
+          {/* <PageTransition historyStore={Stores.historyStore}> */}
+          <Switch>
             <Route path={Router.paths.home} component={HomePage} exact />
             <Route path={Router.paths.profile} component={Profile} />
             <Route path={Router.paths.list} component={ListPage} />
             <Route component={NotFoundPage} />
-          </PageTransition>
+          </Switch>
+          {/* </PageTransition> */}
         </div>
       </div>
     </ListStore.Context.Provider>
@@ -50,19 +35,6 @@ export const App = () => (
 const baseStyle = css({
   display: 'flex',
   width: '100%',
-});
-
-const navStyle = css({
-  listStyle: 'none',
-  margin: 0,
-  padding: 16,
-  height: '100vh',
-  borderLeft: '1px solid gray',
-  background: 'silver',
-  flexShrink: 0,
-  li: {
-    marginBottom: 8,
-  },
 });
 
 const contentStyle = css({
