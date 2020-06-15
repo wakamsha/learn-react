@@ -34,7 +34,7 @@ export class Transition extends Component<Props, State> {
     return null;
   }
 
-  public componentDidUpdate(prevProps: Props) {
+  public componentDidUpdate(prevProps: Props): void {
     const { id } = this.props;
 
     if (id !== prevProps.id) {

@@ -1,5 +1,4 @@
-// import { QueryParams } from './14-query-params/QueryParams';
-import { Basic } from './01-basic/Basic';
+import { HistoryAPI } from './xx-history-api/HistoryAPI';
 import { injectGlobal } from 'emotion';
 import { render } from 'react-dom';
 import React from 'react';
@@ -29,12 +28,13 @@ injectGlobal({
 });
 
 render(
-  <Basic />,
+  // <Basic />,
   // <Redirects />,
   // <CustomLink />,
   // <PreventingTransitions />,
   // <NoMatchApp />,
   // <SidebarApp />,
   // <QueryParams />,
+  <HistoryAPI />,
   document.getElementById('app'),
 );
