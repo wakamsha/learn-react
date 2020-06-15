@@ -4,9 +4,9 @@ import { ListPage } from '../pages/ListPage';
 import { ListStore } from '../stores/ListStore';
 import { Navigation } from '../components/Navigation';
 import { NotFoundPage } from '../pages/NotFoundPage';
-// import { PageTransition } from '../components/PageTransition';
+import { PageTransition } from '../components/PageTransition';
 import { Profile } from '../pages/profiles/Profile';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Router } from '../Router';
 import { Stores } from '../stores';
 import { css } from 'emotion';
@@ -18,14 +18,12 @@ export const App = () => (
       <div className={baseStyle}>
         <Navigation />
         <div className={contentStyle}>
-          {/* <PageTransition historyStore={Stores.historyStore}> */}
-          <Switch>
+          <PageTransition historyStore={Stores.historyStore}>
             <Route path={Router.paths.home} component={HomePage} exact />
             <Route path={Router.paths.profile} component={Profile} />
             <Route path={Router.paths.list} component={ListPage} />
             <Route component={NotFoundPage} />
-          </Switch>
-          {/* </PageTransition> */}
+          </PageTransition>
         </div>
       </div>
     </ListStore.Context.Provider>
