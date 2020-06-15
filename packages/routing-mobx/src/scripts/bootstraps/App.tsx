@@ -11,42 +11,40 @@ import { Stores } from '../stores';
 import { css } from 'emotion';
 import React from 'react';
 
-type Props = {
-  historyStore: HistoryStore;
-};
-
-export const App = ({ historyStore }: Props): JSX.Element => (
-  <ListStore.Context.Provider value={Stores.listStore}>
-    <div className={baseStyle}>
-      <ul className={navStyle}>
-        <li>
-          <Link to={Router.paths.home}>Home</Link>
-        </li>
-        <li>
-          Profile
-          <ul>
-            <li>
-              <Link to={Router.paths.profileEdit}>Edit</Link>
-            </li>
-            <li>
-              <Link to={Router.paths.profileShow}>Show</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Link to={Router.paths.list}>List</Link>
-        </li>
-      </ul>
-      <div className={contentStyle}>
-        <PageTransition historyStore={historyStore}>
-          <Route path={Router.paths.home} component={HomePage} exact />
-          <Route path={Router.paths.profile} component={Profile} />
-          <Route path={Router.paths.list} component={ListPage} />
-          <Route component={NotFoundPage} />
-        </PageTransition>
+export const App = () => (
+  <HistoryStore.Context.Provider value={Stores.historyStore}>
+    <ListStore.Context.Provider value={Stores.listStore}>
+      <div className={baseStyle}>
+        <ul className={navStyle}>
+          <li>
+            <Link to={Router.paths.home}>Home</Link>
+          </li>
+          <li>
+            Profile
+            <ul>
+              <li>
+                <Link to={Router.paths.profileEdit}>Edit</Link>
+              </li>
+              <li>
+                <Link to={Router.paths.profileShow}>Show</Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Link to={Router.paths.list}>List</Link>
+          </li>
+        </ul>
+        <div className={contentStyle}>
+          <PageTransition historyStore={Stores.historyStore}>
+            <Route path={Router.paths.home} component={HomePage} exact />
+            <Route path={Router.paths.profile} component={Profile} />
+            <Route path={Router.paths.list} component={ListPage} />
+            <Route component={NotFoundPage} />
+          </PageTransition>
+        </div>
       </div>
-    </div>
-  </ListStore.Context.Provider>
+    </ListStore.Context.Provider>
+  </HistoryStore.Context.Provider>
 );
 
 const baseStyle = css({

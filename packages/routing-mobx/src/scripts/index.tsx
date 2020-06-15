@@ -1,14 +1,18 @@
 import { App } from './bootstraps/App';
 import { Router } from 'react-router-dom';
 import { Stores } from './stores';
-import { observer } from 'mobx-react';
 import { render } from 'react-dom';
+import { useObserver } from 'mobx-react';
 import React from 'react';
 
-const Bootstrap = observer(() => (
-  <Router history={Stores.historyStore.history as any}>
-    <App historyStore={Stores.historyStore} />
-  </Router>
-));
+const Bootstrap = () => {
+  const history = useObserver(() => Stores.historyStore.history);
+
+  return (
+    <Router history={history}>
+      <App />
+    </Router>
+  );
+};
 
 render(<Bootstrap />, document.getElementById('app'));
