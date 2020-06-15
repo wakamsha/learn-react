@@ -1,5 +1,5 @@
 import { Container } from './Container';
-import { useContext } from '../../hooks/useContext';
+import { useContext } from '../../../_core/hooks/useContext';
 import React, { ReactNode, createContext, useCallback, useState } from 'react';
 
 type ProviderProps = {
