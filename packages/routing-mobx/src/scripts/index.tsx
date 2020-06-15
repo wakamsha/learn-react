@@ -6,7 +6,7 @@ import { render } from 'react-dom';
 import React from 'react';
 
 const Bootstrap = observer(() => (
-  <Router history={Stores.historyStore.history}>
+  <Router history={Stores.historyStore.history as any}>
     <App historyStore={Stores.historyStore} />
   </Router>
 ));

@@ -1,7 +1,7 @@
 import { HistoryStore } from '../../stores/HistoryStore';
-import { Route, Switch, matchPath } from 'react-router';
+import { Route, Switch, match, matchPath } from 'react-router';
 import { Transition } from '../Transition';
-import { observer } from 'mobx-react';
+import { useObserver } from 'mobx-react';
 import React, { Children, ReactNode } from 'react';
 
 type Props = {
@@ -9,15 +9,19 @@ type Props = {
   children: ReactNode;
 };
 
-export const PageTransition = observer(({ historyStore, children }: Props) => {
-  let match: any;
+export const PageTransition = ({ historyStore, children }: Props): JSX.Element => {
+  const location = useObserver(() => historyStore.location);
+
+  let m: match<any> | null = { params: null, isExact: false, path: '', url: '' };
+
   Children.toArray(children).some((route: Route) => {
-    match = matchPath<any>(historyStore.pathname, route.props);
-    return !!match;
+    m = matchPath<any>(location.pathname, route.props);
+    return !!m;
   });
+
   return (
-    <Transition id={match ? match.path + JSON.stringify(match.params) : ''}>
-      <Switch location={historyStore.location}>{children}</Switch>
+    <Transition id={m ? m.path + JSON.stringify(m.params) : ''}>
+      <Switch location={location}>{children}</Switch>
     </Transition>
   );
-});
+};
