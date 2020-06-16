@@ -1,4 +1,4 @@
-import { HistoryAPI } from './xx-history-api/HistoryAPI';
+import { RoutingProviderApp } from './xx-routing-provider';
 import { injectGlobal } from 'emotion';
 import { render } from 'react-dom';
 import React from 'react';
@@ -35,6 +35,7 @@ render(
   // <NoMatchApp />,
   // <SidebarApp />,
   // <QueryParams />,
-  <HistoryAPI />,
+  // <HistoryAPI />,
+  <RoutingProviderApp />,
   document.getElementById('app'),
 );
