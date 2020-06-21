@@ -18,6 +18,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'sort-imports-es6-autofix'],
   rules: {
     // Enable
+    '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
     '@typescript-eslint/dot-notation': ['error'],
     '@typescript-eslint/no-unused-expressions': [
       'error',
@@ -56,14 +57,14 @@ module.exports = {
     'react/jsx-filename-extension': [
       'error',
       {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.tsx'],
       },
     ],
     'react/jsx-key': ['error'],
     'react/jsx-no-target-blank': ['error'],
     'react/sort-comp': ['error'],
-    'react-hooks/exhaustive-deps': 'warn',
-    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': ['warn'],
+    'react-hooks/rules-of-hooks': ['error'],
     'sort-imports-es6-autofix/sort-imports-es6': [
       'error',
       {
@@ -74,6 +75,7 @@ module.exports = {
     ],
 
     // Disable
+    '@typescript-eslint/ban-types': ['off'],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],
@@ -93,6 +95,7 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
     'jsx-a11y/no-static-element-interactions': ['off'],
     'default-case': ['off'],
+    'global-require': ['off'],
     'max-classes-per-file': ['off'],
     'no-bitwise': ['off'],
     'no-param-reassign': ['off'],
