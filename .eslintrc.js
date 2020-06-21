@@ -8,7 +8,7 @@ module.exports = {
   ],
   parserOptions: {
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json', './packages/*/tsconfig.json'],
+    project: ['./tsconfig.json', './packages/**/tsconfig.json'],
   },
   env: {
     browser: true,
@@ -45,13 +45,6 @@ module.exports = {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       }
     ],
-    'no-param-reassign': [
-      'error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: ['draft'],
-      },
-    ],
     'no-restricted-syntax': [
       'error',
       {
@@ -81,7 +74,6 @@ module.exports = {
     ],
 
     // Disable
-    '@typescript-eslint/camelcase': ['off'],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],
@@ -103,6 +95,7 @@ module.exports = {
     'default-case': ['off'],
     'max-classes-per-file': ['off'],
     'no-bitwise': ['off'],
+    'no-param-reassign': ['off'],
     'no-undef': ['off'],
     'no-use-before-define': ['off'],
     'no-useless-constructor': ['off'],
