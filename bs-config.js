@@ -12,6 +12,7 @@ module.exports = {
   https,
   port: https ? 443 : 3000,
   startPath: '/',
+  ghostMode: false,
   reloadDelay: 500,
   reloadDebounce: 500,
 };

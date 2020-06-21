@@ -1,6 +1,6 @@
 import { Route, Switch, matchPath } from 'react-router-dom';
 import { Transition } from '../../@core/components/Transition';
-import { useRouting } from './RoutingProvider';
+import { useRouting } from '../../@core/components/RoutingProvider';
 import React, { Children, ReactNode } from 'react';
 
 type Props = {

@@ -1,5 +1,5 @@
 import { Router } from '../constants/Router';
-import { useRouting } from '../components/RoutingProvider';
+import { useRouting } from '../../@core/components/RoutingProvider';
 import React, { useCallback } from 'react';
 
 export const About = () => {

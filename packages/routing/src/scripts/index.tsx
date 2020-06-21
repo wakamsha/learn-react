@@ -1,4 +1,4 @@
-import { MobxHooksApp } from './32-mobx-hooks';
+import { RoutingProviderApp } from './42-routing-provider';
 import { injectGlobal } from 'emotion';
 import { render } from 'react-dom';
 import React from 'react';
@@ -37,8 +37,8 @@ render(
   // <QueryParams />,
   // <ReduxBasicApp />,
   // <MobxBasicApp />,
-  <MobxHooksApp />,
+  // <MobxHooksApp />,
   // <HistoryAPI />,
-  // <RoutingProviderApp />,
+  <RoutingProviderApp />,
   document.getElementById('app'),
 );
