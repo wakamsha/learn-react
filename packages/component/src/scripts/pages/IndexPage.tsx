@@ -14,16 +14,18 @@ const baseStyle = css({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  background: '#282c34',
 });
 
 const bannerStyle = css({
   padding: 4,
-  border: '4px solid',
+  border: '4px solid gray',
 });
 
 const bannerLabelStyle = css({
   margin: 0,
   padding: 16,
-  border: '1px solid',
+  border: '1px solid gray',
+  color: 'gray',
   fontSize: 16,
 });

@@ -20,6 +20,7 @@ export const StoryPage = () => {
 
 const baseStyle = css({
   height: '100vh',
+  background: '#F6F6F8',
 });
 
 const titleStyle = css({
