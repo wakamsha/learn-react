@@ -66,7 +66,7 @@
     }
   },
   "scripts": {
-    "bmi": "            yarn workspace @learn-react/bmi",
+    "component": "      yarn workspace @learn-react/component",
     "esnext": "         yarn workspace @learn-react/esnext",
     "getting-started": "yarn workspace @learn-react/getting-started",
     "mobx": "           yarn workspace @learn-react/mobx",
