@@ -1,4 +1,4 @@
-import { ToastApp } from './xx-toast/App';
+import { Bubbling } from './xx-bubbling/App';
 import { render } from 'react-dom';
 import React from 'react';
 
@@ -21,7 +21,6 @@ render(
   // <CustomTextInput />,
   // <HookApp count={10} />,
   // <EqualApp />,
-  // <Bubbling />,
-  <ToastApp />,
+  <Bubbling />,
   document.getElementById('app'),
 );

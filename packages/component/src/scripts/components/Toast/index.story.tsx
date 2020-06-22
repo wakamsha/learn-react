@@ -1,7 +1,13 @@
-import { useToast } from '../Toast';
+import { ToastProvider, useToast } from '.';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
-export const AddMessage = (): JSX.Element => {
+export const Story = () => (
+  <ToastProvider>
+    <AddMessage />
+  </ToastProvider>
+);
+
+const AddMessage = () => {
   const { addToast } = useToast();
 
   const [value, setValue] = useState('');
