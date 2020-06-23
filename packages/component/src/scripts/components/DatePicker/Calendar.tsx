@@ -1,5 +1,18 @@
 import { CalendarItem } from './CalendarItem';
-import { endOfDay, isAfter, isBefore, isSameDay, lastDayOfMonth, setDate, startOfDay, startOfMonth } from 'date-fns';
+import {
+  addMonths,
+  endOfDay,
+  format,
+  isAfter,
+  isBefore,
+  isSameDay,
+  lastDayOfMonth,
+  setDate,
+  startOfDay,
+  startOfMonth,
+  subMonths,
+} from 'date-fns';
+import { css } from 'emotion';
 import React, { useMemo } from 'react';
 
 type Props = {
@@ -30,9 +43,19 @@ type Props = {
   minDate?: Date;
 
   onClickDate?: (date: Date) => void;
+  onClickPrevMonth?: (date: Date) => void;
+  onClickNextMonth?: (date: Date) => void;
 };
 
-export const Calendar = ({ value, page: rawPage, maxDate: rawMaxDate, minDate: rawMinDate, onClickDate }: Props) => {
+export const Calendar = ({
+  value,
+  page: rawPage,
+  maxDate: rawMaxDate,
+  minDate: rawMinDate,
+  onClickDate,
+  onClickPrevMonth,
+  onClickNextMonth,
+}: Props) => {
   const page = useMemo(() => startOfMonth(rawPage), [rawPage]);
 
   const maxDate = useMemo(() => rawMaxDate && endOfDay(rawMaxDate), [rawMaxDate]);
@@ -41,33 +64,73 @@ export const Calendar = ({ value, page: rawPage, maxDate: rawMaxDate, minDate: r
 
   const handleClickDate = (value: Date) => onClickDate?.(startOfDay(value));
 
+  const handleClickPrevMonth = () => onClickPrevMonth?.(subMonths(page, 1));
+
+  const handleClickNextMonth = () => onClickNextMonth?.(addMonths(page, 1));
+
   return (
-    <table>
-      <thead>
-        <tr>
-          {WeekLabels.map(label => (
-            <th key={label}>{label}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {getDateArray(page).map((week, i) => (
-          <tr key={i}>
-            {week.map((cell, j) => (
-              <CalendarItem
-                key={j}
-                value={cell}
-                isActive={cell && isSameDay(cell, value)}
-                isDisabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
-                onClick={handleClickDate}
-              />
+    <div>
+      <nav className={monthSelectorStyle}>
+        <button onClick={handleClickPrevMonth}>👈</button>
+        <span>{format(page, 'MMM yyyy')}</span>
+        <button onClick={handleClickNextMonth}>👉</button>
+      </nav>
+      <table className={calendarStyle}>
+        <thead>
+          <tr>
+            {WeekLabels.map(label => (
+              <th key={label}>{label}</th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {getDateArray(page).map((week, i) => (
+            <tr key={i}>
+              {week.map((cell, j) => (
+                <CalendarItem
+                  key={j}
+                  value={cell}
+                  isActive={cell && isSameDay(cell, value)}
+                  isDisabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
+                  onClick={handleClickDate}
+                />
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
+
+const monthSelectorStyle = css({
+  display: 'flex',
+  marginBottom: 16,
+  alignItems: 'center',
+
+  '> button': {
+    appearance: 'none',
+    border: 'none',
+    background: 'transparent',
+    width: 36,
+    height: 36,
+    borderRadius: '50%',
+    flex: '0 0 auto',
+
+    '&:hover': {
+      background: 'silver',
+    },
+  },
+
+  '> span': {
+    flex: '1 1 100%',
+    textAlign: 'center',
+  },
+});
+
+const calendarStyle = css({
+  width: '100%',
+});
 
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 

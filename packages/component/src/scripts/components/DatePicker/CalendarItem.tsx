@@ -26,7 +26,7 @@ export const CalendarItem = ({ value, isActive, isDisabled, onClick }: Props) =>
 const baseStyle = css({
   width: 36,
   height: 36,
-  borderRadius: '50%',
+  borderRadius: '999rem',
   lineHeight: 1,
   textAlign: 'center',
 });
