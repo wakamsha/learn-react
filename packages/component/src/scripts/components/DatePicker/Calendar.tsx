@@ -90,8 +90,8 @@ export const Calendar = ({
                 <CalendarItem
                   key={j}
                   value={cell}
-                  isActive={cell && isSameDay(cell, value)}
-                  isDisabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
+                  active={cell && isSameDay(cell, value)}
+                  disabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
                   onClick={handleClickDate}
                 />
               ))}
@@ -116,9 +116,10 @@ const monthSelectorStyle = css({
     height: 36,
     borderRadius: '50%',
     flex: '0 0 auto',
+    cursor: 'pointer',
 
     '&:hover': {
-      background: 'silver',
+      background: 'lightgray',
     },
   },
 

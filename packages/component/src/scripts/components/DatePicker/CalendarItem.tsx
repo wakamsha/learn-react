@@ -4,38 +4,46 @@ import React from 'react';
 type Props = {
   onClick: (value: Date) => void;
   value?: Date;
-  isActive?: boolean;
-  isDisabled?: boolean;
+  active?: boolean;
+  disabled?: boolean;
 };
 
-export const CalendarItem = ({ value, isActive, isDisabled, onClick }: Props) => {
-  const handleClick = () => value && !isDisabled && onClick(value);
+export const CalendarItem = ({ value, active, disabled, onClick }: Props) => {
+  const handleClick = () => value && !disabled && onClick(value);
 
   return (
-    <td
-      className={`${baseStyle} ${value ? clickableStyle : ''} ${isActive ? activeStyle : ''} ${
-        isDisabled ? disabledStyle : ''
-      }`}
-      onClick={handleClick}
-    >
-      {value?.getDate()}
+    <td className={baseStyle}>
+      <span
+        className={`${itemStyle} ${value ? clickableStyle : ''} ${active ? activeStyle : ''} ${
+          disabled ? disabledStyle : ''
+        }`}
+        onClick={handleClick}
+      >
+        {value?.getDate()}
+      </span>
     </td>
   );
 };
 
 const baseStyle = css({
+  textAlign: 'center',
+});
+
+const itemStyle = css({
+  display: 'inline-flex',
   width: 36,
   height: 36,
   borderRadius: '999rem',
   lineHeight: 1,
-  textAlign: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
 });
 
 const clickableStyle = css({
   cursor: 'pointer',
 
   '&:hover': {
-    background: 'silver',
+    background: 'lightgray',
   },
 });
 
@@ -44,11 +52,15 @@ const activeStyle = css({
   cursor: 'default',
 
   '&, &:hover': {
-    background: 'blue',
+    background: 'royalblue',
   },
 });
 
 const disabledStyle = css({
-  color: 'gray',
+  color: 'lightgray',
   cursor: 'not-allowed',
+
+  '&:hover': {
+    background: 'transparent',
+  },
 });

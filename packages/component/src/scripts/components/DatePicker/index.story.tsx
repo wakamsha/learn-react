@@ -14,6 +14,8 @@ export const Story = () => {
     <Calendar
       value={date}
       page={month}
+      maxDate={new Date()}
+      minDate={new Date(2020, 0, 10)}
       onClickDate={handleClickDate}
       onClickPrevMonth={handleClickMonth}
       onClickNextMonth={handleClickMonth}
