@@ -1,4 +1,4 @@
-import { Calendar } from './Calendar';
+import { Calendar } from '.';
 import React, { useState } from 'react';
 
 export const Story = () => {

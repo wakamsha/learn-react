@@ -8,7 +8,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export const CalendarItem = ({ value, active, disabled, onClick }: Props) => {
+export const Item = ({ value, active, disabled, onClick }: Props) => {
   const handleClick = () => value && !disabled && onClick(value);
 
   return (

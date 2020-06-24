@@ -1,4 +1,4 @@
-import { CalendarItem } from './CalendarItem';
+import { Item } from './Item';
 import {
   addMonths,
   endOfDay,
@@ -87,7 +87,7 @@ export const Calendar = ({
           {getDateArray(page).map((week, i) => (
             <tr key={i}>
               {week.map((cell, j) => (
-                <CalendarItem
+                <Item
                   key={j}
                   value={cell}
                   active={cell && isSameDay(cell, value)}
