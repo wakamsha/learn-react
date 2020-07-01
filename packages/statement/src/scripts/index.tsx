@@ -1,7 +1,7 @@
-import { MobxHooksApp } from './22-mobx-hooks';
+import { UnstatedBasicApp } from './31-unstated-basic';
 import { injectGlobal } from 'emotion';
 import { render } from 'react-dom';
-import React from 'react';
+import React, { StrictMode } from 'react';
 
 injectGlobal({
   '*, *:before, *:after': {
@@ -28,7 +28,8 @@ injectGlobal({
 });
 
 render(
-  // <ReduxBasicApp />,
-  <MobxHooksApp />,
+  <StrictMode>
+    <UnstatedBasicApp />
+  </StrictMode>,
   document.getElementById('app'),
 );

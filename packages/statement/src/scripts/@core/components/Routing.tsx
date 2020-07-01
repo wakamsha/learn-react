@@ -3,7 +3,7 @@ import { Router } from 'react-router-dom';
 import { useContext } from '../hooks/useContext';
 import React, { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
-type Context = {
+type Store = {
   history: History;
   location: Location;
 };
@@ -12,11 +12,11 @@ type Props = {
   children: ReactNode;
 };
 
-const Context = createContext<Context | null>(null);
+const Context = createContext<Store | null>(null);
 
-export const useRouting = (): Context => useContext(Context);
+const useStore = (): Store => useContext(Context);
 
-export const RoutingProvider = ({ children }: Props) => {
+const Provider = ({ children }: Props) => {
   const [location, setLocation] = useState<Location>({ ...window.location, state: {} });
 
   const history = useMemo(() => createBrowserHistory(), []);
@@ -38,3 +38,8 @@ export const RoutingProvider = ({ children }: Props) => {
     </Context.Provider>
   );
 };
+
+export const Routing = {
+  Provider,
+  useStore,
+} as const;
