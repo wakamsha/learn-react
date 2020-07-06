@@ -1,4 +1,4 @@
-import { AsyncWithCC } from './05-async-with-cc/App';
+import { AsyncWithFC } from './06-async-with-fc/App';
 import { injectGlobal } from 'emotion';
 import { render } from 'react-dom';
 import React from 'react';
@@ -32,7 +32,7 @@ render(
   // <TodoGettingStarted />,
   // <TodoPro />,
   // <TodoWithContext />,
-  <AsyncWithCC />,
-  // <AsyncWithFC />,
+  // <AsyncWithCC />,
+  <AsyncWithFC />,
   document.getElementById('app'),
 );
