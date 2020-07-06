@@ -1,7 +1,7 @@
-import { User } from '../infras/model';
+import { User } from '../infra/model';
 import { action, observable } from 'mobx';
 import { flow } from '../utils/Decorator';
-import { requestGetUser, requestGetUsers, requestPostUser } from '../infras/client';
+import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
 
 export class JSONPlaceholderStore {
   @observable public users: User[] = [];

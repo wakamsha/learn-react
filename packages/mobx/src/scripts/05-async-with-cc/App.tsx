@@ -6,26 +6,13 @@ import { Stores } from './stores';
 import { css } from 'emotion';
 import React, { createContext } from 'react';
 
-const baseStyle = css({
-  display: 'flex',
-});
-
-const formColumnStyle = css({
-  padding: '0 16px',
-  flexShrink: 0,
-  flexGrow: 1,
-});
-
-const logColumnStyle = css({
-  flexGrow: 1.618,
-});
-
 const JSONPlaceholderContext = createContext(Stores.jsonPlaceholderStore);
 
-export const FetchUsers = () => (
+export const AsyncWithCC = () => (
   <JSONPlaceholderContext.Provider value={Stores.jsonPlaceholderStore}>
     <div className={baseStyle}>
       <div className={formColumnStyle}>
+        <h1>Async w/ CC</h1>
         <JSONPlaceholderContext.Consumer>{store => <GetForm store={store} />}</JSONPlaceholderContext.Consumer>
         <hr />
         <JSONPlaceholderContext.Consumer>{store => <GetWithParamForm store={store} />}</JSONPlaceholderContext.Consumer>
@@ -38,3 +25,17 @@ export const FetchUsers = () => (
     </div>
   </JSONPlaceholderContext.Provider>
 );
+
+const baseStyle = css({
+  display: 'flex',
+  height: '100vh',
+});
+
+const formColumnStyle = css({
+  padding: '0 16px',
+  flex: '1 1 100%',
+});
+
+const logColumnStyle = css({
+  flex: '1.618 1 100%',
+});

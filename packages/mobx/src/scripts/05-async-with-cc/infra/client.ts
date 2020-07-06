@@ -1,5 +1,5 @@
 import { CreateUserRequest, CreateUserResponse, User } from './model';
-import { stringify } from '../utils/QueryString';
+import { stringify } from 'qs';
 
 export type Error = {
   conditions: string[];

@@ -16,7 +16,7 @@ export class GetForm extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      status: 'Idling',
+      status: {},
     };
   }
 
@@ -31,7 +31,7 @@ export class GetForm extends Component<Props, State> {
 
   public render() {
     const { status } = this.state;
-    const fetching = status === 'Running';
+    const fetching = !!status.running;
 
     return (
       <>

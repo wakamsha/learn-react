@@ -5,27 +5,38 @@
 /* eslint-disable no-underscore-dangle */
 import { flow as flowOrigin } from 'mobx';
 
-export type TransactionStatus = 'Idling' | 'Running' | 'Error' | 'Success';
+export type TransactionStatus = Partial<{
+  running: boolean;
+  error: boolean;
+}>;
 
 export function transaction<T extends string>(name: T) {
   function decorate(fn: Function) {
     return flowOrigin(function* (this: any) {
       this.setState({
-        [name]: 'Running',
+        [name]: {
+          running: true,
+        },
       });
       try {
         yield* fn.apply(this, arguments);
 
         !this._unmount &&
           this.setState({
-            [name]: 'Success',
+            [name]: {
+              running: false,
+              error: false,
+            },
           });
       } catch (e) {
         console.error(`@transaction`, e);
       }
       !this._unmount &&
         this.setState({
-          [name]: 'Error',
+          [name]: {
+            running: false,
+            error: true,
+          },
         });
     });
   }

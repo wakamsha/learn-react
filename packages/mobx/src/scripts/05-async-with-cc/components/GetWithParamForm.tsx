@@ -16,7 +16,7 @@ export class GetWithParamForm extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      status: 'Idling',
+      status: {},
     };
   }
 
@@ -41,7 +41,7 @@ export class GetWithParamForm extends Component<Props, State> {
   public render() {
     const { store } = this.props;
     const { status } = this.state;
-    const fetching = status === 'Running';
+    const fetching = !!status.running;
 
     return (
       <form onSubmit={this.onSubmit}>
