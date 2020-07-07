@@ -1,7 +1,7 @@
 import { UsersStore } from '../stores/UsersStore';
 import { useContext } from '../hooks/useContext';
 import { useTransaction } from '../hooks/useTransaction';
-import React, { ChangeEvent, useCallback, useReducer } from 'react';
+import React, { ChangeEvent, useReducer } from 'react';
 
 type State = {
   name: string;
@@ -23,7 +23,7 @@ export const PostForm = () => {
 
   const [{ name, job }, dispatch] = useReducer(reducer, { name: store.name, job: store.job });
 
-  const { onSubmit, submitStatus } = useSubmit();
+  const { onSubmit, fetching } = useSubmit();
 
   const handleChangeName = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     dispatch({ type: 'name', payload: { name: value } });
@@ -34,8 +34,6 @@ export const PostForm = () => {
   const handleSubmit = async () => onSubmit({ name, job });
 
   const validInputs = !!name && !!job;
-
-  const fetching = !!submitStatus.running;
 
   return (
     <form onSubmit={e => e.preventDefault()}>
@@ -69,17 +67,15 @@ const reducer = (state: State, action: Action): State => {
 function useSubmit() {
   const store = useContext(UsersStore.Context);
 
-  const { handler: onSubmit, status: submitStatus } = useTransaction(
-    useCallback(
-      async ({ name, job }: State) => {
-        store.setName(name);
-        store.setJob(job);
+  const [onSubmit, submitStatus] = useTransaction(
+    async ({ name, job }: State) => {
+      store.setName(name);
+      store.setJob(job);
 
-        await store.postUser();
-      },
-      [store],
-    ),
+      await store.postUser();
+    },
+    e => console.error('😓😓😓', e.message),
   );
 
-  return { onSubmit, submitStatus };
+  return { onSubmit, fetching: !!submitStatus.running };
 }

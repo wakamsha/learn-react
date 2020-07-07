@@ -3,10 +3,11 @@ import { useEffect, useRef } from 'react';
 /**
  * コンポーネントがマウントされているかどうかチェックする
  *
- * @return {MutableRefObject<boolean>}
+ * @return {boolean}
  * @example
  * const mounted = useMounted();
- * if (mounted.current) {
+ *
+ * if (mounted) {
  *   foo();
  * } else {
  *   bar();
@@ -23,5 +24,5 @@ export function useMounted() {
     };
   });
 
-  return mounted;
+  return mounted.current;
 }

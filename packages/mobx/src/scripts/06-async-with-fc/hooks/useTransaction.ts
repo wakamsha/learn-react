@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react';
+import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import { ErrorResult } from '../infra/client';
 import { useMounted } from './useMounted';
 
 export type TransactionStatus = Partial<{
@@ -9,17 +10,22 @@ export type TransactionStatus = Partial<{
 /**
  * Decorator の transaction の hooks 版（機能的には同じ）
  *
- * @param fn 非同期処理する関数
+ * @param onAction 非同期処理する関数
+ * @param onError エラー時に実行する関数
  * @example
  * const fooStore = useContext(FooStore.Context);
  *
- * const { status, handler } = useTransaction(
- *   useCallback(async () => {
+ * const [handler, status] = useTransaction(
+ *   async () => {
  *     await fooStore.loadAsync();
- *   }, [fooStore]),
+ *   },
+ *   (e: ErrorResult) => console.error(e.message),
  * );
  */
-export function useTransaction<T extends any[]>(fn: (...args: T) => Promise<void>) {
+export function useTransaction<T extends any[]>(
+  onAction: (...args: T) => Promise<void>,
+  onError?: (error: ErrorResult) => void,
+): [(...args: T) => Promise<void>, TransactionStatus, Dispatch<SetStateAction<TransactionStatus>>] {
   const [status, setStatus] = useState<TransactionStatus>({});
 
   const mounted = useMounted();
@@ -29,20 +35,25 @@ export function useTransaction<T extends any[]>(fn: (...args: T) => Promise<void
       try {
         setStatus({ running: true, error: false });
 
-        await fn(...args);
+        await onAction(...args);
 
-        if (mounted.current) {
+        if (mounted) {
           setStatus({ running: false, error: false });
         }
       } catch (e) {
-        console.error(`@transaction`, e);
-        if (mounted.current) {
+        console.error('useTransaction', e);
+
+        onError?.(e);
+
+        if (mounted) {
           setStatus({ running: false, error: true });
         }
+
+        throw e;
       }
     },
-    [fn, mounted],
+    [mounted, onAction, onError],
   );
 
-  return { status, setStatus, handler };
+  return [handler, status, setStatus];
 }

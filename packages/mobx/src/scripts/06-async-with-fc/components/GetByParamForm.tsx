@@ -2,14 +2,14 @@ import { UsersStore } from '../stores/UsersStore';
 import { useContext } from '../hooks/useContext';
 import { useObserver } from 'mobx-react';
 import { useTransaction } from '../hooks/useTransaction';
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 
 export const GetByParamForm = () => {
   const store = useContext(UsersStore.Context);
 
   const { id } = useObserver(() => ({ id: store.userId }));
 
-  const { onSubmit, submitStatus } = useSubmit();
+  const { onSubmit, submitRunning } = useSubmit();
 
   const [userId, setUserId] = useState(store.userId);
 
@@ -19,11 +19,11 @@ export const GetByParamForm = () => {
     <form onSubmit={e => e.preventDefault()}>
       <h3>Get by Params</h3>
       <p>取得する User の id を指定</p>
-      <input type="number" max={100} disabled={!!submitStatus.running} onChange={handleChangeId} />
+      <input type="number" max={100} disabled={submitRunning} onChange={handleChangeId} />
       <p>
         ID: <code>{id}</code>
       </p>
-      <button onClick={() => onSubmit(userId)} disabled={!!submitStatus.running}>
+      <button onClick={() => onSubmit(userId)} disabled={submitRunning}>
         GET
       </button>
     </form>
@@ -38,15 +38,10 @@ export const GetByParamForm = () => {
 function useSubmit() {
   const store = useContext(UsersStore.Context);
 
-  const { handler: onSubmit, status: submitStatus } = useTransaction(
-    useCallback(
-      async (userId: number) => {
-        store.setUserId(userId);
-        await store.getUser();
-      },
-      [store],
-    ),
-  );
+  const [onSubmit, submitStatus] = useTransaction(async (userId: number) => {
+    store.setUserId(userId);
+    await store.getUser();
+  });
 
-  return { onSubmit, submitStatus };
+  return { onSubmit, submitRunning: !!submitStatus.running };
 }
