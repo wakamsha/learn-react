@@ -63,3 +63,4 @@ typings/
 dist/
 .envrc
 .vscode
+.stylelintcache

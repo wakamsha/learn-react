@@ -2,12 +2,15 @@
   "name": "@learn-react/statement",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@learn-react/core": "1.0.0"
+  },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
-    "copy": "cp src/index.html dist/index.html;",
-    "script": "webpack --progress --colors --config ../../webpack.config.js",
-    "serve": "browser-sync start -c ../../bs-config.js",
-    "start": "yarn reset; yarn copy; run-p \"script -- -d -w --develop {1}\" \"serve -- {2}\" --",
-    "build": "yarn reset; yarn copy; yarn script"
+    "copy": "cp -r ./public/. ./dist/",
+    "develop": "webpack serve",
+    "type-check": "tsc --noEmit",
+    "start": "yarn reset; yarn copy; run-p \"develop\" \"type-check --watch\"",
+    "build": "yarn reset; yarn copy; webpack --mode production"
   }
 }
