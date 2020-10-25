@@ -1,13 +1,12 @@
 import { HomePage } from '../pages/HomePage';
 import { ListPage } from '../pages/profiles/ListPage';
-import { Navigation } from '../../@core/components/Navigation';
+import { Navigation } from '@learn-react/core/components/Navigation';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { PageTransition } from '../../@core/components/PageTransition';
 import { ProfilePage } from '../pages/profiles';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { css } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
 import React, { ComponentProps } from 'react';
 
 export const App = () => (
@@ -25,10 +24,6 @@ export const App = () => (
 );
 
 const linkItems: ComponentProps<typeof Navigation>['items'] = [
-  {
-    label: 'Home',
-    to: Router.paths.home,
-  },
   {
     label: 'Profile',
     items: [
@@ -56,5 +51,4 @@ const baseStyle = css`
 const contentStyle = css`
   flex-grow: 1;
   height: 100vh;
-  padding: ${gutter(4)};
 `;

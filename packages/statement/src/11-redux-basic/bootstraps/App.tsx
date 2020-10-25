@@ -1,6 +1,6 @@
 import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
-import { Navigation } from '../../@core/components/Navigation';
+import { Navigation } from '@learn-react/core/components/Navigation';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { ProfileEditPage } from '../pages/profiles/EditPage';
 import { ProfileShowPage } from '../pages/profiles/ShowPage';

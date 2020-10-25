@@ -1,5 +1,6 @@
 import { ListContainer } from '../../containers/ListContainer';
 import { css } from 'emotion';
+import { gutter } from '@learn-react/core/helpers/Style';
 import React, { ChangeEvent, useState } from 'react';
 
 export const ListPage = () => (
@@ -110,13 +111,15 @@ const ShowSection = () => {
   );
 };
 
-const baseStyle = css({
-  display: 'flex',
-});
+const baseStyle = css`
+  display: flex;
+  padding: ${gutter(4)};
+`;
 
-const columnStyle = css({
-  flex: '1 1 100%',
-  '& + &': {
-    marginLeft: 16,
-  },
-});
+const columnStyle = css`
+  flex: 1 1 100%;
+
+  & + & {
+    margin-left: ${gutter(4)};
+  }
+`;

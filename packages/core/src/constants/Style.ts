@@ -1,3 +1,24 @@
+export const Color = {
+  // Theme
+  ThemePrimary: '#e61376',
+  ThemeSecondary: '#ccff00',
+  ThemeInfo: '#55efcb',
+
+  // Text
+  TextNeutral: '#24243f',
+  TextSub: '#808d96',
+
+  // Line
+  LineDefault: '#c8cbce',
+  LineLight: '#d8dbdd',
+  LineLighter: '#e3e5e6',
+  LineDark: '#566B7F',
+
+  // Texture
+  TextureBody: '#F7F7F7',
+  TextureCode: '#0f192a',
+} as const;
+
 export const FontSize = {
   Large: '20px',
   Medium: '16px',

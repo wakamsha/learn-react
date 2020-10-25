@@ -1,7 +1,7 @@
 import { HistoryStore } from '../stores/HistoryStore';
 import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
-import { Navigation } from '../../@core/components/Navigation';
+import { Navigation } from '@learn-react/core/components/Navigation';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { PageTransition } from '../components/PageTransition';
 import { Profile } from '../pages/profiles';
