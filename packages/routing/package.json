@@ -5,6 +5,9 @@
   "keywords": [
     "react-router-dom"
   ],
+  "dependencies": {
+    "@learn-react/core": "1.0.0"
+  },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp -r ./public/. ./dist/",

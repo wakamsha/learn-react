@@ -1,31 +1,9 @@
 import { RoutingProviderApp } from './32-routing-provider';
-import { injectGlobal } from 'emotion';
+import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import React from 'react';
 
-injectGlobal({
-  '*, *:before, *:after': {
-    boxSizing: 'border-box',
-  },
-
-  html: {
-    fontFamily: 'sans-serif',
-    lineHeight: 1.15,
-    WebkitTextSizeAdjust: '100%',
-    msTextSizeAdjust: '100%',
-    msOverflowStyle: 'scrollbar',
-    WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-    overflowX: 'hidden',
-  },
-
-  // Scaffolding
-  'html, body': {
-    margin: 0,
-    padding: 0,
-    fontWeight: 500,
-    fontFeatureSettings: `'palt' 1`,
-  },
-});
+applyGlobalStyle();
 
 render(
   // <Basic />,

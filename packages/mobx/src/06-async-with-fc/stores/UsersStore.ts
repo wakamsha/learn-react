@@ -1,5 +1,5 @@
 import { User } from '../infra/model';
-import { action, observable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
 import { flow } from '../utils/Decorator';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
@@ -14,6 +14,10 @@ export class UsersStore {
   @observable public name = '';
 
   @observable public job = '';
+
+  constructor() {
+    makeObservable(this);
+  }
 
   @action
   public setUserId(id: number) {

@@ -1,8 +1,8 @@
 import { Item } from './Item';
 import { Toast } from '.';
 import { createPortal } from 'react-dom';
+import { css } from 'emotion';
 import React from 'react';
-import styled from 'styled-components';
 
 type Props = {
   toasts: Toast[];
@@ -10,17 +10,17 @@ type Props = {
 
 export const Container = ({ toasts }: Props): JSX.Element =>
   createPortal(
-    <StyledBase>
+    <div className={baseStyle}>
       {toasts.map(({ id, content, theme }) => (
         <Item key={id} id={id} theme={theme}>
           {content}
         </Item>
       ))}
-    </StyledBase>,
+    </div>,
     document.body,
   );
 
-const StyledBase = styled.div`
+const baseStyle = css`
   position: absolute;
   bottom: 0;
   left: 0;

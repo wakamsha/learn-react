@@ -1,6 +1,7 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { IndexPage } from './pages/IndexPage';
 import { Navigation } from '@learn-react/core/components/Navigation';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
 import { Stories } from './Stories';
 import { StoryPage } from './pages/StoryPage';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
@@ -13,10 +14,10 @@ const App = () => (
     <div className={baseStyle}>
       <Navigation title="Component Catalog" items={linkItems} />
       <main className={contentStyle}>
-        <Switch>
+        <PageTransition>
           <Route path="/" component={IndexPage} exact />
           <Route path="/stories/:story" component={StoryPage} />
-        </Switch>
+        </PageTransition>
       </main>
     </div>
   </BrowserRouter>
@@ -27,15 +28,15 @@ const linkItems = Object.keys(Stories).map(story => ({
   to: `/stories/${story}/`,
 }));
 
-const baseStyle = css({
-  display: 'flex',
-  width: '100%',
-});
+const baseStyle = css`
+  display: flex;
+  width: 100%;
+`;
 
-const contentStyle = css({
-  height: '100vh',
-  flexGrow: 1,
-});
+const contentStyle = css`
+  flex-grow: 1;
+  height: 100vh;
+`;
 
 applyGlobalStyle();
 

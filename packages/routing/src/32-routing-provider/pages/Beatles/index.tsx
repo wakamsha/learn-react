@@ -1,6 +1,6 @@
 import { Beatle } from './Beatle';
 import { BeatleList } from './BeatleList';
-import { PageTransition } from '../../components/PageTransition';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
 import { Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import React from 'react';
