@@ -1,5 +1,5 @@
-import { ToastProvider, useToast } from '.';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { ToastProvider, useToast } from '.';
 
 export const Story = () => (
   <ToastProvider>

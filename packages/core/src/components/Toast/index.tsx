@@ -1,6 +1,6 @@
-import { Container } from './Container';
-import { useContext } from '@learn-react/core/hooks/useContext';
 import React, { ReactNode, createContext, useCallback, useState } from 'react';
+import { useContext } from '../../hooks/useContext';
+import { Container } from './Container';
 
 type ProviderProps = {
   children: ReactNode;

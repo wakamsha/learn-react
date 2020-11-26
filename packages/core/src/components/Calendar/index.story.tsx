@@ -1,5 +1,5 @@
-import { Calendar } from '.';
 import React, { useState } from 'react';
+import { Calendar } from '.';
 
 export const Story = () => {
   const [date, setDate] = useState(new Date());

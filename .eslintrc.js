@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
     'prettier/react',
@@ -15,7 +16,7 @@ module.exports = {
     es6: true,
   },
   globals: {},
-  plugins: ['react', 'react-hooks', 'sort-imports-es6-autofix'],
+  plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
@@ -37,6 +38,15 @@ module.exports = {
       'always',
       {
         exceptAfterSingleLine: true,
+      },
+    ],
+    'import/order': [
+      'warn',
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
     'no-case-declarations': ['error'],
@@ -65,14 +75,6 @@ module.exports = {
     'react/sort-comp': ['error'],
     'react-hooks/exhaustive-deps': ['warn'],
     'react-hooks/rules-of-hooks': ['error'],
-    'sort-imports-es6-autofix/sort-imports-es6': [
-      'error',
-      {
-        ignoreCase: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
 
     // Disable
     '@typescript-eslint/ban-types': ['off'],
@@ -83,7 +85,6 @@ module.exports = {
     'import/extensions': ['off'],
     'import/no-extraneous-dependencies': ['off'],
     'import/no-unresolved': ['off'],
-    'import/order': ['off'],
     'import/prefer-default-export': ['off'],
     'jsx-a11y/accessible-emoji': ['off'],
     'jsx-a11y/control-has-associated-label': ['off'],
@@ -108,7 +109,6 @@ module.exports = {
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
     'no-unused-expressions': ['off'],
-    'sort-imports': ['off'],
     'react/button-has-type': ['off'],
     'react/jsx-indent': ['off'],
     'react/jsx-props-no-spreading': ['off'],

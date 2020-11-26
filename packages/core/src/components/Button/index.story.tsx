@@ -1,5 +1,5 @@
-import { Button } from '.';
 import React from 'react';
+import { Button } from '.';
 
 export const Story = () => (
   <>

@@ -1,7 +1,7 @@
 import { css } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
-import { useShuffleLetters } from '.';
 import React, { ReactNode, useRef, useState } from 'react';
+import { gutter } from '../../helpers/Style';
+import { useShuffleLetters } from '.';
 
 export const Story = () => {
   const ref1 = useRef<HTMLDivElement>(null);

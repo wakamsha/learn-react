@@ -1,9 +1,9 @@
 import { LineHeight } from '@learn-react/core/constants/Style';
-import { Stories } from '../Stories';
-import { css } from 'emotion';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { useParams } from 'react-router-dom';
+import { css } from 'emotion';
 import React, { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
+import { Stories } from '../Stories';
 
 export const StoryPage = () => {
   const { story } = useParams<{ story: Stories }>();

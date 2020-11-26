@@ -1,5 +1,5 @@
-import { Color } from '@learn-react/core/constants/Style';
 import { SplashBanner } from '@learn-react/core/components/SplashBanner';
+import { Color } from '@learn-react/core/constants/Style';
 import { css } from 'emotion';
 import React from 'react';
 

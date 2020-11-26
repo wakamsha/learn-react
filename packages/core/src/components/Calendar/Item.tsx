@@ -1,7 +1,7 @@
-import { BorderRadius } from '@learn-react/core/constants/Style';
 import { css } from 'emotion';
-import { square } from '@learn-react/core/helpers/Style';
 import React from 'react';
+import { BorderRadius } from '../../constants/Style';
+import { square } from '../../helpers/Style';
 
 type Props = {
   onClick: (value: Date) => void;

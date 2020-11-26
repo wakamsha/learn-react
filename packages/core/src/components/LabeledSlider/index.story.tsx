@@ -1,5 +1,5 @@
-import { LabeledSlider } from '.';
 import React, { useCallback, useMemo, useState } from 'react';
+import { LabeledSlider } from '.';
 
 export const Story = () => {
   const [weight, setWeight] = useState(60);

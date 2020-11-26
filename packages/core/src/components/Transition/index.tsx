@@ -1,6 +1,6 @@
-import { Duration, Easing } from '../../constants/Style';
 import { css } from 'emotion';
 import React, { ReactNode, useMemo, useRef, useState } from 'react';
+import { Duration, Easing } from '../../constants/Style';
 
 type Props = {
   /**

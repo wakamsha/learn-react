@@ -1,6 +1,6 @@
+import React, { Children, ReactNode } from 'react';
 import { Route, Switch, matchPath, useLocation } from 'react-router-dom';
 import { Transition } from '../Transition';
-import React, { Children, ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;

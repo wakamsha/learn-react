@@ -1,8 +1,8 @@
-import { Duration, Easing } from '@learn-react/core/constants/Style';
-import { Toast, useToast } from '.';
 import { css, keyframes } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
 import React, { AnimationEvent, ReactNode, useEffect, useState } from 'react';
+import { Duration, Easing } from '../../constants/Style';
+import { gutter } from '../../helpers/Style';
+import { Toast, useToast } from '.';
 
 type Props = {
   id: number;

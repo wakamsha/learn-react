@@ -1,7 +1,7 @@
-import { FontSize } from '../../constants/Style';
 import { css } from 'emotion';
-import { gutter } from '../../helpers/Style';
 import React from 'react';
+import { FontSize } from '../../constants/Style';
+import { gutter } from '../../helpers/Style';
 
 type Props = {
   title: string;

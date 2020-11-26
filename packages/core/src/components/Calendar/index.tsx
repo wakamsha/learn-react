@@ -1,5 +1,3 @@
-import { BorderRadius } from '@learn-react/core/constants/Style';
-import { Item } from './Item';
 import {
   addMonths,
   endOfDay,
@@ -14,8 +12,10 @@ import {
   subMonths,
 } from 'date-fns';
 import { css } from 'emotion';
-import { gutter, square } from '@learn-react/core/helpers/Style';
 import React, { useMemo } from 'react';
+import { BorderRadius } from '../../constants/Style';
+import { gutter, square } from '../../helpers/Style';
+import { Item } from './Item';
 
 type Props = {
   value: Date;

@@ -1,8 +1,8 @@
-import { Item } from './Item';
-import { Toast } from '.';
-import { createPortal } from 'react-dom';
 import { css } from 'emotion';
 import React from 'react';
+import { createPortal } from 'react-dom';
+import { Item } from './Item';
+import { Toast } from '.';
 
 type Props = {
   toasts: Toast[];

@@ -1,13 +1,13 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-import { IndexPage } from './pages/IndexPage';
 import { Navigation } from '@learn-react/core/components/Navigation';
 import { PageTransition } from '@learn-react/core/components/PageTransition';
-import { Stories } from './Stories';
-import { StoryPage } from './pages/StoryPage';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { css } from 'emotion';
-import { render } from 'react-dom';
 import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { IndexPage } from './pages/IndexPage';
+import { StoryPage } from './pages/StoryPage';
+import { Stories } from './Stories';
 
 const App = () => (
   <BrowserRouter>
