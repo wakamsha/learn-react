@@ -1,19 +1,22 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 
-export function useLetterTicker<T extends HTMLElement>(ref: RefObject<T>) {
-  const [id, setId] = useState(0);
+export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, duration = 800) {
+  const [key, setKey] = useState(0);
 
-  const start = useCallback(() => setId(state => state + 1), []);
+  const [originStr, setOriginStr] = useState('');
+
+  const start = useCallback((text: string) => {
+    setOriginStr(text);
+    setKey(state => state + 1);
+  }, []);
 
   useEffect(() => {
     let id = 0;
     let running = true;
 
-    if (ref.current) {
-      const originalStr = ref.current.innerText;
-
-      const randomIndexes = [...Array(originalStr.length).keys()].reduce((assoc, i) => {
-        const rate = i / originalStr.length;
+    if (ref?.current && originStr.length) {
+      const randomIndexes = [...Array(originStr.length).keys()].reduce((assoc, i) => {
+        const rate = i / originStr.length;
 
         return [...assoc, Math.random() * (1 - rate) + rate];
       }, []);
@@ -30,9 +33,9 @@ export function useLetterTicker<T extends HTMLElement>(ref: RefObject<T>) {
 
         let letters = '';
 
-        for (let i = 0; i < originalStr.length; i++) {
+        for (let i = 0; i < originStr.length; i++) {
           if (percent >= randomIndexes[i]) {
-            letters += originalStr.charAt(i);
+            letters += originStr.charAt(i);
           } else if (percent < randomIndexes[i] / 3) {
             letters += emptyChar;
           } else {
@@ -41,7 +44,7 @@ export function useLetterTicker<T extends HTMLElement>(ref: RefObject<T>) {
         }
 
         if (percent > 1) {
-          letters = originalStr;
+          letters = originStr;
           running = false;
         }
 
@@ -57,7 +60,7 @@ export function useLetterTicker<T extends HTMLElement>(ref: RefObject<T>) {
       running = false;
       window.cancelAnimationFrame(id);
     };
-  }, [ref, id]);
+  }, [duration, key, originStr, ref]);
 
   return [start];
 }
@@ -65,5 +68,3 @@ export function useLetterTicker<T extends HTMLElement>(ref: RefObject<T>) {
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 
 const emptyChar = '-';
-
-const duration = 1000;

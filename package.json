@@ -69,7 +69,7 @@
     }
   },
   "scripts": {
-    "component": "      yarn workspace @learn-react/component",
+    "catalog": "        yarn workspace @learn-react/catalog",
     "esnext": "         yarn workspace @learn-react/esnext",
     "getting-started": "yarn workspace @learn-react/getting-started",
     "mobx": "           yarn workspace @learn-react/mobx",
