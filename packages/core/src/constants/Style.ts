@@ -19,6 +19,8 @@ export const Color = {
   TextureCode: '#0f192a',
 } as const;
 
+export type Color = ValueOf<typeof Color>;
+
 export const FontSize = {
   Large: '20px',
   Medium: '16px',
