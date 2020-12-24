@@ -1,6 +1,5 @@
-import { ProfileStore } from '../../stores/ProfileStore';
 import { useContext } from '@learn-react/core/hooks/useContext';
-import React from 'react';
+import { ProfileStore } from '../../stores/ProfileStore';
 
 /**
  * React 標準の ContextAPI からストアを prop で受け取り、

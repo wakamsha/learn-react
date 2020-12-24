@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const AboutPage = () => (
   <div>
     <h1>About page</h1>

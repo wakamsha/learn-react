@@ -1,6 +1,6 @@
-import { Router } from '../../@core/constants/Router';
+import { useCallback } from 'react';
 import { useRouting } from '../../@core/components/RoutingProvider';
-import React, { useCallback } from 'react';
+import { Router } from '../../@core/constants/Router';
 
 export const About = () => {
   const { history } = useRouting();

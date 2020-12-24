@@ -1,6 +1,5 @@
-import { HistoryContext } from '../hooks/useHistory';
 import { useContext } from '@learn-react/core/hooks/useContext';
-import React from 'react';
+import { HistoryContext } from '../hooks/useHistory';
 
 export const Home = () => {
   const history = useContext(HistoryContext);

@@ -1,6 +1,6 @@
-import { Selector, useMobxStore } from '../hooks/useMobxStore';
 import { action, observable } from 'mobx';
 import { createContext } from 'react';
+import { Selector, useMobxStore } from '../hooks/useMobxStore';
 
 export class ProfileStore {
   public static Context = createContext<ProfileStore | null>(null);

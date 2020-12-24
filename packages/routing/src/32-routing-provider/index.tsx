@@ -1,6 +1,5 @@
-import { App } from './bootstraps/App';
 import { RoutingProvider } from '../@core/components/RoutingProvider';
-import React from 'react';
+import { App } from './bootstraps/App';
 
 export const RoutingProviderApp = () => (
   <RoutingProvider>

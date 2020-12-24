@@ -2,7 +2,6 @@ import { BrowserRouter, Link, Redirect, Route, Switch } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { NoMatch } from './pages/NoMatch';
 import { WillMatch } from './pages/WillMatch';
-import React from 'react';
 
 export const NoMatchApp = () => (
   <BrowserRouter>

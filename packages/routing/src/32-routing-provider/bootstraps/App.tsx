@@ -1,13 +1,13 @@
+import { Navigation } from '@learn-react/core/components/Navigation';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from 'emotion';
+import { ComponentProps } from 'react';
+import { Route } from 'react-router-dom';
+import { Router } from '../../@core/constants/Router';
 import { About } from '../pages/About';
 import { Beatles } from '../pages/Beatles';
 import { Home } from '../pages/Home';
-import { Navigation } from '@learn-react/core/components/Navigation';
-import { PageTransition } from '@learn-react/core/components/PageTransition';
-import { Route } from 'react-router-dom';
-import { Router } from '../../@core/constants/Router';
-import { css } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
-import React, { ComponentProps } from 'react';
 
 export const App = () => (
   <div className={baseStyle}>

@@ -1,7 +1,6 @@
+import { Router } from 'react-router-dom';
 import { App } from './bootstraps/App';
 import { HistoryContext, LocationContext, useHistory } from './hooks/useHistory';
-import { Router } from 'react-router-dom';
-import React from 'react';
 
 export const HistoryAPIApp = () => {
   const { history, location } = useHistory();

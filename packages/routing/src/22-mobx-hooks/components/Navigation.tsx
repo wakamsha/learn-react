@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { NavigationStyle as Style } from '../../@core/constants/Style';
-import React from 'react';
 
 export const Navigation = () => (
   <nav className={Style.Base}>

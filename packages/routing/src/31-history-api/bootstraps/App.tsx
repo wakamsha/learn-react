@@ -1,11 +1,10 @@
-import { About } from '../pages/About';
-import { Home } from '../pages/Home';
-import { Navigation } from '../components/Navigation';
-import { PageTransition } from '../components/PageTransition';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { css } from 'emotion';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
-import { css } from 'emotion';
-import React from 'react';
+import { Navigation } from '../components/Navigation';
+import { About } from '../pages/About';
+import { Home } from '../pages/Home';
 
 export const App = () => (
   <div className={baseStyle}>

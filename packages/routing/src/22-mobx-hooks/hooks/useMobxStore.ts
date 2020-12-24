@@ -1,6 +1,6 @@
+import { useObserver } from 'mobx-react';
 import { Context } from 'react';
 import { useContext } from '../../@core/hooks/useContext';
-import { useObserver } from 'mobx-react';
 
 export type Selector<Store, Selection> = (store: Store) => Selection;
 

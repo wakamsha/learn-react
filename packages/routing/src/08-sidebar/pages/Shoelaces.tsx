@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Shoelaces = () => (
   <>
     <h1>Shoelaces</h1>

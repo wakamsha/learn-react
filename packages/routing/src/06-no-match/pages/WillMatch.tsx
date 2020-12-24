@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const WillMatch = () => (
   <>
     <h1>Matched!!</h1>

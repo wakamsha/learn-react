@@ -1,5 +1,4 @@
 import { Stores } from '../stores';
-import React from 'react';
 
 export const HomePage = () => (
   <div>

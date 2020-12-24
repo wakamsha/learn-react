@@ -1,8 +1,7 @@
 /* eslint-disable react/no-children-prop */
-import { Link } from 'react-router-dom';
-import { Route } from 'react-router';
 import { css } from 'emotion';
-import React from 'react';
+import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
 
 type Props = {
   label: string;

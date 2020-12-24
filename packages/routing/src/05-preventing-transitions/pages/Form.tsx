@@ -1,6 +1,6 @@
 import { Location } from 'history';
+import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { Prompt } from 'react-router';
-import React, { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 
 export const Form = () => {
   const [blocking, setState] = useState(false);

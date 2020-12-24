@@ -1,6 +1,5 @@
-import { BEATLES } from '.';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import { BEATLES } from '.';
 
 export const BeatleList = () => (
   <ul>

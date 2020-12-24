@@ -1,15 +1,14 @@
-import { AboutPage } from '../pages/About';
-import { HistoryStore } from '../stores/HistoryStore';
-import { HomePage } from '../pages/Home';
-import { Navigation } from '../components/Navigation';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { PageTransition } from '../components/PageTransition';
-import { Profile } from '../pages/profiles';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { css } from 'emotion';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
+import { Navigation } from '../components/Navigation';
+import { AboutPage } from '../pages/About';
+import { HomePage } from '../pages/Home';
+import { NotFoundPage } from '../pages/NotFoundPage';
+import { Profile } from '../pages/profiles';
 import { Stores } from '../stores';
-import { css } from 'emotion';
-import React from 'react';
+import { HistoryStore } from '../stores/HistoryStore';
 
 export const App = () => (
   <HistoryStore.Context.Provider value={Stores.historyStore}>

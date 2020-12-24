@@ -1,6 +1,6 @@
+import { useCallback } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 import { fakeAuth } from '../stores/Auth';
-import React, { useCallback } from 'react';
 
 type Props = RouteComponentProps;
 

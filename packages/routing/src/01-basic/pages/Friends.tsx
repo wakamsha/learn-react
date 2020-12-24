@@ -1,7 +1,6 @@
+import { Route, Switch } from 'react-router';
 import { Friend } from './friends/Friend';
 import { FriendList } from './friends/FriendList';
-import { Route, Switch } from 'react-router';
-import React from 'react';
 
 type FriendType = {
   id: string;

@@ -1,10 +1,9 @@
-import { AuthButton } from './components/AuthButton';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
-import { Login } from './pages/Login';
+import { AuthButton } from './components/AuthButton';
 import { PrivateRoute } from './components/PrivateRoute';
+import { Login } from './pages/Login';
 import { Protected } from './pages/Protected';
 import { Public } from './pages/Public';
-import React from 'react';
 
 export const Redirects = () => (
   <BrowserRouter>

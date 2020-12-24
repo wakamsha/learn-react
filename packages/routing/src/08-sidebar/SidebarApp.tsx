@@ -1,11 +1,11 @@
+import { css } from 'emotion';
+import { useCallback, useEffect, useState } from 'react';
+import { Route, Switch } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import { Sidebar } from './components/Sidebar';
 import { Bubblegum } from './pages/Bubblegum';
 import { Home } from './pages/Home';
-import { Route, Switch } from 'react-router';
 import { Shoelaces } from './pages/Shoelaces';
-import { Sidebar } from './components/Sidebar';
-import { css } from 'emotion';
-import React, { useCallback, useEffect, useState } from 'react';
 
 const baseStyle = css({
   display: 'flex',

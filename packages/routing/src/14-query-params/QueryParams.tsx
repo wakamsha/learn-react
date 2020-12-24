@@ -1,8 +1,7 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-import { Child } from './pages/Child';
-import { Navigation } from './components/Navigation';
 import { css } from 'emotion';
-import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
+import { Child } from './pages/Child';
 
 type Props = {
   location: Location;

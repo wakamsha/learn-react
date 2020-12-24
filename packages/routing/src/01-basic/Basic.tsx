@@ -1,10 +1,9 @@
-import { About } from './pages/About';
+import { css } from 'emotion';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
+import { About } from './pages/About';
 import { Friends } from './pages/Friends';
 import { Home } from './pages/Home';
-import { Navigation } from './components/Navigation';
-import { css } from 'emotion';
-import React from 'react';
 
 export const Basic = (): JSX.Element => (
   <BrowserRouter>

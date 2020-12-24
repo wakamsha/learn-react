@@ -1,7 +1,6 @@
-import { BEATLES } from '.';
 import { css } from 'emotion';
 import { useParams } from 'react-router-dom';
-import React from 'react';
+import { BEATLES } from '.';
 
 type Params = {
   id: string;

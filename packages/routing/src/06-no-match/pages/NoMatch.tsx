@@ -1,5 +1,4 @@
 import { RouteComponentProps } from 'react-router';
-import React from 'react';
 
 type Props = RouteComponentProps;
 
