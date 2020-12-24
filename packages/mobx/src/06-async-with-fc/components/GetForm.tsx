@@ -1,7 +1,7 @@
-import { TransactionStatus } from '@learn-react/core/hooks/useTransaction';
-import { UsersStore } from '../stores/UsersStore';
 import { useContext } from '@learn-react/core/hooks/useContext';
-import React, { useState } from 'react';
+import { TransactionStatus } from '@learn-react/core/hooks/useTransaction';
+import { useState } from 'react';
+import { UsersStore } from '../stores/UsersStore';
 
 /**
  * useTransaction を使わないパターン。

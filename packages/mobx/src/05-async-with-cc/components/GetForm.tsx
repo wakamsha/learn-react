@@ -1,7 +1,7 @@
+import { observer } from 'mobx-react';
+import { Component } from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
-import { observer } from 'mobx-react';
-import React, { Component } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;

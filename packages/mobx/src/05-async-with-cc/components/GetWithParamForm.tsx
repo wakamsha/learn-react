@@ -1,7 +1,7 @@
+import { observer } from 'mobx-react';
+import { ChangeEvent, Component, FormEvent } from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
-import { observer } from 'mobx-react';
-import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -20,6 +20,13 @@ export class GetWithParamForm extends Component<Props, State> {
     };
   }
 
+  @transaction('status')
+  private *handleGetUser() {
+    const { store } = this.props;
+
+    yield store.getUser();
+  }
+
   private onChangeId = (e: ChangeEvent<HTMLInputElement>) => {
     const { store } = this.props;
 
@@ -30,13 +37,6 @@ export class GetWithParamForm extends Component<Props, State> {
     e.preventDefault();
     this.handleGetUser();
   };
-
-  @transaction('status')
-  private *handleGetUser() {
-    const { store } = this.props;
-
-    yield store.getUser();
-  }
 
   public render() {
     const { store } = this.props;

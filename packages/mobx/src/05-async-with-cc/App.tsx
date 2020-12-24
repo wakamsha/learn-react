@@ -1,10 +1,10 @@
+import { css } from 'emotion';
+import { createContext } from 'react';
 import { GetForm } from './components/GetForm';
 import { GetWithParamForm } from './components/GetWithParamForm';
 import { Log } from './components/Log';
 import { PostForm } from './components/PostForm';
 import { Stores } from './stores';
-import { css } from 'emotion';
-import React, { createContext } from 'react';
 
 const JSONPlaceholderContext = createContext(Stores.jsonPlaceholderStore);
 

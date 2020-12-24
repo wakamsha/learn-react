@@ -1,7 +1,7 @@
+import { observer } from 'mobx-react';
+import { ChangeEvent, Component, FormEvent } from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { TransactionStatus, transaction } from '../utils/Decorator';
-import { observer } from 'mobx-react';
-import React, { ChangeEvent, Component, FormEvent } from 'react';
 
 type Props = {
   store: JSONPlaceholderStore;
@@ -37,19 +37,19 @@ export class PostForm extends Component<Props, State> {
     this.handlePostUser();
   };
 
-  private checkInput(): boolean {
-    const {
-      store: { name, job },
-    } = this.props;
-    return !name || !job;
-  }
-
   @transaction('status')
   private *handlePostUser() {
     const { store } = this.props;
 
     yield store.postUser();
     yield store.getUser();
+  }
+
+  private checkInput(): boolean {
+    const {
+      store: { name, job },
+    } = this.props;
+    return !name || !job;
   }
 
   public render() {

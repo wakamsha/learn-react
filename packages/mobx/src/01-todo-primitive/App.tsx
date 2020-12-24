@@ -1,7 +1,7 @@
 // https://mobx.js.org/getting-started.html
 
-import { Stores } from './stores';
 import { useEffect } from 'react';
+import { Stores } from './stores';
 
 export const TodoPrimitive = () => {
   useEffect(() => {

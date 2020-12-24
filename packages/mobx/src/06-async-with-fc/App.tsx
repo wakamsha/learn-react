@@ -1,10 +1,10 @@
+import { css } from 'emotion';
+import { useMemo } from 'react';
 import { GetByParamForm } from './components/GetByParamForm';
 import { GetForm } from './components/GetForm';
 import { Log } from './components/Log';
 import { PostForm } from './components/PostForm';
 import { UsersStore } from './stores/UsersStore';
-import { css } from 'emotion';
-import React, { useMemo } from 'react';
 
 export const AsyncWithFC = () => {
   const usersStore = useMemo(() => new UsersStore(), []);

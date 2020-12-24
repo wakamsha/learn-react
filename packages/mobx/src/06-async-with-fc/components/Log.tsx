@@ -1,8 +1,7 @@
-import { UsersStore } from '../stores/UsersStore';
-import { css } from 'emotion';
 import { useContext } from '@learn-react/core/hooks/useContext';
+import { css } from 'emotion';
 import { useObserver } from 'mobx-react';
-import React from 'react';
+import { UsersStore } from '../stores/UsersStore';
 
 export const Log = () => {
   const store = useContext(UsersStore.Context);

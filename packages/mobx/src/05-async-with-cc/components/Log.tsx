@@ -1,7 +1,7 @@
-import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
-import React, { Component } from 'react';
+import { Component } from 'react';
+import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';
 
 type Props = {
   store: JSONPlaceholderStore;
