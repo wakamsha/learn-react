@@ -15,8 +15,12 @@ const App = () => (
       <Navigation title="Component Catalog" items={linkItems} />
       <main className={contentStyle}>
         <PageTransition>
-          <Route path="/" component={IndexPage} exact />
-          <Route path="/stories/:story" component={StoryPage} />
+          <Route path="/" exact>
+            <IndexPage />
+          </Route>
+          <Route path="/stories/:story">
+            <StoryPage />
+          </Route>
         </PageTransition>
       </main>
     </div>
