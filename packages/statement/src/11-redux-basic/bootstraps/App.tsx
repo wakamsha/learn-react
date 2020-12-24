@@ -1,16 +1,16 @@
-import { HomePage } from '../pages/Home';
-import { ListPage } from '../pages/ListPage';
 import { Navigation } from '@learn-react/core/components/Navigation';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { ProfileEditPage } from '../pages/profiles/EditPage';
-import { ProfileShowPage } from '../pages/profiles/ShowPage';
+import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from 'emotion';
+import { ComponentProps } from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { Router } from '../constants/Router';
-import { css } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { HomePage } from '../pages/Home';
+import { ListPage } from '../pages/ListPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
+import { ProfileEditPage } from '../pages/profiles/EditPage';
+import { ProfileShowPage } from '../pages/profiles/ShowPage';
 import { store } from '../stores/store';
-import React, { ComponentProps } from 'react';
 
 export const App = () => (
   <Provider store={store}>

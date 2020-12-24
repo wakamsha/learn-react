@@ -1,7 +1,7 @@
-import { ListStore } from '../stores/ListStore';
 import { css } from 'emotion';
 import { observer } from 'mobx-react';
-import React, { ChangeEvent, createContext, useMemo, useState } from 'react';
+import { ChangeEvent, createContext, useMemo, useState } from 'react';
+import { ListStore } from '../stores/ListStore';
 
 export const ListPage = () => {
   const store = useMemo(() => new ListStore(), []);

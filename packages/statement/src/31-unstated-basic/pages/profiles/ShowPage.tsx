@@ -1,5 +1,4 @@
 import { ProfileContainer } from '../../containers/ProfileContainer';
-import React from 'react';
 
 export const ProfileShowPage = () => {
   const { name, setName } = ProfileContainer.useContainer();

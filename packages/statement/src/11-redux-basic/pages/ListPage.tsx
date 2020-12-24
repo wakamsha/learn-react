@@ -1,9 +1,9 @@
-import { Actions } from '../stores/List';
-import { Dispatch } from 'redux';
-import { RootState } from '../stores/store';
 import { css } from 'emotion';
+import { ChangeEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import React, { ChangeEvent, useState } from 'react';
+import { Dispatch } from 'redux';
+import { Actions } from '../stores/List';
+import { RootState } from '../stores/store';
 
 export const ListPage = () => (
   <div className={baseStyle}>

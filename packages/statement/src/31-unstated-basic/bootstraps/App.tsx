@@ -1,13 +1,13 @@
-import { HomePage } from '../pages/HomePage';
-import { ListPage } from '../pages/profiles/ListPage';
 import { Navigation } from '@learn-react/core/components/Navigation';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { PageTransition } from '../../@core/components/PageTransition';
-import { ProfilePage } from '../pages/profiles';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { css } from 'emotion';
+import { ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
-import { css } from 'emotion';
-import React, { ComponentProps } from 'react';
+import { HomePage } from '../pages/HomePage';
+import { NotFoundPage } from '../pages/NotFoundPage';
+import { ProfilePage } from '../pages/profiles';
+import { ListPage } from '../pages/profiles/ListPage';
 
 export const App = () => (
   <div className={baseStyle}>

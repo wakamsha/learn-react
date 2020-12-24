@@ -1,10 +1,10 @@
-import { PageTransition } from '../../components/PageTransition';
-import { ProfileEditPage } from './EditPage';
-import { ProfileShowPage } from './ShowPage';
-import { ProfileStore } from '../../stores/ProfileStore';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { useMemo } from 'react';
 import { Redirect, Route } from 'react-router';
 import { Router } from '../../../@core/constants/Router';
-import React, { useMemo } from 'react';
+import { ProfileStore } from '../../stores/ProfileStore';
+import { ProfileEditPage } from './EditPage';
+import { ProfileShowPage } from './ShowPage';
 
 /**
  * React 標準の ContextAPI のみを使用するパターン

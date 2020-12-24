@@ -1,8 +1,7 @@
-import { Actions } from '../../stores/Profile';
-import { Dispatch } from 'redux';
-import { RootState } from '../../stores/store';
 import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
+import { Dispatch } from 'redux';
+import { Actions } from '../../stores/Profile';
+import { RootState } from '../../stores/store';
 
 export const ProfileShowPage = () => {
   const { name } = useSelector(({ profile }: RootState) => ({ name: profile.name }));

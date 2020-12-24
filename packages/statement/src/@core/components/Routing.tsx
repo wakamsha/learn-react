@@ -1,7 +1,7 @@
-import { Action, History, Location, createBrowserHistory } from 'history';
-import { Router } from 'react-router-dom';
 import { useContext } from '@learn-react/core/hooks/useContext';
-import React, { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { Action, History, Location, createBrowserHistory } from 'history';
+import { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { Router } from 'react-router-dom';
 
 type Store = {
   history: History;

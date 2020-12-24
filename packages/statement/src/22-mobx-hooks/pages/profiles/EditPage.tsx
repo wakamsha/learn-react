@@ -1,7 +1,7 @@
-import { ProfileStore } from '../../stores/ProfileStore';
 import { useContext } from '@learn-react/core/hooks/useContext';
 import { useObserver } from 'mobx-react';
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
+import { ProfileStore } from '../../stores/ProfileStore';
 
 /**
  * React 標準の ContextAPI からストアを prop で受け取り、

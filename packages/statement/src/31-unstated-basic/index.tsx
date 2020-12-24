@@ -1,6 +1,5 @@
-import { App } from './bootstraps/App';
 import { Routing } from '../@core/components/Routing';
-import React from 'react';
+import { App } from './bootstraps/App';
 
 export const UnstatedBasicApp = () => (
   <Routing.Provider>

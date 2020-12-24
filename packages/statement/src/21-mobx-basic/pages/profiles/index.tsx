@@ -1,11 +1,10 @@
-import { PageTransition } from '../../components/PageTransition';
-import { ProfileEditPage } from './EditPage';
-import { ProfileShowPage } from './ShowPage';
-import { ProfileStore } from '../../stores/ProfileStore';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { createContext, useMemo, useRef } from 'react';
 import { Redirect, Route } from 'react-router';
 import { Router } from '../../../@core/constants/Router';
-import { Stores } from '../../stores';
-import React, { createContext, useMemo } from 'react';
+import { ProfileStore } from '../../stores/ProfileStore';
+import { ProfileEditPage } from './EditPage';
+import { ProfileShowPage } from './ShowPage';
 
 /**
  * クラスコンポーネントと Provider を使ったレガシーなパターン
@@ -61,7 +60,7 @@ import React, { createContext, useMemo } from 'react';
  * FC と ContextAPI を使ったモダンなパターン
  */
 export const Profile = () => {
-  const store = useMemo(() => new ProfileStore(), []);
+  const store = useRef(new ProfileStore());
 
   const Context = useMemo(() => createContext(store), [store]);
 
@@ -69,14 +68,14 @@ export const Profile = () => {
     <>
       <h1>Profile</h1>
       <Context.Provider value={store}>
-        <PageTransition historyStore={historyStore}>
+        <PageTransition>
           <Route
             path={Router.paths.profileShow}
-            render={() => <Context.Consumer>{store => <ProfileShowPage store={store} />}</Context.Consumer>}
+            render={() => <Context.Consumer>{store => <ProfileShowPage store={store.current} />}</Context.Consumer>}
           />
           <Route
             path={Router.paths.profileEdit}
-            render={() => <Context.Consumer>{store => <ProfileEditPage store={store} />}</Context.Consumer>}
+            render={() => <Context.Consumer>{store => <ProfileEditPage store={store.current} />}</Context.Consumer>}
           />
           <Redirect to={Router.paths.profileEdit} />
         </PageTransition>
@@ -84,5 +83,3 @@ export const Profile = () => {
     </>
   );
 };
-
-const { historyStore } = Stores;

@@ -1,9 +1,9 @@
-import { Actions } from '../../stores/Profile';
-import { Dispatch } from 'redux';
-import { RootState } from '../../stores/store';
 import { css } from 'emotion';
+import { ChangeEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import React, { ChangeEvent, useState } from 'react';
+import { Dispatch } from 'redux';
+import { Actions } from '../../stores/Profile';
+import { RootState } from '../../stores/store';
 
 export const ProfileEditPage = () => {
   const { name } = useSelector(({ profile }: RootState) => ({ name: profile.name }));

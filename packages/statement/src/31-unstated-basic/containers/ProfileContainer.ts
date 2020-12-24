@@ -1,5 +1,5 @@
-import { createContainer } from '../helpers/Unstated';
 import { useState } from 'react';
+import { createContainer } from '../helpers/Unstated';
 
 const useProfile = () => {
   const [name, setName] = useState('');

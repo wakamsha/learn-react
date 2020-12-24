@@ -1,7 +1,7 @@
-import { ListContainer } from '../../containers/ListContainer';
-import { css } from 'emotion';
 import { gutter } from '@learn-react/core/helpers/Style';
-import React, { ChangeEvent, useState } from 'react';
+import { css } from 'emotion';
+import { ChangeEvent, useState } from 'react';
+import { ListContainer } from '../../containers/ListContainer';
 
 export const ListPage = () => (
   <ListContainer.Provider>

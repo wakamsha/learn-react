@@ -1,21 +1,20 @@
-import { HomePage } from '../pages/Home';
-import { ListPage } from '../pages/ListPage';
 import { Navigation } from '@learn-react/core/components/Navigation';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { PageTransition } from '../components/PageTransition';
-import { Profile } from '../pages/profiles';
+import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from 'emotion';
+import { ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
-import { Stores } from '../stores';
-import { css } from 'emotion';
-import { gutter } from '@learn-react/core/helpers/Style';
-import React, { ComponentProps } from 'react';
+import { HomePage } from '../pages/Home';
+import { ListPage } from '../pages/ListPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
+import { Profile } from '../pages/profiles';
 
 export const App = () => (
   <div className={baseStyle}>
     <Navigation title="MobX Basic" items={linkItems} />
     <div className={contentStyle}>
-      <PageTransition historyStore={Stores.historyStore}>
+      <PageTransition>
         <Route path={Router.paths.home} component={HomePage} exact />
         <Route path={Router.paths.profile} component={Profile} />
         <Route path={Router.paths.list} component={ListPage} />
