@@ -12,7 +12,7 @@ import {
   subMonths,
 } from 'date-fns';
 import { css } from 'emotion';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { BorderRadius } from '../../constants/Style';
 import { gutter, square } from '../../helpers/Style';
 import { Item } from './Item';

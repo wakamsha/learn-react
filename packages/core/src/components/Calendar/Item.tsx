@@ -1,5 +1,4 @@
 import { css } from 'emotion';
-import React from 'react';
 import { BorderRadius } from '../../constants/Style';
 import { square } from '../../helpers/Style';
 

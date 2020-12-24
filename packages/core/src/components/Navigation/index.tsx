@@ -1,5 +1,5 @@
 import { css, cx } from 'emotion';
-import React, { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Color, Duration, FontSize } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';

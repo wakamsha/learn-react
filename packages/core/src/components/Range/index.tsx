@@ -1,5 +1,5 @@
 import { css, cx } from 'emotion';
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 import { Duration } from '../../../../routing/src/@core/constants/Style';
 import { BorderRadius, Color } from '../../constants/Style';
 import { square } from '../../helpers/Style';

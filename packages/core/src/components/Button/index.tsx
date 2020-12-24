@@ -1,5 +1,5 @@
 import { css, cx } from 'emotion';
-import React, { ButtonHTMLAttributes, MouseEvent, ReactNode, useMemo } from 'react';
+import { ButtonHTMLAttributes, MouseEvent, ReactNode, useMemo } from 'react';
 
 type Theme = 'neutral' | 'inverse';
 
@@ -25,7 +25,9 @@ export const Button = ({ theme = 'neutral', ghost, type, children, disabled, onC
   const buttonStyle = useMemo(() => cx(baseStyle, ThemeStyle[theme], ghost && GhostStyle[theme]), [theme, ghost]);
 
   return noop ? (
-    <span className={buttonStyle}>{children}</span>
+    <span className={buttonStyle} aria-disabled={disabled}>
+      {children}
+    </span>
   ) : (
     <button className={buttonStyle} type={type} tabIndex={tabIndex} disabled={disabled} onClick={onClick}>
       {children}

@@ -1,21 +1,28 @@
 module.exports = {
   extends: [
     'airbnb',
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
+    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  parserOptions: {
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json', './packages/**/tsconfig.json'],
-  },
   env: {
     browser: true,
-    es6: true,
+    es2021: true,
   },
-  globals: {},
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+    project: ['./tsconfig.json', './packages/**/tsconfig.json'],
+  },
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
@@ -54,7 +61,7 @@ module.exports = {
       'error',
       {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
-      }
+      },
     ],
     'no-restricted-syntax': [
       'error',
@@ -114,6 +121,7 @@ module.exports = {
     'react/jsx-props-no-spreading': ['off'],
     'react/no-array-index-key': ['off'],
     'react/prop-types': ['off'],
+    'react/react-in-jsx-scope': ['off'],
     'react/require-default-props': ['off'],
   },
   overrides: [

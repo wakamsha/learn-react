@@ -1,5 +1,5 @@
 import { css } from 'emotion';
-import React, { ChangeEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 type Props = {
   label: string;

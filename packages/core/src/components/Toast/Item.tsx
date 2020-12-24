@@ -1,5 +1,5 @@
 import { css, keyframes } from 'emotion';
-import React, { AnimationEvent, ReactNode, useEffect, useState } from 'react';
+import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Duration, Easing } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';
 import { Toast, useToast } from '.';

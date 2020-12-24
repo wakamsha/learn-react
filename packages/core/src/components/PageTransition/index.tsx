@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from 'react';
+import { Children, ReactNode } from 'react';
 import { Route, Switch, matchPath, useLocation } from 'react-router-dom';
 import { Transition } from '../Transition';
 

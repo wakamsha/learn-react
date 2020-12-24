@@ -1,5 +1,4 @@
 import { css } from 'emotion';
-import React from 'react';
 import { FontSize } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';
 
