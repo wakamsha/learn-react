@@ -1,4 +1,4 @@
-import { css, cx } from 'emotion';
+import { css, cx } from '@emotion/css';
 import { ButtonHTMLAttributes, MouseEvent, ReactNode, useMemo } from 'react';
 
 type Theme = 'neutral' | 'inverse';

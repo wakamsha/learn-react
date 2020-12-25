@@ -1,5 +1,6 @@
+import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/PageTransition';
-import { css } from 'emotion';
+
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { Navigation } from '../components/Navigation';

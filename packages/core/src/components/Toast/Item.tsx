@@ -1,4 +1,4 @@
-import { css, keyframes } from 'emotion';
+import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Duration, Easing } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';

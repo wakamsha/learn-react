@@ -1,5 +1,5 @@
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import React, { ChangeEvent, Component } from 'react';
 
 const inputFileStyle = css({

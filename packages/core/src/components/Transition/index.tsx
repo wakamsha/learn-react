@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { ReactNode, useMemo, useRef, useState } from 'react';
 import { Duration, Easing } from '../../constants/Style';
 
@@ -94,11 +94,11 @@ const leaveStyle = css`
 `;
 
 const horizontalStyle = css`
-  &.${enterStyle} {
+  ${`&.${enterStyle}`} {
     transform: translate3d(${OFFSET}px, 0, 0);
   }
 
-  &.${leaveStyle} {
+  ${`&.${leaveStyle}`} {
     transform: translate3d(${OFFSET}px, 0, 0);
   }
 `;

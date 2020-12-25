@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { ChangeEvent } from 'react';
 
 type Props = {

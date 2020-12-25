@@ -1,4 +1,4 @@
-import { css, cx } from 'emotion';
+import { css, cx } from '@emotion/css';
 import { ChangeEvent } from 'react';
 import { Duration } from '../../../../routing/src/@core/constants/Style';
 import { BorderRadius, Color } from '../../constants/Style';

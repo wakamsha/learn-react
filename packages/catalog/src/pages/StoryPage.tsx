@@ -1,6 +1,7 @@
+import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { css } from 'emotion';
+
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Stories } from '../Stories';

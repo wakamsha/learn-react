@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { observer } from 'mobx-react';
 import { ChangeEvent, createContext, useMemo, useState } from 'react';
 import { ListStore } from '../stores/ListStore';

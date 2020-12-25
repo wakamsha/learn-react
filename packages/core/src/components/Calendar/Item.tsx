@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { BorderRadius } from '../../constants/Style';
 import { square } from '../../helpers/Style';
 

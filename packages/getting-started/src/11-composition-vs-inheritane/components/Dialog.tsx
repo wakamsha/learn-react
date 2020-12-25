@@ -1,6 +1,6 @@
-import { FancyBorder } from './FancyBorder';
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import React, { ReactNode } from 'react';
+import { FancyBorder } from './FancyBorder';
 
 type Props = {
   title: string;

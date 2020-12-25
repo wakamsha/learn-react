@@ -1,4 +1,4 @@
-import { css, cx } from 'emotion';
+import { css, cx } from '@emotion/css';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Color, Duration, FontSize } from '../../constants/Style';

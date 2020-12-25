@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { About } from './pages/About';

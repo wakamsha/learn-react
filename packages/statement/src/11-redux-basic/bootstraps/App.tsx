@@ -1,6 +1,7 @@
+import { css } from '@emotion/css';
 import { Navigation } from '@learn-react/core/components/Navigation';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { css } from 'emotion';
+
 import { ComponentProps } from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';

@@ -1,6 +1,6 @@
-import { Theme } from '../App';
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import React from 'react';
+import { Theme } from '../App';
 
 const baseStyle = css({
   padding: `8px 48px`,

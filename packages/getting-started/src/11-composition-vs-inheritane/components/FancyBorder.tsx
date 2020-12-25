@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import React, { ReactNode } from 'react';
 
 export type BorderColors = 'blue';

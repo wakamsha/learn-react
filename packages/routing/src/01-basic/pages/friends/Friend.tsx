@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { RouteComponentProps } from 'react-router';
 import { getFriendById } from '../Friends';
 

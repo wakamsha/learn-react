@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { Link } from 'react-router-dom';
 
 export const Navigation = (): JSX.Element => (

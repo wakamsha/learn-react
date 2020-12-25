@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { observer } from 'mobx-react';
 import { Component } from 'react';
 import { JSONPlaceholderStore } from '../stores/JSONPlaceholderStore';

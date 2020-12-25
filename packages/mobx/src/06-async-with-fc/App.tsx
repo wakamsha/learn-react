@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { useMemo } from 'react';
 import { GetByParamForm } from './components/GetByParamForm';
 import { GetForm } from './components/GetForm';

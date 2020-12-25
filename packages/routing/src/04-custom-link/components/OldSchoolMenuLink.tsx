@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
+import { css } from '@emotion/css';
 import { SplashBanner } from '@learn-react/core/components/SplashBanner';
 import { Color } from '@learn-react/core/constants/Style';
-import { css } from 'emotion';
 
 export const IndexPage = () => (
   <section className={baseStyle}>

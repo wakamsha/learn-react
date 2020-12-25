@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Child } from './pages/Child';

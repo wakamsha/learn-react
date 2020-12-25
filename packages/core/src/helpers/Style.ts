@@ -1,5 +1,5 @@
+import { injectGlobal } from '@emotion/css';
 import { color } from 'csx';
-import { injectGlobal } from 'emotion';
 
 /**
  * Margin や Padding など余白の値を算出して返す。
@@ -46,19 +46,19 @@ export function applyGlobalStyle() {
     }
 
     html {
+      overflow-x: hidden;
       font-family: sans-serif;
       line-height: 1.15;
       --webkit-text-size-adjust: 100%;
       --ms-text-size-adjust: 100%;
       --webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      overflow-x: hidden;
     }
 
     /* Scaffolding */
     html,
     body {
-      margin: 0;
       padding: 0;
+      margin: 0;
       font-weight: 500;
       font-feature-settings: palt 1;
     }

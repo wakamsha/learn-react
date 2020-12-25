@@ -1,7 +1,8 @@
+import { css } from '@emotion/css';
 import { Navigation } from '@learn-react/core/components/Navigation';
 import { PageTransition } from '@learn-react/core/components/PageTransition';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
-import { css } from 'emotion';
+
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { IndexPage } from './pages/IndexPage';
