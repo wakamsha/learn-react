@@ -6,11 +6,12 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "reset": "rm -rf dist/; mkdir -p dist/assets/;",
+    "reset": "rm -rf dist/; mkdir -p dist/;",
     "copy": "cp -r ./public/. ./dist/",
-    "develop": "webpack serve",
     "type-check": "tsc --noEmit",
-    "start": "yarn reset; yarn copy; run-p \"develop\" \"type-check --watch\"",
+    "compile": "node ./bin/build.js",
+    "serve": "node ./bin/serve.js",
+    "start": "yarn reset; yarn copy; run-p \"compile\" \"serve\" \"type-check --watch\"",
     "build": "yarn reset; yarn copy; webpack --mode production"
   }
 }
