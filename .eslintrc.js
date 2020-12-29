@@ -117,6 +117,7 @@ module.exports = {
     'no-throw-literal': ['off'],
     'no-unused-expressions': ['off'],
     'react/button-has-type': ['off'],
+    'react/display-name': ['off'],
     'react/jsx-indent': ['off'],
     'react/jsx-props-no-spreading': ['off'],
     'react/no-array-index-key': ['off'],
