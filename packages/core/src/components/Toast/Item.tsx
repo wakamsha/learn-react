@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/css';
-import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
-import { Duration, Easing } from '../../constants/Style';
+import { AnimationEvent, memo, ReactNode, useEffect, useState } from 'react';
+import { Color, Duration, Easing } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';
 import { Toast, useToast } from '.';
 
@@ -10,35 +10,34 @@ type Props = {
   theme: Toast['theme'];
 };
 
-export const Item = ({ id, children, theme = 'success' }: Props) => {
+export const Item = memo(({ id, children, theme = 'primary' }: Props) => {
   const { removeToast } = useToast();
 
-  const [addonStyle, setAddonStyle] = useState('');
+  const [styleAddon, setStyleAddon] = useState('');
 
   const handleAnimationEnd = (e: AnimationEvent<HTMLDivElement>) =>
     window.getComputedStyle(e.currentTarget).opacity === '0' && removeToast(id);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setAddonStyle(removeStyle), hideDurationTime);
+    const timer = window.setTimeout(() => setStyleAddon(removeStyle), hideDurationTime);
 
     return () => window.clearTimeout(timer);
   }, [id, removeToast]);
 
   return (
-    <div className={`${itemStyle} ${Theme[theme]} ${addonStyle}`} onAnimationEnd={handleAnimationEnd}>
+    <div className={`${styleItem} ${Theme[theme]} ${styleAddon}`} onAnimationEnd={handleAnimationEnd}>
       {children}
     </div>
   );
-};
+});
 
 const hideDurationTime = 5000;
 
-const itemStyle = css`
+const styleItem = css`
   position: relative;
   min-width: 256px;
   padding: ${gutter(4)};
-  background: white;
-  border: 1px solid #d7d7d7;
+  color: white;
   box-shadow: 0px 4px 10px 0px #d7d7d7;
   animation: ${keyframes`
     from {
@@ -71,10 +70,10 @@ const removeStyle = css`
 `;
 
 const Theme = {
-  danger: css`
-    background: red;
+  primary: css`
+    background: ${Color.ThemePrimaryNeutral};
   `,
-  success: css`
-    background: lime;
+  danger: css`
+    background: ${Color.ThemeDangerNeutral};
   `,
 } as const;

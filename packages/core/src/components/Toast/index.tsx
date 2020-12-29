@@ -6,7 +6,7 @@ type ProviderProps = {
   children: ReactNode;
 };
 
-type Theme = 'success' | 'danger';
+type Theme = 'primary' | 'danger';
 
 export type Toast = {
   id: number;
@@ -14,7 +14,7 @@ export type Toast = {
   theme?: Theme;
 };
 
-export const ToastProvider = ({ children }: ProviderProps): JSX.Element => {
+export const ToastProvider = ({ children }: ProviderProps) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const addToast = useCallback(

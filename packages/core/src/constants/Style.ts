@@ -1,8 +1,18 @@
 export const Color = {
   // Theme
-  ThemePrimary: '#e61376',
-  ThemeSecondary: '#ccff00',
-  ThemeInfo: '#55efcb',
+  ThemePrimaryNeutral: '#7E808C',
+  ThemePrimaryLight: '#616474',
+  ThemePrimaryLighter: '#E3E3E7',
+  ThemePrimaryDark: '#656772',
+
+  ThemeDangerNeutral: '#D2397C',
+  ThemeDangerLight: '#C71060',
+  ThemeDangerDark: '#970847',
+  ThemeDangerLighter: '#FCDEEC',
+
+  ThemeDisabledNeutral: '#D6D9DF',
+  ThemeDisabledLight: '#F6F6F8',
+  ThemeDisabledDark: '#7E808C',
 
   // Text
   TextNeutral: '#24243f',

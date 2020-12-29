@@ -136,7 +136,7 @@ const itemStyle = css`
 const itemSelectedStyle = css`
   > a {
     font-weight: bold;
-    color: ${Color.ThemePrimary};
+    color: ${Color.TextNeutral};
     pointer-events: none;
   }
 `;

@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
 import { createPortal } from 'react-dom';
+import { gutter } from '../../helpers/Style';
 import { Item } from './Item';
 import { Toast } from '.';
 
@@ -7,24 +8,24 @@ type Props = {
   toasts: Toast[];
 };
 
-export const Container = ({ toasts }: Props): JSX.Element =>
+export const Container = ({ toasts }: Props) =>
   createPortal(
-    <div className={baseStyle}>
+    <aside className={styleBase}>
       {toasts.map(({ id, content, theme }) => (
         <Item key={id} id={id} theme={theme}>
           {content}
         </Item>
       ))}
-    </div>,
+    </aside>,
     document.body,
   );
 
-const baseStyle = css`
+const styleBase = css`
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 1;
   display: flex;
   flex-direction: column-reverse;
-  padding: 16px;
+  padding: ${gutter(4)};
 `;

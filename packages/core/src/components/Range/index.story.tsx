@@ -13,8 +13,7 @@ export const Story = () => {
       </p>
       <h3>Theme</h3>
       <Range value={50} onChange={console.info} theme="primary" />
-      <Range value={50} onChange={console.info} theme="secondary" />
-      <Range value={50} onChange={console.info} theme="info" />
+      <Range value={50} onChange={console.info} theme="danger" />
     </>
   );
 };

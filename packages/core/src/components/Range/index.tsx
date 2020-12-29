@@ -4,7 +4,7 @@ import { Duration } from '../../../../routing/src/@core/constants/Style';
 import { BorderRadius, Color } from '../../constants/Style';
 import { square } from '../../helpers/Style';
 
-type Theme = 'primary' | 'secondary' | 'info';
+type Theme = 'primary' | 'danger';
 
 type Props = {
   value: number;
@@ -96,8 +96,7 @@ const styleBase = css`
   }
 `;
 
-const styleTheme: Record<Theme, Color> = {
-  primary: Color.ThemePrimary,
-  secondary: Color.ThemeSecondary,
-  info: Color.ThemeInfo,
+const styleTheme: Frozen<Theme, Color> = {
+  primary: Color.ThemePrimaryNeutral,
+  danger: Color.ThemeDangerNeutral,
 };

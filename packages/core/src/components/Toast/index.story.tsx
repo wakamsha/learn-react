@@ -12,11 +12,11 @@ const AddMessage = () => {
 
   const [value, setValue] = useState('');
 
-  const [theme, setTheme] = useState<'success' | 'danger'>('success');
+  const [theme, setTheme] = useState<'primary' | 'danger'>('primary');
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => setTheme(e.target.value as 'success' | 'danger');
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => setTheme(e.target.value as 'primary' | 'danger');
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ const AddMessage = () => {
     <form onSubmit={handleSubmit}>
       <input value={value} onChange={handleInput} placeholder="メッセージを入力してください" />
       <ul>
-        {['success', 'danger'].map(label => (
+        {['primary', 'danger'].map(label => (
           <li key={label}>
             <label>
               <input type="radio" value={label} name="theme" checked={label === theme} onChange={handleChange} />

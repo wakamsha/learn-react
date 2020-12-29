@@ -89,6 +89,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],
     '@typescript-eslint/no-use-before-define': ['off'],
+    'consistent-return': ['off'], // TypeScript のフロー解析を考慮できないため false positive が発生する
     'import/extensions': ['off'],
     'import/no-extraneous-dependencies': ['off'],
     'import/no-unresolved': ['off'],
