@@ -1,5 +1,8 @@
 {
   "name": "@learn-react/core",
   "version": "1.0.0",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@learn-react/icon": "1.0.0"
+  }
 }

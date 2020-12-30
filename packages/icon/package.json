@@ -1,0 +1,12 @@
+{
+  "name": "@learn-react/icon",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "reset": "rm -rf dist/; mkdir -p dist/",
+    "generate": "node ./bin/build",
+    "format": "eslint -c ../../.eslintrc.js ./dist/* --fix",
+    "build": "yarn reset; yarn generate; yarn format"
+  }
+}

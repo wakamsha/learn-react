@@ -15,6 +15,7 @@ function builder({ mode = 'development', baseDir, entry }) {
       modules: [path.resolve(baseDir, './src'), path.resolve(baseDir, '../../node_modules')],
       alias: {
         '@learn-react/core': path.resolve(baseDir, '../core/src'),
+        '@learn-react/icon': path.resolve(baseDir, '../icon/dist'),
       },
     },
     module: {
