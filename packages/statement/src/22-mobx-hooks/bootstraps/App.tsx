@@ -16,7 +16,7 @@ import { HistoryStore } from '../stores/HistoryStore';
 export const App = () => (
   <HistoryStore.Context.Provider value={Stores.historyStore}>
     <div className={baseStyle}>
-      <Navigation title="MobX Hooks" items={linkItems} />
+      <Navigation title="MobX Hooks | Statement" items={linkItems} />
       <div className={contentStyle}>
         <PageTransition>
           <Route path={Router.paths.home} component={HomePage} exact />

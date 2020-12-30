@@ -1,8 +1,8 @@
-import { User } from '../infra/model';
 import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
-import { flow } from '../utils/Decorator';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
+import { User } from '../infra/model';
+import { flow } from '../utils/Decorator';
 
 export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);

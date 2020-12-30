@@ -109,7 +109,7 @@ const styleIcon = css`
 
 const styleInput = css`
   flex: 1 1 100%;
-  padding: ${gutter(2)} ${gutter(4)} ${gutter(2)} 0;
+  padding: ${gutter(2)} 0;
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
   color: ${Color.TextNeutral};
@@ -120,7 +120,8 @@ const styleInput = css`
   -moz-appearance: none;
 
   &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
+  &::-webkit-inner-spin-button,
+  &::-webkit-search-cancel-button {
     -webkit-appearance: none;
     appearance: none;
   }

@@ -12,7 +12,7 @@ import { ListPage } from '../pages/profiles/ListPage';
 
 export const App = () => (
   <div className={baseStyle}>
-    <Navigation title="Unstated Basic" items={linkItems} />
+    <Navigation title="Unstated | Statement" items={linkItems} />
     <div className={contentStyle}>
       <PageTransition>
         <Route path={Router.paths.home} component={HomePage} exact />

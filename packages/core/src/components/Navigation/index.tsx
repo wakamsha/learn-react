@@ -1,8 +1,9 @@
 import { css, cx } from '@emotion/css';
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
 import { gutter, square } from '../../helpers/Style';
+import { TextField } from '../TextField';
 import Logo from './logo192.png';
 
 type Item = {
@@ -30,6 +31,18 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
 
   const [pathname, setPathname] = useState(location.pathname);
 
+  const [keyword, setKeyword] = useState('');
+
+  const flattenLabels = useMemo(() => {
+    const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
+    const query = new RegExp(pattern, 'i');
+
+    return items
+      .reduce((acc, item) => [...acc, item.items?.map(({ label }) => label) ?? item.label], [])
+      .flat()
+      .filter(label => label.match(query));
+  }, [items, keyword]);
+
   useEffect(() => {
     setPathname(location.pathname);
   }, [location]);
@@ -42,6 +55,11 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
           <Link to="/">{title}</Link>
         </h1>
       </header>
+
+      <div role="form" className={styleForm}>
+        <TextField type="search" placeholder="Search..." value={keyword} onChange={setKeyword} clearable />
+      </div>
+
       <nav className={styleBody}>
         <ul className={styleNavigation} role="tree">
           {items?.map((item, i) => (
@@ -57,11 +75,13 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
                 <>
                   <span>{item.label}</span>
                   <ul className={styleNavigation} role="tree">
-                    {item.items?.map(({ label, to }, j) => (
-                      <li key={j} className={styleItem} role="treeitem" aria-selected={to === pathname}>
-                        <Link to={to}>{label}</Link>
-                      </li>
-                    ))}
+                    {item.items?.map(({ label, to }, j) =>
+                      flattenLabels.includes(label) ? (
+                        <li key={j} className={styleItem} role="treeitem" aria-selected={to === pathname}>
+                          <Link to={to}>{label}</Link>
+                        </li>
+                      ) : null,
+                    )}
                   </ul>
                 </>
               )}
@@ -74,7 +94,10 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
 };
 
 const styleBase = css`
+  display: grid;
   flex-shrink: 0;
+  grid-template-rows: auto auto 1fr;
+  grid-gap: ${gutter(4)};
   height: 100vh;
   overflow-y: auto;
   background: ${Color.TextureBody};
@@ -83,7 +106,7 @@ const styleBase = css`
 
 const styleMasthead = css`
   flex-shrink: 0;
-  padding: ${gutter(3)} ${gutter(4)};
+  padding: ${gutter(3)} ${gutter(4)} 0;
 
   > :not(:first-child) {
     margin-top: ${gutter(2)};
@@ -121,9 +144,13 @@ const styleTitle = css`
   }
 `;
 
+const styleForm = css`
+  padding: 0 ${gutter(4)};
+`;
+
 const styleBody = css`
   flex-grow: 1;
-  padding: 0 ${gutter(4)} ${gutter(10)};
+  padding: 0 ${gutter(4)} ${gutter(20)};
   overflow-y: auto;
 `;
 
