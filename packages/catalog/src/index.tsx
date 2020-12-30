@@ -10,7 +10,7 @@ import { StoryPage } from './pages/StoryPage';
 import { Components, Hooks } from './Stories';
 
 const App = () => {
-  const sections = useMemo(
+  const items = useMemo(
     () => [
       {
         label: 'Components',
@@ -37,7 +37,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className={baseStyle}>
-        <Navigation title="React Catalog" sections={sections} />
+        <Navigation title="Catalog | Learn React" items={items} />
         <main className={contentStyle}>
           <PageTransition>
             <Route path="/" exact>

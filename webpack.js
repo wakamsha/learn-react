@@ -24,6 +24,11 @@ function builder({ mode = 'development', baseDir, entry }) {
           exclude: /node_modules/,
           use: [{ loader: 'ts-loader', options: { transpileOnly: develop } }],
         },
+        {
+          test: /\.(png|jpg|gif)$/,
+          loader: 'file-loader',
+          options: {},
+        },
       ],
     },
     devtool: develop ? 'eval-cheap-module-source-map' : 'source-map',

@@ -1,3 +1,23 @@
+declare module '*.gif' {
+  const exports: any;
+  export default exports;
+}
+
+declare module '*.jpg' {
+  const exports: any;
+  export default exports;
+}
+
+declare module '*.jpeg' {
+  const exports: any;
+  export default exports;
+}
+
+declare module '*.png' {
+  const exports: any;
+  export default exports;
+}
+
 declare type XOR<T, U> = import('ts-xor').XOR<T, U>;
 
 declare type ValueOf<T> = T[keyof T];
