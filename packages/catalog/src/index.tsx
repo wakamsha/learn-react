@@ -36,9 +36,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className={baseStyle}>
+      <div className={styleBase}>
         <Navigation title="Catalog | Learn React" items={items} />
-        <main className={contentStyle}>
+        <main>
           <PageTransition>
             <Route path="/" exact>
               <IndexPage />
@@ -53,13 +53,10 @@ const App = () => {
   );
 };
 
-const baseStyle = css`
-  display: flex;
+const styleBase = css`
+  display: grid;
+  grid-template-columns: auto 1fr;
   width: 100%;
-`;
-
-const contentStyle = css`
-  flex-grow: 1;
   height: 100vh;
 `;
 

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { LineHeight } from '@learn-react/core/constants/Style';
+import { Color, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,27 +18,44 @@ export const StoryPage = () => {
   }, [category, story]);
 
   return (
-    <div className={baseStyle}>
-      <section className={previewStyle}>
-        <h1 className={titleStyle}>{story}</h1>
+    <div className={styleBase}>
+      <section className={stylePreview}>
+        <header className={styleHeader}>
+          <small>{`@learn-react/core/${category}`}</small>
+          <h1>{story}</h1>
+        </header>
         <Component />
       </section>
     </div>
   );
 };
 
-const baseStyle = css`
+const styleBase = css`
+  display: grid;
   height: 100vh;
+  color: ${Color.TextNeutral};
   background: #f6f6f8;
 `;
 
-const titleStyle = css`
+const styleHeader = css`
+  display: grid;
+  flex-direction: column;
+  grid-gap: ${gutter(2)};
   margin: 0 0 ${gutter(8)};
-  font-size: 24px;
-  line-height: ${LineHeight.Regular};
-  white-space: nowrap;
+  line-height: ${LineHeight.Compressed};
+
+  > small {
+    font-size: ${FontSize.Small};
+    color: ${Color.TextSub};
+  }
+
+  > h1 {
+    margin: 0;
+    font-size: 24px;
+  }
 `;
 
-const previewStyle = css`
+const stylePreview = css`
   padding: ${gutter(4)} ${gutter(6)};
+  overflow-y: auto;
 `;
