@@ -6,10 +6,22 @@ import { Story as IconButton } from '@learn-react/core/components/IconButton/ind
 import { Story as LabeledSlider } from '@learn-react/core/components/LabeledSlider/index.story';
 import { Story as Range } from '@learn-react/core/components/Range/index.story';
 import { Story as Tabs } from '@learn-react/core/components/Tabs/index.story';
+import { Story as TextField } from '@learn-react/core/components/TextField/index.story';
 import { Story as Toast } from '@learn-react/core/components/Toast/index.story';
 import { Story as ShuffleLetters } from '@learn-react/core/hooks/useShuffleLetters/index.story';
 
-export const Components = { Box, Button, Calendar, LabeledSlider, Icon, IconButton, Range, Tabs, Toast } as const;
+export const Components = {
+  Box,
+  Button,
+  Calendar,
+  LabeledSlider,
+  Icon,
+  IconButton,
+  Range,
+  Tabs,
+  TextField,
+  Toast,
+} as const;
 export type Components = keyof typeof Components;
 
 export const Hooks = { ShuffleLetters } as const;
