@@ -1,15 +1,21 @@
 import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
-
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Stories } from '../Stories';
+import { Category, Components, Hooks } from '../Stories';
 
 export const StoryPage = () => {
-  const { story } = useParams<{ story: Stories }>();
+  const { category, story } = useParams<{ category: Category; story: string }>();
 
-  const Component = useMemo(() => Stories[story], [story]);
+  const Component = useMemo(() => {
+    const section: Frozen<Category, any> = {
+      components: Components,
+      hooks: Hooks,
+    } as const;
+
+    return section[category][story];
+  }, [category, story]);
 
   return (
     <div className={baseStyle}>

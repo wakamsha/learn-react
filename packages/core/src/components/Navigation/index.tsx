@@ -3,6 +3,7 @@ import { CSSProperties, useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Color, Duration, FontSize } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';
+import { Tabs } from '../Tabs';
 
 type Item = {
   label: string;
@@ -18,51 +19,99 @@ type Item = {
   }
 >;
 
-type Props = {
-  title: string;
+type Section = {
+  label: string;
   items: Item[];
-  width?: CSSProperties['width'];
 };
 
-export const Navigation = ({ title, items, width = 272 }: Props) => {
+type Props = {
+  title: string;
+  width?: CSSProperties['width'];
+} & XOR<
+  {
+    items: Item[];
+  },
+  {
+    sections: Section[];
+  }
+>;
+
+export const Navigation = ({ title, width = 272, items, sections }: Props) => {
   const location = useLocation();
 
   const [pathname, setPathname] = useState(location.pathname);
+
+  const [currentTabIndex, setCurrentTabIndex] = useState(sections ? 0 : -1);
+
+  const handleChangeTab = ({ value }: { value: number }) => setCurrentTabIndex(value);
 
   useEffect(() => {
     setPathname(location.pathname);
   }, [location]);
 
   return (
-    <nav className={baseStyle} style={{ width }}>
+    <div role="complementary" className={baseStyle} style={{ width }}>
       <header className={mastheadStyle}>
         <h1 className={titleStyle}>
           <Link to="/">{title}</Link>
         </h1>
       </header>
-      <div className={bodyStyle}>
-        <ul className={navigationStyle}>
-          {items.map((item, i) => (
-            <li key={i} className={cx(itemStyle, item.to === pathname && itemSelectedStyle)}>
-              {item.to ? (
-                <Link to={item.to}>{item.label}</Link>
-              ) : (
-                <>
-                  {item.label}
-                  <ul className={navigationStyle}>
-                    {item.items?.map(({ label, to }, j) => (
-                      <li key={j} className={cx(itemStyle, to === pathname && itemSelectedStyle)}>
-                        <Link to={to}>{label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
+      <nav className={bodyStyle}>
+        {sections ? (
+          <>
+            <div className={styleTabContainer}>
+              <Tabs
+                options={sections.map(({ label }, index) => ({ label, value: index }))}
+                value={currentTabIndex}
+                onChange={handleChangeTab}
+              />
+            </div>
+            <ul className={navigationStyle}>
+              {sections[currentTabIndex].items.map((item, i) => (
+                <li key={i} className={cx(itemStyle, item.to === pathname && itemSelectedStyle)}>
+                  {item.to ? (
+                    <Link to={item.to}>{item.label}</Link>
+                  ) : (
+                    <>
+                      {item.label}
+                      <ul className={navigationStyle}>
+                        {item.items?.map(({ label, to }, j) => (
+                          <li key={j} className={cx(itemStyle, to === pathname && itemSelectedStyle)}>
+                            <Link to={to}>{label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
+        {items ? (
+          <ul className={navigationStyle}>
+            {items?.map((item, i) => (
+              <li key={i} className={cx(itemStyle, item.to === pathname && itemSelectedStyle)}>
+                {item.to ? (
+                  <Link to={item.to}>{item.label}</Link>
+                ) : (
+                  <>
+                    {item.label}
+                    <ul className={navigationStyle}>
+                      {item.items?.map(({ label, to }, j) => (
+                        <li key={j} className={cx(itemStyle, to === pathname && itemSelectedStyle)}>
+                          <Link to={to}>{label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </nav>
+    </div>
   );
 };
 
@@ -104,6 +153,11 @@ const bodyStyle = css`
   flex-grow: 1;
   padding: 0 ${gutter(4)} ${gutter(10)};
   overflow-y: auto;
+`;
+
+const styleTabContainer = css`
+  margin-bottom: ${gutter(4)};
+  border-bottom: 1px solid ${Color.LineLight};
 `;
 
 const navigationStyle = css`

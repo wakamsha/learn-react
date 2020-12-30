@@ -7,6 +7,10 @@ import { Story as Tabs } from '@learn-react/core/components/Tabs/index.story';
 import { Story as Toast } from '@learn-react/core/components/Toast/index.story';
 import { Story as ShuffleLetters } from '@learn-react/core/hooks/useShuffleLetters/index.story';
 
-export const Stories = { Box, Button, Calendar, LabeledSlider, Range, ShuffleLetters, Tabs, Toast } as const;
+export const Components = { Box, Button, Calendar, LabeledSlider, Range, Tabs, Toast } as const;
+export type Components = keyof typeof Components;
 
-export type Stories = keyof typeof Stories;
+export const Hooks = { ShuffleLetters } as const;
+export type Hooks = keyof typeof Hooks;
+
+export type Category = 'components' | 'hooks';
