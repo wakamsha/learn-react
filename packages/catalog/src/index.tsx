@@ -27,10 +27,12 @@ const App = () => (
   </BrowserRouter>
 );
 
-const linkItems = Object.keys(Stories).map(story => ({
-  label: story,
-  to: `/stories/${story}/`,
-}));
+const linkItems = Object.keys(Stories)
+  .sort()
+  .map(story => ({
+    label: story,
+    to: `/stories/${story}/`,
+  }));
 
 const baseStyle = css`
   display: flex;

@@ -1,4 +1,4 @@
-import { injectGlobal } from '@emotion/css';
+import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
 
 /**
@@ -35,6 +35,33 @@ export function square(value: string | number) {
 export function toRGBA(hex: string, opacity: number) {
   const rgb = color(hex);
   return `rgba(${rgb.red()}, ${rgb.green()}, ${rgb.blue()}, ${opacity})`;
+}
+
+/**
+ * 視覚上は見えなくなるが、操作は可能となるスタイル。
+ *
+ * @see https://github.com/twbs/bootstrap/blob/a4a04cd9ec741050390746f8056cc79a9c04c8df/scss/mixins/_screen-reader.scss#L8-L18
+ */
+export function visuallyHidden() {
+  return css`
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: none;
+  `;
+}
+
+export function textEllipsis() {
+  return css`
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `;
 }
 
 export function applyGlobalStyle() {
