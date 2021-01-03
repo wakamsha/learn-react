@@ -49,6 +49,28 @@ export const Story = () => (
         </Button>
       </div>
     </div>
+
+    <h3>Noop</h3>
+    <div className={styleRow}>
+      <div className={styleCell}>
+        <Button noop>Solid</Button>
+      </div>
+      <div className={styleCell}>
+        <Button variant="ghost" noop>
+          Ghost
+        </Button>
+      </div>
+      <div className={styleCell}>
+        <Button variant="bare" noop>
+          disabled
+        </Button>
+      </div>
+      <div className={styleCell}>
+        <Button noop disabled>
+          disabled
+        </Button>
+      </div>
+    </div>
   </>
 );
 

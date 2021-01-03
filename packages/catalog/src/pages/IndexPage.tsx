@@ -4,7 +4,7 @@ import { Color } from '@learn-react/core/constants/Style';
 
 export const IndexPage = () => (
   <section className={baseStyle}>
-    <SplashBanner title="React Catalog" />
+    <SplashBanner title="Catalog | Learn React" />
   </section>
 );
 
