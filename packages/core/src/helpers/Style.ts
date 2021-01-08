@@ -66,19 +66,44 @@ export function textEllipsis() {
 
 export function applyGlobalStyle() {
   return injectGlobal`
+    /* Reset */
+    /* 以下を参考 */
+    /* https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css */
     *,
     *:before,
     *:after {
       box-sizing: border-box;
+      margin: 0;
     }
-
     html {
       overflow-x: hidden;
       font-family: sans-serif;
-      line-height: 1.15;
-      --webkit-text-size-adjust: 100%;
-      --ms-text-size-adjust: 100%;
-      --webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      scroll-behavior: smooth;
+    }
+    body {
+      min-height: 100vh;
+      text-rendering: optimizeSpeed;
+      line-height: 1.5;
+    }
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+    }
+    img,
+    picture {
+      display: block;
+      max-width: 100%;
+    }
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
+    main {
+      display: block;
+      overflow-x: hidden;
     }
 
     /* Scaffolding */
@@ -86,8 +111,37 @@ export function applyGlobalStyle() {
     body {
       padding: 0;
       margin: 0;
+      font-family: "Noto Sans Japanese", "メイリオ", Meiryo, sans-serif;
       font-weight: 500;
       font-feature-settings: palt 1;
+    }
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul,
+    ol,
+    figure,
+    blockquote,
+    dl,
+    dd {
+      margin: 0;
+    }
+    ul,
+    ol {
+      padding: 0;
+      list-style: none;
+    }
+    /* stylelint-disable-next-line no-descending-specificity */
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   `;
 }

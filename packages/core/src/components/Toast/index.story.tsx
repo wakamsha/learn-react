@@ -1,4 +1,6 @@
+import { css } from '@emotion/css';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { gutter } from '../../helpers/Style';
 import { ToastProvider, useToast } from '.';
 
 export const Story = () => (
@@ -26,7 +28,7 @@ const AddMessage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input value={value} onChange={handleInput} placeholder="メッセージを入力してください" />
+      <input className={styleInput} value={value} onChange={handleInput} placeholder="メッセージを入力してください" />
       <ul>
         {['primary', 'danger'].map(label => (
           <li key={label}>
@@ -40,3 +42,9 @@ const AddMessage = () => {
     </form>
   );
 };
+
+const styleInput = css`
+  display: block;
+  width: 100%;
+  padding: ${gutter(1)};
+`;

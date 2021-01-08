@@ -171,7 +171,7 @@ const styleItem = css`
 
   > a {
     display: block;
-    padding: ${gutter(1)} 0;
+    padding: 0;
     color: ${Color.TextNeutral};
     text-decoration: none;
 

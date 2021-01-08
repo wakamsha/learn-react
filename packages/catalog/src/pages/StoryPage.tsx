@@ -59,7 +59,8 @@ const stylePreview = css`
   padding: ${gutter(4)} ${gutter(6)};
   overflow-y: auto;
 
-  > h3 {
-    margin-top: 2em;
+  > h3,
+  > h4 {
+    margin: 2em 0 0.5em;
   }
 `;

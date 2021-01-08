@@ -20,16 +20,19 @@ export const Story = () => {
 
   return (
     <>
+      <h4>Submit</h4>
       <form onSubmit={e => e.preventDefault()}>
         <input value={input} onChange={e => setInput(e.target.value)} />
         <button onClick={handleSubmit}>submit</button>
       </form>
       <p ref={ref1}>{value}</p>
 
+      <h3>Click</h3>
       <p className={styleParagraph} ref={ref2} onClick={() => startShuffle2('my name is wakamsha')}>
         my name is wakamsha
       </p>
 
+      <h3>Hover</h3>
       <ul className={styleList}>
         {['John Lennon', 'Paul McCartney', 'George Harrison', 'Ringo Starr'].map((name, i) => (
           <ListItem key={i}>{name}</ListItem>
