@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
 import { gutter } from '../../helpers/Style';
+import { Icon } from '../Icon';
 import { Button } from '.';
 
 const themes = ['primary', 'danger'] as const;
@@ -48,6 +49,38 @@ export const Story = () => (
           disabled
         </Button>
       </div>
+    </div>
+
+    <h3>With Icon</h3>
+    <div className={styleRow}>
+      {(['solid', 'ghost', 'bare'] as const).map(variant => (
+        <div key={variant} className={styleCell}>
+          <Button variant={variant}>
+            <Icon name="plus" />
+            {variant}
+          </Button>
+        </div>
+      ))}
+    </div>
+    <div className={styleRow}>
+      {(['solid', 'ghost', 'bare'] as const).map(variant => (
+        <div key={variant} className={styleCell}>
+          <Button variant={variant}>
+            {variant}
+            <Icon name="plus" />
+          </Button>
+        </div>
+      ))}
+    </div>
+
+    <h3>Block</h3>
+    <div className={styleCell}>
+      <Button block>Solid</Button>
+    </div>
+    <div className={styleCell}>
+      <Button variant="ghost" block>
+        Ghost
+      </Button>
     </div>
 
     <h3>Noop</h3>

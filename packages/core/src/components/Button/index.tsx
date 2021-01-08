@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ButtonHTMLAttributes, Children, MouseEvent, ReactNode, useMemo } from 'react';
 import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { gutter, square } from '../../helpers/Style';
 
 type Theme = 'primary' | 'danger';
 
@@ -13,6 +13,7 @@ type Props = Partial<
     theme: Theme;
     children: ReactNode;
     type: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+    block: boolean;
     disabled: ButtonHTMLAttributes<HTMLButtonElement>['disabled'];
   } & XOR<
     {
@@ -30,12 +31,17 @@ export const Button = ({
   theme = 'primary',
   type,
   children,
+  block,
   disabled,
   onClick,
   tabIndex,
   noop,
 }: Props) => {
-  const buttonStyle = useMemo(() => cx(styleBase, getVariantStyle(variant, theme)), [variant, theme]);
+  const buttonStyle = useMemo(() => cx(styleBase, getVariantStyle(variant, theme), block && styleBlock), [
+    variant,
+    block,
+    theme,
+  ]);
 
   return noop ? (
     <span className={buttonStyle} aria-disabled={disabled}>
@@ -69,7 +75,7 @@ function variantSolid(neutral: Color, hover: Color) {
     background-color: ${neutral};
     border-color: ${neutral};
 
-    svg {
+    > svg {
       fill: white;
     }
 
@@ -98,7 +104,7 @@ function variantGhost(color: Color, hover: Color) {
     background-color: transparent;
     border-color: ${color};
 
-    svg {
+    > svg {
       fill: ${color};
     }
 
@@ -113,7 +119,7 @@ function variantGhost(color: Color, hover: Color) {
       cursor: not-allowed;
       border-color: ${Color.ThemeDisabledNeutral};
 
-      svg {
+      > svg {
         fill: ${Color.ThemeDisabledNeutral};
       }
     }
@@ -126,7 +132,7 @@ function variantBare(color: Color, hover: Color) {
     background-color: transparent;
     border-color: transparent;
 
-    svg {
+    > svg {
       fill: ${color};
     }
 
@@ -140,7 +146,7 @@ function variantBare(color: Color, hover: Color) {
       pointer-events: none;
       cursor: not-allowed;
 
-      svg {
+      > svg {
         fill: ${Color.ThemeDisabledNeutral};
       }
     }
@@ -151,9 +157,10 @@ const styleBase = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: ${gutter(3)} ${gutter(6)};
-  font-size: ${FontSize.Regular};
-  line-height: 1;
+  min-width: 110px;
+  padding: 5px ${gutter(6)};
+  font-size: ${FontSize.Small};
+  line-height: 1.2;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -163,9 +170,27 @@ const styleBase = css`
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
-  border-radius: ${BorderRadius.Regular};
-  appearance: none;
+  border-radius: ${BorderRadius.Circle};
   transition: background-color ${Duration.Fade};
+  appearance: none;
+
+  > :not(:first-child) {
+    margin-left: ${gutter(1)};
+  }
+
+  > svg {
+    margin-top: -1px;
+    margin-bottom: -1px;
+    ${square(16)}
+
+    &:first-child:not(:last-child) {
+      margin-left: ${gutter(-2)};
+    }
+
+    &:last-child:not(:first-child) {
+      margin-right: ${gutter(-2)};
+    }
+  }
 `;
 
 const styleSolid: Frozen<Theme, string> = {
@@ -182,3 +207,8 @@ const styleBare: Frozen<Theme, string> = {
   primary: variantBare(Color.ThemePrimaryNeutral, Color.ThemePrimaryLighter),
   danger: variantBare(Color.ThemeDangerNeutral, Color.ThemeDangerLighter),
 };
+
+const styleBlock = css`
+  display: flex;
+  width: 100%;
+`;
