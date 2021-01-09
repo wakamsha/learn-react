@@ -5,6 +5,7 @@ import { Story as Icon } from '@learn-react/core/components/Icon/index.story';
 import { Story as IconButton } from '@learn-react/core/components/IconButton/index.story';
 import { Story as LabeledSlider } from '@learn-react/core/components/LabeledSlider/index.story';
 import { Story as Range } from '@learn-react/core/components/Range/index.story';
+import { Story as SplitPane } from '@learn-react/core/components/SplitPane/index.story';
 import { Story as Tabs } from '@learn-react/core/components/Tabs/index.story';
 import { Story as TextField } from '@learn-react/core/components/TextField/index.story';
 import { Story as Toast } from '@learn-react/core/components/Toast/index.story';
@@ -18,6 +19,7 @@ export const Components = {
   Icon,
   IconButton,
   Range,
+  SplitPane,
   Tabs,
   TextField,
   Toast,
