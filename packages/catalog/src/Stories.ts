@@ -1,6 +1,7 @@
 import { Story as Box } from '@learn-react/core/components/Box/index.story';
 import { Story as Button } from '@learn-react/core/components/Button/index.story';
 import { Story as Calendar } from '@learn-react/core/components/Calendar/index.story';
+import { Story as Checkbox } from '@learn-react/core/components/Checkbox/index.story';
 import { Story as Icon } from '@learn-react/core/components/Icon/index.story';
 import { Story as IconButton } from '@learn-react/core/components/IconButton/index.story';
 import { Story as LabeledSlider } from '@learn-react/core/components/LabeledSlider/index.story';
@@ -15,6 +16,7 @@ export const Components = {
   Box,
   Button,
   Calendar,
+  Checkbox,
   LabeledSlider,
   Icon,
   IconButton,
