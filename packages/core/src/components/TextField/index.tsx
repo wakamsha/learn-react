@@ -89,6 +89,10 @@ const styleBase = css`
   box-shadow: none;
   transition: box-shadow ${Duration.Fade};
 
+  > * {
+    min-width: 0;
+  }
+
   > :not(:first-child) {
     margin-left: ${gutter(4)};
   }
@@ -108,6 +112,7 @@ const styleIcon = css`
 `;
 
 const styleInput = css`
+  display: inline-flex;
   flex: 1 1 100%;
   padding: ${gutter(2)} 0;
   font-size: ${FontSize.Regular};

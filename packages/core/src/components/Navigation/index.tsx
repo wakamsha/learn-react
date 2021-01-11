@@ -48,7 +48,7 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
   }, [location]);
 
   return (
-    <div role="complementary" className={styleBase} style={{ width }}>
+    <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: width }}>
       <header className={styleMasthead}>
         <img src={Logo} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
