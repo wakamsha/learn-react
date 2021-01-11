@@ -9,6 +9,7 @@ type Variant = 'solid' | 'ghost' | 'bare';
 
 type Props = Partial<
   {
+    id: string;
     variant: Variant;
     theme: Theme;
     children: ReactNode;
@@ -27,6 +28,7 @@ type Props = Partial<
 >;
 
 export const Button = ({
+  id,
   variant = 'solid',
   theme = 'primary',
   type,
@@ -44,13 +46,13 @@ export const Button = ({
   ]);
 
   return noop ? (
-    <span className={buttonStyle} aria-disabled={disabled}>
+    <span id={id} className={buttonStyle} aria-disabled={disabled}>
       {Children.toArray(children).map(child =>
         typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
       )}
     </span>
   ) : (
-    <button className={buttonStyle} type={type} tabIndex={tabIndex} disabled={disabled} onClick={onClick}>
+    <button id={id} className={buttonStyle} type={type} tabIndex={tabIndex} disabled={disabled} onClick={onClick}>
       {Children.toArray(children).map(child =>
         typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
       )}

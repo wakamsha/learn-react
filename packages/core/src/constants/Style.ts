@@ -65,3 +65,11 @@ export const Easing = {
   Leave: 'cubic-bezier(0, .14, .75, 1)',
   Filter: 'cubic-bezier(0, 2.5, 0.2, 2.5)',
 } as const;
+
+export const ZIndex = {
+  Modal: 100,
+  GlobalProgress: 1000,
+  Notification: 1100,
+  Popover: 1200,
+  Tooltip: 1300,
+} as const;

@@ -11,6 +11,7 @@ import { Story as SplitPane } from '@learn-react/core/components/SplitPane/index
 import { Story as Tabs } from '@learn-react/core/components/Tabs/index.story';
 import { Story as TextField } from '@learn-react/core/components/TextField/index.story';
 import { Story as Toast } from '@learn-react/core/components/Toast/index.story';
+import { Story as Tooltip } from '@learn-react/core/components/Tooltip/index.story';
 import { Story as ShuffleLetters } from '@learn-react/core/hooks/useShuffleLetters/index.story';
 
 export const Components = {
@@ -27,6 +28,7 @@ export const Components = {
   Tabs,
   TextField,
   Toast,
+  Tooltip,
 } as const;
 export type Components = keyof typeof Components;
 

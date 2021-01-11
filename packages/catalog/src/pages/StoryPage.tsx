@@ -63,4 +63,8 @@ const stylePreview = css`
   > h4 {
     margin: 2em 0 0.5em;
   }
+
+  > hr {
+    margin: ${gutter(6)} 0;
+  }
 `;

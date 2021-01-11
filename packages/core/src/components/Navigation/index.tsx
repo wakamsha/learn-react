@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { CSSProperties, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
 import { gutter, square } from '../../helpers/Style';
@@ -23,7 +23,7 @@ type Item = {
 type Props = {
   title: string;
   items: Item[];
-  width?: CSSProperties['width'];
+  width?: number;
 };
 
 export const Navigation = ({ title, width = 272, items }: Props) => {
@@ -48,7 +48,7 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
   }, [location]);
 
   return (
-    <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: width }}>
+    <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: `calc(${width}px - 1px)` }}>
       <header className={styleMasthead}>
         <img src={Logo} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
