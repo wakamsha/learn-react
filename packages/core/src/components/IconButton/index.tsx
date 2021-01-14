@@ -17,6 +17,8 @@ type Props = {
   variant?: Variant;
   theme?: Theme;
   size?: Size;
+  /** アクセシビリティのために指定するラベルです。 */
+  label?: string;
   disabled?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
@@ -27,6 +29,7 @@ export const IconButton = ({
   variant = 'solid',
   theme = 'primary',
   size = 'neutral',
+  label,
   disabled,
   onClick,
 }: Props) => {
@@ -37,7 +40,15 @@ export const IconButton = ({
   ]);
 
   return (
-    <button type="button" id={id} className={styleButton} tabIndex={-1} disabled={disabled} onClick={onClick}>
+    <button
+      type="button"
+      aria-label={label}
+      id={id}
+      className={styleButton}
+      tabIndex={-1}
+      disabled={disabled}
+      onClick={onClick}
+    >
       <Icon name={name} />
     </button>
   );
