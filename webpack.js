@@ -9,6 +9,7 @@ function builder({ mode = 'development', baseDir, entry }) {
     output: {
       path: path.resolve(baseDir, 'dist/'),
       filename: 'app.js',
+      assetModuleFilename: 'images/[name][ext]',
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
@@ -26,9 +27,8 @@ function builder({ mode = 'development', baseDir, entry }) {
           use: [{ loader: 'ts-loader', options: { transpileOnly: develop } }],
         },
         {
-          test: /\.(png|jpg|gif)$/,
-          loader: 'file-loader',
-          options: {},
+          test: /\.(ico|svg|jpe?g|png|webp)$/,
+          type: 'asset/resource',
         },
       ],
     },
