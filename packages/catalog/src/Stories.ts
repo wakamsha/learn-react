@@ -7,6 +7,7 @@ import { Story as IconButton } from '@learn-react/core/components/IconButton/ind
 import { Story as LabeledSlider } from '@learn-react/core/components/LabeledSlider/index.story';
 import { Story as Radio } from '@learn-react/core/components/Radio/index.story';
 import { Story as Range } from '@learn-react/core/components/Range/index.story';
+import { Story as Select } from '@learn-react/core/components/Select/index.story';
 import { Story as SplitPane } from '@learn-react/core/components/SplitPane/index.story';
 import { Story as Tabs } from '@learn-react/core/components/Tabs/index.story';
 import { Story as TextField } from '@learn-react/core/components/TextField/index.story';
@@ -24,6 +25,7 @@ export const Components = {
   IconButton,
   Radio,
   Range,
+  Select,
   SplitPane,
   Tabs,
   TextField,

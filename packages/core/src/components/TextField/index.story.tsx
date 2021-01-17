@@ -4,7 +4,7 @@ import { gutter } from '../../helpers/Style';
 import { TextField } from '.';
 
 export const Story = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('hello world');
 
   return (
     <>
@@ -19,7 +19,7 @@ export const Story = () => {
         <TextField value={value} onChange={setValue} placeholder="text" type="text" />
         <TextField value={value} onChange={setValue} placeholder="email" type="email" />
         <TextField value={value} onChange={setValue} placeholder="password" type="password" />
-        <TextField value={value} onChange={setValue} placeholder="search" type="search" />
+        <TextField value={value} onChange={setValue} placeholder="search" type="search" icon="search" />
         <TextField value={value} onChange={setValue} placeholder="tel" type="tel" />
         <TextField value={value} onChange={setValue} placeholder="url" type="url" />
         <TextField value={value} onChange={setValue} placeholder="number" type="number" />

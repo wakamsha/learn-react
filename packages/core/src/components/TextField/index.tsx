@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { IconName } from '@learn-react/icon';
 import { ChangeEvent } from 'react';
 import { Color, Duration, FontSize, LineHeight } from '../../constants/Style';
 import { gutter, square } from '../../helpers/Style';
@@ -15,6 +16,8 @@ type Props = {
   inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
   pattern?: string;
   tabIndex?: number;
+  /** 先頭に表示するアイコン */
+  icon?: IconName;
   clearable?: boolean;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
 } & XOR<
@@ -39,6 +42,7 @@ export const TextField = ({
   inputMode,
   pattern,
   tabIndex,
+  icon,
   clearable,
   onFocus,
   type,
@@ -52,9 +56,9 @@ export const TextField = ({
 
   return (
     <div className={styleBase} aria-disabled={disabled}>
-      {type === 'search' ? (
+      {icon ? (
         <span className={styleIcon} role="presentation">
-          <Icon name="search" />
+          <Icon name={icon} />
         </span>
       ) : null}
       <input

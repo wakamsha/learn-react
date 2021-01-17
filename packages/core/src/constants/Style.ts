@@ -28,9 +28,16 @@ export const Color = {
   // Texture
   TextureBody: '#F7F7F7',
   TextureCode: '#0f192a',
+  TextureInput: '#F6F6F8',
 } as const;
 
 export type Color = ValueOf<typeof Color>;
+
+export const FontFamily = {
+  Default: '"Noto Sans Japanese", "メイリオ", Meiryo, sans-serif',
+  Serif: '"Noto Serif Japanese", serif',
+  Monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+} as const;
 
 export const FontSize = {
   Large: '20px',

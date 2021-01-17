@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { Color, FontSize, LineHeight } from '@learn-react/core/constants/Style';
+import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
@@ -66,5 +66,21 @@ const stylePreview = css`
 
   > hr {
     margin: ${gutter(6)} 0;
+  }
+
+  pre {
+    display: block;
+    max-width: 100%;
+    padding: ${gutter(4)};
+    margin: ${gutter(6)} 0;
+    overflow: auto;
+    background-color: ${Color.TextureInput};
+    border: 1px solid ${Color.LineDefault};
+    border-radius: ${BorderRadius.Small};
+
+    > code {
+      font-family: ${FontFamily.Monospace};
+      font-size: ${FontSize.Small};
+    }
   }
 `;
