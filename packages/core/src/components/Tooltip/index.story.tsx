@@ -44,24 +44,25 @@ export const Story = () => {
       <Tooltip targetSelector="#review-button">
         あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
       </Tooltip>
+
       <Tooltip targetSelector="#trash-icon">削除します</Tooltip>
+
       <Tooltip targetSelector="#download-icon">ダウンロード</Tooltip>
+
       <Tooltip targetSelector="#button-top" position={{ vertical: 'top' }}>
         あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
       </Tooltip>
-      <Tooltip
-        targetSelector="#button-right-top"
-        position={{ vertical: 'top', horizontal: 'right' }}
-        offset={{ top: 10, left: 20 }}
-      >
-        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら(offset: top = 10, left = 20)
+
+      <Tooltip targetSelector="#button-right-top" position={{ vertical: 'top', horizontal: 'right' }}>
+        すきとおった風
       </Tooltip>
+
       <Tooltip
         targetSelector="#button-left-bottom"
         position={{ vertical: 'bottom', horizontal: 'left' }}
         offset={{ top: 10, left: 20 }}
       >
-        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら(offset: top = 10, left = 20)
+        すきとおった風
       </Tooltip>
     </>
   );

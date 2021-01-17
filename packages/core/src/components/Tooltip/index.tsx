@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import merge from 'ramda/es/merge';
-import { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BorderRadius, Color, Duration, FontSize, LineHeight, ZIndex } from '../../constants/Style';
 import { Horizontal, Vertical } from '../../constants/VO';
@@ -40,6 +40,10 @@ export const Tooltip = ({
 
   const position = merge({ horizontal: 'center', vertical: 'bottom' }, pos);
 
+  const [shown, setShown] = useState(false);
+
+  const [{ top, left }, setPoint] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+
   const show = (targetRect: ClientRect) => {
     if (!baseRef.current) return;
 
@@ -65,20 +69,15 @@ export const Tooltip = ({
       }
     })();
 
-    window.requestAnimationFrame(() => {
-      if (baseRef.current) {
-        baseRef.current.classList.add(styleActive);
-        // @TODO JSXのattributeとしてstyleを操作すると、
-        // どういうわけかuseEffectが強制実行されてイベントリスナーが重複登録されるため
-        // やむを得ずref経由で直接styleを操作
-        // https://github.com/legalforce/lf-webapp-frontend/pull/642
-        baseRef.current.style.left = `${targetRect.left - anchorRect.left + offsetX - offsetLeft}px`;
-        baseRef.current.style.top = `${targetRect.top - anchorRect.top + offsetY - offsetTop}px`;
-      }
+    setPoint({
+      top: targetRect.top - anchorRect.top + offsetY - offsetTop,
+      left: targetRect.left - anchorRect.left + offsetX - offsetLeft,
     });
+
+    setShown(true);
   };
 
-  const hide = () => baseRef.current?.classList.remove(styleActive);
+  const hide = () => setShown(false);
 
   const handleMouseLeave = useCallback(() => {
     hide();
@@ -103,7 +102,8 @@ export const Tooltip = ({
 
     targetElmRef.current = targetElm;
     targetElm.addEventListener('mouseenter', schedule);
-    /** target非活性状態変更時にmouseleaveイベントを実行し、当要素を確実に非表示とする */
+
+    // target 非活性状態変更時に mouseleave イベントを実行し、当要素を確実に非表示とする。
     const observer: MutationObserver = new MutationObserver(records =>
       records.forEach(record => (record.target as HTMLButtonElement).disabled && handleMouseLeave()),
     );
@@ -120,7 +120,7 @@ export const Tooltip = ({
   }, [targetSelector, schedule, handleMouseLeave]);
 
   return createPortal(
-    <div role="tooltip" className={styleBase} ref={baseRef}>
+    <div role="tooltip" className={styleBase} ref={baseRef} style={{ top, left }} aria-hidden={!shown}>
       {children}
     </div>,
     document.body,
@@ -156,13 +156,15 @@ const styleBase = css`
   color: white;
   word-break: break-all;
   pointer-events: none;
+  visibility: hidden;
   user-select: none;
   background-color: ${Color.ThemePrimaryDarker};
   border-radius: ${BorderRadius.Small};
   opacity: 0;
-  transition: opacity ${Duration.Fade};
-`;
+  transition: visibility ${Duration.Fade}, opacity ${Duration.Fade};
 
-const styleActive = css`
-  opacity: 1;
+  &[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+  }
 `;
