@@ -1,12 +1,17 @@
 import { css, cx } from '@emotion/css';
-import { useEffect, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../constants/Style';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
 
 type Alignment = 'start' | 'center' | 'end';
+
+type Point = {
+  top: number;
+  left: number;
+};
 
 type Props = {
   /**
@@ -38,7 +43,7 @@ export const Popover = ({
 }: Props) => {
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const [layout, setLayout] = useState<Partial<{ top: number; left: number }>>({});
+  const [point, setPoint] = useState<Partial<Point>>({});
 
   useEffect(() => {
     if (!popoverRef.current) return;
@@ -48,15 +53,15 @@ export const Popover = ({
     const targetElement = document.querySelector(targetSelector);
     if (!targetElement) return;
 
-    const { top, left } = getOptimizedLayout({
-      position,
-      alignment,
-      offset,
-      popoverElement: popoverRef.current,
-      targetElement: targetElement as HTMLElement,
-    });
-
-    setLayout({ top, left });
+    setPoint(
+      getOptimizedPoint({
+        position,
+        alignment,
+        offset,
+        popoverElement: popoverRef.current,
+        targetElement: targetElement as HTMLElement,
+      }),
+    );
   }, [position, alignment, targetSelector, visible, width, offset]);
 
   return createPortal(
@@ -66,7 +71,7 @@ export const Popover = ({
         className={stylePopover[position]}
         aria-hidden={!visible}
         aria-modal={visible}
-        style={{ width, ...layout }}
+        style={{ width, ...point }}
         onClick={e => e.stopPropagation()}
       >
         {children}
@@ -79,9 +84,7 @@ export const Popover = ({
 function getStyle(element: HTMLElement, styleProp: string) {
   const { defaultView } = element.ownerDocument || document;
 
-  return defaultView && defaultView.getComputedStyle
-    ? defaultView.getComputedStyle(element, '').getPropertyValue(styleProp)
-    : '';
+  return defaultView?.getComputedStyle ? defaultView.getComputedStyle(element, '').getPropertyPriority(styleProp) : '';
 }
 
 function getAnchorElement(popoverElement: HTMLElement): HTMLElement {
@@ -116,16 +119,16 @@ function getWrapperElement(srcDOM: Element): HTMLElement {
   return wrappingElement;
 }
 
-function getOptimizedLayout({
+function getOptimizedPoint({
   popoverElement,
   targetElement,
   position: positionProp,
   alignment,
   offset,
 }: {
-  popoverElement: HTMLElement;
+  popoverElement: HTMLDivElement;
   targetElement: HTMLElement;
-} & Required<Pick<Props, 'position' | 'alignment' | 'offset'>>) {
+} & Required<Pick<Props, 'position' | 'alignment' | 'offset'>>): Point {
   const anchorElement = getAnchorElement(popoverElement);
   const anchorRect = anchorElement.getBoundingClientRect();
   const targetRect = targetElement.getBoundingClientRect();

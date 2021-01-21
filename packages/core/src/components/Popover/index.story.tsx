@@ -1,14 +1,19 @@
 import { css } from '@emotion/css';
-import { useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import { FontSize, Shadow } from '../../constants/Style';
 import { gutter } from '../../helpers/Style';
 import { Popover } from '.';
 
 export const Story = () => {
-  const [state1, setState1] = useState(false);
-  const [state2, setState2] = useState(false);
-  const [state3, setState3] = useState(false);
-  const [state4, setState4] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState<ComponentProps<typeof Popover>['position']>('top');
+  const [target, setTarget] = useState('#target1');
+
+  const handleClickShow = (targetSelector: string, position: ComponentProps<typeof Popover>['position']) => {
+    setTarget(targetSelector);
+    setPosition(position);
+    setVisible(true);
+  };
 
   return (
     <>
@@ -18,7 +23,7 @@ export const Story = () => {
           <tr>
             <td />
             <td>
-              <button id="target1" onClick={() => setState1(true)}>
+              <button id="target1" onClick={() => handleClickShow('#target1', 'top')}>
                 👆
               </button>
             </td>
@@ -26,13 +31,13 @@ export const Story = () => {
           </tr>
           <tr>
             <td>
-              <button id="target2" onClick={() => setState2(true)}>
+              <button id="target2" onClick={() => handleClickShow('#target2', 'left')}>
                 👈
               </button>
             </td>
             <td />
             <td>
-              <button id="target3" onClick={() => setState3(true)}>
+              <button id="target3" onClick={() => handleClickShow('#target3', 'right')}>
                 👉
               </button>
             </td>
@@ -40,7 +45,7 @@ export const Story = () => {
           <tr>
             <td />
             <td>
-              <button id="target4" onClick={() => setState4(true)}>
+              <button id="target4" onClick={() => handleClickShow('#target4', 'bottom')}>
                 👇
               </button>
             </td>
@@ -49,22 +54,7 @@ export const Story = () => {
         </tbody>
       </table>
 
-      <Popover targetSelector="#target1" position="top" visible={state1} onClickOutside={() => setState1(false)}>
-        <p className={styleCard}>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </Popover>
-      <Popover targetSelector="#target2" position="left" visible={state2} onClickOutside={() => setState2(false)}>
-        <p className={styleCard}>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </Popover>
-      <Popover targetSelector="#target3" position="right" visible={state3} onClickOutside={() => setState3(false)}>
-        <p className={styleCard}>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </Popover>
-      <Popover targetSelector="#target4" position="bottom" visible={state4} onClickOutside={() => setState4(false)}>
+      <Popover targetSelector={target} position={position} visible={visible} onClickOutside={() => setVisible(false)}>
         <p className={styleCard}>
           あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
         </p>

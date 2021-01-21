@@ -49,19 +49,15 @@ export const Story = () => {
 
       <Tooltip targetSelector="#download-icon">ダウンロード</Tooltip>
 
-      <Tooltip targetSelector="#button-top" position={{ vertical: 'top' }}>
+      <Tooltip targetSelector="#button-top" position="top">
         あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
       </Tooltip>
 
-      <Tooltip targetSelector="#button-right-top" position={{ vertical: 'top', horizontal: 'right' }}>
+      <Tooltip targetSelector="#button-right-top" position="top" alignment="end">
         すきとおった風
       </Tooltip>
 
-      <Tooltip
-        targetSelector="#button-left-bottom"
-        position={{ vertical: 'bottom', horizontal: 'left' }}
-        offset={{ top: 10, left: 20 }}
-      >
+      <Tooltip targetSelector="#button-left-bottom" position="bottom" alignment="start" offset={10}>
         すきとおった風
       </Tooltip>
     </>
