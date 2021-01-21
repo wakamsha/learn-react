@@ -80,3 +80,11 @@ export const ZIndex = {
   Popover: 1200,
   Tooltip: 1300,
 } as const;
+
+export const Shadow = {
+  Neutral: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
+  Floating: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
+  Dialog: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
+  Deep: '0 6px 12px 0 rgba(0, 0, 0, .3)',
+  Hover: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
+} as const;
