@@ -65,6 +65,7 @@ export const Popover = ({
         ref={popoverRef}
         className={stylePopover[position]}
         aria-hidden={!visible}
+        aria-modal={visible}
         style={{ width, ...layout }}
         onClick={e => e.stopPropagation()}
       >
