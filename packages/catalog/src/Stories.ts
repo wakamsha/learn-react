@@ -6,6 +6,7 @@ import { Story as Checkbox } from '@learn-react/core/components/Checkbox/index.s
 import { Story as Icon } from '@learn-react/core/components/Icon/index.story';
 import { Story as IconButton } from '@learn-react/core/components/IconButton/index.story';
 import { Story as LabeledSlider } from '@learn-react/core/components/LabeledSlider/index.story';
+import { Story as Modal } from '@learn-react/core/components/Modal/index.story';
 import { Story as Popover } from '@learn-react/core/components/Popover/index.story';
 import { Story as Radio } from '@learn-react/core/components/Radio/index.story';
 import { Story as Range } from '@learn-react/core/components/Range/index.story';
@@ -26,6 +27,7 @@ export const Components = {
   LabeledSlider,
   Icon,
   IconButton,
+  Modal,
   Popover,
   Radio,
   Range,

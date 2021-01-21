@@ -29,6 +29,7 @@ export const Color = {
   TextureBody: '#F7F7F7',
   TextureCode: '#0f192a',
   TextureInput: '#F6F6F8',
+  TextureBackdrop: '#E3E4E8',
 } as const;
 
 export type Color = ValueOf<typeof Color>;
