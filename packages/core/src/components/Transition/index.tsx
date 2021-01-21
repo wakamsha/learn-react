@@ -2,6 +2,8 @@ import { css } from '@emotion/css';
 import { ReactNode, useMemo, useRef, useState } from 'react';
 import { Duration, Easing } from '../../constants/Style';
 
+type TransitionType = 'horizontal' | 'vertical' | 'scale';
+
 type Props = {
   /**
    * この値が更新されると transition 処理が実行される。
@@ -9,9 +11,10 @@ type Props = {
    */
   id: string | number;
   children: ReactNode;
+  type?: TransitionType;
 };
 
-export const Transition = ({ id: propId, children }: Props) => {
+export const Transition = ({ id: propId, children, type = 'horizontal' }: Props) => {
   /**
    * 遷移先（次のページ）の要素を格納する Div コンテナ。
    */
@@ -30,7 +33,7 @@ export const Transition = ({ id: propId, children }: Props) => {
 
   // 実行タイミングの関係上やむなく useMemo を使用。
   // useEffect だとアニメーション開始前の状態が描画されてしまうためカッコ悪く、
-  // useLayoutEffect だと Home など要素の多い画面へ遷移する際に一瞬とはいえ動作が硬直してしまう。
+  // useLayoutEffect だと要素が多く描画コストの高い画面へ遷移する際に一瞬だが動作が硬直してしまう。
   useMemo(() => {
     if (id !== propId && !html && nextElm.current) {
       // 以下はトランジション処理の大まかな流れ。
@@ -43,23 +46,23 @@ export const Transition = ({ id: propId, children }: Props) => {
       setId(propId);
       setHtml(nextElm.current.innerHTML);
 
-      nextElm.current.classList.add(enterStyle);
+      nextElm.current.classList.add(styleEnter);
 
       window.setTimeout(() => {
         if (!nextElm.current) return;
-        nextElm.current.classList.remove(enterStyle);
+        nextElm.current.classList.remove(styleEnter);
         setHtml('');
       }, ENTER_DELAY);
     }
   }, [html, id, propId]);
 
   return (
-    <div className={baseStyle}>
-      <div className={`${animationStyle} ${horizontalStyle}`} ref={nextElm}>
+    <div className={styleBase}>
+      <div className={`${styleAnimation} ${styleType[type]}`} ref={nextElm}>
         {children}
       </div>
       <div
-        className={`${animationStyle} ${horizontalStyle} ${html ? leaveStyle : ''}`}
+        className={`${styleAnimation} ${styleType[type]} ${html ? styleLeave : ''}`}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: html }}
       />
@@ -69,36 +72,57 @@ export const Transition = ({ id: propId, children }: Props) => {
 
 const OFFSET = 30;
 const ENTER_DELAY = 80;
+const RATIO = 0.98;
 
-const baseStyle = css`
+const styleBase = css`
   position: relative;
   overflow: hidden;
 `;
 
-const animationStyle = css`
+const styleAnimation = css`
   opacity: 1;
   transition: transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter},
     opacity ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter};
   transform: none;
 `;
 
-const enterStyle = css`
+const styleEnter = css`
   position: absolute;
   opacity: 0;
   transition: none;
 `;
 
-const leaveStyle = css`
+const styleLeave = css`
   opacity: 0;
   transition: transform ${Duration.Leave} ${Easing.Leave}, opacity ${Duration.Leave} ${Easing.Enter};
 `;
 
-const horizontalStyle = css`
-  ${`&.${enterStyle}`} {
-    transform: translate3d(${OFFSET}px, 0, 0);
-  }
+const styleType: Frozen<TransitionType, string> = {
+  horizontal: css`
+    ${`&.${styleEnter}`} {
+      transform: translate3d(${OFFSET}px, 0, 0);
+    }
 
-  ${`&.${leaveStyle}`} {
-    transform: translate3d(${OFFSET}px, 0, 0);
-  }
-`;
+    ${`&.${styleLeave}`} {
+      transform: translate3d(${OFFSET}px, 0, 0);
+    }
+  `,
+  vertical: css`
+    ${`&.${styleEnter}`} {
+      transform: translate3d(0, ${OFFSET}px, 0);
+    }
+
+    ${`&.${styleLeave}`} {
+      transform: translate3d(0, ${OFFSET}px, 0);
+    }
+  `,
+  scale: css`
+    ${`&.${styleEnter}`} {
+      transform: scale3d(${RATIO}, ${RATIO}, 0);
+    }
+
+    ${`&.${styleLeave}`} {
+      transform: scale3d(${RATIO}, ${RATIO}, 0);
+    }
+  `,
+};
