@@ -24,22 +24,22 @@ type Props = {
   targetSelector: string;
   visible: boolean;
   children: ReactNode;
-  onClickOutside: () => void;
   position?: Position;
   alignment?: Alignment;
   offset?: number;
   width?: number;
+  onClickOutside?: () => void;
 };
 
 export const Popover = ({
   targetSelector,
   visible,
   children,
-  onClickOutside,
   position = 'bottom',
   alignment = 'center',
   offset = 0,
   width = 300,
+  onClickOutside,
 }: Props) => {
   const popoverRef = useRef<HTMLDivElement>(null);
 
