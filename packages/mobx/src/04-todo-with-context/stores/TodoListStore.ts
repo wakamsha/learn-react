@@ -1,5 +1,5 @@
-import { TodoStore } from './TodoStore';
 import { action, computed, observable } from 'mobx';
+import { TodoStore } from './TodoStore';
 
 export class TodoListStore {
   @observable public task = '';

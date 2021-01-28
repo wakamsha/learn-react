@@ -1,6 +1,6 @@
-import { decCount, incCount } from '../../state/counter/actions';
-import { useDispatch } from 'react-redux';
 import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { decCount, incCount } from '../../state/counter/actions';
 
 export const Counter = () => {
   const dispatch = useDispatch();

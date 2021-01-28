@@ -1,6 +1,6 @@
-import { Bubbling } from './xx-bubbling/App';
-import { render } from 'react-dom';
 import React from 'react';
+import { render } from 'react-dom';
+import { Bubbling } from './xx-bubbling/App';
 
 render(
   // <HelloMessage name="wakamsha" />,

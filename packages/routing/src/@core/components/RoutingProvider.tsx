@@ -1,7 +1,7 @@
 import { Action, History, Location, createBrowserHistory } from 'history';
+import React, { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
 import { Router } from 'react-router-dom';
 import { useContext } from '../hooks/useContext';
-import React, { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
 type Context = {
   history: History;

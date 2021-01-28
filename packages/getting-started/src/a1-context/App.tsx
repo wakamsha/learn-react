@@ -1,6 +1,6 @@
 // https://ja.reactjs.org/docs/context.html
-import { Toolbar } from './components/Toolbar';
 import React, { createContext, useCallback, useState } from 'react';
+import { Toolbar } from './components/Toolbar';
 
 export type Theme = 'dark' | 'light';
 

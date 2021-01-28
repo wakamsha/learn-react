@@ -5,7 +5,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
@@ -70,7 +70,6 @@ module.exports = {
         message: 'Do not declare enums',
       },
     ],
-    'prettier/prettier': ['warn', {}, { usePrettierrc: true }],
     'react/jsx-filename-extension': [
       'error',
       {
@@ -131,7 +130,7 @@ module.exports = {
       files: ['./**/stores/**/*.ts'],
       rules: {
         'react-hooks/rules-of-hooks': ['off'],
-      }
+      },
     },
     {
       files: ['*.js'],

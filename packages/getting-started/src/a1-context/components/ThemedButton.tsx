@@ -1,6 +1,6 @@
-import { Button } from './Button';
-import { Theme, ThemeContext } from '../App';
 import React from 'react';
+import { Theme, ThemeContext } from '../App';
+import { Button } from './Button';
 
 // Before
 // ----------------

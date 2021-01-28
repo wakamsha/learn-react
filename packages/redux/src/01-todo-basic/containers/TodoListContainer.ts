@@ -1,8 +1,8 @@
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { TodoAction, toggleTodo } from '../actions';
 import { Props, TodoList } from '../components/TodoList';
 import { Todo } from '../reducers';
-import { TodoAction, toggleTodo } from '../actions';
-import { connect } from 'react-redux';
 
 function mapStateToProps(state: Todo[]): Pick<Props, 'todos'> {
   return {

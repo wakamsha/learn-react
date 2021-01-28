@@ -1,9 +1,9 @@
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './state/store';
 import { AddTodoContainer } from './views/containers/AddTodoContainer';
 import { FilterContainer } from './views/containers/FilterContainer';
-import { Provider } from 'react-redux';
 import { TodoListContainer } from './views/containers/TodoListContainer';
-import { store } from './state/store';
-import React from 'react';
 
 export const TodoApp4 = () => (
   <Provider store={store}>

@@ -1,10 +1,10 @@
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { FilterType } from '../../state/filters/reducers';
-import { Props, TodoList } from '../components/TodoList';
-import { Todo } from '../../state/todos/reducers';
 import { TodoAction, toggleTodo } from '../../state/todos/actions';
-import { connect } from 'react-redux';
+import { Todo } from '../../state/todos/reducers';
 import { getFilteredTodos } from '../../state/todos/selectors';
+import { Props, TodoList } from '../components/TodoList';
 
 function mapStateToProps({ todos, filter }: { todos: Todo[]; filter: FilterType }): Pick<Props, 'todos'> {
   return {

@@ -1,6 +1,6 @@
+import React, { useCallback, useState } from 'react';
 import { BoilingVerdict } from './components/BoilingVerdict';
 import { ScaleNames, TemperatureInput } from './components/TemperatureInput';
-import React, { useCallback, useState } from 'react';
 
 type State = {
   temperature: string;

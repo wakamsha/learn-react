@@ -1,8 +1,8 @@
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { FilterAction, setFilter } from '../../state/filters/actions';
 import { FilterType } from '../../state/filters/reducers';
 import { Filters } from '../components/Filters';
-import { connect } from 'react-redux';
 
 function mapStateToProps({ filter }: { filter: FilterType }) {
   return {

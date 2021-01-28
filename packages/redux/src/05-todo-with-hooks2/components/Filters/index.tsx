@@ -1,8 +1,8 @@
-import { Actions } from '../../states/Filter/reducer';
-import { Dispatch } from 'redux';
-import { RootState } from '../../states/store';
-import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch } from 'redux';
+import { Actions } from '../../states/Filter/reducer';
+import { RootState } from '../../states/store';
 
 type FilterType = Actions['payload']['filter'];
 

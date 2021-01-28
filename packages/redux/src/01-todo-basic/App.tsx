@@ -1,9 +1,9 @@
-import { AddTodoContainer } from './containers/AddTodoContainer';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { Store, createStore } from 'redux';
-import { Todo, initialState, todos } from './reducers';
+import { AddTodoContainer } from './containers/AddTodoContainer';
 import { TodoListContainer } from './containers/TodoListContainer';
-import React from 'react';
+import { Todo, initialState, todos } from './reducers';
 
 const store: Store<Todo[]> = createStore(todos, initialState);
 

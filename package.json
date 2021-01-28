@@ -15,24 +15,23 @@
     "@types/react-dom": "^17.0.0",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.6",
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
     "cheerio": "^1.0.0-rc.5",
     "ejs": "^3.1.5",
-    "eslint": "^7.16.0",
+    "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.1.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.0",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "glob": "^7.1.6",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.9.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recess-order": "^2.3.0",
     "stylelint-config-recommended": "^3.0.0",
@@ -61,6 +60,7 @@
   },
   "lint-staged": {
     "packages/**/src/**/*.{ts,tsx}": [
+      "prettier -c -w",
       "eslint -c .eslintrc.js --fix",
       "stylelint -s css-in-js --cache --fix"
     ]
@@ -79,6 +79,6 @@
     "redux": "          yarn workspace @learn-react/redux",
     "routing": "        yarn workspace @learn-react/routing",
     "statement": "      yarn workspace @learn-react/statement",
-    "format": "         yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
+    "format": "         yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   }
 }

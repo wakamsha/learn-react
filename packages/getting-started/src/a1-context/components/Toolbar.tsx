@@ -1,5 +1,5 @@
-import { ThemedButton } from './ThemedButton';
 import React from 'react';
+import { ThemedButton } from './ThemedButton';
 
 // Before
 // ----------------

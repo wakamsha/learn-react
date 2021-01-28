@@ -1,5 +1,5 @@
-import { Dialog } from './Dialog';
 import React, { ChangeEvent, Component } from 'react';
+import { Dialog } from './Dialog';
 
 type State = {
   login: string;

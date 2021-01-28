@@ -1,7 +1,7 @@
-import { AddTodo, Props } from '../components/AddTodo';
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { TodoAction, addTodo } from '../../state/todos/actions';
-import { connect } from 'react-redux';
+import { AddTodo, Props } from '../components/AddTodo';
 
 function mapStateToProps(): {} {
   return {};

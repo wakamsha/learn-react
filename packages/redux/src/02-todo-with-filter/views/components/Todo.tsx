@@ -1,5 +1,5 @@
-import { Todo as TodoState } from '../../state/todos/reducers';
 import React, { useCallback } from 'react';
+import { Todo as TodoState } from '../../state/todos/reducers';
 
 type Props = {
   todo: TodoState;

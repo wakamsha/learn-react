@@ -1,9 +1,9 @@
-import { Actions, State } from '../../states/Todo/reducer';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { Actions as FilterActions } from '../../states/Filter/reducer';
 import { RootState } from '../../states/store';
-import { useDispatch, useSelector } from 'react-redux';
-import React from 'react';
+import { Actions, State } from '../../states/Todo/reducer';
 
 export const TodoList = () => {
   const todoList = useSelector<RootState, State>(({ todo, filter }) => getFilteredTodoList(todo, filter));

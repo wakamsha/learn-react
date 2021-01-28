@@ -1,7 +1,7 @@
-import { Actions } from '../../states/Todo/reducer';
-import { Dispatch } from 'redux';
-import { useDispatch } from 'react-redux';
 import React, { ChangeEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
+import { Actions } from '../../states/Todo/reducer';
 
 export const AddTodo = () => {
   const dispatch = useDispatch<Dispatch<Actions>>();

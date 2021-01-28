@@ -1,5 +1,5 @@
-import { AddAction } from '../actions';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { AddAction } from '../actions';
 
 export type Props = {
   onSubmit: (text: string) => AddAction;

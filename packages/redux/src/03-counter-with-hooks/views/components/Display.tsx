@@ -1,6 +1,6 @@
-import { getCalculatedValue } from '../../state/counter/selectors';
-import { useSelector } from 'react-redux';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { getCalculatedValue } from '../../state/counter/selectors';
 
 export const Display = () => {
   const display = useSelector(getCalculatedValue);
