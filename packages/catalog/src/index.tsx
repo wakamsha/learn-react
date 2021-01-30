@@ -1,38 +1,34 @@
 import { css } from '@emotion/css';
-import { Navigation } from '@learn-react/core/components/Navigation';
 import { PageTransition } from '@learn-react/core/components/PageTransition';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
-import { useMemo } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { Navigation } from './components/Navigation';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
 import { Components, Hooks } from './Stories';
 
 const App = () => {
-  const items = useMemo(
-    () => [
-      {
-        label: 'Components',
-        items: Object.keys(Components)
-          .sort()
-          .map(story => ({
-            label: story,
-            to: `/components/${story}/`,
-          })),
-      },
-      {
-        label: 'Hooks',
-        items: Object.keys(Hooks)
-          .sort()
-          .map(story => ({
-            label: story,
-            to: `/hooks/${story}/`,
-          })),
-      },
-    ],
-    [],
-  );
+  const items = [
+    {
+      label: 'Components',
+      items: Object.keys(Components)
+        .sort()
+        .map(story => ({
+          label: story,
+          to: `/components/${story}/`,
+        })),
+    },
+    {
+      label: 'Hooks',
+      items: Object.keys(Hooks)
+        .sort()
+        .map(story => ({
+          label: story,
+          to: `/hooks/${story}/`,
+        })),
+    },
+  ];
 
   return (
     <BrowserRouter>

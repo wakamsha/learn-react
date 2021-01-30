@@ -11,8 +11,8 @@ export const PageTransition = ({ children }: Props) => {
 
   let match: any;
 
-  Children.toArray(children).some((route: Route) => {
-    match = matchPath<any>(location.pathname, route.props);
+  Children.toArray(children).some(route => {
+    match = matchPath<any>(location.pathname, (route as Route).props);
     return !!match;
   });
 

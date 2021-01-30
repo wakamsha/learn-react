@@ -51,8 +51,8 @@ export const Select = <T extends string | number>({
   value: propValue,
   selectedIndex,
 }: Props<T>) => {
-  const opts: Option<T>[] = useMemo(
-    () => options || optGroups?.reduce((acc, { options }) => [...acc, ...options], []) || [],
+  const opts = useMemo(
+    () => options || optGroups?.reduce((acc: Option<T>[], { options }) => [...acc, ...options], []) || [],
     [options, optGroups],
   );
 

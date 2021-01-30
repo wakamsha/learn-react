@@ -1,12 +1,12 @@
 import { css } from '@emotion/css';
-import { forwardRef, ReactNode, RefObject } from 'react';
+import { ForwardedRef, forwardRef, ReactNode } from 'react';
 
 type Props = {
   children: ReactNode;
   size?: number;
 };
 
-export const Pane = forwardRef(({ children, size }: Props, ref: RefObject<HTMLDivElement>) => {
+export const Pane = forwardRef(({ children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   const style = {
     width: size,
     flex: size ? 'none' : 1,

@@ -15,7 +15,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
     let running = true;
 
     if (ref?.current && originStr.length) {
-      const randomIndexes = [...Array(originStr.length).keys()].reduce((assoc, i) => {
+      const randomIndexes = [...Array(originStr.length).keys()].reduce((assoc: number[], i) => {
         const rate = i / originStr.length;
 
         return [...assoc, Math.random() * (1 - rate) + rate];
