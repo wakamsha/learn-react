@@ -1,9 +1,9 @@
 import { css, cx } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
 import { MouseEvent, useMemo } from 'react';
-import { BorderRadius, Color, Duration } from '../../constants/Style';
-import { square } from '../../helpers/Style';
-import { Icon } from '../Icon';
+import { BorderRadius, Color, Duration } from '../../../constants/Style';
+import { square } from '../../../helpers/Style';
+import { Icon } from '../../dataDisplay/Icon';
 
 type Variant = 'solid' | 'ghost' | 'bare';
 

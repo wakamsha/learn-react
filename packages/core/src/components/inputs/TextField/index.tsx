@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
 import { ChangeEvent } from 'react';
-import { Color, Duration, FontSize, LineHeight } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
-import { Icon } from '../Icon';
+import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
+import { Icon } from '../../dataDisplay/Icon';
 import { IconButton } from '../IconButton';
 
 type Props = {

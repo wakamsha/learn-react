@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { ChangeEvent, ComponentProps, useState } from 'react';
-import { FontSize, Shadow } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { FontSize, Shadow } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 import { Popover } from '.';
 
 export const Story = () => {

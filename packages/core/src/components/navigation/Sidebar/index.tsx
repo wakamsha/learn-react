@@ -1,9 +1,9 @@
 import { css, cx } from '@emotion/css';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
-import { TextField } from '../TextField';
+import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
+import { TextField } from '../../inputs/TextField';
 import Logo from './logo192.png';
 
 type Item = {
@@ -26,7 +26,7 @@ type Props = {
   width?: number;
 };
 
-export const Navigation = ({ title, width = 272, items }: Props) => {
+export const Sidebar = ({ title, width = 272, items }: Props) => {
   const location = useLocation();
 
   const [pathname, setPathname] = useState(location.pathname);

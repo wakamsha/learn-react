@@ -2,7 +2,7 @@ import { css, cx } from '@emotion/css';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Duration, ZIndex } from '../../constants/Style';
+import { Duration, ZIndex } from '../../../constants/Style';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
 

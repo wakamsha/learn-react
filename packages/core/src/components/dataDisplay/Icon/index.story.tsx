@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { IconName, iconElements } from '@learn-react/icon';
-import { FontSize } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
+import { FontSize } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
 import { Icon } from '.';
 
 export const Story = () => (

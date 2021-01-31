@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { gutter } from '../../helpers/Style';
-import { Icon } from '../Icon';
+import { gutter } from '../../../helpers/Style';
+import { Icon } from '../../dataDisplay/Icon';
 import { Button } from '.';
 
 const themes = ['primary', 'danger'] as const;

@@ -8,6 +8,7 @@
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp -r ./public/. ./dist/",
+    "generate": "node ./bin/codegen; prettier -c -w ./src/s.ts; eslint -c ../../.eslintrc.js --fix ./src/s.ts",
     "develop": "webpack serve",
     "type-check": "tsc --noEmit",
     "start": "yarn reset; yarn copy; run-p \"develop\" \"type-check --watch\"",

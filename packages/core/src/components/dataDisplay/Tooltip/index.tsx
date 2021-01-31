@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BorderRadius, Color, Duration, FontSize, LineHeight, ZIndex } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { BorderRadius, Color, Duration, FontSize, LineHeight, ZIndex } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
 

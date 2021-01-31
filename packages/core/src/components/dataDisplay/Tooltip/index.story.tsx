@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
-import { gutter, square } from '../../helpers/Style';
-import { Button } from '../Button';
-import { Checkbox } from '../Checkbox';
+import { gutter, square } from '../../../helpers/Style';
+import { Button } from '../../inputs/Button';
+import { Checkbox } from '../../inputs/Checkbox';
 import { Icon } from '../Icon';
 import { Tooltip } from '.';
 
