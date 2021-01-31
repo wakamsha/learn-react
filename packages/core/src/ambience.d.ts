@@ -18,6 +18,11 @@ declare module '*.png' {
   export default exports;
 }
 
+declare module '*.woff' {
+  const exports: any;
+  export default exports;
+}
+
 declare type XOR<T, U> = import('ts-xor').XOR<T, U>;
 
 declare type ValueOf<T> = T[keyof T];
