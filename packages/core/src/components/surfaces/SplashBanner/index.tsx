@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { FontSize } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { FontSize } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 
 type Props = {
   title: string;

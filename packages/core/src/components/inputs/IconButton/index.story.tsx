@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '../../helpers/Style';
+import { gutter } from '../../../helpers/Style';
 import { IconButton } from '.';
 
 export const Story = () => (

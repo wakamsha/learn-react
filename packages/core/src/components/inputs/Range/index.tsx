@@ -1,8 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ChangeEvent } from 'react';
-import { Duration } from '../../../../routing/src/@core/constants/Style';
-import { BorderRadius, Color } from '../../constants/Style';
-import { square } from '../../helpers/Style';
+import { BorderRadius, Color, Duration } from '../../../constants/Style';
+import { square } from '../../../helpers/Style';
 
 type Theme = 'primary' | 'danger';
 

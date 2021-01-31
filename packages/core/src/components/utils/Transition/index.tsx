@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { ReactNode, useMemo, useRef, useState } from 'react';
-import { Duration, Easing } from '../../constants/Style';
+import { Duration, Easing } from '../../../constants/Style';
 
 type TransitionType = 'horizontal' | 'vertical' | 'scale';
 

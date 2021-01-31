@@ -1,8 +1,8 @@
 import { css, cx } from '@emotion/css';
 import { ChangeEventHandler, useCallback, useMemo } from 'react';
-import { Color, Duration, FontSize, LineHeight } from '../../constants/Style';
-import { makeId } from '../../helpers/String';
-import { gutter, textEllipsis, visuallyHidden } from '../../helpers/Style';
+import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
+import { makeId } from '../../../helpers/String';
+import { gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';
 
 type Option<T> = {
   label: string;

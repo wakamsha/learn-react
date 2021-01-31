@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { MouseEvent } from 'react';
-import { Color, Duration } from '../../constants/Style';
+import { Color, Duration } from '../../../constants/Style';
 
 type Props = {
   grabbed: boolean;

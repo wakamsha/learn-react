@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { gutter } from '../../helpers/Style';
+import { gutter } from '../../../helpers/Style';
 import { ToastProvider, useToast } from '.';
 
 export const Story = () => (

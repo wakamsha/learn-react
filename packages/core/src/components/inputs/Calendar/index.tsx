@@ -13,8 +13,8 @@ import {
   subMonths,
 } from 'date-fns';
 import { useMemo } from 'react';
-import { BorderRadius } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
+import { BorderRadius } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
 import { Item } from './Item';
 
 type Props = {

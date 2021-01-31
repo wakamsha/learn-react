@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { ChangeEvent, ReactNode, useEffect, useRef } from 'react';
-import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
+import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
 
 type Props = Partial<{
   checked: boolean;

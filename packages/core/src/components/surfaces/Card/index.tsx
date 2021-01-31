@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { ReactNode } from 'react';
-import { Duration, Easing, Shadow } from '../../constants/Style';
+import { Duration, Easing, Shadow } from '../../../constants/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 

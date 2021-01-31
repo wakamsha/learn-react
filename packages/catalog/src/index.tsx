@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';

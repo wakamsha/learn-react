@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { TextField } from '@learn-react/core/components/TextField';
+import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Color, Duration, FontSize } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
 import { useEffect, useMemo, useState } from 'react';

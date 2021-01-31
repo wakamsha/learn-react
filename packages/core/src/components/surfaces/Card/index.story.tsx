@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { FontSize, LineHeight } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { FontSize, LineHeight } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 import { Card } from '.';
 
 export const Story = () => (

@@ -1,7 +1,7 @@
 import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, memo, ReactNode, useEffect, useState } from 'react';
-import { Color, Duration, Easing } from '../../constants/Style';
-import { gutter } from '../../helpers/Style';
+import { Color, Duration, Easing } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 import { Toast, useToast } from '.';
 
 type Props = {

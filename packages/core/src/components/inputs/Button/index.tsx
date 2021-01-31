@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ButtonHTMLAttributes, Children, MouseEvent, ReactNode, useMemo } from 'react';
-import { BorderRadius, Color, Duration, FontSize } from '../../constants/Style';
-import { gutter, square } from '../../helpers/Style';
+import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
 
 type Theme = 'primary' | 'danger';
 

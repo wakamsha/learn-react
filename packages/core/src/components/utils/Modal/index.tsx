@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
-import { Color, Duration, Easing, ZIndex } from '../../constants/Style';
-import { gutter, toRGBA } from '../../helpers/Style';
+import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
+import { gutter, toRGBA } from '../../../helpers/Style';
 
 type Props = {
   children: ReactNode;

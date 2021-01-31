@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
-import { gutter } from '../../helpers/Style';
+import { gutter } from '../../../helpers/Style';
 import { TextField } from '.';
 
 export const Story = () => {
