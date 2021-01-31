@@ -1,6 +1,10 @@
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
-
+import { FontFamily } from '../constants/Style';
+import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
+import NotoSansRegular from './fonts/noto-sans/NotoSansJP-Regular.woff';
+import NotoSerifRegular from './fonts/noto-serif/NotoSerifJP-Regular.woff';
+import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
 /**
  * Margin や Padding など余白の値を算出して返す。
  *
@@ -66,6 +70,39 @@ export function textEllipsis() {
 
 export function applyGlobalStyle() {
   return injectGlobal`
+    @font-face {
+      font-family: 'Noto Sans Japanese';
+      font-style: normal;
+      font-weight: normal;
+      font-display: swap;
+      src: local('Noto Sans Japanese'),
+        url(${NotoSansRegular}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Sans Japanese';
+      font-style: normal;
+      font-weight: bold;
+      font-display: swap;
+      src: local('Noto Sans Japanese Bold'),
+        url(${NotoSansMedium}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Serif Japanese';
+      font-style: normal;
+      font-weight: normal;
+      font-display: swap;
+      src: local('Noto Serif Japanese'),
+        url(${NotoSerifRegular}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Serif Japanese';
+      font-style: normal;
+      font-weight: bold;
+      font-display: swap;
+      src: local('Noto Serif Japanese Bold'),
+        url(${NotoSerifSemiBold}) format('woff');
+    }
+
     /* Reset */
     /* 以下を参考 */
     /* https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css */
@@ -111,7 +148,7 @@ export function applyGlobalStyle() {
     body {
       padding: 0;
       margin: 0;
-      font-family: "Noto Sans Japanese", "メイリオ", Meiryo, sans-serif;
+      font-family: ${FontFamily.Default};
       font-weight: 500;
       font-feature-settings: palt 1;
     }
