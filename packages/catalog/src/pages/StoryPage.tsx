@@ -3,7 +3,7 @@ import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-re
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Category, Components, Hooks } from '../Stories';
+import { Category, Components, Constants, Hooks } from '../Stories';
 
 export const StoryPage = () => {
   const { category, story } = useParams<{ category: Category; story: string }>();
@@ -11,6 +11,7 @@ export const StoryPage = () => {
   const Component = useMemo(() => {
     const section: Frozen<Category, any> = {
       components: Components,
+      constants: Constants,
       hooks: Hooks,
     } as const;
 

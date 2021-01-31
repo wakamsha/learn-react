@@ -6,7 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
-import { Components, Hooks } from './Stories';
+import { Components, Constants, Hooks } from './Stories';
 
 const App = () => {
   const items = [
@@ -17,6 +17,15 @@ const App = () => {
         .map(story => ({
           label: story,
           to: `/components/${story}/`,
+        })),
+    },
+    {
+      label: 'Constants',
+      items: Object.keys(Constants)
+        .sort()
+        .map(story => ({
+          label: story,
+          to: `/constants/${story}`,
         })),
     },
     {
