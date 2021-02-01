@@ -41,5 +41,5 @@ const storyTree = Object.values(TARGET_FILES).reduce(
 );
 
 ejs.renderFile('./templates/index.ejs', { importItems, storyTree }, (_, output) => {
-  fs.writeFileSync('./src/s.ts', output, 'utf8');
+  fs.writeFileSync('./src/Stories.ts', output, 'utf8');
 });

@@ -1,41 +1,33 @@
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
+import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
-import { BorderRadius, Color, Duration, FontSize } from '@learn-react/core/constants/Style';
+import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { stories } from '../../Stories';
 import Logo from './logo192.png';
 
-type Item = {
-  label: string;
-  items: {
-    label: string;
-    to: string;
-  }[];
-};
-
 type Props = {
-  title: string;
-  items: Item[];
   width?: number;
 };
 
-export const Navigation = ({ title, width = 272, items }: Props) => {
+export const Navigation = ({ width = 272 }: Props) => {
   const location = useLocation();
 
   const [pathname, setPathname] = useState(location.pathname);
 
   const [keyword, setKeyword] = useState('');
 
-  const flattenLabels = useMemo(() => {
-    const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
-    const query = new RegExp(pattern, 'i');
+  // const flattenLabels = useMemo(() => {
+  //   const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
+  //   const query = new RegExp(pattern, 'i');
 
-    return items
-      .reduce((acc: (string | string[])[], item) => [...acc, item.items.map(({ label }) => label) ?? item.label], [])
-      .flat()
-      .filter(label => label.match(query));
-  }, [items, keyword]);
+  //   return items
+  //     .reduce((acc: (string | string[])[], item) => [...acc, item.items.map(({ label }) => label) ?? item.label], [])
+  //     .flat()
+  //     .filter(label => label.match(query));
+  // }, [items, keyword]);
 
   useEffect(() => {
     setPathname(location.pathname);
@@ -46,7 +38,7 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
       <header className={styleMasthead}>
         <img src={Logo} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
-          <Link to="/">{title}</Link>
+          <Link to="/">Catalog | Learn React</Link>
         </h1>
       </header>
 
@@ -55,22 +47,58 @@ export const Navigation = ({ title, width = 272, items }: Props) => {
       </div>
 
       <nav className={styleBody}>
-        <ul className={styleNavigation} role="tree">
-          {items.map((item, i) => (
-            <li key={i} className={cx(styleItem, styleItemCaption)} role="treeitem">
-              <span>{item.label}</span>
-              <ul className={styleNavigation} role="tree">
-                {item.items?.map(({ label, to }, j) =>
-                  flattenLabels.includes(label) ? (
-                    <li key={j} className={styleItem} role="treeitem" aria-selected={to === pathname}>
-                      <Link to={to}>{label}</Link>
-                    </li>
-                  ) : null,
-                )}
+        {Object.entries(stories).map(([subPackageKey, subPackage]) => (
+          <ul key={subPackageKey} className={styleNavigation} role="tree">
+            <li>
+              <div className={styleCaptionSubPackage}>@learn-react/{subPackageKey}</div>
+              <ul className={styleTypeList}>
+                {Object.entries(subPackage).map(([typeKey, type]) => (
+                  <li key={typeKey}>
+                    <div className={styleCaptionType}>
+                      <Icon name="folder" />
+                      {typeKey}
+                    </div>
+                    <ul className={styleItemList}>
+                      {Object.entries(type).map(([key, value]) => (
+                        <li key={key}>
+                          {typeof value === 'function' ? (
+                            <Link
+                              to={`/${subPackageKey}/${typeKey}/-/${key}/`}
+                              className={styleLink}
+                              aria-selected={`/${subPackageKey}/${typeKey}/-/${key}/` === pathname}
+                            >
+                              {key}
+                            </Link>
+                          ) : (
+                            <>
+                              <div className={styleCaptionCategory}>
+                                <Icon name="folder" />
+                                {key}
+                              </div>
+                              <ul className={styleStoryList}>
+                                {Object.entries(value).map(([storyKey]) => {
+                                  const to = `/${subPackageKey}/${typeKey}/${key}/${storyKey}/`;
+
+                                  return (
+                                    <li key={storyKey}>
+                                      <Link to={to} className={styleLink} aria-selected={to === pathname}>
+                                        {storyKey}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
+                            </>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
               </ul>
             </li>
-          ))}
-        </ul>
+          </ul>
+        ))}
       </nav>
     </div>
   );
@@ -143,40 +171,78 @@ const styleNavigation = css`
   font-size: ${FontSize.Regular};
   list-style: none;
 
-  & & {
-    padding-left: ${gutter(4)};
+  > :not(:first-child) {
+    margin-top: ${gutter(8)};
+  }
+`;
+
+const styleCaptionSubPackage = css`
+  display: flex;
+  align-items: center;
+  margin: 0 0 ${gutter(4)};
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  &::after {
+    flex: 1 0 auto;
+    height: 1px;
+    margin-left: ${gutter(2)};
+    content: '';
+    background-color: ${Color.LineDefault};
+  }
+`;
+
+const styleCaptionType = css`
+  display: flex;
+  align-items: center;
+  margin: 0 0 ${gutter(2)};
+  font-weight: bold;
+
+  > svg {
+    margin-right: ${gutter(1)};
+    ${square(IconSize.Tiny)}
+  }
+`;
+
+const styleTypeList = css`
+  > :not(:first-child) {
+    margin-top: ${gutter(4)};
+  }
+`;
+
+const styleCaptionCategory = css`
+  font-weight: bold;
+  color: ${Color.TextSub};
+
+  > svg {
+    margin-right: ${gutter(1)};
+    ${square(IconSize.Tiny)}
+  }
+`;
+
+const styleItemList = css`
+  padding-left: ${gutter(4)};
+
+  > :not(:first-child) {
     margin-top: ${gutter(2)};
   }
 `;
 
-const styleItem = css`
-  margin-bottom: ${gutter(2)};
-
-  > a {
-    display: block;
-    padding: 0;
-    color: ${Color.TextNeutral};
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  &[aria-selected='true'] {
-    > a {
-      font-weight: bold;
-      color: ${Color.ThemeDangerNeutral};
-      pointer-events: none;
-    }
-  }
+const styleStoryList = css`
+  padding-left: 18px;
 `;
 
-const styleItemCaption = css`
-  margin-bottom: ${gutter(4)};
+const styleLink = css`
+  display: block;
+  padding: ${gutter(1)} 0;
+  font-family: ${FontFamily.Monospace};
+  font-size: ${FontSize.Small};
 
-  > span {
+  &[aria-selected='true'] {
     font-weight: bold;
-    text-transform: uppercase;
+    color: ${Color.ThemeDangerNeutral};
+    pointer-events: none;
   }
 `;

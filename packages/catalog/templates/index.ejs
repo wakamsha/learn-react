@@ -4,26 +4,36 @@
 */
 <% importItems.forEach(({ path, storyName }) => { %>import { Story as <%- storyName %> } from '<%- path %>';<% }) %>
 
-export const Stories = {
+type Stories = {
+  [subPackage: string]: {
+    [type: string]:
+      | {
+          [category: string]: {
+            [story: string]: () => JSX.Element;
+          };
+        }
+      | {
+          [story: string]: () => JSX.Element;
+        };
+  };
+};
+
+export const stories: Stories = {
   <% storyTree.forEach(package => { %>
-  <%- package.name %>: {
-    <% package.children.forEach(type => { %>
-      <%- type.name %>: [
-      <% type.children.forEach(({ name, children }) => { %>
-        <% if (children) { %>
-          {
-            <%- name %>: [
-              <% children.forEach(category => { %>
-                <%- category.name %>,
-              <% }) %>
-            ],
-          },
-        <% } else { %>
-          <%- name %>,
-        <% } %>
+    <%- package.name %>: {
+      <% package.children.forEach(type => { %>
+        <%- type.name %>: {
+          <% type.children.forEach(({ name, children }) => { %>
+            <% if (children) { %>
+              <%- name %>: {
+                <% children.forEach(category => { %><%- category.name %>,<% }) %>
+              },
+            <% } else { %>
+              <%- name %>,
+            <% } %>
+          <% }) %>
+        },
       <% }) %>
-      ],
-    <% }) %>
-  },
+    },
   <% }) %>
 };

@@ -3,26 +3,28 @@ import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-re
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Category, Components, Constants, Hooks } from '../Stories';
+import { stories } from '../Stories';
+
+type Params = {
+  story: string;
+  subPackage: string;
+  type: string;
+  category?: string;
+};
 
 export const StoryPage = () => {
-  const { category, story } = useParams<{ category: Category; story: string }>();
+  const { story, subPackage, type, category = '' } = useParams<Params>();
 
-  const Component = useMemo(() => {
-    const section: Frozen<Category, any> = {
-      components: Components,
-      constants: Constants,
-      hooks: Hooks,
-    } as const;
-
-    return section[category][story];
-  }, [category, story]);
+  const Component = useMemo(
+    () => (category !== '-' ? (stories as any)[subPackage][type][category][story] : stories[subPackage][type][story]),
+    [story, subPackage, type, category],
+  );
 
   return (
     <div className={styleBase}>
       <section className={stylePreview}>
         <header className={styleHeader}>
-          <small>{`@learn-react/core/${category}`}</small>
+          <small>{`@learn-react/${subPackage}/${type}/${category ? `${category}/` : ''}`}</small>
           <h1>{story}</h1>
         </header>
         <Component />
@@ -46,8 +48,11 @@ const styleHeader = css`
   line-height: ${LineHeight.Compressed};
 
   > small {
+    font-family: ${FontFamily.Monospace};
     font-size: ${FontSize.Small};
     color: ${Color.TextSub};
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   > h1 {

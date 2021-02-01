@@ -55,6 +55,14 @@ export const LineHeight = {
   Compressed: 1.4,
 } as const;
 
+export const IconSize = {
+  Tiny: '14px',
+  Small: '16px',
+  Regular: '20px',
+  Large: '24px',
+  Huge: '32px',
+} as const;
+
 export const BorderRadius = {
   Small: '2px',
   Regular: '5px',
