@@ -3,7 +3,7 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../Stories';
 import Logo from './logo192.png';
@@ -15,23 +15,13 @@ type Props = {
 export const Navigation = ({ width = 272 }: Props) => {
   const location = useLocation();
 
-  const [pathname, setPathname] = useState(location.pathname);
-
   const [keyword, setKeyword] = useState('');
 
-  // const flattenLabels = useMemo(() => {
-  //   const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
-  //   const query = new RegExp(pattern, 'i');
+  const query = useMemo(() => {
+    const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
 
-  //   return items
-  //     .reduce((acc: (string | string[])[], item) => [...acc, item.items.map(({ label }) => label) ?? item.label], [])
-  //     .flat()
-  //     .filter(label => label.match(query));
-  // }, [items, keyword]);
-
-  useEffect(() => {
-    setPathname(location.pathname);
-  }, [location]);
+    return new RegExp(pattern, 'i');
+  }, [keyword]);
 
   return (
     <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: `calc(${width}px - 1px)` }}>
@@ -43,7 +33,14 @@ export const Navigation = ({ width = 272 }: Props) => {
       </header>
 
       <div role="form" className={styleForm}>
-        <TextField type="search" placeholder="Search..." value={keyword} onChange={setKeyword} clearable />
+        <TextField
+          type="search"
+          icon="search"
+          placeholder="Search..."
+          value={keyword}
+          onChange={setKeyword}
+          clearable
+        />
       </div>
 
       <nav className={styleBody}>
@@ -51,47 +48,51 @@ export const Navigation = ({ width = 272 }: Props) => {
           <ul key={subPackageKey} className={styleNavigation} role="tree">
             <li>
               <div className={styleCaptionSubPackage}>@learn-react/{subPackageKey}</div>
-              <ul className={styleTypeList}>
+              <ul className={styleTypeList} role="tree">
                 {Object.entries(subPackage).map(([typeKey, type]) => (
                   <li key={typeKey}>
                     <div className={styleCaptionType}>
                       <Icon name="folder" />
                       {typeKey}
                     </div>
-                    <ul className={styleItemList}>
-                      {Object.entries(type).map(([key, value]) => (
-                        <li key={key}>
-                          {typeof value === 'function' ? (
-                            <Link
-                              to={`/${subPackageKey}/${typeKey}/-/${key}/`}
-                              className={styleLink}
-                              aria-selected={`/${subPackageKey}/${typeKey}/-/${key}/` === pathname}
-                            >
-                              {key}
-                            </Link>
-                          ) : (
-                            <>
-                              <div className={styleCaptionCategory}>
-                                <Icon name="folder" />
-                                {key}
-                              </div>
-                              <ul className={styleStoryList}>
-                                {Object.entries(value).map(([storyKey]) => {
-                                  const to = `/${subPackageKey}/${typeKey}/${key}/${storyKey}/`;
+                    <ul className={styleItemList} role="tree">
+                      {Object.entries(type).map(([key, value]) => {
+                        if (typeof value === 'function' && key.match(query)) {
+                          const to = `/${subPackageKey}/${typeKey}/-/${key}/`;
 
-                                  return (
-                                    <li key={storyKey}>
-                                      <Link to={to} className={styleLink} aria-selected={to === pathname}>
-                                        {storyKey}
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
-                            </>
-                          )}
-                        </li>
-                      ))}
+                          return (
+                            <li key={key}>
+                              <Link to={to} className={styleLink} aria-selected={to === location.pathname}>
+                                {key}
+                              </Link>
+                            </li>
+                          );
+                        }
+
+                        const storyKeys = Object.keys(value).filter(key => key.match(query));
+
+                        return (
+                          <>
+                            <div className={styleCaptionCategory} aria-disabled={!storyKeys.length}>
+                              <Icon name="folder" />
+                              {key}
+                            </div>
+                            <ul className={styleStoryList} role="tree">
+                              {storyKeys.map(storyKey => {
+                                const to = `/${subPackageKey}/${typeKey}/${key}/${storyKey}/`;
+
+                                return (
+                                  <li key={storyKey}>
+                                    <Link to={to} className={styleLink} aria-selected={to === location.pathname}>
+                                      {storyKey}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </>
+                        );
+                      })}
                     </ul>
                   </li>
                 ))}
@@ -215,6 +216,10 @@ const styleTypeList = css`
 const styleCaptionCategory = css`
   font-weight: bold;
   color: ${Color.TextSub};
+
+  &[aria-disabled='true'] {
+    opacity: 0.32;
+  }
 
   > svg {
     margin-right: ${gutter(1)};
