@@ -18,6 +18,7 @@ export const Item = ({ value, active, disabled, onClick }: Props) => {
         className={`${itemStyle} ${value ? clickableStyle : ''} ${active ? activeStyle : ''} ${
           disabled ? disabledStyle : ''
         }`}
+        role="button"
         onClick={handleClick}
       >
         {value?.getDate()}

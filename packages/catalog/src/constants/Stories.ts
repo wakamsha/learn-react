@@ -21,7 +21,8 @@ import { Story as Modal } from '@learn-react/core/components/utils/Modal/index.s
 import { Story as Popover } from '@learn-react/core/components/utils/Popover/index.story';
 import { Story as SplitPane } from '@learn-react/core/components/utils/SplitPane/index.story';
 import { Story as Transition } from '@learn-react/core/components/utils/Transition/index.story';
-import { Story as UseShuffleLetters } from '@learn-react/core/hooks/useShuffleLetters/index.story';
+import { Story as Style } from '@learn-react/core/constants/Style/index.story';
+import { Story as useShuffleLetters } from '@learn-react/core/hooks/useShuffleLetters/index.story';
 
 type Stories = {
   [subPackage: string]: {
@@ -38,18 +39,18 @@ type Stories = {
 };
 
 export const stories: Stories = {
-  Core: {
-    Components: {
-      DataDisplay: {
+  core: {
+    components: {
+      dataDisplay: {
         Icon,
         Tooltip,
       },
 
-      Feedback: {
+      feedback: {
         Toast,
       },
 
-      Inputs: {
+      inputs: {
         Button,
         Calendar,
         Checkbox,
@@ -61,15 +62,15 @@ export const stories: Stories = {
         TextField,
       },
 
-      Navigation: {
+      navigation: {
         Tabs,
       },
 
-      Surfaces: {
+      surfaces: {
         Card,
       },
 
-      Utils: {
+      utils: {
         Box,
         Modal,
         Popover,
@@ -78,8 +79,12 @@ export const stories: Stories = {
       },
     },
 
-    Hooks: {
-      UseShuffleLetters,
+    constants: {
+      Style,
+    },
+
+    hooks: {
+      useShuffleLetters,
     },
   },
 };

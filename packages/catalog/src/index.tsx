@@ -3,7 +3,6 @@ import { PageTransition } from '@learn-react/core/components/utils/PageTransitio
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { LayoutSwitch } from './components/LayoutSwitch';
 import { Navigation } from './components/Navigation';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
@@ -22,7 +21,6 @@ const App = () => (
           </Route>
         </PageTransition>
       </main>
-      <LayoutSwitch />
     </div>
   </BrowserRouter>
 );

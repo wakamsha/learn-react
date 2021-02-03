@@ -5,7 +5,7 @@ import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@
 import { gutter, square } from '@learn-react/core/helpers/Style';
 import { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { stories } from '../../Stories';
+import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
 type Props = {

@@ -1,9 +1,13 @@
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { stories } from '../Stories';
+import { stories } from '../../constants/Stories';
+import { storySpec } from '../../constants/StorySpec';
+import { Layout } from '../../constants/VO';
+import { CodeBlock } from './CodeBlock';
+import { LayoutSwitch } from './LayoutSwitch';
 
 type Params = {
   story: string;
@@ -20,25 +24,57 @@ export const StoryPage = () => {
     [story, subPackage, type, category],
   );
 
+  const storySpecKey = `${subPackage}/${type}/${category && `${category}/`}${story}` as keyof typeof storySpec;
+
   return (
-    <div className={styleBase}>
-      <section className={stylePreview}>
-        <header className={styleHeader}>
-          <small>{`@learn-react/${subPackage}/${type}/${category ? `${category}/` : ''}`}</small>
-          <h1>{story}</h1>
-        </header>
-        <Component />
-      </section>
-    </div>
+    <>
+      <div className={styleLayout[Layout.Column]}>
+        <section className={stylePreview}>
+          <header className={styleHeader}>
+            <small>{`@learn-react/${subPackage}/${type}/${category ? `${category}/` : ''}`}</small>
+            <h1>{story}</h1>
+          </header>
+          <Component />
+        </section>
+        {/* @TODO Layout.Full のときはレンダリングしない */}
+        <aside className={styleCodeBlock}>
+          <div className={styleCodeBlockBody}>
+            {storySpec[storySpecKey] ? <CodeBlock>{storySpec[storySpecKey]}</CodeBlock> : null}
+          </div>
+        </aside>
+      </div>
+      <LayoutSwitch />
+    </>
   );
 };
 
 const styleBase = css`
-  display: grid;
+  display: flex;
   height: 100vh;
   color: ${Color.TextNeutral};
   background: #f6f6f8;
 `;
+
+const styleLayout: Frozen<Layout, string> = {
+  [Layout.Column]: cx(
+    styleBase,
+    css`
+      > * {
+        width: 50%;
+      }
+    `,
+  ),
+  [Layout.Row]: cx(
+    styleBase,
+    css`
+      flex-direction: column;
+      > * {
+        height: 50%;
+      }
+    `,
+  ),
+  [Layout.Full]: styleBase,
+};
 
 const styleHeader = css`
   display: grid;
@@ -62,6 +98,7 @@ const styleHeader = css`
 `;
 
 const stylePreview = css`
+  flex: 1 0 50%;
   padding: ${gutter(4)} ${gutter(6)};
   overflow-y: auto;
 
@@ -89,4 +126,15 @@ const stylePreview = css`
       font-size: ${FontSize.Small};
     }
   }
+`;
+
+const styleCodeBlock = css`
+  display: flex;
+  flex: 1 0 50%;
+  background-color: #282c34;
+`;
+
+const styleCodeBlockBody = css`
+  flex: 1 1 100%;
+  overflow: auto;
 `;
