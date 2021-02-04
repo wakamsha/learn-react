@@ -1,0 +1,4 @@
+{
+  "ignorePaths": ["**/node_modules/**", "./packages/icon/dist/*", "./packages/catalog/src/constants/StorySpec.ts"],
+  "words": ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Beatle", "devtool", "esbuild", "hljs", "plusplus", "servor"]
+}
