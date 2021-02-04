@@ -1,4 +1,9 @@
 {
-  "ignorePaths": ["**/node_modules/**", "./packages/icon/dist/*", "./packages/catalog/src/constants/StorySpec.ts"],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "./packages/icon/dist/*",
+    "./packages/catalog/src/constants/StorySpec.ts",
+    "./packages/catalog/src/constants/Stories.ts"
+  ],
   "words": ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Beatle", "devtool", "esbuild", "hljs", "plusplus", "servor"]
 }

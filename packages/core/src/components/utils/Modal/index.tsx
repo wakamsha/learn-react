@@ -40,8 +40,8 @@ const styleBase = css`
   background-color: ${toRGBA(Color.TextureBackdrop, 0.8)};
   opacity: 0;
   transition: visibility ${Duration.Enter} ${Easing.Enter}, opacity ${Duration.Enter} ${Easing.Enter};
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 
   &[aria-hidden='false'] {
     visibility: visible;

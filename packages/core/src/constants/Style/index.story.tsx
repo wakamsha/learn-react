@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '../../helpers/Style';
+import { gutter, textEllipsis } from '../../helpers/Style';
 import { Color, FontSize, LineHeight, Shadow } from '.';
 
 type ColorItem = {
@@ -117,25 +117,26 @@ const styleBase = css`
 `;
 
 const styleColorBox = css`
-  position: relative;
   min-height: 120px;
   padding: ${gutter(2)};
   word-break: break-word;
   box-shadow: ${Shadow.Neutral};
+
+  > :not(:first-child) {
+    margin-top: ${gutter(2)};
+  }
 `;
 
 const styleColorName = css`
-  font-size: ${FontSize.Regular};
+  font-size: ${FontSize.Small};
   line-height: ${LineHeight.Compressed};
 `;
 
 const styleColorValue = css`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: ${FontSize.Medium};
+  display: block;
+  font-size: ${FontSize.Regular};
   font-weight: bold;
   line-height: 1.2;
-  text-align: center;
-  transform: translate3d(-50%, -50%, 0);
+
+  ${textEllipsis()}
 `;
