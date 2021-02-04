@@ -4,6 +4,7 @@ import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import { LayoutConfigContainer } from './containers/LayoutConfigContainer';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
 
@@ -17,7 +18,9 @@ const App = () => (
             <IndexPage />
           </Route>
           <Route path="/:subPackage/:type/:category/:story/">
-            <StoryPage />
+            <LayoutConfigContainer.Provider>
+              <StoryPage />
+            </LayoutConfigContainer.Provider>
           </Route>
         </PageTransition>
       </main>

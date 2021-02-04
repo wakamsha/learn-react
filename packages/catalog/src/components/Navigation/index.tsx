@@ -3,7 +3,7 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
@@ -72,7 +72,7 @@ export const Navigation = ({ width = 272 }: Props) => {
                         const storyKeys = Object.keys(value).filter(key => key.match(query));
 
                         return (
-                          <>
+                          <Fragment key={key}>
                             <div className={styleCaptionCategory} aria-disabled={!storyKeys.length}>
                               <Icon name="folder" />
                               {key}
@@ -90,7 +90,7 @@ export const Navigation = ({ width = 272 }: Props) => {
                                 );
                               })}
                             </ul>
-                          </>
+                          </Fragment>
                         );
                       })}
                     </ul>

@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import { storySpec } from '../../constants/StorySpec';
 import { Layout } from '../../constants/VO';
+import { LayoutConfigContainer } from '../../containers/LayoutConfigContainer';
 import { CodeBlock } from './CodeBlock';
 import { LayoutSwitch } from './LayoutSwitch';
 
@@ -19,16 +20,20 @@ type Params = {
 export const StoryPage = () => {
   const { story, subPackage, type, category = '' } = useParams<Params>();
 
+  const { layoutConfig } = LayoutConfigContainer.useContainer();
+
   const Component = useMemo(
     () => (category !== '-' ? (stories as any)[subPackage][type][category][story] : stories[subPackage][type][story]),
     [story, subPackage, type, category],
   );
 
-  const storySpecKey = `${subPackage}/${type}/${category && `${category}/`}${story}` as keyof typeof storySpec;
+  const storySpecKey = `${subPackage}/${type}/${
+    category !== '-' ? `${category}/` : ''
+  }${story}` as keyof typeof storySpec;
 
   return (
     <>
-      <div className={styleLayout[Layout.Column]}>
+      <div className={styleLayout[layoutConfig]}>
         <section className={stylePreview}>
           <header className={styleHeader}>
             <small>{`@learn-react/${subPackage}/${type}/${category ? `${category}/` : ''}`}</small>
@@ -36,12 +41,14 @@ export const StoryPage = () => {
           </header>
           <Component />
         </section>
-        {/* @TODO Layout.Full のときはレンダリングしない */}
-        <aside className={styleCodeBlock}>
-          <div className={styleCodeBlockBody}>
-            {storySpec[storySpecKey] ? <CodeBlock>{storySpec[storySpecKey]}</CodeBlock> : null}
-          </div>
-        </aside>
+
+        {layoutConfig !== Layout.Full ? (
+          <aside className={styleCodeBlock}>
+            <div className={styleCodeBlockBody}>
+              {storySpec[storySpecKey] ? <CodeBlock>{storySpec[storySpecKey]}</CodeBlock> : null}
+            </div>
+          </aside>
+        ) : null}
       </div>
       <LayoutSwitch />
     </>
@@ -59,8 +66,12 @@ const styleLayout: Frozen<Layout, string> = {
   [Layout.Column]: cx(
     styleBase,
     css`
-      > * {
-        width: 50%;
+      > :first-child {
+        width: 60%;
+      }
+
+      > :last-child {
+        width: 40%;
       }
     `,
   ),
@@ -68,8 +79,13 @@ const styleLayout: Frozen<Layout, string> = {
     styleBase,
     css`
       flex-direction: column;
-      > * {
-        height: 50%;
+
+      > :first-child {
+        height: 60%;
+      }
+
+      > :last-child {
+        height: 40%;
       }
     `,
   ),
@@ -98,7 +114,7 @@ const styleHeader = css`
 `;
 
 const stylePreview = css`
-  flex: 1 0 50%;
+  flex: 1 0 60%;
   padding: ${gutter(4)} ${gutter(6)};
   overflow-y: auto;
 
@@ -130,7 +146,7 @@ const stylePreview = css`
 
 const styleCodeBlock = css`
   display: flex;
-  flex: 1 0 50%;
+  flex: 1 0 40%;
   background-color: #282c34;
 `;
 

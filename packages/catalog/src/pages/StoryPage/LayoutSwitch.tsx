@@ -1,30 +1,32 @@
 import { css, cx } from '@emotion/css';
 import { Color } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 import { Layout } from '../../constants/VO';
+import { LayoutConfigContainer } from '../../containers/LayoutConfigContainer';
 
 export const LayoutSwitch = () => {
-  const [layout, setLayout] = useState<Layout>(Layout.Column);
+  const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => setLayout(Number(e.currentTarget.dataset.layout) as Layout);
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) =>
+    setLayoutConfig(Number(e.currentTarget.dataset.layout) as Layout);
 
   return (
     <div role="menubar" className={styleBase}>
       <button
-        className={cx(styleVariant[Layout.Column], layout === Layout.Column && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Column], layoutConfig === Layout.Column && styleButtonSelected)}
         role="menuitem"
         data-layout={Layout.Column}
         onClick={handleClick}
       />
       <button
-        className={cx(styleVariant[Layout.Row], layout === Layout.Row && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Row], layoutConfig === Layout.Row && styleButtonSelected)}
         role="menuitem"
         data-layout={Layout.Row}
         onClick={handleClick}
       />
       <button
-        className={cx(styleVariant[Layout.Full], layout === Layout.Full && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Full], layoutConfig === Layout.Full && styleButtonSelected)}
         role="menuitem"
         data-layout={Layout.Full}
         onClick={handleClick}
