@@ -6,7 +6,7 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "reset": "rm -rf dist/; mkdir -p dist/assets/;",
+    "reset": "rm -rf dist/; mkdir -p dist/;",
     "copy": "cp -r ./public/. ./dist/",
     "generate": "node ./bin/codegen",
     "develop": "webpack serve",

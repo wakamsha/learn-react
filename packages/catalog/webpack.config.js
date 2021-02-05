@@ -1,8 +1,24 @@
-const builder = require('../../webpack');
+// @ts-check
+const builder = require('../../bundler/webpack');
 
+const chunkName = 'app';
+
+/**
+ * @typedef {import('webpack').Configuration} Configuration
+ *
+ * @typedef {object} Config
+ * @property {Configuration['mode']} mode
+ *
+ * @param {*} _env
+ * @param {Config} config
+ */
 module.exports = (_env, { mode = 'development' }) =>
   builder({
     mode,
-    baseDir: __dirname,
-    entry: ['./src/index.tsx'],
+    chunkName,
+    basePath: __dirname,
+    entry: {
+      [chunkName]: ['./src/index.tsx'],
+    },
+    port: 4000,
   });
