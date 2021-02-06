@@ -8,11 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
-type Props = {
-  width?: number;
-};
-
-export const Navigation = ({ width = 272 }: Props) => {
+export const Navigation = () => {
   const location = useLocation();
 
   const [keyword, setKeyword] = useState('');
@@ -24,7 +20,7 @@ export const Navigation = ({ width = 272 }: Props) => {
   }, [keyword]);
 
   return (
-    <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: `calc(${width}px - 1px)` }}>
+    <div role="complementary" className={styleBase}>
       <header className={styleMasthead}>
         <img src={Logo} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>

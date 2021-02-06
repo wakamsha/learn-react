@@ -11,14 +11,14 @@ import { CodeBlock } from './CodeBlock';
 import { LayoutSwitch } from './LayoutSwitch';
 
 type Params = {
-  story: string;
   subPackage: string;
   type: string;
-  category?: string;
+  category: string;
+  story: string;
 };
 
 export const StoryPage = () => {
-  const { story, subPackage, type, category = '' } = useParams<Params>();
+  const { subPackage, type, category, story } = useParams<Params>();
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
 
@@ -36,7 +36,7 @@ export const StoryPage = () => {
       <div className={styleLayout[layoutConfig]}>
         <section className={stylePreview}>
           <header className={styleHeader}>
-            <small>{`@learn-react/${subPackage}/${type}/${category ? `${category}/` : ''}`}</small>
+            <small>{`@learn-react/${subPackage}/${type}/${category !== '-' ? `${category}/` : ''}`}</small>
             <h1>{story}</h1>
           </header>
           <Component />

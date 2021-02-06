@@ -20,5 +20,5 @@ module.exports = (_env, { mode = 'development' }) =>
     entry: {
       [chunkName]: ['./src/index.tsx'],
     },
-    port: 4000,
+    port: 4001,
   });

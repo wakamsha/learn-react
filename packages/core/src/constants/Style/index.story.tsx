@@ -11,17 +11,20 @@ export const Story = () => {
   const colors = Object.entries(Color).map(([name, hex]) => ({ name, hex }));
 
   return (
-    <ul className={styleBase}>
-      {colors.map(({ name, hex }) => (
-        <li key={name}>
-          <ColorBox name={name} hex={hex} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <h3>Color</h3>
+      <ul className={styleBase}>
+        {colors.map(({ name, hex }) => (
+          <li key={name}>
+            <ColorTip name={name} hex={hex} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
-const ColorBox = ({ name, hex }: ColorItem) => (
+const ColorTip = ({ name, hex }: ColorItem) => (
   <div
     className={styleColorBox}
     style={{

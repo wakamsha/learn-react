@@ -1,38 +1,28 @@
-import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Navigation } from './components/Navigation';
+import { Layout } from './components/Layout';
 import { LayoutConfigContainer } from './containers/LayoutConfigContainer';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
 
 const App = () => (
   <BrowserRouter>
-    <div className={styleBase}>
-      <Navigation />
-      <main>
-        <PageTransition>
-          <Route path="/" exact>
-            <IndexPage />
-          </Route>
-          <Route path="/:subPackage/:type/:category/:story/">
-            <LayoutConfigContainer.Provider>
-              <StoryPage />
-            </LayoutConfigContainer.Provider>
-          </Route>
-        </PageTransition>
-      </main>
-    </div>
+    <Layout>
+      <PageTransition>
+        <Route path="/" exact>
+          <IndexPage />
+        </Route>
+        <Route path="/:subPackage/:type/:category/:story/">
+          <LayoutConfigContainer.Provider>
+            <StoryPage />
+          </LayoutConfigContainer.Provider>
+        </Route>
+      </PageTransition>
+    </Layout>
   </BrowserRouter>
 );
-const styleBase = css`
-  display: grid;
-  grid-template-columns: auto 1fr;
-  width: 100%;
-  height: 100vh;
-`;
 
 applyGlobalStyle();
 
