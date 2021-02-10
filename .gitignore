@@ -64,3 +64,5 @@ dist/
 .envrc
 .vscode
 .stylelintcache
+Stories.ts
+StorySpec.ts
