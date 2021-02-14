@@ -1,5 +1,85 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "timezone": "Asia/Tokyo",
+  "labels": ["dependencies"],
+  "schedule": ["on weekend"],
+  "commitMessagePrefix": ":pill: ",
+  "reviewers": ["wakamsha"],
+  "node": {
+    "supportPolicy": ["lts_latest"]
+  },
+  "separateMinorPatch": true,
+  "major": {
+    "stabilityDays": 7
+  },
+  "vulnerabilityAlerts": {
+    "labels": ["Hot fix"],
+    "reviewers": ["wakamsha"]
+  },
+
+  "packageRules": {
+    // ====================
+    // 特殊な依存ライブラリ
+    // ====================
+    {
+      // TypeScript は minor 以上のバージョンが SemVer 準拠していないため、 patch のみ renovate で管理する
+      "packageNames": ["typescript"],
+      "major": {
+        "enabled": false
+      },
+      "minor": {
+        "enabled": false
+      },
+    },
+    {
+      // husky は v5 以降を業務使用する場合 GitHub Sponser になる必要があるため、 v4 以下にとどめる
+      // https://github.com/legalforce/lf-webapp-frontend/issues/1687#issuecomment-732655082
+      "packageNames": ["husky"],
+      "allowedVersions": "<5"
+    },
+    {
+      "groupName": "webpack families",
+      "matchPackagePatterns": ["^webpack", "ts-loader"],
+    },
+    {
+      "groupName": "lint families",
+      "matchPackagePatterns": ["^eslint", "^stylelint", "^@typescript-eslint"],
+    }
+
+    // ====================
+    // dependencies
+    // ====================
+    {
+      "depTypeList": ["dependencies"],
+      "minor": {
+        "groupName": "all dependencies:minor",
+        "stabilityDays": 3
+      },
+      "patch": {
+        "groupName": "all dependencies:patch",
+        "stabilityDays": 2
+      }
+    },
+
+    // ====================
+    // devDependencies
+    // ====================
+    {
+      "depTypeList": ["devDependencies"],
+      "major": {
+        "groupName": "all devDependencies:major",
+        "stabilityDays": 7
+      },
+      "minor": {
+        "groupName": "all devDependencies:minor",
+        "stabilityDays": 3
+      },
+      // devDependencies の patch は CI が通ったら自動的に merge する。
+      "patch": {
+        "groupName": "all devDependencies:patch",
+        "automerge": true,
+        "stabilityDays": 2
+      }
+    },
+  }
 }

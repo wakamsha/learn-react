@@ -5,6 +5,7 @@ name: Syntax Check CI
 
 on:
   pull_request:
+    types: [opened, reopened]
     branches:
       - '*'
 
