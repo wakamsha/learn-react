@@ -1,0 +1,180 @@
+# Pull Request Merge に必要なチェックを行う。
+#
+# (Start) ── setup ─┬─ lint ──────────────────┬─ (Done)
+#                   ├─ build-catalog ─────────┤
+#                   ├─ build-getting-started ─┤
+#                   ├─ build-mobx ────────────┤
+#                   └─ build-routing ─────────┘
+
+name: Check Syntax
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: yarn
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Run Lint
+        run: yarn lint
+
+  build-catalog:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Build icon data
+        run: yarn icon build
+
+      - name: Build
+        run: yarn catalog build
+
+  build-getting-started:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Build icon data
+        run: yarn icon build
+
+      - name: Build
+        run: yarn getting-started build
+
+  build-mobx:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Build
+        run: yarn mobx build
+
+  build-routing:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [14.15.x]
+
+    steps:
+      - uses: actions/setup-node@v2-beta
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Restore node_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Build icon data
+        run: yarn icon build
+
+      - name: Build
+        run: yarn routing build
