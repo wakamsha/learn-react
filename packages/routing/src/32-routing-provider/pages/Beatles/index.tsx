@@ -1,4 +1,4 @@
-import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { Beatle } from './Beatle';

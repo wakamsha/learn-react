@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { Navigation } from '@learn-react/core/components/Navigation';
-import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
+import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
 
 import { ComponentProps } from 'react';
@@ -12,7 +12,7 @@ import { Home } from '../pages/Home';
 
 export const App = () => (
   <div className={baseStyle}>
-    <Navigation title="Routing Provider" items={linkItems} />
+    <Sidebar title="Routing Provider" items={linkItems} />
     <main className={contentStyle}>
       <PageTransition>
         <Route path={Router.Paths.Home} component={Home} exact />
@@ -23,7 +23,7 @@ export const App = () => (
   </div>
 );
 
-const linkItems: ComponentProps<typeof Navigation>['items'] = [
+const linkItems: ComponentProps<typeof Sidebar>['items'] = [
   {
     label: 'Home',
     to: Router.Paths.Home,

@@ -48,6 +48,8 @@ jobs:
           node-version: '12.x'
       - name: Install Dependencies
         run: yarn
+      - name: Build icon data
+        run: yarn icon build
       - name: Build
         run: yarn catalog build
 
