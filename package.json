@@ -81,6 +81,7 @@
     "mobx": "           yarn workspace @learn-react/mobx",
     "routing": "        yarn workspace @learn-react/routing",
     "statement": "      yarn workspace @learn-react/statement",
+    "lint": "           yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
     "format": "         yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   }
 }
