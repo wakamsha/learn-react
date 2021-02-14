@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { BoilingVerdict } from './components/BoilingVerdict';
 import { ScaleNames, TemperatureInput } from './components/TemperatureInput';
 

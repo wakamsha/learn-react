@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 type State = {
   blogPost: string;
@@ -8,7 +8,7 @@ export class BlogPost extends Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      blogPost: 'good night hoge...',
+      blogPost: 'good night my friend...',
     };
   }
 

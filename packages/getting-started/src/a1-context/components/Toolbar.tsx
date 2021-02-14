@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemedButton } from './ThemedButton';
 
 // Before

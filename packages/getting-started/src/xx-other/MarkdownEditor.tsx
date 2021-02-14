@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component } from 'react';
+import { ChangeEvent, Component } from 'react';
 import * as Remarkable from 'remarkable';
 
 type State = {

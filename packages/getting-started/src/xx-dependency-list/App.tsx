@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 type Item = {
   foo: string;
@@ -21,9 +21,9 @@ const MyComponent = ({ item }: Props) => {
   useEffect(() => {
     console.info('changed', item.baz.qux);
   }, [item]);
-  const hoge = useMemo(() => item.baz.qux * 10, [item]);
+  const foo = useMemo(() => item.baz.qux * 10, [item]);
 
-  return <p>{hoge}</p>;
+  return <p>{foo}</p>;
 };
 
 const initialItem = {

@@ -5,5 +5,18 @@
     "./packages/catalog/src/constants/StorySpec.ts",
     "./packages/catalog/src/constants/Stories.ts"
   ],
-  "words": ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "codegen", "Beatle", "devtool", "esbuild", "hljs", "plusplus", "servor"]
+  "words": [
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "asyncable",
+    "builtins",
+    "codegen",
+    "Beatle",
+    "devtool",
+    "esbuild",
+    "hljs",
+    "plusplus",
+    "servor",
+    "unmount",
+    "wakamsha"
+  ]
 }

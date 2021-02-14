@@ -1,12 +1,12 @@
 // https://ja.reactjs.org/docs/state-and-lifecycle.html
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 type State = {
   seconds: number;
 };
 
 export class Timer extends Component<{}, State> {
-  private interval: number;
+  private interval = -1;
 
   constructor(props: {}) {
     super(props);

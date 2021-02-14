@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { SplashBanner } from '@learn-react/core/components/SplashBanner';
+import { SplashBanner } from '@learn-react/core/components/surfaces/SplashBanner';
 import { Color } from '@learn-react/core/constants/Style';
 
 export const HomePage = () => (

@@ -1,6 +1,6 @@
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
 import { css } from '@emotion/css';
-import React, { ChangeEvent, Component } from 'react';
+import { ChangeEvent, Component, createRef } from 'react';
 
 const inputFileStyle = css({
   display: 'none',
@@ -14,22 +14,16 @@ const reportStyleActive = css(reportStyle, {
   display: 'block',
 });
 
-// 原則コールバック ref を使う
-// createRef は特に使う必要もなさそう
 export class CustomTextInput extends Component {
-  private textInput: HTMLInputElement;
-  private fileInput: HTMLInputElement;
-  private report: HTMLParagraphElement;
+  private textInput = createRef<HTMLInputElement>();
+  private fileInput = createRef<HTMLInputElement>();
+  private report = createRef<HTMLParagraphElement>();
 
   public componentDidMount() {
     this.focusTextInput();
   }
 
-  private handleInputTextRef = (input: HTMLInputElement) => (this.textInput = input);
-  private handleInputFileRef = (input: HTMLInputElement) => (this.fileInput = input);
-  private handleReportRef = (elm: HTMLParagraphElement) => (this.report = elm);
-
-  private focusTextInput = () => this.textInput && this.textInput.focus();
+  private focusTextInput = () => this.textInput.current?.focus();
 
   private handleUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files![0];
@@ -39,22 +33,22 @@ export class CustomTextInput extends Component {
     // eslint-disable-next-line no-param-reassign
     e.target.value = '';
 
-    this.report.classList.add(reportStyleActive);
+    this.report.current?.classList.add(reportStyleActive);
   };
 
-  private handleClick = () => this.fileInput.click();
+  private handleClick = () => this.fileInput.current?.click();
 
   public render() {
     return (
       <>
         <div>
-          <input type="text" ref={this.handleInputTextRef} />
+          <input type="text" ref={this.textInput} />
           <input type="button" value="Focus the text input" onClick={this.focusTextInput} />
         </div>
         <hr />
-        <input type="file" ref={this.handleInputFileRef} className={inputFileStyle} onChange={this.handleUpload} />
+        <input type="file" ref={this.fileInput} className={inputFileStyle} onChange={this.handleUpload} />
         <button onClick={this.handleClick}>ファイル選択</button>
-        <p ref={this.handleReportRef} className={reportStyle}>
+        <p ref={this.report} className={reportStyle}>
           アップロード完了
         </p>
       </>

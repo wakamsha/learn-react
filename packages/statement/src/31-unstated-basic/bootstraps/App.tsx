@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { Navigation } from '@learn-react/core/components/Navigation';
-import { PageTransition } from '@learn-react/core/components/PageTransition';
+import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
+import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 
 import { ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
@@ -12,7 +12,7 @@ import { ListPage } from '../pages/profiles/ListPage';
 
 export const App = () => (
   <div className={baseStyle}>
-    <Navigation title="Unstated | Statement" items={linkItems} />
+    <Sidebar title="Unstated | Statement" items={linkItems} />
     <div className={contentStyle}>
       <PageTransition>
         <Route path={Router.paths.home} component={HomePage} exact />
@@ -24,7 +24,7 @@ export const App = () => (
   </div>
 );
 
-const linkItems: ComponentProps<typeof Navigation>['items'] = [
+const linkItems: ComponentProps<typeof Sidebar>['items'] = [
   {
     label: 'Profile',
     items: [

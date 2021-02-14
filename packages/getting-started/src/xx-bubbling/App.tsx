@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 
 export const Bubbling = () => {
   const handleClickOuter = (e: MouseEvent<HTMLDivElement>) => {
@@ -14,6 +14,7 @@ export const Bubbling = () => {
 
   return (
     <div
+      role="button"
       style={{
         padding: 24,
         background: 'pink',
