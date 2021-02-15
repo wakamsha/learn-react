@@ -2,7 +2,7 @@
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
   "labels": ["dependencies"],
-  "schedule": ["on weekend"],
+  "schedule": ["every weekend"],
   "commitMessagePrefix": ":pill: ",
   "reviewers": ["wakamsha"],
   "node": {
@@ -17,7 +17,7 @@
     "reviewers": ["wakamsha"]
   },
 
-  "packageRules": {
+  "packageRules": [
     // ====================
     // 特殊な依存ライブラリ
     // ====================
@@ -29,22 +29,13 @@
       },
       "minor": {
         "enabled": false
-      },
+      }
     },
     {
       // husky は v5 以降を業務使用する場合 GitHub Sponser になる必要があるため、 v4 以下にとどめる
-      // https://github.com/legalforce/lf-webapp-frontend/issues/1687#issuecomment-732655082
       "packageNames": ["husky"],
       "allowedVersions": "<5"
     },
-    {
-      "groupName": "webpack families",
-      "matchPackagePatterns": ["^webpack", "ts-loader"],
-    },
-    {
-      "groupName": "lint families",
-      "matchPackagePatterns": ["^eslint", "^stylelint", "^@typescript-eslint"],
-    }
 
     // ====================
     // dependencies
@@ -80,6 +71,6 @@
         "automerge": true,
         "stabilityDays": 2
       }
-    },
-  }
+    }
+  ]
 }
