@@ -10,6 +10,7 @@
     "asyncable",
     "builtins",
     "codegen",
+    "cvalue",
     "Beatle",
     "devtool",
     "esbuild",
