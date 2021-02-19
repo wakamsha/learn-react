@@ -11,6 +11,11 @@ type Container<V, S = void> = {
   useContainer: () => V;
 };
 
+/**
+ * カスタムフックを格納した React.Context を生成します。
+ *
+ * @param useHook
+ */
 export function createContainer<V, S = void>(useHook: (initialState?: S) => V): Container<V, S> {
   const Context = createContext<V | null>(null);
 
