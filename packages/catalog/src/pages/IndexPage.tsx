@@ -1,11 +1,15 @@
 import { css } from '@emotion/css';
 import { SplashBanner } from '@learn-react/core/components/surfaces/SplashBanner';
+import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { Color } from '@learn-react/core/constants/Style';
 
 export const IndexPage = () => (
-  <section className={styleBase}>
-    <SplashBanner title="Catalog | Learn React" />
-  </section>
+  <>
+    <DocumentTitle title="Catalog" />
+    <section className={styleBase}>
+      <SplashBanner title="Catalog | Learn React" />
+    </section>
+  </>
 );
 
 const styleBase = css`

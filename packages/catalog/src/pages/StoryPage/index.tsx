@@ -1,4 +1,5 @@
 import { css, cx } from '@emotion/css';
+import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
@@ -33,6 +34,7 @@ export const StoryPage = () => {
 
   return (
     <>
+      <DocumentTitle title={story} baseTitle="Catalog | Learn React" />
       <div className={styleLayout[layoutConfig]}>
         <section className={stylePreview}>
           <header className={styleHeader}>
