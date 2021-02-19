@@ -1,7 +1,7 @@
 import { createContainer } from '@learn-react/core/helpers/Container';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { useEffect, useRef, useState } from 'react';
-import { Layout } from '../constants/VO';
+import { Layout } from './VO';
 
 const storageKey = 'LAYOUT';
 

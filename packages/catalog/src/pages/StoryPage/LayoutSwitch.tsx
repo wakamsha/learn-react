@@ -2,8 +2,8 @@ import { css, cx } from '@emotion/css';
 import { Color } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
 import { MouseEvent } from 'react';
-import { Layout } from '../../constants/VO';
-import { LayoutConfigContainer } from '../../containers/LayoutConfigContainer';
+import { LayoutConfigContainer } from './LayoutConfigContainer';
+import { Layout } from './VO';
 
 export const LayoutSwitch = () => {
   const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
@@ -26,9 +26,9 @@ export const LayoutSwitch = () => {
         onClick={handleClick}
       />
       <button
-        className={cx(styleVariant[Layout.Full], layoutConfig === Layout.Full && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Zen], layoutConfig === Layout.Zen && styleButtonSelected)}
         role="menuitem"
-        data-layout={Layout.Full}
+        data-layout={Layout.Zen}
         onClick={handleClick}
       />
     </div>
@@ -112,7 +112,7 @@ const styleVariant: Frozen<Layout, string> = {
       }
     `,
   ),
-  [Layout.Full]: cx(
+  [Layout.Zen]: cx(
     styleButton,
     css`
       &::before {

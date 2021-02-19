@@ -6,10 +6,16 @@ import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import { storySpec } from '../../constants/StorySpec';
-import { Layout } from '../../constants/VO';
-import { LayoutConfigContainer } from '../../containers/LayoutConfigContainer';
 import { CodeBlock } from './CodeBlock';
+import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
+import { Layout } from './VO';
+
+export const StoryPage = () => (
+  <LayoutConfigContainer.Provider>
+    <Inner />
+  </LayoutConfigContainer.Provider>
+);
 
 type Params = {
   subPackage: string;
@@ -18,7 +24,7 @@ type Params = {
   story: string;
 };
 
-export const StoryPage = () => {
+const Inner = () => {
   const { subPackage, type, category, story } = useParams<Params>();
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
@@ -44,7 +50,7 @@ export const StoryPage = () => {
           <Component />
         </section>
 
-        {layoutConfig !== Layout.Full ? (
+        {layoutConfig !== Layout.Zen ? (
           <aside className={styleCodeBlock}>
             <div className={styleCodeBlockBody}>
               {storySpec[storySpecKey] ? <CodeBlock>{storySpec[storySpecKey]}</CodeBlock> : null}
@@ -91,7 +97,7 @@ const styleLayout: Frozen<Layout, string> = {
       }
     `,
   ),
-  [Layout.Full]: styleBase,
+  [Layout.Zen]: styleBase,
 };
 
 const styleHeader = css`
