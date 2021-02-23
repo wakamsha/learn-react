@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { ReactNode } from 'react';
-import { Duration, Easing, Shadow } from '../../../constants/Style';
+import { Color, Duration, Easing, Shadow } from '../../../constants/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 
@@ -19,7 +19,7 @@ export const Card = ({ children, shadow = 'neutral', width, maxWidth, hover }: P
 );
 
 const styleBase = css`
-  background-color: white;
+  background-color: ${Color.TexturePaper};
 `;
 
 const styleCard: Record<ShadowType, string> = {
