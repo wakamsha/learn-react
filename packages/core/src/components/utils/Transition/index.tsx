@@ -52,7 +52,7 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
         if (!nextElm.current) return;
         nextElm.current.classList.remove(styleEnter);
         setHtml('');
-      }, ENTER_DELAY);
+      }, enterDelay);
     }
   }, [html, id, propId]);
 
@@ -70,9 +70,9 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
   );
 };
 
-const OFFSET = 30;
-const ENTER_DELAY = 80;
-const RATIO = 0.98;
+const offset = 30;
+const enterDelay = 80;
+const ratio = 0.98;
 
 const styleBase = css`
   position: relative;
@@ -81,8 +81,8 @@ const styleBase = css`
 
 const styleAnimation = css`
   opacity: 1;
-  transition: transform ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter},
-    opacity ${Duration.Enter} ${ENTER_DELAY}ms ${Easing.Enter};
+  transition: transform ${Duration.Enter} ${enterDelay}ms ${Easing.Enter},
+    opacity ${Duration.Enter} ${enterDelay}ms ${Easing.Enter};
   transform: none;
 `;
 
@@ -94,35 +94,35 @@ const styleEnter = css`
 
 const styleLeave = css`
   opacity: 0;
-  transition: transform ${Duration.Leave} ${Easing.Leave}, opacity ${Duration.Leave} ${Easing.Enter};
+  transition: transform ${Duration.Leave} ${Easing.Leave}, opacity ${Duration.Leave} ${Easing.Leave};
 `;
 
 const styleType: Frozen<TransitionType, string> = {
   horizontal: css`
     ${`&.${styleEnter}`} {
-      transform: translate3d(${OFFSET}px, 0, 0);
+      transform: translate3d(${offset}px, 0, 0);
     }
 
     ${`&.${styleLeave}`} {
-      transform: translate3d(${OFFSET}px, 0, 0);
+      transform: translate3d(${offset}px, 0, 0);
     }
   `,
   vertical: css`
     ${`&.${styleEnter}`} {
-      transform: translate3d(0, ${OFFSET}px, 0);
+      transform: translate3d(0, ${offset}px, 0);
     }
 
     ${`&.${styleLeave}`} {
-      transform: translate3d(0, ${OFFSET}px, 0);
+      transform: translate3d(0, ${offset}px, 0);
     }
   `,
   scale: css`
     ${`&.${styleEnter}`} {
-      transform: scale3d(${RATIO}, ${RATIO}, 0);
+      transform: scale3d(${ratio}, ${ratio}, 0);
     }
 
     ${`&.${styleLeave}`} {
-      transform: scale3d(${RATIO}, ${RATIO}, 0);
+      transform: scale3d(${ratio}, ${ratio}, 0);
     }
   `,
 };
