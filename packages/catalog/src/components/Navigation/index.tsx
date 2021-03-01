@@ -187,7 +187,7 @@ const styleCaptionSubPackage = css`
     height: 1px;
     margin-left: ${gutter(2)};
     content: '';
-    background-color: ${Color.LineDefault};
+    background-color: ${Color.LineNeutral};
   }
 `;
 
