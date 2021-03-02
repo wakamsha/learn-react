@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { ChangeEventHandler, useCallback, useMemo } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { makeId } from '../../../helpers/String';
 import { gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';
@@ -22,13 +22,10 @@ type Props<T> = {
 export const Tabs = <T extends string | number>({ value, options, onChange, size = 'neutral' }: Props<T>) => {
   const groupName = useMemo(() => makeId(), []);
 
-  const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-    e => {
-      const index = Number(e.currentTarget.value);
-      onChange(options[index], index);
-    },
-    [options, onChange],
-  );
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const index = Number(e.currentTarget.value);
+    onChange(options[index], index);
+  };
 
   return (
     <ul className={styleBase} role="tablist">
@@ -74,37 +71,24 @@ const styleLabel = css`
 `;
 
 const styleInner = css`
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  line-height: ${LineHeight.Compressed};
+  line-height: ${LineHeight.Regular};
   color: ${Color.TextSub};
   cursor: pointer;
   user-select: none;
-  transition: color ${Duration.Fade}, background-color ${Duration.Fade};
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition: color ${Duration.Fade}, background-color ${Duration.Fade}, border-color ${Duration.Fade},
+    box-shadow ${Duration.Fade};
   ${textEllipsis()}
-
-  &:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 2px;
-    content: '';
-    background-color: ${Color.ThemePrimaryDark};
-    transition: transform ${Duration.Enter};
-    transform: translate3d(0, 100%, 0);
-  }
 
   input:checked + & {
     color: ${Color.TextNeutral};
     cursor: default;
-
-    &:after {
-      transform: none;
-    }
+    border-bottom-color: ${Color.ThemePrimaryDark};
+    box-shadow: inset 0 -1px 0 0 ${Color.ThemePrimaryDark};
   }
 
   input:not(:checked):not(:disabled) + &:hover {
@@ -114,11 +98,11 @@ const styleInner = css`
 
 const styleSize: Frozen<Size, string> = {
   neutral: css`
-    padding: ${gutter(3)} ${gutter(4)};
+    padding: ${gutter(3.5)} ${gutter(4)} ${gutter(3)};
     font-size: ${FontSize.Regular};
   `,
   small: css`
-    padding: ${gutter(2)} ${gutter(3)};
+    padding: ${gutter(2.5)} ${gutter(3)} ${gutter(2)};
     font-size: ${FontSize.Small};
   `,
 };
