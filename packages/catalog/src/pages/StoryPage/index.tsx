@@ -142,7 +142,7 @@ const stylePreview = css`
     margin: ${gutter(6)} 0;
     overflow: auto;
     background-color: ${Color.TextureInput};
-    border: 1px solid ${Color.LineDefault};
+    border: 1px solid ${Color.LineNeutral};
     border-radius: ${BorderRadius.Small};
 
     > code {

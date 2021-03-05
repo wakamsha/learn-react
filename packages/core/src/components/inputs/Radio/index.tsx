@@ -12,7 +12,9 @@ type Props = {
 };
 
 export const Radio = ({ name, checked = false, disabled, value, onChange }: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => !disabled && onChange?.(e);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    !disabled && onChange?.(e);
+  };
 
   return (
     <span className={styleBase}>
@@ -47,6 +49,11 @@ Radio.Label = ({ children, label }: LabelProps) => (
 const styleBase = css`
   position: relative;
   display: inline-flex;
+
+  &:focus-within {
+    outline: 1px auto;
+    outline-offset: 2px;
+  }
 `;
 
 const styleIndicator = css`
@@ -60,13 +67,13 @@ const styleIndicator = css`
   ${square(20)}
 
   &[aria-checked='true'] {
-    border-color: ${Color.LineDefault};
+    border-color: ${Color.LineNeutral};
   }
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
     background-color: ${Color.ThemeDisabledNeutral};
-    border-color: ${Color.LineDefault};
+    border-color: ${Color.LineNeutral};
   }
 `;
 

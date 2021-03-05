@@ -57,7 +57,14 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
       </header>
 
       <div role="form" className={styleForm}>
-        <TextField type="search" placeholder="Search..." value={keyword} onChange={setKeyword} clearable />
+        <TextField
+          name="search"
+          type="search"
+          placeholder="Search..."
+          value={keyword}
+          onChange={setKeyword}
+          clearable
+        />
       </div>
 
       <nav className={styleBody}>
