@@ -6,7 +6,7 @@
     "remarkable": "1.7.4"
   },
   "devDependencies": {
-    "@types/remarkable": "1.7.6"
+    "@types/remarkable": "2.0.1"
   },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
