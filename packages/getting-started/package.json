@@ -2,12 +2,6 @@
   "name": "@learn-react/getting-started",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "dependencies": {
-    "remarkable": "2.0.1"
-  },
-  "devDependencies": {
-    "@types/remarkable": "1.7.6"
-  },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",
     "copy": "cp -r ./public/. ./dist/",

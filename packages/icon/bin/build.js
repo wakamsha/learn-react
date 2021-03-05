@@ -2,9 +2,7 @@ const fs = require('fs');
 const cheerio = require('cheerio');
 const ejs = require('ejs');
 const glob = require('glob');
-const SVGO = require('svgo');
-
-const svgo = new SVGO({});
+const { optimize } = require('svgo');
 
 async function exec() {
   const data = await glob.sync('src/*.svg');
@@ -12,7 +10,7 @@ async function exec() {
   const result = await Promise.all(
     data.map(async file => {
       const content = fs.readFileSync(file).toString('utf8');
-      const source = await svgo.optimize(content);
+      const source = await optimize(content);
       const $ = cheerio.load(source.data.toString('utf8'), {
         decodeEntities: false,
       });
@@ -20,7 +18,8 @@ async function exec() {
       $('style,title,defs').remove();
       $('[id]:not(symbol)').removeAttr('id');
       $('[class^="st"],[class^="cls"]').removeAttr('class');
-      $('[style]:not(svg)').removeAttr('style');
+      $('[space]').removeAttr('space');
+      $('[style]').removeAttr('style');
       $('[data-name]').removeAttr('data-name');
       $('svg[id]').removeAttr('id');
       $('[fill]').removeAttr('fill');
