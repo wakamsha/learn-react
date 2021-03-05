@@ -6,8 +6,6 @@ module.exports = {
     'plugin:import/errors',
     'plugin:react/recommended',
     'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react',
   ],
   env: {
     browser: true,
