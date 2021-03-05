@@ -30,6 +30,7 @@ export const Navigation = () => {
 
       <div role="form" className={styleForm}>
         <TextField
+          name="search"
           type="search"
           icon="search"
           placeholder="Search..."

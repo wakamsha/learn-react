@@ -8,6 +8,7 @@ import { IconButton } from '../IconButton';
 
 type Props = {
   value: string;
+  name: string;
   onChange: (value: string) => void;
   id?: string;
   placeholder?: string;
@@ -34,6 +35,7 @@ type Props = {
 
 export const TextField = ({
   value,
+  name,
   onChange,
   id,
   placeholder,
@@ -64,6 +66,7 @@ export const TextField = ({
       <input
         id={id}
         className={styleInput}
+        name={name}
         type={type}
         value={value}
         placeholder={placeholder}

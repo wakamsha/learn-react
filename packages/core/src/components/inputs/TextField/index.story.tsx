@@ -9,24 +9,44 @@ export const Story = () => {
   return (
     <>
       <h3>Basic</h3>
-      <TextField value={value} onChange={setValue} placeholder="Input something..." />
+      <TextField name="input-basic" value={value} onChange={setValue} placeholder="Input something..." />
 
       <h3>With Clear button</h3>
-      <TextField value={value} onChange={setValue} placeholder="Input something..." clearable />
+      <TextField
+        name="input-with-button"
+        value={value}
+        onChange={setValue}
+        placeholder="Input something..."
+        clearable
+      />
 
       <h3>Variant</h3>
       <div className={styleRow}>
-        <TextField value={value} onChange={setValue} placeholder="text" type="text" />
-        <TextField value={value} onChange={setValue} placeholder="email" type="email" />
-        <TextField value={value} onChange={setValue} placeholder="password" type="password" />
-        <TextField value={value} onChange={setValue} placeholder="search" type="search" icon="search" />
-        <TextField value={value} onChange={setValue} placeholder="tel" type="tel" />
-        <TextField value={value} onChange={setValue} placeholder="url" type="url" />
-        <TextField value={value} onChange={setValue} placeholder="number" type="number" />
+        <TextField name="input-text" value={value} onChange={setValue} placeholder="text" type="text" />
+        <TextField name="input-email" value={value} onChange={setValue} placeholder="email" type="email" />
+        <TextField name="input-password" value={value} onChange={setValue} placeholder="password" type="password" />
+        <TextField
+          name="input-search"
+          value={value}
+          onChange={setValue}
+          placeholder="search"
+          type="search"
+          icon="search"
+        />
+        <TextField name="input-tel" value={value} onChange={setValue} placeholder="tel" type="tel" />
+        <TextField name="input-url" value={value} onChange={setValue} placeholder="url" type="url" />
+        <TextField name="input-number" value={value} onChange={setValue} placeholder="number" type="number" />
       </div>
 
       <h3>Disabled</h3>
-      <TextField value={value} onChange={setValue} placeholder="Input something..." clearable disabled />
+      <TextField
+        name="input-disabled"
+        value={value}
+        onChange={setValue}
+        placeholder="Input something..."
+        clearable
+        disabled
+      />
     </>
   );
 };
