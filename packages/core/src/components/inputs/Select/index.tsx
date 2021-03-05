@@ -111,9 +111,17 @@ const styleBase = css`
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid ${Color.ThemePrimaryDark};
   box-shadow: none;
   transition: box-shadow ${Duration.Fade};
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    content: '';
+    background-color: ${Color.ThemePrimaryDark};
+  }
 
   > * {
     min-width: 0;
@@ -128,7 +136,7 @@ const styleBase = css`
   }
 
   &:focus-within {
-    box-shadow: 0 1px 0 0 ${Color.ThemePrimaryDark};
+    box-shadow: inset 0 -2px 0 0 ${Color.ThemePrimaryDark};
   }
 `;
 

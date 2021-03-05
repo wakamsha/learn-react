@@ -35,10 +35,10 @@ export const Range = ({ value, onChange, min = 0, max = 100, step = 1, disabled,
 function filledTrack(color: Color, ratio: number) {
   return css({
     '&::-webkit-slider-runnable-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineDefault} ${ratio}%)`,
+      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineNeutral} ${ratio}%)`,
     },
     '&::-moz-range-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineDefault} ${ratio}%)`,
+      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineNeutral} ${ratio}%)`,
     },
   });
 }
@@ -49,7 +49,7 @@ const thumb = css`
   margin-top: -${diameter / 2}px;
   cursor: pointer;
   background-color: white;
-  border: 1px solid ${Color.LineDefault};
+  border: 1px solid ${Color.LineNeutral};
   border-radius: ${BorderRadius.Circle};
   transition: transform ${Duration.Fade};
   transform: scale3d(1, 1, 1);
@@ -63,7 +63,7 @@ const thumb = css`
 const track = css`
   width: 100%;
   height: 2px;
-  background-color: ${Color.LineDefault};
+  background-color: ${Color.LineNeutral};
   border: none;
   border-radius: ${BorderRadius.Circle};
 `;

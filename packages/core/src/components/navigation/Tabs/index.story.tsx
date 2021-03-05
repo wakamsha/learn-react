@@ -24,10 +24,10 @@ export const Story = () => {
   return (
     <>
       <h3>Basic</h3>
+      <Tabs options={options} value={state} onChange={handleChange} />
       <p>
         Current state: <code>{state}</code>
       </p>
-      <Tabs options={options} value={state} onChange={handleChange} />
 
       <h3>Sizes</h3>
       <Tabs options={options} value={1} onChange={console.info} />
