@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "remarkable": "1.7.4"
+    "remarkable": "2.0.1"
   },
   "devDependencies": {
-    "@types/remarkable": "1.7.4"
+    "@types/remarkable": "1.7.6"
   },
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/assets/;",

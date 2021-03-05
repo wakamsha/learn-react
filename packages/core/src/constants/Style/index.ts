@@ -20,17 +20,17 @@ export const Color = {
   TextSub: '#808d96',
 
   // Line
-  LineDefault: '#c8cbce',
-  LineLight: '#d8dbdd',
-  LineLighter: '#e3e5e6',
-  LineDark: '#566B7F',
+  LineNeutral: '#BFC1C9',
+  LineLight: '#E3E3E7',
+  LineLighter: '#E3E5E6',
+  LineDark: '#7E808C',
 
   // Texture
   TextureBody: '#F7F7F7',
-  TextureCode: '#0f192a',
+  TextureCode: '#0F192A',
   TextureInput: '#F6F6F8',
   TextureBackdrop: '#E3E4E8',
-  TexturePaper: '#ffffff',
+  TexturePaper: '#FFFFFF',
 } as const;
 
 export type Color = ValueOf<typeof Color>;

@@ -16,7 +16,9 @@ export const Checkbox = ({ checked, value, disabled, indeterminate = false, onCh
 
   const ariaChecked = checked || (indeterminate ? 'mixed' : false);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => !disabled && onChange?.(e);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    !disabled && onChange?.(e);
+  };
 
   useEffect(() => {
     if (!inputRef.current) return;
@@ -56,12 +58,17 @@ Checkbox.Label = ({ children, label }: LabelProps) => (
 const styleBase = css`
   position: relative;
   display: inline-flex;
+
+  &:focus-within {
+    outline: 1px auto;
+    outline-offset: 2px;
+  }
 `;
 
 const styleIndicator = css`
   display: inline-block;
   background-color: white;
-  border: 1px solid ${Color.LineDefault};
+  border: 1px solid ${Color.LineNeutral};
   border-radius: ${BorderRadius.Small};
   transition: background-color ${Duration.Fade}, border ${Duration.Fade};
   ${square(20)}
@@ -74,7 +81,7 @@ const styleIndicator = css`
   &[aria-disabled='true'] {
     cursor: not-allowed;
     background-color: ${Color.ThemeDisabledNeutral};
-    border-color: ${Color.LineDefault};
+    border-color: ${Color.LineNeutral};
   }
 `;
 

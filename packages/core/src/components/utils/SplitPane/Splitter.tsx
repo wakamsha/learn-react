@@ -26,6 +26,6 @@ const styleBase = css`
   &:hover,
   &[aria-grabbed='true'] {
     background-position: 0px 50%;
-    border-color: ${Color.LineDefault};
+    border-color: ${Color.LineNeutral};
   }
 `;

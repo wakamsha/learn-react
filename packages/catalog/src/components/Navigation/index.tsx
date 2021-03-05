@@ -30,6 +30,7 @@ export const Navigation = () => {
 
       <div role="form" className={styleForm}>
         <TextField
+          name="search"
           type="search"
           icon="search"
           placeholder="Search..."
@@ -187,7 +188,7 @@ const styleCaptionSubPackage = css`
     height: 1px;
     margin-left: ${gutter(2)};
     content: '';
-    background-color: ${Color.LineDefault};
+    background-color: ${Color.LineNeutral};
   }
 `;
 

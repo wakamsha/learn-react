@@ -13,14 +13,14 @@ type Size = 'small' | 'neutral';
 
 type Props = {
   name: IconName;
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   id?: string;
   variant?: Variant;
   theme?: Theme;
   size?: Size;
   /** アクセシビリティのために指定するラベルです。 */
-  label?: string;
+  ariaLabel?: string;
   disabled?: boolean;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 export const IconButton = ({
@@ -29,11 +29,11 @@ export const IconButton = ({
   variant = 'solid',
   theme = 'primary',
   size = 'neutral',
-  label,
+  ariaLabel,
   disabled,
   onClick,
 }: Props) => {
-  const styleButton = useMemo(() => cx(styleBase, getStyleVariant(variant, theme), styleSize[size]), [
+  const styleButton = useMemo(() => cx(styleBase, getVariantStyle(variant, theme), styleSize[size]), [
     theme,
     variant,
     size,
@@ -42,7 +42,7 @@ export const IconButton = ({
   return (
     <button
       type="button"
-      aria-label={label}
+      aria-label={ariaLabel}
       id={id}
       className={styleButton}
       tabIndex={-1}
@@ -54,7 +54,7 @@ export const IconButton = ({
   );
 };
 
-function getStyleVariant(variant: Variant, theme: Theme) {
+function getVariantStyle(variant: Variant, theme: Theme) {
   switch (variant) {
     case 'solid':
       return styleSolid[theme];
