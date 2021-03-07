@@ -4,7 +4,7 @@ import { gutter } from '../../../helpers/Style';
 import { TextField } from '.';
 
 export const Story = () => {
-  const [value, setValue] = useState('hello world');
+  const [value, setValue] = useState('hello world!');
 
   return (
     <>
