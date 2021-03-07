@@ -110,7 +110,7 @@ const styleBase = css`
   }
 
   > :not(:first-child) {
-    margin-left: ${gutter(4)};
+    margin-left: ${gutter(2)};
   }
 
   &[aria-disabled='true'] {
