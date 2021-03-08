@@ -1,17 +1,19 @@
 import { css, keyframes } from '@emotion/css';
 import { Color } from '../../../constants/Style';
 
+type Size = 'neutral' | 'button';
+
+type Theme = 'neutral' | 'inverse';
+
 type Props = Partial<{
-  size: number | 'button';
-  theme: 'neutral' | 'inverse';
+  size: Size;
+  theme: Theme;
 }>;
 
-const baseSize = 50;
+export const Preloader = ({ size = 'neutral', theme = 'neutral' }: Props) => {
+  const spinnerSize = styleSize[size];
 
-export const Preloader = ({ size = baseSize, theme = 'neutral' }: Props) => {
-  const spinnerSize = size === 'button' ? 14 : size;
-
-  const color = theme === 'neutral' ? Color.ThemePrimaryDark : 'white';
+  const color = styleTheme[theme];
 
   return (
     <svg className={styleBase} width={spinnerSize} height={spinnerSize} viewBox={`0 0 ${baseSize} ${baseSize}`}>
@@ -30,6 +32,8 @@ export const Preloader = ({ size = baseSize, theme = 'neutral' }: Props) => {
     </svg>
   );
 };
+
+const baseSize = 50;
 
 const rotateAnimation = keyframes`
   from {
@@ -65,3 +69,13 @@ const stylePath = css`
   stroke-linecap: round;
   animation: ${dashAnimation} 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
 `;
+
+const styleSize: Frozen<Size, number> = {
+  neutral: baseSize,
+  button: 18,
+};
+
+const styleTheme: Frozen<Theme, string> = {
+  neutral: Color.ThemePrimaryDark,
+  inverse: 'white',
+};
