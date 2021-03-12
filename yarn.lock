@@ -738,10 +738,10 @@
   dependencies:
     ts-toolbelt "^6.15.1"
 
-"@types/react-dom@17.0.1":
-  version "17.0.1"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.1.tgz#d92d77d020bfb083e07cc8e0ac9f933599a4d56a"
-  integrity sha512-yIVyopxQb8IDZ7SOHeTovurFq+fXiPICa+GV3gp0Xedsl+MwQlMLKmvrnEjFbQxjliH5YVAEWFh975eVNmKj7Q==
+"@types/react-dom@17.0.2":
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.2.tgz#35654cf6c49ae162d5bc90843d5437dc38008d43"
+  integrity sha512-Icd9KEgdnFfJs39KyRyr0jQ7EKhq8U6CcHRMGAS45fp5qgUvxL3ujUCfWFttUK2UErqZNj97t9gsVPNAqcwoCg==
   dependencies:
     "@types/react" "*"
 
@@ -6576,10 +6576,10 @@ svg-tags@^1.0.0:
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
-svgo@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/svgo/-/svgo-2.2.1.tgz#e868b98f8eae2d8d33356cc456094665bfd68926"
-  integrity sha512-WrKhe5CMm/O5gchTQKGogKYXGbOC0JBZnHqvaCTEbsMuq4prxQHB/AZgif8WwD4+9Nim4EECObmyjvkdC43iNg==
+svgo@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/svgo/-/svgo-2.2.2.tgz#51d67c7149661282d22a3c8683f4795cdb40f687"
+  integrity sha512-kJugY2d0yrsONnG4YavppVkKmKULMw2iFRbB9+usyWqzTaqoBuUaqdMnQ2G1n5P1dmOA2tZvc5zmMM6sPOVBSQ==
   dependencies:
     "@trysound/sax" "0.1.1"
     chalk "^4.1.0"
@@ -6717,10 +6717,10 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.5.tgz#b8b639cefad7d0bb2abd37d433ff8293efa5f406"
   integrity sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==
 
-ts-loader@8.0.17:
-  version "8.0.17"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.17.tgz#98f2ccff9130074f4079fd89b946b4c637b1f2fc"
-  integrity sha512-OeVfSshx6ot/TCxRwpBHQ/4lRzfgyTkvi7ghDVrLXOHzTbSK413ROgu/xNqM72i3AFeAIJgQy78FwSMKmOW68w==
+ts-loader@8.0.18:
+  version "8.0.18"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.18.tgz#b2385cbe81c34ad9f997915129cdde3ad92a61ea"
+  integrity sha512-hRZzkydPX30XkLaQwJTDcWDoxZHK6IrEMDQpNd7tgcakFruFkeUp/aY+9hBb7BUGb+ZWKI0jiOGMo0MckwzdDQ==
   dependencies:
     chalk "^4.1.0"
     enhanced-resolve "^4.0.0"
@@ -7092,10 +7092,10 @@ webpack-sources@^2.1.1:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack@5.24.3:
-  version "5.24.3"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.24.3.tgz#6ec0f5059f8d7c7961075fa553cfce7b7928acb3"
-  integrity sha512-x7lrWZ7wlWAdyKdML6YPvfVZkhD1ICuIZGODE5SzKJjqI9A4SpqGTjGJTc6CwaHqn19gGaoOR3ONJ46nYsn9rw==
+webpack@5.24.4:
+  version "5.24.4"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.24.4.tgz#37d8cf95841dd23c809ea02931294b3455d74a59"
+  integrity sha512-RXOdxF9hFFFhg47BryCgyFrEyyu7Y/75/uiI2DoUiTMqysK+WczVSTppvkR47oZcmI/DPaXCiCiaXBP8QjkNpA==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.46"
