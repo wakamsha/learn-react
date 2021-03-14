@@ -11,7 +11,9 @@
     "builtins",
     "codegen",
     "consolas",
+    "contenteditable",
     "cvalue",
+    "focusable",
     "Beatle",
     "devtool",
     "esbuild",
@@ -22,6 +24,7 @@
     "noto",
     "plusplus",
     "servor",
+    "tabindex",
     "unmount",
     "updown",
     "wakamsha"

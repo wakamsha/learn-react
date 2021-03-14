@@ -36,7 +36,7 @@ export function square(value: string | number) {
  * @example
  * toRGBA('#0ff', 0.5) //=> rgba(0, 255, 255, 0.5)
  */
-export function toRGBA(hex: string, opacity: number) {
+export function hex2rgba(hex: string, opacity: number) {
   const rgb = color(hex);
   return `rgba(${rgb.red()}, ${rgb.green()}, ${rgb.blue()}, ${opacity})`;
 }

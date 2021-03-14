@@ -19,6 +19,7 @@ export const Story = () => {
       <Modal visible={visible1} onClickOutside={() => setVisible1(false)}>
         <article className={styleCard}>
           <h1>Hello!!</h1>
+          <input type="text" />
           <nav>
             <button onClick={() => setVisible1(false)}>Close</button>
           </nav>
@@ -42,6 +43,7 @@ export const Story = () => {
           <p>
             わたくしは半分わらうように半分つぶやくようにしながら、向うの信号所からいつも放して遊ばせる輪道の内側の野原、ポプラの中から顔をだしている市はずれの白い教会の塔までぐるっと見まわしました。けれどもどこにもあの白い頭もせなかも見えていませんでした。うまやを一まわりしてみましたがやっぱりどこにも居ませんでした。
           </p>
+          <input type="text" />
           <nav>
             <button onClick={() => setVisible2(false)}>Close</button>
           </nav>
