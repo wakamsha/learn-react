@@ -275,7 +275,7 @@ const styleBase = css`
   pointer-events: none;
   visibility: hidden;
   user-select: none;
-  background-color: ${Color.ThemePrimaryDarker};
+  background-color: ${Color.ThemePrimaryNeutral};
   border-radius: ${BorderRadius.Small};
   opacity: 0;
   transition: visibility ${Duration.Fade}, opacity ${Duration.Fade};
