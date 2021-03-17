@@ -8,6 +8,7 @@ import { Icon } from '../../dataDisplay/Icon';
 type Option<T> = {
   label: string;
   value: T;
+  disabled?: boolean;
 };
 
 type OptGroup<T> = {
@@ -88,8 +89,8 @@ export const Select = <T extends string | number>({
 
 const Options = <T extends string | number>({ options }: { options: Option<T>[] }) => (
   <>
-    {options.map(({ label, value }) => (
-      <option key={value} value={value}>
+    {options.map(({ label, value, disabled }) => (
+      <option key={value} value={value} disabled={disabled}>
         {label}
       </option>
     ))}
@@ -143,6 +144,10 @@ const styleBase = css`
 const styleIcon = css`
   flex: 0 0 auto;
   ${square(24)}
+
+  > svg {
+    fill: ${Color.ThemePrimaryNeutral};
+  }
 `;
 
 const styleSelect = css`

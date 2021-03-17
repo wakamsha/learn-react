@@ -19,24 +19,24 @@ export const Story = () => {
 
   const optGroups = [
     {
-      id: 'foo',
-      label: 'Theropods',
+      id: 'beatles',
+      label: 'The Beatles',
       options: [
-        {
-          label: 'Tyrannosaurus',
-          value: 'Tyrannosaurus',
-        },
-        { label: 'Velociraptor', value: 'Velociraptor' },
-        { label: 'Deinonychus', value: 'Deinonychus' },
+        { label: 'John Lennon', value: 'JohnLennon' },
+        { label: 'Paul McCartney', value: 'PaulMcCartney' },
+        { label: 'George Harrison', value: 'GeorgeHarrison' },
+        { label: 'Ringo Starr', value: 'RingoStarr' },
+        { label: 'George Martin', value: 'GeorgeMartin', disabled: true },
       ],
     },
     {
-      id: 'bar',
-      label: 'Sauropods',
+      id: 'stones',
+      label: 'The Rolling Stones',
       options: [
-        { label: 'Diplodocus', value: 'Diplodocus' },
-        { label: 'Saltasaurus', value: 'Saltasaurus' },
-        { label: 'Apatosaurus', value: 'Apatosaurus' },
+        { label: 'Mick', value: 'Mick' },
+        { label: 'Keith', value: 'Keith' },
+        { label: 'Ronnie', value: 'Ronnie' },
+        { label: 'Charlie', value: 'Charlie' },
       ],
     },
   ];
@@ -56,11 +56,15 @@ export const Story = () => {
       <pre>
         <code>{JSON.stringify({ value: state1 }, null, 2)}</code>
       </pre>
+
       <h3>Use Optgroup</h3>
       <Select optGroups={optGroups} value={state2} onChange={handleChange2} />
       <pre>
         <code>{JSON.stringify({ value: state2 }, null, 2)}</code>
       </pre>
+
+      <h3>Disabled</h3>
+      <Select options={options} value={options[0].value} onChange={console.info} disabled />
     </>
   );
 };
