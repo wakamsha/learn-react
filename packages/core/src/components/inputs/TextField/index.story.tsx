@@ -38,6 +38,9 @@ export const Story = () => {
         <TextField name="input-number" value={value} onChange={setValue} placeholder="number" type="number" />
       </div>
 
+      <h3>Invalid</h3>
+      <TextField name="input-invalid" value={value} onChange={setValue} placeholder="Input something..." invalid />
+
       <h3>Disabled</h3>
       <TextField
         name="input-disabled"

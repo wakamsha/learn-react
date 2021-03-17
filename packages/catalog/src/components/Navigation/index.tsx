@@ -3,13 +3,15 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { gutter, square } from '@learn-react/core/helpers/Style';
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
 export const Navigation = () => {
   const location = useLocation();
+
+  const searchFormRef = useRef<HTMLInputElement>(null);
 
   const [keyword, setKeyword] = useState('');
 
@@ -18,6 +20,10 @@ export const Navigation = () => {
 
     return new RegExp(pattern, 'i');
   }, [keyword]);
+
+  useEffect(() => {
+    searchFormRef.current?.focus();
+  }, []);
 
   return (
     <div role="complementary" className={styleBase}>
@@ -30,6 +36,7 @@ export const Navigation = () => {
 
       <div role="form" className={styleForm}>
         <TextField
+          ref={searchFormRef}
           name="search"
           type="search"
           icon="search"

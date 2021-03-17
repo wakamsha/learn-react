@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, ForwardedRef, forwardRef } from 'react';
 import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
@@ -20,6 +20,12 @@ type Props = {
   /** 先頭に表示するアイコン */
   icon?: IconName;
   clearable?: boolean;
+  /**
+   * 入力値が不正かどうか
+   *
+   * @default false
+   */
+  invalid?: boolean;
   onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
 } & XOR<
   {
@@ -33,60 +39,67 @@ type Props = {
   }
 >;
 
-export const TextField = ({
-  value,
-  name,
-  onChange,
-  id,
-  placeholder,
-  disabled,
-  readonly,
-  inputMode,
-  pattern,
-  tabIndex,
-  icon,
-  clearable,
-  onFocus,
-  type,
-  maxLength,
-  min,
-  max,
-}: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
+export const TextField = forwardRef(
+  (
+    {
+      value,
+      name,
+      onChange,
+      id,
+      placeholder,
+      disabled,
+      readonly,
+      inputMode,
+      pattern,
+      tabIndex,
+      icon,
+      clearable,
+      invalid,
+      onFocus,
+      type,
+      maxLength,
+      min,
+      max,
+    }: Props,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
 
-  const handleClickClear = () => onChange('');
+    const handleClickClear = () => onChange('');
 
-  return (
-    <div className={styleBase} aria-disabled={disabled}>
-      {icon ? (
-        <span className={styleIcon} role="presentation">
-          <Icon name={icon} />
-        </span>
-      ) : null}
-      <input
-        id={id}
-        className={styleInput}
-        name={name}
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        disabled={disabled}
-        readOnly={readonly}
-        inputMode={inputMode}
-        pattern={pattern}
-        tabIndex={tabIndex}
-        onChange={handleChange}
-        onFocus={onFocus}
-        maxLength={maxLength}
-        min={min}
-        max={max}
-      />
-      {clearable && !disabled && value ? (
-        <IconButton name="times" variant="bare" size="small" onClick={handleClickClear} />
-      ) : null}
-    </div>
-  );
-};
+    return (
+      <div className={styleBase} aria-disabled={disabled} aria-invalid={invalid}>
+        {icon ? (
+          <span className={styleIcon} role="presentation">
+            <Icon name={icon} />
+          </span>
+        ) : null}
+        <input
+          ref={ref}
+          id={id}
+          className={styleInput}
+          name={name}
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          disabled={disabled}
+          readOnly={readonly}
+          inputMode={inputMode}
+          pattern={pattern}
+          tabIndex={tabIndex}
+          onChange={handleChange}
+          onFocus={onFocus}
+          maxLength={maxLength}
+          min={min}
+          max={max}
+        />
+        {clearable && !disabled && value ? (
+          <IconButton name="times" variant="bare" size="small" onClick={handleClickClear} />
+        ) : null}
+      </div>
+    );
+  },
+);
 
 const styleBase = css`
   position: relative;
@@ -96,7 +109,7 @@ const styleBase = css`
   box-shadow: none;
   transition: box-shadow ${Duration.Fade};
 
-  &:after {
+  &::after {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -120,11 +133,25 @@ const styleBase = css`
   &:focus-within {
     box-shadow: inset 0 -2px 0 0 ${Color.ThemePrimaryDark};
   }
+
+  &[aria-invalid='true'] {
+    &::after {
+      background-color: ${Color.ThemeDangerNeutral};
+    }
+
+    &:focus-within {
+      box-shadow: inset 0 -2px 0 0 ${Color.ThemeDangerNeutral};
+    }
+  }
 `;
 
 const styleIcon = css`
   flex: 0 0 auto;
   ${square(24)}
+
+  > svg {
+    fill: ${Color.ThemePrimaryNeutral};
+  }
 `;
 
 const styleInput = css`
