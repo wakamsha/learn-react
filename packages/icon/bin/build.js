@@ -1,3 +1,4 @@
+// @ts-check
 const fs = require('fs');
 const cheerio = require('cheerio');
 const ejs = require('ejs');
@@ -11,7 +12,7 @@ async function exec() {
     data.map(async file => {
       const content = fs.readFileSync(file).toString('utf8');
       const source = await optimize(content);
-      const $ = cheerio.load(source.data.toString('utf8'), {
+      const $ = cheerio.load(source.data.toString(), {
         decodeEntities: false,
       });
 
