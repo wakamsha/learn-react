@@ -44,69 +44,47 @@ export const Story = () => {
       <hr />
 
       <h3>Positioned</h3>
-      <table className={styleTable}>
-        <tbody>
-          <tr>
-            <td />
-            <td>
-              <button id="top-start">Top-Start</button>
-            </td>
-            <td>
-              <button id="top-center">Top-Center</button>
-            </td>
-            <td>
-              <button id="top-end">Top-End</button>
-            </td>
-            <td />
-          </tr>
-          <tr>
-            <td>
-              <button id="left-start">Left-Start</button>
-            </td>
-            <td />
-            <td />
-            <td />
-            <td>
-              <button id="right-start">Right-Start</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button id="left-center">Left-Start</button>
-            </td>
-            <td />
-            <td />
-            <td />
-            <td>
-              <button id="right-center">Right-Start</button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <button id="left-end">Left-End</button>
-            </td>
-            <td />
-            <td />
-            <td />
-            <td>
-              <button id="right-end">Right-End</button>
-            </td>
-          </tr>
-          <tr>
-            <td />
-            <td>
-              <button id="bottom-start">Bottom-Start</button>
-            </td>
-            <td>
-              <button id="bottom-center">Bottom-Center</button>
-            </td>
-            <td>
-              <button id="bottom-end">Bottom-End</button>
-            </td>
-            <td />
-          </tr>
-        </tbody>
-      </table>
+      <div className={styleGrid}>
+        <div className={styleAreaTopStart}>
+          <button id="top-start">Top-Start</button>
+        </div>
+        <div className={styleAreaTopCenter}>
+          <button id="top-center">Top-Center</button>
+        </div>
+        <div className={styleAreaTopEnd}>
+          <button id="top-end">Top-End</button>
+        </div>
+
+        <div className={styleAreaLeftStart}>
+          <button id="left-start">Left-Start</button>
+        </div>
+        <div className={styleAreaLeftCenter}>
+          <button id="left-center">Left-Center</button>
+        </div>
+        <div className={styleAreaLeftEnd}>
+          <button id="left-end">Left-End</button>
+        </div>
+
+        <div className={styleAreaRightStart}>
+          <button id="right-start">Right-Start</button>
+        </div>
+        <div className={styleAreaRightCenter}>
+          <button id="right-center">Right-Center</button>
+        </div>
+        <div className={styleAreaRightBottom}>
+          <button id="right-end">Right-End</button>
+        </div>
+
+        <div className={styleAreaBottomStart}>
+          <button id="bottom-start">Bottom-Start</button>
+        </div>
+        <div className={styleAreaBottomCenter}>
+          <button id="bottom-center">Bottom-Center</button>
+        </div>
+        <div className={styleAreaBottomEnd}>
+          <button id="bottom-end">Bottom-End</button>
+        </div>
+      </div>
 
       <Tooltip targetSelector="#top-start" position="top" alignment="start">
         あのイーハトーヴォのすきとおった風
@@ -166,16 +144,67 @@ const styleIcon = css`
   }
 `;
 
-const styleTable = css`
-  td {
-    text-align: center;
+const styleGrid = css`
+  display: grid;
+  grid-template-areas:
+    'a b c d e'
+    'f g h i j'
+    'k m n o p'
+    'q r s t u'
+    'v w x y z';
+  gap: ${gutter(8)} ${gutter(2)};
+  max-width: 600px;
 
-    &:first-child {
-      text-align: right;
-    }
-
-    &:last-child {
-      text-align: left;
-    }
+  button {
+    display: block;
+    width: 100%;
   }
+`;
+
+const styleAreaTopStart = css`
+  grid-area: b;
+`;
+
+const styleAreaTopCenter = css`
+  grid-area: c;
+`;
+
+const styleAreaTopEnd = css`
+  grid-area: d;
+`;
+
+const styleAreaLeftStart = css`
+  grid-area: f;
+`;
+
+const styleAreaLeftCenter = css`
+  grid-area: k;
+`;
+
+const styleAreaLeftEnd = css`
+  grid-area: q;
+`;
+
+const styleAreaRightStart = css`
+  grid-area: j;
+`;
+
+const styleAreaRightCenter = css`
+  grid-area: p;
+`;
+
+const styleAreaRightBottom = css`
+  grid-area: u;
+`;
+
+const styleAreaBottomStart = css`
+  grid-area: w;
+`;
+
+const styleAreaBottomCenter = css`
+  grid-area: x;
+`;
+
+const styleAreaBottomEnd = css`
+  grid-area: y;
 `;
