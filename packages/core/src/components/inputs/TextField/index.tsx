@@ -154,6 +154,7 @@ const styleIcon = css`
 const styleInput = css`
   display: inline-flex;
   flex: 1 1 100%;
+  width: 100%;
   padding: ${gutter(2)} 0;
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
