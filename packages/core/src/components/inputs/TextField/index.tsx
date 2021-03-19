@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
-import { ChangeEvent, ForwardedRef, forwardRef } from 'react';
+import { ChangeEvent } from 'react';
 import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
@@ -17,6 +17,7 @@ type Props = {
   inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
   pattern?: string;
   tabIndex?: number;
+  autoFocus?: boolean;
   /** 先頭に表示するアイコン */
   icon?: IconName;
   clearable?: boolean;
@@ -39,67 +40,63 @@ type Props = {
   }
 >;
 
-export const TextField = forwardRef(
-  (
-    {
-      value,
-      name,
-      onChange,
-      id,
-      placeholder,
-      disabled,
-      readonly,
-      inputMode,
-      pattern,
-      tabIndex,
-      icon,
-      clearable,
-      invalid,
-      onFocus,
-      type,
-      maxLength,
-      min,
-      max,
-    }: Props,
-    ref: ForwardedRef<HTMLInputElement>,
-  ) => {
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
+export const TextField = ({
+  value,
+  name,
+  onChange,
+  id,
+  placeholder,
+  disabled,
+  readonly,
+  inputMode,
+  pattern,
+  tabIndex,
+  autoFocus,
+  icon,
+  clearable,
+  invalid,
+  onFocus,
+  type,
+  maxLength,
+  min,
+  max,
+}: Props) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value);
 
-    const handleClickClear = () => onChange('');
+  const handleClickClear = () => onChange('');
 
-    return (
-      <div className={styleBase} aria-disabled={disabled} aria-invalid={invalid}>
-        {icon ? (
-          <span className={styleIcon} role="presentation">
-            <Icon name={icon} />
-          </span>
-        ) : null}
-        <input
-          ref={ref}
-          id={id}
-          className={styleInput}
-          name={name}
-          type={type}
-          value={value}
-          placeholder={placeholder}
-          disabled={disabled}
-          readOnly={readonly}
-          inputMode={inputMode}
-          pattern={pattern}
-          tabIndex={tabIndex}
-          onChange={handleChange}
-          onFocus={onFocus}
-          maxLength={maxLength}
-          min={min}
-          max={max}
-        />
-        {clearable && !disabled && value ? (
-          <IconButton name="times" variant="bare" size="small" onClick={handleClickClear} />
-        ) : null}
-      </div>
-    );
-  },
-);
+  return (
+    <div className={styleBase} aria-disabled={disabled} aria-invalid={invalid}>
+      {icon ? (
+        <span className={styleIcon} role="presentation">
+          <Icon name={icon} />
+        </span>
+      ) : null}
+      <input
+        autoFocus={autoFocus}
+        id={id}
+        className={styleInput}
+        name={name}
+        type={type}
+        value={value}
+        placeholder={placeholder}
+        disabled={disabled}
+        readOnly={readonly}
+        inputMode={inputMode}
+        pattern={pattern}
+        tabIndex={tabIndex}
+        onChange={handleChange}
+        onFocus={onFocus}
+        maxLength={maxLength}
+        min={min}
+        max={max}
+      />
+      {clearable && !disabled && value ? (
+        <IconButton name="times" variant="bare" size="small" onClick={handleClickClear} />
+      ) : null}
+    </div>
+  );
+};
 
 const styleBase = css`
   position: relative;
