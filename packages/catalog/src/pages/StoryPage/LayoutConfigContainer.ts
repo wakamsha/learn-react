@@ -9,7 +9,7 @@ const useLayoutConfig = () => {
   const storage = useRef(new StorageProxy('localStorage'));
 
   const [layoutConfig, setLayoutConfig] = useState<Layout>(
-    Number.isNaN(storage.current.getValue(storageKey))
+    storage.current.getValue(storageKey) === '' || Number.isNaN(storage.current.getValue(storageKey))
       ? Layout.Column
       : (Number(storage.current.getValue(storageKey)) as Layout),
   );
