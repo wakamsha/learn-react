@@ -212,6 +212,8 @@ const styleTypeList = css`
 `;
 
 const styleCaptionCategory = css`
+  display: flex;
+  align-items: center;
   font-weight: bold;
   color: ${Color.TextSub};
 
