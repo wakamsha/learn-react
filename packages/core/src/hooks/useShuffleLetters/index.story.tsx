@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import React, { ReactNode, useRef, useState } from 'react';
+import { ReactNode, useRef, useState } from 'react';
 import { gutter } from '../../helpers/Style';
 import { useShuffleLetters } from '.';
 

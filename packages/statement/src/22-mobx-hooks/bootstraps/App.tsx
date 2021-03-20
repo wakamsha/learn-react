@@ -9,23 +9,19 @@ import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { Profile } from '../pages/profiles';
-import { Stores } from '../stores';
-import { HistoryStore } from '../stores/HistoryStore';
 
 export const App = () => (
-  <HistoryStore.Context.Provider value={Stores.historyStore}>
-    <div className={baseStyle}>
-      <Sidebar title="MobX Hooks | Statement" items={linkItems} />
-      <div className={contentStyle}>
-        <PageTransition>
-          <Route path={Router.paths.home} component={HomePage} exact />
-          <Route path={Router.paths.profile} component={Profile} />
-          <Route path={Router.paths.list} component={ListPage} />
-          <Route component={NotFoundPage} />
-        </PageTransition>
-      </div>
+  <div className={baseStyle}>
+    <Sidebar title="MobX Hooks | Statement" items={linkItems} />
+    <div className={contentStyle}>
+      <PageTransition>
+        <Route path={Router.paths.home} component={HomePage} exact />
+        <Route path={Router.paths.profile} component={Profile} />
+        <Route path={Router.paths.list} component={ListPage} />
+        <Route component={NotFoundPage} />
+      </PageTransition>
     </div>
-  </HistoryStore.Context.Provider>
+  </div>
 );
 
 const linkItems: ComponentProps<typeof Sidebar>['items'] = [
