@@ -1,8 +1,9 @@
 import { css, cx } from '@emotion/css';
 import type { ReactNode } from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
+import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
 
@@ -27,7 +28,6 @@ type Props = {
   position?: Position;
   alignment?: Alignment;
   offset?: number;
-  width?: number;
   onClickOutside?: () => void;
 };
 
@@ -38,10 +38,9 @@ export const Popover = ({
   position = 'bottom',
   alignment = 'center',
   offset = 0,
-  width = 300,
   onClickOutside,
 }: Props) => {
-  const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverRef = useFocusTrap<HTMLDivElement>(visible);
 
   const [point, setPoint] = useState<Partial<Point>>({});
 
@@ -62,7 +61,18 @@ export const Popover = ({
         targetElement: targetElement as HTMLElement,
       }),
     );
-  }, [position, alignment, targetSelector, visible, width, offset]);
+  }, [position, alignment, targetSelector, visible, offset, popoverRef]);
+
+  useEffect(() => {
+    const app = document.getElementById('app');
+    if (!app) return;
+
+    app.setAttribute('aria-hidden', `${visible}`);
+
+    return () => {
+      app.removeAttribute('aria-hidden');
+    };
+  }, [visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} onClick={onClickOutside}>
@@ -72,7 +82,7 @@ export const Popover = ({
         className={stylePopover[position]}
         aria-hidden={!visible}
         aria-modal={visible}
-        style={{ width, ...point }}
+        style={{ ...point }}
         onClick={e => e.stopPropagation()}
       >
         {children}

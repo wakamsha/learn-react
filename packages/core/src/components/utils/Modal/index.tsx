@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
-import { ReactNode, useCallback, useEffect, useRef } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
-import { FOCUSABLE_ELEMENTS } from '../../../constants/VO';
 import { gutter, hex2rgba } from '../../../helpers/Style';
+import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Props = {
   children: ReactNode;
@@ -12,43 +12,7 @@ type Props = {
 };
 
 export const Modal = ({ children, visible, onClickOutside }: Props) => {
-  const dialogRef = useRef<HTMLDivElement>(null);
-
-  /**
-   * Tab キーによるフォーカス移動のスコープをダイアログ要素配下に限定する。
-   */
-  const retainFocus = useCallback((event: KeyboardEvent) => {
-    if (!dialogRef.current) return;
-
-    const focusableNodes = getFocusableNodes(dialogRef.current).filter(node => node.offsetParent !== null);
-
-    if (!focusableNodes.length) return;
-
-    if (!dialogRef.current.contains(document.activeElement)) {
-      focusableNodes[0].focus();
-    } else {
-      const focusedItemIndex = focusableNodes.indexOf(document.activeElement as any);
-
-      if (event.shiftKey && focusedItemIndex === 0) {
-        focusableNodes[focusableNodes.length - 1].focus();
-        event.preventDefault();
-      }
-
-      if (!event.shiftKey && focusableNodes.length > 0 && focusedItemIndex === focusableNodes.length - 1) {
-        focusableNodes[0].focus();
-        event.preventDefault();
-      }
-    }
-  }, []);
-
-  const onKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Tab') {
-        retainFocus(event);
-      }
-    },
-    [retainFocus],
-  );
+  const dialogRef = useFocusTrap<HTMLDivElement>(visible);
 
   useEffect(() => {
     const app = document.getElementById('app');
@@ -56,16 +20,10 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
 
     app.setAttribute('aria-hidden', `${visible}`);
 
-    if (visible) {
-      document.addEventListener('keydown', onKeyDown);
-      (document.activeElement as HTMLElement)?.blur();
-    }
-
     return () => {
       app.removeAttribute('aria-hidden');
-      document.removeEventListener('keydown', onKeyDown);
     };
-  }, [onKeyDown, retainFocus, visible]);
+  }, [visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} tabIndex={-1}>
@@ -85,18 +43,6 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
     document.body,
   );
 };
-
-/**
- * 任意の DOM 配下にあるフォーカス可能な DOM 要素を取得します。
- *
- * @param {HTMLElement} scopeElement
- * @returns フォーカス可能な DOM 要素配列
- */
-function getFocusableNodes(scopeElement: HTMLElement): HTMLElement[] {
-  const nodes = scopeElement.querySelectorAll(FOCUSABLE_ELEMENTS.join(','));
-
-  return Array(...nodes) as HTMLElement[];
-}
 
 const styleBase = css`
   position: fixed;
