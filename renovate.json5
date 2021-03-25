@@ -1,88 +1,87 @@
 {
-  "extends": ["config:base"],
-  "timezone": "Asia/Tokyo",
-  "labels": ["dependencies"],
-  "schedule": ["every weekend"],
-  "commitMessagePrefix": ":pill: ",
-  "reviewers": ["wakamsha"],
-  "node": {
-    "supportPolicy": ["lts_latest"]
+  extends: ['config:base'],
+  timezone: 'Asia/Tokyo',
+  labels: ['dependencies'],
+  schedule: ['every weekend'],
+  commitMessagePrefix: ':pill: ',
+  reviewers: ['wakamsha'],
+  node: {
+    supportPolicy: ['lts_latest'],
   },
-  "separateMinorPatch": true,
-  "major": {
-    "stabilityDays": 7
+  separateMinorPatch: true,
+  major: {
+    stabilityDays: 7,
   },
-  "vulnerabilityAlerts": {
-    "labels": ["Hot fix"],
-    "reviewers": ["wakamsha"]
+  vulnerabilityAlerts: {
+    labels: ['Hot fix'],
+    reviewers: ['wakamsha'],
   },
 
-  "packageRules": [
-    // ====================
-    // 特殊な依存ライブラリ
-    // ====================
-    {
-      // TypeScript は minor 以上のバージョンが SemVer 準拠していないため、 patch のみ renovate で管理する
-      "packageNames": ["typescript"],
-      "major": {
-        "enabled": false
-      },
-      "minor": {
-        "enabled": false
-      }
-    },
-    {
-      // husky は v5 以降を業務使用する場合 GitHub Sponser になる必要があるため、 v4 以下にとどめる
-      "packageNames": ["husky"],
-      "allowedVersions": "<5"
-    },
-    {
-      "groupName": "React families",
-      "matchPackagePatterns": ["^react", "^@types/react"]
-    },
-    {
-      "groupName": "ESLint families",
-      "matchPackagePatterns": ["^eslint", "^@typescript-eslint"]
-    },
-    {
-      "groupName": "Stylelint families",
-      "matchPackagePatterns": ["^stylelint"]
-    },
-
+  packageRules: [
     // ====================
     // dependencies
     // ====================
     {
-      "depTypeList": ["dependencies"],
-      "minor": {
-        "groupName": "All dependencies:minor",
-        "stabilityDays": 3
+      depTypeList: ['dependencies'],
+      minor: {
+        groupName: 'All dependencies:minor',
+        stabilityDays: 3,
       },
-      "patch": {
-        "groupName": "All dependencies:patch",
-        "stabilityDays": 2
-      }
+      patch: {
+        groupName: 'All dependencies:patch',
+        stabilityDays: 2,
+      },
     },
 
     // ====================
     // devDependencies
     // ====================
     {
-      "depTypeList": ["devDependencies"],
-      "major": {
-        "groupName": "All devDependencies:major",
-        "stabilityDays": 7
+      depTypeList: ['devDependencies'],
+      major: {
+        groupName: 'All devDependencies:major',
+        stabilityDays: 7,
       },
-      "minor": {
-        "groupName": "All devDependencies:minor",
-        "stabilityDays": 3
+      minor: {
+        groupName: 'All devDependencies:minor',
+        stabilityDays: 3,
       },
       // devDependencies の patch は CI が通ったら自動的に merge する。
-      "patch": {
-        "groupName": "All devDependencies:patch",
-        "automerge": true,
-        "stabilityDays": 2
-      }
-    }
-  ]
+      patch: {
+        groupName: 'All devDependencies:patch',
+        automerge: true,
+        stabilityDays: 2,
+      },
+    },
+    // ====================
+    // 特殊な依存ライブラリ
+    // ====================
+    {
+      // TypeScript は minor 以上のバージョンが SemVer 準拠していないため、 patch のみ renovate で管理する
+      packageNames: ['typescript'],
+      major: {
+        enabled: false,
+      },
+      minor: {
+        enabled: false,
+      },
+    },
+    {
+      // husky は v5 以降を業務使用する場合 GitHub Sponser になる必要があるため、 v4 以下にとどめる
+      packageNames: ['husky'],
+      allowedVersions: '<5',
+    },
+    {
+      groupName: 'React families',
+      matchPackagePatterns: ['^react', '^@types/react'],
+    },
+    {
+      groupName: 'ESLint families',
+      matchPackagePatterns: ['^eslint', '^@typescript-eslint'],
+    },
+    {
+      groupName: 'Stylelint families',
+      matchPackagePatterns: ['^stylelint'],
+    },
+  ],
 }
