@@ -67,11 +67,6 @@
       },
     },
     {
-      // husky は v5 以降を業務使用する場合 GitHub Sponser になる必要があるため、 v4 以下にとどめる
-      packageNames: ['husky'],
-      allowedVersions: '<5',
-    },
-    {
       groupName: 'React families',
       matchPackagePatterns: ['^react', '^@types/react'],
     },

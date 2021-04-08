@@ -29,7 +29,7 @@
     "eslint-plugin-react": "7.23.1",
     "eslint-plugin-react-hooks": "4.2.0",
     "glob": "7.1.6",
-    "husky": "4.3.8",
+    "husky": "^6.0.0",
     "lint-staged": "10.5.4",
     "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
@@ -67,20 +67,16 @@
       "stylelint -s css-in-js --cache --fix"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "scripts": {
-    "catalog": "        yarn workspace @learn-react/catalog",
-    "esnext": "         yarn workspace @learn-react/esnext",
+    "prepare": "husky install",
+    "catalog": "yarn workspace @learn-react/catalog",
+    "esnext": "yarn workspace @learn-react/esnext",
     "getting-started": "yarn workspace @learn-react/getting-started",
-    "icon": "           yarn workspace @learn-react/icon",
-    "mobx": "           yarn workspace @learn-react/mobx",
-    "routing": "        yarn workspace @learn-react/routing",
-    "statement": "      yarn workspace @learn-react/statement",
-    "lint": "           yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
-    "format": "         yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
+    "icon": "yarn workspace @learn-react/icon",
+    "mobx": "yarn workspace @learn-react/mobx",
+    "routing": "yarn workspace @learn-react/routing",
+    "statement": "yarn workspace @learn-react/statement",
+    "lint": "yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
+    "format": "yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   }
 }
