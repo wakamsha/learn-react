@@ -1,29 +1,45 @@
-import { ReactNode, createContext, useCallback, useState } from 'react';
+import { IconName } from '@learn-react/icon';
+import { ReactNode, createContext, useCallback, useState, useEffect } from 'react';
 import { useContext } from '../../../hooks/useContext';
 import { Container } from './Container';
 
 type ProviderProps = {
   children: ReactNode;
+  /**
+   * 一度に表示する通知の上限数。
+   *
+   * @default 1
+   */
+  limit?: number;
 };
 
 type Theme = 'primary' | 'danger';
 
 export type Toast = {
   id: number;
-  content: string;
+  message: string;
+  icon?: IconName;
   theme?: Theme;
 };
 
-export const ToastProvider = ({ children }: ProviderProps) => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+export const ToastProvider = ({ children, limit = 1 }: ProviderProps) => {
+  const [queue, setQueue] = useState<Toast[]>([]);
 
-  const addToast = useCallback(
-    ({ content, theme }: { content: string; theme?: Theme }) =>
-      setToasts(toasts => [...toasts, { id: Date.now(), content, theme }]),
-    [],
-  );
+  const [toasts, SetToasts] = useState<Toast[]>([]);
 
-  const removeToast = useCallback((id: number) => setToasts(toasts => toasts.filter(toast => toast.id !== id)), []);
+  const addToast = useCallback(({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => {
+    setQueue(toasts => [...toasts, { id: Date.now(), message, icon, theme }]);
+  }, []);
+
+  const removeToast = useCallback((id: number) => {
+    setQueue(toasts => toasts.filter(toast => toast.id !== id));
+  }, []);
+
+  useEffect(() => {
+    if (toasts.length <= limit) {
+      SetToasts(queue.slice(0, limit));
+    }
+  }, [limit, toasts.length, queue]);
 
   return (
     <Context.Provider value={{ addToast, removeToast }}>
@@ -38,6 +54,6 @@ export const useToast = (): Context => useContext(Context);
 const Context = createContext<Context | null>(null);
 
 type Context = {
-  addToast: ({ content, theme }: { content: string; theme?: Theme }) => void;
+  addToast: ({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => void;
   removeToast: (id: number) => void;
 };

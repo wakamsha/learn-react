@@ -11,9 +11,9 @@ type Props = {
 export const Container = ({ toasts }: Props) =>
   createPortal(
     <aside className={styleBase}>
-      {toasts.map(({ id, content, theme }) => (
-        <Item key={id} id={id} theme={theme}>
-          {content}
+      {toasts.map(({ id, message, icon, theme }) => (
+        <Item key={id} id={id} icon={icon} theme={theme}>
+          {message}
         </Item>
       ))}
     </aside>,
@@ -28,4 +28,8 @@ const styleBase = css`
   display: flex;
   flex-direction: column-reverse;
   padding: ${gutter(4)};
+
+  > :not(:first-child) {
+    margin-bottom: ${gutter(4)};
+  }
 `;

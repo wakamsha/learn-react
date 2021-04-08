@@ -1,16 +1,15 @@
 import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, memo, ReactNode, useEffect, useState } from 'react';
-import { Color, Duration, Easing } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { Color, Duration, Easing, IconSize, Shadow } from '../../../constants/Style';
+import { gutter, square } from '../../../helpers/Style';
+import { Icon } from '../../dataDisplay/Icon';
 import { Toast, useToast } from '.';
 
 type Props = {
-  id: number;
   children: ReactNode;
-  theme: Toast['theme'];
-};
+} & Pick<Toast, 'id' | 'icon' | 'theme'>;
 
-export const Item = memo(({ id, children, theme = 'primary' }: Props) => {
+export const Item = memo(({ children, id, icon, theme = 'primary' }: Props) => {
   const { removeToast } = useToast();
 
   const [styleAddon, setStyleAddon] = useState('');
@@ -19,26 +18,30 @@ export const Item = memo(({ id, children, theme = 'primary' }: Props) => {
     window.getComputedStyle(e.currentTarget).opacity === '0' && removeToast(id);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setStyleAddon(removeStyle), hideDurationTime);
+    const timer = window.setTimeout(() => setStyleAddon(styleRemove), hideDurationTime);
 
     return () => window.clearTimeout(timer);
   }, [id, removeToast]);
 
   return (
-    <div className={`${styleItem} ${Theme[theme]} ${styleAddon}`} onAnimationEnd={handleAnimationEnd}>
-      {children}
+    <div className={`${styleBase} ${Theme[theme]} ${styleAddon}`} onAnimationEnd={handleAnimationEnd}>
+      {icon ? <Icon name={icon} /> : null}
+      <span>{children}</span>
     </div>
   );
 });
 
 const hideDurationTime = 5000;
 
-const styleItem = css`
+const styleBase = css`
   position: relative;
+  display: flex;
+  align-items: center;
   min-width: 256px;
-  padding: ${gutter(4)};
+  max-width: 30vw;
+  padding: ${gutter(4)} ${gutter(5)} ${gutter(4)} ${gutter(4)};
   color: white;
-  box-shadow: 0px 4px 10px 0px #d7d7d7;
+  box-shadow: ${Shadow.Neutral};
   animation: ${keyframes`
     from {
       opacity: ${0};
@@ -50,12 +53,18 @@ const styleItem = css`
     }
   `} ${Duration.Enter} ${Easing.Enter};
 
-  & + & {
-    margin-bottom: ${gutter(4)};
+  > :not(:first-child) {
+    margin-left: ${gutter(1)};
+  }
+
+  > svg {
+    flex: 0 0 auto;
+    fill: white;
+    ${square(IconSize.Large)}
   }
 `;
 
-const removeStyle = css`
+const styleRemove = css`
   opacity: 0;
   animation: ${keyframes`
     from {
