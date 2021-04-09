@@ -28,7 +28,6 @@ module.exports = {
       ],
     ],
     'body-leading-blank': [2, 'always'],
-    'subject-case': [2, 'always', ['sentence-case']],
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
     'type-empty': [2, 'never'],
