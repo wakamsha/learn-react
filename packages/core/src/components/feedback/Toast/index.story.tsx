@@ -50,7 +50,12 @@ const AddMessage = () => {
   return (
     <form className={styleForm} onSubmit={e => e.preventDefault()}>
       <div className={styleFormControl}>
-        <select className={styleFormItem} value={theme} onChange={handleChangeTheme}>
+        <select
+          className={styleFormItem}
+          style={{ padding: `5px ${gutter(1)}` }}
+          value={theme}
+          onChange={handleChangeTheme}
+        >
           {['primary', 'danger'].map(label => (
             <option key={label} value={label}>
               {label}
