@@ -137,6 +137,11 @@ export function applyGlobalStyle() {
     textarea,
     select {
       font: inherit;
+
+      &:focus:not(:focus-visible) {
+        /* キーボード操作"以外"でフォーカスされた際は outline を消す */
+        outline: 0;
+      }
     }
     main {
       display: block;

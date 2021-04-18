@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { gutter } from '../../../helpers/Style';
+import { Card } from '../../surfaces/Card';
 import { Calendar } from '.';
 
 export const Story = () => {
@@ -6,19 +8,31 @@ export const Story = () => {
 
   const [month, setMonth] = useState(new Date());
 
-  const handleClickDate = (date: Date) => setDate(date);
-
-  const handleClickMonth = (date: Date) => setMonth(date);
-
   return (
-    <Calendar
-      value={date}
-      page={month}
-      maxDate={new Date()}
-      minDate={new Date(2020, 0, 10)}
-      onClickDate={handleClickDate}
-      onClickPrevMonth={handleClickMonth}
-      onClickNextMonth={handleClickMonth}
-    />
+    <>
+      <h3>Basic</h3>
+      <Calendar
+        value={date}
+        page={month}
+        maxDate={new Date()}
+        minDate={new Date(2020, 0, 10)}
+        onChangeDate={setDate}
+        onChangeMonth={setMonth}
+      />
+
+      <h3>With Card</h3>
+      <Card width={280}>
+        <div style={{ padding: gutter(4) }}>
+          <Calendar
+            value={date}
+            page={month}
+            maxDate={new Date()}
+            minDate={new Date(2020, 0, 10)}
+            onChangeDate={setDate}
+            onChangeMonth={setMonth}
+          />
+        </div>
+      </Card>
+    </>
   );
 };

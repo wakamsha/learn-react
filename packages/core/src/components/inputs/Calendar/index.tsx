@@ -13,40 +13,36 @@ import {
   subMonths,
 } from 'date-fns';
 import { useMemo } from 'react';
-import { BorderRadius } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { Color, FontSize } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
+import { IconButton } from '../IconButton';
 import { Item } from './Item';
 
 type Props = {
   value: Date;
-
   /**
-   * 表示したい月
+   * 表示したい月。
    *
-   * 「日」部分以降は無視される
+   * 「日」部分以降は無視される。
    * e.g. 2020-02-27T12:44 -> 2020-02-01T00:00
    */
   page: Date;
-
   /**
-   * 選択可能な最大の「日」
+   * 選択可能な最大の「日」。
    *
-   * 「時間」部分以降は無視される
+   * 「時間」部分以降は無視される。
    * e.g. 2020-02-27T12:44 -> 2020-02-27T23:59
    */
   maxDate?: Date;
-
   /**
-   * 選択可能な最小の「日」
+   * 選択可能な最小の「日」。
    *
-   * 「時間」部分以降は無視される
+   * 「時間」部分以降は無視される。
    * e.g. 2020-02-27T12:44 -> 2020-02-27T00:00
    */
   minDate?: Date;
-
-  onClickDate?: (date: Date) => void;
-  onClickPrevMonth?: (date: Date) => void;
-  onClickNextMonth?: (date: Date) => void;
+  onChangeDate?: (date: Date) => void;
+  onChangeMonth?: (date: Date) => void;
 };
 
 export const Calendar = ({
@@ -54,9 +50,8 @@ export const Calendar = ({
   page: rawPage,
   maxDate: rawMaxDate,
   minDate: rawMinDate,
-  onClickDate,
-  onClickPrevMonth,
-  onClickNextMonth,
+  onChangeDate,
+  onChangeMonth,
 }: Props) => {
   const page = useMemo(() => startOfMonth(rawPage), [rawPage]);
 
@@ -64,18 +59,24 @@ export const Calendar = ({
 
   const minDate = useMemo(() => rawMinDate && startOfDay(rawMinDate), [rawMinDate]);
 
-  const handleClickDate = (value: Date) => onClickDate?.(startOfDay(value));
+  const handleClickDate = (value: Date) => {
+    onChangeDate?.(startOfDay(value));
+  };
 
-  const handleClickPrevMonth = () => onClickPrevMonth?.(subMonths(page, 1));
+  const handleClickPrevMonth = () => {
+    onChangeMonth?.(subMonths(page, 1));
+  };
 
-  const handleClickNextMonth = () => onClickNextMonth?.(addMonths(page, 1));
+  const handleClickNextMonth = () => {
+    onChangeMonth?.(addMonths(page, 1));
+  };
 
   return (
     <div>
       <nav className={monthSelectorStyle}>
-        <button onClick={handleClickPrevMonth}>👈</button>
+        <IconButton name="angle-left" variant="bare" ariaLabel="Preview month" onClick={handleClickPrevMonth} />
         <span>{format(page, 'MMM yyyy')}</span>
-        <button onClick={handleClickNextMonth}>👉</button>
+        <IconButton name="angle-right" variant="bare" ariaLabel="Next month" onClick={handleClickNextMonth} />
       </nav>
       <table className={calendarStyle}>
         <thead>
@@ -109,20 +110,7 @@ const monthSelectorStyle = css`
   display: flex;
   align-items: center;
   margin-bottom: ${gutter(4)};
-
-  > button {
-    flex: 0 0 auto;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    border-radius: ${BorderRadius.Circle};
-    appearance: none;
-    ${square('36px')}
-
-    &:hover {
-      background: lightgray;
-    }
-  }
+  font-size: ${FontSize.Regular};
 
   > span {
     flex: 1 1 100%;
@@ -132,6 +120,14 @@ const monthSelectorStyle = css`
 
 const calendarStyle = css`
   width: 100%;
+  font-size: ${FontSize.Small};
+
+  > thead {
+    th {
+      font-weight: normal;
+      color: ${Color.TextSub};
+    }
+  }
 `;
 
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
