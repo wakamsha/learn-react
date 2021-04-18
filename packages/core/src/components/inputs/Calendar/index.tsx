@@ -12,7 +12,7 @@ import {
   startOfMonth,
   subMonths,
 } from 'date-fns';
-import { useMemo } from 'react';
+import { ChangeEvent, useMemo } from 'react';
 import { Color, FontSize } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 import { IconButton } from '../IconButton';
@@ -71,14 +71,28 @@ export const Calendar = ({
     onChangeMonth?.(addMonths(page, 1));
   };
 
+  const handleChangeYearMonth = (e: ChangeEvent<HTMLSelectElement>) => {
+    onChangeMonth?.(new Date(opts[e.target.selectedIndex]));
+  };
+
   return (
     <div>
-      <nav className={monthSelectorStyle}>
+      <div role="menubar" className={styleMenubar}>
         <IconButton name="angle-left" variant="bare" ariaLabel="Preview month" onClick={handleClickPrevMonth} />
-        <span>{format(page, 'MMM yyyy')}</span>
+        <select name="month year" value={page.getTime()} onChange={handleChangeYearMonth}>
+          {yearGroup.map(group => (
+            <optgroup key={group.year} label={`${group.year}`}>
+              {group.months.map(month => (
+                <option key={month.value} value={month.value}>
+                  {month.label}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
         <IconButton name="angle-right" variant="bare" ariaLabel="Next month" onClick={handleClickNextMonth} />
-      </nav>
-      <table className={calendarStyle}>
+      </div>
+      <table className={styleCalendar}>
         <thead>
           <tr>
             {WeekLabels.map(label => (
@@ -90,13 +104,14 @@ export const Calendar = ({
           {getDateArray(page).map((week, i) => (
             <tr key={i}>
               {week.map((cell, j) => (
-                <Item
-                  key={j}
-                  value={cell}
-                  active={cell && isSameDay(cell, value)}
-                  disabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
-                  onClick={handleClickDate}
-                />
+                <td key={j}>
+                  <Item
+                    value={cell}
+                    active={cell && isSameDay(cell, value)}
+                    disabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
+                    onClick={handleClickDate}
+                  />
+                </td>
               ))}
             </tr>
           ))}
@@ -106,19 +121,27 @@ export const Calendar = ({
   );
 };
 
-const monthSelectorStyle = css`
+const styleMenubar = css`
   display: flex;
   align-items: center;
   margin-bottom: ${gutter(4)};
   font-size: ${FontSize.Regular};
 
-  > span {
+  > :not(:first-child) {
+    margin-left: ${gutter(2)};
+  }
+
+  > select {
     flex: 1 1 100%;
     text-align: center;
+    background-color: transparent;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
 `;
 
-const calendarStyle = css`
+const styleCalendar = css`
   width: 100%;
   font-size: ${FontSize.Small};
 
@@ -128,7 +151,28 @@ const calendarStyle = css`
       color: ${Color.TextSub};
     }
   }
+
+  > tbody {
+    td {
+      text-align: center;
+    }
+  }
 `;
+
+const yearGroup = [...Array(31).keys()].map(year => ({
+  year: 2000 + year,
+  months: [...Array(12).keys()].map(month => {
+    const d = new Date(2000 + year, month);
+    return {
+      label: format(d, 'MMM yyyy'),
+      value: d.getTime(),
+    };
+  }),
+}));
+
+const opts = yearGroup.reduce((acc: number[], { months }) => [...acc, ...months.map(({ value }) => value)], []);
+
+console.info(yearGroup);
 
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 

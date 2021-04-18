@@ -15,29 +15,23 @@ export const Item = ({ value, active, disabled, onClick }: Props) => {
   };
 
   return (
-    <td className={styleBase}>
-      <button
-        className={styleItem}
-        aria-pressed={active}
-        aria-disabled={disabled}
-        onClick={handleClick}
-        tabIndex={!value || disabled ? -1 : undefined}
-      >
-        {value ? value.getDate() : null}
-      </button>
-    </td>
+    <button
+      className={styleBase}
+      aria-pressed={active}
+      aria-disabled={disabled}
+      onClick={handleClick}
+      tabIndex={!value || disabled ? -1 : undefined}
+    >
+      {value ? value.getDate() : null}
+    </button>
   );
 };
 
 const styleBase = css`
-  font-size: ${FontSize.Small};
-  text-align: center;
-`;
-
-const styleItem = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: ${FontSize.Small};
   line-height: 1;
   touch-action: manipulation;
   cursor: pointer;
