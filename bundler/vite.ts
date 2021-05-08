@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 
 type Props = {
   basePath: string;
-  port: number;
+  port?: number;
 };
 
 // type Env = {
