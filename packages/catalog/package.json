@@ -6,12 +6,10 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "reset": "rm -rf dist/; mkdir -p dist/;",
-    "copy": "cp -r ./public/. ./dist/",
     "generate": "node ./bin/codegen",
-    "develop": "webpack serve",
+    "develop": "vite",
     "type-check": "tsc --noEmit",
-    "start": "yarn reset; yarn copy; run-p \"develop\" \"type-check --watch\" \"generate --watch\"",
-    "build": "yarn reset; yarn copy; yarn generate; webpack --mode production"
+    "start": "run-p \"develop\" \"type-check --watch\" \"generate --watch\"",
+    "build": "tsc --noEmit && vite build"
   }
 }

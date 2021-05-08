@@ -1,11 +1,12 @@
 import { css } from '@emotion/css';
 import * as pdfjsLib from 'pdfjs-dist';
+import workerUrl from 'pdfjs-dist/build/pdf.worker.min.js?url';
 import { PDFPageProxy } from 'pdfjs-dist/types/display/api';
 import { ComponentProps, useEffect, useState } from 'react';
 import { gutter } from '../../../helpers/Style';
 import { Page } from './Page';
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.js';
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl;
 
 type Props = {
   /** Source URL */
