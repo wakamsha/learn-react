@@ -55,6 +55,7 @@
     "highlight.js": "10.7.2",
     "mobx": "6.3.0",
     "mobx-react": "7.1.0",
+    "pdfjs-dist": "2.7.570",
     "qs": "6.10.1",
     "ramda": "0.27.1",
     "react": "17.0.2",
