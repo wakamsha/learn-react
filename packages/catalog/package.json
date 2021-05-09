@@ -10,6 +10,6 @@
     "develop": "vite",
     "type-check": "tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\" \"generate --watch\"",
-    "build": "tsc --noEmit && vite build"
+    "build": "yarn generate && tsc --noEmit && vite build"
   }
 }
