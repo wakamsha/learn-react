@@ -1,17 +1,14 @@
 import { createServer } from 'vite';
-import { Command } from 'commander/esm.mjs';
+import { resolve, dirname as _dirname } from 'path';
+import { getArgs } from './args.mjs';
 
-const program = new Command();
+const dirname = _dirname(new URL(import.meta.url).pathname);
 
-program
-  .option('-t, --target, <type>', 'target option')
-  .option('-v, --variant, [variant]', 'variant option')
-  .parse(process.argv);
-
-const { target, variant } = program.opts();
+const { target, variant } = getArgs(process.argv);
 
 (async () => {
   const server = await createServer({
+    configFile: resolve(dirname, '../vite.config.ts'),
     define: {
       ENV: JSON.stringify({ target, ...(variant ? { variant: Number(variant) } : {}) }),
     },

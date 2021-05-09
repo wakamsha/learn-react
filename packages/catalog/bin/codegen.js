@@ -3,15 +3,16 @@ import { resolve, dirname as _dirname } from 'path';
 import chokidar from 'chokidar';
 import ejs from 'ejs';
 import glob from 'glob';
-import { Command } from 'commander/esm.mjs';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 const dirname = _dirname(new URL(import.meta.url).pathname);
 
-const program = new Command();
-
-program.option('-w, --watch', 'watch option').parse(process.argv);
-
-const { watch } = program.opts();
+const { watch } = yargs(hideBin(process.argv)).option('watch', {
+  alias: 'w',
+  type: 'boolean',
+  describe: 'ターゲットファイルの変更を監視して自動的にコード生成を実行します。',
+}).argv;
 
 const TARGET_FILES = glob.sync(
   resolve(dirname, '../../{core,catalog}/src/{components,constants,hooks}/**/index.story.tsx'),
