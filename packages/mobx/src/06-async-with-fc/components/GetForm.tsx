@@ -14,6 +14,7 @@ export const GetForm = () => {
 
   const handleClick = async () => {
     setStatus({ running: true, error: false });
+
     try {
       await store.getAllUsers();
       setStatus({ running: false, error: false });
@@ -24,13 +25,13 @@ export const GetForm = () => {
   };
 
   return (
-    <>
+    <div>
       <h3>GET</h3>
       <p>
         <button onClick={handleClick} disabled={!!status.running}>
           GET
         </button>
       </p>
-    </>
+    </div>
   );
 };

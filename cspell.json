@@ -9,6 +9,7 @@
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "asyncable",
     "builtins",
+    "cmaps",
     "codegen",
     "consolas",
     "contenteditable",
@@ -28,6 +29,9 @@
     "tabindex",
     "unmount",
     "updown",
-    "wakamsha"
+    "vite",
+    "vitejs",
+    "wakamsha",
+    "zipcode"
   ]
 }

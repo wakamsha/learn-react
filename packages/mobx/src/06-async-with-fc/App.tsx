@@ -11,16 +11,16 @@ export const AsyncWithFC = () => {
 
   return (
     <UsersStore.Context.Provider value={usersStore}>
-      <div className={baseStyle}>
-        <div className={formColumnStyle}>
-          <h1>Async w/ FC</h1>
+      <div className={styleBase}>
+        <div className={styleFormColumn}>
+          <h1>(06) Async w/ FC</h1>
           <GetForm />
           <hr />
           <GetByParamForm />
           <hr />
           <PostForm />
         </div>
-        <div className={logColumnStyle}>
+        <div className={styleLogColumn}>
           <Log />
         </div>
       </div>
@@ -28,16 +28,20 @@ export const AsyncWithFC = () => {
   );
 };
 
-const baseStyle = css({
-  display: 'flex',
-  height: '100vh',
-});
+const styleBase = css`
+  display: flex;
+  height: 100vh;
+`;
 
-const formColumnStyle = css({
-  padding: '0 16px',
-  flex: '1 1 100%',
-});
+const styleFormColumn = css`
+  flex: 1 1 100%;
+  padding: 0 16px;
 
-const logColumnStyle = css({
-  flex: '1.618 1 100%',
-});
+  > :not(:first-child) {
+    margin-top: 24px;
+  }
+`;
+
+const styleLogColumn = css`
+  flex: 1.618 1 100%;
+`;

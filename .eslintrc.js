@@ -45,15 +45,6 @@ module.exports = {
         exceptAfterSingleLine: true,
       },
     ],
-    'import/order': [
-      'warn',
-      {
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-      },
-    ],
     'no-case-declarations': ['error'],
     'no-console': [
       'error',

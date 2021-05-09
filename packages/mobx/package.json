@@ -10,11 +10,9 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "reset": "rm -rf dist/; mkdir -p dist/assets/;",
-    "copy": "cp -r ./public/. ./dist/",
-    "develop": "webpack serve",
+    "develop": "vite",
     "type-check": "tsc --noEmit",
-    "start": "yarn reset; yarn copy; run-p \"develop\" \"type-check --watch\"",
-    "build": "yarn reset; yarn copy; webpack --mode production"
+    "start": "run-p \"develop\" \"type-check --watch\"",
+    "build": "yarn type-check && vite build"
   }
 }

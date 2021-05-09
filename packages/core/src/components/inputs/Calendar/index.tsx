@@ -172,8 +172,6 @@ const yearGroup = [...Array(31).keys()].map(year => ({
 
 const opts = yearGroup.reduce((acc: number[], { months }) => [...acc, ...months.map(({ value }) => value)], []);
 
-console.info(yearGroup);
-
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 
 /**

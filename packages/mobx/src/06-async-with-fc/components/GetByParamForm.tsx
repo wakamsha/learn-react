@@ -1,13 +1,11 @@
 import { useContext } from '@learn-react/core/hooks/useContext';
 import { useTransaction } from '@learn-react/core/hooks/useTransaction';
-import { useObserver } from 'mobx-react';
+import { observer } from 'mobx-react';
 import { ChangeEvent, useState } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 
-export const GetByParamForm = () => {
+export const GetByParamForm = observer(() => {
   const store = useContext(UsersStore.Context);
-
-  const { id } = useObserver(() => ({ id: store.userId }));
 
   const { onSubmit, submitRunning } = useSubmit();
 
@@ -21,14 +19,14 @@ export const GetByParamForm = () => {
       <p>取得する User の id を指定</p>
       <input type="number" max={100} disabled={submitRunning} onChange={handleChangeId} />
       <p>
-        ID: <code>{id}</code>
+        ID: <code>{store.userId}</code>
       </p>
       <button onClick={() => onSubmit(userId)} disabled={submitRunning}>
         GET
       </button>
     </form>
   );
-};
+});
 
 /**
  * useTransaction を使ったパターン。

@@ -21,6 +21,9 @@ const App = () => (
   </BrowserRouter>
 );
 
+// declare const ENV: unknown;
+// console.info(22, ENV);
+
 applyGlobalStyle();
 
 render(<App />, document.getElementById('app'));
