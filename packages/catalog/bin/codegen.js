@@ -1,14 +1,20 @@
-const fs = require('fs');
-const { resolve } = require('path');
-const chokidar = require('chokidar');
-const ejs = require('ejs');
-const glob = require('glob');
-const { argv } = require('yargs');
+import fs from 'fs';
+import { resolve, dirname as _dirname } from 'path';
+import chokidar from 'chokidar';
+import ejs from 'ejs';
+import glob from 'glob';
+import { Command } from 'commander/esm.mjs';
 
-const watch = !!argv.watch;
+const dirname = _dirname(new URL(import.meta.url).pathname);
+
+const program = new Command();
+
+program.option('-w, --watch', 'watch option').parse(process.argv);
+
+const { watch } = program.opts();
 
 const TARGET_FILES = glob.sync(
-  resolve(__dirname, '../../{core,catalog}/src/{components,constants,hooks}/**/index.story.tsx'),
+  resolve(dirname, '../../{core,catalog}/src/{components,constants,hooks}/**/index.story.tsx'),
 );
 
 function addPath(fileLocations, acc) {

@@ -2,14 +2,15 @@
   "name": "@learn-react/catalog",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "type": "module",
   "dependencies": {
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
     "generate": "node ./bin/codegen",
-    "develop": "vite",
+    "develop": "node ./bin/develop",
     "type-check": "tsc --noEmit",
-    "start": "run-p \"develop\" \"type-check --watch\" \"generate --watch\"",
-    "build": "yarn generate && tsc --noEmit && vite build"
+    "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
+    "build": "yarn generate && tsc --noEmit && node ./bin/build --"
   }
 }

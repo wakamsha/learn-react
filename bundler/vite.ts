@@ -7,19 +7,9 @@ type Props = {
   port?: number;
 };
 
-// type Env = {
-//   target?: 'dev' | 'stg' | 'prod';
-//   variant?: number;
-// };
-
-// const { target = 'dev', variant } = yargs.argv as Env;
-
 export function builder({ basePath, port }: Props) {
   return defineConfig({
     plugins: [reactRefresh()],
-    // define: {
-    //   ENV: JSON.stringify({ target }),
-    // },
     resolve: {
       alias: {
         '@learn-react/core': resolve(basePath, '../core/src'),
