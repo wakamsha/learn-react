@@ -2,7 +2,6 @@ import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
 import { User } from '../infra/model';
-import { flow } from '../utils/Decorator';
 
 export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);
@@ -39,26 +38,27 @@ export class UsersStore {
     this.users = users;
   }
 
-  @flow
-  public *getAllUsers() {
-    const users: User[] = yield requestGetUsers();
+  public async getAllUsers() {
+    const users = await requestGetUsers();
     this.setUsers(users);
   }
 
-  @flow
-  public *getUser() {
-    this.users = yield requestGetUser({
+  public async getUser() {
+    const user = await requestGetUser({
       path: this.userId ? `${this.userId}` : '',
     });
+
+    this.setUsers([user]);
   }
 
-  @flow
-  public *postUser() {
-    this.users = yield requestPostUser({
+  public async postUser() {
+    const user = await requestPostUser({
       send: {
         name: this.name,
         job: this.job,
       },
     });
+
+    this.setUsers([user]);
   }
 }

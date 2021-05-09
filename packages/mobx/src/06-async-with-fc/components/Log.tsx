@@ -1,37 +1,36 @@
 import { css } from '@emotion/css';
 import { useContext } from '@learn-react/core/hooks/useContext';
-
-import { useObserver } from 'mobx-react';
+import { observer } from 'mobx-react';
 import { UsersStore } from '../stores/UsersStore';
 
-export const Log = () => {
+export const Log = observer(() => {
   const store = useContext(UsersStore.Context);
-
-  const { users } = useObserver(() => ({ users: store.users }));
 
   return (
     <figure className={baseStyle}>
       <pre>
-        <code>{JSON.stringify({ ...users }, null, 2)}</code>
+        <code>{JSON.stringify(store.users, null, 2)}</code>
       </pre>
     </figure>
   );
-};
-
-const baseStyle = css({
-  margin: 0,
-  background: '#0f192a',
-  height: '100%',
-  '> pre': {
-    height: '100%',
-    padding: 16,
-    margin: 0,
-    overflow: 'auto',
-    color: '#d1edff',
-    '> code': {
-      fontFamily: 'source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace',
-      fontSize: '0.65rem',
-      lineHeight: 1.3,
-    },
-  },
 });
+
+const baseStyle = css`
+  height: 100%;
+  margin: 0;
+  background-color: #0f192a;
+
+  > pre {
+    height: 100%;
+    padding: 16px;
+    margin: 0;
+    overflow: auto;
+    color: #d1edff;
+
+    > code {
+      font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+      font-size: 0.65rem;
+      line-height: 1.3;
+    }
+  }
+`;

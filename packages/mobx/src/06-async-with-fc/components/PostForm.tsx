@@ -8,16 +8,6 @@ type State = {
   job: string;
 };
 
-type Action =
-  | {
-      type: 'name';
-      payload: Pick<State, 'name'>;
-    }
-  | {
-      type: 'job';
-      payload: Pick<State, 'job'>;
-    };
-
 export const PostForm = () => {
   const store = useContext(UsersStore.Context);
 
@@ -52,6 +42,16 @@ export const PostForm = () => {
     </form>
   );
 };
+
+type Action =
+  | {
+      type: 'name';
+      payload: Pick<State, 'name'>;
+    }
+  | {
+      type: 'job';
+      payload: Pick<State, 'job'>;
+    };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
