@@ -4,7 +4,9 @@ import { ProfileContainer } from '../../containers/ProfileContainer';
 export const ProfileEditPage = () => {
   const { name, setName } = ProfileContainer.useContainer();
 
-  const handleChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setName(value);
+  const handleChange = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setName(value);
+  };
 
   return (
     <>
