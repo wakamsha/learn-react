@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
  * @example
  * const mounted = useMounted();
  *
- * if (mounted) {
+ * if (mounted.current) {
  *   foo();
  * } else {
  *   bar();
@@ -22,7 +22,7 @@ export function useMounted() {
     return () => {
       mounted.current = false;
     };
-  });
+  }, []);
 
-  return mounted.current;
+  return mounted;
 }

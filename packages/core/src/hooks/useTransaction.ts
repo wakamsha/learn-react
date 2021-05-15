@@ -13,7 +13,8 @@ type ErrorResult = {
 };
 
 /**
- * Decorator の transaction の hooks 版（機能的には同じ）
+ * 非同期処理をラップするカスタムフック。
+ * Decorator の transaction の hooks 版（機能的には同じ）。
  *
  * @param onAction 非同期処理する関数
  * @param onError エラー時に実行する関数
@@ -21,10 +22,12 @@ type ErrorResult = {
  * const fooStore = useContext(FooStore.Context);
  *
  * const [handler, status] = useTransaction(
- *   async () => {
+ *   useCallback(async () => {
  *     await fooStore.loadAsync();
- *   },
- *   (e: ErrorResult) => console.error(e.message),
+ *   }, []),
+ *   useCallback(e => {
+ *     console.error(e.message);
+ *   }, []),
  * );
  */
 export function useTransaction<T extends any[]>(
@@ -42,7 +45,7 @@ export function useTransaction<T extends any[]>(
 
         await onAction(...args);
 
-        if (mounted) {
+        if (mounted.current) {
           setStatus({ running: false, error: false });
         }
       } catch (e) {
@@ -50,7 +53,7 @@ export function useTransaction<T extends any[]>(
 
         onError?.(e);
 
-        if (mounted) {
+        if (mounted.current) {
           setStatus({ running: false, error: true });
         }
 
