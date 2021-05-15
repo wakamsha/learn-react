@@ -1,41 +1,50 @@
 import { css } from '@emotion/css';
-import { useContext } from '@learn-react/core/hooks/useContext';
-
+import { gutter } from '@learn-react/core/helpers/Style';
 import { toJS } from 'mobx';
-import { ChangeEvent, useMemo, useState } from 'react';
+import { observer } from 'mobx-react';
+import { ChangeEvent, useRef, useState } from 'react';
 import { ListStore } from '../stores/ListStore';
 
 export const ListPage = () => {
-  const listStore = useMemo(() => new ListStore(), []);
+  console.info('list page');
+
+  const listStore = useRef(new ListStore());
 
   return (
-    <ListStore.Context.Provider value={listStore}>
-      <div className={baseStyle}>
-        <div className={columnStyle}>
+    <ListStore.Context.Provider value={listStore.current}>
+      <h1>MobX</h1>
+      <div className={styleBase}>
+        <div className={styleColumn}>
           <AddForm />
           <EditForm />
         </div>
-        <ShowSection />
+        <div className={styleColumn}>
+          <ShowSection />
+        </div>
       </div>
     </ListStore.Context.Provider>
   );
 };
 
 const AddForm = () => {
-  const listStore = useContext(ListStore.Context);
+  console.info('add form');
+
+  const listStore = ListStore.useStore();
 
   const [name, setName] = useState('');
 
   const [age, setAge] = useState(18);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setName(value);
+  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setName(value);
+  };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setAge(Number(value));
+  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(value));
+  };
 
   const handleSubmit = () => {
     listStore.addItem({ name, age });
-    setName('');
-    setAge(18);
   };
 
   return (
@@ -43,12 +52,16 @@ const AddForm = () => {
       <fieldset>
         <legend>Add</legend>
         <p>
-          <label>name</label>
-          <input value={name} onChange={handleInputName} />
+          <label>
+            name:
+            <input value={name} onChange={handleInputName} />
+          </label>
         </p>
         <p>
-          <label>age</label>
-          <input type="number" value={age} onChange={handleInputAge} />
+          <label>
+            age:
+            <input type="number" value={age} onChange={handleInputAge} />
+          </label>
         </p>
         <button onClick={handleSubmit}>Add</button>
       </fieldset>
@@ -57,7 +70,9 @@ const AddForm = () => {
 };
 
 const EditForm = () => {
-  const listStore = useContext(ListStore.Context);
+  console.info('edit form');
+
+  const listStore = ListStore.useStore();
 
   const [name, setName] = useState('');
 
@@ -65,16 +80,20 @@ const EditForm = () => {
 
   const [index, setIndex] = useState(0);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setName(value);
+  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setName(value);
+  };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setAge(Number(value));
+  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(value));
+  };
 
-  const handleInputIndex = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setIndex(Number(value));
+  const handleInputIndex = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setIndex(Number(value));
+  };
 
   const handleSubmit = () => {
     listStore.editItem({ name, age }, index);
-    setName('');
-    setAge(20);
   };
 
   return (
@@ -82,16 +101,22 @@ const EditForm = () => {
       <fieldset>
         <legend>Edit</legend>
         <p>
-          <label>index:</label>
-          <input type="number" value={index} onChange={handleInputIndex} />
+          <label>
+            index:
+            <input type="number" value={index} onChange={handleInputIndex} />
+          </label>
         </p>
         <p>
-          <label>name:</label>
-          <input value={name} onChange={handleInputName} />
+          <label>
+            name:
+            <input value={name} onChange={handleInputName} />
+          </label>
         </p>
         <p>
-          <label>age:</label>
-          <input type="number" value={age} onChange={handleInputAge} />
+          <label>
+            age:
+            <input type="number" value={age} onChange={handleInputAge} />
+          </label>
         </p>
         <button onClick={handleSubmit}>Add</button>
       </fieldset>
@@ -99,32 +124,34 @@ const EditForm = () => {
   );
 };
 
-const ShowSection = () => {
-  const listStore = useContext(ListStore.Context);
+const ShowSection = observer(() => {
+  console.info('show section');
 
-  const items = ListStore.useStore(() => toJS(listStore.items));
+  const listStore = ListStore.useStore();
 
   return (
-    <div className={columnStyle}>
+    <>
       <h3>List Items</h3>
       <ul>
-        {items.map(({ name, age }, index) => (
+        {toJS(listStore.items).map(({ name, age }, index) => (
           <li key={index}>
             {name} ({age})
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
-};
-
-const baseStyle = css({
-  display: 'flex',
 });
 
-const columnStyle = css({
-  flex: '1 1 100%',
-  '& + &': {
-    marginLeft: 16,
-  },
-});
+const styleBase = css`
+  display: flex;
+  padding: ${gutter(4)};
+
+  > :not(:first-child) {
+    margin-left: ${gutter(4)};
+  }
+`;
+
+const styleColumn = css`
+  flex: 1 1 100%;
+`;

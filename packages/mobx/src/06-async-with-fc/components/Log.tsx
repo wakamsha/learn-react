@@ -1,13 +1,14 @@
 import { css } from '@emotion/css';
-import { useContext } from '@learn-react/core/hooks/useContext';
 import { observer } from 'mobx-react';
 import { UsersStore } from '../stores/UsersStore';
 
 export const Log = observer(() => {
-  const store = useContext(UsersStore.Context);
+  console.info('Log');
+
+  const store = UsersStore.useStore();
 
   return (
-    <figure className={baseStyle}>
+    <figure className={styleBase}>
       <pre>
         <code>{JSON.stringify(store.users, null, 2)}</code>
       </pre>
@@ -15,7 +16,7 @@ export const Log = observer(() => {
   );
 });
 
-const baseStyle = css`
+const styleBase = css`
   height: 100%;
   margin: 0;
   background-color: #0f192a;

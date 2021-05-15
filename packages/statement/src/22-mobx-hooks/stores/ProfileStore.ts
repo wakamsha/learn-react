@@ -1,12 +1,12 @@
+import { useContext } from '@learn-react/core/hooks/useContext';
 import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
-import { Selector, useMobxStore } from '../hooks/useMobxStore';
 
 export class ProfileStore {
   public static Context = createContext<ProfileStore | null>(null);
 
-  public static useStore<S>(selector: Selector<ProfileStore, S>) {
-    return useMobxStore(ProfileStore.Context, selector);
+  public static useStore() {
+    return useContext(ProfileStore.Context);
   }
 
   @observable public name = '';

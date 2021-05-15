@@ -1,4 +1,3 @@
-import { useContext } from '@learn-react/core/hooks/useContext';
 import { TransactionStatus } from '@learn-react/core/hooks/useTransaction';
 import { useState } from 'react';
 import { UsersStore } from '../stores/UsersStore';
@@ -8,7 +7,9 @@ import { UsersStore } from '../stores/UsersStore';
  * 非同期処理を呼び出す側で状態 ( TransactionStatus ) を全てお世話している。
  */
 export const GetForm = () => {
-  const store = useContext(UsersStore.Context);
+  console.info('Get Form');
+
+  const store = UsersStore.useStore();
 
   const [status, setStatus] = useState<TransactionStatus>({});
 

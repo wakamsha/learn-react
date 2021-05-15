@@ -1,5 +1,5 @@
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
-import { useMemo } from 'react';
+import { useRef } from 'react';
 import { Redirect, Route } from 'react-router';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileStore } from '../../stores/ProfileStore';
@@ -10,7 +10,7 @@ import { ProfileShowPage } from './ShowPage';
  * React 標準の ContextAPI のみを使用するパターン
  */
 // export const Profile = () => {
-//   const profileStore = useMemo(() => new ProfileStore(), []);
+//   const profileStore = useRef(new ProfileStore());
 
 //   const Context = useMemo(() => createContext(profileStore), [profileStore]);
 
@@ -38,12 +38,12 @@ import { ProfileShowPage } from './ShowPage';
  * グローバルストアと同様に Static な Context を使用するパターン
  */
 export const Profile = () => {
-  const profileStore = useMemo(() => new ProfileStore(), []);
+  const profileStore = useRef(new ProfileStore());
 
   return (
     <>
       <h1>Profile</h1>
-      <ProfileStore.Context.Provider value={profileStore}>
+      <ProfileStore.Context.Provider value={profileStore.current}>
         <PageTransition>
           <Route path={Router.paths.profileShow} component={ProfileShowPage} />
           <Route path={Router.paths.profileEdit} component={ProfileEditPage} />

@@ -1,6 +1,6 @@
+import { useContext } from '@learn-react/core/hooks/useContext';
 import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
-import { Selector, useMobxStore } from '../hooks/useMobxStore';
 
 type Item = {
   name: string;
@@ -10,8 +10,8 @@ type Item = {
 export class ListStore {
   public static Context = createContext<ListStore | null>(null);
 
-  public static useStore<S>(selector: Selector<ListStore, S>) {
-    return useMobxStore(ListStore.Context, selector);
+  public static useStore() {
+    return useContext(ListStore.Context);
   }
 
   @observable public items: Item[] = [

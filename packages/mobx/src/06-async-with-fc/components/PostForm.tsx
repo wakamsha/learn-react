@@ -9,19 +9,25 @@ type State = {
 };
 
 export const PostForm = () => {
-  const store = useContext(UsersStore.Context);
+  console.info('Post Form');
+
+  const store = UsersStore.useStore();
 
   const [{ name, job }, dispatch] = useReducer(reducer, { name: store.name, job: store.job });
 
   const { onSubmit, fetching } = useSubmit();
 
-  const handleChangeName = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+  const handleChangeName = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: 'name', payload: { name: value } });
+  };
 
-  const handleChangeJob = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
+  const handleChangeJob = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch({ type: 'job', payload: { job: value } });
+  };
 
-  const handleSubmit = async () => onSubmit({ name, job });
+  const handleSubmit = async () => {
+    onSubmit({ name, job });
+  };
 
   const validInputs = !!name && !!job;
 

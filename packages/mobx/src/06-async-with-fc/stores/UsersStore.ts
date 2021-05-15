@@ -1,3 +1,4 @@
+import { useContext } from '@learn-react/core/hooks/useContext';
 import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
@@ -5,6 +6,10 @@ import { User } from '../infra/model';
 
 export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);
+
+  public static useStore() {
+    return useContext(UsersStore.Context);
+  }
 
   @observable public users: User[] = [];
 

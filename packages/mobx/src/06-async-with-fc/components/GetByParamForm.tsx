@@ -1,17 +1,20 @@
-import { useContext } from '@learn-react/core/hooks/useContext';
 import { useTransaction } from '@learn-react/core/hooks/useTransaction';
 import { observer } from 'mobx-react';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 
 export const GetByParamForm = observer(() => {
-  const store = useContext(UsersStore.Context);
+  console.info('Get By Param Form');
+
+  const store = UsersStore.useStore();
 
   const { onSubmit, submitRunning } = useSubmit();
 
   const [userId, setUserId] = useState(store.userId);
 
-  const handleChangeId = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => setUserId(Number(value));
+  const handleChangeId = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setUserId(Number(value));
+  };
 
   return (
     <form onSubmit={e => e.preventDefault()}>
@@ -34,12 +37,17 @@ export const GetByParamForm = observer(() => {
  * CC における transaction メソッドひとつにつきカスタムフックを一つ定義するイメージ。
  */
 function useSubmit() {
-  const store = useContext(UsersStore.Context);
+  const store = UsersStore.useStore();
 
-  const [onSubmit, submitStatus] = useTransaction(async (userId: number) => {
-    store.setUserId(userId);
-    await store.getUser();
-  });
+  const [onSubmit, submitStatus] = useTransaction(
+    useCallback(
+      async (userId: number) => {
+        store.setUserId(userId);
+        await store.getUser();
+      },
+      [store],
+    ),
+  );
 
   return { onSubmit, submitRunning: !!submitStatus.running };
 }
