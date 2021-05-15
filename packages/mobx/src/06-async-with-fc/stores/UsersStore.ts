@@ -1,5 +1,5 @@
 import { useContext } from '@learn-react/core/hooks/useContext';
-import { action, makeObservable, observable } from 'mobx';
+import { action, makeObservable, observable, runInAction } from 'mobx';
 import { createContext } from 'react';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
 import { User } from '../infra/model';
@@ -11,41 +11,43 @@ export class UsersStore {
     return useContext(UsersStore.Context);
   }
 
-  @observable public users: User[] = [];
+  public users: User[] = [];
 
-  @observable public userId = 0;
+  public userId = 0;
 
-  @observable public name = '';
+  public name = '';
 
-  @observable public job = '';
+  public job = '';
 
   constructor() {
-    makeObservable(this);
+    makeObservable(this, {
+      users: observable,
+      userId: observable,
+      name: observable,
+      job: observable,
+      setUserId: action,
+      setName: action,
+      setJob: action,
+    });
   }
 
-  @action
   public setUserId(id: number) {
     this.userId = id;
   }
 
-  @action
   public setName(name: string) {
     this.name = name;
   }
 
-  @action
   public setJob(job: string) {
     this.job = job;
   }
 
-  @action
-  private setUsers(users: User[]) {
-    this.users = users;
-  }
-
   public async getAllUsers() {
     const users = await requestGetUsers();
-    this.setUsers(users);
+    runInAction(() => {
+      this.users = users;
+    });
   }
 
   public async getUser() {
@@ -53,7 +55,9 @@ export class UsersStore {
       path: this.userId ? `${this.userId}` : '',
     });
 
-    this.setUsers([user]);
+    runInAction(() => {
+      this.users = [user];
+    });
   }
 
   public async postUser() {
@@ -64,6 +68,8 @@ export class UsersStore {
       },
     });
 
-    this.setUsers([user]);
+    runInAction(() => {
+      this.users = [user];
+    });
   }
 }

@@ -14,7 +14,7 @@ export class ListStore {
     return useContext(ListStore.Context);
   }
 
-  @observable public items: Item[] = [
+  public items: Item[] = [
     {
       name: 'taro',
       age: 10,
@@ -22,20 +22,22 @@ export class ListStore {
   ];
 
   constructor() {
-    makeObservable(this);
+    makeObservable(this, {
+      items: observable,
+      addItem: action,
+      editItem: action,
+      resetItem: action,
+    });
   }
 
-  @action
   public addItem(item: Item) {
     this.items.push(item);
   }
 
-  @action
   public editItem(item: Item, index: number) {
     this.items.splice(index, 1, item);
   }
 
-  @action
   public resetItem() {
     this.items = [];
   }

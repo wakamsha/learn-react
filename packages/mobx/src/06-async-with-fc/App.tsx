@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { useMemo } from 'react';
+import { configure } from 'mobx';
+import { useRef } from 'react';
 import { GetByParamForm } from './components/GetByParamForm';
 import { GetForm } from './components/GetForm';
 import { Log } from './components/Log';
@@ -7,10 +8,10 @@ import { PostForm } from './components/PostForm';
 import { UsersStore } from './stores/UsersStore';
 
 export const AsyncWithFC = () => {
-  const usersStore = useMemo(() => new UsersStore(), []);
+  const usersStore = useRef(new UsersStore());
 
   return (
-    <UsersStore.Context.Provider value={usersStore}>
+    <UsersStore.Context.Provider value={usersStore.current}>
       <div className={styleBase}>
         <div className={styleFormColumn}>
           <h1>(06) Async w/ FC</h1>
@@ -27,6 +28,12 @@ export const AsyncWithFC = () => {
     </UsersStore.Context.Provider>
   );
 };
+
+configure({
+  enforceActions: 'always',
+  computedRequiresReaction: true,
+  reactionRequiresObservable: true,
+});
 
 const styleBase = css`
   display: flex;
