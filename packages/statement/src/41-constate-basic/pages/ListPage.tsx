@@ -142,7 +142,6 @@ const ShowSection = () => {
 
 const styleBase = css`
   display: flex;
-  padding: ${gutter(4)};
 
   > :not(:first-child) {
     margin-left: ${gutter(4)};

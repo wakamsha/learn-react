@@ -1,8 +1,8 @@
-import { Routing } from '../@core/components/Routing';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './bootstraps/App';
 
 export const UnstatedBasicApp = () => (
-  <Routing.Provider>
+  <BrowserRouter>
     <App />
-  </Routing.Provider>
+  </BrowserRouter>
 );

@@ -11,9 +11,9 @@ import { NotFoundPage } from '../pages/NotFoundPage';
 import { Profile } from '../pages/profiles';
 
 export const App = () => (
-  <div className={baseStyle}>
+  <div className={styleBase}>
     <Sidebar title="MobX Hooks | Statement" items={linkItems} />
-    <div className={contentStyle}>
+    <div className={styleContent}>
       <PageTransition>
         <Route path={Router.paths.home} component={HomePage} exact />
         <Route path={Router.paths.profile} component={Profile} />
@@ -48,12 +48,12 @@ const linkItems: ComponentProps<typeof Sidebar>['items'] = [
   },
 ];
 
-const baseStyle = css`
+const styleBase = css`
   display: flex;
   width: 100%;
 `;
 
-const contentStyle = css`
+const styleContent = css`
   flex-grow: 1;
   height: 100vh;
   padding: ${gutter(4)};

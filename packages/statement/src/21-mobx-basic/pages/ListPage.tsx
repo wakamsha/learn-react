@@ -1,4 +1,5 @@
 import { css } from '@emotion/css';
+import { gutter } from '@learn-react/core/helpers/Style';
 import { observer } from 'mobx-react';
 import { ChangeEvent, createContext, useMemo, useState } from 'react';
 import { ListStore } from '../stores/ListStore';
@@ -10,15 +11,17 @@ export const ListPage = () => {
 
   return (
     <Context.Provider value={store}>
-      <div className={baseStyle}>
+      <div className={styleBase}>
         <Context.Consumer>
           {store => (
             <>
-              <div className={columnStyle}>
+              <div className={styleColumn}>
                 <AddForm listStore={store} />
                 <EditForm listStore={store} />
               </div>
-              <ShowSection listStore={store} />
+              <div className={styleColumn}>
+                <ShowSection listStore={store} />
+              </div>
             </>
           )}
         </Context.Consumer>
@@ -102,7 +105,7 @@ const EditForm = ({ listStore }: { listStore: ListStore }) => {
 };
 
 const ShowSection = observer(({ listStore }: { listStore: ListStore }) => (
-  <div className={columnStyle}>
+  <>
     <h3>List Items</h3>
     <ul>
       {listStore.items.map(({ name, age }, index) => (
@@ -111,16 +114,18 @@ const ShowSection = observer(({ listStore }: { listStore: ListStore }) => (
         </li>
       ))}
     </ul>
-  </div>
+  </>
 ));
 
-const baseStyle = css({
-  display: 'flex',
-});
+const styleBase = css`
+  display: flex;
+  padding: ${gutter(4)};
 
-const columnStyle = css({
-  flex: '1 1 100%',
-  '& + &': {
-    marginLeft: 16,
-  },
-});
+  > :not(:first-child) {
+    margin-left: ${gutter(4)};
+  }
+`;
+
+const styleColumn = css`
+  flex: 1 1 100%;
+`;

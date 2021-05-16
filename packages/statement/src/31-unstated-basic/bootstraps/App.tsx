@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
+import { gutter } from '@learn-react/core/helpers/Style';
 import { ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
@@ -51,4 +52,5 @@ const styleBase = css`
 const styleContent = css`
   flex-grow: 1;
   height: 100vh;
+  padding: ${gutter(4)};
 `;

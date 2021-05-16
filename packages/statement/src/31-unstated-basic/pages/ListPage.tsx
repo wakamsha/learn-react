@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, memo, useState } from 'react';
 import { ListContainer } from '../containers/ListContainer';
 
 export const ListPage = () => {
@@ -22,7 +22,7 @@ export const ListPage = () => {
   );
 };
 
-const AddForm = () => {
+const AddForm = memo(() => {
   console.info('add form');
 
   const { addItem } = ListContainer.useContainer();
@@ -63,9 +63,9 @@ const AddForm = () => {
       </fieldset>
     </form>
   );
-};
+});
 
-const EditForm = () => {
+const EditForm = memo(() => {
   console.info('edit form');
 
   const { editItem } = ListContainer.useContainer();
@@ -118,7 +118,7 @@ const EditForm = () => {
       </fieldset>
     </form>
   );
-};
+});
 
 const ShowSection = () => {
   console.info('show section');
@@ -142,7 +142,6 @@ const ShowSection = () => {
 
 const styleBase = css`
   display: flex;
-  padding: ${gutter(4)};
 
   > :not(:first-child) {
     margin-left: ${gutter(4)};
