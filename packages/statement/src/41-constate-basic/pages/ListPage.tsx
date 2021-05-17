@@ -31,12 +31,12 @@ const AddForm = () => {
 
   const [age, setAge] = useState(18);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setName(value);
+  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.currentTarget.value);
   };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setAge(Number(value));
+  const handleInputAge = (e: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(e.currentTarget.value));
   };
 
   const handleSubmit = () => {
@@ -76,16 +76,16 @@ const EditForm = () => {
 
   const [index, setIndex] = useState(0);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setName(value);
+  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.currentTarget.value);
   };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setAge(Number(value));
+  const handleInputAge = (e: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(e.currentTarget.value));
   };
 
-  const handleInputIndex = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
-    setIndex(Number(value));
+  const handleInputIndex = (e: ChangeEvent<HTMLInputElement>) => {
+    setIndex(Number(e.currentTarget.value));
   };
 
   const handleSubmit = () => {

@@ -14,12 +14,17 @@ const useList = () => {
     },
   ]);
 
-  const addItem = (item: Item) => setItems(items => [...items, item]);
+  const addItem = (item: Item) => {
+    setItems(items => [...items, item]);
+  };
 
-  const editItem = (editedItem: Item, index: number) =>
+  const editItem = (editedItem: Item, index: number) => {
     setItems(items => items.map((item, i) => (i === index ? editedItem : item)));
+  };
 
-  const resetItem = () => setItems([]);
+  const resetItem = () => {
+    setItems([]);
+  };
 
   return { items, addItem, editItem, resetItem };
 };
