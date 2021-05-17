@@ -1,5 +1,5 @@
 import constate from 'constate';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 type Item = {
   name: string;
@@ -14,17 +14,17 @@ const useList = () => {
     },
   ]);
 
-  const addItem = (item: Item) => {
+  const addItem = useCallback((item: Item) => {
     setItems(items => [...items, item]);
-  };
+  }, []);
 
-  const editItem = (editedItem: Item, index: number) => {
+  const editItem = useCallback((editedItem: Item, index: number) => {
     setItems(items => items.map((item, i) => (i === index ? editedItem : item)));
-  };
+  }, []);
 
-  const resetItem = () => {
+  const resetItem = useCallback(() => {
     setItems([]);
-  };
+  }, []);
 
   return { items, addItem, editItem, resetItem };
 };
