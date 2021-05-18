@@ -26,7 +26,6 @@ export class ListStore {
       items: observable,
       addItem: action,
       editItem: action,
-      resetItem: action,
     });
   }
 
@@ -36,9 +35,5 @@ export class ListStore {
 
   public editItem(item: Item, index: number) {
     this.items.splice(index, 1, item);
-  }
-
-  public resetItem() {
-    this.items = [];
   }
 }

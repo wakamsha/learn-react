@@ -22,11 +22,7 @@ const useList = () => {
     setItems(items => items.map((item, i) => (i === index ? editedItem : item)));
   }, []);
 
-  const resetItem = useCallback(() => {
-    setItems([]);
-  }, []);
-
-  return { items, addItem, editItem, resetItem };
+  return { items, addItem, editItem };
 };
 
 const [ListProvider, useListItems, useAddListItem, useEditListItem] = constate(
