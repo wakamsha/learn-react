@@ -56,16 +56,16 @@
     // ====================
     // 特殊な依存ライブラリ
     // ====================
-    {
-      // TypeScript は minor 以上のバージョンが SemVer 準拠していないため、 patch のみ renovate で管理する
-      packageNames: ['typescript'],
-      major: {
-        enabled: false,
-      },
-      minor: {
-        enabled: false,
-      },
-    },
+    // {
+    //   // TypeScript は minor 以上のバージョンが SemVer 準拠していないため、 patch のみ renovate で管理する
+    //   packageNames: ['typescript'],
+    //   major: {
+    //     enabled: false,
+    //   },
+    //   minor: {
+    //     enabled: false,
+    //   },
+    // },
     {
       groupName: 'React families',
       matchPackagePatterns: ['^react', '^@types/react'],
