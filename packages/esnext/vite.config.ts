@@ -1,5 +1,7 @@
-import { builder } from '../../bundler/vite';
+import { defineConfig } from 'vite';
 
-export default builder({
-  basePath: __dirname,
+export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
 });

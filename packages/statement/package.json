@@ -6,9 +6,9 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "develop": "vite",
+    "develop": "node ./bin/develop",
     "type-check": "tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\"",
-    "build": "tsc --noEmit && vite build"
+    "build": "tsc --noEmit && node ./bin/build"
   }
 }

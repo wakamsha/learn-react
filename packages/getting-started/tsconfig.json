@@ -1,11 +1,10 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@learn-react/core/*": ["../core/src/*"],
+      "@learn-react/core/*": ["../core/src/*"]
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "../core/src/*.d.ts"],
+  "include": ["./src/**/*", "../core/src/*.d.ts"]
 }

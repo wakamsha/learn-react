@@ -1,5 +1,9 @@
-import { builder } from '../../bundler/vite';
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import { defineConfig } from 'vite';
 
-export default builder({
-  basePath: __dirname,
+export default defineConfig({
+  plugins: [reactRefresh()],
+  esbuild: {
+    jsxInject: `import React from 'react';`,
+  },
 });
