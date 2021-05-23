@@ -6,5 +6,5 @@
       "@learn-react/icon": ["../icon/dist/index"]
     }
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*"]
 }
