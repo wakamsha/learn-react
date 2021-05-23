@@ -20,7 +20,7 @@ export const GetByParamForm = observer(() => {
     <form onSubmit={e => e.preventDefault()}>
       <h3>Get by Params</h3>
       <p>取得する User の id を指定</p>
-      <input type="number" max={100} disabled={submitRunning} onChange={handleChangeId} />
+      <input type="number" max={100} value={userId} disabled={submitRunning} onChange={handleChangeId} />
       <p>
         ID: <code>{store.userId}</code>
       </p>

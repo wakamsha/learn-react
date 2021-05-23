@@ -1,8 +1,9 @@
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
+// @ts-check
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
 
-export function getArgs(argv) {
-  return yargs(hideBin(argv))
+module.exports.getArgs = argv =>
+  yargs(hideBin(argv))
     .option('target', {
       alias: 't',
       choices: ['dev', 'stg', 'prod'],
@@ -13,4 +14,3 @@ export function getArgs(argv) {
       type: 'number',
       describe: 'specify PR number',
     }).argv;
-}

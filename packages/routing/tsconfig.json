@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
       "@learn-react/core/*": ["../core/src/*"],

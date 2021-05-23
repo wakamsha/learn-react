@@ -7,11 +7,13 @@ type Props = {
   min: number;
   max: number;
   value: number;
-  onValueChange: (value: string) => void;
+  onValueChange: (value: number) => void;
 };
 
 export const LabeledSlider = ({ label, unit, min, max, value, onValueChange }: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => onValueChange(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    onValueChange(Number(e.target.value));
+  };
 
   return (
     <div>
