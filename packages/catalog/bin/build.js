@@ -1,16 +1,13 @@
-import { build } from 'vite';
-import { resolve, dirname as _dirname } from 'path';
-import { getArgs } from './args.mjs';
+// @ts-check
+const { getArgs } = require('./args');
+const { build } = require('../../../builder/vite');
 
-const dirname = _dirname(new URL(import.meta.url).pathname);
-
+// @ts-ignore
 const { target, variant } = getArgs(process.argv);
 
-(async () => {
-  await build({
-    configFile: resolve(dirname, '../vite.config.ts'),
-    define: {
-      ENV: JSON.stringify({ target, ...(variant ? { variant: Number(variant) } : {}) }),
-    },
-  });
-})();
+build({
+  basePath: __dirname,
+  define: {
+    ENV: JSON.stringify({ target, ...(variant ? { variant: Number(variant) } : {}) }),
+  },
+});

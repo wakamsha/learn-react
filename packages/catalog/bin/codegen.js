@@ -1,13 +1,13 @@
-import fs from 'fs';
-import { resolve, dirname as _dirname } from 'path';
-import chokidar from 'chokidar';
-import ejs from 'ejs';
-import glob from 'glob';
-import yargs from 'yargs';
-import { hideBin } from 'yargs/helpers';
+// @ts-check
+const fs = require('fs');
+const { resolve } = require('path');
+const chokidar = require('chokidar');
+const ejs = require('ejs');
+const glob = require('glob');
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
 
-const dirname = _dirname(new URL(import.meta.url).pathname);
-
+// @ts-ignore
 const { watch } = yargs(hideBin(process.argv)).option('watch', {
   alias: 'w',
   type: 'boolean',
@@ -15,7 +15,7 @@ const { watch } = yargs(hideBin(process.argv)).option('watch', {
 }).argv;
 
 const TARGET_FILES = glob.sync(
-  resolve(dirname, '../../{core,catalog}/src/{components,constants,hooks}/**/index.story.tsx'),
+  resolve(__dirname, '../../{core,catalog}/src/{components,constants,hooks}/**/index.story.tsx'),
 );
 
 function addPath(fileLocations, acc) {

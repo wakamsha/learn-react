@@ -2,9 +2,9 @@
   "name": "@learn-react/catalog",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "type": "module",
   "dependencies": {
-    "@learn-react/core": "1.0.0"
+    "@learn-react/core": "1.0.0",
+    "@learn-react/icon": "1.0.0"
   },
   "scripts": {
     "generate": "node ./bin/codegen",

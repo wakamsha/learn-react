@@ -1,14 +1,14 @@
-import { createServer } from 'vite';
-import { resolve, dirname as _dirname } from 'path';
-import { getArgs } from './args.mjs';
+// @ts-check
+const { getArgs } = require('./args');
+const { createServer } = require('../../../builder/vite');
 
-const dirname = _dirname(new URL(import.meta.url).pathname);
-
+// @ts-ignore
 const { target, variant } = getArgs(process.argv);
 
 (async () => {
   const server = await createServer({
-    configFile: resolve(dirname, '../vite.config.ts'),
+    basePath: __dirname,
+    port: 4001,
     define: {
       ENV: JSON.stringify({ target, ...(variant ? { variant: Number(variant) } : {}) }),
     },
