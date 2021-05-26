@@ -40,7 +40,7 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
         </div>
       </div>
     </div>,
-    document.body,
+    document.getElementById('app') || document.body,
   );
 };
 

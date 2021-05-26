@@ -1,6 +1,6 @@
 import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, memo, ReactNode, useEffect, useState } from 'react';
-import { Toast, useRemoveToast } from '.';
+import { Toast } from '.';
 import { Color, Duration, Easing, IconSize, Shadow } from '../../../constants/Style';
 import { gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
@@ -10,7 +10,7 @@ type Props = {
 } & Pick<Toast, 'id' | 'icon' | 'theme'>;
 
 export const Item = memo(({ children, id, icon, theme = 'primary' }: Props) => {
-  const removeToast = useRemoveToast();
+  const { removeToast } = Toast.useToast();
 
   const [styleAddon, setStyleAddon] = useState('');
 

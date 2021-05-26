@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { iconElements, IconName } from '@learn-react/icon';
 import { ChangeEvent, useMemo, useReducer, useState } from 'react';
-import { Toast, ToastProvider, useAddToast } from '.';
+import { Toast } from '.';
 import { FontSize, LineHeight } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 
@@ -9,21 +9,21 @@ export const Story = () => {
   const [limit, setLimit] = useState(3);
 
   return (
-    <ToastProvider limit={limit}>
+    <Toast.Provider limit={limit}>
       <label className={styleFormControl}>
         <span>表示する上限数</span>
         <input type="number" min={1} max={10} value={limit} onChange={e => setLimit(Number(e.target.value))} />
       </label>
 
       <AddMessage />
-    </ToastProvider>
+    </Toast.Provider>
   );
 };
 
 const AddMessage = () => {
   console.info('render AddMessage');
 
-  const addToast = useAddToast();
+  const { addToast } = Toast.useToast();
 
   const [{ message, icon, theme }, dispatch] = useReducer(reducer, { message: '' });
 

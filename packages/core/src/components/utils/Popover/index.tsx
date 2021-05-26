@@ -87,7 +87,7 @@ export const Popover = ({
         {children}
       </div>
     </div>,
-    document.body,
+    document.getElementById('app') || document.body,
   );
 };
 

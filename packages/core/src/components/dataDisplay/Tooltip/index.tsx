@@ -106,7 +106,7 @@ export const Tooltip = ({ children, targetSelector, position = 'bottom', alignme
     <div role="tooltip" className={styleBase} ref={baseRef} style={point} aria-hidden={!shown}>
       {children}
     </div>,
-    document.body,
+    document.getElementById('app') || document.body,
   );
 };
 

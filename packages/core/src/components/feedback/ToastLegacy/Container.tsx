@@ -1,13 +1,15 @@
 import { css } from '@emotion/css';
 import { createPortal } from 'react-dom';
-import { useToasts } from '.';
+import { Toast } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Item } from './Item';
 
-export const Container = () => {
-  const toasts = useToasts();
+type Props = {
+  toasts: Toast[];
+};
 
-  return createPortal(
+export const Container = ({ toasts }: Props) =>
+  createPortal(
     <aside className={styleBase}>
       {toasts.map(({ id, message, icon, theme }) => (
         <Item key={id} id={id} icon={icon} theme={theme}>
@@ -17,7 +19,6 @@ export const Container = () => {
     </aside>,
     document.getElementById('app') || document.body,
   );
-};
 
 const styleBase = css`
   position: absolute;

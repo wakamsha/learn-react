@@ -1,7 +1,14 @@
 import { IconName } from '@learn-react/icon';
-import constate from 'constate';
-import { ReactNode, useCallback, useEffect, useState } from 'react';
+import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
+import { useContext } from '../../../hooks/useContext';
 import { Container } from './Container';
+
+type Context = {
+  addToast: ({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => void;
+  removeToast: (id: number) => void;
+};
+
+const Context = createContext<Context | null>(null);
 
 type ProviderProps = {
   children: ReactNode;
@@ -22,7 +29,7 @@ export type Toast = {
   theme?: Theme;
 };
 
-const useToast = ({ limit = 1 }) => {
+const Provider = ({ children, limit = 1 }: ProviderProps) => {
   const [queue, setQueue] = useState<Toast[]>([]);
 
   const [toasts, SetToasts] = useState<Toast[]>([]);
@@ -41,21 +48,17 @@ const useToast = ({ limit = 1 }) => {
     }
   }, [limit, toasts.length, queue]);
 
-  return { toasts, addToast, removeToast };
+  return (
+    <Context.Provider value={{ addToast, removeToast }}>
+      {children}
+      <Container toasts={toasts} />
+    </Context.Provider>
+  );
 };
 
-const [Provider, useToasts, useAddToast, useRemoveToast] = constate(
+const useToast = (): Context => useContext(Context);
+
+export const Toast = {
+  Provider,
   useToast,
-  hook => hook.toasts,
-  hook => hook.addToast,
-  hook => hook.removeToast,
-);
-
-const ToastProvider = ({ children, limit = 1 }: ProviderProps) => (
-  <Provider limit={limit}>
-    {children}
-    <Container />
-  </Provider>
-);
-
-export { ToastProvider, useToasts, useAddToast, useRemoveToast };
+} as const;
