@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/css';
-import { AnimationEvent, memo, ReactNode, useEffect, useState } from 'react';
+import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Toast } from '.';
 import { Color, Duration, Easing, IconSize, Shadow } from '../../../constants/Style';
 import { gutter, square } from '../../../helpers/Style';
@@ -9,7 +9,7 @@ type Props = {
   children: ReactNode;
 } & Pick<Toast, 'id' | 'icon' | 'theme'>;
 
-export const Item = memo(({ children, id, icon, theme = 'primary' }: Props) => {
+export const Item = ({ children, id, icon, theme = 'primary' }: Props) => {
   const { removeToast } = Toast.useToast();
 
   const [styleAddon, setStyleAddon] = useState('');
@@ -34,7 +34,7 @@ export const Item = memo(({ children, id, icon, theme = 'primary' }: Props) => {
       <span>{children}</span>
     </div>
   );
-});
+};
 
 const hideDurationTime = 5000;
 
