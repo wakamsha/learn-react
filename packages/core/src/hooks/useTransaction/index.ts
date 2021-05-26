@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
-import { useMounted } from './useMounted';
+import { useMounted } from '../useMounted';
 
 export type TransactionStatus = Partial<{
   running: boolean;
