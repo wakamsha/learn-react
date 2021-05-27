@@ -1,11 +1,11 @@
 import { css } from '@emotion/css';
+import { Card } from '.';
 import { FontSize, LineHeight } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
-import { Card } from '.';
 
 export const Story = () => (
   <>
-    <h3>Neutral</h3>
+    <h2>Neutral</h2>
     <Card shadow="neutral">
       <div className={styleInner}>
         <p>
@@ -14,7 +14,7 @@ export const Story = () => (
       </div>
     </Card>
 
-    <h3>Dialog</h3>
+    <h2>Dialog</h2>
     <Card shadow="dialog">
       <div className={styleInner}>
         <p>
@@ -23,7 +23,7 @@ export const Story = () => (
       </div>
     </Card>
 
-    <h3>Floating</h3>
+    <h2>Floating</h2>
     <Card shadow="floating">
       <div className={styleInner}>
         <p>
@@ -32,7 +32,7 @@ export const Story = () => (
       </div>
     </Card>
 
-    <h3>Deep</h3>
+    <h2>Deep</h2>
     <Card shadow="deep">
       <div className={styleInner}>
         <p>
@@ -41,7 +41,7 @@ export const Story = () => (
       </div>
     </Card>
 
-    <h3>Hover</h3>
+    <h2>Hover</h2>
     <Card hover>
       <div className={styleInner}>
         <p>
@@ -50,7 +50,7 @@ export const Story = () => (
       </div>
     </Card>
 
-    <h3>Max Width = 200</h3>
+    <h2>Max Width = 200</h2>
     <Card shadow="neutral" maxWidth={200}>
       <div className={styleInner}>
         <p>

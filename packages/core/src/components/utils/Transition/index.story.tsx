@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
+import { Transition } from '.';
 import { FontSize, Shadow } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
-import { Transition } from '.';
 
 export const Story = () => {
   const [state1, setState1] = useState(false);
@@ -15,7 +15,7 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Horizontal ( Default )</h3>
+      <h2>Horizontal ( Default )</h2>
       <button onClick={handleToggle1}>Toggle</button>
 
       <Transition id={`${state1}`}>
@@ -28,14 +28,14 @@ export const Story = () => {
         ) : (
           <article className={styleCard}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+              Stay Hungry. Stay Foolish. And I have always wished that for myself. And now, as you graduate to begin
+              anew, I wish that for you.
             </p>
           </article>
         )}
       </Transition>
 
-      <h3>Vertical</h3>
+      <h2>Vertical</h2>
       <button onClick={handleToggle2}>Toggle</button>
 
       <Transition id={`${state2}`} type="vertical">
@@ -48,14 +48,14 @@ export const Story = () => {
         ) : (
           <article className={styleCard}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+              Stay Hungry. Stay Foolish. And I have always wished that for myself. And now, as you graduate to begin
+              anew, I wish that for you.
             </p>
           </article>
         )}
       </Transition>
 
-      <h3>Scale</h3>
+      <h2>Scale</h2>
       <button onClick={handleToggle3}>Toggle</button>
 
       <Transition id={`${state3}`} type="scale">
@@ -68,8 +68,8 @@ export const Story = () => {
         ) : (
           <article className={styleCard}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+              Stay Hungry. Stay Foolish. And I have always wished that for myself. And now, as you graduate to begin
+              anew, I wish that for you.
             </p>
           </article>
         )}

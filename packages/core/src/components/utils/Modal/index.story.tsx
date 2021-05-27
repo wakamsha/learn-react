@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
+import { Modal } from '.';
 import { FontSize, Shadow } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
-import { Modal } from '.';
 
 export const Story = () => {
   const [visible1, setVisible1] = useState(false);
@@ -10,10 +10,10 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Normal content</h3>
+      <h2>Normal content</h2>
       <button onClick={() => setVisible1(true)}>Open</button>
 
-      <h3>Very long content</h3>
+      <h2>Very long content</h2>
       <button onClick={() => setVisible2(true)}>Open</button>
 
       <Modal visible={visible1} onClickOutside={() => setVisible1(false)}>

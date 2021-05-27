@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
+import { Tooltip } from '.';
 import { gutter, square } from '../../../helpers/Style';
 import { Checkbox } from '../../inputs/Checkbox';
 import { Icon } from '../Icon';
-import { Tooltip } from '.';
 
 export const Story = () => {
   const [disabled, setDisabled] = useState(false);
@@ -14,7 +14,7 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Basic</h3>
+      <h2>Basic</h2>
       <Checkbox.Label label="Disabled">
         <Checkbox checked={disabled} onChange={handleChangeDisabled} />
       </Checkbox.Label>
@@ -43,7 +43,7 @@ export const Story = () => {
 
       <hr />
 
-      <h3>Positioned</h3>
+      <h2>Positioned</h2>
       <div className={styleGrid}>
         <div className={styleAreaTopStart}>
           <button id="top-start">Top-Start</button>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { Calendar } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Card } from '../../surfaces/Card';
-import { Calendar } from '.';
 
 export const Story = () => {
   const [date, setDate] = useState(new Date());
@@ -10,7 +10,7 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Basic</h3>
+      <h2>Basic</h2>
       <Calendar
         value={date}
         page={month}
@@ -20,7 +20,7 @@ export const Story = () => {
         onChangeMonth={setMonth}
       />
 
-      <h3>With Card</h3>
+      <h2>With Card</h2>
       <Card width={280}>
         <div style={{ padding: gutter(4) }}>
           <Calendar

@@ -2,7 +2,7 @@ import { Box } from '.';
 
 export const Story = () => (
   <>
-    <h3>Horizontal</h3>
+    <h2>Horizontal</h2>
     <Box orientation="horizontal">
       <Box.Cell>
         <div style={{ color: 'white', background: 'red', padding: 16 }}>hello world</div>
@@ -16,7 +16,7 @@ export const Story = () => (
         <div style={{ color: 'white', background: 'red', padding: 16 }}>Goodbye</div>
       </Box.Cell>
     </Box>
-    <h3>Vertical</h3>
+    <h2>Vertical</h2>
     <Box orientation="vertical">
       <Box.Cell>
         <div style={{ color: 'white', background: 'red', padding: 16 }}>hello world</div>

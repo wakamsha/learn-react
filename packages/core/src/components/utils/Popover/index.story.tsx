@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { ComponentProps, MouseEvent, useState } from 'react';
+import { Popover } from '.';
 import { FontSize, Shadow } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
-import { Popover } from '.';
 
 export const Story = () => {
   const [visible, setVisible] = useState(false);
@@ -23,7 +23,7 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Basic</h3>
+      <h2>Basic</h2>
       <div className={styleGrid}>
         <div className={styleAreaTopStart}>
           <button id="top-start" data-position="top" data-alignment="start" onClick={handleClickShow}>

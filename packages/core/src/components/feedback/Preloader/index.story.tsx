@@ -1,12 +1,12 @@
-import { Button } from '../../inputs/Button';
 import { Preloader } from '.';
+import { Button } from '../../inputs/Button';
 
 export const Story = () => (
   <>
-    <h3>Basic</h3>
+    <h2>Basic</h2>
     <Preloader />
 
-    <h3>Button</h3>
+    <h2>Button</h2>
     <Button disabled>
       <Preloader size="button" theme="inverse" />
     </Button>

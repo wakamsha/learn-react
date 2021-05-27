@@ -1,13 +1,13 @@
 import { css } from '@emotion/css';
+import { Button } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
-import { Button } from '.';
 
 const themes = ['primary', 'danger'] as const;
 
 export const Story = () => (
   <>
-    <h3>Solid</h3>
+    <h2>Solid</h2>
     <div className={styleRow}>
       {themes.map(theme => (
         <div key={theme} className={styleCell}>
@@ -19,7 +19,7 @@ export const Story = () => (
       </div>
     </div>
 
-    <h3>Ghost</h3>
+    <h2>Ghost</h2>
     <div className={styleRow}>
       {themes.map(theme => (
         <div key={theme} className={styleCell}>
@@ -35,7 +35,7 @@ export const Story = () => (
       </div>
     </div>
 
-    <h3>Bare</h3>
+    <h2>Bare</h2>
     <div className={styleRow}>
       {themes.map(theme => (
         <div key={theme} className={styleCell}>
@@ -51,7 +51,7 @@ export const Story = () => (
       </div>
     </div>
 
-    <h3>With Icon</h3>
+    <h2>With Icon</h2>
     <div className={styleRow}>
       {(['solid', 'ghost', 'bare'] as const).map(variant => (
         <div key={variant} className={styleCell}>
@@ -73,7 +73,7 @@ export const Story = () => (
       ))}
     </div>
 
-    <h3>Block</h3>
+    <h2>Block</h2>
     <div className={styleCell}>
       <Button block>Solid</Button>
     </div>
@@ -83,7 +83,7 @@ export const Story = () => (
       </Button>
     </div>
 
-    <h3>Noop</h3>
+    <h2>Noop</h2>
     <div className={styleRow}>
       <div className={styleCell}>
         <Button noop>Solid</Button>

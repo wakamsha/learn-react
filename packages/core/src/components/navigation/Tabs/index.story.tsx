@@ -23,13 +23,13 @@ export const Story = () => {
 
   return (
     <>
-      <h3>Basic</h3>
+      <h2>Basic</h2>
       <Tabs options={options} value={state} onChange={handleChange} />
       <p>
         Current state: <code>{state}</code>
       </p>
 
-      <h3>Sizes</h3>
+      <h2>Sizes</h2>
       <Tabs options={options} value={1} onChange={console.info} />
       <Tabs options={options} value={1} onChange={console.info} size="small" />
     </>
