@@ -132,6 +132,10 @@ const stylePreview = css`
     margin: 2em 0 0.5em;
   }
 
+  > h2 {
+    font-size: 20px;
+  }
+
   > hr {
     margin: ${gutter(6)} 0;
   }

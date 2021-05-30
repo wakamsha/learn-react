@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { FontFamily, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
-import * as hljs from 'highlight.js';
+import hljs from 'highlight.js';
 import { useEffect, useRef } from 'react';
 
 type Props = {
@@ -13,8 +13,8 @@ export const CodeBlock = ({ children }: Props) => {
 
   useEffect(() => {
     if (ref.current) {
-      hljs.initHighlighting();
-      hljs.highlightBlock(ref.current);
+      hljs.highlightAll();
+      hljs.highlightElement(ref.current);
     }
   });
 
