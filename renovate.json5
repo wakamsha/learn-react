@@ -12,6 +12,13 @@
   major: {
     stabilityDays: 7,
   },
+  minor: {
+    stabilityDays: 3,
+  },
+  patch: {
+    automerge: true,
+    stabilityDays: 2,
+  },
   vulnerabilityAlerts: {
     labels: ['Hot fix'],
     reviewers: ['wakamsha'],
@@ -21,38 +28,38 @@
     // ====================
     // dependencies
     // ====================
-    {
-      depTypeList: ['dependencies'],
-      minor: {
-        groupName: 'All dependencies:minor',
-        stabilityDays: 3,
-      },
-      patch: {
-        groupName: 'All dependencies:patch',
-        stabilityDays: 2,
-      },
-    },
+    // {
+    //   depTypeList: ['dependencies'],
+    //   minor: {
+    //     groupName: 'All dependencies:minor',
+    //     stabilityDays: 3,
+    //   },
+    //   patch: {
+    //     groupName: 'All dependencies:patch',
+    //     stabilityDays: 2,
+    //   },
+    // },
 
     // ====================
     // devDependencies
     // ====================
-    {
-      depTypeList: ['devDependencies'],
-      major: {
-        groupName: 'All devDependencies:major',
-        stabilityDays: 7,
-      },
-      minor: {
-        groupName: 'All devDependencies:minor',
-        stabilityDays: 3,
-      },
-      // devDependencies の patch は CI が通ったら自動的に merge する。
-      patch: {
-        groupName: 'All devDependencies:patch',
-        automerge: true,
-        stabilityDays: 2,
-      },
-    },
+    // {
+    //   depTypeList: ['devDependencies'],
+    //   major: {
+    //     groupName: 'All devDependencies:major',
+    //     stabilityDays: 7,
+    //   },
+    //   minor: {
+    //     groupName: 'All devDependencies:minor',
+    //     stabilityDays: 3,
+    //   },
+    //   // devDependencies の patch は CI が通ったら自動的に merge する。
+    //   patch: {
+    //     groupName: 'All devDependencies:patch',
+    //     automerge: true,
+    //     stabilityDays: 2,
+    //   },
+    // },
     // ====================
     // 特殊な依存ライブラリ
     // ====================
@@ -66,6 +73,12 @@
     //     enabled: false,
     //   },
     // },
+    {
+      groupName: 'Node.js',
+      matchPackageNames: ['node', 'circleci/node'],
+      // circleci/node は LTS としてみてくれないので Major が偶数のときのみ見るようにする
+      allowedVersions: '/^[0-9]+[24680]\\.[0-9]+\\.[0-9]+$/',
+    },
     {
       groupName: 'React families',
       matchPackagePatterns: ['^react', '^@types/react'],
