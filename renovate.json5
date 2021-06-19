@@ -88,6 +88,10 @@
       matchPackagePatterns: ['^eslint', '^@typescript-eslint'],
     },
     {
+      groupName: 'Prettier families',
+      matchPackagePatterns: ['^prettier'],
+    },
+    {
       groupName: 'Stylelint families',
       matchPackagePatterns: ['^stylelint'],
     },
