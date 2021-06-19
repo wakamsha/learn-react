@@ -1,3 +1,6 @@
+/**
+ * Unstated Next も Constate も使わない最もプリミティブな実装。
+ */
 import { IconName } from '@learn-react/icon';
 import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
 import { useContext } from '../../../hooks/useContext';
@@ -29,9 +32,6 @@ export type Toast = {
   theme?: Theme;
 };
 
-/**
- * Unstated Next も Constate も使わない最もプリミティブな実装。
- */
 const Provider = ({ children, limit = 1 }: ProviderProps) => {
   const [queue, setQueue] = useState<Toast[]>([]);
 

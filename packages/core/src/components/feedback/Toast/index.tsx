@@ -1,3 +1,6 @@
+/**
+ * Constate を使った実装。
+ */
 import { IconName } from '@learn-react/icon';
 import constate from 'constate';
 import { ReactNode, useCallback, useEffect, useState } from 'react';

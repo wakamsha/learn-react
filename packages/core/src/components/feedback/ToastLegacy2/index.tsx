@@ -1,3 +1,6 @@
+/**
+ * Unstated-Next を使った実装。
+ */
 import { IconName } from '@learn-react/icon';
 import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { createContainer } from '../../../helpers/Container';
