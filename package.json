@@ -55,7 +55,7 @@
     "stylelint-config-recommended": "5.0.0",
     "svgo": "2.3.0",
     "ts-xor": "1.0.8",
-    "typescript": "4.3.2",
+    "typescript": "4.3.4",
     "vite": "2.3.7",
     "yargs": "17.0.1"
   },
