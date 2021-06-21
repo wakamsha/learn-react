@@ -13,9 +13,10 @@ type Props = {
 };
 
 export function TemperatureInput(props: Props) {
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => props.onTemperatureChange(e.target.value), [
-    props,
-  ]);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => props.onTemperatureChange(e.target.value),
+    [props],
+  );
   const { scale, temperature } = props;
   return (
     <fieldset>

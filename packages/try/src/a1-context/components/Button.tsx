@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-
 import { Theme } from '../App';
 
 const baseStyle = css({
