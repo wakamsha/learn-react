@@ -2,7 +2,7 @@
 #
 # (Start) ── setup ─┬─ lint ──────────────────┬─ (Done)
 #                   ├─ build_catalog ─────────┤
-#                   ├─ build_getting_started ─┤
+#                   ├─ build_try ─────────────┤
 #                   ├─ build_mobx ────────────┤
 #                   └─ build_routing ─────────┘
 
@@ -99,7 +99,7 @@ jobs:
       - name: Build
         run: yarn catalog build
 
-  build_getting_started:
+  build_try:
     needs: setup
     runs-on: ubuntu-latest
 
@@ -127,7 +127,7 @@ jobs:
         run: yarn icon build
 
       - name: Build
-        run: yarn getting-started build
+        run: yarn try build
 
   build_mobx:
     needs: setup
