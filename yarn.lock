@@ -1396,10 +1396,10 @@ confusing-browser-globals@^1.0.10:
   resolved "https://registry.yarnpkg.com/confusing-browser-globals/-/confusing-browser-globals-1.0.10.tgz#30d1e7f3d1b882b25ec4933d1d1adac353d20a59"
   integrity sha512-gNld/3lySHwuhaVluJUKLePYirM3QNCKzVxqAdhJII9/WXKVX5PURzMVJspS1jTslSqjeuG4KMVTSouit5YPHA==
 
-constate@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/constate/-/constate-3.2.0.tgz#6034e7b775ca0e58137274f87c25196e8932f685"
-  integrity sha512-hP7sj9jt+KwVRoFlzaJuv3kBvchE9hNMAYJEH1weKZYD7+UAWRSo7oXARrfhipVLP3XZxIkmD+E9zXU+5RYKCQ==
+constate@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/constate/-/constate-3.3.0.tgz#3961f552ab1bec2a9d0d56c9bc1d6bcde407357b"
+  integrity sha512-mRjWH2J4D3Rq6XAuEhoGUkBWrBLUNbiYr/Rp4M/MEEp+LN0vctQS3EAw/6bxlnDy59T+UrAEU9Tg136Dfp6ytg==
 
 conventional-changelog-angular@^5.0.11:
   version "5.0.12"
