@@ -1,15 +1,15 @@
 // @ts-check
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const { runBuild, runCreateServer } = require('../../../builder/vite');
+const { exec } = require('../../../builder/vite');
 
 // @ts-ignore
-const { build, target, variant } = yargs(hideBin(process.argv))
-  .option('build', {
-    alias: 'b',
-    type: 'boolean',
-    describe: 'プロダクション用にビルドするかどうかを指定します。',
-    default: false,
+const { mode, target, variant } = yargs(hideBin(process.argv))
+  .option('mode', {
+    alias: 'm',
+    choices: ['develop', 'build'],
+    describe: 'develop: 開発用ビルド, build: プロダクション用ビルド',
+    default: 'develop',
   })
   .option('target', {
     alias: 't',
@@ -22,23 +22,10 @@ const { build, target, variant } = yargs(hideBin(process.argv))
     describe: 'specify PR number',
   }).argv;
 
-const define = {
-  ENV: JSON.stringify({ target, ...(variant ? { variant: Number(variant) } : {}) }),
-};
-
-if (build) {
-  runBuild({
-    define,
-    basePath: __dirname,
-  });
-} else {
-  (async () => {
-    const server = await runCreateServer({
-      define,
-      basePath: __dirname,
-      port: 4001,
-    });
-
-    await server.listen();
-  })();
-}
+exec(mode, {
+  basePath: __dirname,
+  define: {
+    ENV: JSON.stringify({ target, ...(variant ? { variant } : {}) }),
+  },
+  port: 4001,
+});

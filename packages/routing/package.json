@@ -11,7 +11,7 @@
   "scripts": {
     "develop": "node ./bin/vite",
     "type-check": "tsc --noEmit",
-    "start": "run-p \"develop\" \"type-check --watch\"",
-    "build": "yarn type-check && node ./bin/vite -b"
+    "start": "run-p \"type-check --watch\" \"develop\"",
+    "build": "yarn type-check && node ./bin/vite -m build"
   }
 }

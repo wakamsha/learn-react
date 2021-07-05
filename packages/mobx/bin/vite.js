@@ -1,27 +1,14 @@
 // @ts-check
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
-const { runBuild, runCreateServer } = require('../../../builder/vite');
+const { exec } = require('../../../builder/vite');
 
 // @ts-ignore
-const { build } = yargs(hideBin(process.argv)).option('build', {
-  alias: 'b',
-  type: 'boolean',
-  describe: 'プロダクション用にビルドするかどうかを指定します。',
-  default: false,
+const { mode } = yargs(hideBin(process.argv)).option('mode', {
+  alias: 'm',
+  choices: ['develop', 'build'],
+  describe: 'develop: 開発用ビルド, build: プロダクション用ビルド',
+  default: 'develop',
 }).argv;
 
-if (build) {
-  runBuild({
-    basePath: __dirname,
-  });
-} else {
-  (async () => {
-    const server = await runCreateServer({
-      basePath: __dirname,
-      port: 3001,
-    });
-
-    await server.listen();
-  })();
-}
+exec(mode, { basePath: __dirname });

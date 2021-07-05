@@ -11,6 +11,6 @@
     "develop": "node ./bin/vite",
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
-    "build": "yarn generate && tsc --noEmit && node ./bin/vite -b --"
+    "build": "yarn generate && yarn type-check && node ./bin/vite -m build"
   }
 }
