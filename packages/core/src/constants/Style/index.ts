@@ -1,18 +1,19 @@
 export const Color = {
   // Theme
-  ThemePrimaryNeutral: '#7E808C',
-  ThemePrimaryLight: '#616474',
   ThemePrimaryLighter: '#E3E3E7',
+  /** @deprecated */
+  ThemePrimaryLight: '#616474',
+  ThemePrimaryNeutral: '#7E808C',
   ThemePrimaryDark: '#656772',
   ThemePrimaryDarker: '#474A5E',
 
-  ThemeDangerNeutral: '#D2397C',
-  ThemeDangerLight: '#C71060',
-  ThemeDangerDark: '#970847',
   ThemeDangerLighter: '#FCDEEC',
+  ThemeDangerLight: '#C71060',
+  ThemeDangerNeutral: '#D2397C',
+  ThemeDangerDark: '#970847',
 
-  ThemeDisabledNeutral: '#D6D9DF',
   ThemeDisabledLight: '#F6F6F8',
+  ThemeDisabledNeutral: '#D6D9DF',
   ThemeDisabledDark: '#7E808C',
 
   // Text
@@ -20,9 +21,9 @@ export const Color = {
   TextSub: '#808d96',
 
   // Line
-  LineNeutral: '#BFC1C9',
+  // LineLighter: '#E3E5E6',
   LineLight: '#E3E3E7',
-  LineLighter: '#E3E5E6',
+  LineNeutral: '#BFC1C9',
   LineDark: '#7E808C',
 
   // Texture
@@ -30,6 +31,7 @@ export const Color = {
   TextureCode: '#0F192A',
   TextureInput: '#F6F6F8',
   TextureBackdrop: '#E3E4E8',
+  TexturePale: '#FBFBFC',
   TexturePaper: '#FFFFFF',
 } as const;
 

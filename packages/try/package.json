@@ -2,6 +2,9 @@
   "name": "@learn-react/try",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "dependencies": {
+    "@learn-react/core": "1.0.0"
+  },
   "scripts": {
     "develop": "vite",
     "type-check": "tsc --noEmit",

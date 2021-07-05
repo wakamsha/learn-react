@@ -108,7 +108,7 @@ const styleBase = css`
   height: 100vh;
   overflow-y: auto;
   background: ${Color.TextureBody};
-  border-right: 1px solid ${Color.LineLighter};
+  border-right: 1px solid ${Color.LineLight};
 `;
 
 const styleMasthead = css`
