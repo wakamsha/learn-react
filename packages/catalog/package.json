@@ -8,9 +8,9 @@
   },
   "scripts": {
     "generate": "node ./bin/codegen",
-    "develop": "node ./bin/develop",
+    "develop": "node ./bin/vite",
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
-    "build": "yarn generate && tsc --noEmit && node ./bin/build --"
+    "build": "yarn generate && tsc --noEmit && node ./bin/vite -b --"
   }
 }
