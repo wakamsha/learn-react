@@ -1,46 +1,54 @@
 // @ts-check
-const { createServer: createServerOrigin, build: buildOrigin } = require('vite');
+const { createServer, build } = require('vite');
 const reactRefresh = require('@vitejs/plugin-react-refresh');
 const { resolve } = require('path');
 
 /**
+ * @typedef {['develop', 'build'][number]} Mode Vite の起動モードを指定します。
+ * - develop: Dev サーバを起動し開発用にビルドします。
+ * - build: プロダクション用にビルドします。
+ *
  * @typedef {object} Props
  * @property {string} basePath
  * @property {number} [port]
  * @property {object} [define]
  *
+ * @param {Mode} mode
  * @param {Props} props
  */
-module.exports.createServer = ({ basePath, port = 3000, define }) =>
-  createServerOrigin({
-    define,
-    root: resolve(basePath, '../'),
-    // @ts-ignore
-    plugins: [reactRefresh()],
-    esbuild: {
-      jsxInject: `import React from 'react';`,
-    },
-    resolve: {
-      alias: {
-        '@learn-react/core': resolve(basePath, '../../core/src'),
-        '@learn-react/icon': resolve(basePath, '../../icon/dist'),
+module.exports.exec = (mode = 'develop', { basePath, port = 3000, define }) => {
+  console.info({ mode, define });
+
+  if (mode === 'develop') {
+    (async () => {
+      const server = await createServer({
+        define,
+        server: {
+          port,
+        },
+        ...createBaseConfig(basePath),
+      });
+
+      await server.listen();
+    })();
+  } else {
+    build({
+      define,
+      build: {
+        sourcemap: true,
       },
-    },
-    server: {
-      port,
-    },
-  });
+      ...createBaseConfig(basePath),
+    });
+  }
+};
 
 /**
- * @typedef {object} BuildProps
- * @property {string} basePath
- * @property {object} [define]
+ * Vite 実行関数に渡す共通設定オブジェクトを生成します。
  *
- * @param {BuildProps} props
+ * @param {string} basePath
  */
-module.exports.build = ({ basePath, define }) =>
-  buildOrigin({
-    define,
+function createBaseConfig(basePath) {
+  return {
     root: resolve(basePath, '../'),
     // @ts-ignore
     plugins: [reactRefresh()],
@@ -53,7 +61,5 @@ module.exports.build = ({ basePath, define }) =>
         '@learn-react/icon': resolve(basePath, '../../icon/dist'),
       },
     },
-    build: {
-      sourcemap: true,
-    },
-  });
+  };
+}
