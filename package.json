@@ -24,7 +24,7 @@
     "@commitlint/cli": "12.1.4",
     "@types/highlight.js": "10.1.0",
     "@types/node": "15.3.1",
-    "@types/qs": "6.9.6",
+    "@types/qs": "6.9.7",
     "@types/ramda": "0.27.42",
     "@types/react": "17.0.14",
     "@types/react-dom": "17.0.9",
