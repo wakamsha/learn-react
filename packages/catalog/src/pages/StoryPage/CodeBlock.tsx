@@ -29,14 +29,15 @@ export const CodeBlock = ({ children }: Props) => {
 
 const styleBase = css`
   height: 100%;
-  padding: ${gutter(8)} ${gutter(4)};
+  padding: 0;
   margin: 0;
   overflow: auto;
   background: transparent;
   border: none;
 
   > code {
-    padding: 0;
+    height: 100%;
+    padding: ${gutter(8)} ${gutter(4)} !important;
     overflow: visible;
     font-family: ${FontFamily.Monospace};
     font-size: 13px;
