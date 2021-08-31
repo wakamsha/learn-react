@@ -48,16 +48,16 @@ export function useTransaction<T extends any[]>(
         if (mounted.current) {
           setStatus({ running: false, error: false });
         }
-      } catch (e) {
-        console.error('useTransaction', e);
+      } catch (error) {
+        console.error('useTransaction', error);
 
-        onError?.(e);
+        onError?.(error as ErrorResult);
 
         if (mounted.current) {
           setStatus({ running: false, error: true });
         }
 
-        throw e;
+        throw error;
       }
     },
     [mounted, onAction, onError],
