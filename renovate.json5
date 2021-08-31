@@ -5,9 +5,6 @@
   schedule: ['every weekend'],
   commitMessagePrefix: ':pill: ',
   reviewers: ['wakamsha'],
-  node: {
-    supportPolicy: ['lts_latest'],
-  },
   separateMinorPatch: true,
   major: {
     stabilityDays: 7,

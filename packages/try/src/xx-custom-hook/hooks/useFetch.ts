@@ -54,7 +54,9 @@ export const useFetch = (url: string, opts: any, readBody: any) => {
           dispatchSafe({ type: 'error', error: e });
         }
       } catch (e) {
-        dispatchSafe({ type: 'error', error: e });
+        if (e instanceof Error) {
+          dispatchSafe({ type: 'error', error: e });
+        }
       }
     })();
 
