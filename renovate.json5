@@ -10,6 +10,7 @@
     stabilityDays: 7,
   },
   minor: {
+    automerge: true,
     stabilityDays: 3,
   },
   patch: {
