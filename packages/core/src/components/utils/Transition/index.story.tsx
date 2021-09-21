@@ -82,6 +82,6 @@ const styleCard = css`
   padding: ${gutter(4)};
   margin: ${gutter(2)};
   font-size: ${FontSize.Regular};
-  background: white;
+  background-color: white;
   box-shadow: ${Shadow.Floating};
 `;

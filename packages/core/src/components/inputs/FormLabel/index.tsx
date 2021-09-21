@@ -2,9 +2,9 @@ import { css } from '@emotion/css';
 import { ReactNode, useMemo } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';
 import { Tooltip } from '../../../components/dataDisplay/Tooltip';
-import { Color, FontSize, IconSize } from '../../../constants/Style';
+import { FontSize, IconSize } from '../../../constants/Style';
 import { makeId } from '../../../helpers/String';
-import { gutter, square } from '../../../helpers/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Props = {
   label: string;
@@ -53,9 +53,10 @@ const styleLabelText = css`
   width: -moz-fit-content;
   width: fit-content;
   font-size: ${FontSize.Small};
-  color: ${Color.TextSub};
+  color: ${cssVar('TextSub')};
 
   > svg {
+    fill: ${cssVar('TextNeutral')};
     ${square(IconSize.Regular)}
   }
 `;

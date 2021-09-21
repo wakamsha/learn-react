@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { BorderRadius, Color, Duration, FontSize, IconSize } from '../../../constants/Style';
-import { square } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize, IconSize } from '../../../constants/Style';
+import { cssVar, square } from '../../../helpers/Style';
 
 type Props = {
   onClick: (value: Date) => void;
@@ -46,7 +46,7 @@ const styleBase = css`
     transition: background-color ${Duration.Fade};
 
     &:hover {
-      background-color: ${Color.ThemePrimaryLighter};
+      background-color: ${cssVar('ThemePrimaryLight')};
     }
   }
 
@@ -56,16 +56,16 @@ const styleBase = css`
 
     &,
     &:hover {
-      background: ${Color.ThemePrimaryDark};
+      background-color: ${cssVar('ThemePrimaryDark')};
     }
   }
 
   &[aria-disabled='true'] {
-    color: ${Color.ThemeDisabledNeutral};
+    color: ${cssVar('ThemeDisabledNeutral')};
     cursor: not-allowed;
 
     &:hover {
-      background: transparent;
+      background-color: transparent;
     }
   }
 `;

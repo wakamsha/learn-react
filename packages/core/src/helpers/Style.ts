@@ -1,6 +1,6 @@
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
-import { Color2, FontFamily } from '../constants/Style';
+import { Color, FontFamily } from '../constants/Style';
 import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
 import NotoSansRegular from './fonts/noto-sans/NotoSansJP-Regular.woff';
 import NotoSerifRegular from './fonts/noto-serif/NotoSerifJP-Regular.woff';
@@ -15,7 +15,7 @@ import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
  * cssVar('Primary')      // var(--primary)
  * cssVar('TexturePaper') // var(--texture-paper)
  */
-export function cssVar(key: keyof typeof Color2) {
+export function cssVar(key: keyof typeof Color): `var(--${keyof typeof Color})` {
   return `var(--${key})`;
 }
 
@@ -82,44 +82,11 @@ export function textEllipsis() {
   `;
 }
 
-export function applyGlobalStyle() {
+/**
+ * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
+ */
+export function applyResetStyle() {
   return injectGlobal`
-    @font-face {
-      font-family: 'Noto Sans Japanese';
-      font-style: normal;
-      font-weight: normal;
-      font-display: swap;
-      src: local('Noto Sans Japanese'),
-        url(${NotoSansRegular}) format('woff');
-    }
-    @font-face {
-      font-family: 'Noto Sans Japanese';
-      font-style: normal;
-      font-weight: bold;
-      font-display: swap;
-      src: local('Noto Sans Japanese Bold'),
-        url(${NotoSansMedium}) format('woff');
-    }
-    @font-face {
-      font-family: 'Noto Serif Japanese';
-      font-style: normal;
-      font-weight: normal;
-      font-display: swap;
-      src: local('Noto Serif Japanese'),
-        url(${NotoSerifRegular}) format('woff');
-    }
-    @font-face {
-      font-family: 'Noto Serif Japanese';
-      font-style: normal;
-      font-weight: bold;
-      font-display: swap;
-      src: local('Noto Serif Japanese Bold'),
-        url(${NotoSerifSemiBold}) format('woff');
-    }
-
-    /* Reset */
-    /* 以下を参考 */
-    /* https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css */
     *,
     *:before,
     *:after {
@@ -161,8 +128,72 @@ export function applyGlobalStyle() {
       display: block;
       overflow-x: hidden;
     }
+  `;
+}
 
-    /* Scaffolding */
+export function applyGlobalStyle() {
+  return injectGlobal`
+    @font-face {
+      font-family: 'Noto Sans Japanese';
+      font-style: normal;
+      font-weight: normal;
+      font-display: swap;
+      src: local('Noto Sans Japanese'),
+        url(${NotoSansRegular}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Sans Japanese';
+      font-style: normal;
+      font-weight: bold;
+      font-display: swap;
+      src: local('Noto Sans Japanese Bold'),
+        url(${NotoSansMedium}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Serif Japanese';
+      font-style: normal;
+      font-weight: normal;
+      font-display: swap;
+      src: local('Noto Serif Japanese'),
+        url(${NotoSerifRegular}) format('woff');
+    }
+    @font-face {
+      font-family: 'Noto Serif Japanese';
+      font-style: normal;
+      font-weight: bold;
+      font-display: swap;
+      src: local('Noto Serif Japanese Bold'),
+        url(${NotoSerifSemiBold}) format('woff');
+    }
+
+    :root {
+      ${css(
+        Object.entries(Color).reduce(
+          (acc, [key, value]) => ({
+            ...acc,
+            [`--${key}`]: value.light,
+          }),
+          {},
+        ),
+      )}
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+
+        ${css(
+          Object.entries(Color).reduce(
+            (acc, [key, value]) => ({
+              ...acc,
+              [`--${key}`]: value.dark,
+            }),
+            {},
+          ),
+        )}
+      }
+    }
+
     html,
     body {
       padding: 0;

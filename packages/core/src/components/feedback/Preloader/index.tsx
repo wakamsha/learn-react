@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/css';
-import { Color } from '../../../constants/Style';
+import { cssVar } from '../../../helpers/Style';
 
 type Size = 'neutral' | 'button';
 
@@ -76,6 +76,6 @@ const styleSize: Frozen<Size, number> = {
 };
 
 const styleTheme: Frozen<Theme, string> = {
-  neutral: Color.ThemePrimaryDark,
+  neutral: cssVar('ThemePrimaryDark'),
   inverse: 'white',
 };

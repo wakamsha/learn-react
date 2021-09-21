@@ -1,8 +1,8 @@
 import { css, cx } from '@emotion/css';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 import { TextField } from '../../inputs/TextField';
 import Logo from './logo192.png';
 
@@ -107,8 +107,8 @@ const styleBase = css`
   grid-gap: ${gutter(4)};
   height: 100vh;
   overflow-y: auto;
-  background: ${Color.TextureBody};
-  border-right: 1px solid ${Color.LineLight};
+  background-color: ${cssVar('TextureBody')};
+  border-right: 1px solid ${cssVar('LineLight')};
 `;
 
 const styleMasthead = css`
@@ -124,7 +124,7 @@ const styleLogo = css`
   display: block;
   padding: ${gutter(1)};
   margin: auto;
-  background-color: ${Color.ThemePrimaryDarker};
+  background-color: ${cssVar('ThemePrimaryDarker')};
   border-radius: ${BorderRadius.Circle};
   ${square(40)}
 `;
@@ -179,7 +179,7 @@ const styleItem = css`
   > a {
     display: block;
     padding: 0;
-    color: ${Color.TextNeutral};
+    color: ${cssVar('TextNeutral')};
     text-decoration: none;
 
     &:hover {
@@ -190,7 +190,7 @@ const styleItem = css`
   &[aria-selected='true'] {
     > a {
       font-weight: bold;
-      color: ${Color.ThemeDangerNeutral};
+      color: ${cssVar('ThemeDangerNeutral')};
       pointer-events: none;
     }
   }

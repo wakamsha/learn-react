@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
+import { FontSize, LineHeight, Shadow, UnsafeColor } from '.';
 import { gutter, textEllipsis } from '../../helpers/Style';
-import { Color, FontSize, LineHeight, Shadow } from '.';
 
 type ColorItem = {
   name: string;
@@ -8,7 +8,7 @@ type ColorItem = {
 };
 
 export const Story = () => {
-  const colors = Object.entries(Color).map(([name, hex]) => ({ name, hex }));
+  const colors = Object.entries(UnsafeColor).map(([name, hex]) => ({ name, hex }));
 
   return (
     <>

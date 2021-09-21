@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
-import { applyGlobalStyle, gutter } from '@learn-react/core/helpers/Style';
+import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
 import { ChangeEvent, StrictMode, useEffect, useRef, useState } from 'react';
 import { render } from 'react-dom';
 import { MobxHooksApp } from './22-mobx-hooks';
@@ -60,6 +60,8 @@ const styleSwitch = css`
   left: ${gutter(4)};
   padding: ${gutter(1)} ${gutter(2)};
 `;
+
+applyResetStyle();
 
 applyGlobalStyle();
 

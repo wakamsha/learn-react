@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { SplashBanner } from '@learn-react/core/components/surfaces/SplashBanner';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
-import { Color } from '@learn-react/core/constants/Style';
+import { cssVar } from '@learn-react/core/helpers/Style';
 
 export const IndexPage = () => (
   <>
@@ -17,5 +17,5 @@ const styleBase = css`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: ${Color.TextureCode};
+  background-color: ${cssVar('TextureCode')};
 `;

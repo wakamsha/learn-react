@@ -1,5 +1,5 @@
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
-import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
+import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
@@ -20,6 +20,8 @@ const App = () => (
     </Layout>
   </BrowserRouter>
 );
+
+applyResetStyle();
 
 applyGlobalStyle();
 

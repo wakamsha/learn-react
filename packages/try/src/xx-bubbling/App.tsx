@@ -17,7 +17,7 @@ export const Bubbling = () => {
       role="button"
       style={{
         padding: 24,
-        background: 'pink',
+        backgroundColor: 'pink',
       }}
       onClick={handleClickOuter}
     >

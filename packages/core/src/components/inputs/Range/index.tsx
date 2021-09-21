@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ChangeEvent } from 'react';
-import { BorderRadius, Color, Duration } from '../../../constants/Style';
-import { square } from '../../../helpers/Style';
+import { BorderRadius, Duration } from '../../../constants/Style';
+import { cssVar, square } from '../../../helpers/Style';
 
 type Theme = 'primary' | 'danger';
 
@@ -32,13 +32,13 @@ export const Range = ({ value, onChange, min = 0, max = 100, step = 1, disabled,
   );
 };
 
-function filledTrack(color: Color, ratio: number) {
+function filledTrack(color: ReturnType<typeof cssVar>, ratio: number) {
   return css({
     '&::-webkit-slider-runnable-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineNeutral} ${ratio}%)`,
+      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${cssVar('LineNeutral')} ${ratio}%)`,
     },
     '&::-moz-range-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${Color.LineNeutral} ${ratio}%)`,
+      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${cssVar('LineNeutral')} ${ratio}%)`,
     },
   });
 }
@@ -49,7 +49,7 @@ const thumb = css`
   margin-top: -${diameter / 2}px;
   cursor: pointer;
   background-color: white;
-  border: 1px solid ${Color.LineNeutral};
+  border: 1px solid ${cssVar('LineNeutral')};
   border-radius: ${BorderRadius.Circle};
   transition: transform ${Duration.Fade};
   transform: scale3d(1, 1, 1);
@@ -63,7 +63,7 @@ const thumb = css`
 const track = css`
   width: 100%;
   height: 2px;
-  background-color: ${Color.LineNeutral};
+  background-color: ${cssVar('LineNeutral')};
   border: none;
   border-radius: ${BorderRadius.Circle};
 `;
@@ -95,7 +95,7 @@ const styleBase = css`
   }
 `;
 
-const styleTheme: Frozen<Theme, Color> = {
-  primary: Color.ThemePrimaryNeutral,
-  danger: Color.ThemeDangerNeutral,
+const styleTheme: Frozen<Theme, ReturnType<typeof cssVar>> = {
+  primary: cssVar('ThemePrimaryNeutral'),
+  danger: cssVar('ThemeDangerNeutral'),
 };

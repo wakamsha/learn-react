@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { ComponentProps, MouseEvent, useState } from 'react';
 import { Popover } from '.';
 import { FontSize, Shadow } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 
 export const Story = () => {
   const [visible, setVisible] = useState(false);
@@ -178,6 +178,6 @@ const styleCard = css`
   width: 280px;
   padding: ${gutter(4)};
   font-size: ${FontSize.Regular};
-  background: white;
+  background-color: ${cssVar('TexturePaper')};
   box-shadow: ${Shadow.Floating};
 `;

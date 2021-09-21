@@ -3,7 +3,8 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/src/display/api';
 import { PageViewport } from 'pdfjs-dist/types/src/display/display_utils';
 import { useEffect, useRef } from 'react';
-import { Color, Shadow } from '../../../constants/Style';
+import { Shadow } from '../../../constants/Style';
+import { cssVar } from '../../../helpers/Style';
 
 type Props = {
   pdfPage: PDFPageProxy;
@@ -72,7 +73,7 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
 
 const styleBase = css`
   position: relative;
-  background-color: ${Color.TexturePaper};
+  background-color: ${cssVar('TexturePaper')};
 `;
 
 const styleTextLayer = css`

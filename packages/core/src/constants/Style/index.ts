@@ -1,4 +1,4 @@
-export const Color2 = {
+export const Color = {
   // Theme
   ThemePrimaryNeutral: {
     light: '#7E808C',
@@ -93,7 +93,7 @@ export const Color2 = {
   },
 } as const;
 
-export const Color = {
+export const UnsafeColor = {
   // Theme
   ThemePrimaryNeutral: '#7E808C',
   /** @deprecated */
@@ -130,7 +130,7 @@ export const Color = {
   TexturePaper: '#FFFFFF',
 } as const;
 
-export type Color = ValueOf<typeof Color>;
+export type UnsafeColor = ValueOf<typeof UnsafeColor>;
 
 export const FontFamily = {
   Default: '"Noto Sans Japanese", "メイリオ", Meiryo, sans-serif',

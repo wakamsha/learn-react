@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { CSSProperties, ReactNode } from 'react';
-import { Color, Duration, Easing, Shadow } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { Duration, Easing, Shadow } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 
@@ -48,7 +48,7 @@ const styleBase = css`
   grid-template-rows: auto 1fr auto;
   min-height: 240px;
   overflow: hidden;
-  background-color: ${Color.TexturePaper};
+  background-color: ${cssVar('TexturePaper')};
 `;
 
 const styleCard: Record<ShadowType, string> = {

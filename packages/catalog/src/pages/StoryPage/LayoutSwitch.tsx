@@ -1,6 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { Color } from '@learn-react/core/constants/Style';
-import { gutter, square } from '@learn-react/core/helpers/Style';
+import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { MouseEvent } from 'react';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { Layout } from './VO';
@@ -55,7 +54,7 @@ const styleButton = css`
   justify-content: center;
   padding: 6px ${gutter(2)};
   cursor: pointer;
-  background-color: ${Color.ThemePrimaryDark};
+  background-color: ${cssVar('ThemePrimaryDark')};
   border: none;
   opacity: 0.8;
   appearance: none;
@@ -78,7 +77,7 @@ const styleButton = css`
 
 const styleButtonSelected = css`
   cursor: default;
-  background-color: ${Color.ThemePrimaryDarker};
+  background-color: ${cssVar('ThemePrimaryDarker')};
   opacity: 1;
 `;
 

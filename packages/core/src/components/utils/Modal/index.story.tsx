@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
 import { Modal } from '.';
-import { Color, FontSize, LineHeight, Shadow } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { FontSize, LineHeight, Shadow } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 import { Card } from '../../surfaces/Card';
 
 export const Story = () => {
@@ -101,11 +101,11 @@ const styleCard = css`
   width: 400px;
   overflow: hidden;
   font-size: ${FontSize.Regular};
-  background: white;
+  background-color: ${cssVar('TexturePaper')};
   box-shadow: ${Shadow.Dialog};
 
   > :not(:first-child) {
-    border-top: 1px solid ${Color.LineLight};
+    border-top: 1px solid ${cssVar('LineLight')};
   }
 `;
 

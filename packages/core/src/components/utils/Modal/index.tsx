@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { ReactNode, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
+import { Duration, Easing, UnsafeColor, ZIndex } from '../../../constants/Style';
 import { gutter, hex2rgba } from '../../../helpers/Style';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
@@ -53,7 +53,7 @@ const styleBase = css`
   z-index: ${ZIndex.Modal};
   overflow: auto;
   visibility: hidden;
-  background-color: ${hex2rgba(Color.TextureBackdrop, 0.8)};
+  background-color: ${hex2rgba(UnsafeColor.TextureBackdrop, 0.8)};
   opacity: 0;
   transition: visibility ${Duration.Enter} ${Easing.Enter}, opacity ${Duration.Enter} ${Easing.Enter};
   -webkit-backdrop-filter: blur(8px);
