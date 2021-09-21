@@ -1,19 +1,115 @@
+export const Color2 = {
+  // Theme
+  ThemePrimaryNeutral: {
+    light: '#7E808C',
+    dark: '',
+  },
+  ThemePrimaryLight: {
+    light: '#E3E3E7',
+    dark: '#BFC0C4',
+  },
+  ThemePrimaryDark: {
+    light: '#656772',
+    dark: '',
+  },
+  /** @deprecated */
+  ThemePrimaryDarker: {
+    light: '#474A5E',
+    dark: '',
+  },
+  ThemeDangerNeutral: {
+    light: '#D2397C',
+    dark: '#D2397C',
+  },
+  ThemeDangerLight: {
+    light: '#FCDEEC',
+    dark: '#FCDEEC',
+  },
+  ThemeDangerDark: {
+    light: '#970847',
+    dark: '#970847',
+  },
+  ThemeDisabledNeutral: {
+    light: '#D6D9DF',
+    dark: '#6D6D6D',
+  },
+  ThemeDisabledLight: {
+    light: '#F6F6F8',
+    dark: '#525252',
+  },
+  ThemeDisabledDark: {
+    light: '#7E808C',
+    dark: '#717171',
+  },
+
+  // Text
+  TextNeutral: {
+    light: '#24243F',
+    dark: '#D5D4D5',
+  },
+  TextSub: {
+    light: '#808D96',
+    dark: '#9F9FA0',
+  },
+
+  // Line
+  LineLight: {
+    light: '#E3E3E7',
+    dark: '',
+  },
+  LineNeutral: {
+    light: '#BFC1C9',
+    dark: '#2F2F2F',
+  },
+  LineDark: {
+    light: '#7E808C',
+    dark: '#535353',
+  },
+
+  // Texture
+  TextureBody: {
+    light: '#F7F7F7',
+    dark: '#1E1E1E',
+  },
+  TextureCode: {
+    light: '#F9F9F9',
+    dark: '#1E2127',
+  },
+  TextureInput: {
+    light: '#F6F6F8',
+    dark: '#353535',
+  },
+  TextureBackdrop: {
+    light: '#E3E4E8',
+    dark: '#12121B',
+  },
+  TexturePale: {
+    light: '#FBFBFC',
+    dark: '#414141',
+  },
+  TexturePaper: {
+    light: '#FFFFFF',
+    dark: '#414141',
+  },
+} as const;
+
 export const Color = {
   // Theme
-  ThemePrimaryLighter: '#E3E3E7',
+  ThemePrimaryNeutral: '#7E808C',
   /** @deprecated */
   ThemePrimaryLight: '#616474',
-  ThemePrimaryNeutral: '#7E808C',
+  ThemePrimaryLighter: '#E3E3E7',
   ThemePrimaryDark: '#656772',
   ThemePrimaryDarker: '#474A5E',
 
-  ThemeDangerLighter: '#FCDEEC',
-  ThemeDangerLight: '#C71060',
   ThemeDangerNeutral: '#D2397C',
+  /** @deprecated */
+  ThemeDangerLight: '#C71060',
+  ThemeDangerLighter: '#FCDEEC',
   ThemeDangerDark: '#970847',
 
-  ThemeDisabledLight: '#F6F6F8',
   ThemeDisabledNeutral: '#D6D9DF',
+  ThemeDisabledLight: '#F6F6F8',
   ThemeDisabledDark: '#7E808C',
 
   // Text
@@ -21,9 +117,8 @@ export const Color = {
   TextSub: '#808d96',
 
   // Line
-  // LineLighter: '#E3E5E6',
-  LineLight: '#E3E3E7',
   LineNeutral: '#BFC1C9',
+  LineLight: '#E3E3E7',
   LineDark: '#7E808C',
 
   // Texture

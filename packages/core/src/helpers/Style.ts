@@ -1,10 +1,24 @@
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
-import { FontFamily } from '../constants/Style';
+import { Color2, FontFamily } from '../constants/Style';
 import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
 import NotoSansRegular from './fonts/noto-sans/NotoSansJP-Regular.woff';
 import NotoSerifRegular from './fonts/noto-serif/NotoSerifJP-Regular.woff';
 import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
+
+/**
+ * スタイル定数から CSS 変数にアクセスする式を返します。
+ *
+ * @param key カラーネーム
+ *
+ * @example
+ * cssVar('Primary')      // var(--primary)
+ * cssVar('TexturePaper') // var(--texture-paper)
+ */
+export function cssVar(key: keyof typeof Color2) {
+  return `var(--${key})`;
+}
+
 /**
  * Margin や Padding など余白の値を算出して返す。
  *
