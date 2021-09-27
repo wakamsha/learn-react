@@ -1,6 +1,6 @@
 // @ts-check
 const { createServer, build } = require('vite');
-const reactRefresh = require('@vitejs/plugin-react-refresh');
+const react = require('@vitejs/plugin-react');
 const { resolve } = require('path');
 
 /**
@@ -51,7 +51,7 @@ function createBaseConfig(basePath) {
   return {
     root: resolve(basePath, '../'),
     // @ts-ignore
-    plugins: [reactRefresh()],
+    plugins: [react()],
     esbuild: {
       jsxInject: `import React from 'react';`,
     },
