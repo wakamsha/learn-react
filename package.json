@@ -21,7 +21,7 @@
     "format": "yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   },
   "devDependencies": {
-    "@commitlint/cli": "13.2.0",
+    "@commitlint/cli": "13.2.1",
     "@types/highlight.js": "10.1.0",
     "@types/node": "15.3.1",
     "@types/qs": "6.9.7",
