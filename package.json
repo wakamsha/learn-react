@@ -67,7 +67,7 @@
     "date-fns": "2.25.0",
     "highlight.js": "11.2.0",
     "mobx": "6.3.3",
-    "mobx-react": "7.2.0",
+    "mobx-react": "7.2.1",
     "pdfjs-dist": "2.9.359",
     "qs": "6.10.1",
     "ramda": "0.27.1",
