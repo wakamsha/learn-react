@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import * as pdfjsLib from 'pdfjs-dist';
-import { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/display/api';
-import { PageViewport } from 'pdfjs-dist/types/display/display_utils';
+import { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/src/display/api';
+import { PageViewport } from 'pdfjs-dist/types/src/display/display_utils';
 import { useEffect, useRef } from 'react';
 import { Color, Shadow } from '../../../constants/Style';
 
