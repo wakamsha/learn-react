@@ -1,9 +1,9 @@
 // @ts-check
 const fs = require('fs');
 const cheerio = require('cheerio');
-const ejs = require('ejs');
 const glob = require('glob');
 const { optimize } = require('svgo');
+const iconTemplate = require('../templates');
 
 async function exec() {
   const data = await glob.sync('src/*.svg');
@@ -32,9 +32,7 @@ async function exec() {
     }),
   );
 
-  ejs.renderFile('./templates/index.ejs', { result }, (_, output) => {
-    fs.writeFileSync('./dist/index.tsx', output, 'utf8');
-  });
+  fs.writeFileSync('./dist/index.tsx', iconTemplate(result), 'utf8');
 }
 
 exec();
