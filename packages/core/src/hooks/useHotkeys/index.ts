@@ -3,11 +3,11 @@ import { RefObject, useCallback, useEffect, useRef } from 'react';
 
 type Options = {
   /**
-   * hotkeys を無効にするかどうか。
+   * hotkeys を有効にするかどうか。
    *
-   * @default false
+   * @default true
    */
-  disabled?: boolean;
+  enabled?: boolean;
   /**
    * コールバックを実行するキーイベント。
    *
@@ -30,7 +30,7 @@ type Options = {
  * @returns RefObject を返します。これを JSX に渡すと、その要素にフォーカス中のときのみ hotkeys が有効となります。
  */
 export function useHotkeys<T extends Element>(keys: string, callback: KeyHandler, options?: Options): RefObject<T> {
-  const { disabled = false, trigger = 'keydown' } = options || {};
+  const { enabled = true, trigger = 'keydown' } = options || {};
 
   const ref = useRef<T>(null);
 
@@ -44,7 +44,7 @@ export function useHotkeys<T extends Element>(keys: string, callback: KeyHandler
   );
 
   useEffect(() => {
-    if (disabled) {
+    if (!enabled) {
       hotkeys.unbind(keys, handler);
       return;
     }
@@ -54,7 +54,7 @@ export function useHotkeys<T extends Element>(keys: string, callback: KeyHandler
     return () => {
       hotkeys.unbind(keys, handler);
     };
-  }, [disabled, handler, keys, trigger]);
+  }, [enabled, handler, keys, trigger]);
 
   return ref;
 }

@@ -2,6 +2,8 @@ import { css } from '@emotion/css';
 import { useState } from 'react';
 import { useHotkeys } from '.';
 import { Modal } from '../../components/utils/Modal';
+import { BorderRadius, Color } from '../../constants/Style';
+import { gutter } from '../../helpers/Style';
 
 export const Story = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -12,9 +14,15 @@ export const Story = () => {
     setModalVisibility(state => !state);
   };
 
-  useHotkeys('esc', () => {
-    setModalVisibility(false);
-  });
+  useHotkeys(
+    'esc',
+    () => {
+      setModalVisibility(false);
+    },
+    {
+      enabled: modalVisibility,
+    },
+  );
 
   const textareaRef = useHotkeys<HTMLTextAreaElement>('command+enter', () => {
     setSubmitLog(state => `${state}送信しました!\n`);
@@ -26,10 +34,10 @@ export const Story = () => {
       <button onClick={handleToggleModalVisibility}>Open Modal</button>
       <p>
         <small>
-          <kbd>esc</kbd> でモーダルを閉じれます。
+          <kbd className={styleKey}>esc</kbd> でモーダルを閉じれます。
         </small>
       </p>
-      <Modal visible={modalVisibility} onClickOutside={handleToggleModalVisibility}>
+      <Modal visible={modalVisibility}>
         <h1>Hello!!</h1>
       </Modal>
 
@@ -37,7 +45,7 @@ export const Story = () => {
       <textarea ref={textareaRef} className={styleTextArea} />
       <p>
         <small>
-          <kbd>⌘</kbd> + <kbd>enter</kbd> で送信
+          <kbd className={styleKey}>⌘</kbd> + <kbd className={styleKey}>enter</kbd> で送信
         </small>
       </p>
       <pre>
@@ -52,4 +60,16 @@ const styleTextArea = css`
   width: 100%;
   height: 160px;
   resize: vertical;
+`;
+
+const styleKey = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: baseline;
+  padding: ${gutter(0.5)} ${gutter(2)};
+  margin: ${gutter(1)};
+  background-color: ${Color.TextureInput};
+  border: 1px solid ${Color.LineNeutral};
+  border-bottom-width: 4px;
+  border-radius: ${BorderRadius.Small};
 `;
