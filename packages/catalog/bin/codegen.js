@@ -2,10 +2,11 @@
 const fs = require('fs');
 const { resolve } = require('path');
 const chokidar = require('chokidar');
-const ejs = require('ejs');
 const glob = require('glob');
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
+const storySpecTemplate = require('../templates/storySpec');
+const storiesTemplate = require('../templates/stories');
 
 // @ts-ignore
 const { watch } = yargs(hideBin(process.argv)).option('watch', {
@@ -69,13 +70,8 @@ function exec() {
   // Generate
   // ----------------
 
-  ejs.renderFile('./templates/stories.ejs', { importItems, storyTree }, (_, output) => {
-    fs.writeFileSync('./src/constants/Stories.ts', output, 'utf8');
-  });
-
-  ejs.renderFile('./templates/storySpec.ejs', { storySpec }, (_, output) => {
-    fs.writeFileSync('./src/constants/StorySpec.ts', output, 'utf8');
-  });
+  fs.writeFileSync('./src/constants/Stories.ts', storiesTemplate({ importItems, storyTree }), 'utf8');
+  fs.writeFileSync('./src/constants/StorySpec.ts', storySpecTemplate(storySpec), 'utf8');
 }
 
 exec();
