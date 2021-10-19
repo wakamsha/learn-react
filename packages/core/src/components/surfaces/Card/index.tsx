@@ -1,6 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ReactNode } from 'react';
 import { Color, Duration, Easing, Shadow } from '../../../constants/Style';
+import { gutter } from '../../../helpers/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 
@@ -19,6 +20,10 @@ export const Card = ({ children, shadow = 'neutral', width, maxWidth, hover }: P
 );
 
 const styleBase = css`
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  overflow: hidden;
   background-color: ${Color.TexturePaper};
 `;
 
@@ -56,3 +61,148 @@ const styleHover = css`
     box-shadow: ${Shadow.Hover};
   }
 `;
+
+type Thickness = 'neutral' | 'small' | 'thin';
+
+type HeaderProps = {
+  children: ReactNode;
+
+  /**
+   * - neutral: padding 24px
+   * - small: padding: 16px
+   * - thin: padding 0
+   *
+   * @default 'neutral'
+   */
+  thickness?: Thickness;
+};
+
+/**
+ * Card 用のヘッダーコンポーネント。
+ *
+ * @param {HeaderProps} headerProps
+ *
+ * @example
+ * <Card>
+ *   <Card.Header>
+ *     <h1 className={styleTitle}>Title</h1>
+ *   </Card.Header>
+ *   ...
+ * </Card>
+ */
+Card.Header = ({ children, thickness = 'neutral' }: HeaderProps) => (
+  <header className={styleHeader[thickness]}>{children}</header>
+);
+
+const styleHeaderBase = css`
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+`;
+
+const styleHeader: Record<Thickness, string> = {
+  neutral: cx(
+    styleHeaderBase,
+    css`
+      padding: ${gutter(6)};
+    `,
+  ),
+  small: cx(
+    styleHeaderBase,
+    css`
+      padding: ${gutter(2)} ${gutter(4)};
+    `,
+  ),
+  thin: styleHeaderBase,
+};
+
+type BodyProps = {
+  children: ReactNode;
+
+  /**
+   * - neutral: padding 24px
+   * - small: padding: 16px
+   * - thin: padding 0
+   *
+   * @default 'neutral'
+   */
+  thickness?: Thickness;
+};
+
+Card.Body = ({ children, thickness = 'neutral' }: BodyProps) => <div className={styleBody[thickness]}>{children}</div>;
+
+const styleBodyBase = css`
+  flex: 1 1 100%;
+  overflow: auto;
+`;
+
+const styleBody: Record<Thickness, string> = {
+  neutral: cx(
+    styleBodyBase,
+    css`
+      padding: 0 ${gutter(6)};
+    `,
+  ),
+  small: cx(
+    styleBodyBase,
+    css`
+      padding: 0 ${gutter(4)};
+    `,
+  ),
+  thin: styleBodyBase,
+};
+
+type FooterProps = {
+  children: ReactNode;
+
+  /**
+   * - neutral: padding 24px
+   * - small: padding: 16px
+   * - thin: padding 0
+   *
+   * @default 'neutral'
+   */
+  thickness?: Thickness;
+};
+
+/**
+ * Card 用のフッターコンポーネント。
+ *
+ * @param {FooterProps}} footerProps
+ *
+ * @example
+ * <Card>
+ *   ...
+ *   <Card.Footer>
+ *     <Button>Submit</Button>
+ *     <Button variant="ghost">Cancel</Button>
+ *   </Card.Footer>
+ * </Card>
+ */
+Card.Footer = ({ children, thickness = 'neutral' }: FooterProps) => (
+  <footer className={styleFooter[thickness]}>{children}</footer>
+);
+
+const styleFooterBase = css`
+  display: flex;
+  flex: 0 0 auto;
+  gap: ${gutter(8)};
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const styleFooter: Record<Thickness, string> = {
+  neutral: cx(
+    styleFooterBase,
+    css`
+      padding: ${gutter(6)};
+    `,
+  ),
+  small: cx(
+    styleFooterBase,
+    css`
+      padding: ${gutter(4)};
+    `,
+  ),
+  thin: styleFooterBase,
+};
