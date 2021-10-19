@@ -7,62 +7,86 @@ export const Story = () => (
   <>
     <h2>Neutral</h2>
     <Card shadow="neutral">
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
 
     <h2>Dialog</h2>
     <Card shadow="dialog">
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
 
     <h2>Floating</h2>
     <Card shadow="floating">
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
 
     <h2>Deep</h2>
     <Card shadow="deep">
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
 
     <h2>Hover</h2>
     <Card hover>
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
 
     <h2>Max Width = 200</h2>
     <Card shadow="neutral" maxWidth={200}>
-      <div className={styleInner}>
-        <p>
-          あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
-        </p>
-      </div>
+      <Card.Body>
+        <div className={styleInner}>
+          <Content />
+        </div>
+      </Card.Body>
     </Card>
+
+    <h2>Scrollable Body</h2>
+    <div style={{ display: 'grid', height: 360 }}>
+      <Card shadow="dialog">
+        <Card.Header thickness="small">
+          <h1>ポラーノの広場</h1>
+        </Card.Header>
+        <Card.Body thickness="small">
+          {[...Array(8).keys()].map(index => (
+            <Content key={index} />
+          ))}
+        </Card.Body>
+        <Card.Footer thickness="small">
+          <button>Submit</button>
+          <button>Cancel</button>
+        </Card.Footer>
+      </Card>
+    </div>
   </>
 );
 
-const styleInner = css({
-  padding: gutter(4),
-  fontSize: FontSize.Regular,
-  lineHeight: LineHeight.Regular,
-});
+const Content = () => (
+  <p>
+    あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。
+  </p>
+);
+
+const styleInner = css`
+  padding: ${gutter(4)} 0;
+  font-size: ${FontSize.Regular};
+  line-height: ${LineHeight.Regular};
+`;
