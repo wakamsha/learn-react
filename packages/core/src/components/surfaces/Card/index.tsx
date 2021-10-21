@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import { Color, Duration, Easing, Shadow } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 
@@ -243,3 +243,40 @@ const styleFooter: Record<Thickness, string> = {
   ),
   thin: styleFooterBase,
 };
+
+type ScrollableWrapper = {
+  children: ReactNode;
+  /**
+   * Card コンポーネントの最大高。
+   * Card の height がこれを超えると `Card.Body` 内がスクロール表示されます。
+   */
+  maxHeight: NonNullable<CSSProperties['height']>;
+};
+
+/**
+ * Card 内コンテンツをスクロール表示したいときは Card コンポーネントをこれで囲みます。
+ *
+ * @example
+ * <Card.ScrollableWrapper maxHeight="calc(100vh - 80px)">
+ *   <Card>
+ *     <Card.Header>
+ *       <h1 className={styleTitle}>Title</h1>
+ *     </Card.Header>
+ *     <Card.Body>
+ *       <p>hello world!</p>
+ *     </Card.Body>
+ *     <Card.Footer>
+ *       <Button>Submit</Button>
+ *     </Card.Footer>
+ *   </Card>
+ * </Card.ScrollableWrapper>
+ */
+Card.ScrollableWrapper = ({ children, maxHeight }: ScrollableWrapper) => (
+  <div className={styleScrollableWrapper} style={{ maxHeight }}>
+    {children}
+  </div>
+);
+
+const styleScrollableWrapper = css`
+  display: flex;
+`;

@@ -60,7 +60,7 @@ export const Story = () => (
     </Card>
 
     <h2>Scrollable Body</h2>
-    <div style={{ display: 'grid', height: 360 }}>
+    <Card.ScrollableWrapper maxHeight={360}>
       <Card shadow="dialog">
         <Card.Header thickness="small">
           <h1>ポラーノの広場</h1>
@@ -75,7 +75,7 @@ export const Story = () => (
           <button>Cancel</button>
         </Card.Footer>
       </Card>
-    </div>
+    </Card.ScrollableWrapper>
   </>
 );
 
