@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/css';
+import { css, cx, keyframes } from '@emotion/css';
 import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Toast, useRemoveToast } from '.';
 import { Duration, Easing, FontSize, IconSize } from '../../../constants/Style';
@@ -15,7 +15,9 @@ export const Item = ({ children, id, icon, theme = 'primary' }: Props) => {
   const [styleAddon, setStyleAddon] = useState('');
 
   const handleAnimationEnd = (e: AnimationEvent<HTMLDivElement>) => {
-    window.getComputedStyle(e.currentTarget).opacity === '0' && removeToast(id);
+    if (window.getComputedStyle(e.currentTarget).opacity === '0') {
+      removeToast(id);
+    }
   };
 
   useEffect(() => {
@@ -70,9 +72,11 @@ const styleBase = css`
   }
 `;
 
-const styleRemove = css`
-  opacity: 0;
-  animation: ${keyframes`
+const styleRemove = cx(
+  styleBase,
+  css`
+    opacity: 0;
+    animation: ${keyframes`
     from {
       opacity: ${1};
       transform: translate3d(0, 0, 0);
@@ -82,7 +86,8 @@ const styleRemove = css`
       transform: translate3d(-40%, 0, 0);
     }
   `} ${Duration.Leave} ${Easing.Leave};
-`;
+  `,
+);
 
 const Theme = {
   primary: css`
