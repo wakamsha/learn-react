@@ -108,7 +108,7 @@ const styleBase = css`
   height: 100vh;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};
-  border-right: 1px solid ${cssVar('LineLight')};
+  border-right: 1px solid ${cssVar('LineNeutral')};
 `;
 
 const styleMasthead = css`

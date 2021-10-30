@@ -1,5 +1,5 @@
 import { css, injectGlobal } from '@emotion/css';
-import { Color2, Shadow } from '@learn-react/core/constants/Style';
+import { Color } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 
 export const ThemeApp = () => (
@@ -13,7 +13,7 @@ export const ThemeApp = () => (
         </tr>
       </thead>
       <tbody>
-        {Object.entries(Color2).map(([key, values]) => (
+        {Object.entries(Color).map(([key, values]) => (
           <tr key={key}>
             <th>{key}</th>
             {Object.values(values).map((value, index) => (
@@ -68,7 +68,7 @@ const styleTile = css`
 const styleChip = css`
   display: block;
   margin: auto;
-  box-shadow: ${Shadow.Neutral};
+  box-shadow: ${cssVar('ShadowNeutral')};
   ${square(40)}
 `;
 
@@ -80,7 +80,7 @@ const styleCode = css`
 injectGlobal`
   :root {
     ${css(
-      Object.entries(Color2).reduce(
+      Object.entries(Color).reduce(
         (acc, [key, value]) => ({
           ...acc,
           [`--${key}`]: value.light,
@@ -93,7 +93,7 @@ injectGlobal`
   @media (prefers-color-scheme: dark) {
     :root {
       ${css(
-        Object.entries(Color2).reduce(
+        Object.entries(Color).reduce(
           (acc, [key, value]) => ({
             ...acc,
             [`--${key}`]: value.dark,

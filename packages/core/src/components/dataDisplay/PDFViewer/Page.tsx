@@ -3,7 +3,6 @@ import * as pdfjsLib from 'pdfjs-dist';
 import { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/src/display/api';
 import { PageViewport } from 'pdfjs-dist/types/src/display/display_utils';
 import { useEffect, useRef } from 'react';
-import { Shadow } from '../../../constants/Style';
 import { cssVar } from '../../../helpers/Style';
 
 type Props = {
@@ -99,5 +98,5 @@ const styleTextLayer = css`
 `;
 
 const styleCanvas = css`
-  box-shadow: ${Shadow.Neutral};
+  box-shadow: ${cssVar('ShadowNeutral')};
 `;

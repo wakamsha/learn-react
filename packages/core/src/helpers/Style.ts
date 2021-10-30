@@ -1,6 +1,6 @@
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
-import { Color, FontFamily } from '../constants/Style';
+import { Color, FontFamily, Shadow } from '../constants/Style';
 import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
 import NotoSansRegular from './fonts/noto-sans/NotoSansJP-Regular.woff';
 import NotoSerifRegular from './fonts/noto-serif/NotoSerifJP-Regular.woff';
@@ -15,7 +15,9 @@ import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
  * cssVar('Primary')      // var(--primary)
  * cssVar('TexturePaper') // var(--texture-paper)
  */
-export function cssVar(key: keyof typeof Color): `var(--${keyof typeof Color})` {
+export function cssVar(
+  key: keyof typeof Color | keyof typeof Shadow,
+): `var(--${keyof typeof Color | keyof typeof Shadow})` {
   return `var(--${key})`;
 }
 
@@ -168,7 +170,7 @@ export function applyGlobalStyle() {
 
     :root {
       ${css(
-        Object.entries(Color).reduce(
+        Object.entries({ ...Color, ...Shadow }).reduce(
           (acc, [key, value]) => ({
             ...acc,
             [`--${key}`]: value.light,
@@ -183,7 +185,7 @@ export function applyGlobalStyle() {
         color-scheme: dark;
 
         ${css(
-          Object.entries(Color).reduce(
+          Object.entries({ ...Color, ...Shadow }).reduce(
             (acc, [key, value]) => ({
               ...acc,
               [`--${key}`]: value.dark,

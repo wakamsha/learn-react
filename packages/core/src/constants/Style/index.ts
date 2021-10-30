@@ -2,7 +2,7 @@ export const Color = {
   // Theme
   ThemePrimaryNeutral: {
     light: '#7E808C',
-    dark: '',
+    dark: '#7E808C',
   },
   ThemePrimaryLight: {
     light: '#E3E3E7',
@@ -10,12 +10,12 @@ export const Color = {
   },
   ThemePrimaryDark: {
     light: '#656772',
-    dark: '',
+    dark: '#656772',
   },
   /** @deprecated */
   ThemePrimaryDarker: {
     light: '#474A5E',
-    dark: '',
+    dark: '#474A5E',
   },
   ThemeDangerNeutral: {
     light: '#D2397C',
@@ -55,12 +55,13 @@ export const Color = {
   // Line
   LineLight: {
     light: '#E3E3E7',
-    dark: '',
+    dark: '#707070',
   },
   LineNeutral: {
     light: '#BFC1C9',
     dark: '#2F2F2F',
   },
+  /** @deprecated */
   LineDark: {
     light: '#7E808C',
     dark: '#535353',
@@ -92,45 +93,6 @@ export const Color = {
     dark: '#414141',
   },
 } as const;
-
-export const UnsafeColor = {
-  // Theme
-  ThemePrimaryNeutral: '#7E808C',
-  /** @deprecated */
-  ThemePrimaryLight: '#616474',
-  ThemePrimaryLighter: '#E3E3E7',
-  ThemePrimaryDark: '#656772',
-  ThemePrimaryDarker: '#474A5E',
-
-  ThemeDangerNeutral: '#D2397C',
-  /** @deprecated */
-  ThemeDangerLight: '#C71060',
-  ThemeDangerLighter: '#FCDEEC',
-  ThemeDangerDark: '#970847',
-
-  ThemeDisabledNeutral: '#D6D9DF',
-  ThemeDisabledLight: '#F6F6F8',
-  ThemeDisabledDark: '#7E808C',
-
-  // Text
-  TextNeutral: '#24243f',
-  TextSub: '#808d96',
-
-  // Line
-  LineNeutral: '#BFC1C9',
-  LineLight: '#E3E3E7',
-  LineDark: '#7E808C',
-
-  // Texture
-  TextureBody: '#F7F7F7',
-  TextureCode: '#0F192A',
-  TextureInput: '#F6F6F8',
-  TextureBackdrop: '#E3E4E8',
-  TexturePale: '#FBFBFC',
-  TexturePaper: '#FFFFFF',
-} as const;
-
-export type UnsafeColor = ValueOf<typeof UnsafeColor>;
 
 export const FontFamily = {
   Default: '"Noto Sans Japanese", "メイリオ", Meiryo, sans-serif',
@@ -188,10 +150,33 @@ export const ZIndex = {
   Tooltip: 1300,
 } as const;
 
-export const Shadow = {
+export const UnsafeShadow = {
   Neutral: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
   Floating: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
   Dialog: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
   Deep: '0 6px 12px 0 rgba(0, 0, 0, .3)',
   Hover: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
+} as const;
+
+export const Shadow = {
+  ShadowNeutral: {
+    light: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 1px 4px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowFloating: {
+    light: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 1px 8px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowDialog: {
+    light: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 10px 40px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowDeep: {
+    light: '0 6px 12px 0 rgba(0, 0, 0, .3)',
+    dark: '0 6px 12px 0 rgba(0, 0, 0, .6)',
+  },
+  ShadowHover: {
+    light: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
+    dark: `0 8px 12px 0 rgba(0, 0, 0, .6)`,
+  },
 } as const;

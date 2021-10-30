@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
 import { Modal } from '.';
-import { FontSize, LineHeight, Shadow } from '../../../constants/Style';
+import { FontSize, LineHeight } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 import { Card } from '../../surfaces/Card';
 
@@ -102,7 +102,7 @@ const styleCard = css`
   overflow: hidden;
   font-size: ${FontSize.Regular};
   background-color: ${cssVar('TexturePaper')};
-  box-shadow: ${Shadow.Dialog};
+  box-shadow: ${cssVar('ShadowDialog')};
 
   > :not(:first-child) {
     border-top: 1px solid ${cssVar('LineLight')};

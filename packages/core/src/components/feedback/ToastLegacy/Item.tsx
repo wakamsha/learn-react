@@ -1,7 +1,7 @@
 import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Toast } from '.';
-import { Duration, Easing, IconSize, Shadow } from '../../../constants/Style';
+import { Duration, Easing, IconSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 
@@ -46,7 +46,7 @@ const styleBase = css`
   max-width: 30vw;
   padding: ${gutter(4)} ${gutter(5)} ${gutter(4)} ${gutter(4)};
   color: white;
-  box-shadow: ${Shadow.Neutral};
+  box-shadow: ${cssVar('ShadowNeutral')};
   animation: ${keyframes`
     from {
       opacity: ${0};

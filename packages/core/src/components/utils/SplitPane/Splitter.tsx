@@ -21,7 +21,7 @@ const styleBase = css`
   background: radial-gradient(at center center, rgba(0, 0, 0, 0.24) 0%, transparent 70%, transparent 100%) no-repeat;
   background-position: 10px 50%;
   background-size: 28px 100%;
-  border-right: 1px solid ${cssVar('LineLight')};
+  border-right: 1px solid ${cssVar('LineNeutral')};
   transition: background-position ${Duration.Fade} linear 0.2s;
 
   &:hover,

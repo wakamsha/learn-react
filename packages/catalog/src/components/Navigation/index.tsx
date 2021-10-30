@@ -111,7 +111,7 @@ const styleBase = css`
   height: 100vh;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};
-  border-right: 1px solid ${cssVar('LineLight')};
+  border-right: 1px solid ${cssVar('LineNeutral')};
 `;
 
 const styleMasthead = css`
@@ -135,11 +135,11 @@ const styleLogo = css`
 const styleTitle = css`
   margin: 0;
   text-align: center;
-  background-color: transparent;
-  transition: background-color ${Duration.Fade};
+  border-radius: ${BorderRadius.Small};
+  transition: background-color ${Duration.Fade}, border-color ${Duration.Fade};
 
   &:hover {
-    background-color: #e3e3e7;
+    background-color: ${cssVar('ThemePrimaryLight')};
   }
 
   > a {
