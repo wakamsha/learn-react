@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Modal } from '.';
 import { Color, FontSize, LineHeight, Shadow } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
+import { Card } from '../../surfaces/Card';
 
 export const Story = () => {
   const [visible1, setVisible1] = useState(false);
@@ -58,18 +59,18 @@ export const Story = () => {
       </Modal>
 
       <Modal visible={visible3} onClickOutside={handleToggle3}>
-        <div role="presentation" className={styleCardWrapper}>
-          <article className={styleCard}>
-            <h1 className={styleHeading}>ポラーノの広場</h1>
-            <div className={styleBody}>
-              <LongContent />
-            </div>
-            <footer className={styleFooter}>
-              <input type="text" />
-              <button onClick={handleToggle3}>Close</button>
-            </footer>
-          </article>
-        </div>
+        <Card maxWidth={400} maxHeight={`calc(100vh - ${gutter(20)})`}>
+          <Card.Header>
+            <h1>ポラーノの広場</h1>
+          </Card.Header>
+          <Card.Body>
+            <LongContent />
+          </Card.Body>
+          <Card.Footer>
+            <input type="text" />
+            <button onClick={handleToggle3}>Close</button>
+          </Card.Footer>
+        </Card>
       </Modal>
     </>
   );
@@ -93,11 +94,6 @@ const LongContent = () => (
     </p>
   </>
 );
-
-const styleCardWrapper = css`
-  display: grid;
-  height: calc(100vh - ${gutter(20)});
-`;
 
 const styleCard = css`
   display: flex;

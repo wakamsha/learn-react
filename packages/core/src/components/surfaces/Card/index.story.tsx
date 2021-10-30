@@ -60,22 +60,20 @@ export const Story = () => (
     </Card>
 
     <h2>Scrollable Body</h2>
-    <Card.ScrollableWrapper maxHeight={360}>
-      <Card shadow="dialog">
-        <Card.Header thickness="small">
-          <h1>ポラーノの広場</h1>
-        </Card.Header>
-        <Card.Body thickness="small">
-          {[...Array(8).keys()].map(index => (
-            <Content key={index} />
-          ))}
-        </Card.Body>
-        <Card.Footer thickness="small">
-          <button>Submit</button>
-          <button>Cancel</button>
-        </Card.Footer>
-      </Card>
-    </Card.ScrollableWrapper>
+    <Card shadow="dialog" maxHeight={360}>
+      <Card.Header thickness="small">
+        <h1>ポラーノの広場</h1>
+      </Card.Header>
+      <Card.Body thickness="small">
+        {[...Array(8).keys()].map(index => (
+          <Content key={index} />
+        ))}
+      </Card.Body>
+      <Card.Footer thickness="small">
+        <button>Submit</button>
+        <button>Cancel</button>
+      </Card.Footer>
+    </Card>
   </>
 );
 

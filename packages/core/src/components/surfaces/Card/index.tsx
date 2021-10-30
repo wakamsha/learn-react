@@ -5,15 +5,17 @@ import { gutter } from '../../../helpers/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 
-type Props = Partial<{
+type Props = {
   children: ReactNode;
-  shadow: ShadowType;
-  width: number | string;
-  maxWidth: number | string;
-  hover: boolean;
-}>;
+  shadow?: ShadowType;
+  hover?: boolean;
+} & Pick<CSSProperties, 'height' | 'maxHeight' | 'width' | 'maxWidth'>;
 
 /**
+ * @remarks
+ * Card 内コンテンツをスクロール表示したいときは height か maxHeight を指定します。
+ * これにより Card 全体の高さが設定され、コンテンツ量がそれを超えると Card.Body 内がスクロールできるようになります。
+ *
  * @example
  * <Card>
  *   <Card.Header>
@@ -31,8 +33,8 @@ type Props = Partial<{
  *   </Card.Footer>
  * </Card>
  */
-export const Card = ({ children, shadow = 'neutral', width, maxWidth, hover }: Props) => (
-  <article className={cx(styleCard[shadow], hover && styleHover)} style={{ width, maxWidth }}>
+export const Card = ({ children, shadow = 'neutral', hover, height, maxHeight, width, maxWidth }: Props) => (
+  <article className={cx(styleCard[shadow], hover && styleHover)} style={{ height, maxHeight, width, maxWidth }}>
     {children}
   </article>
 );
@@ -243,40 +245,3 @@ const styleFooter: Record<Thickness, string> = {
   ),
   thin: styleFooterBase,
 };
-
-type ScrollableWrapper = {
-  children: ReactNode;
-  /**
-   * Card コンポーネントの最大高。
-   * Card の height がこれを超えると `Card.Body` 内がスクロール表示されます。
-   */
-  maxHeight: NonNullable<CSSProperties['height']>;
-};
-
-/**
- * Card 内コンテンツをスクロール表示したいときは Card コンポーネントをこれで囲みます。
- *
- * @example
- * <Card.ScrollableWrapper maxHeight="calc(100vh - 80px)">
- *   <Card>
- *     <Card.Header>
- *       <h1 className={styleTitle}>Title</h1>
- *     </Card.Header>
- *     <Card.Body>
- *       <p>hello world!</p>
- *     </Card.Body>
- *     <Card.Footer>
- *       <Button>Submit</Button>
- *     </Card.Footer>
- *   </Card>
- * </Card.ScrollableWrapper>
- */
-Card.ScrollableWrapper = ({ children, maxHeight }: ScrollableWrapper) => (
-  <div className={styleScrollableWrapper} style={{ maxHeight }}>
-    {children}
-  </div>
-);
-
-const styleScrollableWrapper = css`
-  display: flex;
-`;
