@@ -13,8 +13,8 @@ import {
   subMonths,
 } from 'date-fns';
 import { ChangeEvent, useMemo } from 'react';
-import { Color, FontSize } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { FontSize } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 import { IconButton } from '../IconButton';
 import { Item } from './Item';
 
@@ -148,7 +148,7 @@ const styleCalendar = css`
   > thead {
     th {
       font-weight: normal;
-      color: ${Color.TextSub};
+      color: ${cssVar('TextSub')};
     }
   }
 

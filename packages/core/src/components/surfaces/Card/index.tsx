@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { CSSProperties, ReactNode } from 'react';
-import { Color, Duration, Easing, Shadow } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { Duration, Easing } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 
 type ShadowType = 'neutral' | 'dialog' | 'floating' | 'deep';
 
@@ -48,32 +48,32 @@ const styleBase = css`
   grid-template-rows: auto 1fr auto;
   min-height: 240px;
   overflow: hidden;
-  background-color: ${Color.TexturePaper};
+  background-color: ${cssVar('TexturePaper')};
 `;
 
 const styleCard: Record<ShadowType, string> = {
   neutral: cx(
     styleBase,
     css`
-      box-shadow: ${Shadow.Neutral};
+      box-shadow: ${cssVar('ShadowNeutral')};
     `,
   ),
   dialog: cx(
     styleBase,
     css`
-      box-shadow: ${Shadow.Dialog};
+      box-shadow: ${cssVar('ShadowDialog')};
     `,
   ),
   floating: cx(
     styleBase,
     css`
-      box-shadow: ${Shadow.Floating};
+      box-shadow: ${cssVar('ShadowFloating')};
     `,
   ),
   deep: cx(
     styleBase,
     css`
-      box-shadow: ${Shadow.Deep};
+      box-shadow: ${cssVar('ShadowDeep')};
     `,
   ),
 };
@@ -82,7 +82,7 @@ const styleHover = css`
   transition: box-shadow ${Duration.Fade} ${Easing.Enter};
 
   &:hover {
-    box-shadow: ${Shadow.Hover};
+    box-shadow: ${cssVar('ShadowHover')};
   }
 `;
 

@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
 import { Transition } from '.';
-import { FontSize, Shadow } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { FontSize } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 
 export const Story = () => {
   const [state1, setState1] = useState(false);
@@ -82,6 +82,6 @@ const styleCard = css`
   padding: ${gutter(4)};
   margin: ${gutter(2)};
   font-size: ${FontSize.Regular};
-  background: white;
-  box-shadow: ${Shadow.Floating};
+  background-color: white;
+  box-shadow: ${cssVar('ShadowFloating')};
 `;

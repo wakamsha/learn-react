@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
 import { ChangeEvent } from 'react';
-import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { Duration, FontSize, LineHeight } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 import { IconButton } from '../IconButton';
 
@@ -112,7 +112,7 @@ const styleBase = css`
     width: 100%;
     height: 1px;
     content: '';
-    background-color: ${Color.ThemePrimaryDark};
+    background-color: ${cssVar('ThemePrimaryDark')};
   }
 
   > * {
@@ -124,20 +124,20 @@ const styleBase = css`
   }
 
   &[aria-disabled='true'] {
-    background-color: ${Color.ThemeDisabledLight};
+    background-color: ${cssVar('ThemeDisabledLight')};
   }
 
   &:focus-within {
-    box-shadow: inset 0 -2px 0 0 ${Color.ThemePrimaryDark};
+    box-shadow: inset 0 -2px 0 0 ${cssVar('ThemePrimaryDark')};
   }
 
   &[aria-invalid='true'] {
     &::after {
-      background-color: ${Color.ThemeDangerNeutral};
+      background-color: ${cssVar('ThemeDangerNeutral')};
     }
 
     &:focus-within {
-      box-shadow: inset 0 -2px 0 0 ${Color.ThemeDangerNeutral};
+      box-shadow: inset 0 -2px 0 0 ${cssVar('ThemeDangerNeutral')};
     }
   }
 `;
@@ -147,7 +147,7 @@ const styleIcon = css`
   ${square(24)}
 
   > svg {
-    fill: ${Color.ThemePrimaryNeutral};
+    fill: ${cssVar('ThemePrimaryNeutral')};
   }
 `;
 
@@ -158,8 +158,8 @@ const styleInput = css`
   padding: ${gutter(2)} 0;
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
-  color: ${Color.TextNeutral};
-  background: transparent;
+  color: ${cssVar('TextNeutral')};
+  background-color: transparent;
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -173,6 +173,6 @@ const styleInput = css`
   }
 
   &:disabled {
-    color: ${Color.TextSub};
+    color: ${cssVar('TextSub')};
   }
 `;

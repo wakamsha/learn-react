@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { ChangeEvent, ReactNode } from 'react';
-import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Props = {
   name: string;
@@ -60,20 +60,20 @@ const styleIndicator = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: white;
-  border: 1px solid ${Color.LineLight};
+  background-color: white;
+  border: 1px solid ${cssVar('LineLight')};
   border-radius: ${BorderRadius.Circle};
   transition: border ${Duration.Fade};
   ${square(20)}
 
   &[aria-checked='true'] {
-    border-color: ${Color.LineNeutral};
+    border-color: ${cssVar('LineNeutral')};
   }
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    background-color: ${Color.ThemeDisabledNeutral};
-    border-color: ${Color.LineNeutral};
+    background-color: ${cssVar('ThemeDisabledNeutral')};
+    border-color: ${cssVar('LineNeutral')};
   }
 `;
 
@@ -82,7 +82,7 @@ const styleSymbol = css`
   top: 50%;
   left: 50%;
   display: inline-block;
-  background-color: ${Color.ThemePrimaryNeutral};
+  background-color: ${cssVar('ThemePrimaryNeutral')};
   border-radius: ${BorderRadius.Circle};
   transition: transform ${Duration.Fade};
   transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);

@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { BorderRadius, Color, Duration, FontSize, LineHeight, ZIndex } from '../../../constants/Style';
-import { gutter } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize, LineHeight, ZIndex } from '../../../constants/Style';
+import { cssVar, gutter } from '../../../helpers/Style';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
 
@@ -275,7 +275,7 @@ const styleBase = css`
   pointer-events: none;
   visibility: hidden;
   user-select: none;
-  background-color: ${Color.ThemePrimaryNeutral};
+  background-color: ${cssVar('ThemePrimaryNeutral')};
   border-radius: ${BorderRadius.Small};
   opacity: 0;
   transition: visibility ${Duration.Fade}, opacity ${Duration.Fade};

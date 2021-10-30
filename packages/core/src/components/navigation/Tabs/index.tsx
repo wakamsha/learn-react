@@ -1,8 +1,8 @@
 import { css, cx } from '@emotion/css';
 import { ChangeEvent, useMemo } from 'react';
-import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
+import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { makeId } from '../../../helpers/String';
-import { gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';
+import { cssVar, gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';
 
 type Option<T> = {
   label: string;
@@ -75,7 +75,7 @@ const styleInner = css`
   align-items: center;
   justify-content: center;
   line-height: ${LineHeight.Regular};
-  color: ${Color.TextSub};
+  color: ${cssVar('TextSub')};
   cursor: pointer;
   user-select: none;
   border-bottom: 1px solid transparent;
@@ -85,14 +85,14 @@ const styleInner = css`
   ${textEllipsis()}
 
   input:checked + & {
-    color: ${Color.TextNeutral};
+    color: ${cssVar('TextNeutral')};
     cursor: default;
-    border-bottom-color: ${Color.ThemePrimaryDark};
-    box-shadow: inset 0 -1px 0 0 ${Color.ThemePrimaryDark};
+    border-bottom-color: ${cssVar('ThemePrimaryDark')};
+    box-shadow: inset 0 -1px 0 0 ${cssVar('ThemePrimaryDark')};
   }
 
   input:not(:checked):not(:disabled) + &:hover {
-    background-color: ${Color.ThemePrimaryLighter};
+    background-color: ${cssVar('ThemePrimaryLight')};
   }
 `;
 

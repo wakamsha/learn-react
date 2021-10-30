@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-import { Bubbling } from './xx-bubbling/App';
+import { ThemeApp } from './xx-theme/App';
 
 render(
   // <HelloMessage name="wakamsha" />,
@@ -20,6 +20,7 @@ render(
   // <CustomTextInput />,
   // <HookApp count={10} />,
   // <EqualApp />,
-  <Bubbling />,
+  // <Bubbling />,
+  <ThemeApp />,
   document.getElementById('app'),
 );

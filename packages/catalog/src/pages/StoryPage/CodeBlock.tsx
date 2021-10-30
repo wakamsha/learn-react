@@ -32,7 +32,7 @@ const styleBase = css`
   padding: 0;
   margin: 0;
   overflow: auto;
-  background: transparent;
+  background-color: transparent;
   border: none;
 
   > code {

@@ -1,39 +1,98 @@
 export const Color = {
   // Theme
-  ThemePrimaryNeutral: '#7E808C',
-  ThemePrimaryLight: '#616474',
-  ThemePrimaryLighter: '#E3E3E7',
-  ThemePrimaryDark: '#656772',
-  ThemePrimaryDarker: '#474A5E',
-
-  ThemeDangerNeutral: '#D2397C',
-  ThemeDangerLight: '#C71060',
-  ThemeDangerDark: '#970847',
-  ThemeDangerLighter: '#FCDEEC',
-
-  ThemeDisabledNeutral: '#D6D9DF',
-  ThemeDisabledLight: '#F6F6F8',
-  ThemeDisabledDark: '#7E808C',
+  ThemePrimaryNeutral: {
+    light: '#7E808C',
+    dark: '#7E808C',
+  },
+  ThemePrimaryLight: {
+    light: '#E3E3E7',
+    dark: '#BFC0C4',
+  },
+  ThemePrimaryDark: {
+    light: '#656772',
+    dark: '#656772',
+  },
+  /** @deprecated */
+  ThemePrimaryDarker: {
+    light: '#474A5E',
+    dark: '#474A5E',
+  },
+  ThemeDangerNeutral: {
+    light: '#D2397C',
+    dark: '#D2397C',
+  },
+  ThemeDangerLight: {
+    light: '#FCDEEC',
+    dark: '#FCDEEC',
+  },
+  ThemeDangerDark: {
+    light: '#970847',
+    dark: '#970847',
+  },
+  ThemeDisabledNeutral: {
+    light: '#D6D9DF',
+    dark: '#6D6D6D',
+  },
+  ThemeDisabledLight: {
+    light: '#F6F6F8',
+    dark: '#525252',
+  },
+  ThemeDisabledDark: {
+    light: '#7E808C',
+    dark: '#717171',
+  },
 
   // Text
-  TextNeutral: '#24243f',
-  TextSub: '#808d96',
+  TextNeutral: {
+    light: '#24243F',
+    dark: '#D5D4D5',
+  },
+  TextSub: {
+    light: '#808D96',
+    dark: '#9F9FA0',
+  },
 
   // Line
-  LineNeutral: '#BFC1C9',
-  LineLight: '#E3E3E7',
-  LineLighter: '#E3E5E6',
-  LineDark: '#7E808C',
+  LineLight: {
+    light: '#E3E3E7',
+    dark: '#707070',
+  },
+  LineNeutral: {
+    light: '#BFC1C9',
+    dark: '#2F2F2F',
+  },
+  /** @deprecated */
+  LineDark: {
+    light: '#7E808C',
+    dark: '#535353',
+  },
 
   // Texture
-  TextureBody: '#F7F7F7',
-  TextureCode: '#0F192A',
-  TextureInput: '#F6F6F8',
-  TextureBackdrop: '#E3E4E8',
-  TexturePaper: '#FFFFFF',
+  TextureBody: {
+    light: '#F7F7F7',
+    dark: '#1E1E1E',
+  },
+  TextureCode: {
+    light: '#F9F9F9',
+    dark: '#1E2127',
+  },
+  TextureInput: {
+    light: '#F6F6F8',
+    dark: '#353535',
+  },
+  TextureBackdrop: {
+    light: '#E3E4E8',
+    dark: '#12121B',
+  },
+  TexturePale: {
+    light: '#FBFBFC',
+    dark: '#414141',
+  },
+  TexturePaper: {
+    light: '#FFFFFF',
+    dark: '#414141',
+  },
 } as const;
-
-export type Color = ValueOf<typeof Color>;
 
 export const FontFamily = {
   Default: '"Noto Sans Japanese", "メイリオ", Meiryo, sans-serif',
@@ -91,10 +150,33 @@ export const ZIndex = {
   Tooltip: 1300,
 } as const;
 
-export const Shadow = {
+export const UnsafeShadow = {
   Neutral: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
   Floating: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
   Dialog: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
   Deep: '0 6px 12px 0 rgba(0, 0, 0, .3)',
   Hover: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
+} as const;
+
+export const Shadow = {
+  ShadowNeutral: {
+    light: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 1px 4px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowFloating: {
+    light: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 1px 8px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowDialog: {
+    light: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
+    dark: `0 10px 40px 0 rgba(0, 0, 0, .4)`,
+  },
+  ShadowDeep: {
+    light: '0 6px 12px 0 rgba(0, 0, 0, .3)',
+    dark: '0 6px 12px 0 rgba(0, 0, 0, .6)',
+  },
+  ShadowHover: {
+    light: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
+    dark: `0 8px 12px 0 rgba(0, 0, 0, .6)`,
+  },
 } as const;

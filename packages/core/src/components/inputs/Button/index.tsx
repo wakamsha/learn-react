@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { ButtonHTMLAttributes, Children, MouseEvent, ReactNode, useMemo } from 'react';
-import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Theme = 'primary' | 'danger';
 
@@ -39,11 +39,10 @@ export const Button = ({
   tabIndex,
   noop,
 }: Props) => {
-  const buttonStyle = useMemo(() => cx(styleBase, getVariantStyle(variant, theme), block && styleBlock), [
-    variant,
-    block,
-    theme,
-  ]);
+  const buttonStyle = useMemo(
+    () => cx(styleBase, getVariantStyle(variant, theme), block && styleBlock),
+    [variant, block, theme],
+  );
 
   return noop ? (
     <span id={id} className={buttonStyle} aria-disabled={disabled}>
@@ -71,7 +70,7 @@ function getVariantStyle(variant: Variant, theme: Theme) {
   }
 }
 
-function variantSolid(neutral: Color, hover: Color) {
+function variantSolid(neutral: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     color: white;
     background-color: ${neutral};
@@ -94,13 +93,13 @@ function variantSolid(neutral: Color, hover: Color) {
     &[aria-disabled='true'] {
       pointer-events: none;
       cursor: not-allowed;
-      background-color: ${Color.ThemeDisabledNeutral};
-      border-color: ${Color.ThemeDisabledNeutral};
+      background-color: ${cssVar('ThemeDisabledNeutral')};
+      border-color: ${cssVar('ThemeDisabledNeutral')};
     }
   `;
 }
 
-function variantGhost(color: Color, hover: Color) {
+function variantGhost(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     color: ${color};
     background-color: transparent;
@@ -116,19 +115,19 @@ function variantGhost(color: Color, hover: Color) {
 
     &:disabled,
     &[aria-disabled='true'] {
-      color: ${Color.ThemeDisabledNeutral};
+      color: ${cssVar('ThemeDisabledNeutral')};
       pointer-events: none;
       cursor: not-allowed;
-      border-color: ${Color.ThemeDisabledNeutral};
+      border-color: ${cssVar('ThemeDisabledNeutral')};
 
       > svg {
-        fill: ${Color.ThemeDisabledNeutral};
+        fill: ${cssVar('ThemeDisabledNeutral')};
       }
     }
   `;
 }
 
-function variantBare(color: Color, hover: Color) {
+function variantBare(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     color: ${color};
     background-color: transparent;
@@ -144,12 +143,12 @@ function variantBare(color: Color, hover: Color) {
 
     &:disabled,
     &[aria-disabled='true'] {
-      color: ${Color.ThemeDisabledNeutral};
+      color: ${cssVar('ThemeDisabledNeutral')};
       pointer-events: none;
       cursor: not-allowed;
 
       > svg {
-        fill: ${Color.ThemeDisabledNeutral};
+        fill: ${cssVar('ThemeDisabledNeutral')};
       }
     }
   `;
@@ -196,18 +195,18 @@ const styleBase = css`
 `;
 
 const styleSolid: Frozen<Theme, string> = {
-  primary: variantSolid(Color.ThemePrimaryNeutral, Color.ThemePrimaryDark),
-  danger: variantSolid(Color.ThemeDangerNeutral, Color.ThemeDangerDark),
+  primary: variantSolid(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryDark')),
+  danger: variantSolid(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerDark')),
 };
 
 const styleGhost: Frozen<Theme, string> = {
-  primary: variantGhost(Color.ThemePrimaryNeutral, Color.ThemePrimaryLighter),
-  danger: variantGhost(Color.ThemeDangerNeutral, Color.ThemeDangerLighter),
+  primary: variantGhost(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
+  danger: variantGhost(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
 };
 
 const styleBare: Frozen<Theme, string> = {
-  primary: variantBare(Color.ThemePrimaryNeutral, Color.ThemePrimaryLighter),
-  danger: variantBare(Color.ThemeDangerNeutral, Color.ThemeDangerLighter),
+  primary: variantBare(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
+  danger: variantBare(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
 };
 
 const styleBlock = css`

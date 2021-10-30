@@ -17,11 +17,11 @@ function getStyle(theme: Theme) {
     case 'dark':
       return {
         color: 'white',
-        background: '#666',
+        backgroundColor: '#666',
       };
     case 'light':
       return {
-        background: '#eee',
+        backgroundColor: '#eee',
       };
   }
 }

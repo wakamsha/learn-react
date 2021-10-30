@@ -1,6 +1,8 @@
-import { applyGlobalStyle } from '@learn-react/core/helpers/Style';
+import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
 import { RoutingProviderApp } from './32-routing-provider';
+
+applyResetStyle();
 
 applyGlobalStyle();
 

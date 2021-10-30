@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { ChangeEvent, ReactNode, useEffect, useRef } from 'react';
-import { BorderRadius, Color, Duration, FontSize } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Props = Partial<{
   checked: boolean;
@@ -68,20 +68,20 @@ const styleBase = css`
 const styleIndicator = css`
   display: inline-block;
   background-color: white;
-  border: 1px solid ${Color.LineNeutral};
+  border: 1px solid ${cssVar('LineNeutral')};
   border-radius: ${BorderRadius.Small};
   transition: background-color ${Duration.Fade}, border ${Duration.Fade};
   ${square(20)}
 
   &:not([aria-checked='false']) {
-    background-color: ${Color.ThemePrimaryNeutral};
-    border-color: ${Color.ThemePrimaryNeutral};
+    background-color: ${cssVar('ThemePrimaryNeutral')};
+    border-color: ${cssVar('ThemePrimaryNeutral')};
   }
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    background-color: ${Color.ThemeDisabledNeutral};
-    border-color: ${Color.LineNeutral};
+    background-color: ${cssVar('ThemeDisabledNeutral')};
+    border-color: ${cssVar('LineNeutral')};
   }
 `;
 
@@ -103,7 +103,7 @@ const styleSymbol = css`
   &[aria-checked='mixed'] {
     width: 10px;
     height: 3px;
-    background: white;
+    background-color: white;
     transform: translate3d(-50%, -50%, 0);
   }
 `;

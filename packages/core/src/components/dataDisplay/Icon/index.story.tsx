@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
-import { IconName, iconElements } from '@learn-react/icon';
-import { FontSize } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { iconElements, IconName } from '@learn-react/icon';
 import { Icon } from '.';
+import { FontSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 
 export const Story = () => (
   <ul className={styleBase}>
@@ -31,11 +31,13 @@ const styleBase = css`
     ${square(96)}
 
     > svg {
+      fill: ${cssVar('TextNeutral')};
       ${square(64)}
     }
 
     > span {
       font-size: ${FontSize.Small};
+      color: ${cssVar('TextSub')};
     }
   }
 `;

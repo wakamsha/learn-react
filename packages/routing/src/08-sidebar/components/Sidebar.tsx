@@ -28,7 +28,7 @@ const baseStyle = css({
 });
 
 const activeStyle = css({
-  background: 'black',
+  backgroundColor: 'black',
   '> a': {
     color: 'white',
     pointerEvents: 'none',

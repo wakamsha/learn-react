@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
-import { BorderRadius, Color, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
-import { gutter, square } from '@learn-react/core/helpers/Style';
+import { BorderRadius, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
+import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { Fragment, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
@@ -110,8 +110,8 @@ const styleBase = css`
   grid-gap: ${gutter(4)};
   height: 100vh;
   overflow-y: auto;
-  background: ${Color.TextureBody};
-  border-right: 1px solid ${Color.LineLighter};
+  background-color: ${cssVar('TextureBody')};
+  border-right: 1px solid ${cssVar('LineNeutral')};
 `;
 
 const styleMasthead = css`
@@ -127,7 +127,7 @@ const styleLogo = css`
   display: block;
   padding: ${gutter(1)};
   margin: auto;
-  background-color: ${Color.ThemePrimaryDarker};
+  background-color: ${cssVar('ThemePrimaryDarker')};
   border-radius: ${BorderRadius.Circle};
   ${square(40)}
 `;
@@ -135,11 +135,11 @@ const styleLogo = css`
 const styleTitle = css`
   margin: 0;
   text-align: center;
-  background-color: transparent;
-  transition: background-color ${Duration.Fade};
+  border-radius: ${BorderRadius.Small};
+  transition: background-color ${Duration.Fade}, border-color ${Duration.Fade};
 
   &:hover {
-    background-color: #e3e3e7;
+    background-color: ${cssVar('ThemePrimaryLight')};
   }
 
   > a {
@@ -180,6 +180,7 @@ const styleCaptionSubPackage = css`
   align-items: center;
   margin: 0 0 ${gutter(4)};
   font-weight: bold;
+  color: ${cssVar('TextNeutral')};
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
@@ -189,7 +190,7 @@ const styleCaptionSubPackage = css`
     height: 1px;
     margin-left: ${gutter(2)};
     content: '';
-    background-color: ${Color.LineNeutral};
+    background-color: ${cssVar('LineNeutral')};
   }
 `;
 
@@ -198,14 +199,18 @@ const styleCaptionType = css`
   align-items: center;
   margin: 0 0 ${gutter(2)};
   font-weight: bold;
+  color: ${cssVar('TextNeutral')};
 
   > svg {
     margin-right: ${gutter(1)};
+    fill: ${cssVar('TextNeutral')};
     ${square(IconSize.Tiny)}
   }
 `;
 
 const styleTypeList = css`
+  padding-left: ${gutter(4)};
+
   > :not(:first-child) {
     margin-top: ${gutter(4)};
   }
@@ -215,7 +220,7 @@ const styleCaptionCategory = css`
   display: flex;
   align-items: center;
   font-weight: bold;
-  color: ${Color.TextSub};
+  color: ${cssVar('TextSub')};
 
   &[aria-disabled='true'] {
     opacity: 0.32;
@@ -223,6 +228,7 @@ const styleCaptionCategory = css`
 
   > svg {
     margin-right: ${gutter(1)};
+    fill: ${cssVar('TextSub')};
     ${square(IconSize.Tiny)}
   }
 `;
@@ -244,10 +250,11 @@ const styleLink = css`
   padding: ${gutter(1)} 0;
   font-family: ${FontFamily.Monospace};
   font-size: ${FontSize.Small};
+  color: ${cssVar('TextNeutral')};
 
   &[aria-selected='true'] {
     font-weight: bold;
-    color: ${Color.ThemeDangerNeutral};
+    color: ${cssVar('ThemeDangerNeutral')};
     pointer-events: none;
   }
 `;

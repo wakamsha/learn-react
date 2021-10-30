@@ -21,7 +21,7 @@ const navStyle = css({
   padding: 16,
   height: '100vh',
   borderLeft: '1px solid gray',
-  background: 'silver',
+  backgroundColor: 'silver',
   flexShrink: 0,
 
   li: {

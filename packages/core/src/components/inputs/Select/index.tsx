@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
 import { ChangeEvent, ReactText, useMemo } from 'react';
-import { Color, Duration, FontSize, LineHeight } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { Duration, FontSize, LineHeight } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 
 type Option<T> = {
@@ -121,7 +121,7 @@ const styleBase = css`
     width: 100%;
     height: 1px;
     content: '';
-    background-color: ${Color.ThemePrimaryDark};
+    background-color: ${cssVar('ThemePrimaryDark')};
   }
 
   > * {
@@ -133,11 +133,11 @@ const styleBase = css`
   }
 
   &[aria-disabled='true'] {
-    background-color: ${Color.ThemeDisabledLight};
+    background-color: ${cssVar('ThemeDisabledLight')};
   }
 
   &:focus-within {
-    box-shadow: inset 0 -2px 0 0 ${Color.ThemePrimaryDark};
+    box-shadow: inset 0 -2px 0 0 ${cssVar('ThemePrimaryDark')};
   }
 `;
 
@@ -146,7 +146,7 @@ const styleIcon = css`
   ${square(24)}
 
   > svg {
-    fill: ${Color.ThemePrimaryNeutral};
+    fill: ${cssVar('ThemePrimaryNeutral')};
   }
 `;
 
@@ -156,7 +156,7 @@ const styleSelect = css`
   padding: ${gutter(2)} ${gutter(6)} ${gutter(2)} 0;
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
-  color: ${Color.TextNeutral};
+  color: ${cssVar('TextNeutral')};
   background-color: transparent;
   border: none;
   outline: none;
@@ -171,7 +171,7 @@ const styleSelect = css`
   }
 
   &:disabled {
-    color: ${Color.TextSub};
+    color: ${cssVar('TextSub')};
   }
 `;
 
@@ -184,6 +184,6 @@ const styleSymbol = css`
   ${square(24)}
 
   > svg {
-    fill: ${Color.ThemePrimaryNeutral};
+    fill: ${cssVar('ThemePrimaryNeutral')};
   }
 `;

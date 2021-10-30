@@ -13,7 +13,7 @@ const baseStyle = css({
 });
 
 const sidebarWrapperStyle = css({
-  background: '#eee',
+  backgroundColor: '#eee',
   padding: 16,
 });
 

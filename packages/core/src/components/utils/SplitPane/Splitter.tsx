@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { MouseEvent } from 'react';
-import { Color, Duration } from '../../../constants/Style';
+import { Duration } from '../../../constants/Style';
+import { cssVar } from '../../../helpers/Style';
 
 type Props = {
   grabbed: boolean;
@@ -20,12 +21,12 @@ const styleBase = css`
   background: radial-gradient(at center center, rgba(0, 0, 0, 0.24) 0%, transparent 70%, transparent 100%) no-repeat;
   background-position: 10px 50%;
   background-size: 28px 100%;
-  border-right: 1px solid ${Color.LineLight};
+  border-right: 1px solid ${cssVar('LineNeutral')};
   transition: background-position ${Duration.Fade} linear 0.2s;
 
   &:hover,
   &[aria-grabbed='true'] {
     background-position: 0px 50%;
-    border-color: ${Color.LineNeutral};
+    border-color: ${cssVar('LineNeutral')};
   }
 `;

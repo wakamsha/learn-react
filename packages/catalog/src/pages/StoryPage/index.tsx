@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
-import { BorderRadius, Color, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { BorderRadius, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
+import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
@@ -66,8 +66,8 @@ const Inner = () => {
 const styleBase = css`
   display: flex;
   height: 100vh;
-  color: ${Color.TextNeutral};
-  background: #f6f6f8;
+  color: ${cssVar('TextNeutral')};
+  background-color: ${cssVar('TextureBody')};
 `;
 
 const styleLayout: Frozen<Layout, string> = {
@@ -110,7 +110,7 @@ const styleHeader = css`
   > small {
     font-family: ${FontFamily.Monospace};
     font-size: ${FontSize.Small};
-    color: ${Color.TextSub};
+    color: ${cssVar('TextSub')};
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -146,8 +146,8 @@ const stylePreview = css`
     padding: ${gutter(4)};
     margin: ${gutter(6)} 0;
     overflow: auto;
-    background-color: ${Color.TextureInput};
-    border: 1px solid ${Color.LineNeutral};
+    background-color: ${cssVar('TextureInput')};
+    border: 1px solid ${cssVar('LineNeutral')};
     border-radius: ${BorderRadius.Small};
 
     > code {

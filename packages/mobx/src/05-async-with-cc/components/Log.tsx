@@ -23,7 +23,7 @@
 
 // const baseStyle = css({
 //   margin: 0,
-//   background: '#0f192a',
+//   background-color: '#0f192a',
 //   height: '100%',
 //   '> pre': {
 //     height: '100%',

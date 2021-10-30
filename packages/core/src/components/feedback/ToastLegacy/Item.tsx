@@ -1,8 +1,8 @@
 import { css, keyframes } from '@emotion/css';
 import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
 import { Toast } from '.';
-import { Color, Duration, Easing, IconSize, Shadow } from '../../../constants/Style';
-import { gutter, square } from '../../../helpers/Style';
+import { Duration, Easing, IconSize } from '../../../constants/Style';
+import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 
 type Props = {
@@ -46,7 +46,7 @@ const styleBase = css`
   max-width: 30vw;
   padding: ${gutter(4)} ${gutter(5)} ${gutter(4)} ${gutter(4)};
   color: white;
-  box-shadow: ${Shadow.Neutral};
+  box-shadow: ${cssVar('ShadowNeutral')};
   animation: ${keyframes`
     from {
       opacity: ${0};
@@ -85,9 +85,9 @@ const styleRemove = css`
 
 const Theme = {
   primary: css`
-    background: ${Color.ThemePrimaryNeutral};
+    background-color: ${cssVar('ThemePrimaryNeutral')};
   `,
   danger: css`
-    background: ${Color.ThemeDangerNeutral};
+    background-color: ${cssVar('ThemeDangerNeutral')};
   `,
 } as const;

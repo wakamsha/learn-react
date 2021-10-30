@@ -1,22 +1,17 @@
 import { css } from '@emotion/css';
-import { gutter, textEllipsis } from '../../helpers/Style';
-import { Color, FontSize, LineHeight, Shadow } from '.';
-
-type ColorItem = {
-  name: string;
-  hex: string;
-};
+import { Color, FontSize, LineHeight } from '.';
+import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 
 export const Story = () => {
-  const colors = Object.entries(Color).map(([name, hex]) => ({ name, hex }));
+  const colors = Object.entries(Color).map(([name, color]) => ({ name, color }));
 
   return (
     <>
       <h3>Color</h3>
       <ul className={styleBase}>
-        {colors.map(({ name, hex }) => (
+        {colors.map(({ name, color }) => (
           <li key={name}>
-            <ColorTip name={name} hex={hex} />
+            <ColorTip name={name} color={color} />
           </li>
         ))}
       </ul>
@@ -24,28 +19,41 @@ export const Story = () => {
   );
 };
 
-const ColorTip = ({ name, hex }: ColorItem) => (
-  <div
-    className={styleColorBox}
-    style={{
-      backgroundColor: hex,
-      color: getReadableColor(hex),
-    }}
-  >
-    <div className={styleColorName}>{name}</div>
-    <code className={styleColorValue}>{hex}</code>
-  </div>
-);
+type ColorTipProps = {
+  name: string;
+  color: {
+    light: string;
+    dark: string;
+  };
+};
+
+const ColorTip = ({ name, color }: ColorTipProps) => {
+  const hex = window.matchMedia('(prefers-color-scheme: dark)').matches ? color.dark : color.light;
+
+  return (
+    <div
+      className={styleColorBox}
+      style={{
+        backgroundColor: cssVar(name as keyof typeof Color),
+        color: getReadableColor(hex),
+      }}
+    >
+      <div className={styleColorName}>{name}</div>
+      <code className={styleColorValue}>{hex}</code>
+    </div>
+  );
+};
 
 /**
  * コントラスト比的に対照的な（背景色 vs 前景色としたとき視認性が落ちない）色を返す
  * @see https://zenn.dev/hyiromori/articles/hatena-20201112-182643
  *
  * @param color #FFCC00 のような値
- * @param darkColor #FFCC00 のような値
- * @param lightColor #FFCC00 のような値
  */
-function getReadableColor(color: string, darkColor = '#000000', lightColor = '#ffffff') {
+function getReadableColor(color: string) {
+  const darkColor = '#000000';
+  const lightColor = '#ffffff';
+
   const darkRatio = getContrastRatio(color, darkColor);
   const lightRatio = getContrastRatio(color, lightColor);
 
@@ -123,7 +131,7 @@ const styleColorBox = css`
   min-height: 120px;
   padding: ${gutter(2)};
   word-break: break-word;
-  box-shadow: ${Shadow.Neutral};
+  box-shadow: ${cssVar('ShadowNeutral')};
 
   > :not(:first-child) {
     margin-top: ${gutter(2)};

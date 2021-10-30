@@ -1,8 +1,8 @@
 import { css, cx } from '@emotion/css';
 import { IconName } from '@learn-react/icon';
 import { MouseEvent, useMemo } from 'react';
-import { BorderRadius, Color, Duration } from '../../../constants/Style';
-import { square } from '../../../helpers/Style';
+import { BorderRadius, Duration } from '../../../constants/Style';
+import { cssVar, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 
 type Variant = 'solid' | 'ghost' | 'bare';
@@ -33,11 +33,10 @@ export const IconButton = ({
   disabled,
   onClick,
 }: Props) => {
-  const styleButton = useMemo(() => cx(styleBase, getVariantStyle(variant, theme), styleSize[size]), [
-    theme,
-    variant,
-    size,
-  ]);
+  const styleButton = useMemo(
+    () => cx(styleBase, getVariantStyle(variant, theme), styleSize[size]),
+    [theme, variant, size],
+  );
 
   return (
     <button
@@ -65,7 +64,7 @@ function getVariantStyle(variant: Variant, theme: Theme) {
   }
 }
 
-function variantSolid(neutral: Color, hover: Color) {
+function variantSolid(neutral: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     background-color: ${neutral};
     border-color: ${neutral};
@@ -81,13 +80,13 @@ function variantSolid(neutral: Color, hover: Color) {
     }
 
     &:disabled {
-      background-color: ${Color.ThemeDisabledNeutral};
-      border-color: ${Color.ThemeDisabledNeutral};
+      background-color: ${cssVar('ThemeDisabledNeutral')};
+      border-color: ${cssVar('ThemeDisabledNeutral')};
     }
   `;
 }
 
-function variantGhost(color: Color, hover: Color) {
+function variantGhost(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     border-color: ${color};
 
@@ -100,16 +99,16 @@ function variantGhost(color: Color, hover: Color) {
     }
 
     &:disabled {
-      border-color: ${Color.ThemeDisabledNeutral};
+      border-color: ${cssVar('ThemeDisabledNeutral')};
 
       > svg {
-        fill: ${Color.ThemeDisabledNeutral};
+        fill: ${cssVar('ThemeDisabledNeutral')};
       }
     }
   `;
 }
 
-function variantBare(color: Color, hover: Color) {
+function variantBare(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
   return css`
     > svg {
       fill: ${color};
@@ -121,7 +120,7 @@ function variantBare(color: Color, hover: Color) {
 
     &:disabled {
       > svg {
-        fill: ${Color.ThemeDisabledNeutral};
+        fill: ${cssVar('ThemeDisabledNeutral')};
       }
     }
   `;
@@ -152,18 +151,18 @@ const styleBase = css`
 `;
 
 const styleSolid: Frozen<Theme, string> = {
-  primary: variantSolid(Color.ThemePrimaryNeutral, Color.ThemePrimaryDark),
-  danger: variantSolid(Color.ThemeDangerNeutral, Color.ThemeDangerDark),
+  primary: variantSolid(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryDark')),
+  danger: variantSolid(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerDark')),
 };
 
 const styleGhost: Frozen<Theme, string> = {
-  primary: variantGhost(Color.ThemePrimaryNeutral, Color.ThemePrimaryLighter),
-  danger: variantGhost(Color.ThemeDangerNeutral, Color.ThemeDangerLighter),
+  primary: variantGhost(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
+  danger: variantGhost(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
 };
 
 const styleBare: Frozen<Theme, string> = {
-  primary: variantBare(Color.ThemePrimaryNeutral, Color.ThemePrimaryLighter),
-  danger: variantBare(Color.ThemeDangerNeutral, Color.ThemeDangerLighter),
+  primary: variantBare(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
+  danger: variantBare(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
 };
 
 const styleSize: Frozen<Size, string> = {
