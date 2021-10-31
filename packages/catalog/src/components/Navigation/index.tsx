@@ -3,14 +3,12 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
-import { Fragment, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
 export const Navigation = () => {
-  const location = useLocation();
-
   const [keyword, setKeyword] = useState('');
 
   const query = useMemo(() => {
@@ -46,55 +44,7 @@ export const Navigation = () => {
           <ul key={subPackageKey} className={styleNavigation} role="tree">
             <li>
               <div className={styleCaptionSubPackage}>@learn-react/{subPackageKey}</div>
-              <ul className={styleTypeList} role="tree">
-                {Object.entries(subPackage).map(([typeKey, type]) => (
-                  <li key={typeKey}>
-                    <div className={styleCaptionType}>
-                      <Icon name="folder" />
-                      {typeKey}
-                    </div>
-                    <ul className={styleItemList} role="tree">
-                      {Object.entries(type).map(([key, value]) => {
-                        if (typeof value === 'function' && key.match(query)) {
-                          const to = `/${subPackageKey}/${typeKey}/-/${key}/`;
-
-                          return (
-                            <li key={key}>
-                              <Link to={to} className={styleLink} aria-selected={to === location.pathname}>
-                                {key}
-                              </Link>
-                            </li>
-                          );
-                        }
-
-                        const storyKeys = Object.keys(value).filter(key => key.match(query));
-
-                        return (
-                          <Fragment key={key}>
-                            <div className={styleCaptionCategory} aria-disabled={!storyKeys.length}>
-                              <Icon name="folder" />
-                              {key}
-                            </div>
-                            <ul className={styleStoryList} role="tree">
-                              {storyKeys.map(storyKey => {
-                                const to = `/${subPackageKey}/${typeKey}/${key}/${storyKey}/`;
-
-                                return (
-                                  <li key={storyKey}>
-                                    <Link to={to} className={styleLink} aria-selected={to === location.pathname}>
-                                      {storyKey}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </Fragment>
-                        );
-                      })}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+              <Tree basePath={`/${subPackageKey}`} value={subPackage} query={query} />
             </li>
           </ul>
         ))}
@@ -103,11 +53,50 @@ export const Navigation = () => {
   );
 };
 
+type TreeProps = {
+  value: Record<string, Record<string, unknown> | Function>;
+  basePath: string;
+  query: RegExp;
+};
+
+const Tree = ({ value, basePath, query }: TreeProps) => {
+  const location = useLocation();
+
+  return (
+    <ul role="tree" className={styleTree}>
+      {Object.entries(value).map(([key, subValue]) => {
+        const path = `${basePath}-${key}`;
+
+        if (typeof subValue === 'function') {
+          return key.match(query) ? (
+            <li key={key}>
+              <Link to={path} className={styleLink} aria-selected={path === location.pathname}>
+                {key}
+              </Link>
+            </li>
+          ) : null;
+        }
+
+        const filteredItemKeys = Object.keys(subValue).filter(subKey => subKey.match(query));
+
+        return (
+          <li key={key}>
+            <div className={styleTreeCaption} aria-disabled={!filteredItemKeys.length}>
+              <Icon name="folder" />
+              {key}
+            </div>
+            <Tree basePath={path} value={subValue as TreeProps['value']} query={query} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 const styleBase = css`
   display: grid;
   flex-shrink: 0;
   grid-template-rows: auto auto 1fr;
-  grid-gap: ${gutter(4)};
   height: 100vh;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};
@@ -156,11 +145,12 @@ const styleTitle = css`
 
 const styleForm = css`
   padding: 0 ${gutter(4)};
+  margin-top: ${gutter(4)};
 `;
 
 const styleBody = css`
   flex-grow: 1;
-  padding: 0 ${gutter(4)} ${gutter(20)};
+  padding: ${gutter(4)} ${gutter(4)} ${gutter(20)};
   overflow-y: auto;
 `;
 
@@ -180,7 +170,7 @@ const styleCaptionSubPackage = css`
   align-items: center;
   margin: 0 0 ${gutter(4)};
   font-weight: bold;
-  color: ${cssVar('TextNeutral')};
+  color: ${cssVar('TextSub')};
   text-transform: uppercase;
   letter-spacing: 1px;
   white-space: nowrap;
@@ -194,31 +184,15 @@ const styleCaptionSubPackage = css`
   }
 `;
 
-const styleCaptionType = css`
-  display: flex;
-  align-items: center;
-  margin: 0 0 ${gutter(2)};
-  font-weight: bold;
-  color: ${cssVar('TextNeutral')};
-
-  > svg {
-    margin-right: ${gutter(1)};
-    fill: ${cssVar('TextNeutral')};
-    ${square(IconSize.Tiny)}
-  }
+const styleTree = css`
+  padding-left: 18px;
 `;
 
-const styleTypeList = css`
-  padding-left: ${gutter(4)};
-
-  > :not(:first-child) {
-    margin-top: ${gutter(4)};
-  }
-`;
-
-const styleCaptionCategory = css`
+const styleTreeCaption = css`
   display: flex;
+  gap: ${gutter(1)};
   align-items: center;
+  margin: ${gutter(2)} 0;
   font-weight: bold;
   color: ${cssVar('TextSub')};
 
@@ -227,22 +201,9 @@ const styleCaptionCategory = css`
   }
 
   > svg {
-    margin-right: ${gutter(1)};
     fill: ${cssVar('TextSub')};
     ${square(IconSize.Tiny)}
   }
-`;
-
-const styleItemList = css`
-  padding-left: ${gutter(4)};
-
-  > :not(:first-child) {
-    margin-top: ${gutter(2)};
-  }
-`;
-
-const styleStoryList = css`
-  padding-left: 18px;
 `;
 
 const styleLink = css`

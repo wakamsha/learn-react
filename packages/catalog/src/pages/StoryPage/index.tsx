@@ -2,7 +2,7 @@ import { css, cx } from '@emotion/css';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { BorderRadius, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
-import { useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import { storySpec } from '../../constants/StorySpec';
@@ -18,34 +18,39 @@ export const StoryPage = () => (
 );
 
 type Params = {
-  subPackage: string;
-  type: string;
-  category: string;
-  story: string;
+  storyId: string;
 };
 
 const Inner = () => {
-  const { subPackage, type, category, story } = useParams<Params>();
+  const { storyId } = useParams<Params>();
+
+  const storyParams = storyId.split('-');
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
 
-  const Component = useMemo(
-    () => (category !== '-' ? (stories as any)[subPackage][type][category][story] : stories[subPackage][type][story]),
-    [story, subPackage, type, category],
-  );
+  const Component = useMemo(() => {
+    let snapShot: any = stories;
 
-  const storySpecKey = `${subPackage}/${type}/${
-    category !== '-' ? `${category}/` : ''
-  }${story}` as keyof typeof storySpec;
+    for (let i = 0; i < storyParams.length; i++) {
+      if (!snapShot[storyParams[i]]) {
+        break;
+      }
+      snapShot = snapShot[storyParams[i]];
+    }
+
+    return snapShot as FC;
+  }, [storyParams]);
+
+  const storySpecKey = storyParams.join('/') as keyof typeof storySpec;
 
   return (
     <>
-      <DocumentTitle title={story} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={storyParams.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
       <div className={styleLayout[layoutConfig]}>
         <section className={stylePreview}>
           <header className={styleHeader}>
-            <small>{`@learn-react/${subPackage}/${type}/${category !== '-' ? `${category}/` : ''}`}</small>
-            <h1>{story}</h1>
+            <small>{`@learn-react/${storyParams.join('/')}`}</small>
+            <h1>{storyParams.slice(-1)[0]}</h1>
           </header>
           <Component />
         </section>
