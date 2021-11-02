@@ -17,14 +17,10 @@ jobs:
   setup:
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
-
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.x'
+          node-version: 16.x
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -48,14 +44,10 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
-
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.x'
+          node-version: 16.x
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -74,10 +66,6 @@ jobs:
   build_catalog:
     needs: setup
     runs-on: ubuntu-latest
-
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
@@ -103,14 +91,10 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
-
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.x'
+          node-version: 16.x
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -133,14 +117,10 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
-
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.x'
+          node-version: 16.x
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -160,14 +140,10 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    # strategy:
-    #   matrix:
-    #     node: [16.x]
-
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: '16.x'
+          node-version: 16.x
 
       - name: Checkout
         uses: actions/checkout@v2
