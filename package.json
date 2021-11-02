@@ -17,11 +17,12 @@
     "routing": "  yarn workspace @learn-react/routing",
     "statement": "yarn workspace @learn-react/statement",
     "try": "      yarn workspace @learn-react/try",
-    "lint": "yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
+    "lint": "yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}; eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
     "format": "yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   },
   "devDependencies": {
     "@commitlint/cli": "13.2.1",
+    "@stylelint/postcss-css-in-js": "0.37.2",
     "@types/highlight.js": "10.1.0",
     "@types/node": "16.11.6",
     "@types/qs": "6.9.7",
@@ -45,12 +46,13 @@
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
     "npm-run-all": "4.1.5",
+    "postcss-syntax": "0.36.2",
     "prettier": "2.4.1",
     "prettier-plugin-organize-imports": "2.3.4",
-    "stylelint": "13.13.1",
-    "stylelint-config-prettier": "8.0.2",
+    "stylelint": "14.0.1",
+    "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recess-order": "2.5.0",
-    "stylelint-config-recommended": "5.0.0",
+    "stylelint-config-recommended": "6.0.0",
     "svgo": "2.7.0",
     "ts-xor": "1.0.8",
     "typescript": "4.4.4",
@@ -77,7 +79,7 @@
       "cspell",
       "prettier -c -w",
       "eslint -c .eslintrc.js --fix",
-      "stylelint -s css-in-js --cache --fix"
+      "stylelint --cache --fix"
     ]
   }
 }
