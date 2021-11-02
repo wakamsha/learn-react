@@ -91,7 +91,7 @@
     },
     {
       groupName: 'Stylelint families',
-      matchPackagePatterns: ['^stylelint', '^@stylelint'],
+      matchPackagePatterns: ['^stylelint', '^@stylelint', '^postcss'],
     },
   ],
 }
