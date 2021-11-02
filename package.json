@@ -17,7 +17,7 @@
     "routing": "  yarn workspace @learn-react/routing",
     "statement": "yarn workspace @learn-react/statement",
     "try": "      yarn workspace @learn-react/try",
-    "lint": "yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
+    "lint": "yarn eslint -c .eslintrc.js packages/**/*.{ts,tsx}; eslint -c .eslintrc.js packages/**/*.{ts,tsx}",
     "format": "yarn prettier -c -w packages/**/*.{ts,tsx}; yarn eslint -c .eslintrc.js --fix packages/**/*.{ts,tsx}"
   },
   "devDependencies": {
