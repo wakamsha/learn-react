@@ -17,14 +17,14 @@ jobs:
   setup:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16.x'
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -48,14 +48,14 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16.x'
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -75,9 +75,9 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
@@ -103,14 +103,14 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16.x'
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -133,14 +133,14 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16.x'
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -160,14 +160,14 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node: [16.x]
+    # strategy:
+    #   matrix:
+    #     node: [16.x]
 
     steps:
       - uses: actions/setup-node@v2-beta
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '16.x'
 
       - name: Checkout
         uses: actions/checkout@v2
