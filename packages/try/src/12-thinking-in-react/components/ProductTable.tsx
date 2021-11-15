@@ -10,7 +10,7 @@ type Props = {
   products: Product[];
 };
 
-export function ProductTable(props: Props) {
+export const ProductTable = (props: Props) => {
   const { filterText, stockOnly, products } = props;
   const rows = products.reduce(
     (acc: { rows: JSX.Element[]; lastCategory: string }, product) => {
@@ -41,4 +41,4 @@ export function ProductTable(props: Props) {
       <tbody>{rows.rows}</tbody>
     </table>
   );
-}
+};

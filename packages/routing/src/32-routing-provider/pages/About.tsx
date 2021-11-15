@@ -1,11 +1,12 @@
-import { useCallback } from 'react';
 import { useRouting } from '../../@core/components/RoutingProvider';
 import { Router } from '../../@core/constants/Router';
 
 export const About = () => {
   const { history } = useRouting();
 
-  const handleClick = useCallback(() => history.push(Router.Paths.Home), []);
+  const handleClick = () => {
+    history.push(Router.Paths.Home);
+  };
 
   return (
     <div>

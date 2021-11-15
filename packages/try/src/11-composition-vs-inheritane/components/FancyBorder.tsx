@@ -17,6 +17,6 @@ const blueStyle = css({
   borderColor: 'blue',
 });
 
-export function FancyBorder({ color, children }: Props): JSX.Element {
-  return <div className={`${baseStyle} ${color === 'blue' ? blueStyle : ''}`}>{children}</div>;
-}
+export const FancyBorder = ({ color, children }: Props): JSX.Element => (
+  <div className={`${baseStyle} ${color === 'blue' ? blueStyle : ''}`}>{children}</div>
+);

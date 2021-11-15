@@ -14,5 +14,5 @@ export const DocumentTitle = ({ title, baseTitle = 'Learn React' }: Props) => {
     }
   }, [baseTitle, title]);
 
-  return <></>;
+  return null;
 };

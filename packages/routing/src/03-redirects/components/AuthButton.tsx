@@ -4,7 +4,7 @@ import { fakeAuth } from '../stores/Auth';
 
 type Props = RouteComponentProps;
 
-function Component({ history }: Props) {
+const Component = ({ history }: Props) => {
   const handleClick = useCallback(() => fakeAuth.signOut(() => history.push('/')), [history]);
 
   return fakeAuth.isAuthenticated ? (
@@ -15,6 +15,6 @@ function Component({ history }: Props) {
   ) : (
     <p>You are not logged in.</p>
   );
-}
+};
 
 export const AuthButton = withRouter(Component);

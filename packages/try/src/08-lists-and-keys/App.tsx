@@ -1,13 +1,11 @@
 // https://ja.reactjs.org/docs/lists-and-keys.html
 
-function ListItem({ value }: { value: number }): JSX.Element {
-  return <li>{value}</li>;
-}
+const ListItem = ({ value }: { value: number }): JSX.Element => <li>{value}</li>;
 
 type Props = {
   numbers: number[];
 };
-export function NumberList(props: Props): JSX.Element {
+export const NumberList = (props: Props): JSX.Element => {
   const { numbers } = props;
   return (
     <ul>
@@ -16,4 +14,4 @@ export function NumberList(props: Props): JSX.Element {
       ))}
     </ul>
   );
-}
+};

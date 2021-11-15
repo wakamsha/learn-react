@@ -17,12 +17,10 @@ const messageStyle = css({
   fontSize: 'larger',
 });
 
-export function Dialog({ title, message, children }: Props) {
-  return (
-    <FancyBorder color="blue">
-      <h1 className={titleStyle}>{title}</h1>
-      <p className={messageStyle}>{message}</p>
-      {children}
-    </FancyBorder>
-  );
-}
+export const Dialog = ({ title, message, children }: Props) => (
+  <FancyBorder color="blue">
+    <h1 className={titleStyle}>{title}</h1>
+    <p className={messageStyle}>{message}</p>
+    {children}
+  </FancyBorder>
+);

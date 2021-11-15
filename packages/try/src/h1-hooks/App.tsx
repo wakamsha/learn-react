@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 type Props = {
   count: number;
 };
-export function HookApp({ count: initCount }: Props) {
+export const HookApp = ({ count: initCount }: Props) => {
   const [count, setCount] = useState<number>(initCount);
   // @MEMO プリミティブ型にしか使えない。
   // オブジェクト型だと値の変更を検知できないため。その場合はコールバックref を使うこと
@@ -33,4 +33,4 @@ export function HookApp({ count: initCount }: Props) {
   //     <button onClick={() => setCount(count + 1))}>Click me</button>
   //   </>
   // );
-}
+};

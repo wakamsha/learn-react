@@ -1,11 +1,11 @@
 import { PlaceholderUser, requestGetPlaceholderUsers, requestGetRandomUser } from './api-client';
 
 function p(str: string, delay = 1000): Promise<string> {
-  return new Promise(resolve =>
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve(str);
-    }, delay),
-  );
+    }, delay);
+  });
 }
 
 function* gfn(): IterableIterator<Promise<string>> {

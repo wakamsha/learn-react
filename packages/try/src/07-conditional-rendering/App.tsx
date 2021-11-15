@@ -1,29 +1,23 @@
 // https://ja.reactjs.org/docs/conditional-rendering.html
 import { Component, MouseEvent } from 'react';
 
-function UserGreeting(): JSX.Element {
-  return <h1>Welcome back!</h1>;
-}
+const UserGreeting = (): JSX.Element => <h1>Welcome back!</h1>;
 
-function GuestGreeting(): JSX.Element {
-  return <h1>Please sign up.</h1>;
-}
+const GuestGreeting = (): JSX.Element => <h1>Please sign up.</h1>;
 
 type GreetingProps = {
   loggedIn: boolean;
 };
-function Greeting(props: GreetingProps): JSX.Element {
+const Greeting = (props: GreetingProps): JSX.Element => {
   const { loggedIn } = props;
   return loggedIn ? <UserGreeting /> : <GuestGreeting />;
-}
+};
 
-function LoginButton({ onClick }: { onClick: (e: MouseEvent) => void }): JSX.Element {
-  return <button onClick={onClick}>Login</button>;
-}
+const LoginButton = ({ onClick }: { onClick: (e: MouseEvent) => void }): JSX.Element => (
+  <button onClick={onClick}>Login</button>
+);
 
-function LogoutButton({ onClick }: { onClick: (e: MouseEvent) => void }) {
-  return <button onClick={onClick}>Logout</button>;
-}
+const LogoutButton = ({ onClick }: { onClick: (e: MouseEvent) => void }) => <button onClick={onClick}>Logout</button>;
 
 type State = {
   loggedIn: boolean;
