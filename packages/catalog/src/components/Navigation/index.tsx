@@ -53,46 +53,6 @@ export const Navigation = () => {
   );
 };
 
-type TreeProps = {
-  value: Record<string, Record<string, unknown> | Function>;
-  basePath: string;
-  query: RegExp;
-};
-
-const Tree = ({ value, basePath, query }: TreeProps) => {
-  const location = useLocation();
-
-  return (
-    <ul role="tree" className={styleTree}>
-      {Object.entries(value).map(([key, subValue]) => {
-        const path = `${basePath}-${key}`;
-
-        if (typeof subValue === 'function') {
-          return key.match(query) ? (
-            <li key={key}>
-              <Link to={path} className={styleLink} aria-selected={path === location.pathname}>
-                {key}
-              </Link>
-            </li>
-          ) : null;
-        }
-
-        const filteredItemKeys = Object.keys(subValue).filter(subKey => subKey.match(query));
-
-        return (
-          <li key={key}>
-            <div className={styleTreeCaption} aria-disabled={!filteredItemKeys.length}>
-              <Icon name="folder" />
-              {key}
-            </div>
-            <Tree basePath={path} value={subValue as TreeProps['value']} query={query} />
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
 const styleBase = css`
   display: grid;
   flex-shrink: 0;
@@ -184,9 +144,53 @@ const styleCaptionSubPackage = css`
   }
 `;
 
-const styleTree = css`
-  padding-left: 18px;
-`;
+type TreeProps = {
+  value: Record<string, Record<string, unknown> | Function>;
+  basePath: string;
+  query: RegExp;
+  nestLevel?: number;
+};
+
+const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
+  const location = useLocation();
+
+  const offset = 16 * nestLevel;
+
+  return (
+    <ul role="tree">
+      {Object.entries(value).map(([key, subValue]) => {
+        const path = `${basePath}-${key}`;
+
+        if (typeof subValue === 'function') {
+          return key.match(query) ? (
+            <li key={key}>
+              <Link
+                to={path}
+                className={styleLink}
+                style={{ paddingLeft: offset + 2 }}
+                aria-selected={path === location.pathname}
+              >
+                {key}
+              </Link>
+            </li>
+          ) : null;
+        }
+
+        const filteredItemKeys = Object.keys(subValue).filter(subKey => subKey.match(query));
+
+        return (
+          <li key={key}>
+            <div className={styleTreeCaption} style={{ paddingLeft: offset }} aria-disabled={!filteredItemKeys.length}>
+              <Icon name="folder" />
+              {key}
+            </div>
+            <Tree basePath={path} value={subValue as TreeProps['value']} query={query} nestLevel={nestLevel + 1} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
 const styleTreeCaption = css`
   display: flex;
