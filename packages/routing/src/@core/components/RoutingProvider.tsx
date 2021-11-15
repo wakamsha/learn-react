@@ -1,5 +1,5 @@
-import { Action, History, Location, createBrowserHistory } from 'history';
-import { ReactNode, createContext, useCallback, useEffect, useMemo, useState } from 'react';
+import { Action, createBrowserHistory, History, Location } from 'history';
+import { createContext, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { Router } from 'react-router-dom';
 import { useContext } from '../hooks/useContext';
 
@@ -33,6 +33,7 @@ export const RoutingProvider = ({ children }: Props) => {
   }, [handleChangeState, history]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <Context.Provider value={{ history, location }}>
       <Router history={history}>{children}</Router>
     </Context.Provider>

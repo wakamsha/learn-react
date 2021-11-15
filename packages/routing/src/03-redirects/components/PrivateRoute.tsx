@@ -7,24 +7,20 @@ type Props = {
   path: string;
 };
 
-export const PrivateRoute = (props: Props) => {
-  const { component: Component, ...rest } = props;
-
-  return (
-    <Route
-      {...rest}
-      render={(props: RouteComponentProps) =>
-        fakeAuth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: props.location },
-            }}
-          />
-        )
-      }
-    />
-  );
-};
+export const PrivateRoute = ({ component: Component, path }: Props) => (
+  <Route
+    path={path}
+    render={(props: RouteComponentProps) =>
+      fakeAuth.isAuthenticated ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/login',
+            state: { from: props.location },
+          }}
+        />
+      )
+    }
+  />
+);

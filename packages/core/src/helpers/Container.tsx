@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode, createContext } from 'react';
+import { ComponentType, createContext, ReactNode } from 'react';
 import { useContext } from '../hooks/useContext';
 
 type ContainerProviderProps<S = void> = {
@@ -19,17 +19,17 @@ type Container<V, S = void> = {
 export function createContainer<V, S = void>(useHook: (initialState?: S) => V): Container<V, S> {
   const Context = createContext<V | null>(null);
 
-  function Provider({ initialState, children }: ContainerProviderProps<S>) {
+  const Provider = ({ initialState, children }: ContainerProviderProps<S>) => {
     const value = useHook(initialState);
 
     return <Context.Provider value={value}>{children}</Context.Provider>;
-  }
+  };
 
-  function useContainer(): V {
+  const useContainer = (): V => {
     const value = useContext(Context);
 
     return value;
-  }
+  };
 
   return { Provider, useContainer };
 }

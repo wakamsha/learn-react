@@ -35,11 +35,11 @@ const activeStyle = css({
   },
 });
 
-export const Sidebar = (props: Props) => (
+export const Sidebar = ({ currentPath, handleClick }: Props) => (
   <ul className={baseStyle}>
     {routes.map(route => (
-      <li key={route.path} className={route.path === props.currentPath ? activeStyle : ''}>
-        <Link to={route.path} onClick={() => props.handleClick(route.path)}>
+      <li key={route.path} className={route.path === currentPath ? activeStyle : ''}>
+        <Link to={route.path} onClick={() => handleClick(route.path)}>
           {route.label}
         </Link>
       </li>

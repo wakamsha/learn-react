@@ -59,6 +59,13 @@ module.exports = {
         message: 'Do not declare enums',
       },
     ],
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
     'react/jsx-filename-extension': [
       'error',
       {

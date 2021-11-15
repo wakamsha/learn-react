@@ -22,7 +22,7 @@ function tryConvert(temperature: string, convert: (val: number) => number): stri
   return `${rounded}`;
 }
 
-export function Calculator() {
+export const Calculator = () => {
   const [state, setState] = useState<State>({ temperature: '', scale: ScaleNames.C });
   const handleCelsiusChange = useCallback((temperature: string) => setState({ temperature, scale: ScaleNames.C }), []);
   const handleFahrenheitChange = useCallback(
@@ -40,4 +40,4 @@ export function Calculator() {
       <BoilingVerdict celsius={Number(temperature)} />
     </>
   );
-}
+};

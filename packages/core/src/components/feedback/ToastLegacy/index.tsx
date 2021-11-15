@@ -52,6 +52,7 @@ const Provider = ({ children, limit = 1 }: ProviderProps) => {
   }, [limit, toasts.length, queue]);
 
   return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <Context.Provider value={{ addToast, removeToast }}>
       {children}
       <Container toasts={toasts} />

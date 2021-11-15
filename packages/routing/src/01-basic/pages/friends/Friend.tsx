@@ -13,11 +13,11 @@ const containerStyle = css({
   border: '1px solid',
 });
 
-export function Friend({
+export const Friend = ({
   match: {
     params: { id },
   },
-}: Props) {
+}: Props) => {
   const friend = getFriendById(id);
   if (!friend) {
     return <p>Friends with id {id} does not exist.</p>;
@@ -30,4 +30,4 @@ export function Friend({
       <p>{friend.family}</p>
     </article>
   );
-}
+};

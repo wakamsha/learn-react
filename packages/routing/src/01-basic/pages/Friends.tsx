@@ -34,14 +34,12 @@ export function getFriendById(id: string): FriendType | void {
   return FRIENDS.find(f => f.id === id);
 }
 
-export function Friends() {
-  return (
-    <main>
-      <h1>Friends page</h1>
-      <Switch>
-        <Route path="/friends" render={props => <FriendList foo="value from props" {...props} />} exact />
-        <Route path="/friends/:id" component={Friend} />
-      </Switch>
-    </main>
-  );
-}
+export const Friends = () => (
+  <main>
+    <h1>Friends page</h1>
+    <Switch>
+      <Route path="/friends" render={props => <FriendList foo="value from props" {...props} />} exact />
+      <Route path="/friends/:id" component={Friend} />
+    </Switch>
+  </main>
+);

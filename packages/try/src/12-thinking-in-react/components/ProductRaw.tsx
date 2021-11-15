@@ -9,7 +9,7 @@ type Props = {
   product: Product;
 };
 
-export function ProductRaw(props: Props) {
+export const ProductRaw = (props: Props) => {
   const { product } = props;
   const pName = product.stocked ? product.name : <span style={{ color: 'red' }}>{product.name}</span>;
 
@@ -19,4 +19,4 @@ export function ProductRaw(props: Props) {
       <td>{product.price}</td>
     </tr>
   );
-}
+};

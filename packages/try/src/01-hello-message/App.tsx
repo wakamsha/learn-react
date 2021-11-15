@@ -3,6 +3,4 @@
 type Props = {
   name: string;
 };
-export function HelloMessage({ name }: Props): JSX.Element {
-  return <div>Hello {name}!</div>;
-}
+export const HelloMessage = ({ name }: Props): JSX.Element => <div>Hello {name}!</div>;
