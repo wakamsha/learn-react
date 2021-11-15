@@ -5,21 +5,7 @@ module.exports = ({ importItems, storyTree }) => `
 */
 ${importItems.map(({ path, storyName }) => `import { Story as ${storyName} } from '${path}';`).join(`\n`)}
 
-type Stories = {
-  [subPackage: string]: {
-    [type: string]:
-      | {
-          [category: string]: {
-            [story: string]: () => JSX.Element;
-          };
-        }
-      | {
-          [story: string]: () => JSX.Element;
-        };
-  };
-};
-
-export const stories: Stories = {
+export const stories = {
   ${storyTree.map(
     package =>
       `${package.name}: {

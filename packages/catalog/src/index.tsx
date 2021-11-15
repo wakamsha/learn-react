@@ -13,7 +13,7 @@ const App = () => (
         <Route path="/" exact>
           <IndexPage />
         </Route>
-        <Route path="/:subPackage/:type/:category/:story/">
+        <Route path="/:storyId">
           <StoryPage />
         </Route>
       </PageTransition>
