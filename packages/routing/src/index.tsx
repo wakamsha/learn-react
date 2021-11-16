@@ -1,6 +1,6 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
-import { RouteObjects } from './03-route-objects';
+import { NestRoutesDeep } from './02-nest-routes-deep';
 
 applyResetStyle();
 
@@ -8,7 +8,7 @@ applyGlobalStyle();
 
 render(
   // <Basic />,
-  // <NestRoutesDeep />,
-  <RouteObjects />,
+  <NestRoutesDeep />,
+  // <RouteObjects />,
   document.getElementById('app'),
 );
