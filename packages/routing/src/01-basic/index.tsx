@@ -9,6 +9,9 @@ import { Home } from './pages/Home';
 import { Invoice } from './pages/Invoice';
 import { Invoices } from './pages/Invoices';
 
+/**
+ * @see https://reactrouter.com/docs/en/v6/getting-started/tutorial
+ */
 export const Basic = () => (
   <BrowserRouter>
     <div>
@@ -32,6 +35,7 @@ export const Basic = () => (
             {/*
              * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
              * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
+             * v5 でいう `Redirect` に相当。
              */}
             <Route path="/friends" element={<Navigate replace to="/friends/serval" />} />
           </Route>
