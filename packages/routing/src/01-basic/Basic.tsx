@@ -1,33 +1,65 @@
 import { css } from '@emotion/css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { gutter } from '@learn-react/core/helpers/Style';
+import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
-import { About } from './pages/About';
+import { Expenses } from './pages/Expenses';
 import { Friends } from './pages/Friends';
+import { Friend } from './pages/Friends/Friend';
 import { Home } from './pages/Home';
+import { Invoice } from './pages/Invoice';
+import { Invoices } from './pages/Invoices';
 
-export const Basic = (): JSX.Element => (
+export const Basic = () => (
   <BrowserRouter>
-    <div className={baseStyle}>
-      <Navigation />
-      <main className={contentStyle}>
-        {/* location プロパティを指定すると子Routeに値を伝達出来るようになる。ただし、そのままではbindされないので、自前で更新する実装が必要。 */}
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/about" component={About} />
-          <Route path="/friends" component={Friends} />
-        </Switch>
-      </main>
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="expenses" element={<Expenses />} />
+          <Route path="invoices" element={<Invoices />}>
+            <Route
+              index
+              element={
+                <main style={{ padding: '1rem' }}>
+                  <p>Select an invoice</p>
+                </main>
+              }
+            />
+            <Route path=":id" element={<Invoice />} />
+          </Route>
+          <Route path="friends" element={<Friends />}>
+            <Route path=":id" element={<Friend />} />
+            {/*
+             * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
+             * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
+             */}
+            <Route path="/friends" element={<Navigate replace to="/friends/serval" />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </div>
   </BrowserRouter>
 );
 
-const baseStyle = css({
-  display: 'flex',
-  width: '100%',
-});
+const Layout = () => (
+  <div className={styleBase}>
+    <nav>
+      <Navigation />
+    </nav>
+    <div className={styleContent}>
+      <Outlet />
+    </div>
+  </div>
+);
 
-const contentStyle = css({
-  padding: 16,
-  height: '100vh',
-  flexGrow: 1,
-});
+const styleBase = css`
+  display: grid;
+  grid-template-columns: auto 1fr;
+`;
+
+const styleContent = css`
+  padding: ${gutter(4)};
+`;
+
+const NotFound = () => <h1>404 Not Found</h1>;

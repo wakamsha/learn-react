@@ -1,13 +1,13 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
-import { RoutingProviderApp } from './32-routing-provider';
+import { Basic } from './01-basic/Basic';
 
 applyResetStyle();
 
 applyGlobalStyle();
 
 render(
-  // <Basic />,
+  <Basic />,
   // <Redirects />,
   // <CustomLink />,
   // <PreventingTransitions />,
@@ -17,6 +17,6 @@ render(
   // <MobxBasicApp />,
   // <MobxHooksApp />,
   // <HistoryAPIApp />,
-  <RoutingProviderApp />,
+  // <RoutingProviderApp />,
   document.getElementById('app'),
 );

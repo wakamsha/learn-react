@@ -1,29 +1,19 @@
 import { css } from '@emotion/css';
-import { RouteComponentProps } from 'react-router';
+import { gutter } from '@learn-react/core/helpers/Style';
+import { useParams } from 'react-router';
 import { getFriendById } from '../Friends';
 
-type Params = {
-  id: string;
-};
+export const Friend = () => {
+  const { id = '' } = useParams();
 
-type Props = RouteComponentProps<Params>;
-
-const containerStyle = css({
-  padding: 16,
-  border: '1px solid',
-});
-
-export const Friend = ({
-  match: {
-    params: { id },
-  },
-}: Props) => {
   const friend = getFriendById(id);
+
   if (!friend) {
     return <p>Friends with id {id} does not exist.</p>;
   }
+
   return (
-    <article className={containerStyle}>
+    <article className={styleBase}>
       <h3>
         {friend.nameJa} <small>{friend.nameEn}</small>
       </h3>
@@ -31,3 +21,8 @@ export const Friend = ({
     </article>
   );
 };
+
+const styleBase = css`
+  padding: ${gutter(4)};
+  border: 1px solid;
+`;
