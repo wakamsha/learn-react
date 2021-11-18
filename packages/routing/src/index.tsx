@@ -1,6 +1,6 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
-import { NestRoutesDeep } from './02-nest-routes-deep';
+import { WithPageTransition } from './04-with-page-transition';
 
 applyResetStyle();
 
@@ -8,7 +8,8 @@ applyGlobalStyle();
 
 render(
   // <Basic />,
-  <NestRoutesDeep />,
+  // <NestRoutesDeep />,
   // <RouteObjects />,
+  <WithPageTransition />,
   document.getElementById('app'),
 );

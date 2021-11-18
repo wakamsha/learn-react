@@ -1,24 +1,30 @@
-import { Children, ReactNode } from 'react';
-import { Route, Switch, matchPath, useLocation } from 'react-router-dom';
+import { ReactNode } from 'react';
+import { createRoutesFromChildren, matchRoutes, Routes, useLocation } from 'react-router-dom';
 import { Transition } from '../Transition';
 
 type Props = {
   children: ReactNode;
+  /**
+   * 親 route の URL パス。
+   *
+   * `<PageTransition>` を入れ子にして使用する際は、親となる `<Route>` の `path` を指定する必要があります。
+   */
+  parentPath?: string;
 };
 
-export const PageTransition = ({ children }: Props) => {
+export const PageTransition = ({ children, parentPath = '' }: Props) => {
   const location = useLocation();
 
-  let match: any;
+  const routes = createRoutesFromChildren(children).map(route => ({
+    ...route,
+    ...(route.path && parentPath ? { path: `${parentPath}/${route.path}` } : {}),
+  }));
 
-  Children.toArray(children).some(route => {
-    match = matchPath<any>(location.pathname, (route as Route).props);
-    return !!match;
-  });
+  const matchedRoute = matchRoutes(routes, location)?.[0] ?? { pathnameBase: '' };
 
   return (
-    <Transition id={match ? match.path + JSON.stringify(match.params) : ''}>
-      <Switch>{children}</Switch>
+    <Transition id={matchedRoute.pathnameBase}>
+      <Routes>{children}</Routes>
     </Transition>
   );
 };
