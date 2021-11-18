@@ -26,6 +26,12 @@ export const Friends = () => {
   );
 };
 
+const styleBase = css`
+  > :not(:first-child) {
+    margin-top: ${gutter(4)};
+  }
+`;
+
 const List = () => (
   <ul>
     {FriendData.map(friend => (
@@ -35,12 +41,6 @@ const List = () => (
     ))}
   </ul>
 );
-
-const styleBase = css`
-  > :not(:first-child) {
-    margin-top: ${gutter(4)};
-  }
-`;
 
 type FriendType = {
   id: string;

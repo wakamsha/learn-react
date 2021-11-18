@@ -1,32 +1,26 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Link, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { Friend } from './Friend';
 
 export const Friends = () => (
   <main className={styleBase}>
     <h1>Friends page</h1>
-    <List />
-    <Routes>
-      {/*
-       * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
-       * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
-       * v5 でいう `Redirect` に相当。
-       */}
-      <Route index element={<Navigate replace to="/friends/serval" />} />
-      <Route path=":id" element={<Friend />} />
-    </Routes>
-  </main>
-);
 
-const List = () => (
-  <ul>
-    {FriendData.map(friend => (
-      <li key={friend.id}>
-        <Link to={`/friends/${friend.id}`}>{friend.nameJa}</Link>
-      </li>
-    ))}
-  </ul>
+    <div className={styleContent}>
+      <List />
+
+      <Routes>
+        {/*
+         * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
+         * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
+         * v5 でいう `Redirect` に相当。
+         */}
+        <Route index element={<Navigate replace to="/friends/serval" />} />
+        <Route path=":id" element={<Friend />} />
+      </Routes>
+    </div>
+  </main>
 );
 
 const styleBase = css`
@@ -34,6 +28,24 @@ const styleBase = css`
     margin-top: ${gutter(4)};
   }
 `;
+
+const styleContent = css`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: ${gutter(4)};
+`;
+
+const List = () => (
+  <ul>
+    {FriendData.map(friend => (
+      <li key={friend.id}>
+        <NavLink to={`/friends/${friend.id}`} style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}>
+          {friend.nameJa}
+        </NavLink>
+      </li>
+    ))}
+  </ul>
+);
 
 type FriendType = {
   id: string;

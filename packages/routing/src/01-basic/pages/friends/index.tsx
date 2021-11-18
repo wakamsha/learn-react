@@ -5,10 +5,25 @@ import { Link, Outlet } from 'react-router-dom';
 export const Friends = () => (
   <main className={styleBase}>
     <h1>Friends page</h1>
-    <List />
-    <Outlet />
+
+    <div className={styleContent}>
+      <List />
+      <Outlet />
+    </div>
   </main>
 );
+
+const styleBase = css`
+  > :not(:first-child) {
+    margin-top: ${gutter(4)};
+  }
+`;
+
+const styleContent = css`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: ${gutter(4)};
+`;
 
 const List = () => (
   <ul>
@@ -19,12 +34,6 @@ const List = () => (
     ))}
   </ul>
 );
-
-const styleBase = css`
-  > :not(:first-child) {
-    margin-top: ${gutter(4)};
-  }
-`;
 
 type FriendType = {
   id: string;

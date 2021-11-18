@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { Link } from 'react-router-dom';
 
 export const Navigation = () => (
@@ -24,8 +24,8 @@ const styleBase = css`
   padding: ${gutter(4)} 0;
   margin: 0;
   list-style: none;
-  background-color: silver;
-  border-left: 1px solid gray;
+  background-color: ${cssVar('TextureBody')};
+  border-left: 1px solid ${cssVar('LineNeutral')};
 
   > :not(:first-child) {
     margin-top: ${gutter(2)};
