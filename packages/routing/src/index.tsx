@@ -1,15 +1,15 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { render } from 'react-dom';
-import { WithPageTransition } from './04-with-page-transition';
+import { Basic } from './01-basic';
 
 applyResetStyle();
 
 applyGlobalStyle();
 
 render(
-  // <Basic />,
+  <Basic />,
   // <NestRoutesDeep />,
   // <RouteObjects />,
-  <WithPageTransition />,
+  // <WithPageTransition />,
   document.getElementById('app'),
 );
