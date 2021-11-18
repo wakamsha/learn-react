@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileContainer } from '../../containers/ProfileContainer';
 import { ProfileEditPage } from './EditPage';
@@ -12,9 +12,9 @@ export const ProfilePage = () => (
     <h1>Profile</h1>
     <ProfileContainer>
       <PageTransition>
-        <Route path={Router.paths.profileShow} component={ProfileShowPage} />
-        <Route path={Router.paths.profileEdit} component={ProfileEditPage} />
-        <Redirect to={Router.paths.profileShow} />
+        <Route index element={<Navigate replace to={Router.paths.profileShow} />} />
+        <Route path={Router.paths.profileShow} element={<ProfileShowPage />} />
+        <Route path={Router.paths.profileEdit} element={<ProfileEditPage />} />
       </PageTransition>
     </ProfileContainer>
   </section>

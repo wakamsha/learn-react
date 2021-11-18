@@ -15,10 +15,10 @@ export const App = () => (
     <Sidebar title="Constate | Statement" items={linkItems} />
     <div className={styleContent}>
       <PageTransition>
-        <Route path={Router.paths.home} component={HomePage} exact />
-        <Route path={Router.paths.profile} component={ProfilePage} />
-        <Route path={Router.paths.list} component={ListPage} />
-        <Route component={NotFoundPage} />
+        <Route path={Router.paths.home} element={<HomePage />} />
+        <Route path={`${Router.paths.profile}/*`} element={<ProfilePage />} />
+        <Route path={Router.paths.list} element={<ListPage />} />
+        <Route element={<NotFoundPage />} />
       </PageTransition>
     </div>
   </div>
@@ -30,17 +30,17 @@ const linkItems: ComponentProps<typeof Sidebar>['items'] = [
     items: [
       {
         label: 'Edit',
-        to: Router.paths.profileEdit,
+        to: `${Router.paths.home}${Router.paths.profile}/${Router.paths.profileEdit}`,
       },
       {
         label: 'Show',
-        to: Router.paths.profileShow,
+        to: `${Router.paths.home}${Router.paths.profile}/${Router.paths.profileShow}`,
       },
     ],
   },
   {
     label: 'List',
-    to: Router.paths.list,
+    to: `${Router.paths.home}${Router.paths.list}`,
   },
 ];
 

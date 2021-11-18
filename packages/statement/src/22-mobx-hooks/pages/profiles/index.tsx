@@ -1,6 +1,6 @@
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { useRef } from 'react';
-import { Redirect, Route } from 'react-router';
+import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileStore } from '../../stores/ProfileStore';
 import { ProfileEditPage } from './EditPage';
@@ -45,9 +45,9 @@ export const Profile = () => {
       <h1>Profile</h1>
       <ProfileStore.Context.Provider value={profileStore.current}>
         <PageTransition>
-          <Route path={Router.paths.profileShow} component={ProfileShowPage} />
-          <Route path={Router.paths.profileEdit} component={ProfileEditPage} />
-          <Redirect to={Router.paths.profileEdit} />
+          <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
+          <Route path={Router.paths.profileShow} element={<ProfileShowPage />} />
+          <Route path={Router.paths.profileEdit} element={<ProfileEditPage />} />
         </PageTransition>
       </ProfileStore.Context.Provider>
     </>
