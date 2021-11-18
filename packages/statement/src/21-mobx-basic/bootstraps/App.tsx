@@ -15,10 +15,10 @@ export const App = () => (
     <Sidebar title="MobX Basic" items={linkItems} />
     <div className={contentStyle}>
       <PageTransition>
-        <Route path={Router.paths.home} component={HomePage} exact />
-        <Route path={Router.paths.profile} component={Profile} />
-        <Route path={Router.paths.list} component={ListPage} />
-        <Route component={NotFoundPage} />
+        <Route path={Router.paths.home} element={<HomePage />} />
+        <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
+        <Route path={Router.paths.list} element={<ListPage />} />
+        <Route element={<NotFoundPage />} />
       </PageTransition>
     </div>
   </div>
@@ -34,17 +34,17 @@ const linkItems: ComponentProps<typeof Sidebar>['items'] = [
     items: [
       {
         label: 'Edit',
-        to: Router.paths.profileEdit,
+        to: `${Router.paths.home}${Router.paths.profile}/${Router.paths.profileEdit}`,
       },
       {
         label: 'Show',
-        to: Router.paths.profileShow,
+        to: `${Router.paths.home}${Router.paths.profile}/${Router.paths.profileShow}`,
       },
     ],
   },
   {
     label: 'List',
-    to: Router.paths.list,
+    to: `${Router.paths.home}${Router.paths.list}`,
   },
 ];
 

@@ -9,13 +9,15 @@ export class ProfileStore {
     return useContext(ProfileStore.Context);
   }
 
-  @observable public name = '';
+  public name = '';
 
   constructor() {
-    makeObservable(this);
+    makeObservable(this, {
+      name: observable,
+      setName: action,
+    });
   }
 
-  @action
   public setName(name: string) {
     this.name = name;
   }

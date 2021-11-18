@@ -8,10 +8,7 @@ export const Navigation = () => (
       <Link to="/">Home</Link>
     </li>
     <li>
-      <Link to="/invoices">Invoices</Link>
-    </li>
-    <li>
-      <Link to="/expenses">Expenses</Link>
+      <Link to="/about">About</Link>
     </li>
     <li>
       <Link to="/friends">Friends</Link>

@@ -10,12 +10,8 @@ const App = () => (
   <BrowserRouter>
     <Layout>
       <PageTransition>
-        <Route path="/" exact>
-          <IndexPage />
-        </Route>
-        <Route path="/:storyId">
-          <StoryPage />
-        </Route>
+        <Route path="/" element={<IndexPage />} />
+        <Route path=":storyId" element={<StoryPage />} />
       </PageTransition>
     </Layout>
   </BrowserRouter>

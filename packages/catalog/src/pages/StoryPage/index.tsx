@@ -22,7 +22,7 @@ type Params = {
 };
 
 const Inner = () => {
-  const { storyId } = useParams<Params>();
+  const { storyId = '' } = useParams<keyof Params>();
 
   const storyParams = storyId.split('-');
 
