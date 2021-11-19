@@ -6,7 +6,7 @@ import { Router } from '../constants/Router';
 export const Navigation = () => (
   <ul className={styleBase}>
     <li>
-      <Link to={Router.Home.To}>Home</Link>
+      <Link to={Router.Home}>Home</Link>
     </li>
     <li>
       <Link to={Router.Friends.To}>Friends</Link>

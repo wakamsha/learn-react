@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { generatePath, Navigate, NavLink, Route } from 'react-router-dom';
+import { generatePath } from '@learn-react/core/helpers/URL';
+import { Navigate, NavLink, Route } from 'react-router-dom';
 import { Router } from '../../constants/Router';
 import { Member } from './Member';
 

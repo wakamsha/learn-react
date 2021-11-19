@@ -52,6 +52,18 @@ module.exports = {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       },
     ],
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'react-router-dom',
+            importNames: ['generatePath'],
+            message: '代わりに `@learn-react/core/helpers/URL` の `generatePath` をお使いください。',
+          },
+        ],
+      },
+    ],
     'no-restricted-syntax': [
       'error',
       {
