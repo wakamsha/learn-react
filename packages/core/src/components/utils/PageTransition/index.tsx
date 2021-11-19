@@ -17,7 +17,7 @@ export const PageTransition = ({ children, parentPath = '' }: Props) => {
 
   const routes = createRoutesFromChildren(children).map(route => ({
     ...route,
-    ...(route.path && parentPath ? { path: `${parentPath}/${route.path}` } : {}),
+    ...(route.path && parentPath ? { path: `${parentPath}${route.path}` } : {}),
   }));
 
   const matchedRoute = matchRoutes(routes, location)?.[0] ?? { pathnameBase: '' };

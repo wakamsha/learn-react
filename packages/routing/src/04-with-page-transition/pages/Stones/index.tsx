@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Navigate, NavLink, Route } from 'react-router-dom';
+import { generatePath, Navigate, NavLink, Route } from 'react-router-dom';
+import { Router } from '../../constants/Router';
 import { Member } from './Member';
 
 export const Stones = () => (
@@ -11,9 +12,9 @@ export const Stones = () => (
     <div className={styleContent}>
       <List />
 
-      <PageTransition parentPath="stones">
+      <PageTransition parentPath={Router.Stones.To}>
         <Route index element={<Navigate replace to="jagger" />} />
-        <Route path=":id" element={<Member />} />
+        <Route path={Router.StonesMember.Path} element={<Member />} />
       </PageTransition>
     </div>
   </main>
@@ -33,10 +34,13 @@ const styleContent = css`
 
 const List = () => (
   <ul>
-    {memberData.map(member => (
-      <li key={member.id}>
-        <NavLink to={`/stones/${member.id}`} style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}>
-          {member.nameJa}
+    {memberData.map(({ id, nameJa }) => (
+      <li key={id}>
+        <NavLink
+          to={generatePath(Router.StonesMember.To, { id })}
+          style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
+        >
+          {nameJa}
         </NavLink>
       </li>
     ))}

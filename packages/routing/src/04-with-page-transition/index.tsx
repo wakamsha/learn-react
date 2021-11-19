@@ -4,6 +4,7 @@ import { gutter } from '@learn-react/core/helpers/Style';
 import { ReactNode } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import { Router } from './constants/Router';
 import { Home } from './pages/Home';
 import { Stones } from './pages/Stones';
 
@@ -14,8 +15,8 @@ export const WithPageTransition = () => (
   <BrowserRouter>
     <Layout>
       <PageTransition>
-        <Route path="/" element={<Home />} />
-        <Route path="stones/*" element={<Stones />} />
+        <Route path={Router.Home.Path} element={<Home />} />
+        <Route path={Router.Stones.Path} element={<Stones />} />
         <Route path="*" element={<NotFound />} />
       </PageTransition>
     </Layout>
