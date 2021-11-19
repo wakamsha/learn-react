@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Link, Outlet } from 'react-router-dom';
+import { generatePath, Link, Outlet } from 'react-router-dom';
+import { Router } from '../../constants/Router';
 
 export const Friends = () => (
   <main className={styleBase}>
@@ -27,9 +28,9 @@ const styleContent = css`
 
 const List = () => (
   <ul>
-    {FriendData.map(friend => (
-      <li key={friend.id}>
-        <Link to={`/friends/${friend.id}`}>{friend.nameJa}</Link>
+    {FriendData.map(({ id, nameJa }) => (
+      <li key={id}>
+        <Link to={generatePath(Router.Friend, { id })}>{nameJa}</Link>
       </li>
     ))}
   </ul>

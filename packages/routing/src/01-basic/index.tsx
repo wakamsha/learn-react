@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { BrowserRouter, Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import { Router } from './constants/Router';
 import { Expenses } from './pages/Expenses';
 import { Friends } from './pages/Friends';
 import { Friend } from './pages/Friends/Friend';
@@ -16,10 +17,10 @@ export const Basic = () => (
   <BrowserRouter>
     <div>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path={Router.Home} element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="expenses" element={<Expenses />} />
-          <Route path="invoices" element={<Invoices />}>
+          <Route path={Router.Expenses} element={<Expenses />} />
+          <Route path={Router.Invoices} element={<Invoices />}>
             <Route
               index
               element={
@@ -28,16 +29,16 @@ export const Basic = () => (
                 </main>
               }
             />
-            <Route path=":id" element={<Invoice />} />
+            <Route path={Router.Invoice} element={<Invoice />} />
           </Route>
-          <Route path="friends" element={<Friends />}>
-            <Route path=":id" element={<Friend />} />
+          <Route path={Router.Friends} element={<Friends />}>
             {/*
              * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
              * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
              * v5 でいう `Redirect` に相当。
              */}
-            <Route path="/friends" element={<Navigate replace to="/friends/serval" />} />
+            <Route index element={<Navigate replace to={generatePath(Router.Friend, { id: 'serval' })} />} />
+            <Route path={Router.Friend} element={<Friend />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

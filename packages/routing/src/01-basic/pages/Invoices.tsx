@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { generatePath, NavLink, Outlet } from 'react-router-dom';
+import { Router } from '../constants/Router';
 
 export const Invoices = () => (
   <main>
@@ -7,7 +8,12 @@ export const Invoices = () => (
       {data.map(({ name, number }) => (
         <li key={number}>
           {/* Link と違い NavLink は style と className に `isActive` を引数に取る関数を渡せるようになる */}
-          <NavLink to={`/invoices/${number}`}>{name}</NavLink>
+          <NavLink
+            to={generatePath(Router.Invoice, { id: `${number}` })}
+            style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
+          >
+            {name}
+          </NavLink>
         </li>
       ))}
     </ul>
