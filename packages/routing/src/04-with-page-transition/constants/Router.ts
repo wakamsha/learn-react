@@ -1,8 +1,5 @@
 export const Router = {
-  Home: {
-    To: '/',
-    Path: '/',
-  },
+  Home: '/',
   Stones: {
     To: '/stones',
     Path: '/stones/*',

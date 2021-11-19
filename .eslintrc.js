@@ -52,6 +52,18 @@ module.exports = {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       },
     ],
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: 'react-router-dom',
+            importNames: ['generatePath'],
+            message: '代わりに `@learn-react/core/helpers/URL` の `generatePath` をお使いください。',
+          },
+        ],
+      },
+    ],
     'no-restricted-syntax': [
       'error',
       {
@@ -135,6 +147,18 @@ module.exports = {
       rules: {
         '@typescript-eslint/ban-ts-comment': ['off'],
         '@typescript-eslint/no-var-requires': ['off'],
+      },
+    },
+    {
+      files: ['*.test.*'],
+      extends: ['plugin:jest/recommended'],
+      rules: {
+        'jest/valid-title': [
+          'error',
+          {
+            ignoreTypeOfDescribeName: true,
+          },
+        ],
       },
     },
   ],

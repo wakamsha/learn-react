@@ -2,6 +2,9 @@
   "name": "@learn-react/core",
   "version": "1.0.0",
   "license": "UNLICENSED",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@learn-react/icon": "1.0.0"
   }

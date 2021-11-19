@@ -15,7 +15,7 @@ export const WithPageTransition = () => (
   <BrowserRouter>
     <Layout>
       <PageTransition>
-        <Route path={Router.Home.Path} element={<Home />} />
+        <Route path={Router.Home} element={<Home />} />
         <Route path={Router.Stones.Path} element={<Stones />} />
         <Route path="*" element={<NotFound />} />
       </PageTransition>

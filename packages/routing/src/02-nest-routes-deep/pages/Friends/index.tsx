@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { generatePath, Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { generatePath } from '@learn-react/core/helpers/URL';
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import { Router } from '../../constants/Router';
 import { Friend } from './Friend';
 

@@ -19,7 +19,7 @@ export const NestRoutesDeep = () => (
   <BrowserRouter>
     <Layout>
       <Routes>
-        <Route path={Router.Home.Path} element={<Home />} />
+        <Route path={Router.Home} element={<Home />} />
         {/*
          * `/friends/serval` といった下層ページの URL に一致させるために
          * パスに `*` を含める。

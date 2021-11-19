@@ -1,8 +1,5 @@
 export const Router = {
-  Home: {
-    To: '/',
-    Path: '/',
-  },
+  Home: '/',
   Friends: {
     To: '/friends',
     Path: '/friends/*',
