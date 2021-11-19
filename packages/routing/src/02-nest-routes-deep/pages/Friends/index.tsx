@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { generatePath, Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import { Router } from '../../constants/Router';
 import { Friend } from './Friend';
 
 export const Friends = () => (
@@ -16,8 +17,8 @@ export const Friends = () => (
          * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
          * v5 でいう `Redirect` に相当。
          */}
-        <Route index element={<Navigate replace to="/friends/serval" />} />
-        <Route path=":id" element={<Friend />} />
+        <Route index element={<Navigate replace to={generatePath(Router.Friend.To, { id: 'serval' })} />} />
+        <Route path={Router.Friend.Path} element={<Friend />} />
       </Routes>
     </div>
   </main>
@@ -37,10 +38,13 @@ const styleContent = css`
 
 const List = () => (
   <ul>
-    {FriendData.map(friend => (
-      <li key={friend.id}>
-        <NavLink to={`/friends/${friend.id}`} style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}>
-          {friend.nameJa}
+    {FriendData.map(({ id, nameJa }) => (
+      <li key={id}>
+        <NavLink
+          to={generatePath(Router.Friend.To, { id })}
+          style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
+        >
+          {nameJa}
         </NavLink>
       </li>
     ))}

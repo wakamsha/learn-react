@@ -1,14 +1,15 @@
 import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { Link } from 'react-router-dom';
+import { Router } from '../constants/Router';
 
 export const Navigation = () => (
   <ul className={styleBase}>
     <li>
-      <Link to="/">Home</Link>
+      <Link to={Router.Home.To}>Home</Link>
     </li>
     <li>
-      <Link to="/friends">Friends</Link>
+      <Link to={Router.Friends.To}>Friends</Link>
     </li>
   </ul>
 );

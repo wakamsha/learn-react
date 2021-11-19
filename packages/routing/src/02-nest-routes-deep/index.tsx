@@ -3,6 +3,7 @@ import { gutter } from '@learn-react/core/helpers/Style';
 import { ReactNode } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
+import { Router } from './constants/Router';
 import { Friends } from './pages/Friends';
 import { Home } from './pages/Home';
 
@@ -18,12 +19,12 @@ export const NestRoutesDeep = () => (
   <BrowserRouter>
     <Layout>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path={Router.Home.Path} element={<Home />} />
         {/*
          * `/friends/serval` といった下層ページの URL に一致させるために
          * パスに `*` を含める。
          */}
-        <Route path="friends/*" element={<Friends />} />
+        <Route path={Router.Friends.Path} element={<Friends />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
