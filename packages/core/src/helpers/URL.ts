@@ -1,4 +1,5 @@
-import { compile } from 'path-to-regexp';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { generatePath as generatePathOrigin } from 'react-router';
 
 type ExtractRouteOptionalParam<T extends string, U = string | number | boolean> = T extends `${infer Param}?`
   ? { [k in Param]?: U }
@@ -19,12 +20,18 @@ type ExtractRouteParams<T extends string, U = string | number | boolean> = strin
 /**
  * ルーティングのための URL パスを生成します。
  *
- * @remarks `path-to-regexp` に依存。
- *
  * @param pattern URL パスのパターン（テンプレート）
  * @param params 第一引数のパターンに対応したパラメータを持つオブジェクト。
  * @returns
  */
 export function generatePath<S extends string>(pattern: S, params: ExtractRouteParams<S>): string {
-  return pattern === '/' ? pattern : compile(pattern)(params);
+  const optimizedParams = Object.entries(params).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [key]: `${value}`,
+    }),
+    {} as Record<keyof typeof params, string>,
+  );
+
+  return generatePathOrigin(pattern, optimizedParams);
 }
