@@ -40,14 +40,9 @@ function exec() {
   // Stories
   // ----------------
 
-  const importItems = TARGET_FILES.map(rawPath => {
-    const path = rawPath.replace(/^\/.+\/learn-react\/packages/, '@learn-react').replace(/\/src|\.tsx/g, '');
-
-    return {
-      path,
-      storyName: path.split('/').slice(-2)[0],
-    };
-  }).flat(2);
+  const importPaths = TARGET_FILES.map(rawPath =>
+    rawPath.replace(/^\/.+\/packages\/|\/src|\/index.story.tsx/g, ''),
+  ).flat(2);
 
   const storyTree = Object.values(TARGET_FILES).reduce(
     (acc, path) => addPath(path.replace(/^\/.+\/packages\/|\/src|\/index.story.tsx/g, '').split('/'), acc),
@@ -70,7 +65,7 @@ function exec() {
   // Generate
   // ----------------
 
-  fs.writeFileSync('./src/constants/Stories.ts', storiesTemplate({ importItems, storyTree }), 'utf8');
+  fs.writeFileSync('./src/constants/Stories.ts', storiesTemplate({ importPaths, storyTree }), 'utf8');
   fs.writeFileSync('./src/constants/StorySpec.ts', storySpecTemplate(storySpec), 'utf8');
 }
 
