@@ -26,7 +26,7 @@
     "@stylelint/postcss-css-in-js": "0.37.2",
     "@types/highlight.js": "10.1.0",
     "@types/jest": "27.0.3",
-    "@types/node": "16.11.9",
+    "@types/node": "16.11.10",
     "@types/qs": "6.9.7",
     "@types/react": "17.0.35",
     "@types/react-dom": "17.0.11",
