@@ -1,5 +1,5 @@
 import { render } from 'react-dom';
-import { ThemeApp } from './xx-theme/App';
+import { SuspenseApp } from './xx-suspense/App';
 
 render(
   // <HelloMessage name="wakamsha" />,
@@ -21,6 +21,7 @@ render(
   // <HookApp count={10} />,
   // <EqualApp />,
   // <Bubbling />,
-  <ThemeApp />,
+  // <ThemeApp />,
+  <SuspenseApp />,
   document.getElementById('app'),
 );
