@@ -1,6 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
-import { MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { Layout } from './VO';
 

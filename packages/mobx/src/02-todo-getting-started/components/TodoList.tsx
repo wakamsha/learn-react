@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import { useCallback } from 'react';
-import { TodoStore } from '../stores/TodoStore';
+import type { TodoStore } from '../stores/TodoStore';
 import { TodoView } from './TodoView';
 
 type Props = {

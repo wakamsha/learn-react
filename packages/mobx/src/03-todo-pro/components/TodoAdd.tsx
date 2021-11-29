@@ -1,6 +1,7 @@
 import { inject, observer } from 'mobx-react';
-import { ChangeEvent, Component, FormEvent } from 'react';
-import { TodoListStore } from '../stores/TodoListStore';
+import type { ChangeEvent, FormEvent } from 'react';
+import { Component } from 'react';
+import type { TodoListStore } from '../stores/TodoListStore';
 
 type Props = {
   store?: TodoListStore;

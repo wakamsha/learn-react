@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import { TodoStore } from '../stores/TodoStore';
+import type { TodoStore } from '../stores/TodoStore';
 
 type Props = {
   todo: TodoStore;

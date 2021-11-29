@@ -1,4 +1,5 @@
-import { PlaceholderUser, requestGetPlaceholderUsers, requestGetRandomUser } from './api-client';
+import type { PlaceholderUser } from './api-client';
+import { requestGetPlaceholderUsers, requestGetRandomUser } from './api-client';
 
 function p(str: string, delay = 1000): Promise<string> {
   return new Promise(resolve => {

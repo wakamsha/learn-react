@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
-import { IconName } from '@learn-react/icon';
-import { ChangeEvent, ReactText, useMemo } from 'react';
+import type { IconName } from '@learn-react/icon';
+import type { ChangeEvent, ReactText } from 'react';
+import { useMemo } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';

@@ -1,5 +1,6 @@
 // https://ja.reactjs.org/docs/forms.html
-import { ChangeEvent, Component, FormEvent } from 'react';
+import type { ChangeEvent, FormEvent } from 'react';
+import { Component } from 'react';
 
 type State = {
   value: string;

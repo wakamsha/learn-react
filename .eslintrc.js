@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     // Enable
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
+    '@typescript-eslint/consistent-type-imports': ['error'],
     '@typescript-eslint/dot-notation': ['error'],
     '@typescript-eslint/no-unused-expressions': [
       'error',

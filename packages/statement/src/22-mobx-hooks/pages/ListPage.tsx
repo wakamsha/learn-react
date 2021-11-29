@@ -2,7 +2,8 @@ import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
-import { ChangeEvent, useRef, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useRef, useState } from 'react';
 import { ListStore } from '../stores/ListStore';
 
 export const ListPage = () => {

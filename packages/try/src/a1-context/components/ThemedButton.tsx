@@ -1,4 +1,5 @@
-import { Theme, ThemeContext } from '../App';
+import type { Theme } from '../App';
+import { ThemeContext } from '../App';
 import { Button } from './Button';
 
 // Before

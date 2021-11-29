@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { ComponentProps, MouseEvent, useState } from 'react';
+import type { ComponentProps, MouseEvent } from 'react';
+import { useState } from 'react';
 import { Popover } from '.';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';

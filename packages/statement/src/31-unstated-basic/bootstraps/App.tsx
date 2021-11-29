@@ -2,7 +2,7 @@ import { css } from '@emotion/css';
 import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { HomePage } from '../pages/HomePage';

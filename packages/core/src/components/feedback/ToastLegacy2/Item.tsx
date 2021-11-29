@@ -1,5 +1,6 @@
 import { css, cx, keyframes } from '@emotion/css';
-import { AnimationEvent, ReactNode, useEffect, useState } from 'react';
+import type { AnimationEvent, ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { Toast } from '.';
 import { Duration, Easing, IconSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';

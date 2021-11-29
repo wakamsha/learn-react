@@ -1,6 +1,7 @@
 import { css, cx } from '@emotion/css';
-import { IconName } from '@learn-react/icon';
-import { MouseEvent, useMemo } from 'react';
+import type { IconName } from '@learn-react/icon';
+import type { MouseEvent } from 'react';
+import { useMemo } from 'react';
 import { BorderRadius, Duration } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';

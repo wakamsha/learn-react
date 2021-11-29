@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { createPortal } from 'react-dom';
-import { Toast } from '.';
+import type { Toast } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Item } from './Item';
 

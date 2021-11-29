@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { Link, Navigate, RouteObject, useRoutes } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
+import { Link, Navigate, useRoutes } from 'react-router-dom';
 import { Friend } from './Friend';
 
 export const Friends = () => {

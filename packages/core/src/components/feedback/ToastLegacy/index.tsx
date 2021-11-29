@@ -1,8 +1,9 @@
 /**
  * Unstated Next も Constate も使わない最もプリミティブな実装。
  */
-import { IconName } from '@learn-react/icon';
-import { createContext, ReactNode, useCallback, useEffect, useState } from 'react';
+import type { IconName } from '@learn-react/icon';
+import type { ReactNode } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import { useContext } from '../../../hooks/useContext';
 import { Container } from './Container';
 

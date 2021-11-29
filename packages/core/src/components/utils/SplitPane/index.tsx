@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { Children, MouseEvent, ReactNode, useRef, useState } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import { Children, useRef, useState } from 'react';
 import { Pane } from './Pane';
 import { Splitter } from './Splitter';
 

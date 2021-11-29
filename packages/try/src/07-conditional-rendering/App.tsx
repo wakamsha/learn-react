@@ -1,5 +1,6 @@
 // https://ja.reactjs.org/docs/conditional-rendering.html
-import { Component, MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
+import { Component } from 'react';
 
 const UserGreeting = (): JSX.Element => <h1>Welcome back!</h1>;
 

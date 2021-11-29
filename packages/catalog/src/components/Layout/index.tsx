@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Navigation } from '../Navigation';
 
 type Props = {

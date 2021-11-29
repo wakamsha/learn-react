@@ -12,7 +12,8 @@ import {
   startOfMonth,
   subMonths,
 } from 'date-fns';
-import { ChangeEvent, useMemo } from 'react';
+import type { ChangeEvent } from 'react';
+import { useMemo } from 'react';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 import { IconButton } from '../IconButton';

@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { iconElements, IconName } from '@learn-react/icon';
+import type { IconName } from '@learn-react/icon';
+import { iconElements } from '@learn-react/icon';
 import { Icon } from '.';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';

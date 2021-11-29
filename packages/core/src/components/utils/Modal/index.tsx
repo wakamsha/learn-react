@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { ReactNode, useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
 import { gutter, hex2rgba } from '../../../helpers/Style';

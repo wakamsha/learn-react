@@ -3,6 +3,7 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
+import type { FC } from 'react';
 import { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
@@ -145,7 +146,7 @@ const styleCaptionSubPackage = css`
 `;
 
 type TreeProps = {
-  value: Record<string, Record<string, unknown> | Function>;
+  value: Record<string, { [key: string]: ValueOf<TreeProps['value']> } | FC>;
   basePath: string;
   query: RegExp;
   nestLevel?: number;
@@ -184,7 +185,7 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
               <Icon name="folder" />
               {key}
             </div>
-            <Tree basePath={path} value={subValue as TreeProps['value']} query={query} nestLevel={nestLevel + 1} />
+            <Tree basePath={path} value={subValue} query={query} nestLevel={nestLevel + 1} />
           </li>
         );
       })}

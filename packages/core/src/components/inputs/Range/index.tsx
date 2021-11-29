@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import { BorderRadius, Duration } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
 

@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { ReactNode, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useMemo } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';
 import { Tooltip } from '../../../components/dataDisplay/Tooltip';
 import { FontSize, IconSize } from '../../../constants/Style';

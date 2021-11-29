@@ -1,5 +1,6 @@
 import { css, cx } from '@emotion/css';
-import { ReactNode, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';

@@ -1,4 +1,4 @@
-import { TransactionStatus } from '@learn-react/core/hooks/useTransaction';
+import type { TransactionStatus } from '@learn-react/core/hooks/useTransaction';
 import { useState } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 

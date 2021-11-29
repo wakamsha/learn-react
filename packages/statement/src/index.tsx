@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
-import { ChangeEvent, StrictMode, useEffect, useRef, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { StrictMode, useEffect, useRef, useState } from 'react';
 import { render } from 'react-dom';
 import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';

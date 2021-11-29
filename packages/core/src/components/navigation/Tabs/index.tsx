@@ -1,5 +1,6 @@
 import { css, cx } from '@emotion/css';
-import { ChangeEvent, useMemo } from 'react';
+import type { ChangeEvent } from 'react';
+import { useMemo } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { makeId } from '../../../helpers/String';
 import { cssVar, gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';

@@ -1,4 +1,5 @@
-import { ChangeEvent, Component } from 'react';
+import type { ChangeEvent } from 'react';
+import { Component } from 'react';
 
 type Props = {
   filterText: string;

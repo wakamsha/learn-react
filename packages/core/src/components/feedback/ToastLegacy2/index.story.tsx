@@ -1,6 +1,8 @@
 import { css } from '@emotion/css';
-import { iconElements, IconName } from '@learn-react/icon';
-import { ChangeEvent, useMemo, useReducer, useState } from 'react';
+import type { IconName } from '@learn-react/icon';
+import { iconElements } from '@learn-react/icon';
+import type { ChangeEvent } from 'react';
+import { useMemo, useReducer, useState } from 'react';
 import { Toast } from '.';
 import { FontSize, LineHeight } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';

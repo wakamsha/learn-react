@@ -1,5 +1,6 @@
 import { css } from '@emotion/css';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { BorderRadius, Duration, FontSize, LineHeight, ZIndex } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';

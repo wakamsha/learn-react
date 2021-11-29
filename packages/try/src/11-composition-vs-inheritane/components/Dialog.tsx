@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { FancyBorder } from './FancyBorder';
 
 type Props = {

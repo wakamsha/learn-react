@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import { Component } from 'react';
-import { TodoListStore } from '../stores/TodoListStore';
+import type { TodoListStore } from '../stores/TodoListStore';
 import { TodoView } from './TodoView';
 
 type Props = {

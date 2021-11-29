@@ -1,6 +1,7 @@
 import { useTransaction } from '@learn-react/core/hooks/useTransaction';
 import { observer } from 'mobx-react';
-import { ChangeEvent, useCallback, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useCallback, useState } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 
 export const GetByParamForm = observer(() => {

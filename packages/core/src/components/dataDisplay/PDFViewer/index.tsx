@@ -1,8 +1,9 @@
 import { css } from '@emotion/css';
 import * as pdfjsLib from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.js?url';
-import { PDFPageProxy } from 'pdfjs-dist/types/src/display/api';
-import { ComponentProps, useEffect, useState } from 'react';
+import type { PDFPageProxy } from 'pdfjs-dist/types/src/display/api';
+import type { ComponentProps } from 'react';
+import { useEffect, useState } from 'react';
 import { gutter } from '../../../helpers/Style';
 import { Page } from './Page';
 

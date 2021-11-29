@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { ChangeEvent, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useState } from 'react';
 import { ListProvider, useAddListItem, useEditListItem, useListItems } from '../containers/ListContainer';
 
 export const ListPage = () => {

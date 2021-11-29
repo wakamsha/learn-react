@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 
-import { Product } from '../App';
+import type { Product } from '../App';
 import { ProductCategoryRaw } from './ProductCategoryRaw';
 import { ProductRaw } from './ProductRaw';
 

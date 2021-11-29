@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import { Duration, Easing } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 

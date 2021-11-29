@@ -1,6 +1,7 @@
 // https://ja.reactjs.org/docs/refs-and-the-dom.html
 import { css } from '@emotion/css';
-import { ChangeEvent, Component, createRef } from 'react';
+import type { ChangeEvent } from 'react';
+import { Component, createRef } from 'react';
 
 const inputFileStyle = css({
   display: 'none',
