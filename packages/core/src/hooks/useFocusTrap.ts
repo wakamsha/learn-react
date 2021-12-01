@@ -1,4 +1,5 @@
-import { RefObject, useCallback, useEffect, useRef } from 'react';
+import type { RefObject } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 /**
  * Tab キーによるフォーカス移動のスコープを任意の DOM 配下に限定します。
