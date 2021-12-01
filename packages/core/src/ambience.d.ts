@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/consistent-type-imports */
+
 declare module '*.gif' {
   const exports: any;
   export default exports;
