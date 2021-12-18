@@ -64,7 +64,7 @@
     "yargs": "17.3.0"
   },
   "dependencies": {
-    "@emotion/css": "11.5.0",
+    "@emotion/css": "11.7.1",
     "constate": "3.3.0",
     "csx": "10.0.2",
     "date-fns": "2.27.0",
