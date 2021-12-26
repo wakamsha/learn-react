@@ -50,21 +50,39 @@ export function useListBox(itemCount: number): Response {
             setActive(false);
             break;
         }
+
+        const newFocusIndex = (() => {
+          switch (e.key) {
+            case KeyMaps.ArrowUp:
+              return focusIndex + (focusIndex > 0 ? -1 : itemRefs.length - 1);
+            case KeyMaps.ArrowDown:
+              return focusIndex + (focusIndex < itemRefs.length - 1 ? 1 : (itemRefs.length - 1) * -1);
+            default:
+              return focusIndex;
+          }
+        })();
+        moveFocus(newFocusIndex);
+
+        return;
       }
 
-      const newFocusIndex = (() => {
-        switch (e.key) {
-          case KeyMaps.ArrowUp:
-            return focusIndex + (focusIndex > 0 ? -1 : itemRefs.length - 1);
-          case KeyMaps.ArrowDown:
-            return focusIndex + (focusIndex < itemRefs.length - 1 ? 1 : (itemRefs.length - 1) * -1);
-          default:
-            return focusIndex;
+      // 入力したキーの文字で始まるラベルのメニュー項目にフォーカスを移動する。
+      if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
+        const index = itemRefs.findIndex(ref => {
+          const key = e.key.toLowerCase();
+          return (
+            ref.current?.innerText.toLowerCase().startsWith(key) ||
+            ref.current?.textContent?.toLowerCase().startsWith(key) ||
+            ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(key)
+          );
+        });
+
+        if (index > -1) {
+          moveFocus(index);
         }
-      })();
-      moveFocus(newFocusIndex);
+      }
     },
-    [focusIndex, itemRefs.length, moveFocus],
+    [focusIndex, itemRefs, moveFocus],
   );
 
   // メニューが開いたら最初の項目にフォーカスインする。
