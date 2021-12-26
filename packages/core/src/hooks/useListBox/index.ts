@@ -74,6 +74,22 @@ export function useListBox(itemCount: number): Response {
     }
   }, [moveFocus, active]);
 
+  // すべてのクリックイベントをリッスンし、クリック対象がメニュー領域外であれば強制的に閉じる。
+  useEffect(() => {
+    if (!active) return;
+
+    const handleEveryClick = (e: globalThis.MouseEvent) => {
+      if (!(e.target instanceof Element) || e.target.closest('[role="menu"]') instanceof Element) return;
+      setActive(false);
+    };
+
+    document.addEventListener('click', handleEveryClick);
+
+    return () => {
+      document.removeEventListener('click', handleEveryClick);
+    };
+  }, [active]);
+
   // メニュー表示中は矢印キーによるページスクロールを抑止する。
   // これをやらないと矢印キーでメニュー項目間を移動すると同時にページ全体もスクロールしてしまう。
   useEffect(() => {

@@ -43,6 +43,7 @@ const styleMenu = css`
   display: none;
   width: 240px;
   max-height: 120px;
+  padding: ${gutter(2)} 0;
   overflow: auto;
   font-size: ${FontSize.Regular};
   background-color: ${cssVar('TexturePaper')};
@@ -62,6 +63,7 @@ const styleMenuItem = css`
   width: 100%;
   padding: ${gutter(1)} ${gutter(2)};
   text-align: left;
+  cursor: pointer;
   background: transparent;
   border: none;
   appearance: none;
