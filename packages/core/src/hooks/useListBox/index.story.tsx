@@ -7,14 +7,24 @@ import { cssVar, gutter } from '../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { itemProps, active, setActive } = useListBox(menuItems.length);
+  const { itemProps, active, triggerProps } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
 
   return (
     <>
       <h2>Basic</h2>
-      <button onClick={() => setActive(state => !state)}>Open</button>
+      <button
+        ref={triggerProps.ref}
+        onKeyDown={triggerProps.onKeyDown}
+        onClick={triggerProps.onClick}
+        tabIndex={triggerProps.tabIndex}
+        role={triggerProps.role}
+        aria-haspopup={triggerProps['aria-haspopup']}
+        aria-expanded={triggerProps['aria-expanded']}
+      >
+        Open
+      </button>
       <ul className={styleMenu} role="menu" aria-hidden={!active}>
         {menuItems.map((item, index) => (
           <li key={item}>

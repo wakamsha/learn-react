@@ -1,7 +1,23 @@
-import type { Dispatch, KeyboardEvent, RefObject, SetStateAction } from 'react';
-import { createRef, useCallback, useEffect, useMemo, useState } from 'react';
+import type {
+  ButtonHTMLAttributes,
+  DetailedHTMLProps,
+  Dispatch,
+  KeyboardEvent,
+  MouseEvent,
+  RefObject,
+  SetStateAction,
+} from 'react';
+import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+type TriggerProps = {
+  ref: RefObject<HTMLButtonElement>;
+} & Pick<
+  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+  'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
+>;
 
 type Response = Readonly<{
+  triggerProps: TriggerProps;
   itemProps: {
     onKeyDown: (e: KeyboardEvent<HTMLElement>) => void;
     tabIndex: -1;
@@ -17,7 +33,11 @@ export function useListBox(itemCount: number): Response {
 
   const [focusIndex, setFocusIndex] = useState(0);
 
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const itemRefs = useMemo(() => [...Array(itemCount).keys()].map(() => createRef<HTMLElement>()), [itemCount]);
+
+  // キーボードイベントかどうかを判定する。
+  const isKeyboardEvent = (e: KeyboardEvent | MouseEvent): e is KeyboardEvent => !!(e as KeyboardEvent).key;
 
   /** メニュー項目のフォーカスを移動する。 */
   const moveFocus = useCallback(
@@ -28,6 +48,34 @@ export function useListBox(itemCount: number): Response {
     [itemRefs],
   );
 
+  const handleTrigger = useCallback(
+    (e: KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLButtonElement>) => {
+      if (isKeyboardEvent(e)) {
+        if (![KeyMaps.ArrowDown, KeyMaps.Escape, KeyMaps.Enter, KeyMaps.Space, KeyMaps.Tab].includes(e.key)) return;
+
+        if ([KeyMaps.ArrowDown, KeyMaps.Tab].includes(e.key) && active) {
+          e.preventDefault();
+          moveFocus(0);
+        }
+
+        if ([KeyMaps.Enter, KeyMaps.Space].includes(e.key)) {
+          e.preventDefault();
+          setActive(true);
+        }
+
+        if (e.key === KeyMaps.Escape) {
+          e.preventDefault();
+          setActive(false);
+        }
+
+        return;
+      }
+
+      setActive(active => !active);
+    },
+    [active, moveFocus],
+  );
+
   /** メニュー項目で発火するキーボードイベントに応じて実施する処理を定義する。 */
   const handleItemKeyDown = useCallback(
     (e: KeyboardEvent<HTMLElement>) => {
@@ -35,6 +83,7 @@ export function useListBox(itemCount: number): Response {
         switch (e.key) {
           case KeyMaps.Escape:
             setActive(false);
+            triggerRef.current?.focus();
             break;
           case KeyMaps.Tab:
             setActive(false);
@@ -127,6 +176,15 @@ export function useListBox(itemCount: number): Response {
   return {
     active,
     setActive,
+    triggerProps: {
+      onClick: handleTrigger,
+      onKeyDown: handleTrigger,
+      tabIndex: 0,
+      ref: triggerRef,
+      role: 'button',
+      'aria-haspopup': true,
+      'aria-expanded': active,
+    },
     itemProps: [...Array(itemCount).keys()].map(index => ({
       onKeyDown: handleItemKeyDown,
       tabIndex: -1,
