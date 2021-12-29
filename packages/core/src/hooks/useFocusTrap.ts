@@ -16,7 +16,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
    * Tab キーによるフォーカス移動のスコープを任意の DOM 配下に限定する。
    */
   const retainFocus = useCallback(
-    (event: KeyboardEvent) => {
+    (e: KeyboardEvent) => {
       if (!targetRef.current) return;
 
       const focusableNodes = getFocusableNodes(targetRef.current).filter(node => node.offsetParent !== null);
@@ -28,14 +28,14 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
       } else {
         const focusedItemIndex = focusableNodes.indexOf(document.activeElement as any);
 
-        if (event.shiftKey && focusedItemIndex === 0) {
+        if (e.shiftKey && focusedItemIndex === 0) {
           focusableNodes[focusableNodes.length - 1].focus();
-          event.preventDefault();
+          e.preventDefault();
         }
 
-        if (!event.shiftKey && focusableNodes.length > 0 && focusedItemIndex === focusableNodes.length - 1) {
+        if (!e.shiftKey && focusableNodes.length > 0 && focusedItemIndex === focusableNodes.length - 1) {
           focusableNodes[0].focus();
-          event.preventDefault();
+          e.preventDefault();
         }
       }
     },
@@ -43,9 +43,9 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
   );
 
   const onKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      if (event.key === 'Tab') {
-        retainFocus(event);
+    (e: KeyboardEvent) => {
+      if (e.key === 'Tab') {
+        retainFocus(e);
       }
     },
     [retainFocus],

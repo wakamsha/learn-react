@@ -17,17 +17,46 @@ type TriggerProps = {
 >;
 
 type Response = Readonly<{
+  /**
+   * リストボックスの活性・非活性を制御する HTML 要素のプロパティとして利用されるオブジェクト。
+   */
   triggerProps: TriggerProps;
+  /**
+   * リストボックスのメニュー項目として機能する HTML 要素のプロパティとして利用されるオブジェクトの配列。
+   */
   itemProps: {
+    /**
+     * メニュー項目にフォーカスしてる最中にキーが入力された際のリストボックスメニューの振る舞いを管理します。
+     */
     onKeyDown: (e: KeyboardEvent<HTMLElement>) => void;
+    /**
+     * ブラウザのネイティブフォーカスロジックを無効化するため `-1` を設定します。
+     */
     tabIndex: -1;
+    /**
+     * WAI-ARIA ガイドラインに準拠するために `menuitem` を設定します。
+     */
     role: 'menuitem';
+    /**
+     * 各メニュー項目に適用される RefObject。フォーカス処理を制御するために使用されます。
+     */
     ref: RefObject<any>;
   }[];
+  /**
+   * リストボックスが活性化しているかどうかを示すブール値です。アプリケーション開発者はこの値を使用してメニューを表示するかどうかを設定します。
+   */
   active: boolean;
+  /**
+   * アプリケーション開発者がプログラムの中でメニューの活性・非活性を制御するのに使います。
+   */
   setActive: Dispatch<SetStateAction<boolean>>;
 }>;
 
+/**
+ * @TODO
+ * - disabled item をサポートする
+ * - autoInactive オプション
+ */
 export function useListBox(itemCount: number): Response {
   const [active, setActive] = useState(false);
 
