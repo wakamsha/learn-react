@@ -52,9 +52,6 @@ function createBaseConfig(basePath) {
     root: resolve(basePath, '../'),
     // @ts-ignore
     plugins: [react()],
-    esbuild: {
-      jsxInject: `import React from 'react';`,
-    },
     resolve: {
       alias: {
         '@learn-react/core': resolve(basePath, '../../core/src'),
