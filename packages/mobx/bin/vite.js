@@ -11,4 +11,4 @@ const { mode } = yargs(hideBin(process.argv)).option('mode', {
   default: 'develop',
 }).argv;
 
-exec(mode, { basePath: __dirname });
+exec(mode, { basePath: __dirname, port: 3001 });
