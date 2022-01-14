@@ -35,7 +35,7 @@
     "@vitejs/plugin-react": "1.1.4",
     "cheerio": "1.0.0-rc.10",
     "chokidar": "3.5.2",
-    "cspell": "5.15.1",
+    "cspell": "5.15.2",
     "eslint": "8.6.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.3.0",
