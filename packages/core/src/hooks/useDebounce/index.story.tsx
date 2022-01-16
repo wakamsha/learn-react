@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { useDebounce } from '.';
 
 export const Story = () => {
-  const [value, setValue] = useState('');
   const [delay, setDelay] = useState(1000);
 
-  const debouncedValue = useDebounce(value, delay);
+  const [value, debouncedValue, setValue] = useDebounce('', delay);
 
   return (
     <>
@@ -22,7 +21,6 @@ export const Story = () => {
           <input type="number" value={delay} onChange={e => setDelay(Number(e.target.value))} />
         </label>
       </div>
-
       <code>
         <pre>{JSON.stringify(debouncedValue, null, 2)}</pre>
       </code>
