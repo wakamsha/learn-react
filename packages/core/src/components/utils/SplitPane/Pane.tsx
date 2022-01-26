@@ -14,7 +14,7 @@ export const Pane = forwardRef(({ children, size }: Props, ref: ForwardedRef<HTM
   };
 
   return (
-    <div role="presentation" ref={ref} className={styleBase} style={style}>
+    <div ref={ref} className={styleBase} style={style}>
       {children}
     </div>
   );

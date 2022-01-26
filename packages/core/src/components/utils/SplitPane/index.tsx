@@ -6,12 +6,39 @@ import { Splitter } from './Splitter';
 
 type Props = {
   children: ReactNode;
+  /**
+   * サイズの基準となる Pane.
+   *
+   * このプロパティで指定された Pane に対しサイズ計算が適用され、
+   * もう一方は全体サイズのうちの残りの分が割り当てられます。
+   */
   primary?: 'first' | 'second';
+  /**
+   * 最小サイズ ( px )
+   *
+   * `primary` で指定された Pane に対し適用されます。
+   */
   minSize?: number;
+  /**
+   * 最大サイズ ( px )
+   *
+   * `primary` で指定された Pane に対し適用されます。
+   */
   maxSize?: number;
+  /**
+   * 初期サイズ ( px )
+   *
+   * `primary` で指定された Pane に対し適用されます。
+   */
   defaultSize?: number;
   onStarted?: () => void;
+  /**
+   * ドラッグ操作中の `primary` 指定した Pane のサイズを返します。
+   */
   onChange?: (newSize: number) => void;
+  /**
+   * ドラッグ操作を終えた時点での `primary` 指定した Pane のサイズを返します。
+   */
   onFinished?: (draggedSize: number) => void;
 };
 
@@ -25,7 +52,7 @@ export const SplitPane = ({
   onChange,
   onFinished,
 }: Props) => {
-  const initialSize = getInitialSize({ minSize, defaultSize });
+  const initialSize = defaultSize ?? minSize;
 
   const container = useRef<HTMLDivElement>(null);
 
@@ -33,6 +60,7 @@ export const SplitPane = ({
 
   const pane2 = useRef<HTMLDivElement>(null);
 
+  // ドラッグ操作中かどうかを示すフラグ
   const [active, setActive] = useState(false);
 
   const [pane1Size, setPane1Size] = useState(primary === 'first' ? initialSize : undefined);
@@ -43,20 +71,34 @@ export const SplitPane = ({
 
   const [position, setPosition] = useState(0);
 
+  /**
+   * UI 上の文字列選択を強制キャンセルします。
+   *
+   * ドラッグはカーソルを動かす操作であり文字列選択操作と被るため、
+   * それまでの文字列選択を一旦全てキャンセルさせる意味で当メソッドを実行させます。
+   */
+  const unFocus = () => {
+    const selection = window.getSelection();
+
+    if (selection?.empty) {
+      selection.empty();
+    } else if (selection?.removeAllRanges) {
+      selection.removeAllRanges();
+    }
+  };
+
   const onMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
     unFocus();
+
     const position = e.clientX;
-
-    onStarted?.();
-
     setActive(true);
     setPosition(position);
+
+    onStarted?.();
   };
 
   const onMouseMove = (e: MouseEvent) => {
     if (!active || !container.current || !pane1.current || !pane2.current) return;
-
-    unFocus();
 
     const [ref, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
 
@@ -96,42 +138,38 @@ export const SplitPane = ({
 
   const onMouseUp = () => {
     if (!active) return;
+
     onFinished?.(draggedSize);
     setActive(false);
   };
 
-  const nonNullChildren = Children.toArray(children).filter(c => c);
+  const nonNullChildren = Children.toArray(children).filter(c => !!c);
 
   return (
-    <div role="grid" className={styleBase} ref={container}>
-      {active ? (
-        <div role="presentation" className={styleOverlay} onMouseMove={onMouseMove} onMouseUp={onMouseUp} />
-      ) : null}
-      <Pane ref={pane1} size={pane1Size}>
-        {nonNullChildren[0]}
-      </Pane>
-      <Splitter grabbed={active} onMouseDown={onMouseDown} onMouseUp={onMouseUp} />
-      <Pane ref={pane2} size={pane2Size}>
-        {nonNullChildren[1]}
-      </Pane>
+    <div className={styleBase}>
+      <div role="grid" className={styleGrid} ref={container}>
+        {active ? (
+          <div role="presentation" className={styleOverlay} onMouseMove={onMouseMove} onMouseUp={onMouseUp} />
+        ) : null}
+        <Pane ref={pane1} size={pane1Size}>
+          {nonNullChildren[0]}
+        </Pane>
+        <Splitter grabbed={active} onMouseDown={onMouseDown} onMouseUp={onMouseUp} />
+        <Pane ref={pane2} size={pane2Size}>
+          {nonNullChildren[1]}
+        </Pane>
+      </div>
     </div>
   );
 };
 
-function unFocus() {
-  const selection = window.getSelection();
-  if (selection?.empty) {
-    selection.empty();
-  } else if (selection?.removeAllRanges) {
-    selection.removeAllRanges();
-  }
-}
-
-function getInitialSize({ minSize, defaultSize }: { minSize: number; defaultSize?: number }) {
-  return defaultSize ?? minSize;
-}
-
 const styleBase = css`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
+const styleGrid = css`
   position: absolute;
   display: flex;
   flex: 1 1 100%;
@@ -143,9 +181,6 @@ const styleBase = css`
 
 const styleOverlay = css`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
 `;
