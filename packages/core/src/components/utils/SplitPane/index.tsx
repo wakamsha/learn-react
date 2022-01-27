@@ -42,6 +42,11 @@ type Props = {
   onFinished?: (draggedSize: number) => void;
 };
 
+/**
+ * 2つの Pane のサイズをドラッグ操作で自在に変更できるレイアウトコンポーネントです。
+ *
+ * Splitter をダブルクリックすると Pane のサイズがリセットされます。
+ */
 export const SplitPane = ({
   children,
   primary = 'first',
@@ -75,7 +80,7 @@ export const SplitPane = ({
    * UI 上の文字列選択を強制キャンセルします。
    *
    * ドラッグはカーソルを動かす操作であり文字列選択操作と被るため、
-   * それまでの文字列選択を一旦全てキャンセルさせる意味で当メソッドを実行させます。
+   * ドラッグ中に不要に文字列が選択されないために当メソッドを実行させます。
    */
   const unFocus = () => {
     const selection = window.getSelection();
@@ -87,7 +92,7 @@ export const SplitPane = ({
     }
   };
 
-  const onMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
     unFocus();
 
     const position = e.clientX;
@@ -97,8 +102,10 @@ export const SplitPane = ({
     onStarted?.();
   };
 
-  const onMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (e: MouseEvent) => {
     if (!active || !container.current || !pane1.current || !pane2.current) return;
+
+    unFocus();
 
     const [ref, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
 
@@ -136,11 +143,18 @@ export const SplitPane = ({
     primary === 'first' ? setPane1Size(newSize) : setPane2Size(newSize);
   };
 
-  const onMouseUp = () => {
+  const handleMouseUp = () => {
     if (!active) return;
 
     onFinished?.(draggedSize);
     setActive(false);
+  };
+
+  const handleDoubleClick = () => {
+    if (draggedSize === initialSize) return;
+
+    primary === 'first' ? setPane1Size(initialSize) : setPane2Size(initialSize);
+    setDraggedSize(initialSize);
   };
 
   const nonNullChildren = Children.toArray(children).filter(c => !!c);
@@ -149,12 +163,17 @@ export const SplitPane = ({
     <div className={styleBase}>
       <div role="grid" className={styleGrid} ref={container}>
         {active ? (
-          <div role="presentation" className={styleOverlay} onMouseMove={onMouseMove} onMouseUp={onMouseUp} />
+          <div role="presentation" className={styleOverlay} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} />
         ) : null}
         <Pane ref={pane1} size={pane1Size}>
           {nonNullChildren[0]}
         </Pane>
-        <Splitter grabbed={active} onMouseDown={onMouseDown} onMouseUp={onMouseUp} />
+        <Splitter
+          grabbed={active}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onDoubleClick={handleDoubleClick}
+        />
         <Pane ref={pane2} size={pane2Size}>
           {nonNullChildren[1]}
         </Pane>
@@ -166,11 +185,9 @@ export const SplitPane = ({
 const styleBase = css`
   position: relative;
   width: 100%;
-  height: 100%;
 `;
 
 const styleGrid = css`
-  position: absolute;
   display: flex;
   flex: 1 1 100%;
   width: 100%;
