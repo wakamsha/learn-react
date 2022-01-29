@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 import type { MouseEvent, ReactNode } from 'react';
 import { Children, useRef, useState } from 'react';
 import { Pane } from './Pane';
@@ -6,6 +6,13 @@ import { Splitter } from './Splitter';
 
 type Props = {
   children: ReactNode;
+  /**
+   * Pane の並ぶ向き。
+   *
+   * - horizontal: 水平方向
+   * - vertical: 垂直方向
+   */
+  orientation?: 'horizontal' | 'vertical';
   /**
    * サイズの基準となる Pane.
    *
@@ -49,6 +56,7 @@ type Props = {
  */
 export const SplitPane = ({
   children,
+  orientation = 'horizontal',
   primary = 'first',
   minSize = 50,
   maxSize,
@@ -92,12 +100,11 @@ export const SplitPane = ({
     }
   };
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
+  const handleMouseDown = (e: MouseEvent<HTMLSpanElement>) => {
     unFocus();
 
-    const position = e.clientX;
     setActive(true);
-    setPosition(position);
+    setPosition(orientation === 'horizontal' ? e.clientX : e.clientY);
 
     onStarted?.();
   };
@@ -109,9 +116,8 @@ export const SplitPane = ({
 
     const [ref, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
 
-    const { width } = ref.getBoundingClientRect();
-    const current = e.clientX;
-    const size = width;
+    const { width, height } = ref.getBoundingClientRect();
+    const [current, size] = orientation === 'horizontal' ? [e.clientX, width] : [e.clientY, height];
     const positionDelta = position - current;
     let sizeDelta = positionDelta * (primary === 'first' ? 1 : -1);
 
@@ -123,7 +129,8 @@ export const SplitPane = ({
 
     let newMaxSize = maxSize;
     if (typeof maxSize === 'number' && maxSize <= 0) {
-      newMaxSize = container.current.getBoundingClientRect().width + maxSize;
+      const { width, height } = container.current.getBoundingClientRect();
+      newMaxSize = maxSize + (orientation === 'horizontal' ? width : height);
     }
 
     let newSize = size - sizeDelta;
@@ -154,6 +161,9 @@ export const SplitPane = ({
     if (draggedSize === initialSize) return;
 
     primary === 'first' ? setPane1Size(initialSize) : setPane2Size(initialSize);
+
+    onChange?.(initialSize);
+
     setDraggedSize(initialSize);
   };
 
@@ -161,20 +171,27 @@ export const SplitPane = ({
 
   return (
     <div className={styleBase}>
-      <div role="grid" className={styleGrid} ref={container}>
+      <div aria-orientation={orientation} className={styleGrid} ref={container}>
         {active ? (
-          <div role="presentation" className={styleOverlay} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} />
+          <div
+            role="presentation"
+            className={styleOverlay[orientation]}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+          />
         ) : null}
-        <Pane ref={pane1} size={pane1Size}>
+
+        <Pane ref={pane1} orientation={orientation} size={pane1Size}>
           {nonNullChildren[0]}
         </Pane>
         <Splitter
+          orientation={orientation}
           grabbed={active}
           onMouseDown={handleMouseDown}
           onMouseUp={handleMouseUp}
           onDoubleClick={handleDoubleClick}
         />
-        <Pane ref={pane2} size={pane2Size}>
+        <Pane ref={pane2} orientation={orientation} size={pane2Size}>
           {nonNullChildren[1]}
         </Pane>
       </div>
@@ -194,10 +211,33 @@ const styleGrid = css`
   height: 100%;
   overflow: hidden;
   outline: none;
+
+  &[aria-orientation='horizontal'] {
+    flex-direction: row;
+  }
+
+  &[aria-orientation='vertical'] {
+    flex-direction: column;
+  }
 `;
 
-const styleOverlay = css`
+const styleOverlayBase = css`
   position: fixed;
   inset: 0;
   z-index: 1;
 `;
+
+const styleOverlay: Frozen<NonNullable<Props['orientation']>, string> = {
+  horizontal: cx(
+    styleOverlayBase,
+    css`
+      cursor: col-resize;
+    `,
+  ),
+  vertical: cx(
+    styleOverlayBase,
+    css`
+      cursor: row-resize;
+    `,
+  ),
+};

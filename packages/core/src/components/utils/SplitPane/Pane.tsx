@@ -1,15 +1,18 @@
 import { css } from '@emotion/css';
-import type { ForwardedRef, ReactNode } from 'react';
+import type { ComponentProps, ForwardedRef, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import type { SplitPane } from '.';
 
-type Props = {
+type ParentProps = ComponentProps<typeof SplitPane>;
+
+type Props = Required<Pick<ParentProps, 'orientation'>> & {
   children: ReactNode;
   size?: number;
 };
 
-export const Pane = forwardRef(({ children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+export const Pane = forwardRef(({ orientation, children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   const style = {
-    width: size,
+    ...(orientation === 'horizontal' ? { width: size } : { height: size }),
     flex: size ? 'none' : 1,
   };
 
@@ -22,5 +25,6 @@ export const Pane = forwardRef(({ children, size }: Props, ref: ForwardedRef<HTM
 
 const styleBase = css`
   position: relative;
+  overflow: auto;
   outline: none;
 `;

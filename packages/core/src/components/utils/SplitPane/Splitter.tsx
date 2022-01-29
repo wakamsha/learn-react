@@ -1,18 +1,22 @@
 import { css } from '@emotion/css';
-import type { MouseEvent } from 'react';
+import type { ComponentProps, MouseEvent } from 'react';
+import type { SplitPane } from '.';
 import { Duration } from '../../../constants/Style';
 import { cssVar } from '../../../helpers/Style';
 
-type Props = {
+type ParentProps = ComponentProps<typeof SplitPane>;
+
+type Props = Required<Pick<ParentProps, 'orientation'>> & {
   grabbed: boolean;
   onMouseDown: (e: MouseEvent<HTMLSpanElement>) => void;
   onMouseUp: (e: MouseEvent<HTMLSpanElement>) => void;
   onDoubleClick: (e: MouseEvent<HTMLSpanElement>) => void;
 };
 
-export const Splitter = ({ grabbed, onMouseDown, onMouseUp, onDoubleClick }: Props) => (
+export const Splitter = ({ orientation, grabbed, onMouseDown, onMouseUp, onDoubleClick }: Props) => (
   <span
     role="separator"
+    aria-orientation={orientation}
     aria-grabbed={grabbed}
     className={styleBase}
     onMouseDown={onMouseDown}
@@ -21,21 +25,48 @@ export const Splitter = ({ grabbed, onMouseDown, onMouseUp, onDoubleClick }: Pro
   />
 );
 
+const size = 8;
+
 const styleBase = css`
+  position: relative;
+  z-index: 1;
   flex: 0 0 auto;
-  width: 8px;
-  cursor: col-resize;
   background: radial-gradient(at center center, rgba(0, 0, 0, 0.24) 0%, transparent 70%, transparent 100%) no-repeat;
-  background-position: 10px 50%;
-  background-size: 28px 100%;
-  border-right: 1px solid ${cssVar('LineNeutral')};
   transition: background-position ${Duration.Fade} linear 0.2s;
+
+  &[aria-orientation='horizontal'] {
+    width: ${size}px;
+    margin-left: -${size}px;
+    cursor: col-resize;
+    background-position: 10px 50%;
+    background-size: 28px 100%;
+    border-right: 1px solid ${cssVar('LineNeutral')};
+
+    &:hover,
+    &[aria-grabbed='true'] {
+      background-position: 0 50%;
+    }
+  }
+
+  &[aria-orientation='vertical'] {
+    width: 100%;
+    height: ${size}px;
+    margin-top: -${size}px;
+    cursor: row-resize;
+    background-position: 0 10px;
+    background-size: 100% 28px;
+    border-bottom: 1px solid ${cssVar('LineNeutral')};
+
+    &:hover,
+    &[aria-grabbed='true'] {
+      background-position: 0 0;
+    }
+  }
 
   &:hover,
   &[aria-grabbed='true'] {
     position: relative;
     z-index: 2;
-    background-position: 0px 50%;
     border-color: ${cssVar('LineNeutral')};
   }
 `;
