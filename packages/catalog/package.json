@@ -7,7 +7,7 @@
     "@learn-react/icon": "1.0.0"
   },
   "scripts": {
-    "generate": "node ./bin/codegen",
+    "generate": "node ./bin/codegen.mjs",
     "develop": "node ./bin/vite",
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
