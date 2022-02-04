@@ -144,10 +144,12 @@ module.exports = {
       },
     },
     {
-      files: ['*.js'],
+      files: ['*.js', '*.mjs'],
       rules: {
         '@typescript-eslint/ban-ts-comment': ['off'],
         '@typescript-eslint/no-var-requires': ['off'],
+        'import/no-relative-packages': ['off'],
+        'no-underscore-dangle': ['off'],
       },
     },
     {

@@ -10,7 +10,6 @@ import { template as storiesTemplate } from '../templates/stories.mjs';
 import { template as storySpecTemplate } from '../templates/storySpec.mjs';
 
 // @ts-ignore
-// eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
 const { watch } = yargs(hideBin(process.argv)).option('watch', {

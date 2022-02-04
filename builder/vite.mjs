@@ -1,7 +1,7 @@
 // @ts-check
-const { createServer, build } = require('vite');
-const react = require('@vitejs/plugin-react');
-const { resolve } = require('path');
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { build, createServer } from 'vite';
 
 /**
  * @typedef {['develop', 'build'][number]} Mode Vite の起動モードを指定します。
@@ -16,7 +16,8 @@ const { resolve } = require('path');
  * @param {Mode} mode
  * @param {Props} props
  */
-module.exports.exec = (mode = 'develop', { basePath, port = 3000, define }) => {
+// eslint-disable-next-line default-param-last
+export function exec(mode = 'develop', { basePath, port = 3000, define }) {
   console.info({ mode, define });
 
   if (mode === 'develop') {
@@ -40,7 +41,7 @@ module.exports.exec = (mode = 'develop', { basePath, port = 3000, define }) => {
       ...createBaseConfig(basePath),
     });
   }
-};
+}
 
 /**
  * Vite 実行関数に渡す共通設定オブジェクトを生成します。
@@ -50,7 +51,6 @@ module.exports.exec = (mode = 'develop', { basePath, port = 3000, define }) => {
 function createBaseConfig(basePath) {
   return {
     root: resolve(basePath, '../'),
-    // @ts-ignore
     plugins: [react()],
     resolve: {
       alias: {

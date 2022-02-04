@@ -1,9 +1,12 @@
 // @ts-check
-const yargs = require('yargs/yargs');
-const { hideBin } = require('yargs/helpers');
-const { exec } = require('../../../builder/vite');
+import { dirname } from 'path';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { exec } from '../../../builder/vite.mjs';
 
 // @ts-ignore
+const __dirname = dirname(new URL(import.meta.url).pathname);
+
 const { mode } = yargs(hideBin(process.argv)).option('mode', {
   alias: 'm',
   choices: ['develop', 'build'],
@@ -11,4 +14,5 @@ const { mode } = yargs(hideBin(process.argv)).option('mode', {
   default: 'develop',
 }).argv;
 
+// @ts-ignore
 exec(mode, { basePath: __dirname, port: 3001 });

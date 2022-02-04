@@ -11,7 +11,7 @@ ${importPaths
   .join(`\n`)}
 
   export const stories = {
-    ${storyTree.map(makeTree)}
+    ${storyTree.map(item => makeTree(item))}
   };
   `;
 }
