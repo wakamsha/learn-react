@@ -1,18 +1,18 @@
 // @ts-check
-const fs = require('fs');
-const cheerio = require('cheerio');
-const glob = require('glob');
-const { optimize } = require('svgo');
-const iconTemplate = require('../templates');
+import { load } from 'cheerio';
+import { readFileSync, writeFileSync } from 'fs';
+import glob from 'glob';
+import { optimize } from 'svgo';
+import { template } from '../templates/index.mjs';
 
 async function exec() {
   const data = await glob.sync('src/*.svg');
 
   const result = await Promise.all(
     data.map(async file => {
-      const content = fs.readFileSync(file).toString('utf8');
+      const content = readFileSync(file).toString('utf8');
       const source = await optimize(content);
-      const $ = cheerio.load(source.data.toString(), {
+      const $ = load(source.data.toString(), {
         decodeEntities: false,
       });
 
@@ -32,7 +32,7 @@ async function exec() {
     }),
   );
 
-  fs.writeFileSync('./dist/index.tsx', iconTemplate(result), 'utf8');
+  writeFileSync('./dist/index.tsx', template(result), 'utf8');
 }
 
 exec();

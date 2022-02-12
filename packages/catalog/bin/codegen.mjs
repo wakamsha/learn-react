@@ -1,14 +1,17 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-check
-const fs = require('fs');
-const { resolve } = require('path');
-const chokidar = require('chokidar');
-const glob = require('glob');
-const yargs = require('yargs/yargs');
-const { hideBin } = require('yargs/helpers');
-const storySpecTemplate = require('../templates/storySpec');
-const storiesTemplate = require('../templates/stories');
+import chokidar from 'chokidar';
+import { readFileSync, writeFileSync } from 'fs';
+import glob from 'glob';
+import { dirname, resolve } from 'path';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import { template as storiesTemplate } from '../templates/stories.mjs';
+import { template as storySpecTemplate } from '../templates/storySpec.mjs';
 
 // @ts-ignore
+const __dirname = dirname(new URL(import.meta.url).pathname);
+
 const { watch } = yargs(hideBin(process.argv)).option('watch', {
   alias: 'w',
   type: 'boolean',
@@ -54,7 +57,7 @@ function exec() {
 
   const storySpec = TARGET_FILES.reduce((acc, filePath) => {
     const key = filePath.replace(/^\/.+\/packages\/|\/src|\/index.story.tsx/g, '');
-    const value = fs.readFileSync(filePath, 'utf-8');
+    const value = readFileSync(filePath, 'utf-8');
 
     return {
       ...acc,
@@ -65,8 +68,8 @@ function exec() {
   // Generate
   // ----------------
 
-  fs.writeFileSync('./src/constants/Stories.ts', storiesTemplate({ importPaths, storyTree }), 'utf8');
-  fs.writeFileSync('./src/constants/StorySpec.ts', storySpecTemplate(storySpec), 'utf8');
+  writeFileSync('./src/constants/Stories.ts', storiesTemplate({ importPaths, storyTree }), 'utf8');
+  writeFileSync('./src/constants/StorySpec.ts', storySpecTemplate(storySpec), 'utf8');
 }
 
 exec();

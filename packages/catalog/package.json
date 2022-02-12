@@ -7,10 +7,10 @@
     "@learn-react/icon": "1.0.0"
   },
   "scripts": {
-    "generate": "node ./bin/codegen",
-    "develop": "node ./bin/vite",
+    "generate": "node ./bin/codegen.mjs",
+    "develop": "node ./bin/vite.mjs",
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
-    "build": "yarn generate && yarn type-check && node ./bin/vite -m build"
+    "build": "yarn generate && yarn type-check && node ./bin/vite.mjs -m build"
   }
 }
