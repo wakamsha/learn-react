@@ -12,6 +12,6 @@
     "develop": "node ./bin/vite.mjs",
     "type-check": "tsc --noEmit",
     "start": "run-p \"type-check --watch\" \"develop\"",
-    "build": "yarn type-check && node ./bin/vite -m build"
+    "build": "yarn type-check && node ./bin/vite.mjs -m build"
   }
 }
