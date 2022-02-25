@@ -25,7 +25,7 @@
     "@commitlint/cli": "16.2.1",
     "@stylelint/postcss-css-in-js": "0.37.2",
     "@types/highlight.js": "10.1.0",
-    "@types/jest": "27.4.0",
+    "@types/jest": "27.4.1",
     "@types/node": "16.11.25",
     "@types/qs": "6.9.7",
     "@types/react": "17.0.39",
