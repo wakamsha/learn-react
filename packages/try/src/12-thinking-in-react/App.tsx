@@ -50,7 +50,9 @@ export class FilterableProductTable extends Component<Props, State> {
   };
 
   public render() {
+    const { products } = this.props;
     const { filterText, stockOnly } = this.state;
+
     return (
       <>
         <SearchBar
@@ -59,7 +61,7 @@ export class FilterableProductTable extends Component<Props, State> {
           onFilterTextChange={this.handleFilterTextChange}
           onStockChange={this.handleStockChange}
         />
-        <ProductTable products={PRODUCTS} filterText={filterText} stockOnly={stockOnly} />
+        <ProductTable products={products} filterText={filterText} stockOnly={stockOnly} />
       </>
     );
   }
