@@ -101,6 +101,15 @@ jobs:
       - name: Build
         run: yarn catalog build
 
+      - name: Check file sizes
+        run: yarn catalog size-check
+
+      - name: Save log
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: packages/catalog/dist/fileSizes.json
+
   build_try:
     needs: setup
     runs-on: ubuntu-latest
