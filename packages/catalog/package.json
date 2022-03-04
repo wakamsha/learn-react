@@ -10,6 +10,7 @@
     "generate": "node ./bin/codegen.mjs",
     "develop": "node ./bin/vite.mjs",
     "type-check": "tsc --noEmit",
+    "size-check": "node ./bin/checkFileSizes.mjs",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
     "build": "yarn generate && yarn type-check && node ./bin/vite.mjs -m build"
   }
