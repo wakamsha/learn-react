@@ -28,7 +28,7 @@
     "@types/node": "16.11.26",
     "@types/qs": "6.9.7",
     "@types/react": "17.0.39",
-    "@types/react-dom": "17.0.11",
+    "@types/react-dom": "17.0.13",
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "@vitejs/plugin-react": "1.2.0",
@@ -75,7 +75,7 @@
     "qs": "6.10.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-router-dom": "6.2.1"
+    "react-router-dom": "6.2.2"
   },
   "lint-staged": {
     "packages/**/src/**/*.{ts,tsx}": [

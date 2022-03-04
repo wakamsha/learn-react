@@ -1756,12 +1756,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:17.0.11":
-  version: 17.0.11
-  resolution: "@types/react-dom@npm:17.0.11"
+"@types/react-dom@npm:17.0.13":
+  version: 17.0.13
+  resolution: "@types/react-dom@npm:17.0.13"
   dependencies:
     "@types/react": "*"
-  checksum: 4d5730dffbef86c887cecad7e3cecda424ce6a64d0b5441c63b5b015d48219868660a2bb1aa15e897e565ad8867fa6b885d4358b04e1c4e589ba4c07c3fda55c
+  checksum: 62c42a54ac8961c23a0e74b9cdd8b0a78563757e462b1ab665b2aa365bfd8b86a73d3f6eafc09a4a80fb08659321db168f012aa597c41c0df36f645a94e9266b
   languageName: node
   linkType: hard
 
@@ -5865,7 +5865,7 @@ __metadata:
     "@types/node": 16.11.26
     "@types/qs": 6.9.7
     "@types/react": 17.0.39
-    "@types/react-dom": 17.0.11
+    "@types/react-dom": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.12.1
     "@typescript-eslint/parser": 5.12.1
     "@vitejs/plugin-react": 1.2.0
@@ -5899,7 +5899,7 @@ __metadata:
     qs: 6.10.3
     react: 17.0.2
     react-dom: 17.0.2
-    react-router-dom: 6.2.1
+    react-router-dom: 6.2.2
     stylelint: 14.5.3
     stylelint-config-prettier: 9.0.3
     stylelint-config-recess-order: 3.0.0
@@ -7212,27 +7212,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:6.2.1":
-  version: 6.2.1
-  resolution: "react-router-dom@npm:6.2.1"
+"react-router-dom@npm:6.2.2":
+  version: 6.2.2
+  resolution: "react-router-dom@npm:6.2.2"
   dependencies:
     history: ^5.2.0
-    react-router: 6.2.1
+    react-router: 6.2.2
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: fa0edc69fddf0cb1313bcb3dbd5eb2b2ff24a75ee03ba928995e16a6a251585750f91d966612e868eb68a5aebc4a5240be40fd96c4acf1d8d48d33f54ad3f4e2
+  checksum: 83c5105af923c4f8af65a6de98283a95f46ffa643fd0c1a5005647c2c3deb946dae52dda32dc00cfcc3659517b08be806ff02ff03173361dba3d824850053e99
   languageName: node
   linkType: hard
 
-"react-router@npm:6.2.1":
-  version: 6.2.1
-  resolution: "react-router@npm:6.2.1"
+"react-router@npm:6.2.2":
+  version: 6.2.2
+  resolution: "react-router@npm:6.2.2"
   dependencies:
     history: ^5.2.0
   peerDependencies:
     react: ">=16.8"
-  checksum: 081a89237ab4f32195d1f2173bc4b3d95637cd6942a4d1a9e90d4ac8c80faa95528255ca2ec44c1e88c1b369e712c4ca74cba5ae3acef6fc30a51a62805b95a4
+  checksum: 1a2e7006d4d56bfae8ff11dd5ec15e8049578864dfb2764652510eb0ce4af26a8949790a3732c4f7beb14bcb6500469ea18841b8cfc953e09828e4e4113922f0
   languageName: node
   linkType: hard
 
