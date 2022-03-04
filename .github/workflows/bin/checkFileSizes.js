@@ -1,10 +1,6 @@
 // @ts-check
-import { statSync } from 'fs';
-import glob from 'glob';
-// import { dirname, resolve } from 'path';
-
-// @ts-ignore
-// const __dirname = dirname(new URL(import.meta.url).pathname);
+const { statSync } = require('fs');
+const glob = require('glob');
 
 const filePaths = glob.sync('./packages/catalog/dist/assets/{index,vendor}.*.js');
 
@@ -35,9 +31,7 @@ function generateFileSizeUnit(size) {
   return `${size}Byte`;
 }
 
-// writeFileSync('./dist/fileSizes.json', JSON.stringify(generateLog(filePaths), null, 2), 'utf8');
-
-export function exec({ github, context }) {
+module.exports = ({ github, context }) => {
   const body = generateLog(filePaths);
 
   github.rest.issues.createComment({
@@ -46,4 +40,4 @@ export function exec({ github, context }) {
     repo: context.repo.repo,
     body: JSON.stringify(body, null, 2),
   });
-}
+};

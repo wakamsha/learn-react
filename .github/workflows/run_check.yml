@@ -24,7 +24,7 @@ jobs:
       - name: Set node version
         run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -46,31 +46,31 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
+  # lint:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+  #     - name: Set node version
+  #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Restore node_modules
+  #       uses: actions/cache@v2
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: node_modules
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Run Lint
-        run: yarn lint
+  #     - name: Run Lint
+  #       run: yarn lint
 
   build_catalog:
     needs: setup
@@ -83,7 +83,7 @@ jobs:
       - name: Set node version
         run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -101,14 +101,19 @@ jobs:
       - name: Build
         run: yarn catalog build
 
-      - name: Check file sizes
-        run: yarn catalog size-check
+      # - name: Check file sizes
+      #   run: yarn catalog size-check
 
-      - name: Save log
-        uses: actions/upload-artifact@v3
+      # - name: Save log
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     path: packages/catalog/dist/fileSizes.json
+      #     if-no-files-found: error
+      - uses: actions/github-script@v6
         with:
-          path: packages/catalog/dist/fileSizes.json
-          if-no-files-found: error
+          script: |
+            const script = require('./.github/workflows/bin/checkFileSizes.js');
+            script({ github, context });
 
   # build_try:
   #   needs: setup
@@ -121,7 +126,7 @@ jobs:
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-  #     - uses: actions/setup-node@v2-beta
+  #     - uses: actions/setup-node@v3
   #       with:
   #         node-version: ${{ env.NODE_VERSION }}
 
@@ -150,7 +155,7 @@ jobs:
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-  #     - uses: actions/setup-node@v2-beta
+  #     - uses: actions/setup-node@v3
   #       with:
   #         node-version: ${{ env.NODE_VERSION }}
 
@@ -176,7 +181,7 @@ jobs:
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-  #     - uses: actions/setup-node@v2-beta
+  #     - uses: actions/setup-node@v3
   #       with:
   #         node-version: ${{ env.NODE_VERSION }}
 
