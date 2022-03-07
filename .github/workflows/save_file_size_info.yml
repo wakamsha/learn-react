@@ -3,9 +3,6 @@
 name: Save file size info in main branch
 
 on:
-  pull_request:
-    branches:
-      - '*'
   push:
     branches:
       - main

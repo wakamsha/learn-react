@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { inject, observer } from 'mobx-react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { Component } from 'react';

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { inject, observer } from 'mobx-react';
 import { Component } from 'react';
 import type { TodoListStore } from '../stores/TodoListStore';
