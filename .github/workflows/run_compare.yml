@@ -1,0 +1,30 @@
+name: Compare file size
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set node version
+        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Print node version
+        run: node -v
+
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const run = require('./.github/workflows/bin/compare.js');
+            run({ github, context });

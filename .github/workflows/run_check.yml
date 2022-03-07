@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set node version
         run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
@@ -52,7 +52,7 @@ jobs:
 
   #   steps:
   #     - name: Checkout
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
@@ -72,48 +72,40 @@ jobs:
   #     - name: Run Lint
   #       run: yarn lint
 
-  build_catalog:
-    needs: setup
-    runs-on: ubuntu-latest
+  # build_catalog:
+  #   needs: setup
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+  #     - name: Set node version
+  #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+  #     - name: Restore node_modules
+  #       uses: actions/cache@v2
+  #       env:
+  #         cache-name: cache-node-modules
+  #       with:
+  #         path: node_modules
+  #         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Build icon data
-        run: yarn icon build
+  #     - name: Build icon data
+  #       run: yarn icon build
 
-      - name: Build
-        run: yarn catalog build
+  #     - name: Build
+  #       run: yarn catalog build
 
-      # - name: Check file sizes
-      #   run: yarn catalog size-check
-
-      # - name: Save log
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     path: packages/catalog/dist/fileSizes.json
-      #     if-no-files-found: error
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const script = require('./.github/workflows/bin/checkFileSizes.js');
-            script({ github, context });
+  #     - uses: actions/github-script@v6
+  #       with:
+  #         script: |
+  #           const script = require('./.github/workflows/bin/checkFileSizes.js');
+  #           script({ github, context });
 
   # build_try:
   #   needs: setup
@@ -121,7 +113,7 @@ jobs:
 
   #   steps:
   #     - name: Checkout
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
@@ -150,7 +142,7 @@ jobs:
 
   #   steps:
   #     - name: Checkout
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
@@ -176,7 +168,7 @@ jobs:
 
   #   steps:
   #     - name: Checkout
-  #       uses: actions/checkout@v2
+  #       uses: actions/checkout@v3
 
   #     - name: Set node version
   #       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
