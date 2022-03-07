@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-param-reassign */
 import { observer } from 'mobx-react';
 import { useCallback } from 'react';

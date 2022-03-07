@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { observer } from 'mobx-react';
 import type { TodoStore } from '../stores/TodoStore';
 
