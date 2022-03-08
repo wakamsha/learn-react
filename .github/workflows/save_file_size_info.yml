@@ -3,6 +3,9 @@
 name: Save file size info in main branch
 
 on:
+  pull_request:
+    branches:
+      - '*'
   push:
     branches:
       - main
@@ -62,6 +65,12 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Build icon data
+        run: yarn icon build
+
+      - name: Build
+        run: yarn catalog build
 
       - name: Export file size info
         uses: actions/github-script@v6
