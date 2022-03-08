@@ -1,7 +1,7 @@
 // @ts-check
+const { format } = require('date-fns');
 const { statSync, writeFileSync } = require('fs');
 const glob = require('glob');
-const { resolve } = require('path');
 
 /**
  * ビルドした JavaScript ファイルのサイズ情報を JSON 形式で出力します。
@@ -17,5 +17,10 @@ module.exports = ({ exportPath, targetPathPattern }) => {
     {},
   );
 
-  writeFileSync(exportPath, JSON.stringify(fileSizeInfo, null, 2), 'utf8');
+  const value = {
+    ...fileSizeInfo,
+    date: format(new Date(), 'yyyy.MM.dd HH:mm:ss'),
+  };
+
+  writeFileSync(exportPath, JSON.stringify(value, null, 2), 'utf8');
 };
