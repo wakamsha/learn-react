@@ -17,10 +17,16 @@ module.exports = ({ exportPath, targetPathPattern }) => {
     {},
   );
 
-  const value = {
-    ...fileSizeInfo,
-    date: format(new Date(), 'yyyy.MM.dd HH:mm:ss'),
-  };
-
-  writeFileSync(exportPath, JSON.stringify(value, null, 2), 'utf8');
+  writeFileSync(
+    exportPath,
+    JSON.stringify(
+      {
+        ...fileSizeInfo,
+        exportedAt: format(new Date(), 'yyyy.MM.dd HH:mm:ss'),
+      },
+      null,
+      2,
+    ),
+    'utf8',
+  );
 };
