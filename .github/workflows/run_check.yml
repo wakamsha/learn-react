@@ -101,12 +101,6 @@ jobs:
       - name: Build
         run: yarn catalog build
 
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const script = require('./.github/workflows/bin/checkFileSizes.js');
-            script({ github, context });
-
   build_try:
     needs: setup
     runs-on: ubuntu-latest

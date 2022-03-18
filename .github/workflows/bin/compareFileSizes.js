@@ -1,5 +1,5 @@
 // @ts-check
-const { generateFileSizeInfo, bytesToSize } = require('./utils');
+const { generateFileSizeInfo } = require('./utils');
 const { existsSync } = require('fs');
 const { resolve } = require('path');
 

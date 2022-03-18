@@ -19,8 +19,13 @@ module.exports.createComment = (commentBody, github, context) => {
   });
 };
 
+/**
+ *
+ * @param {*} github octokit/rest.js クライアント
+ * @param {*} context ワークフロー実行コンテキストを含むオブジェクト
+ */
 module.exports.getComments = async (github, context) => {
-  const comments = await github.rest.issues.listComments({
+  const { data: comments } = await github.rest.issues.listComments({
     issue_number: context.issue.number,
     owner: context.repo.owner,
     repo: context.repo.repo,
