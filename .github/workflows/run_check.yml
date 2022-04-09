@@ -9,9 +9,13 @@
 name: Check Syntax
 
 on:
-  pull_request:
+  # @TODO run_module_graph のデバッグが終わったら元に戻す。
+  push:
     branches:
-      - '*'
+      - master
+  # pull_request:
+  #   branches:
+  #     - '*'
 
 jobs:
   setup:
