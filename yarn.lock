@@ -4888,10 +4888,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hotkeys-js@npm:3.8.7":
-  version: 3.8.7
-  resolution: "hotkeys-js@npm:3.8.7"
-  checksum: 1eb6df2781e8e49a80c72930d5c69ed50ea16d1dbef0667512059f5b5d1551bfdce3024c25d99275ab567e0b7ae0fbf292971542ea347ed8b7b585eab4e99287
+"hotkeys-js@npm:3.8.9":
+  version: 3.8.9
+  resolution: "hotkeys-js@npm:3.8.9"
+  checksum: 5d1cedbfdf58f83a398e46b80f4f6e94ee873a5e27ef2ca7b42dff6159cf484c7a50b23cbf81c2eb31366436898240ca5511771444b90096c324eb5a604cbd4a
   languageName: node
   linkType: hard
 
@@ -6120,7 +6120,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.4.0
     glob: 7.2.0
     highlight.js: 11.5.0
-    hotkeys-js: 3.8.7
+    hotkeys-js: 3.8.9
     husky: 7.0.4
     jest: 27.5.1
     lint-staged: 12.3.7
