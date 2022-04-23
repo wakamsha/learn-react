@@ -68,7 +68,7 @@
     "csx": "10.0.2",
     "date-fns": "2.28.0",
     "highlight.js": "11.5.1",
-    "hotkeys-js": "3.8.9",
+    "hotkeys-js": "3.9.0",
     "mobx": "6.5.0",
     "mobx-react": "7.3.0",
     "pdfjs-dist": "2.13.216",
