@@ -4,5 +4,6 @@ module.exports = {
   customSyntax: '@stylelint/postcss-css-in-js',
   rules: {
     'property-no-vendor-prefix': null,
+    'function-no-unknown': null,
   },
 };
