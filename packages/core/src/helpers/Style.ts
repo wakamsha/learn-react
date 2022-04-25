@@ -139,33 +139,33 @@ export function applyGlobalStyle() {
       font-family: 'Noto Sans Japanese';
       font-style: normal;
       font-weight: normal;
-      font-display: swap;
       src: local('Noto Sans Japanese'),
         url(${NotoSansRegular}) format('woff');
+      font-display: swap;
     }
     @font-face {
       font-family: 'Noto Sans Japanese';
       font-style: normal;
       font-weight: bold;
-      font-display: swap;
       src: local('Noto Sans Japanese Bold'),
         url(${NotoSansMedium}) format('woff');
+      font-display: swap;
     }
     @font-face {
       font-family: 'Noto Serif Japanese';
       font-style: normal;
       font-weight: normal;
-      font-display: swap;
       src: local('Noto Serif Japanese'),
         url(${NotoSerifRegular}) format('woff');
+      font-display: swap;
     }
     @font-face {
       font-family: 'Noto Serif Japanese';
       font-style: normal;
       font-weight: bold;
-      font-display: swap;
       src: local('Noto Serif Japanese Bold'),
         url(${NotoSerifSemiBold}) format('woff');
+      font-display: swap;
     }
 
     :root {
