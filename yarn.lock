@@ -4911,10 +4911,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hotkeys-js@npm:3.9.0":
-  version: 3.9.0
-  resolution: "hotkeys-js@npm:3.9.0"
-  checksum: aca3c5b3954a26b54fe133c303defebe1827e8bd3a9489123d6ae2567752d2260b8d753b361a62c490bd2c321bda1951cdb3a00d0ad27e35372b29e123aad2b0
+"hotkeys-js@npm:3.9.3":
+  version: 3.9.3
+  resolution: "hotkeys-js@npm:3.9.3"
+  checksum: cb18742598098935d2af50372eb185c4d24a1641872c9aed617d11606b66bf8402eee943abf9dc15ff1d612a5e84df5251746dc738fe0c2d3f33b294a1038ff4
   languageName: node
   linkType: hard
 
@@ -6143,7 +6143,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.5.0
     glob: 8.0.1
     highlight.js: 11.5.1
-    hotkeys-js: 3.9.0
+    hotkeys-js: 3.9.3
     husky: 7.0.4
     jest: 27.5.1
     lint-staged: 12.4.1
