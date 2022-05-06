@@ -59,7 +59,7 @@
     "ts-jest": "27.1.4",
     "ts-xor": "1.0.8",
     "typescript": "4.6.4",
-    "vite": "2.9.6",
+    "vite": "2.9.8",
     "yargs": "17.4.1"
   },
   "dependencies": {
