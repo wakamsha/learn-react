@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "16.2.4",
-    "@stylelint/postcss-css-in-js": "0.37.3",
+    "@stylelint/postcss-css-in-js": "0.38.0",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.33",
     "@types/qs": "6.9.7",
