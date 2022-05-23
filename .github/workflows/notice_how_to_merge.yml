@@ -1,0 +1,40 @@
+# Approve された PR に対し、適切なマージ方式を通知する。
+
+name: Notice how to merge
+
+on:
+  pull_request_review:
+    types:
+      - submitted
+
+jobs:
+  check_state:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Release
+        id: release
+        if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'qa'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const run = require('./.github/workflows/bin/detectHowToMerge.js');
+            run({
+              github,
+              context,
+              mode: 'commit',
+            });
+
+      - name: Other
+        id: other
+        if: steps.release.conclusion == 'skipped'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const run = require('./.github/workflows/bin/detectHowToMerge.js');
+            run({
+              github,
+              context,
+              mode: 'squash',
+            });
