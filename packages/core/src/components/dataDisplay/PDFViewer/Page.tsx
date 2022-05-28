@@ -63,7 +63,7 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
         });
       }
 
-      pdfjsLib.renderTextLayer({ textContent, viewport, container });
+      pdfjsLib.renderTextLayer({ textContent, viewport, container: container as unknown as DocumentFragment });
     })();
   }, [textLayerRef, page, viewport]);
 
