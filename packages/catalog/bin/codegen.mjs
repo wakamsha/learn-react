@@ -18,7 +18,7 @@ const { watch } = yargs(hideBin(process.argv)).option('watch', {
   describe: 'ターゲットファイルの変更を監視して自動的にコード生成を実行します。',
 }).argv;
 
-const targetFiles = glob.sync(resolve(__dirname, '../../**/dataDisplay/**/*.story.tsx'));
+const targetFiles = glob.sync(resolve(__dirname, '../../**/*.story.tsx'));
 
 function addPath(fileLocations, acc) {
   const location = fileLocations.shift();
@@ -44,7 +44,7 @@ function exec() {
   const importPaths = targetFiles.map(rawPath => rawPath.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '')).flat(2);
 
   const storyTreeMap = Object.values(targetFiles).reduce(
-    (acc, path) => addPath(path.replace(/^\/.+\/packages\/|\/src|\/index|\.story.tsx/g, '').split('/'), acc),
+    (acc, path) => addPath(path.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '').split('/'), acc),
     [],
   );
 
