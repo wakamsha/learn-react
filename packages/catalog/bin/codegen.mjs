@@ -7,7 +7,6 @@ import { dirname, resolve } from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { template as storiesTemplate } from '../templates/stories.mjs';
-import { template as storySpecTemplate } from '../templates/storySpec.mjs';
 
 // @ts-ignore
 const __dirname = dirname(new URL(import.meta.url).pathname);
@@ -20,52 +19,32 @@ const { watch } = yargs(hideBin(process.argv)).option('watch', {
 
 const targetFiles = glob.sync(resolve(__dirname, '../../**/*.story.tsx'));
 
-function addPath(fileLocations, acc) {
-  const location = fileLocations.shift();
+function addTree(filePath, fileLocations, acc) {
+  const [location, ...restLocations] = fileLocations;
 
   let component = acc.find(item => item.name === location);
 
   if (!component) {
-    component = { name: location };
+    component = { name: location, ...(!restLocations.length ? { code: readFileSync(filePath, 'utf-8') } : {}) };
     acc.push(component);
   }
 
-  if (fileLocations.length) {
-    addPath(fileLocations, component.children || (component.children = []));
+  if (restLocations.length) {
+    addTree(filePath, restLocations, component.children || (component.children = []));
   }
 
   return acc;
 }
 
 function exec() {
-  // Stories
-  // ----------------
-
   const importPaths = targetFiles.map(rawPath => rawPath.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '')).flat(2);
 
-  const storyTreeMap = Object.values(targetFiles).reduce(
-    (acc, path) => addPath(path.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '').split('/'), acc),
+  const storyTreeMap = targetFiles.reduce(
+    (acc, path) => addTree(path, path.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '').split('/'), acc),
     [],
   );
 
-  // Story Spec
-  // ----------------
-
-  const storySpec = targetFiles.reduce((acc, filePath) => {
-    const key = filePath.replace(/^\/.+\/packages\/|\/src|\/index.story.tsx/g, '');
-    const value = readFileSync(filePath, 'utf-8');
-
-    return {
-      ...acc,
-      [key]: value,
-    };
-  }, {});
-
-  // Generate
-  // ----------------
-
   writeFileSync(resolve(__dirname, '../src/constants/Stories.ts'), storiesTemplate(importPaths, storyTreeMap), 'utf8');
-  writeFileSync(resolve(__dirname, '../src/constants/StorySpec.ts'), storySpecTemplate(storySpec), 'utf8');
 }
 
 exec();

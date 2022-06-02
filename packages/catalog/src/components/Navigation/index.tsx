@@ -146,7 +146,7 @@ const styleCaptionSubPackage = css`
 `;
 
 type TreeProps = {
-  value: Record<string, { [key: string]: ValueOf<TreeProps['value']> } | FC>;
+  value: Record<string, { [key: string]: ValueOf<TreeProps['value']> }> | { Component: FC; code: string };
   basePath: string;
   query: RegExp;
   nestLevel?: number;
@@ -159,10 +159,10 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
 
   return (
     <ul role="tree">
-      {Object.entries(value).map(([key, subValue]) => {
-        const path = `${basePath}-${key}`;
+      {Object.entries(value).map(([key, subValue]: [string, TreeProps['value']]) => {
+        const path = `${basePath}__${key}`;
 
-        if (typeof subValue === 'function') {
+        if (subValue.code && subValue.Component) {
           return key.match(query) ? (
             <li key={key}>
               <Link
