@@ -28,7 +28,7 @@ const Presentation = () => {
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
 
-  const { Component, code } = useMemo(() => {
+  const { Component, sourceCode } = useMemo(() => {
     let snapShot: any = stories;
 
     for (let i = 0; i < storyParams.length; i++) {
@@ -38,7 +38,7 @@ const Presentation = () => {
       snapShot = snapShot[storyParams[i]];
     }
 
-    return snapShot as { Component: FC; code: string };
+    return snapShot as { Component: FC; sourceCode: string };
   }, [storyParams]);
 
   return (
@@ -56,7 +56,7 @@ const Presentation = () => {
         {layoutConfig !== Layout.Zen ? (
           <aside className={styleCodeBlock}>
             <div className={styleCodeBlockBody}>
-              <CodeBlock>{code}</CodeBlock>
+              <CodeBlock>{sourceCode}</CodeBlock>
             </div>
           </aside>
         ) : null}

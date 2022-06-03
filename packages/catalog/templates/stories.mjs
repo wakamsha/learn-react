@@ -21,14 +21,16 @@ ${importPaths
   `;
 }
 
-function makeTree({ name, code, children }, prefix = '') {
+function makeTree({ name, sourceCode, children }, prefix = '') {
   const optimizedName = `${prefix}${pascalCase(name)}`;
 
   return children
     ? children.every(({ name }) => name === 'index')
-      ? `'${name}': { Component: ${optimizedName}, code: ${JSON.stringify(children[0]?.code)} }`
+      ? `'${name}': { Component: ${optimizedName}, sourceCode: ${JSON.stringify(children[0]?.sourceCode)} }`
       : `'${name}': { ${children.map(subPackage => makeTree(subPackage, optimizedName))} }`
-    : `'${name}': { Component: ${name === 'index' ? prefix : optimizedName}, code: ${JSON.stringify(code)} }`;
+    : `'${name}': { Component: ${name === 'index' ? prefix : optimizedName}, sourceCode: ${JSON.stringify(
+        sourceCode,
+      )} }`;
 }
 
 /**

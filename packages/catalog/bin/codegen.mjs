@@ -25,7 +25,7 @@ function addTree(filePath, fileLocations, acc) {
   let component = acc.find(item => item.name === location);
 
   if (!component) {
-    component = { name: location, ...(!restLocations.length ? { code: readFileSync(filePath, 'utf-8') } : {}) };
+    component = { name: location, ...(!restLocations.length ? { sourceCode: readFileSync(filePath, 'utf-8') } : {}) };
     acc.push(component);
   }
 
