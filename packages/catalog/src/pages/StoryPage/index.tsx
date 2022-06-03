@@ -6,7 +6,6 @@ import type { FC } from 'react';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
-import { storySpec } from '../../constants/StorySpec';
 import { CodeBlock } from './CodeBlock';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
@@ -14,7 +13,7 @@ import { Layout } from './VO';
 
 export const StoryPage = () => (
   <LayoutConfigContainer.Provider>
-    <Inner />
+    <Presentation />
   </LayoutConfigContainer.Provider>
 );
 
@@ -22,14 +21,14 @@ type Params = {
   storyId: string;
 };
 
-const Inner = () => {
+const Presentation = () => {
   const { storyId = '' } = useParams<keyof Params>();
 
-  const storyParams = storyId.split('-');
+  const storyParams = storyId.split('__');
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
 
-  const Component = useMemo(() => {
+  const { Component, code } = useMemo(() => {
     let snapShot: any = stories;
 
     for (let i = 0; i < storyParams.length; i++) {
@@ -39,10 +38,8 @@ const Inner = () => {
       snapShot = snapShot[storyParams[i]];
     }
 
-    return snapShot as FC;
+    return snapShot as { Component: FC; code: string };
   }, [storyParams]);
-
-  const storySpecKey = storyParams.join('/') as keyof typeof storySpec;
 
   return (
     <>
@@ -59,7 +56,7 @@ const Inner = () => {
         {layoutConfig !== Layout.Zen ? (
           <aside className={styleCodeBlock}>
             <div className={styleCodeBlockBody}>
-              {storySpec[storySpecKey] ? <CodeBlock>{storySpec[storySpecKey]}</CodeBlock> : null}
+              <CodeBlock>{code}</CodeBlock>
             </div>
           </aside>
         ) : null}
