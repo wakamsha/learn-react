@@ -24,6 +24,6 @@ export default defineConfig({
 });
 ```
 
-しかし MobX v6.6.0 だと React18 に対応しきれていないのか、React コンポーネントが正しく observe してくれない[^1]。 `createRender` でなく従来の `render` でも同様。
+しかし MobX v6.6.0 だと React18 に対応しきれていないのか、React コンポーネントが正しく observe してくれない[^1]。 `createRoot` でなく従来の `render` でも同様。
 
 [^1]: Class Component だけでなく Functional Component でも observe してくれない。

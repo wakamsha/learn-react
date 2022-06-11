@@ -3,7 +3,7 @@ import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
 import type { ChangeEvent } from 'react';
 import { StrictMode, useEffect, useRef, useState } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';
 import { createContainer } from './31-unstated-basic/helpers/Unstated';
@@ -66,11 +66,12 @@ applyResetStyle();
 
 applyGlobalStyle();
 
-render(
+const root = createRoot(document.getElementById('app') as HTMLElement);
+
+root.render(
   <StrictMode>
     <StatementTypeContainer.Provider>
       <BootLoader />
     </StatementTypeContainer.Provider>
   </StrictMode>,
-  document.getElementById('app'),
 );

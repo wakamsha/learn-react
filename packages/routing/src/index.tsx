@@ -1,15 +1,16 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { WithPageTransition } from './04-with-page-transition';
 
 applyResetStyle();
 
 applyGlobalStyle();
 
-render(
+const root = createRoot(document.getElementById('app') as HTMLElement);
+
+root.render(
   // <Basic />,
   // <NestRoutesDeep />,
   // <RouteObjects />,
   <WithPageTransition />,
-  document.getElementById('app'),
 );
