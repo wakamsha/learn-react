@@ -8,9 +8,9 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { template as storiesTemplate } from '../templates/stories.mjs';
 
-// @ts-ignore
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
+// @ts-ignore
 const { watch } = yargs(hideBin(process.argv)).option('watch', {
   alias: 'w',
   type: 'boolean',
