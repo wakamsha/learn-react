@@ -11,7 +11,7 @@
   },
   "scripts": {
     "develop": "node ./bin/vite.mjs",
-    "type-check": "tsc --noEmit",
+    "type-check": "run --top-level tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\"",
     "build": "yarn type-check && node ./bin/vite.mjs -m build"
   }

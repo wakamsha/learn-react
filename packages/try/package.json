@@ -7,7 +7,7 @@
   },
   "scripts": {
     "develop": "vite",
-    "type-check": "tsc --noEmit",
+    "type-check": "run --top-level tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\"",
     "build": "yarn type-check && vite build"
   }
