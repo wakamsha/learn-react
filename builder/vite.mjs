@@ -8,13 +8,13 @@ import { build, createServer } from 'vite';
  * - develop: Dev サーバを起動し開発用にビルドします。
  * - build: プロダクション用にビルドします。
  *
- * @typedef {object} Props
+ * @typedef {object} Options
  * @property {string} basePath
  * @property {number} [port]
  * @property {object} [define]
  *
  * @param {Mode} mode
- * @param {Props} props
+ * @param {Options} props
  */
 // eslint-disable-next-line default-param-last
 export function exec(mode = 'develop', { basePath, port = 3000, define }) {
