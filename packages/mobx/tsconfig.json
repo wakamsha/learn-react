@@ -5,7 +5,8 @@
     "paths": {
       "@learn-react/core/*": ["../core/src/*"],
       "@learn-react/icon": ["../icon/dist/index"]
-    }
+    },
+    "experimentalDecorators": true
   },
   "include": ["./src/**/*", "../core/src/*.d.ts"]
 }
