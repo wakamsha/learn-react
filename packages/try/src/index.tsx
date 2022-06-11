@@ -1,7 +1,9 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { SuspenseApp2 } from './xx-suspense2/App';
 
-render(
+const root = createRoot(document.getElementById('app') as HTMLElement);
+
+root.render(
   // <HelloMessage name="wakamsha" />,
   // <Timer />,
   // <Todo />,
@@ -23,5 +25,4 @@ render(
   // <Bubbling />,
   // <ThemeApp />,
   <SuspenseApp2 />,
-  document.getElementById('app'),
 );

@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { configure } from 'mobx';
-import { useRef } from 'react';
+import { useState } from 'react';
 import { GetByParamForm } from './components/GetByParamForm';
 import { GetForm } from './components/GetForm';
 import { Log } from './components/Log';
@@ -8,10 +8,10 @@ import { PostForm } from './components/PostForm';
 import { UsersStore } from './stores/UsersStore';
 
 export const AsyncWithFC = () => {
-  const usersStore = useRef(new UsersStore());
+  const [usersStore] = useState(() => new UsersStore());
 
   return (
-    <UsersStore.Context.Provider value={usersStore.current}>
+    <UsersStore.Context.Provider value={usersStore}>
       <div className={styleBase}>
         <div className={styleFormColumn}>
           <h1>(06) Async w/ FC</h1>

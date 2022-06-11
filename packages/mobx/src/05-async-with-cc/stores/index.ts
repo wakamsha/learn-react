@@ -1,7 +1,7 @@
-// import { JSONPlaceholderStore } from './JSONPlaceholderStore';
+import { UsersStore } from './UserStore';
 
-// const jsonPlaceholderStore = new JSONPlaceholderStore();
+const userStore = new UsersStore();
 
-// export const Stores = {
-//   jsonPlaceholderStore,
-// } as const;
+export const Stores = {
+  userStore,
+} as const;

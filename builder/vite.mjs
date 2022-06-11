@@ -52,7 +52,15 @@ export function exec(mode = 'develop', { basePath, port = 3000, define }) {
 function createBaseConfig(basePath) {
   return {
     root: resolve(basePath, '../'),
-    plugins: [react()],
+    plugins: [
+      react({
+        babel: {
+          parserOpts: {
+            plugins: ['decorators-legacy', 'classProperties'],
+          },
+        },
+      }),
+    ],
     resolve: {
       alias: {
         '@learn-react/core': resolve(basePath, '../../core/src'),

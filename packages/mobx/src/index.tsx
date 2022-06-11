@@ -1,17 +1,18 @@
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
-import { render } from 'react-dom';
-import { AsyncWithFC } from './06-async-with-fc/App';
+import { createRoot } from 'react-dom/client';
+import { AsyncWithCC } from './05-async-with-cc/App';
 
 applyResetStyle();
 
 applyGlobalStyle();
 
-render(
-  // <TodoPrimitive />,
-  // <TodoGettingStarted />,
-  // <TodoPro />,
-  // <TodoWithContext />,
-  // <AsyncWithCC />,
-  <AsyncWithFC />,
-  document.getElementById('app'),
+const root = createRoot(document.getElementById('app') as HTMLElement);
+
+root.render(
+  // <TodoPrimitive />
+  // <TodoGettingStarted />
+  // <TodoPro />
+  // <TodoWithContext />
+  <AsyncWithCC />,
+  // <AsyncWithFC />,
 );
