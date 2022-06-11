@@ -26,6 +26,7 @@ export function exec(mode = 'develop', { basePath, port = 3000, define }) {
         define,
         server: {
           port,
+          open: true,
         },
         ...createBaseConfig(basePath),
       });
