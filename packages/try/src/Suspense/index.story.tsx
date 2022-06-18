@@ -2,10 +2,15 @@ import type { ChangeEvent } from 'react';
 import { useState } from 'react';
 import { UserContainer } from './Container';
 
-export const User = () => (
-  <UserContainer.Provider>
-    <Presentation />
-  </UserContainer.Provider>
+export const Story = () => (
+  <>
+    <h2>Suspense for Data Fetching</h2>
+    <p>Suspense と Hooks を組み合わせたデータ取得デモ。</p>
+    <hr />
+    <UserContainer.Provider>
+      <Presentation />
+    </UserContainer.Provider>
+  </>
 );
 
 const Presentation = () => {
