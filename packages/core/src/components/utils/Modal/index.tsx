@@ -8,10 +8,22 @@ import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Props = {
   children: ReactNode;
+  /**
+   * `true` の場合はモーダルコンテンツを表示する。
+   */
   visible: boolean;
+  /**
+   * コンテンツ領域外をクリックした時に呼ばれるコールバック関数。
+   */
   onClickOutside?: () => void;
 };
 
+/**
+ * モーダルは、ダイアログ、ポップオーバー、ライトボックスなど、
+ * ユーザを特定のコンテキストへ強制的にスイッチさせる必要のあるあらゆるものを作成するための基盤を提供します。
+ *
+ * @param props
+ */
 export const Modal = ({ children, visible, onClickOutside }: Props) => {
   const dialogRef = useFocusTrap<HTMLDivElement>(visible);
 

@@ -23,14 +23,25 @@ type Props = {
    * `#my-button`
    */
   targetSelector: string;
+  /**
+   * `true` の場合はポップオーバーを表示する。
+   */
   visible: boolean;
   children: ReactNode;
   position?: Position;
   alignment?: Alignment;
   offset?: number;
+  /**
+   * ポップオーバー領域外をクリックした時に呼ばれるコールバック関数。
+   */
   onClickOutside?: () => void;
 };
 
+/**
+ * ポップオーバーは、あるコンテンツの上に別のコンテンツを表示するために使用する UI です。
+ *
+ * @param props
+ */
 export const Popover = ({
   targetSelector,
   visible,

@@ -24,6 +24,11 @@ type Props<T> = {
   icon?: IconName;
 };
 
+/**
+ * コンボボックスは、あらかじめ定義された許容値の集合から選択する UI です。
+ *
+ * @param props
+ */
 export const ComboBox = <T extends string | number>({
   value,
   options,

@@ -13,10 +13,13 @@ type Theme = 'primary' | 'danger';
 type Size = 'small' | 'neutral';
 
 type Props = {
+  /** 表示するアイコン名。 */
   name: IconName;
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   id?: string;
+  /** 使用するバリアント。 */
   variant?: Variant;
+  /** ボタンの色。 */
   theme?: Theme;
   size?: Size;
   /** アクセシビリティのために指定するラベルです。 */
@@ -24,6 +27,14 @@ type Props = {
   disabled?: boolean;
 };
 
+/**
+ * アプリバーやツールバーでよく見られる省スペースのボタン UI です。
+ *
+ * アイテムに星をつけたり外したりするような、一つの選択肢を選択したり外したりするトグルボタンには
+ * アイコンボタンが適しています。
+ *
+ * @param props
+ */
 export const IconButton = ({
   name,
   id,

@@ -10,6 +10,11 @@ type Props = Partial<{
   theme: Theme;
 }>;
 
+/**
+ * 不特定多数の待ち時間を表現したり、処理の長さを表示するスピナー型の UI です。
+ *
+ * @param props
+ */
 export const Preloader = ({ size = 'neutral', theme = 'neutral' }: Props) => {
   const spinnerSize = styleSize[size];
 

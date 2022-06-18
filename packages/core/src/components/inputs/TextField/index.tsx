@@ -40,6 +40,13 @@ type Props = {
   }
 >;
 
+/**
+ * テキストフィールドは、ユーザーがテキストを入力・編集する UI です。
+ *
+ * 一般的には、フォームやダイアログに表示されます。
+ *
+ * @param props
+ */
 export const TextField = ({
   value,
   name,

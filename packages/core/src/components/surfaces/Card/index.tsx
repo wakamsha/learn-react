@@ -12,6 +12,8 @@ type Props = {
 } & Pick<CSSProperties, 'height' | 'maxHeight' | 'width' | 'maxWidth'>;
 
 /**
+ * カードは、一つのトピックに関するコンテンツやアクションを表示するコンテナ UI です。
+ *
  * @remarks
  * Card 内コンテンツをスクロール表示したいときは height か maxHeight を指定します。
  * これにより Card 全体の高さが設定され、コンテンツ量がそれを超えると Card.Body 内がスクロールできるようになります。
