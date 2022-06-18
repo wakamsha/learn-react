@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["packages/catalog/src"],
+  "entryPointStrategy": "resolve",
+  "out": "docs",
+  "cross-package-definitions": ["@learn-react/core => ../../core/src", "@learn-react/icon => ../../icon/src"]
+}
