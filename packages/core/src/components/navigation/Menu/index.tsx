@@ -81,8 +81,12 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
     if (!opened) return;
 
     const handleEveryClick = (e: globalThis.MouseEvent) => {
-      if (!(e.target instanceof Element) || e.target.closest('[role="menu"]') instanceof Element) return;
-
+      if (
+        !(e.target instanceof Element) ||
+        e.target === buttonRef.current ||
+        e.target.closest('[role="menu"]') instanceof Element
+      )
+        return;
       setOpened(false);
     };
 
