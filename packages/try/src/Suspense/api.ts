@@ -66,7 +66,6 @@ function wrapPromise<T>(promise: Promise<T>) {
       result = r;
     },
     (e: ErrorResult) => {
-      console.info(11111);
       status = 'rejected';
       error = e;
     },

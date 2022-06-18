@@ -37,7 +37,7 @@ export function exec(mode = 'develop', { basePath, port = 3000, define }) {
     build({
       define,
       build: {
-        sourcemap: true,
+        sourcemap: false,
       },
       ...createBaseConfig(basePath),
     });
@@ -65,6 +65,7 @@ function createBaseConfig(basePath) {
       alias: {
         '@learn-react/core': resolve(basePath, '../../core/src'),
         '@learn-react/icon': resolve(basePath, '../../icon/dist'),
+        '@learn-react/try': resolve(basePath, '../../try/src'),
       },
     },
   };

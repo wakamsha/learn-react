@@ -7,9 +7,14 @@ import { cssVar, gutter } from '../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { itemProps, active, triggerProps } = useListBox(menuItems.length);
+  const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
+
+  const handleSelect = (value: string) => {
+    setValue(value);
+    setActive(false);
+  };
 
   return (
     <>
@@ -30,7 +35,7 @@ export const Story = () => {
           <li key={item}>
             <button
               className={styleMenuItem}
-              onClick={() => setValue(item)}
+              onClick={() => handleSelect(item)}
               onKeyDown={itemProps[index].onKeyDown}
               tabIndex={itemProps[index].tabIndex}
               role={itemProps[index].role}
@@ -77,4 +82,12 @@ const styleMenuItem = css`
   background: transparent;
   border: none;
   appearance: none;
+
+  &:hover {
+    background-color: ${cssVar('ThemePrimaryLight')};
+  }
+
+  &:focus {
+    background-color: ${cssVar('ThemePrimaryNeutral')};
+  }
 `;

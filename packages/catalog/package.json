@@ -4,7 +4,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@learn-react/core": "1.0.0",
-    "@learn-react/icon": "1.0.0"
+    "@learn-react/icon": "1.0.0",
+    "@learn-react/try": "1.0.0"
   },
   "scripts": {
     "generate": "node ./bin/codegen.mjs",

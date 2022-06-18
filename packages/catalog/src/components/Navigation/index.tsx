@@ -113,6 +113,10 @@ const styleBody = css`
   flex-grow: 1;
   padding: ${gutter(4)} ${gutter(4)} ${gutter(20)};
   overflow-y: auto;
+
+  > :not(:first-child) {
+    margin-top: ${gutter(4)};
+  }
 `;
 
 const styleNavigation = css`

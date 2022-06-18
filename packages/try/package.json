@@ -4,11 +4,5 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@learn-react/core": "1.0.0"
-  },
-  "scripts": {
-    "develop": "vite",
-    "type-check": "run --top-level tsc --noEmit",
-    "start": "run-p \"develop\" \"type-check --watch\"",
-    "build": "yarn type-check && vite build"
   }
 }

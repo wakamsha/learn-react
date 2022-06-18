@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "@learn-react/core/*": ["../core/src/*"],
-      "@learn-react/icon": ["../icon/dist/index"]
+      "@learn-react/icon": ["../icon/dist/index"],
+      "@learn-react/try/*": ["../try/src/*"]
     }
   },
   "include": ["./src/**/*", "../core/src/*.d.ts"]

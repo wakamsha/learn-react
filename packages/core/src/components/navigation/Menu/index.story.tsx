@@ -1,43 +1,50 @@
 import { css } from '@emotion/css';
 import { useState } from 'react';
 import { useDropdownMenu } from '.';
+import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 
 export const Story = () => {
-  const { buttonProps, itemProps, opened } = useDropdownMenu(5);
+  const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
+
+  const { buttonProps, itemProps, opened, setOpened } = useDropdownMenu(menuItems.length);
 
   const [value, setValue] = useState('');
+
+  const handleSelect = (value: string) => {
+    setValue(value);
+    setOpened(false);
+  };
 
   return (
     <>
       <h2>Basic</h2>
-      <button {...buttonProps}>Button</button>
+      <button
+        ref={buttonProps.ref}
+        onKeyDown={buttonProps.onKeyDown}
+        onClick={buttonProps.onClick}
+        tabIndex={buttonProps.tabIndex}
+        role={buttonProps.role}
+        aria-haspopup={buttonProps['aria-haspopup']}
+        aria-expanded={buttonProps['aria-expanded']}
+      >
+        Button
+      </button>
       <ul className={styleMenu} aria-hidden={!opened} role="menu">
-        <li>
-          <button onClick={() => setValue('foo')} {...itemProps[0]}>
-            foo
-          </button>
-        </li>
-        <li>
-          <button onClick={() => setValue('bar')} {...itemProps[1]}>
-            bar
-          </button>
-        </li>
-        <li>
-          <button onClick={() => setValue('baz')} {...itemProps[2]}>
-            baz
-          </button>
-        </li>
-        <li>
-          <button onClick={() => setValue('world')} {...itemProps[3]}>
-            world
-          </button>
-        </li>
-        <li>
-          <button onClick={() => setValue('hello')} {...itemProps[4]}>
-            hello
-          </button>
-        </li>
+        {menuItems.map((item, index) => (
+          <li key={item}>
+            <button
+              className={styleMenuItem}
+              onClick={() => handleSelect(item)}
+              onKeyDown={itemProps[index].onKeyDown}
+              tabIndex={itemProps[index].tabIndex}
+              role={itemProps[index].role}
+              ref={itemProps[index].ref}
+            >
+              {item}
+            </button>
+          </li>
+        ))}
       </ul>
 
       <pre>
@@ -49,17 +56,38 @@ export const Story = () => {
 
 const styleMenu = css`
   display: none;
-  /* height: 100px; */
+  width: 240px;
+  max-height: 120px;
   padding: ${gutter(2)} 0;
   overflow: auto;
-  border: 1px solid;
+  font-size: ${FontSize.Regular};
+  background-color: ${cssVar('TexturePaper')};
+  box-shadow: ${cssVar('ShadowDialog')};
+
   &[aria-hidden='false'] {
     display: block;
   }
 
-  button {
-    &:focus {
-      color: ${cssVar('ThemeDangerNeutral')};
-    }
+  > :not(:first-child) {
+    border-top: 1px solid ${cssVar('LineLight')};
+  }
+`;
+
+const styleMenuItem = css`
+  display: block;
+  width: 100%;
+  padding: ${gutter(1)} ${gutter(2)};
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  appearance: none;
+
+  &:hover {
+    background-color: ${cssVar('ThemePrimaryLight')};
+  }
+
+  &:focus {
+    background-color: ${cssVar('ThemePrimaryNeutral')};
   }
 `;
