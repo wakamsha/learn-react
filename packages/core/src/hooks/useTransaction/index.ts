@@ -19,6 +19,7 @@ type ErrorResult = {
  *
  * @param onAction 非同期処理する関数
  * @param onError エラー時に実行する関数
+ *
  * @example
  * const fooStore = useContext(FooStore.Context);
  *

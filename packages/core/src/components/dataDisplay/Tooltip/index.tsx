@@ -29,6 +29,12 @@ type Props = {
   offset?: number;
 };
 
+/**
+ * ツールチップは、ユーザーが要素にカーソルを合わせたり、フォーカスしたり、タップしたりしたときに、
+ * 情報を伝えるテキストを表示します。
+ *
+ * @param props
+ */
 export const Tooltip = ({ children, targetSelector, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
   const baseRef = useRef<HTMLDivElement>(null);
 

@@ -11,7 +11,9 @@ type Variant = 'solid' | 'ghost' | 'bare';
 type Props = Partial<
   {
     id: string;
+    /** 使用するバリアント */
     variant: Variant;
+    /** ボタンの色 */
     theme: Theme;
     children: ReactNode;
     type: ButtonHTMLAttributes<HTMLButtonElement>['type'];
@@ -28,6 +30,11 @@ type Props = Partial<
   >
 >;
 
+/**
+ * ユーザーがワンタップでアクションを起こしたり選択できる汎用的な UI です。
+ *
+ * @param props
+ */
 export const Button = ({
   id,
   variant = 'solid',

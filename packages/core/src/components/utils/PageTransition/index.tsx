@@ -3,6 +3,10 @@ import { createRoutesFromChildren, matchRoutes, Routes, useLocation } from 'reac
 import { Transition } from '../Transition';
 
 type Props = {
+  /**
+   * @remarks
+   * ReactRouter の `<Route>` タグのみ配置可能。
+   */
   children: ReactNode;
   /**
    * 親 route の URL パス。
@@ -12,6 +16,13 @@ type Props = {
   parentPath?: string;
 };
 
+/**
+ * ルート (≒ URL ) 遷移の開始・終了にアニメーションを適用します。
+ *
+ * @param props
+ *
+ * `Transition` コンポーネントに依存: {@link Transition}
+ */
 export const PageTransition = ({ children, parentPath = '' }: Props) => {
   const location = useLocation();
 

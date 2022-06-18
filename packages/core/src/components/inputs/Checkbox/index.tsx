@@ -5,13 +5,26 @@ import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Props = Partial<{
+  /**
+   * `true` の場合、チェックボックスにチェックが入る。
+   */
   checked: boolean;
   value: string | number;
   disabled: boolean;
+  /**
+   * `true` の場合、コンポーネントは不定形に表示される。
+   */
   indeterminate: boolean;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }>;
 
+/**
+ * チェックボックスは、ユーザーが一つまたは複数の項目を選択する UI です。
+ *
+ * オプションが1つの場合は、チェックボックスの代わりにオン/オフスイッチを使用します。
+ *
+ * @param props
+ */
 export const Checkbox = ({ checked, value, disabled, indeterminate = false, onChange }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 

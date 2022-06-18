@@ -53,9 +53,9 @@ type Response = Readonly<{
 }>;
 
 /**
- * @TODO
- * - disabled item をサポートする
- * - autoInactive オプション
+ * TODO:
+ * - disabled item をサポートする。
+ * - autoInactive オプション。
  */
 export function useListBox(itemCount: number): Response {
   const [active, setActive] = useState(false);
