@@ -1,6 +1,7 @@
 {
-  "entryPoints": ["packages/catalog/src"],
-  "entryPointStrategy": "resolve",
+  "entryPoints": ["./packages/core"],
+  "entryPointStrategy": "expand",
+  "tsconfig": "./packages/core/tsconfig.json",
   "out": "docs",
-  "cross-package-definitions": ["@learn-react/core => ../../core/src", "@learn-react/icon => ../../icon/src"]
+  "name": "Learn React"
 }
