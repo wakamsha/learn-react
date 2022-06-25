@@ -1858,32 +1858,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@knodes/typedoc-plugin-monorepo-readmes@npm:0.22.5":
-  version: 0.22.5
-  resolution: "@knodes/typedoc-plugin-monorepo-readmes@npm:0.22.5"
-  dependencies:
-    "@knodes/typedoc-pluginutils": ~0.22.5
-    find-up: ^4.1.0
-  peerDependencies:
-    lodash: ^4.17.0
-    typedoc: ^0.22.0
-  checksum: 0eec6e5f22c7d31d68a6ccc9f597a4753a6e68f2adf73d214cb7697e12ac0afa5337aa35aef6e676adcc0cf1dec724c138eb0a975bcd6c18f762b742482fc713
-  languageName: node
-  linkType: hard
-
-"@knodes/typedoc-pluginutils@npm:~0.22.5":
-  version: 0.22.5
-  resolution: "@knodes/typedoc-pluginutils@npm:0.22.5"
-  dependencies:
-    pkg-up: ^3.1.0
-    semver: ^7.3.5
-  peerDependencies:
-    lodash: ^4.17.0
-    typedoc: ^0.22.0
-  checksum: 1126021c133be30f6aa36b5e7a1b9c2c1551768cdb51d8a34c1faed8bfddaaf2f30e5a3cad0e56df45aa3ae105c09f89b8e28f8a39d47a7d8414770b0f1999e7
-  languageName: node
-  linkType: hard
-
 "@learn-react/catalog@workspace:packages/catalog":
   version: 0.0.0-use.local
   resolution: "@learn-react/catalog@workspace:packages/catalog"
@@ -1899,6 +1873,12 @@ __metadata:
   resolution: "@learn-react/core@workspace:packages/core"
   dependencies:
     "@learn-react/icon": 1.0.0
+  languageName: unknown
+  linkType: soft
+
+"@learn-react/doc@workspace:packages/doc":
+  version: 0.0.0-use.local
+  resolution: "@learn-react/doc@workspace:packages/doc"
   languageName: unknown
   linkType: soft
 
@@ -4965,15 +4945,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-up@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "find-up@npm:3.0.0"
-  dependencies:
-    locate-path: ^3.0.0
-  checksum: 38eba3fe7a66e4bc7f0f5a1366dc25508b7cfc349f852640e3678d26ad9a6d7e2c43eff0a472287de4a9753ef58f066a0ea892a256fa3636ad51b3fe1e17fae9
-  languageName: node
-  linkType: hard
-
 "find-up@npm:^4.0.0, find-up@npm:^4.1.0":
   version: 4.1.0
   resolution: "find-up@npm:4.1.0"
@@ -6657,7 +6628,6 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.0.2
     "@emotion/css": 11.9.0
-    "@knodes/typedoc-plugin-monorepo-readmes": 0.22.5
     "@stylelint/postcss-css-in-js": 0.38.0
     "@types/jest": 28.1.1
     "@types/node": 16.11.41
@@ -6707,8 +6677,8 @@ __metadata:
     ts-jest: 28.0.5
     ts-xor: 1.0.8
     typedoc: 0.22.17
-    typedoc-cross-link-types: 1.0.2
     typedoc-plugin-missing-exports: 0.22.6
+    typedoc-theme-hierarchy: 1.2.1
     typescript: 4.7.3
     vite: 2.9.12
     yargs: 17.5.1
@@ -6809,16 +6779,6 @@ __metadata:
     p-locate: ^2.0.0
     path-exists: ^3.0.0
   checksum: 02d581edbbbb0fa292e28d96b7de36b5b62c2fa8b5a7e82638ebb33afa74284acf022d3b1e9ae10e3ffb7658fbc49163fcd5e76e7d1baaa7801c3e05a81da755
-  languageName: node
-  linkType: hard
-
-"locate-path@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "locate-path@npm:3.0.0"
-  dependencies:
-    p-locate: ^3.0.0
-    path-exists: ^3.0.0
-  checksum: 53db3996672f21f8b0bf2a2c645ae2c13ffdae1eeecfcd399a583bce8516c0b88dcb4222ca6efbbbeb6949df7e46860895be2c02e8d3219abd373ace3bfb4e11
   languageName: node
   linkType: hard
 
@@ -7600,7 +7560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-limit@npm:^2.0.0, p-limit@npm:^2.2.0":
+"p-limit@npm:^2.2.0":
   version: 2.3.0
   resolution: "p-limit@npm:2.3.0"
   dependencies:
@@ -7624,15 +7584,6 @@ __metadata:
   dependencies:
     p-limit: ^1.1.0
   checksum: e2dceb9b49b96d5513d90f715780f6f4972f46987dc32a0e18bc6c3fc74a1a5d73ec5f81b1398af5e58b99ea1ad03fd41e9181c01fa81b4af2833958696e3081
-  languageName: node
-  linkType: hard
-
-"p-locate@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "p-locate@npm:3.0.0"
-  dependencies:
-    p-limit: ^2.0.0
-  checksum: 83991734a9854a05fe9dbb29f707ea8a0599391f52daac32b86f08e21415e857ffa60f0e120bfe7ce0cc4faf9274a50239c7895fc0d0579d08411e513b83a4ae
   languageName: node
   linkType: hard
 
@@ -7891,15 +7842,6 @@ __metadata:
   dependencies:
     find-up: ^4.0.0
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
-  languageName: node
-  linkType: hard
-
-"pkg-up@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "pkg-up@npm:3.1.0"
-  dependencies:
-    find-up: ^3.0.0
-  checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
   languageName: node
   linkType: hard
 
@@ -9452,21 +9394,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-cross-link-types@npm:1.0.2":
-  version: 1.0.2
-  resolution: "typedoc-cross-link-types@npm:1.0.2"
-  peerDependencies:
-    typedoc: 0.22.x
-  checksum: 6e3fbaf3639b154d20452e5295126a9826b581f3e91d8b6869ffce1a7e236985d9b93d64519cc826e70af6be57e6613321d07e5998cb4401257e931bd2afe36a
-  languageName: node
-  linkType: hard
-
 "typedoc-plugin-missing-exports@npm:0.22.6":
   version: 0.22.6
   resolution: "typedoc-plugin-missing-exports@npm:0.22.6"
   peerDependencies:
     typedoc: 0.22.x
   checksum: 012f44beaac05731b4d37c26bfba2d972ac48344eab6be793a95982712a207416e7dc3451279be4e4cebc8b6b99a16764d2d4aaa06e041fac60ce21cc22cf796
+  languageName: node
+  linkType: hard
+
+"typedoc-theme-hierarchy@npm:1.2.1":
+  version: 1.2.1
+  resolution: "typedoc-theme-hierarchy@npm:1.2.1"
+  dependencies:
+    fs-extra: ^10.0.0
+  peerDependencies:
+    typedoc: ^0.22.9
+  checksum: aa27316e2b59c8886b6a3624d3b423cd8570c237973c057b79688c713cd886d48b5d7becf6d93df8653f7c03bb309b10734192585a2a969068e6d95b03ec57f6
   languageName: node
   linkType: hard
 

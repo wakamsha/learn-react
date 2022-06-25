@@ -1,7 +1,0 @@
-{
-  "entryPoints": ["./packages/core"],
-  "entryPointStrategy": "expand",
-  "tsconfig": "./packages/core/tsconfig.json",
-  "out": "docs",
-  "name": "Learn React"
-}

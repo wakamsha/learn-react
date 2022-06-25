@@ -1,0 +1,10 @@
+{
+  "name": "@learn-react/doc",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "prepare": "mkdir -p dist",
+    "copy": "cp public/index.html dist/index.html",
+    "docgen": "node ./bin/typedoc.mjs",
+    "build": "yarn prepare; yarn copy; yarn docgen"
+  }
+}
