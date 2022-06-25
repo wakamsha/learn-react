@@ -12,6 +12,7 @@
     "prepare": "husky install",
     "catalog": "  yarn workspace @learn-react/catalog",
     "core": "     yarn workspace @learn-react/core",
+    "doc": "      yarn workspace @learn-react/doc",
     "esnext": "   yarn workspace @learn-react/esnext",
     "icon": "     yarn workspace @learn-react/icon",
     "mobx": "     yarn workspace @learn-react/mobx",
@@ -58,6 +59,9 @@
     "svgo": "2.8.0",
     "ts-jest": "28.0.5",
     "ts-xor": "1.0.8",
+    "typedoc": "0.22.17",
+    "typedoc-plugin-missing-exports": "0.22.6",
+    "typedoc-theme-hierarchy": "1.2.1",
     "typescript": "4.7.3",
     "vite": "2.9.12",
     "yargs": "17.5.1"
