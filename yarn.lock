@@ -6703,7 +6703,7 @@ __metadata:
     jest: 28.1.1
     lint-staged: 13.0.3
     mobx: 6.6.0
-    mobx-react: 7.5.1
+    mobx-react: 7.5.2
     npm-run-all: 4.1.5
     pdfjs-dist: 2.14.305
     postcss-syntax: 0.36.2
@@ -7260,9 +7260,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx-react@npm:7.5.1":
-  version: 7.5.1
-  resolution: "mobx-react@npm:7.5.1"
+"mobx-react@npm:7.5.2":
+  version: 7.5.2
+  resolution: "mobx-react@npm:7.5.2"
   dependencies:
     mobx-react-lite: ^3.4.0
   peerDependencies:
@@ -7273,7 +7273,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: ed9dbe4b854d2b5d93a4543445fc86310b6ea4e7e8869c032fe3e4b8735d8d3bcd5f31f8846856bb2c991098c3415919eb24e0bbfbcbed5a1e2488b954eb0c0f
+  checksum: 71c45d20600f22c72bb92fc6197bbbe925ceac542cfc1770c9bcb5533c0adb80f299b2910af746d6225b2cf3939dbaaf50533a4c917b55abd418519cba5701b2
   languageName: node
   linkType: hard
 
