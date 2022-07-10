@@ -6702,7 +6702,7 @@ __metadata:
     husky: 8.0.1
     jest: 28.1.1
     lint-staged: 13.0.3
-    mobx: 6.6.0
+    mobx: 6.6.1
     mobx-react: 7.5.2
     npm-run-all: 4.1.5
     pdfjs-dist: 2.14.305
@@ -7277,10 +7277,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:6.6.0":
-  version: 6.6.0
-  resolution: "mobx@npm:6.6.0"
-  checksum: 369b8d6830ec286e9c856c80002c7a554d46bca739b7f76432cb56b3ce1fe0a7ed7e5a994b9793d30023beeff0dd16300a501e831fa97107104e4fedc7d4af8f
+"mobx@npm:6.6.1":
+  version: 6.6.1
+  resolution: "mobx@npm:6.6.1"
+  checksum: 20e876693d1a99916d347ba666f47e7931d5aa5a1172eae48d172477d537577d604207a8f8918041f9b6c74280b6533a516cf1639929735c6bb514f34776225a
   languageName: node
   linkType: hard
 
