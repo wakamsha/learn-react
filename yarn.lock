@@ -1579,7 +1579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/core@npm:^28.1.1, @jest/core@npm:^28.1.3":
+"@jest/core@npm:^28.1.3":
   version: 28.1.3
   resolution: "@jest/core@npm:28.1.3"
   dependencies:
@@ -1621,18 +1621,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/environment@npm:^28.1.2":
-  version: 28.1.2
-  resolution: "@jest/environment@npm:28.1.2"
-  dependencies:
-    "@jest/fake-timers": ^28.1.2
-    "@jest/types": ^28.1.1
-    "@types/node": "*"
-    jest-mock: ^28.1.1
-  checksum: 5bffc464e9d2fdf7561305bc02844faebfed2ffed54c015561a8d39a3ea129d375aa408b724546fef6246881100770ff43637c2da667db80f0b26235b6a40c98
-  languageName: node
-  linkType: hard
-
 "@jest/environment@npm:^28.1.3":
   version: 28.1.3
   resolution: "@jest/environment@npm:28.1.3"
@@ -1661,20 +1649,6 @@ __metadata:
     expect: ^28.1.3
     jest-snapshot: ^28.1.3
   checksum: 4197f6fdddc33dc45ba4e838f992fc61839c421d7aed0dfe665ef9c2f172bb1df8a8cac9cecee272b40e744a326da521d5e182709fe82a0b936055bfffa3b473
-  languageName: node
-  linkType: hard
-
-"@jest/fake-timers@npm:^28.1.2":
-  version: 28.1.2
-  resolution: "@jest/fake-timers@npm:28.1.2"
-  dependencies:
-    "@jest/types": ^28.1.1
-    "@sinonjs/fake-timers": ^9.1.2
-    "@types/node": "*"
-    jest-message-util: ^28.1.1
-    jest-mock: ^28.1.1
-    jest-util: ^28.1.1
-  checksum: d6e6b1a12fe84335d9cc6087b4e590c3b9b855edaff11742d2167827f415459704ab1eae9b3543603898b6a0789b2cc7863f12469f8479257315effb844fe6bd
   languageName: node
   linkType: hard
 
@@ -2210,13 +2184,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:28.1.4":
-  version: 28.1.4
-  resolution: "@types/jest@npm:28.1.4"
+"@types/jest@npm:28.1.5":
+  version: 28.1.5
+  resolution: "@types/jest@npm:28.1.5"
   dependencies:
     jest-matcher-utils: ^28.0.0
     pretty-format: ^28.0.0
-  checksum: 97e22c600397bb4f30e39b595f8285ae92e4eb29a1ef6d1689749e4a4da683d88ecfe717b64492f6adc4c17c1c989520c3546f938c84a7d435c6ac3acf1a2bdc
+  checksum: 994bfc25a5e767ec1506a2a7d94e60a7a5645b2e4e8444c56ae902f3a3e27ae54e821e41c1b4e7c8d7f5022bf5abfdd0460ead223ba6f2d0a194e5b2bed1ad76
   languageName: node
   linkType: hard
 
@@ -6318,7 +6292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-cli@npm:^28.1.1":
+"jest-cli@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-cli@npm:28.1.3"
   dependencies:
@@ -6429,19 +6403,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:28.1.2":
-  version: 28.1.2
-  resolution: "jest-environment-jsdom@npm:28.1.2"
+"jest-environment-jsdom@npm:28.1.3":
+  version: 28.1.3
+  resolution: "jest-environment-jsdom@npm:28.1.3"
   dependencies:
-    "@jest/environment": ^28.1.2
-    "@jest/fake-timers": ^28.1.2
-    "@jest/types": ^28.1.1
+    "@jest/environment": ^28.1.3
+    "@jest/fake-timers": ^28.1.3
+    "@jest/types": ^28.1.3
     "@types/jsdom": ^16.2.4
     "@types/node": "*"
-    jest-mock: ^28.1.1
-    jest-util: ^28.1.1
+    jest-mock: ^28.1.3
+    jest-util: ^28.1.3
     jsdom: ^19.0.0
-  checksum: 73388b5cde4ce4b49cdb36746211b46c416a75b070837faefd4c907fe5095b2a7b197f753e10ee110c4b8f43571ffc277b65b3ca48f01ec0fbc74525274a19fc
+  checksum: 32758f9b9a1fd04ec3ebaaa608d740a36b960d37d00bd3d4d83fdc4b527afc474c14f04fa860817e1fa22923e2dc3cd2b497db41af6a5d73e91327951612025e
   languageName: node
   linkType: hard
 
@@ -6523,23 +6497,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-message-util@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "jest-message-util@npm:28.1.1"
-  dependencies:
-    "@babel/code-frame": ^7.12.13
-    "@jest/types": ^28.1.1
-    "@types/stack-utils": ^2.0.0
-    chalk: ^4.0.0
-    graceful-fs: ^4.2.9
-    micromatch: ^4.0.4
-    pretty-format: ^28.1.1
-    slash: ^3.0.0
-    stack-utils: ^2.0.3
-  checksum: cca23b9a0103c8fb7006a6d21e67a204fcac4289e1a3961450a4a1ad62eb37087c2a19a26337d3c0ea9f82c030a80dda79ac8ec34a18bf3fd5eca3fd55bef957
-  languageName: node
-  linkType: hard
-
 "jest-message-util@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-message-util@npm:28.1.3"
@@ -6554,16 +6511,6 @@ __metadata:
     slash: ^3.0.0
     stack-utils: ^2.0.3
   checksum: 1f266854166dcc6900d75a88b54a25225a2f3710d463063ff1c99021569045c35c7d58557b25447a17eb3a65ce763b2f9b25550248b468a9d4657db365f39e96
-  languageName: node
-  linkType: hard
-
-"jest-mock@npm:^28.1.1":
-  version: 28.1.1
-  resolution: "jest-mock@npm:28.1.1"
-  dependencies:
-    "@jest/types": ^28.1.1
-    "@types/node": "*"
-  checksum: 285716d062bd9403830d9f5c90dc414a17495a4e31b82e7789806dac5ea924364fe308a1a8a3151f1055b87cf811e09fab2e2699e53be9972a2657883dd48614
   languageName: node
   linkType: hard
 
@@ -6713,7 +6660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-util@npm:^28.0.0, jest-util@npm:^28.1.1":
+"jest-util@npm:^28.0.0":
   version: 28.1.1
   resolution: "jest-util@npm:28.1.1"
   dependencies:
@@ -6782,14 +6729,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:28.1.1":
-  version: 28.1.1
-  resolution: "jest@npm:28.1.1"
+"jest@npm:28.1.3":
+  version: 28.1.3
+  resolution: "jest@npm:28.1.3"
   dependencies:
-    "@jest/core": ^28.1.1
-    "@jest/types": ^28.1.1
+    "@jest/core": ^28.1.3
+    "@jest/types": ^28.1.3
     import-local: ^3.0.2
-    jest-cli: ^28.1.1
+    jest-cli: ^28.1.3
   peerDependencies:
     node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
   peerDependenciesMeta:
@@ -6797,7 +6744,7 @@ __metadata:
       optional: true
   bin:
     jest: bin/jest.js
-  checksum: 398a143d9ef1a78e2ba516a09b6343cb926bf20e29ad400141dd3bd57e964195b82817a60eb8745ba9006fcd7c028ceda5108e3c426fa4e29877f28d87cf88a3
+  checksum: b9dcb542eb7c16261c281cdc2bf37155dbb3f1205bae0b567f05051db362c85ddd4b765f126591efb88f6d298eb10336d0aa6c7d5373b4d53f918137a9a70182
   languageName: node
   linkType: hard
 
@@ -7039,7 +6986,7 @@ __metadata:
     "@commitlint/cli": 17.0.3
     "@emotion/css": 11.9.0
     "@stylelint/postcss-css-in-js": 0.38.0
-    "@types/jest": 28.1.4
+    "@types/jest": 28.1.5
     "@types/node": 16.11.43
     "@types/qs": 6.9.7
     "@types/react": 18.0.15
@@ -7066,8 +7013,8 @@ __metadata:
     highlight.js: 11.5.1
     hotkeys-js: 3.9.4
     husky: 8.0.1
-    jest: 28.1.1
-    jest-environment-jsdom: 28.1.2
+    jest: 28.1.3
+    jest-environment-jsdom: 28.1.3
     lint-staged: 13.0.3
     mobx: 6.6.1
     mobx-react: 7.5.2
