@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "test": "jest"
+    "test": "run --top-level jest"
   },
   "dependencies": {
     "@learn-react/icon": "1.0.0"
