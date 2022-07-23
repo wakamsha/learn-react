@@ -1,6 +1,6 @@
 {
   "name": "@learn-react/doc",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.2.2",
   "scripts": {
     "prepare": "mkdir -p dist",
     "copy": "cp public/index.html dist/index.html",
