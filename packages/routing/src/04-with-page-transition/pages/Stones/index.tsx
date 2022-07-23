@@ -1,10 +1,11 @@
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
+import { withSuspense } from '@learn-react/core/helpers/Component';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { generatePath } from '@learn-react/core/helpers/URL';
+import { lazy } from 'react';
 import { Navigate, NavLink, Route } from 'react-router-dom';
 import { Router } from '../../constants/Router';
-import { Member } from './Member';
 
 export const Stones = () => (
   <main className={styleBase}>
@@ -85,3 +86,5 @@ const memberData: MemberType[] = [
 export function getMemberById(id: string): MemberType | void {
   return memberData.find(f => f.id === id);
 }
+
+const Member = withSuspense(lazy(() => import('./Member').then(({ Member }) => ({ default: Member }))));

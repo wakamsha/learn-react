@@ -1,12 +1,12 @@
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
+import { withSuspense } from '@learn-react/core/helpers/Component';
 import { gutter } from '@learn-react/core/helpers/Style';
 import type { ReactNode } from 'react';
+import { lazy } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Router } from './constants/Router';
-import { Home } from './pages/Home';
-import { Stones } from './pages/Stones';
 
 /**
  * 02 に `<PageTransition>` を適用したもの。
@@ -46,3 +46,6 @@ const styleContent = css`
 `;
 
 const NotFound = () => <h1>404 Not Found</h1>;
+
+const Home = withSuspense(lazy(() => import('./pages/Home').then(({ Home }) => ({ default: Home }))));
+const Stones = withSuspense(lazy(() => import('./pages/Stones').then(({ Stones }) => ({ default: Stones }))));
