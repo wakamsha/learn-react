@@ -1,7 +1,7 @@
 // @ts-check
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { build, createServer } from 'vite';
+import { build, createServer, splitVendorChunkPlugin } from 'vite';
 
 /**
  * @typedef {['develop', 'build'][number]} Mode Vite の起動モードを指定します。
@@ -53,6 +53,7 @@ function createBaseConfig(basePath) {
   return {
     root: resolve(basePath, '../'),
     plugins: [
+      splitVendorChunkPlugin(),
       react({
         babel: {
           parserOpts: {
