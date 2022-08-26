@@ -21,6 +21,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json', './packages/**/tsconfig.json'],
   },
+  ignorePatterns: ['.eslintrc.*'],
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable

@@ -10,12 +10,13 @@ import { template as storiesTemplate } from '../templates/stories.mjs';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
-// @ts-ignore
-const { watch } = yargs(hideBin(process.argv)).option('watch', {
-  alias: 'w',
-  type: 'boolean',
-  describe: 'ターゲットファイルの変更を監視して自動的にコード生成を実行します。',
-}).argv;
+const { watch } = await yargs(hideBin(process.argv))
+  .option('watch', {
+    alias: 'w',
+    type: 'boolean',
+    describe: 'ターゲットファイルの変更を監視して自動的にコード生成を実行します。',
+  })
+  .parseAsync();
 
 const targetFiles = glob.sync(resolve(__dirname, '../../**/*.story.tsx'));
 

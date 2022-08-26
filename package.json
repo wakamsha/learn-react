@@ -56,7 +56,7 @@
     "stylelint": "14.11.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recess-order": "3.0.0",
-    "stylelint-config-recommended": "8.0.0",
+    "stylelint-config-recommended": "9.0.0",
     "svgo": "2.8.0",
     "ts-jest": "28.0.8",
     "ts-xor": "1.0.8",
