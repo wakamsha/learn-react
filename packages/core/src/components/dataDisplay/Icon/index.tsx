@@ -31,5 +31,6 @@ type Props = {
  *     fill: red;
  *   }
  * `;
+ * ```
  */
 export const Icon = ({ name }: Props) => iconElements[name];
