@@ -7082,7 +7082,7 @@ __metadata:
     mobx: 6.6.1
     mobx-react: 7.5.2
     npm-run-all: 4.1.5
-    pdfjs-dist: 2.15.349
+    pdfjs-dist: 2.16.105
     postcss-syntax: 0.36.2
     prettier: 2.7.1
     prettier-plugin-organize-imports: 3.1.0
@@ -8250,9 +8250,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfjs-dist@npm:2.15.349":
-  version: 2.15.349
-  resolution: "pdfjs-dist@npm:2.15.349"
+"pdfjs-dist@npm:2.16.105":
+  version: 2.16.105
+  resolution: "pdfjs-dist@npm:2.16.105"
   dependencies:
     dommatrix: ^1.0.3
     web-streams-polyfill: ^3.2.1
@@ -8261,7 +8261,7 @@ __metadata:
   peerDependenciesMeta:
     worker-loader:
       optional: true
-  checksum: 494745eb183e572f22271f6f3bc9b4a0adbf54fd4a2bf058878f96d3579bee03092a4eac0d010a0753b9d06854b9c97b8121c7bb14732609f9defd61f78b80f4
+  checksum: 16ad2fa0ff8404fefd1a3e83f92ef1a594fcc4d3ff65512f801365c8f06d300d4a38023a867994f0b964a8e146773e6dcc9988c7c1a791917eb6371d5bd72863
   languageName: node
   linkType: hard
 
