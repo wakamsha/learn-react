@@ -27,9 +27,6 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Print node version
-        run: node -v
-
       - name: Cache node modules
         uses: actions/cache@v3
         env:
@@ -50,23 +47,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: ./.github/actions/restore-node
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      # - name: Set node version
+      #   run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Restore node_modules
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-node-modules
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run Lint
         run: yarn lint
@@ -76,23 +74,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: ./.github/actions/restore-node
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      # - name: Set node version
+      #   run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Restore node_modules
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-node-modules
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build icon data
         run: yarn icon build
@@ -105,23 +104,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: ./.github/actions/restore-node
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      # - name: Set node version
+      #   run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Restore node_modules
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-node-modules
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build
         run: yarn mobx build
@@ -131,23 +131,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: ./.github/actions/restore-node
+      # - name: Checkout
+      #   uses: actions/checkout@v3
 
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
+      # - name: Set node version
+      #   run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ env.NODE_VERSION }}
 
-      - name: Restore node_modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Restore node_modules
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-node-modules
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build icon data
         run: yarn icon build
