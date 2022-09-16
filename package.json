@@ -70,7 +70,7 @@
     "@emotion/css": "11.10.0",
     "constate": "3.3.2",
     "csx": "10.0.2",
-    "date-fns": "2.29.2",
+    "date-fns": "2.29.3",
     "highlight.js": "11.6.0",
     "hotkeys-js": "3.10.0",
     "mobx": "6.6.2",
