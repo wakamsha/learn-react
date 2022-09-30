@@ -58,11 +58,11 @@ module.exports = {
       'error',
       {
         paths: [
-          {
-            name: 'react-router-dom',
-            importNames: ['generatePath'],
-            message: '代わりに `@learn-react/core/helpers/URL` の `generatePath` をお使いください。',
-          },
+          // {
+          //   name: 'path-to-foo',
+          //   importNames: ['module-name'],
+          //   message: '代わりに `path-to-bar` の `module-name` をお使いください。',
+          // },
         ],
       },
     ],
