@@ -1,5 +1,4 @@
-import { generatePath } from '@learn-react/core/helpers/URL';
-import { NavLink, Outlet } from 'react-router-dom';
+import { generatePath, NavLink, Outlet } from 'react-router-dom';
 import { Router } from '../constants/Router';
 
 export const Invoices = () => (
