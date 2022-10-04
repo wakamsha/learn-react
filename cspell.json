@@ -8,6 +8,7 @@
   "words": [
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "asyncable",
+    "automerge",
     "builtins",
     "cmaps",
     "codegen",
@@ -29,6 +30,7 @@
     "palt",
     "plusplus",
     "servor",
+    "stylelint",
     "tabindex",
     "todos",
     "unmount",
