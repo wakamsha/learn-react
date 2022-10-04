@@ -5,6 +5,11 @@
   "author": "wakamsha <wakamsha@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "16.13.0",
+    "npm": "please_use_yarn_instead"
+  },
+  "packageManager": "yarn@3.2.3",
   "workspaces": [
     "packages/*"
   ],
@@ -88,6 +93,5 @@
       "eslint -c .eslintrc.js --fix",
       "stylelint --cache --fix"
     ]
-  },
-  "packageManager": "yarn@3.2.3"
+  }
 }
