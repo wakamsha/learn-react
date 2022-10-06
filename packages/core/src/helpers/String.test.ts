@@ -3,7 +3,7 @@ import { count, isValidEmail } from './String';
 describe('String.ts', () => {
   describe(isValidEmail.name, () => {
     test(`${isValidEmail.name}('taro.yamada@example.com') is valid`, () => {
-      expect(isValidEmail('taro.yamada@email.com')).toBeTruthy();
+      expect(isValidEmail('taro.yamada@example.com')).toBeTruthy();
     });
 
     test(`${isValidEmail.name}('taro_yamada@example.com') is valid`, () => {
