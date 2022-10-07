@@ -9,7 +9,7 @@
     "node": "16.13.2",
     "npm": "please_use_yarn_instead"
   },
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "workspaces": [
     "packages/*"
   ],
