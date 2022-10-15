@@ -7127,7 +7127,7 @@ __metadata:
     typedoc-plugin-missing-exports: 1.0.0
     typedoc-theme-hierarchy: 3.0.0
     typescript: 4.8.4
-    vite: 3.1.6
+    vite: 3.1.8
     yargs: 17.6.0
   languageName: unknown
   linkType: soft
@@ -10152,9 +10152,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:3.1.6":
-  version: 3.1.6
-  resolution: "vite@npm:3.1.6"
+"vite@npm:3.1.8":
+  version: 3.1.8
+  resolution: "vite@npm:3.1.8"
   dependencies:
     esbuild: ^0.15.9
     fsevents: ~2.3.2
@@ -10180,7 +10180,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 393369af4da85aef8718d2236fceb238410c130cc740462c317c6ae4d9c04c519c1591cf8fef2ccc61195e41db54c0d892b3f9a10d3ed0e3c8ae8f0cffaa46ed
+  checksum: 982696ad134577dd9915c4c3548ad36ddcf5dc6d341058548a670a13d860e4cdaaf2b320a59221f178018df089d148b9980e9a344316bef12b698a1c1abc7390
   languageName: node
   linkType: hard
 
