@@ -1,9 +1,10 @@
 # Pull Request Merge に必要なチェックを行う。
 #
-# (Start) ── setup ─┬─ lint ──────────────────┬─ (Done)
-#                   ├─ build_catalog ─────────┤
-#                   ├─ build_mobx ────────────┤
-#                   └─ build_routing ─────────┘
+# (Start) ── setup ─┬─ lint ──────────┬─ (Done)
+#                   ├─ test  ─────────┤
+#                   ├─ build_catalog ─┤
+#                   ├─ build_mobx ────┤
+#                   └─ build_routing ─┘
 
 name: Check Syntax
 
@@ -54,6 +55,17 @@ jobs:
 
       - name: Run Lint
         run: yarn lint
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: ./.github/actions/restore-node
+      - name: Unit Test
+        run: yarn core test
 
   build_catalog:
     needs: setup
