@@ -29,7 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.1.2",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@types/jest": "29.1.2",
+    "@types/jest": "29.2.0",
     "@types/node": "16.11.68",
     "@types/qs": "6.9.7",
     "@types/react": "18.0.21",
