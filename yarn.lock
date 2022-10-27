@@ -6149,7 +6149,6 @@ __metadata:
     stylelint-config-recommended: 9.0.0
     svgo: 2.8.0
     ts-jest: 29.0.3
-    ts-node: 10.9.1
     ts-xor: 1.0.8
     typedoc: 0.23.16
     typedoc-plugin-missing-exports: 1.0.0
@@ -8681,7 +8680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:10.9.1, ts-node@npm:^10.8.1":
+"ts-node@npm:^10.8.1":
   version: 10.9.1
   resolution: "ts-node@npm:10.9.1"
   dependencies:
