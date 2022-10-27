@@ -6,8 +6,7 @@ import { exec } from '../../../builder/vite.js';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
-// @ts-ignore
-const { mode, target, variant } = yargs(hideBin(process.argv))
+const { mode, target, variant } = await yargs(hideBin(process.argv))
   .option('mode', {
     alias: 'm',
     choices: ['develop', 'build'],
@@ -23,7 +22,8 @@ const { mode, target, variant } = yargs(hideBin(process.argv))
     alias: 'v',
     type: 'number',
     describe: 'specify PR number',
-  }).argv;
+  })
+  .parseAsync();
 
 // @ts-ignore
 exec(mode, {

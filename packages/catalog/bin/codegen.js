@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-check
 import chokidar from 'chokidar';
 import { readFileSync, writeFileSync } from 'fs';

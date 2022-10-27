@@ -3,7 +3,7 @@ import { load } from 'cheerio';
 import { readFileSync, writeFileSync } from 'fs';
 import glob from 'glob';
 import { optimize } from 'svgo';
-import { template } from '../templates/index.mjs';
+import { template } from '../templates/index.js';
 
 async function exec() {
   const data = await glob.sync('src/*.svg');
