@@ -2,7 +2,7 @@
 import { dirname } from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { exec } from '../../../builder/vite.mjs';
+import { exec } from '../../../builder/vite.js';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
