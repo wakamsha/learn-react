@@ -15,6 +15,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
     "jsx": "react-jsx"
   }
