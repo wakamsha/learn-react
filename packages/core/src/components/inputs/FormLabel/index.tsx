@@ -19,9 +19,7 @@ type Props = {
 >;
 
 export const FormLabel = ({ label, tooltip, htmlFor, children }: Props) => {
-  const tooltipId = `tooltip${useId()}`;
-
-  console.info({ tooltipId });
+  const tooltipId = useId();
 
   return (
     <label htmlFor={htmlFor} className={styleBase}>
