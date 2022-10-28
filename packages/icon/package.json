@@ -2,11 +2,11 @@
   "name": "@learn-react/icon",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "private": true,
+  "type": "module",
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/",
-    "generate": "node ./bin/build.mjs",
-    "format": "run --top-level prettier -c -w ./dist/*; eslint -c ../../.eslintrc.js ./dist/* --fix",
+    "generate": "node ./bin/build",
+    "format": "run --top-level prettier -c -w ./dist/*; eslint -c ../../.eslintrc.cjs ./dist/* --fix",
     "build": "yarn reset; yarn generate; yarn format"
   }
 }

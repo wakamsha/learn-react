@@ -1,10 +1,12 @@
 {
   "name": "@learn-react/doc",
   "packageManager": "yarn@3.2.4",
+  "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
     "prepare": "mkdir -p dist",
     "copy": "cp public/index.html dist/index.html",
-    "docgen": "node ./bin/typedoc.mjs",
+    "docgen": "node ./bin/typedoc",
     "build": "yarn prepare; yarn copy; yarn docgen"
   }
 }

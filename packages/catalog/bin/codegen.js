@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-check
 import chokidar from 'chokidar';
 import { readFileSync, writeFileSync } from 'fs';
@@ -6,7 +5,7 @@ import glob from 'glob';
 import { dirname, resolve } from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { template as storiesTemplate } from '../templates/stories.mjs';
+import { template as storiesTemplate } from '../templates/stories.js';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 

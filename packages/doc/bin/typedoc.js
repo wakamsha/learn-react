@@ -6,8 +6,7 @@ import { hideBin } from 'yargs/helpers';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
-// @ts-ignore
-const { name, watch } = yargs(hideBin(process.argv))
+const { name, watch } = await yargs(hideBin(process.argv))
   .option('name', {
     alias: 'n',
     choices: ['catalog', 'core', 'mobx'],
@@ -16,7 +15,8 @@ const { name, watch } = yargs(hideBin(process.argv))
     alias: 'w',
     type: 'boolean',
     default: false,
-  }).argv;
+  })
+  .parseAsync();
 
 console.info({ name, watch });
 
