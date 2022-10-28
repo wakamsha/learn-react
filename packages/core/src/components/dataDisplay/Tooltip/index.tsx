@@ -17,13 +17,12 @@ type Point = {
 type Props = {
   children: ReactNode;
   /**
-   * 対象となる要素の CSS セレクタ。
-   * ID 推奨。
+   * 対象となる要素の ID。
    *
    * @example
-   * `#my-button`
+   * `my-button`
    */
-  targetSelector: string;
+  targetId: string;
   position?: Position;
   alignment?: Alignment;
   offset?: number;
@@ -35,7 +34,7 @@ type Props = {
  *
  * @param props
  */
-export const Tooltip = ({ children, targetSelector, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
+export const Tooltip = ({ children, targetId, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
   const baseRef = useRef<HTMLDivElement>(null);
 
   const targetElmRef = useRef<HTMLElement>();
@@ -86,7 +85,7 @@ export const Tooltip = ({ children, targetSelector, position = 'bottom', alignme
   }, [handleMouseLeave, show]);
 
   useEffect(() => {
-    const targetElm = document.querySelector<HTMLElement>(targetSelector);
+    const targetElm = document.getElementById(targetId);
 
     if (!targetElm) return;
 
@@ -107,7 +106,7 @@ export const Tooltip = ({ children, targetSelector, position = 'bottom', alignme
       targetElm.removeEventListener('mouseenter', schedule);
       observer.disconnect();
     };
-  }, [targetSelector, schedule, handleMouseLeave]);
+  }, [targetId, schedule, handleMouseLeave]);
 
   return createPortal(
     <div role="tooltip" className={styleBase} ref={baseRef} style={point} aria-hidden={!shown}>

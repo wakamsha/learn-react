@@ -1,8 +1,7 @@
 import { css, cx } from '@emotion/css';
 import type { ChangeEvent } from 'react';
-import { useMemo } from 'react';
+import { useId } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
-import { makeId } from '../../../helpers/String';
 import { cssVar, gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';
 
 type Option<T> = {
@@ -26,7 +25,7 @@ type Props<T> = {
  * @param props
  */
 export const Tabs = <T extends string | number>({ value, options, onChange, size = 'neutral' }: Props<T>) => {
-  const groupName = useMemo(() => makeId(), []);
+  const groupName = useId();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const index = Number(e.currentTarget.value);
