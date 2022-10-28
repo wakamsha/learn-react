@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useDebounce } from '.';
+import { useDebouncedState } from '.';
 
 export const Story = () => {
   const [delay, setDelay] = useState(1000);
 
-  const [value, debouncedValue, setValue] = useDebounce('', delay);
+  const [value, debouncedValue, setValue] = useDebouncedState('', delay);
 
   return (
     <>
