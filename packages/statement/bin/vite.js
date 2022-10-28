@@ -6,7 +6,6 @@ import { exec } from '../../../builder/vite.js';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
-// @ts-ignore
 const { mode } = await yargs(hideBin(process.argv))
   .option('mode', {
     alias: 'm',
