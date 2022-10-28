@@ -33,11 +33,9 @@ export const Story = () => {
         </span>
       </div>
 
-      <Tooltip targetSelector="#review-button">
-        あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら
-      </Tooltip>
-      <Tooltip targetSelector="#trash-icon">削除します</Tooltip>
-      <Tooltip targetSelector="#download-icon" offset={10}>
+      <Tooltip targetId="#review-button">あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら</Tooltip>
+      <Tooltip targetId="#trash-icon">削除します</Tooltip>
+      <Tooltip targetId="#download-icon" offset={10}>
         ダウンロード
       </Tooltip>
 
@@ -86,43 +84,43 @@ export const Story = () => {
         </div>
       </div>
 
-      <Tooltip targetSelector="#top-start" position="top" alignment="start">
+      <Tooltip targetId="#top-start" position="top" alignment="start">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#top-center" position="top" alignment="center">
+      <Tooltip targetId="#top-center" position="top" alignment="center">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#top-end" position="top" alignment="end">
-        あのイーハトーヴォのすきとおった風
-      </Tooltip>
-
-      <Tooltip targetSelector="#left-start" position="left" alignment="start">
-        あのイーハトーヴォのすきとおった風
-      </Tooltip>
-      <Tooltip targetSelector="#left-center" position="left" alignment="center">
-        あのイーハトーヴォのすきとおった風
-      </Tooltip>
-      <Tooltip targetSelector="#left-end" position="left" alignment="end">
+      <Tooltip targetId="#top-end" position="top" alignment="end">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
 
-      <Tooltip targetSelector="#right-start" position="right" alignment="start">
+      <Tooltip targetId="#left-start" position="left" alignment="start">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#right-center" position="right" alignment="center">
+      <Tooltip targetId="#left-center" position="left" alignment="center">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#right-end" position="right" alignment="end">
+      <Tooltip targetId="#left-end" position="left" alignment="end">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
 
-      <Tooltip targetSelector="#bottom-start" position="bottom" alignment="start">
+      <Tooltip targetId="#right-start" position="right" alignment="start">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#bottom-center" position="bottom" alignment="center">
+      <Tooltip targetId="#right-center" position="right" alignment="center">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
-      <Tooltip targetSelector="#bottom-end" position="bottom" alignment="end">
+      <Tooltip targetId="#right-end" position="right" alignment="end">
+        あのイーハトーヴォのすきとおった風
+      </Tooltip>
+
+      <Tooltip targetId="#bottom-start" position="bottom" alignment="start">
+        あのイーハトーヴォのすきとおった風
+      </Tooltip>
+      <Tooltip targetId="#bottom-center" position="bottom" alignment="center">
+        あのイーハトーヴォのすきとおった風
+      </Tooltip>
+      <Tooltip targetId="#bottom-end" position="bottom" alignment="end">
         あのイーハトーヴォのすきとおった風
       </Tooltip>
     </>

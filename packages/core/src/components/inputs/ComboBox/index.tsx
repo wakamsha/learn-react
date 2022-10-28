@@ -1,9 +1,8 @@
 import { css } from '@emotion/css';
 import type { IconName } from '@learn-react/icon';
 import type { ChangeEvent } from 'react';
-import { useMemo, useState } from 'react';
+import { useId, useState } from 'react';
 import { Duration, FontSize, IconSize, LineHeight } from '../../../constants/Style';
-import { makeId } from '../../../helpers/String';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
 
@@ -38,7 +37,7 @@ export const ComboBox = <T extends string | number>({
   disabled,
   icon,
 }: Props<T>) => {
-  const listId = useMemo(() => `datalist${makeId()}`, []);
+  const listId = useId();
 
   const [inputValue, setInputValue] = useState(options.find(option => option.value === value)?.label);
 

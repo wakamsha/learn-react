@@ -16,13 +16,12 @@ type Point = {
 
 type Props = {
   /**
-   * 対象となる要素の CSS セレクタ。
-   * ID 推奨。
+   * 対象となる要素の ID。
    *
    * @example
-   * `#my-button`
+   * `my-button`
    */
-  targetSelector: string;
+  targetId: string;
   /**
    * `true` の場合はポップオーバーを表示する。
    */
@@ -43,7 +42,7 @@ type Props = {
  * @param props
  */
 export const Popover = ({
-  targetSelector,
+  targetId,
   visible,
   children,
   position = 'bottom',
@@ -60,7 +59,7 @@ export const Popover = ({
 
     if (!visible) return;
 
-    const targetElement = document.querySelector(targetSelector);
+    const targetElement = document.getElementById(targetId);
     if (!targetElement) return;
 
     setPoint(
@@ -72,7 +71,7 @@ export const Popover = ({
         targetElement: targetElement as HTMLElement,
       }),
     );
-  }, [position, alignment, targetSelector, visible, offset, popoverRef]);
+  }, [position, alignment, targetId, visible, offset, popoverRef]);
 
   useEffect(() => {
     const app = document.getElementById('app');

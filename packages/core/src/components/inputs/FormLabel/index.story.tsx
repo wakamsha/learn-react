@@ -1,11 +1,10 @@
 import { css } from '@emotion/css';
-import { useMemo } from 'react';
+import { useId } from 'react';
 import { FormLabel } from '.';
-import { makeId } from '../../../helpers/String';
 import { gutter } from '../../../helpers/Style';
 
 export const Story = () => {
-  const inputId = useMemo(() => makeId(), []);
+  const inputId = useId();
 
   return (
     <>

@@ -1,10 +1,9 @@
 import { css } from '@emotion/css';
 import type { ReactNode } from 'react';
-import { useMemo } from 'react';
+import { useId } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';
 import { Tooltip } from '../../../components/dataDisplay/Tooltip';
 import { FontSize, IconSize } from '../../../constants/Style';
-import { makeId } from '../../../helpers/String';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 
 type Props = {
@@ -20,7 +19,9 @@ type Props = {
 >;
 
 export const FormLabel = ({ label, tooltip, htmlFor, children }: Props) => {
-  const tooltipId = useMemo(() => makeId(), []);
+  const tooltipId = `tooltip${useId()}`;
+
+  console.info({ tooltipId });
 
   return (
     <label htmlFor={htmlFor} className={styleBase}>
@@ -30,7 +31,7 @@ export const FormLabel = ({ label, tooltip, htmlFor, children }: Props) => {
         {tooltip ? (
           <>
             <Icon name="information" />
-            <Tooltip targetSelector={`#${tooltipId}`} alignment="start">
+            <Tooltip targetId={tooltipId} alignment="start">
               {tooltip}
             </Tooltip>
           </>

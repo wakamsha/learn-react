@@ -9,14 +9,14 @@ export const Story = () => {
   const [visible, setVisible] = useState(false);
   const [position, setPosition] = useState<ComponentProps<typeof Popover>['position']>('top');
   const [alignment, setAlignment] = useState<ComponentProps<typeof Popover>['alignment']>('center');
-  const [target, setTarget] = useState('#top-start');
+  const [target, setTarget] = useState('top-start');
 
   const handleClickShow = (e: MouseEvent<HTMLButtonElement>) => {
     const { id } = e.currentTarget;
     const position = e.currentTarget.dataset.position as ComponentProps<typeof Popover>['position'];
     const alignment = e.currentTarget.dataset.alignment as ComponentProps<typeof Popover>['alignment'];
 
-    setTarget(`#${id}`);
+    setTarget(id);
     setPosition(position);
     setAlignment(alignment);
     setVisible(true);
@@ -92,7 +92,7 @@ export const Story = () => {
       </div>
 
       <Popover
-        targetSelector={target}
+        targetId={target}
         position={position}
         alignment={alignment}
         visible={visible}
