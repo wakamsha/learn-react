@@ -1980,10 +1980,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.18.2":
-  version: 16.18.2
-  resolution: "@types/node@npm:16.18.2"
-  checksum: d21bb6614916b88242300abb23f11ae8bdaabd60c8f7c5edac21f3bf4b1f3ebfbd2a9019a664dd28e5b5730145c069074d70e7a2ab063e80a2fa9ab12de9797a
+"@types/node@npm:18.11.4":
+  version: 18.11.4
+  resolution: "@types/node@npm:18.11.4"
+  checksum: 1de782b4eef4a5115396ae62137f248390ee5d1d9e9eeb49599714554cce1328af43da31bc28e7bab5a0ef859538a584a907b26163a59b42bc87b8317dc00bb8
   languageName: node
   linkType: hard
 
@@ -6383,7 +6383,7 @@ __metadata:
     "@emotion/css": 11.10.5
     "@stylelint/postcss-css-in-js": 0.38.0
     "@types/jest": 29.2.0
-    "@types/node": 16.18.2
+    "@types/node": 18.11.4
     "@types/qs": 6.9.7
     "@types/react": 18.0.24
     "@types/react-dom": 18.0.8
