@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, FC } from 'react';
 import { StrictMode, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { MobxHooksApp } from './22-mobx-hooks';
@@ -13,7 +13,7 @@ type Type = 'mobx' | 'unstated-next' | 'constate';
 
 const storageKey = 'STATEMENT_TYPE';
 
-function useStatementTypeConfig() {
+function useTypeConfig() {
   const storage = useRef(new StorageProxy('localStorage'));
 
   const [type, setType] = useState<Type>(
@@ -27,21 +27,26 @@ function useStatementTypeConfig() {
   return { type, updateType: setType };
 }
 
-const StatementTypeContainer = createContainer(useStatementTypeConfig);
+const typeContainer = createContainer(useTypeConfig);
+
+const Components: Frozen<Type, FC> = {
+  mobx: MobxHooksApp,
+  'unstated-next': UnstatedBasicApp,
+  constate: ConstateBasicApp,
+};
 
 const BootLoader = () => {
-  const { type, updateType } = StatementTypeContainer.useContainer();
+  const { type, updateType } = typeContainer.useContainer();
 
   const handleSwitch = (e: ChangeEvent<HTMLSelectElement>) => {
     updateType(e.target.value as Type);
   };
 
+  const Component = Components[type];
+
   return (
     <div className={styleBase}>
-      {type === 'mobx' ? <MobxHooksApp /> : null}
-      {type === 'unstated-next' ? <UnstatedBasicApp /> : null}
-      {type === 'constate' ? <ConstateBasicApp /> : null}
-
+      <Component />
       <select className={styleSwitch} onChange={handleSwitch} value={type}>
         <option value="mobx">mobx</option>
         <option value="unstated-next">unstated-next</option>
@@ -70,8 +75,8 @@ const root = createRoot(document.getElementById('app') as HTMLElement);
 
 root.render(
   <StrictMode>
-    <StatementTypeContainer.Provider>
+    <typeContainer.Provider>
       <BootLoader />
-    </StatementTypeContainer.Provider>
+    </typeContainer.Provider>
   </StrictMode>,
 );
