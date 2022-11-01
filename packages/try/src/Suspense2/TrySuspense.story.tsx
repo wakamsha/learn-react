@@ -1,6 +1,6 @@
 import { Suspense, useState } from 'react';
 
-export const TrySuspense = () => {
+export const Story = () => {
   const [count, setCount] = useState(0);
 
   return (
