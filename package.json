@@ -69,7 +69,7 @@
     "typedoc-plugin-missing-exports": "1.0.0",
     "typedoc-theme-hierarchy": "3.0.0",
     "typescript": "4.8.4",
-    "vite": "3.2.1",
+    "vite": "3.2.2",
     "yargs": "17.6.0"
   },
   "dependencies": {
