@@ -6377,6 +6377,7 @@ __metadata:
     stylelint-config-recess-order: 3.0.0
     stylelint-config-recommended: 9.0.0
     svgo: 3.0.0
+    swr: 1.3.0
     ts-jest: 29.0.3
     ts-xor: 1.0.8
     typedoc: 0.23.20
@@ -8750,6 +8751,15 @@ __metadata:
   bin:
     svgo: ./bin/svgo
   checksum: bcbecff0c61c3a62249c23b955941c0fcfd0cb82223a10401d665a66afe0cf750197cb6be41fa9fd8b46cddf513b3e73ed1bfd398c2fca0ab008df767e1cecf6
+  languageName: node
+  linkType: hard
+
+"swr@npm:1.3.0":
+  version: 1.3.0
+  resolution: "swr@npm:1.3.0"
+  peerDependencies:
+    react: ^16.11.0 || ^17.0.0 || ^18.0.0
+  checksum: e7a184f0d560e9c8be85c023cc8e65e56a88a6ed46f9394b301b07f838edca23d2e303685319a4fcd620b81d447a7bcb489c7fa0a752c259f91764903c690cdb
   languageName: node
   linkType: hard
 
