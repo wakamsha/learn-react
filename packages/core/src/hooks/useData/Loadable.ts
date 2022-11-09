@@ -48,7 +48,7 @@ export class Loadable<T> {
   }
 
   /**
-   * `new Loadable` の代わりに使用することで
+   * `new Loadable()` の代わりに使用することで
    * `Loadable` の内部に生成された Promise も一緒に取得します。
    *
    * @param promise
