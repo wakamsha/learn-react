@@ -34,19 +34,22 @@ export async function request<REQ extends {}, RES>({
   };
   const queryStrings = Object.keys(query).length ? `?${stringify(query)}` : '';
   const url = `https://jsonplaceholder.typicode.com${path}${queryStrings}`;
-  const res = await fetch(url, {
+
+  const response = await fetch(url, {
     headers,
     method,
     credentials: withCredentials ? 'include' : 'omit',
     ...(send ? { body: JSON.stringify(send) } : {}),
   });
-  if (!res.ok) {
-    console.info('ここでエラー処理をしてください');
-    const error = await res.json();
+
+  if (!response.ok) {
+    // 共通のエラー処理があれば、ここに実装する。
+    const error = await response.json();
     throw {
-      code: res.status,
+      code: response.status,
       ...error,
     };
   }
-  return res.json();
+
+  return response.json();
 }

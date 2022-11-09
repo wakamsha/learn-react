@@ -13,21 +13,21 @@ type LoadableState<T> =
     };
 
 export class Loadable<T> {
-  private state: LoadableState<T>;
+  #state: LoadableState<T>;
 
   constructor(promise: Promise<T>) {
-    this.state = {
+    this.#state = {
       status: 'pending',
       promise: promise.then(
         data => {
-          this.state = {
+          this.#state = {
             data,
             status: 'fulfilled',
           };
           return data;
         },
         error => {
-          this.state = {
+          this.#state = {
             error,
             status: 'rejected',
           };
@@ -38,13 +38,13 @@ export class Loadable<T> {
   }
 
   public getOrThrow() {
-    switch (this.state.status) {
+    switch (this.#state.status) {
       case 'pending':
-        throw this.state.promise;
+        throw this.#state.promise;
       case 'fulfilled':
-        return this.state.data;
+        return this.#state.data;
       case 'rejected':
-        throw this.state.error;
+        throw this.#state.error;
     }
   }
 }

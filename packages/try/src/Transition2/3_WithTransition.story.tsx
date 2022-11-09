@@ -22,6 +22,10 @@ export const Story = () => {
         {isPending ? <span className={styleIndicator}>Loading...</span> : null}
       </div>
 
+      <p>
+        page: <code>{page}</code>
+      </p>
+
       <Suspense fallback={<p>Loading...</p>}>
         <Issues page={page} suspense />
       </Suspense>
