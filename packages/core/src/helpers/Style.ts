@@ -79,7 +79,7 @@ export function visuallyHidden() {
 }
 
 export function textEllipsis() {
-  return css`
+  return `
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
