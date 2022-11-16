@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css';
+import { css, cx } from '@linaria/core';
 import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from 'react';
 import { Children, useMemo } from 'react';
 import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
@@ -79,7 +79,7 @@ function getVariantStyle(variant: Variant, theme: Theme) {
 }
 
 function variantSolid(neutral: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
-  return css`
+  return `
     color: white;
     background-color: ${neutral};
     border-color: ${neutral};
@@ -108,7 +108,7 @@ function variantSolid(neutral: ReturnType<typeof cssVar>, hover: ReturnType<type
 }
 
 function variantGhost(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
-  return css`
+  return `
     color: ${color};
     background-color: transparent;
     border-color: ${color};
@@ -136,7 +136,7 @@ function variantGhost(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof
 }
 
 function variantBare(color: ReturnType<typeof cssVar>, hover: ReturnType<typeof cssVar>) {
-  return css`
+  return `
     color: ${color};
     background-color: transparent;
     border-color: transparent;
@@ -203,18 +203,30 @@ const styleBase = css`
 `;
 
 const styleSolid: Frozen<Theme, string> = {
-  primary: variantSolid(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryDark')),
-  danger: variantSolid(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerDark')),
+  primary: css`
+    ${variantSolid(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryDark'))}
+  `,
+  danger: css`
+    ${variantSolid(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerDark'))}
+  `,
 };
 
 const styleGhost: Frozen<Theme, string> = {
-  primary: variantGhost(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
-  danger: variantGhost(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
+  primary: css`
+    ${variantGhost(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight'))}
+  `,
+  danger: css`
+    ${variantGhost(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight'))}
+  `,
 };
 
 const styleBare: Frozen<Theme, string> = {
-  primary: variantBare(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight')),
-  danger: variantBare(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight')),
+  primary: css`
+    ${variantBare(cssVar('ThemePrimaryNeutral'), cssVar('ThemePrimaryLight'))}
+  `,
+  danger: css`
+    ${variantBare(cssVar('ThemeDangerNeutral'), cssVar('ThemeDangerLight'))}
+  `,
 };
 
 const styleBlock = css`

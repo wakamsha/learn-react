@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import { useState } from 'react';
 import { TextArea } from '.';
 import { FontSize } from '../../../constants/Style';

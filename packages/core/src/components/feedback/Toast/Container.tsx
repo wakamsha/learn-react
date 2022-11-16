@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import { createPortal } from 'react-dom';
 import { useToasts } from '.';
 import { gutter } from '../../../helpers/Style';

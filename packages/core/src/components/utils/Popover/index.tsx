@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css';
+import { css, cx } from '@linaria/core';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';

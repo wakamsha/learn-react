@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css';
+import { css } from '@linaria/core';
 import type { ChangeEvent } from 'react';
 import { BorderRadius, Duration } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
@@ -23,34 +23,50 @@ type Props = {
 export const Range = ({ value, onChange, min = 0, max = 100, step = 1, disabled, theme = 'primary' }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(Number(e.target.value));
 
+  const ratio = (value / max) * 100;
+
   return (
-    <input
-      className={cx(styleBase, filledTrack(styleTheme[theme], (value / max) * 100))}
-      type="range"
-      value={value}
-      onChange={handleChange}
-      min={min}
-      max={max}
-      step={step}
-      disabled={disabled}
-    />
+    <div className={styleWrapper}>
+      <input
+        className={styleBase}
+        type="range"
+        value={value}
+        onChange={handleChange}
+        min={min}
+        max={max}
+        step={step}
+        disabled={disabled}
+      />
+      <div
+        style={{
+          background: `linear-gradient(to right, ${styleTheme[theme]} 0%, ${styleTheme[theme]} ${ratio}%, ${cssVar(
+            'LineNeutral',
+          )} ${ratio}%)`,
+        }}
+        className={styleTrack}
+      />
+    </div>
   );
 };
 
-function filledTrack(color: ReturnType<typeof cssVar>, ratio: number) {
-  return css({
-    '&::-webkit-slider-runnable-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${cssVar('LineNeutral')} ${ratio}%)`,
-    },
-    '&::-moz-range-track': {
-      background: `linear-gradient(to right, ${color} 0%, ${color} ${ratio}%, ${cssVar('LineNeutral')} ${ratio}%)`,
-    },
-  });
-}
+const styleWrapper = css`
+  position: relative;
+`;
+
+const styleTrack = css`
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 2px;
+  transform: translate3d(0, -2px, 0);
+`;
 
 const diameter = 24;
 
-const thumb = css`
+const thumb = `
+  -webkit-appearance: none;
   margin-top: -${diameter / 2}px;
   cursor: pointer;
   background-color: white;
@@ -65,17 +81,17 @@ const thumb = css`
   }
 `;
 
-const track = css`
+const track = `
   width: 100%;
   height: 2px;
-  background-color: ${cssVar('LineNeutral')};
+  background-color: transparent;
   border: none;
-  border-radius: ${BorderRadius.Circle};
 `;
 
 const styleBase = css`
   -webkit-appearance: none;
   position: relative;
+  z-index: 2;
   width: 100%;
   height: ${diameter}px;
   margin: 0;
@@ -83,7 +99,6 @@ const styleBase = css`
   outline: none;
 
   &::-webkit-slider-thumb {
-    -webkit-appearance: none;
     ${thumb}
   }
 

@@ -1,5 +1,5 @@
-import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import type { RouteObject } from 'react-router-dom';
 import { Link, Navigate, useRoutes } from 'react-router-dom';
 import { Friend } from './Friend';

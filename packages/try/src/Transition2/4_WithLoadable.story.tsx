@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
 import { FontSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import { Suspense } from 'react';
 import type { IssueType } from './common/Api';
 import { fetchIssues, useData } from './common/Api';

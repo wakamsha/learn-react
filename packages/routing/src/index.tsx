@@ -1,8 +1,8 @@
-import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/constants/Style';
 import { createContainer } from '@learn-react/core/helpers/Container';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import type { ChangeEvent, FC } from 'react';
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';

@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import type { ReactNode } from 'react';
 
 type Props = {

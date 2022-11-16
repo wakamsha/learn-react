@@ -1,4 +1,4 @@
-import { css, cx, keyframes } from '@emotion/css';
+import { css, cx } from '@linaria/core';
 import type { AnimationEvent, ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import type { Toast } from '.';
@@ -52,16 +52,18 @@ const styleBase = css`
   font-size: ${FontSize.Regular};
   color: white;
   box-shadow: ${cssVar('ShadowNeutral')};
-  animation: ${keyframes`
+  animation: baseAnimation ${Duration.Enter} ${Easing.Enter};
+
+  @keyframes baseAnimation {
     from {
-      opacity: ${0};
+      opacity: 0;
       transform: translate3d(-10%, 0, 0);
     }
     to {
-      opacity: ${1};
+      opacity: 1;
       transform: translate3d(0, 0, 0);
     }
-  `} ${Duration.Enter} ${Easing.Enter};
+  }
 
   > :not(:first-child) {
     margin-left: ${gutter(1)};
@@ -78,16 +80,18 @@ const styleRemove = cx(
   styleBase,
   css`
     opacity: 0;
-    animation: ${keyframes`
-    from {
-      opacity: ${1};
-      transform: translate3d(0, 0, 0);
+    animation: removeAnimation ${Duration.Leave} ${Easing.Leave};
+
+    @keyframes removeAnimation {
+      from {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        opacity: 0;
+        transform: translate3d(-40%, 0, 0);
+      }
     }
-    to {
-      opacity: ${0};
-      transform: translate3d(-40%, 0, 0);
-    }
-  `} ${Duration.Leave} ${Easing.Leave};
   `,
 );
 

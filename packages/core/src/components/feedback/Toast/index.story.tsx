@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
 import type { IconName } from '@learn-react/icon';
 import { iconElements } from '@learn-react/icon';
+import { css } from '@linaria/core';
 import type { ChangeEvent } from 'react';
 import { useMemo, useReducer, useState } from 'react';
 import type { Toast } from '.';

@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
 import { FontFamily, LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import hljs from 'highlight.js';
 import { useEffect, useRef } from 'react';
 
@@ -17,6 +17,19 @@ export const CodeBlock = ({ children }: Props) => {
       hljs.highlightElement(ref.current);
     }
   });
+
+  useEffect(() => {
+    // html ファイルにハードコーディングすると `vite build` 時に Linaria が失敗するため、
+    // これを回避するため動的に `<link>` 要素を生成して挿入する。
+    if (!document.querySelector('link#highlight-theme')) {
+      const dom = document.createElement('link');
+      dom.rel = 'stylesheet';
+      dom.id = 'highlight-theme';
+      dom.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css';
+
+      document.head.append(dom);
+    }
+  }, []);
 
   return (
     <pre className={styleBase}>
