@@ -3,29 +3,32 @@ import { gutter } from '@learn-react/core/helpers/Style';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
 import type { ChangeEvent } from 'react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { ListStore } from '../stores/ListStore';
 
 export const ListPage = () => {
   console.info('list page');
 
-  const listStore = useRef(new ListStore());
+  const [store] = useState(() => new ListStore());
 
   return (
-    <ListStore.Context.Provider value={listStore.current}>
-      <h1>MobX</h1>
+    <ListStore.Context.Provider value={store}>
       <div className={styleBase}>
-        <div className={styleColumn}>
-          <AddForm />
-          <EditForm />
-        </div>
-        <div className={styleColumn}>
-          <ShowSection />
-        </div>
+        <h1>MobX</h1>
+        <AddForm />
+        <EditForm />
+        <ShowSection />
       </div>
     </ListStore.Context.Provider>
   );
 };
+
+const styleBase = css`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: ${gutter(4)};
+`;
 
 const AddForm = () => {
   console.info('add form');
@@ -132,7 +135,7 @@ const ShowSection = observer(() => {
 
   return (
     <>
-      <h3>List Items</h3>
+      <h2>List Items</h2>
       <ul>
         {toJS(listStore.items).map(({ name, age }, index) => (
           <li key={index}>
@@ -143,15 +146,3 @@ const ShowSection = observer(() => {
     </>
   );
 });
-
-const styleBase = css`
-  display: flex;
-
-  > :not(:first-child) {
-    margin-left: ${gutter(4)};
-  }
-`;
-
-const styleColumn = css`
-  flex: 1 1 100%;
-`;
