@@ -9,5 +9,5 @@
 ### Build for publish
 
 ```bash
-yarn build --name (catalog|core|mobx)
+yarn build --name (catalog|core|statement)
 ```

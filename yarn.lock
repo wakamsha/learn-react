@@ -1698,14 +1698,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learn-react/mobx@workspace:packages/mobx":
-  version: 0.0.0-use.local
-  resolution: "@learn-react/mobx@workspace:packages/mobx"
-  dependencies:
-    "@learn-react/core": 1.0.0
-  languageName: unknown
-  linkType: soft
-
 "@learn-react/routing@workspace:packages/routing":
   version: 0.0.0-use.local
   resolution: "@learn-react/routing@workspace:packages/routing"
@@ -1719,6 +1711,7 @@ __metadata:
   resolution: "@learn-react/statement@workspace:packages/statement"
   dependencies:
     "@learn-react/core": 1.0.0
+    "@learn-react/icon": 1.0.0
   languageName: unknown
   linkType: soft
 

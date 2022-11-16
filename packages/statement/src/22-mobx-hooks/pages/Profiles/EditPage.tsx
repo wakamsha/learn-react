@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import type { ChangeEvent } from 'react';
-import { ProfileStore } from '../../stores/ProfileStore';
+import { ProfileStore } from './stores/ProfileStore';
 
 /**
  * React 標準の ContextAPI からストアを prop で受け取り、useObserver をそのまま使用するパターン。

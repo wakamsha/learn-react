@@ -1,8 +1,8 @@
 import { useContext } from '@learn-react/core/hooks/useContext';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { createContext } from 'react';
-import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
-import type { User } from '../infra/model';
+import { requestGetUser, requestGetUsers, requestPostUser } from '../../../infra/client';
+import type { User } from '../../../infra/model';
 
 export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);
@@ -28,6 +28,7 @@ export class UsersStore {
       setUserId: action,
       setName: action,
       setJob: action,
+      resetUsers: action,
     });
   }
 
@@ -41,6 +42,10 @@ export class UsersStore {
 
   public setJob(job: string) {
     this.job = job;
+  }
+
+  public resetUsers() {
+    this.users = [];
   }
 
   public async getAllUsers() {

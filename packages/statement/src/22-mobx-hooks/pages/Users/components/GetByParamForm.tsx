@@ -32,11 +32,6 @@ export const GetByParamForm = observer(() => {
   );
 });
 
-/**
- * useTransaction を使ったパターン。
- * Transaction ひとつごとにカスタムフック化するのが望ましい。
- * CC における transaction メソッドひとつにつきカスタムフックを一つ定義するイメージ。
- */
 function useSubmit() {
   const store = UsersStore.useStore();
 

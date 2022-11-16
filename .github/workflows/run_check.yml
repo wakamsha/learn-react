@@ -1,10 +1,10 @@
 # Pull Request Merge に必要なチェックを行う。
 #
-# (Start) ── setup ─┬─ lint ──────────┬─ (Done)
-#                   ├─ test  ─────────┤
-#                   ├─ build_catalog ─┤
-#                   ├─ build_mobx ────┤
-#                   └─ build_routing ─┘
+# (Start) ── setup ─┬─ lint ────────────┬─ (Done)
+#                   ├─ test  ───────────┤
+#                   ├─ build_catalog ───┤
+#                   ├─ build_routing ───┤
+#                   └─ build_statement ─┘
 
 name: Check Syntax
 
@@ -83,19 +83,6 @@ jobs:
       - name: Build
         run: yarn catalog build
 
-  build_mobx:
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/restore-node
-
-      - name: Build
-        run: yarn mobx build
-
   build_routing:
     needs: setup
     runs-on: ubuntu-latest
@@ -111,3 +98,19 @@ jobs:
 
       - name: Build
         run: yarn routing build
+
+  build_statement:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/restore-node
+
+      - name: Build icon data
+        run: yarn icon build
+
+      - name: Build
+        run: yarn statement build

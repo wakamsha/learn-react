@@ -1,4 +1,6 @@
 import { css } from '@emotion/css';
+import { LineHeight } from '@learn-react/core/constants/Style';
+import { gutter } from '@learn-react/core/helpers/Style';
 import { observer } from 'mobx-react';
 import { UsersStore } from '../stores/UsersStore';
 
@@ -23,7 +25,7 @@ const styleBase = css`
 
   > pre {
     height: 100%;
-    padding: 16px;
+    padding: ${gutter(4)};
     margin: 0;
     overflow: auto;
     color: #d1edff;
@@ -31,7 +33,7 @@ const styleBase = css`
     > code {
       font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
       font-size: 0.65rem;
-      line-height: 1.3;
+      line-height: ${LineHeight.Compressed};
     }
   }
 `;

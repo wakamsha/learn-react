@@ -9,7 +9,7 @@ const __dirname = dirname(new URL(import.meta.url).pathname);
 const { name, watch } = await yargs(hideBin(process.argv))
   .option('name', {
     alias: 'n',
-    choices: ['catalog', 'core', 'mobx'],
+    choices: ['catalog', 'core', 'statement'],
   })
   .option('watch', {
     alias: 'w',

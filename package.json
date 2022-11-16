@@ -21,7 +21,6 @@
     "doc": "      yarn workspace @learn-react/doc",
     "esnext": "   yarn workspace @learn-react/esnext",
     "icon": "     yarn workspace @learn-react/icon",
-    "mobx": "     yarn workspace @learn-react/mobx",
     "routing": "  yarn workspace @learn-react/routing",
     "statement": "yarn workspace @learn-react/statement",
     "lint": "  prettier -c    packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs       packages/**/*.{ts,tsx}; stylelint packages/**/*.{ts,tsx}",
