@@ -145,6 +145,12 @@ module.exports = {
       },
     },
     {
+      files: ['./**/vite.config.ts'],
+      rules: {
+        'no-underscore-dangle': ['off'],
+      },
+    },
+    {
       files: ['*.js', '*.mjs'],
       rules: {
         '@typescript-eslint/ban-ts-comment': ['off'],

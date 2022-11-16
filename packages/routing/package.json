@@ -2,7 +2,6 @@
   "name": "@learn-react/routing",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "type": "module",
   "keywords": [
     "react-router-dom"
   ],
@@ -10,9 +9,10 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "develop": "node ./bin/vite",
+    "develop": "run -T vite serve",
     "type-check": "run --top-level tsc --noEmit",
     "start": "run-p \"type-check --watch\" \"develop\"",
-    "build": "yarn type-check && node ./bin/vite -m build"
+    "build": "yarn type-check && vite build",
+    "preview": "run -T vite preview"
   }
 }

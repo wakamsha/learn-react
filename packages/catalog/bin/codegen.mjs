@@ -5,7 +5,7 @@ import glob from 'glob';
 import { dirname, resolve } from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
-import { template as storiesTemplate } from '../templates/stories.js';
+import { template as storiesTemplate } from '../templates/stories.mjs';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);
 
