@@ -18,6 +18,19 @@ export const CodeBlock = ({ children }: Props) => {
     }
   });
 
+  useEffect(() => {
+    // html ファイルにハードコーディングすると `vite build` 時に Linaria が失敗するため、
+    // これを回避するため動的に `<link>` 要素を生成して挿入する。
+    if (!document.querySelector('link#highlight-theme')) {
+      const dom = document.createElement('link');
+      dom.rel = 'stylesheet';
+      dom.id = 'highlight-theme';
+      dom.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css';
+
+      document.head.append(dom);
+    }
+  }, []);
+
   return (
     <pre className={styleBase}>
       <code className="typescript" ref={ref}>
