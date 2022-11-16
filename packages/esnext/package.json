@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "develop": "vite",
+    "develop": "run -T vite serve",
     "type-check": "run --top-level tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\"",
     "build": "yarn type-check && vite build"

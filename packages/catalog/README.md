@@ -17,13 +17,21 @@ yarn prepare-msw
 ### Development
 
 ```bash
-yarn start
+[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn start [--mode=<mode>]
 ```
 
-`http://localhost:4000` が立ち上がります。
+`http://localhost:4001` が立ち上がります。
+
+#### Options
+
+| name        | value                       | description                             |
+| :---------- | :-------------------------- | :-------------------------------------- |
+| `<target>`  | `dev`, `stg`, `prod`        | 疎通する API サーバタイプを指定します。 |
+| `<variant>` | number                      | specify Pull Request number.            |
+| `<mode>`    | `development`, `production` | どんな用途でビルドするか指定する        |
 
 ### Build for publish
 
 ```bash
-yarn build
+[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn build [--mode=<mode>]
 ```

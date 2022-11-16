@@ -2,17 +2,17 @@
   "name": "@learn-react/catalog",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "type": "module",
   "dependencies": {
     "@learn-react/core": "1.0.0",
     "@learn-react/icon": "1.0.0",
     "@learn-react/try": "1.0.0"
   },
   "scripts": {
-    "generate": "node ./bin/codegen",
-    "develop": "node ./bin/vite",
-    "type-check": "run --top-level tsc --noEmit",
+    "generate": "node ./bin/codegen.mjs",
+    "develop": "run -T vite serve",
+    "type-check": "run -T tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
-    "build": "yarn generate && yarn type-check && node ./bin/vite -m build"
+    "build": "yarn generate && yarn type-check && vite build",
+    "preview": "run -T vite preview"
   }
 }

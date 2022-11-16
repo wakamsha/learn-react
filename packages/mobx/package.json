@@ -2,7 +2,6 @@
   "name": "@learn-react/mobx",
   "version": "1.0.0",
   "license": "UNLICENSED",
-  "type": "module",
   "keywords": [
     "mobx",
     "mobx-react"
@@ -11,9 +10,10 @@
     "@learn-react/core": "1.0.0"
   },
   "scripts": {
-    "develop": "node ./bin/vite",
-    "type-check": "run --top-level tsc --noEmit",
+    "develop": "run -T vite serve",
+    "type-check": "run -T tsc --noEmit",
     "start": "run-p \"develop\" \"type-check --watch\"",
-    "build": "yarn type-check && node ./bin/vite -m build"
+    "build": "yarn type-check && vite build",
+    "preview": "run -T vite preview"
   }
 }
