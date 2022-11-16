@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import type { ChangeEvent } from 'react';
 import { Suspense, useState, useTransition } from 'react';
 import { useData } from '.';

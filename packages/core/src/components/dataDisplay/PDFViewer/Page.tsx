@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import * as pdfjsLib from 'pdfjs-dist';
 import type { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/src/display/api';
 import type { PageViewport } from 'pdfjs-dist/types/src/display/display_utils';

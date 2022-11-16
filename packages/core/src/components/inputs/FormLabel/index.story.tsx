@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import { useId } from 'react';
 import { FormLabel } from '.';
 import { gutter } from '../../../helpers/Style';

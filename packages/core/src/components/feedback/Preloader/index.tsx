@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/css';
+import { css } from '@linaria/core';
 import { cssVar } from '../../../helpers/Style';
 
 type Size = 'neutral' | 'button';
@@ -40,39 +40,39 @@ export const Preloader = ({ size = 'neutral', theme = 'neutral' }: Props) => {
 
 const baseSize = 50;
 
-const rotateAnimation = keyframes`
-  from {
-    transform: rotateZ(0);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-`;
-
-const dashAnimation = keyframes`
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 89, 200;
-    stroke-dashoffset: -124;
-  }
-`;
-
 const styleBase = css`
-  animation: ${rotateAnimation} 1.4s linear infinite;
+  animation: rotateAnimation 1.4s linear infinite;
+
+  @keyframes rotateAnimation {
+    from {
+      transform: rotateZ(0);
+    }
+    to {
+      transform: rotateZ(360deg);
+    }
+  }
 `;
 
 const stylePath = css`
   stroke-dasharray: 1, 800;
   stroke-dashoffset: 0;
   stroke-linecap: round;
-  animation: ${dashAnimation} 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  animation: dashAnimation 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+
+  @keyframes dashAnimation {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124;
+    }
+  }
 `;
 
 const styleSize: Frozen<Size, number> = {

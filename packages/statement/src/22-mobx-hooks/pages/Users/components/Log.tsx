@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/constants/Style';
 import { gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import { observer } from 'mobx-react';
 import { UsersStore } from '../stores/UsersStore';
 

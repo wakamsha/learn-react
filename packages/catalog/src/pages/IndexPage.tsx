@@ -1,7 +1,7 @@
-import { css } from '@emotion/css';
 import { SplashBanner } from '@learn-react/core/components/surfaces/SplashBanner';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { cssVar } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 
 export const IndexPage = () => (
   <>

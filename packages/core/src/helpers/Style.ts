@@ -1,4 +1,4 @@
-import { css, injectGlobal } from '@emotion/css';
+import { css } from '@linaria/core';
 import { color } from 'csx';
 import { Color, FontFamily, Shadow } from '../constants/Style';
 import NotoSansMedium from './fonts/noto-sans/NotoSansJP-Medium.woff';
@@ -37,10 +37,12 @@ export function gutter(value: number): string {
  * @param value 一辺の長さ
  */
 export function square(value: string | number) {
-  return {
-    width: value,
-    height: value,
-  };
+  const side = typeof value === 'number' ? `${value}px` : value;
+
+  return `
+    width: ${side};
+    height: ${side};
+  `;
 }
 
 /**
@@ -88,148 +90,144 @@ export function textEllipsis() {
  * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
  */
 export function applyResetStyle() {
-  return injectGlobal`
-    *,
-    *:before,
-    *:after {
-      box-sizing: border-box;
-      margin: 0;
-    }
-    html {
-      overflow-x: hidden;
-      font-family: sans-serif;
-      -webkit-text-size-adjust: 100%;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      scroll-behavior: smooth;
-    }
-    body {
-      min-height: 100vh;
-      text-rendering: optimizeSpeed;
-      line-height: 1.5;
-    }
-    a:not([class]) {
-      text-decoration-skip-ink: auto;
-    }
-    img,
-    picture {
-      display: block;
-      max-width: 100%;
-    }
-    input,
-    button,
-    textarea,
-    select {
-      font: inherit;
-
-      &:focus:not(:focus-visible) {
-        /* キーボード操作"以外"でフォーカスされた際は outline を消す */
-        outline: 0;
+  return css`
+    :global() {
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        margin: 0;
       }
-    }
-    main {
-      display: block;
-      overflow-x: hidden;
+      html {
+        overflow-x: hidden;
+        font-family: sans-serif;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        scroll-behavior: smooth;
+      }
+      body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.5;
+      }
+      a:not([class]) {
+        text-decoration-skip-ink: auto;
+      }
+      img,
+      picture {
+        display: block;
+        max-width: 100%;
+      }
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+
+        &:focus:not(:focus-visible) {
+          /* キーボード操作"以外"でフォーカスされた際は outline を消す */
+          outline: 0;
+        }
+      }
+      main {
+        display: block;
+        overflow-x: hidden;
+      }
     }
   `;
 }
 
 export function applyGlobalStyle() {
-  return injectGlobal`
-    @font-face {
-      font-family: 'Noto Sans Japanese';
-      font-style: normal;
-      font-weight: normal;
-      src: local('Noto Sans Japanese'),
-        url(${NotoSansRegular}) format('woff');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Noto Sans Japanese';
-      font-style: normal;
-      font-weight: bold;
-      src: local('Noto Sans Japanese Bold'),
-        url(${NotoSansMedium}) format('woff');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Noto Serif Japanese';
-      font-style: normal;
-      font-weight: normal;
-      src: local('Noto Serif Japanese'),
-        url(${NotoSerifRegular}) format('woff');
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'Noto Serif Japanese';
-      font-style: normal;
-      font-weight: bold;
-      src: local('Noto Serif Japanese Bold'),
-        url(${NotoSerifSemiBold}) format('woff');
-      font-display: swap;
-    }
+  return css`
+    :global() {
+      @font-face {
+        font-family: 'Noto Sans Japanese';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Noto Sans Japanese'), url(${NotoSansRegular}) format('woff');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Noto Sans Japanese';
+        font-style: normal;
+        font-weight: bold;
+        src: local('Noto Sans Japanese Bold'), url(${NotoSansMedium}) format('woff');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Noto Serif Japanese';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Noto Serif Japanese'), url(${NotoSerifRegular}) format('woff');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Noto Serif Japanese';
+        font-style: normal;
+        font-weight: bold;
+        src: local('Noto Serif Japanese Bold'), url(${NotoSerifSemiBold}) format('woff');
+        font-display: swap;
+      }
 
-    :root {
-      ${css(
-        Object.entries({ ...Color, ...Shadow }).reduce(
+      :root {
+        ${Object.entries({ ...Color, ...Shadow }).reduce(
           (acc, [key, value]) => ({
             ...acc,
             [`--${key}`]: value.light,
           }),
           {},
-        ),
-      )}
-    }
+        )}
+      }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color-scheme: dark;
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
 
-        ${css(
-          Object.entries({ ...Color, ...Shadow }).reduce(
+          ${Object.entries({ ...Color, ...Shadow }).reduce(
             (acc, [key, value]) => ({
               ...acc,
               [`--${key}`]: value.dark,
             }),
             {},
-          ),
-        )}
+          )}
+        }
       }
-    }
 
-    html,
-    body {
-      padding: 0;
-      margin: 0;
-      font-family: ${FontFamily.Default};
-      font-weight: 500;
-      font-feature-settings: palt 1;
-    }
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    ul,
-    ol,
-    figure,
-    blockquote,
-    dl,
-    dd {
-      margin: 0;
-    }
-    ul,
-    ol {
-      padding: 0;
-      list-style: none;
-    }
-    /* stylelint-disable-next-line no-descending-specificity */
-    a {
-      color: inherit;
-      text-decoration: none;
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: ${FontFamily.Default};
+        font-weight: 500;
+        font-feature-settings: palt 1;
+      }
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul,
+      ol,
+      figure,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+      }
+      ul,
+      ol {
+        padding: 0;
+        list-style: none;
+      }
+      /* stylelint-disable-next-line no-descending-specificity */
+      a {
+        color: inherit;
+        text-decoration: none;
 
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   `;

@@ -1,5 +1,5 @@
-import { css } from '@emotion/css';
 import type { IconName } from '@learn-react/icon';
+import { css } from '@linaria/core';
 import type { ChangeEvent } from 'react';
 import { useId, useState } from 'react';
 import { Duration, FontSize, IconSize, LineHeight } from '../../../constants/Style';

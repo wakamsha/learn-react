@@ -1,7 +1,7 @@
-import { css, cx } from '@emotion/css';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { BorderRadius, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { css, cx } from '@linaria/core';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';

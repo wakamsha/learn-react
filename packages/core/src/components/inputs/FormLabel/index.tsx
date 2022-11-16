@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import type { ReactNode } from 'react';
 import { useId } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';

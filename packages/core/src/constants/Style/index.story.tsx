@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css } from '@linaria/core';
 import { Color, FontSize, LineHeight } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 

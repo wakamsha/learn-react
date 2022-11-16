@@ -1,4 +1,4 @@
-import { css, cx } from '@emotion/css';
+import { css, cx } from '@linaria/core';
 import type { CSSProperties, ReactNode } from 'react';
 import { Duration, Easing } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';

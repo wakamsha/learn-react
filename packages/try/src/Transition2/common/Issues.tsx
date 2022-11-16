@@ -1,6 +1,6 @@
-import { css } from '@emotion/css';
 import { FontSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { css } from '@linaria/core';
 import useSWR from 'swr';
 
 type IssueType = {
