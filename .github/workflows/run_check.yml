@@ -109,5 +109,8 @@ jobs:
 
       - uses: ./.github/actions/restore-node
 
+      - name: Build icon data
+        run: yarn icon build
+
       - name: Build
         run: yarn statement build
