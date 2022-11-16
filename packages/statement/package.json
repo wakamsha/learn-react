@@ -9,7 +9,8 @@
     "constate"
   ],
   "dependencies": {
-    "@learn-react/core": "1.0.0"
+    "@learn-react/core": "1.0.0",
+    "@learn-react/icon": "1.0.0"
   },
   "scripts": {
     "develop": "run -T vite serve",
