@@ -167,7 +167,7 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
         const path = `${basePath}__${key}`;
 
         if (subValue.sourceCode && subValue.Component) {
-          return key.match(query) ? (
+          return path.match(query) ? (
             <li key={key}>
               <Link
                 to={path}
@@ -181,11 +181,13 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
           ) : null;
         }
 
-        const filteredItemKeys = Object.keys(subValue).filter(subKey => subKey.match(query));
-
         return (
           <li key={key}>
-            <div className={styleTreeCaption} style={{ paddingLeft: offset }} aria-disabled={!filteredItemKeys.length}>
+            <div
+              className={styleTreeCaption}
+              style={{ paddingLeft: offset }}
+              aria-disabled={!Object.keys(subValue).filter(subKey => subKey.match(query)).length && !key.match(query)}
+            >
               <Icon name="folder" />
               {key}
             </div>
