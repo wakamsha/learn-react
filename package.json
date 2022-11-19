@@ -30,7 +30,7 @@
     "@commitlint/cli": "17.2.0",
     "@linaria/rollup": "3.0.0-beta.23",
     "@linaria/shaker": "3.0.0-beta.23",
-    "@linaria/stylelint": "3.0.0-beta.23",
+    "@linaria/stylelint": "4.1.8",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
