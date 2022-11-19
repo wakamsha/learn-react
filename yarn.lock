@@ -7741,7 +7741,7 @@ __metadata:
     jest: 29.3.1
     jest-environment-jsdom: 29.3.1
     lint-staged: 13.0.3
-    mobx: 6.6.2
+    mobx: 6.7.0
     mobx-react: 7.5.3
     npm-run-all: 4.1.5
     pdfjs-dist: 3.0.279
@@ -8331,10 +8331,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:6.6.2":
-  version: 6.6.2
-  resolution: "mobx@npm:6.6.2"
-  checksum: b913abea51ed023d60c71eec0198e953c0b7faee93820be2e8f07037a789b3acf6fd89c340cb9d34e888532ebd34d34b10add7d129277a96026537e5ca48bda6
+"mobx@npm:6.7.0":
+  version: 6.7.0
+  resolution: "mobx@npm:6.7.0"
+  checksum: 895b46177b074b4b9c43b3eb5a9e86ed9d75e86d99db0be362e9ff1bcc81eddd04d4cbe4a207bccb814621bd17889191d87be0dab4073d24a0ad3edefdd3a9bc
   languageName: node
   linkType: hard
 
