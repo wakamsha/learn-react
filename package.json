@@ -83,7 +83,7 @@
     "date-fns": "2.29.3",
     "highlight.js": "11.6.0",
     "hotkeys-js": "3.10.0",
-    "mobx": "6.6.2",
+    "mobx": "6.7.0",
     "mobx-react": "7.5.3",
     "pdfjs-dist": "3.0.279",
     "qs": "6.11.0",
