@@ -35,3 +35,13 @@ yarn prepare-msw
 ```bash
 [ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn build [--mode=<mode>]
 ```
+
+## Deployment
+
+### Requirement
+
+- [AWS CLI](https://aws.amazon.com/jp/cli/)
+
+```bash
+yarn deploy
+```

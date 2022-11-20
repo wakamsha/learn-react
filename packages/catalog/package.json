@@ -13,6 +13,7 @@
     "type-check": "run -T tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
     "build": "yarn generate && yarn type-check && vite build",
-    "preview": "run -T vite preview"
+    "preview": "run -T vite preview",
+    "deploy": "bash ./bin/sync-s3.sh"
   }
 }
