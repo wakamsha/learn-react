@@ -16,7 +16,7 @@ export const Story = () => {
 
   const scrollTo = useScrollTo(ref, {
     offset,
-    scrollBehavior,
+    behavior: scrollBehavior,
   });
 
   const handleSelectNav = (e: MouseEvent<HTMLAnchorElement>, name: string) => {

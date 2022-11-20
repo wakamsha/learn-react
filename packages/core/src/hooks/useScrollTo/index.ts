@@ -1,7 +1,9 @@
 import type { RefObject } from 'react';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Selector = string | ((container: Element) => Element | null);
+
+type Callback = () => void;
 
 type Option = {
   /**
@@ -19,7 +21,7 @@ type Option = {
    *
    * @default 'smooth'
    */
-  scrollBehavior?: 'auto' | 'smooth';
+  behavior?: 'auto' | 'smooth';
 };
 
 /**
@@ -47,10 +49,13 @@ type Option = {
  * ```
  */
 export function useScrollTo(containerRef: RefObject<Element | Window | null>, option?: Option) {
-  const { offset = 0, scrollBehavior = 'smooth' } = option ?? {};
+  const { offset = 0, behavior = 'smooth' } = option ?? {};
+
+  const [to, setTo] = useState(Infinity);
+  const callbackRef = useRef<Callback>();
 
   const scrollTo = useCallback(
-    (selector: Selector, callback?: () => void) => {
+    (selector: Selector, callback?: Callback) => {
       const container = containerRef.current;
       if (!container) return;
 
@@ -64,21 +69,33 @@ export function useScrollTo(containerRef: RefObject<Element | Window | null>, op
 
       container.scrollTo({
         top: to,
-        behavior: scrollBehavior,
+        behavior,
       });
 
-      if (!callback) return;
-
-      const onScroll = () => {
-        if (scrollTopOf(container) === to) {
-          container.removeEventListener('scroll', onScroll);
-          callback();
-        }
-      };
-      container.addEventListener('scroll', onScroll);
+      setTo(to);
+      callbackRef.current = callback;
     },
-    [containerRef, offset, scrollBehavior],
+    [behavior, containerRef, offset],
   );
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      if (scrollTopOf(container) === to && callbackRef.current) {
+        container.removeEventListener('scroll', onScroll);
+        setTo(Infinity);
+        callbackRef.current();
+      }
+    };
+
+    container.addEventListener('scroll', onScroll);
+
+    return () => {
+      container.removeEventListener('scroll', onScroll);
+    };
+  }, [containerRef, to]);
 
   return scrollTo;
 }
