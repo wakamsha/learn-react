@@ -66,13 +66,11 @@ export const Navigation = () => {
  * @param containerRef スクロール操作するコンテナ要素
  */
 function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
-  const location = useLocation();
-
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const target = container.querySelector(`[href="${location.pathname}"]`);
+    const target = container.querySelector(`[aria-selected="true"]`);
     if (!target) return;
 
     const containerOffsetTop = container.getBoundingClientRect().top;
@@ -85,7 +83,7 @@ function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
         top: targetOffsetTop - containerHeight + containerHeight / 2,
       });
     }
-  }, [containerRef, location.pathname]);
+  }, [containerRef]);
 }
 
 const styleBase = css`
