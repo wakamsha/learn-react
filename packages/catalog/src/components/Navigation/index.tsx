@@ -3,8 +3,8 @@ import { TextField } from '@learn-react/core/components/inputs/TextField';
 import { BorderRadius, Duration, FontFamily, FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { FC } from 'react';
-import { useMemo, useState } from 'react';
+import type { FC, RefObject } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
@@ -17,6 +17,10 @@ export const Navigation = () => {
 
     return new RegExp(pattern, 'i');
   }, [keyword]);
+
+  const bodyRef = useRef<HTMLElement>(null);
+
+  useAdjustScroll(bodyRef);
 
   return (
     <div role="complementary" className={styleBase}>
@@ -40,7 +44,7 @@ export const Navigation = () => {
         />
       </div>
 
-      <nav className={styleBody}>
+      <nav ref={bodyRef} className={styleBody}>
         {Object.entries(stories).map(([subPackageKey, subPackage]) => (
           <ul key={subPackageKey} className={styleNavigation} role="tree">
             <li>
@@ -53,6 +57,34 @@ export const Navigation = () => {
     </div>
   );
 };
+
+/**
+ * URL 遷移時にコンテナ要素のスクロールを調整し、アクティブとなっているナビゲーションリンクをビューポート内に収めます。
+ *
+ * 一覧の下の方にあるリンクはハードリロード時にビューポート外に追いやられてしまうことによるユーザビリティ低下の防止が期待できます。
+ *
+ * @param containerRef スクロール操作するコンテナ要素
+ */
+function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const target = container.querySelector(`[aria-selected="true"]`);
+    if (!target) return;
+
+    const containerOffsetTop = container.getBoundingClientRect().top;
+    const containerHeight = container.offsetHeight;
+    const targetOffsetTop = target.getBoundingClientRect().top;
+    const targetHeight = (target as HTMLElement).offsetHeight;
+
+    if (targetOffsetTop + targetHeight >= containerOffsetTop + containerHeight) {
+      container.scrollTo({
+        top: targetOffsetTop - containerHeight + containerHeight / 2,
+      });
+    }
+  }, [containerRef]);
+}
 
 const styleBase = css`
   display: grid;
