@@ -32,6 +32,7 @@ type Callback = (element: HTMLElement, index: number) => void;
  *   <div className=".bar"></div>
  *   <div className=".foo"></div>
  * </div>
+ * ```
  */
 export function useSpy(offset = 0) {
   const [container, setContainer] = useState<Container>(null);
@@ -52,6 +53,7 @@ export function useSpy(offset = 0) {
         containerRef.current = element;
       };
     };
+    spy.ref = containerRef;
 
     return spy;
   }, []);
@@ -69,7 +71,7 @@ export function useSpy(offset = 0) {
 
       const targets =
         typeof selector === 'string'
-          ? querySelectorAll(container, selector)
+          ? (container instanceof Window ? container.document.body : container).querySelectorAll(selector)
           : selector(container instanceof Window ? container.document.body : container);
       if (!targets) return;
 
@@ -90,6 +92,10 @@ export function useSpy(offset = 0) {
   return spy;
 }
 
+function topOf(e: Element | Window) {
+  return e instanceof Window ? 0 : e.getBoundingClientRect().top;
+}
+
 function findTargetByTopPosition(targets: ArrayLike<Element>, y: number) {
   for (let i = 0; i < targets.length; i++) {
     const top = targets[i]?.getBoundingClientRect().top;
@@ -103,16 +109,4 @@ function findTargetByTopPosition(targets: ArrayLike<Element>, y: number) {
   const index = targets.length - 1;
 
   return [targets[index] as HTMLElement | undefined, index] as const;
-}
-
-function topOf(e: Element | Window) {
-  if (e instanceof Window) {
-    return 0;
-  }
-
-  return e.getBoundingClientRect().top;
-}
-
-function querySelectorAll(element: Element | Window, selector: string) {
-  return (element instanceof Window ? element.document.body : element).querySelectorAll(selector);
 }
