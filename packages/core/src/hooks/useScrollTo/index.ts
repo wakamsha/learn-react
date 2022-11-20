@@ -1,11 +1,11 @@
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import { useCallback } from 'react';
 
 type Selector = string | ((container: Element) => Element | null);
 
 type Option = {
   /**
-   * コンテナ要素のスクロールの停止位置を調整するのに使います。
+   * コンテナ要素のスクロールの停止位置を調整するのに使います ( px )。
    * マイナス値を指定すると本来の位置よりも手前で停止します。
    *
    * @default 0
@@ -33,6 +33,7 @@ type Option = {
  * const scrollTo = useScrollTo(containerRef);
  * scrollTo('.foo');
  * ```
+ *
  * ```text
  * +-container-----+     +---------------+
  * |               |     | +-----------+ |
@@ -45,11 +46,11 @@ type Option = {
  * +---------------+     +---------------+
  * ```
  */
-export function useScrollTo(containerRef: MutableRefObject<Element | Window | null>, option?: Option) {
+export function useScrollTo(containerRef: RefObject<Element | Window | null>, option?: Option) {
   const { offset = 0, scrollBehavior = 'smooth' } = option ?? {};
 
   const scrollTo = useCallback(
-    (selector: Selector) => {
+    (selector: Selector, callback?: () => void) => {
       const container = containerRef.current;
       if (!container) return;
 
@@ -59,13 +60,22 @@ export function useScrollTo(containerRef: MutableRefObject<Element | Window | nu
           : selector(container instanceof Window ? container.document.body : container);
       if (!target) return;
 
-      const scrollTop = scrollTopOf(container);
-      const to = target.getBoundingClientRect().top + scrollTop - topOf(container) + offset;
+      const to = target.getBoundingClientRect().top + scrollTopOf(container) - topOf(container) + offset;
 
       container.scrollTo({
         top: to,
         behavior: scrollBehavior,
       });
+
+      if (!callback) return;
+
+      const onScroll = () => {
+        if (scrollTopOf(container) === to) {
+          container.removeEventListener('scroll', onScroll);
+          callback();
+        }
+      };
+      container.addEventListener('scroll', onScroll);
     },
     [containerRef, offset, scrollBehavior],
   );
