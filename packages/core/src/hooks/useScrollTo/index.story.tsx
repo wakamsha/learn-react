@@ -14,13 +14,21 @@ export const Story = () => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  const scrollTo = useScrollTo(ref, { offset, scrollBehavior });
+  const scrollTo = useScrollTo(ref, {
+    offset,
+    behavior: scrollBehavior,
+  });
 
   const handleSelectNav = (e: MouseEvent<HTMLAnchorElement>, name: string) => {
     e.preventDefault();
 
     setTarget(name);
-    scrollTo(e => e.querySelector(`[data-spy="${name}"]`));
+    scrollTo(
+      e => e.querySelector(`[data-spy="${name}"]`),
+      () => {
+        console.info(`scroll end: ${name}`);
+      },
+    );
   };
 
   const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {

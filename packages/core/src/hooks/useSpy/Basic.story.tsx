@@ -37,7 +37,7 @@ export const Story = () => {
       <div
         ref={
           // spy('[data-spy]', onSpyChange) のようにセレクターに文字列だけ渡すこともできるが、
-          // このような高度な選び方もできる。
+          // このような高度な選び方も可能。
           spy(
             e =>
               [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),

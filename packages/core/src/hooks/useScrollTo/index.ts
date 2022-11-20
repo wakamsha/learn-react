@@ -1,11 +1,13 @@
-import type { MutableRefObject } from 'react';
-import { useCallback } from 'react';
+import type { RefObject } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type Selector = string | ((container: Element) => Element | null);
 
+type Callback = () => void;
+
 type Option = {
   /**
-   * コンテナ要素のスクロールの停止位置を調整するのに使います。
+   * コンテナ要素のスクロールの停止位置を調整するのに使います ( px )。
    * マイナス値を指定すると本来の位置よりも手前で停止します。
    *
    * @default 0
@@ -19,7 +21,7 @@ type Option = {
    *
    * @default 'smooth'
    */
-  scrollBehavior?: 'auto' | 'smooth';
+  behavior?: 'auto' | 'smooth';
 };
 
 /**
@@ -33,6 +35,7 @@ type Option = {
  * const scrollTo = useScrollTo(containerRef);
  * scrollTo('.foo');
  * ```
+ *
  * ```text
  * +-container-----+     +---------------+
  * |               |     | +-----------+ |
@@ -45,11 +48,14 @@ type Option = {
  * +---------------+     +---------------+
  * ```
  */
-export function useScrollTo(containerRef: MutableRefObject<Element | Window | null>, option?: Option) {
-  const { offset = 0, scrollBehavior = 'smooth' } = option ?? {};
+export function useScrollTo(containerRef: RefObject<Element | Window | null>, option?: Option) {
+  const { offset = 0, behavior = 'smooth' } = option ?? {};
+
+  const [to, setTo] = useState(Infinity);
+  const callbackRef = useRef<Callback>();
 
   const scrollTo = useCallback(
-    (selector: Selector) => {
+    (selector: Selector, callback?: Callback) => {
       const container = containerRef.current;
       if (!container) return;
 
@@ -59,16 +65,37 @@ export function useScrollTo(containerRef: MutableRefObject<Element | Window | nu
           : selector(container instanceof Window ? container.document.body : container);
       if (!target) return;
 
-      const scrollTop = scrollTopOf(container);
-      const to = target.getBoundingClientRect().top + scrollTop - topOf(container) + offset;
+      const to = target.getBoundingClientRect().top + scrollTopOf(container) - topOf(container) + offset;
 
       container.scrollTo({
         top: to,
-        behavior: scrollBehavior,
+        behavior,
       });
+
+      setTo(to);
+      callbackRef.current = callback;
     },
-    [containerRef, offset, scrollBehavior],
+    [behavior, containerRef, offset],
   );
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      if (scrollTopOf(container) === to && callbackRef.current) {
+        container.removeEventListener('scroll', onScroll);
+        setTo(Infinity);
+        callbackRef.current();
+      }
+    };
+
+    container.addEventListener('scroll', onScroll);
+
+    return () => {
+      container.removeEventListener('scroll', onScroll);
+    };
+  }, [containerRef, to]);
 
   return scrollTo;
 }
