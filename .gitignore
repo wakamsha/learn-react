@@ -67,8 +67,12 @@ typings/
 # next.js build output
 .next
 
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.recommended.json
+
 dist/
 .envrc
-.vscode
 .stylelintcache
 Stories.ts
