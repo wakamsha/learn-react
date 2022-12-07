@@ -4,9 +4,6 @@ import { Suspense } from 'react';
 import { Issues } from './common/Issues';
 import { usePageNumberV2 } from './common/usePageNumber';
 
-/**
- * @see https://qiita.com/stin_dev/items/74ae0b002bc2f98b71ce#usetransition-を使う
- */
 export const Story = () => {
   const { page, isPending, incrementPage, decrementPage } = usePageNumberV2();
 

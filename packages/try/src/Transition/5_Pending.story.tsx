@@ -3,9 +3,6 @@ import { fetchData } from './common/fetchData';
 import { Loadable } from './common/Loadable';
 import { useTime } from './common/useTime';
 
-/**
- * @see https://zenn.dev/uhyo/books/react-concurrent-handson-2/viewer/pending
- */
 export const Story = () => {
   const [counter, setCounter] = useState(0);
 

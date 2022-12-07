@@ -45,7 +45,8 @@ const ColorTip = ({ name, color }: ColorTipProps) => {
 };
 
 /**
- * コントラスト比的に対照的な（背景色 vs 前景色としたとき視認性が落ちない）色を返す
+ * コントラスト比的に対照的な（背景色 vs 前景色としたとき視認性が落ちない）色を返す。
+ *
  * @see https://zenn.dev/hyiromori/articles/hatena-20201112-182643
  *
  * @param color #FFCC00 のような値

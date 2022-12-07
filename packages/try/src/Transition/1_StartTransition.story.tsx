@@ -1,8 +1,5 @@
 import { startTransition, Suspense, useState } from 'react';
 
-/**
- * @see https://zenn.dev/uhyo/books/react-concurrent-handson-2/viewer/use-starttransition
- */
 export const Story = () => {
   const [sleepIsShown, setSleepIsShown] = useState(false);
 

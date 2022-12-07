@@ -1,10 +1,6 @@
 import { startTransition, Suspense, useState } from 'react';
 import { fetchData } from './common/fetchData';
 
-/**
- *
- * @see https://zenn.dev/uhyo/books/react-concurrent-handson-2/viewer/cancellation
- */
 export const Story = () => {
   const [counter1, setCounter1] = useState(0);
   const handleClick1 = () => {
