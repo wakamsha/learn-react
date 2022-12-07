@@ -10,18 +10,18 @@ export const Story = () => {
     <>
       <h2>Nest</h2>
       <FormLabel label="メールアドレス">
-        <input type="email" placeholder="taro.legal@legalforce.co.jp" />
+        <input type="email" placeholder="taro.ringo@example.com" />
       </FormLabel>
 
       <h2>Use Id</h2>
       <div className={styleFormGroup}>
         <FormLabel label="メールアドレス" htmlFor={inputId} />
-        <input type="email" id={inputId} placeholder="taro.legal@legalforce.co.jp" />
+        <input type="email" id={inputId} placeholder="taro.ringo@example.com" />
       </div>
 
       <h2>With Tooltip</h2>
       <FormLabel label="メールアドレス" tooltip="あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら">
-        <input type="email" placeholder="taro.legal@legalforce.co.jp" />
+        <input type="email" placeholder="taro.ringo@example.com" />
       </FormLabel>
     </>
   );
