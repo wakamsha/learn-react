@@ -34,7 +34,13 @@ type DropdownMenuResponse = Readonly<{
     role: 'menuitem';
     ref: RefObject<any>;
   }[];
+  /**
+   * `true` の場合、メニューは開いた状態となっている。
+   */
   opened: boolean;
+  /**
+   * メニューの開閉状態を更新する。
+   */
   setOpened: Dispatch<SetStateAction<boolean>>;
   moveFocus: (itemIndex: number) => void;
 }>;

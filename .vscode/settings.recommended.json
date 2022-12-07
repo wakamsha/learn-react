@@ -1,0 +1,24 @@
+{
+  // linter と formatter の設定
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    // 保存時に自動適用
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": ["typescript", "typescriptreact"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  // TS バージョンを揃える
+  "typescript.tsdk": "node_modules/typescript/lib",
+  // 相対インポート パスでパッケージまたはプロジェクト ディレクトリが提供される場合にのみ、非相対インポートを優先します。
+  // ワークスペースで TypeScript 4.2+ を使用する必要があります。
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+
+  "files.associations": {
+    // このファイルを JSON with Comments 認識させる
+    "**/.vscode/*.json": "jsonc"
+  },
+  "git.ignoreLimitWarning": true
+}
