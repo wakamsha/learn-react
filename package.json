@@ -14,7 +14,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "postinstall": "husky install",
     "catalog": "  yarn workspace @learn-react/catalog",
     "core": "     yarn workspace @learn-react/core",
     "doc": "      yarn workspace @learn-react/doc",

@@ -38,8 +38,8 @@ describe('String.ts', () => {
       expect(count('hello, world!')).toEqual(13);
     });
 
-    test(`${count.name}('LegalForceキャビネ') === 14`, () => {
-      expect(count('LegalForceキャビネ')).toEqual(14);
+    test(`${count.name}('Always問題ない') === 10`, () => {
+      expect(count('Always問題ない')).toEqual(10);
     });
 
     test(`${count.name}('こんにちは！\nさようなら！') === 13`, () => {
