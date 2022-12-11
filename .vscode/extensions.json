@@ -7,7 +7,7 @@
     // Syntax Highlighter
     "codezombiech.gitignore",
     "mikestead.dotenv",
-		"jpoissonnier.vscode-styled-components",
+    "styled-components.vscode-styled-components",
     "mrmlnc.vscode-json5",
 
     // Linter, Formatter
