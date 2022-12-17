@@ -7835,7 +7835,7 @@ __metadata:
     ts-xor: 1.0.8
     typedoc: 0.23.22
     typedoc-plugin-missing-exports: 1.0.0
-    typedoc-theme-hierarchy: 3.0.0
+    typedoc-theme-hierarchy: 3.0.2
     typescript: 4.9.4
     vite: 3.2.5
     yargs: 17.6.2
@@ -10846,14 +10846,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-theme-hierarchy@npm:3.0.0":
-  version: 3.0.0
-  resolution: "typedoc-theme-hierarchy@npm:3.0.0"
+"typedoc-theme-hierarchy@npm:3.0.2":
+  version: 3.0.2
+  resolution: "typedoc-theme-hierarchy@npm:3.0.2"
   dependencies:
     fs-extra: ^10.0.0
   peerDependencies:
     typedoc: ^0.23.6
-  checksum: 70295d5b9ab1ccea319e69d73ebf38d3ea91f88aaa015744200f21734477b8e3295c20eb11da11c5b289e5b358255e3b4658fadf5587917174f53b7f2596cc96
+  checksum: a03354784cb1c40d4bfa819ba9aeb2684b4a3d913d6a33cd332d33ed8566135cdc98d2e7e2514dc65e4817e46731912f1ba9d980d8b8c9bed6d44cb86cd97d73
   languageName: node
   linkType: hard
 
