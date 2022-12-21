@@ -31,7 +31,7 @@ export function createUserConfig({ basePath, port = 3000, define = {} }: Props):
     },
     server: {
       port,
-      host: 'localhost',
+      host: true,
       open: true,
     },
     resolve: {
