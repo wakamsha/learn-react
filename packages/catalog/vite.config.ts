@@ -13,7 +13,7 @@ export default defineConfig(({ mode }): UserConfig => {
 
   return createUserConfig({
     basePath: __dirname,
-    port: 4001,
+    port: 3010,
     define: {
       ENV: JSON.stringify({ ENV_TARGET, ENV_VARIANT }),
     },
