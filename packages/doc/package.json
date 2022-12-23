@@ -1,6 +1,6 @@
 {
   "name": "@learn-react/doc",
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@3.3.1",
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
