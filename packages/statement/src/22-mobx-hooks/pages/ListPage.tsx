@@ -26,7 +26,7 @@ export const ListPage = () => {
 const styleBase = css`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   padding: ${gutter(4)};
 `;
 

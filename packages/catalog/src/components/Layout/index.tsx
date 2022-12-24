@@ -19,7 +19,7 @@ const styleBase = css`
   display: grid;
   grid-template-columns: auto 1fr;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
 `;
 
 const styleNavigationWrapper = css`

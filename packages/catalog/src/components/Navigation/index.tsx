@@ -90,7 +90,7 @@ const styleBase = css`
   display: grid;
   flex-shrink: 0;
   grid-template-rows: auto auto 1fr;
-  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};
   border-right: 1px solid ${cssVar('LineNeutral')};
