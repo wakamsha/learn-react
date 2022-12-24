@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 import type { ChangeEvent, MouseEvent } from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSpy } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 import { useScrollTo } from '../useScrollTo';
@@ -14,9 +14,11 @@ export const Story = () => {
 
   const [offset, setOffset] = useState(0);
 
-  const spy = useSpy(offset);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollTo = useScrollTo(spy.ref, { offset });
+  const spy = useSpy({ rootRef: scrollRef, offset });
+
+  const scrollTo = useScrollTo(scrollRef, { offset });
 
   const onSpyChange = (e: HTMLElement) => {
     if (!e.dataset?.spy) return;
@@ -33,6 +35,11 @@ export const Story = () => {
   const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
     setOffset(Number(e.target.value));
   };
+
+  spy(
+    e => [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    onSpyChange,
+  );
 
   return (
     <div className={styleWrapper}>
@@ -54,14 +61,7 @@ export const Story = () => {
         </label>
       </div>
 
-      <div
-        ref={spy(
-          e => [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
-          onSpyChange,
-        )}
-        className={styleRoot}
-        style={{ gridArea: 'content' }}
-      >
+      <div ref={scrollRef} className={styleRoot} style={{ gridArea: 'content' }}>
         {fruits.map(name => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>

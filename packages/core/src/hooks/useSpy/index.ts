@@ -1,8 +1,22 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import type { RefObject } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
-type Container = Element | Window | null;
+type Props = {
+  /**
+   * ターゲットが見えるかどうかを確認するためのビューポートとして使用される要素。
+   * 未指定の場合は既定でブラウザのビューポート ( document.body ) が使用されます。
+   */
+  rootRef?: RefObject<Element>;
 
-type Selector = string | ((container: Element) => ArrayLike<Element>);
+  /**
+   * ターゲット要素がコンテナ要素の境界を超えてからイベント発火するまでのオフセット値 ( px ) 。
+   *
+   * @default 0
+   */
+  offset?: number;
+};
+
+type Selector = string | ((container: Element | Document) => ArrayLike<Element>);
 
 type Callback = (element: HTMLElement, index: number) => void;
 
@@ -10,58 +24,39 @@ type Callback = (element: HTMLElement, index: number) => void;
  * コンテナ要素のスクロール位置を監視し、
  * 任意の子要素のうちどの子要素がビューポート内でアクティブなのかを示すのに使います。
  *
- * 監視する対象の `container` 要素は、戻り値である関数の戻り値の `ref` に設定します。
- *
- * @remarks
- * Element ref の代わりに `window` を渡すと `document.body` のスクロールを監視します。
- *
- * @param offset ターゲット要素がコンテナ要素の境界を超えてからイベント発火するまでのオフセット値 ( px ) 。
+ * @param params
  *
  * @example
  * ```tsx
- * const spy = useSpy();
+ * const ref = useRef<HTMLDivElement>(null);
+ * const spy = useSpy({ rootRef: ref });
  *
- * // #wrapper が container 要素
- * <div
- *   id="wrapper"
- *   ref={spy('.foo', (el, i) => {
- *     console.log(`${i} 番目のターゲット要素 .foo がスクロールによって #wrapper の境界を超えました`, el);
- *   })}
- * >
+ * spy('.foo', (el, i) => {
+ *   console.log(`${i} 番目のターゲット要素 .foo がスクロールによって #wrapper の境界を超えました`, el);
+ * });
+ *
+ * // #wrapper が Root 要素
+ * <div id="wrapper" ref={ref}>
  *   <div className=".foo"></div>
  *   <div className=".bar"></div>
  *   <div className=".foo"></div>
  * </div>
  * ```
  */
-export function useSpy(offset = 0) {
-  const [container, setContainer] = useState<Container>(null);
-
-  const containerRef = useRef<Container>(null);
+export function useSpy({ rootRef, offset = 0 }: Props) {
   const selectorRef = useRef<Selector>();
   const callbackRef = useRef<Callback>();
 
-  const spy = useMemo(() => {
-    const spy = (selector: Selector, callback?: Callback) => {
+  const spy = useMemo(
+    () => (selector: Selector, callback?: Callback) => {
       selectorRef.current = selector;
       callbackRef.current = callback;
-
-      return (element: Container) => {
-        if (!element) return;
-
-        setContainer(element);
-        containerRef.current = element;
-      };
-    };
-    spy.ref = containerRef;
-
-    return spy;
-  }, []);
-
-  const targetRef = useRef<Element>();
+    },
+    [],
+  );
 
   useEffect(() => {
-    if (!container) return;
+    const root = rootRef?.current ?? document;
 
     const selector = selectorRef.current;
     if (!selector) return;
@@ -69,31 +64,29 @@ export function useSpy(offset = 0) {
     const onScroll = () => {
       if (!callbackRef.current) return;
 
-      const targets =
-        typeof selector === 'string'
-          ? (container instanceof Window ? container.document.body : container).querySelectorAll(selector)
-          : selector(container instanceof Window ? container.document.body : container);
-      if (!targets) return;
+      const targets = typeof selector === 'string' ? root.querySelectorAll(selector) : selector(root);
 
-      const [newTarget, index] = findTargetByTopPosition(targets, topOf(container) - offset + 10);
-      if (!newTarget || newTarget === targetRef.current) return;
+      let target: Element | undefined;
 
-      targetRef.current = newTarget;
+      const [newTarget, index] = findTargetByTopPosition(targets, topOf(root) - offset + 10);
+      if (!newTarget || newTarget === target) return;
+
+      target = newTarget;
       callbackRef.current(newTarget, index);
     };
 
-    container.addEventListener('scroll', onScroll);
+    root.addEventListener('scroll', onScroll);
 
     return () => {
-      container.removeEventListener('scroll', onScroll);
+      root.removeEventListener('scroll', onScroll);
     };
-  }, [container, offset]);
+  }, [offset, rootRef]);
 
   return spy;
 }
 
-function topOf(e: Element | Window) {
-  return e instanceof Window ? 0 : e.getBoundingClientRect().top;
+function topOf(e: Element | Document) {
+  return e instanceof Document ? 0 : e.getBoundingClientRect().top;
 }
 
 function findTargetByTopPosition(targets: ArrayLike<Element>, y: number) {
