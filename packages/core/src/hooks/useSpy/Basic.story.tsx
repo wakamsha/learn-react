@@ -1,27 +1,37 @@
 import { css } from '@linaria/core';
 import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSpy } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 
 export const Story = () => {
   const fruits = ['apple', 'orange', 'rotten apple', 'banana', 'cherry'];
 
+  const rootRef = useRef<HTMLDivElement>(null);
+
   const [spyKey, setSpyKey] = useState('');
 
   const [offset, setOffset] = useState(0);
 
-  const spy = useSpy(offset);
+  const spy = useSpy({ rootRef, offset });
 
   const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
     setOffset(Number(e.target.value));
   };
 
-  const onSpyChange = (e: HTMLElement) => {
+  const onSpyChange = (e: HTMLElement, index: number) => {
     if (!e.dataset?.spy) return;
+    console.info(index, e.dataset.spy);
 
     setSpyKey(e.dataset.spy);
   };
+
+  spy(
+    // spy('[data-spy]', onSpyChange) のようにセレクターに文字列だけ渡すこともできるが、
+    // このような高度な選び方も可能。
+    e => [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    onSpyChange,
+  );
 
   return (
     <div className={styleWrapper}>
@@ -34,19 +44,7 @@ export const Story = () => {
         </label>
       </div>
 
-      <div
-        ref={
-          // spy('[data-spy]', onSpyChange) のようにセレクターに文字列だけ渡すこともできるが、
-          // このような高度な選び方も可能。
-          spy(
-            e =>
-              [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
-            onSpyChange,
-          )
-        }
-        className={styleRoot}
-        style={{ gridArea: 'content' }}
-      >
+      <div ref={rootRef} className={styleRoot} style={{ gridArea: 'content' }}>
         {fruits.map(name => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>
