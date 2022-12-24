@@ -55,6 +55,6 @@ const baseStyle = css`
 
 const contentStyle = css`
   flex-grow: 1;
-  height: 100vh;
+  height: 100dvh;
   padding: ${gutter(4)};
 `;

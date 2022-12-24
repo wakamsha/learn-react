@@ -59,7 +59,7 @@ export const Story = () => {
       </Modal>
 
       <Modal visible={visible3} onClickOutside={handleToggle3}>
-        <Card maxWidth={400} maxHeight={`calc(100vh - ${gutter(20)})`}>
+        <Card maxWidth={400} maxHeight={`calc(100dvh - ${gutter(20)})`}>
           <Card.Header>
             <h1>ポラーノの広場</h1>
           </Card.Header>

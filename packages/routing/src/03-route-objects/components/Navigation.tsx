@@ -17,7 +17,7 @@ export const Navigation = () => (
 );
 
 const styleBase = css`
-  height: 100vh;
+  height: 100dvh;
   padding: ${gutter(4)} 0;
   margin: 0;
   list-style: none;

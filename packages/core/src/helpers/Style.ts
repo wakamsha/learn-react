@@ -106,7 +106,7 @@ export function applyResetStyle() {
         scroll-behavior: smooth;
       }
       body {
-        min-height: 100vh;
+        min-height: 100dvh;
         text-rendering: optimizeSpeed;
         line-height: 1.5;
       }

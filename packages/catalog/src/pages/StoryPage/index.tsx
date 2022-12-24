@@ -68,7 +68,7 @@ const Presentation = () => {
 
 const styleBase = css`
   display: flex;
-  height: 100vh;
+  height: 100dvh;
   color: ${cssVar('TextNeutral')};
   background-color: ${cssVar('TextureBody')};
 `;
