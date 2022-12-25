@@ -3,9 +3,9 @@ import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { useEffect, useRef, useState } from 'react';
 import { Layout } from './VO';
 
-const storageKey = 'LAYOUT';
+const storageKey = 'STORY_PAGE_LAYOUT';
 
-const useLayoutConfig = () => {
+function useHook() {
   const storage = useRef(new StorageProxy('localStorage'));
 
   const [layoutConfig, setLayoutConfig] = useState<Layout>(
@@ -19,6 +19,6 @@ const useLayoutConfig = () => {
   }, [layoutConfig]);
 
   return { layoutConfig, setLayoutConfig };
-};
+}
 
-export const LayoutConfigContainer = createContainer(useLayoutConfig);
+export const LayoutConfigContainer = createContainer(useHook);
