@@ -1,47 +1,55 @@
 import { IconButton } from '@learn-react/core/components/inputs/IconButton';
 import { Duration, Easing } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import type { IconName } from '@learn-react/icon';
 import type { LinariaClassName } from '@linaria/core';
 import { css, cx } from '@linaria/core';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { Navigation } from '../Navigation';
+import { LayoutConfigContainer } from './ConfigContainer';
+import { LayoutMode } from './VO';
 
 type Props = {
   children: ReactNode;
 };
 
-type LayoutMode = 'neutral' | 'zen';
+export const Layout = ({ children }: Props) => (
+  <LayoutConfigContainer.Provider>
+    <Presentation>{children}</Presentation>
+  </LayoutConfigContainer.Provider>
+);
 
-export const Layout = ({ children }: Props) => {
-  const [layoutMode, setLayoutMode] = useState<LayoutMode>('neutral');
+const Presentation = ({ children }: Props) => {
+  const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
   const [disabled, setDisabled] = useState(false);
 
+  const iconNames: Frozen<LayoutMode, IconName> = {
+    [LayoutMode.Neutral]: 'arrow-left',
+    [LayoutMode.Zen]: 'list',
+  };
+
   const handleClickToggle = () => {
-    setLayoutMode(mode => (mode === 'neutral' ? 'zen' : 'neutral'));
+    setLayoutConfig(mode => (mode === LayoutMode.Neutral ? LayoutMode.Zen : LayoutMode.Neutral));
   };
 
   useEffect(() => {
-    if (layoutMode !== 'zen') return;
+    if (layoutConfig !== LayoutMode.Zen) return;
     // layoutMode を `zen` にした際に強制的に閉じるための処理。
     // DOM を非活性化 ( pointer-events: none ) することで、ポインタのホバー状態を擬似的に無効化する。
     setDisabled(true);
     window.setTimeout(() => {
       setDisabled(false);
     }, delayTime * 2);
-  }, [layoutMode]);
+  }, [layoutConfig]);
 
   return (
-    <div className={styleBase[layoutMode]}>
-      <div className={styleNavigationWrapper[layoutMode]} aria-disabled={disabled}>
+    <div className={styleBase[layoutConfig]}>
+      <div className={styleNavigationWrapper[layoutConfig]} aria-disabled={disabled}>
         <Navigation />
-        <div className={styleToggleButtonWrapper[layoutMode]}>
-          <IconButton
-            name={layoutMode === 'neutral' ? 'arrow-left' : 'list'}
-            variant="bare"
-            onClick={handleClickToggle}
-          />
+        <div className={styleToggleButtonWrapper[layoutConfig]}>
+          <IconButton name={iconNames[layoutConfig]} variant="bare" onClick={handleClickToggle} />
         </div>
       </div>
 
@@ -61,13 +69,13 @@ const styleBaseBase = css`
 `;
 
 const styleBase: Frozen<LayoutMode, LinariaClassName> = {
-  neutral: cx(
+  [LayoutMode.Neutral]: cx(
     styleBaseBase,
     css`
       padding-left: ${navigationWidth}px;
     `,
   ),
-  zen: cx(
+  [LayoutMode.Zen]: cx(
     styleBaseBase,
     css`
       padding-left: ${navigationGutter}px;
@@ -86,14 +94,14 @@ const styleNavigationWrapperBase = css`
 `;
 
 const styleNavigationWrapper: Frozen<LayoutMode, LinariaClassName> = {
-  neutral: cx(
+  [LayoutMode.Neutral]: cx(
     styleNavigationWrapperBase,
     css`
       left: 0;
       width: ${navigationWidth}px;
     `,
   ),
-  zen: cx(
+  [LayoutMode.Zen]: cx(
     styleNavigationWrapperBase,
     css`
       left: -${navigationWidth}px;
@@ -118,13 +126,13 @@ const styleToggleButtonWrapperBase = css`
 `;
 
 const styleToggleButtonWrapper: Frozen<LayoutMode, LinariaClassName> = {
-  neutral: cx(
+  [LayoutMode.Neutral]: cx(
     styleToggleButtonWrapperBase,
     css`
       left: calc(${navigationWidth}px - ${gutter(4)} - 32px);
     `,
   ),
-  zen: cx(
+  [LayoutMode.Zen]: cx(
     styleToggleButtonWrapperBase,
     css`
       left: ${gutter(2)};
