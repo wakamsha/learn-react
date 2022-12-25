@@ -43,7 +43,9 @@ type Callback = (element: HTMLElement, index: number) => void;
  * </div>
  * ```
  */
-export function useSpy({ rootRef, offset = 0 }: Props) {
+export function useSpy(props?: Props) {
+  const { rootRef, offset = 0 } = props ?? {};
+
   const selectorRef = useRef<Selector>();
   const callbackRef = useRef<Callback>();
 

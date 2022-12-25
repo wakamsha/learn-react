@@ -12,9 +12,10 @@ export const Story = () => {
   const [offset, setOffset] = useState(0);
   const [scrollBehavior, setScrollBehavior] = useState<'auto' | 'smooth'>('smooth');
 
-  const ref = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
-  const scrollTo = useScrollTo(ref, {
+  const scrollTo = useScrollTo({
+    rootRef,
     offset,
     behavior: scrollBehavior,
   });
@@ -22,11 +23,10 @@ export const Story = () => {
   const handleSelectNav = (e: MouseEvent<HTMLAnchorElement>, name: string) => {
     e.preventDefault();
 
-    setTarget(name);
     scrollTo(
-      e => e.querySelector(`[data-spy="${name}"]`),
+      root => root.querySelector(`[data-spy="${name}"]`),
       () => {
-        console.info(`scroll end: ${name}`);
+        setTarget(name);
       },
     );
   };
@@ -84,7 +84,7 @@ export const Story = () => {
         </div>
       </div>
 
-      <div ref={ref} className={styleRoot} style={{ gridArea: 'content' }}>
+      <div ref={rootRef} className={styleRoot} style={{ gridArea: 'content' }}>
         {fruits.map(name => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>

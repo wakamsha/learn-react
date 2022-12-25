@@ -14,11 +14,11 @@ export const Story = () => {
 
   const [offset, setOffset] = useState(0);
 
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
-  const spy = useSpy({ rootRef: scrollRef, offset });
+  const spy = useSpy({ rootRef, offset });
 
-  const scrollTo = useScrollTo(scrollRef, { offset });
+  const scrollTo = useScrollTo({ rootRef, offset });
 
   const onSpyChange = (e: HTMLElement) => {
     if (!e.dataset?.spy) return;
@@ -29,7 +29,7 @@ export const Story = () => {
     e.preventDefault();
 
     setTarget(name);
-    scrollTo(e => e.querySelector(`[data-spy="${name}"]`));
+    scrollTo(root => root.querySelector(`[data-spy="${name}"]`));
   };
 
   const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ export const Story = () => {
   };
 
   spy(
-    e => [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    root => [...root.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
     onSpyChange,
   );
 
@@ -61,7 +61,7 @@ export const Story = () => {
         </label>
       </div>
 
-      <div ref={scrollRef} className={styleRoot} style={{ gridArea: 'content' }}>
+      <div ref={rootRef} className={styleRoot} style={{ gridArea: 'content' }}>
         {fruits.map(name => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>

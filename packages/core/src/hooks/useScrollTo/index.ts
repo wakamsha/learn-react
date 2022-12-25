@@ -1,11 +1,13 @@
 import type { RefObject } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-type Selector = string | ((container: Element) => Element | null);
+type Props = {
+  /**
+   * スクロール操作の対象となるルート要素。
+   * 未指定の場合は既定でブラウザのビューポート ( `window` )が使用されます。
+   */
+  rootRef?: RefObject<Element>;
 
-type Callback = () => void;
-
-type Option = {
   /**
    * コンテナ要素のスクロールの停止位置を調整するのに使います ( px )。
    * マイナス値を指定すると本来の位置よりも手前で停止します。
@@ -13,6 +15,7 @@ type Option = {
    * @default 0
    */
   offset?: number;
+
   /**
    * スクロールの振る舞いを設定します。
    *
@@ -24,16 +27,32 @@ type Option = {
   behavior?: 'auto' | 'smooth';
 };
 
+type Selector = string | ((container: Element) => Element | null);
+
+/**
+ * スクロール処理完了時に呼び出すコールバック関数。
+ */
+type Callback = () => void;
+
 /**
  * コンテナ要素のスクロールを外部から操作するのに使います。
  *
- * @param containerRef 操作対象となるコンテナ要素
- * @param option
+ * `scrollTo` の第二引数にコールバック関数を渡すことができます。
+ * そのコールバック関数はスクロール処理完了時に呼び出されます。
+ *
+ * @param params
  *
  * @example
  * ```tsx
- * const scrollTo = useScrollTo(containerRef);
+ * const ref = useRef<HTMLDivElement>(null);
+ * const scrollTo = useScrollTo({ rootRef: ref });
+ *
  * scrollTo('.foo');
+ *
+ * // #wrapper が root 要素
+ * <div id="wrapper" ref={ref}>
+ *   <div className=".foo"></div>
+ * </div>
  * ```
  *
  * ```text
@@ -48,26 +67,26 @@ type Option = {
  * +---------------+     +---------------+
  * ```
  */
-export function useScrollTo(containerRef: RefObject<Element | Window | null>, option?: Option) {
-  const { offset = 0, behavior = 'smooth' } = option ?? {};
+export function useScrollTo(props?: Props) {
+  const { rootRef, offset = 0, behavior = 'smooth' } = props ?? {};
+
+  const callbackRef = useRef<Callback>();
 
   const [to, setTo] = useState(Infinity);
-  const callbackRef = useRef<Callback>();
 
   const scrollTo = useCallback(
     (selector: Selector, callback?: Callback) => {
-      const container = containerRef.current;
-      if (!container) return;
+      const root = rootRef?.current ?? window;
 
       const target =
         typeof selector === 'string'
-          ? (container instanceof Window ? container.document.body : container).querySelector(selector)
-          : selector(container instanceof Window ? container.document.body : container);
+          ? (root instanceof Window ? root.document.body : root).querySelector(selector)
+          : selector(root instanceof Window ? root.document.body : root);
       if (!target) return;
 
-      const to = target.getBoundingClientRect().top + scrollTopOf(container) - topOf(container) + offset;
+      const to = target.getBoundingClientRect().top + scrollTopOf(root) - topOf(root) + offset;
 
-      container.scrollTo({
+      root.scrollTo({
         top: to,
         behavior,
       });
@@ -75,27 +94,26 @@ export function useScrollTo(containerRef: RefObject<Element | Window | null>, op
       setTo(to);
       callbackRef.current = callback;
     },
-    [behavior, containerRef, offset],
+    [behavior, rootRef, offset],
   );
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const root = rootRef?.current ?? window;
 
     const onScroll = () => {
-      if (scrollTopOf(container) === to && callbackRef.current) {
-        container.removeEventListener('scroll', onScroll);
+      if (scrollTopOf(root) === to && callbackRef.current) {
+        root.removeEventListener('scroll', onScroll);
         setTo(Infinity);
         callbackRef.current();
       }
     };
 
-    container.addEventListener('scroll', onScroll);
+    root.addEventListener('scroll', onScroll);
 
     return () => {
-      container.removeEventListener('scroll', onScroll);
+      root.removeEventListener('scroll', onScroll);
     };
-  }, [containerRef, to]);
+  }, [rootRef, to]);
 
   return scrollTo;
 }
@@ -105,9 +123,5 @@ function topOf(e: Element | Window) {
 }
 
 function scrollTopOf(e: Element | Window) {
-  if (e instanceof Window) {
-    return document.documentElement.scrollTop || document.body.scrollTop;
-  }
-
-  return e.scrollTop;
+  return e instanceof Window ? document.documentElement.scrollTop : e.scrollTop;
 }
