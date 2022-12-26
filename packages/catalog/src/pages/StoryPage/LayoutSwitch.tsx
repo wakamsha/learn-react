@@ -7,21 +7,20 @@ import { Layout } from './VO';
 export const LayoutSwitch = () => {
   const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) =>
-    setLayoutConfig(Number(e.currentTarget.dataset.layout) as Layout);
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => setLayoutConfig(e.currentTarget.dataset.layout as Layout);
 
   return (
     <div role="menubar" className={styleBase}>
       <button
-        className={cx(styleVariant[Layout.Column], layoutConfig === Layout.Column && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Horizontal], layoutConfig === Layout.Horizontal && styleButtonSelected)}
         role="menuitem"
-        data-layout={Layout.Column}
+        data-layout={Layout.Horizontal}
         onClick={handleClick}
       />
       <button
-        className={cx(styleVariant[Layout.Row], layoutConfig === Layout.Row && styleButtonSelected)}
+        className={cx(styleVariant[Layout.Vertical], layoutConfig === Layout.Vertical && styleButtonSelected)}
         role="menuitem"
-        data-layout={Layout.Row}
+        data-layout={Layout.Vertical}
         onClick={handleClick}
       />
       <button
@@ -82,7 +81,7 @@ const styleButtonSelected = css`
 `;
 
 const styleVariant: Frozen<Layout, string> = {
-  [Layout.Column]: cx(
+  [Layout.Horizontal]: cx(
     styleButton,
     css`
       &::before,
@@ -96,7 +95,7 @@ const styleVariant: Frozen<Layout, string> = {
       }
     `,
   ),
-  [Layout.Row]: cx(
+  [Layout.Vertical]: cx(
     styleButton,
     css`
       flex-direction: column;
