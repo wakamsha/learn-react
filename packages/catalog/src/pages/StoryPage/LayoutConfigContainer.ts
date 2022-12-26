@@ -9,9 +9,7 @@ function useHook() {
   const storage = useRef(new StorageProxy('localStorage'));
 
   const [layoutConfig, setLayoutConfig] = useState<Layout>(
-    storage.current.getValue(storageKey) === '' || Number.isNaN(storage.current.getValue(storageKey))
-      ? Layout.Column
-      : (Number(storage.current.getValue(storageKey)) as Layout),
+    storage.current.getValue(storageKey) === '' ? Layout.Horizontal : (storage.current.getValue(storageKey) as Layout),
   );
 
   useEffect(() => {

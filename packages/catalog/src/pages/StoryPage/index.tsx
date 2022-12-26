@@ -1,7 +1,8 @@
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
+import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
 import { BorderRadius, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
-import { css, cx } from '@linaria/core';
+import { css } from '@linaria/core';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
@@ -44,22 +45,30 @@ const Presentation = () => {
   return (
     <>
       <DocumentTitle title={storyParams.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
-      <div className={styleLayout[layoutConfig]}>
-        <section className={stylePreview}>
-          <header className={styleHeader}>
-            <small>{`@learn-react/${storyParams.join('/')}`}</small>
-            <h1>{storyParams.slice(-1)[0]}</h1>
-          </header>
-          <Component />
-        </section>
 
-        {layoutConfig !== Layout.Zen ? (
-          <aside className={styleCodeBlock}>
-            <div className={styleCodeBlockBody}>
-              <CodeBlock>{sourceCode}</CodeBlock>
-            </div>
-          </aside>
-        ) : null}
+      <div className={styleBase}>
+        <SplitPane
+          primary="second"
+          defaultSize="40%"
+          minSize="20%"
+          maxSize="80%"
+          orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
+        >
+          <section className={stylePreview}>
+            <header className={styleHeader}>
+              <h1>{`@learn-react/${storyParams.join('/')}`}</h1>
+            </header>
+            <Component />
+          </section>
+
+          {layoutConfig !== Layout.Zen ? (
+            <aside className={styleCodeBlock}>
+              <div className={styleCodeBlockBody}>
+                <CodeBlock>{sourceCode}</CodeBlock>
+              </div>
+            </aside>
+          ) : null}
+        </SplitPane>
       </div>
       <LayoutSwitch />
     </>
@@ -67,41 +76,11 @@ const Presentation = () => {
 };
 
 const styleBase = css`
-  display: flex;
   height: 100dvh;
+  overflow: auto;
   color: ${cssVar('TextNeutral')};
   background-color: ${cssVar('TextureBody')};
 `;
-
-const styleLayout: Frozen<Layout, string> = {
-  [Layout.Column]: cx(
-    styleBase,
-    css`
-      > :first-child {
-        width: 60%;
-      }
-
-      > :last-child {
-        width: 40%;
-      }
-    `,
-  ),
-  [Layout.Row]: cx(
-    styleBase,
-    css`
-      flex-direction: column;
-
-      > :first-child {
-        height: 60%;
-      }
-
-      > :last-child {
-        height: 40%;
-      }
-    `,
-  ),
-  [Layout.Zen]: styleBase,
-};
 
 const styleHeader = css`
   display: grid;
@@ -110,22 +89,17 @@ const styleHeader = css`
   margin: 0 0 ${gutter(8)};
   line-height: ${LineHeight.Compressed};
 
-  > small {
+  > h1 {
     font-family: ${FontFamily.Monospace};
     font-size: ${FontSize.Small};
     color: ${cssVar('TextSub')};
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-
-  > h1 {
-    margin: 0;
-    font-size: 24px;
-  }
 `;
 
 const stylePreview = css`
-  flex: 1 0 60%;
+  height: 100%;
   padding: ${gutter(4)} ${gutter(6)};
   overflow-y: auto;
 
@@ -161,12 +135,11 @@ const stylePreview = css`
 `;
 
 const styleCodeBlock = css`
-  display: flex;
-  flex: 1 0 40%;
+  height: 100%;
   background-color: #282c34;
 `;
 
 const styleCodeBlockBody = css`
-  flex: 1 1 100%;
+  height: 100%;
   overflow: auto;
 `;

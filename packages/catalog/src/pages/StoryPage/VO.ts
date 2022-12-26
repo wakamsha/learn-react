@@ -1,7 +1,7 @@
 export const Layout = {
-  Column: 1,
-  Row: 2,
-  Zen: 3,
+  Horizontal: 'horizontal',
+  Vertical: 'vertical',
+  Zen: 'zen',
 } as const;
 
 export type Layout = ValueOf<typeof Layout>;
