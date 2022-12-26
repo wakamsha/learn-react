@@ -216,6 +216,7 @@ export const SplitPane = ({
         <Pane ref={pane1} orientation={orientation} size={pane1Size}>
           {nonNullChildren[0]}
         </Pane>
+
         <Splitter
           orientation={orientation}
           grabbed={active}
@@ -223,9 +224,12 @@ export const SplitPane = ({
           onMouseUp={handleMouseUp}
           onDoubleClick={handleDoubleClick}
         />
-        <Pane ref={pane2} orientation={orientation} size={pane2Size}>
-          {nonNullChildren[1]}
-        </Pane>
+
+        {nonNullChildren[1] ? (
+          <Pane ref={pane2} orientation={orientation} size={pane2Size}>
+            {nonNullChildren[1]}
+          </Pane>
+        ) : null}
       </div>
     </div>
   );
@@ -234,6 +238,7 @@ export const SplitPane = ({
 const styleBase = css`
   position: relative;
   width: 100%;
+  height: 100%;
 `;
 
 const styleContainer = css`
