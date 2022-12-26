@@ -3,9 +3,9 @@ import { SplitPane } from '.';
 export const Story = () => (
   <div style={{ height: 480, overflow: 'hidden' }}>
     <SplitPane
-      minSize={100}
-      maxSize={600}
-      defaultSize={240}
+      minSize="100px"
+      maxSize="600px"
+      defaultSize="40%"
       primary="second"
       onStarted={() => console.info('started')}
       onFinished={console.info}

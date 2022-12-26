@@ -7,7 +7,7 @@ type ParentProps = ComponentProps<typeof SplitPane>;
 
 type Props = Required<Pick<ParentProps, 'orientation'>> & {
   children: ReactNode;
-  size?: number;
+  size?: `${number}px` | `${number}%`;
 };
 
 export const Pane = forwardRef(({ orientation, children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
