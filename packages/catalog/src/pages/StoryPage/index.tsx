@@ -56,8 +56,7 @@ const Presentation = () => {
         >
           <section className={stylePreview}>
             <header className={styleHeader}>
-              <small>{`@learn-react/${storyParams.join('/')}`}</small>
-              <h1>{storyParams.slice(-1)[0]}</h1>
+              <h1>{`@learn-react/${storyParams.join('/')}`}</h1>
             </header>
             <Component />
           </section>
@@ -90,17 +89,12 @@ const styleHeader = css`
   margin: 0 0 ${gutter(8)};
   line-height: ${LineHeight.Compressed};
 
-  > small {
+  > h1 {
     font-family: ${FontFamily.Monospace};
     font-size: ${FontSize.Small};
     color: ${cssVar('TextSub')};
     text-transform: uppercase;
     letter-spacing: 1px;
-  }
-
-  > h1 {
-    margin: 0;
-    font-size: 24px;
   }
 `;
 
