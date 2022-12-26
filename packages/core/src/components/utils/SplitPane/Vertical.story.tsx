@@ -4,9 +4,9 @@ export const Story = () => (
   <div style={{ height: 480, overflow: 'hidden' }}>
     <SplitPane
       orientation="vertical"
-      minSize={100}
-      maxSize={360}
-      defaultSize={240}
+      minSize="100px"
+      maxSize="360px"
+      defaultSize="40%"
       onStarted={() => console.info('started')}
       onFinished={console.info}
     >

@@ -4,6 +4,8 @@ import { Children, useRef, useState } from 'react';
 import { Pane } from './Pane';
 import { Splitter } from './Splitter';
 
+type Size = `${number}px` | `${number}%`;
+
 type Props = {
   children: ReactNode;
   /**
@@ -11,6 +13,8 @@ type Props = {
    *
    * - horizontal: 水平方向
    * - vertical: 垂直方向
+   *
+   * @default 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical';
   /**
@@ -18,33 +22,37 @@ type Props = {
    *
    * このプロパティで指定された Pane に対しサイズ計算が適用され、
    * もう一方は全体サイズのうちの残りの分が割り当てられます。
+   *
+   * @default 'first'
    */
   primary?: 'first' | 'second';
   /**
-   * 最小サイズ ( px )
+   * 最小サイズ ( px | % )
    *
    * `primary` で指定された Pane に対し適用されます。
+   *
+   * @default '50px'
    */
-  minSize?: number;
+  minSize?: Size;
   /**
-   * 最大サイズ ( px )
+   * 最大サイズ ( px | % )
    *
    * `primary` で指定された Pane に対し適用されます。
    */
-  maxSize?: number;
+  maxSize?: Size;
   /**
-   * 初期サイズ ( px )
+   * 初期サイズ ( px | % )
    *
    * `primary` で指定された Pane に対し適用されます。
    */
-  defaultSize?: number;
+  defaultSize?: Size;
   onStarted?: () => void;
   /**
-   * ドラッグ操作中の `primary` 指定した Pane のサイズを返します。
+   * ドラッグ操作中の `primary` 指定した Pane のサイズ (px) を返します。
    */
   onChange?: (newSize: number) => void;
   /**
-   * ドラッグ操作を終えた時点での `primary` 指定した Pane のサイズを返します。
+   * ドラッグ操作を終えた時点での `primary` 指定した Pane のサイズ (px) を返します。
    */
   onFinished?: (draggedSize: number) => void;
 };
@@ -58,7 +66,7 @@ export const SplitPane = ({
   children,
   orientation = 'horizontal',
   primary = 'first',
-  minSize = 50,
+  minSize = '50px',
   maxSize,
   defaultSize,
   onStarted,
@@ -73,13 +81,15 @@ export const SplitPane = ({
 
   const pane2 = useRef<HTMLDivElement>(null);
 
-  // ドラッグ操作中かどうかを示すフラグ
+  // ドラッグ操作中かどうかを示すフラグ。
   const [active, setActive] = useState(false);
 
   const [pane1Size, setPane1Size] = useState(primary === 'first' ? initialSize : undefined);
 
   const [pane2Size, setPane2Size] = useState(primary === 'second' ? initialSize : undefined);
 
+  // ドラッグ操作後のサイズ。
+  // `onFinished` コールバック関数の引数として使う。
   const [draggedSize, setDraggedSize] = useState(initialSize);
 
   const [position, setPosition] = useState(0);
@@ -114,20 +124,20 @@ export const SplitPane = ({
 
     unFocus();
 
-    const [ref, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
+    const [ref1, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
 
-    const { width, height } = ref.getBoundingClientRect();
+    const { width, height } = ref1.getBoundingClientRect();
     const [current, size] = orientation === 'horizontal' ? [e.clientX, width] : [e.clientY, height];
     const positionDelta = position - current;
     let sizeDelta = positionDelta * (primary === 'first' ? 1 : -1);
 
-    const pane1Order = parseInt(window.getComputedStyle(ref).order, 10);
+    const pane1Order = parseInt(window.getComputedStyle(ref1).order, 10);
     const pane2Order = parseInt(window.getComputedStyle(ref2).order, 10);
     if (pane1Order > pane2Order) {
       sizeDelta = -sizeDelta;
     }
 
-    let newMaxSize = maxSize;
+    let newMaxSize = maxSize && numberAsPixelOf(maxSize);
     if (typeof maxSize === 'number' && maxSize <= 0) {
       const { width, height } = container.current.getBoundingClientRect();
       newMaxSize = maxSize + (orientation === 'horizontal' ? width : height);
@@ -135,9 +145,10 @@ export const SplitPane = ({
 
     let newSize = size - sizeDelta;
     const newPosition = position - positionDelta;
+    const numAsPixelOfMinSize = numberAsPixelOf(minSize);
 
-    if (newSize < minSize) {
-      newSize = minSize;
+    if (newSize < numAsPixelOfMinSize) {
+      newSize = numAsPixelOfMinSize;
     } else if (typeof newMaxSize === 'number' && newSize > newMaxSize) {
       newSize = newMaxSize;
     } else {
@@ -146,14 +157,14 @@ export const SplitPane = ({
 
     onChange?.(newSize);
 
-    setDraggedSize(newSize);
-    primary === 'first' ? setPane1Size(newSize) : setPane2Size(newSize);
+    setDraggedSize(`${newSize}px`);
+    primary === 'first' ? setPane1Size(`${newSize}px`) : setPane2Size(`${newSize}px`);
   };
 
   const handleMouseUp = () => {
     if (!active) return;
 
-    onFinished?.(draggedSize);
+    onFinished?.(numberAsPixelOf(draggedSize));
     setActive(false);
   };
 
@@ -162,16 +173,37 @@ export const SplitPane = ({
 
     primary === 'first' ? setPane1Size(initialSize) : setPane2Size(initialSize);
 
-    onChange?.(initialSize);
+    onChange?.(numberAsPixelOf(initialSize));
 
     setDraggedSize(initialSize);
+  };
+
+  /**
+   * Size 型の値を実際の px 値に変換します。
+   *
+   * @param size
+   * @returns 変換後の px 値。
+   */
+  const numberAsPixelOf = (size: Size): number => {
+    if (/\d+px/.test(size)) {
+      return Number(size.replace('px', ''));
+    }
+
+    if (!container.current) return 0;
+    const ratio = Number(size.replace('%', '')) / 100;
+    switch (orientation) {
+      case 'horizontal':
+        return container.current.clientWidth * ratio;
+      case 'vertical':
+        return container.current.clientHeight * ratio;
+    }
   };
 
   const nonNullChildren = Children.toArray(children).filter(c => !!c);
 
   return (
     <div className={styleBase}>
-      <div aria-orientation={orientation} className={styleGrid} ref={container}>
+      <div aria-orientation={orientation} className={styleContainer} ref={container}>
         {active ? (
           <div
             role="presentation"
@@ -204,7 +236,7 @@ const styleBase = css`
   width: 100%;
 `;
 
-const styleGrid = css`
+const styleContainer = css`
   display: flex;
   flex: 1 1 100%;
   width: 100%;
