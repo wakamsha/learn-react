@@ -33,25 +33,18 @@ export const LayoutSwitch = () => {
   );
 };
 
-const ICON_SIZE = 18;
+const iconSize = 16;
 
 const styleBase = css`
-  position: fixed;
-  right: ${gutter(4)};
-  bottom: ${gutter(4)};
-  z-index: 1;
   display: flex;
-
-  > :not(:first-child) {
-    margin-left: ${gutter(1)};
-  }
+  gap: ${gutter(1)};
 `;
 
 const styleButton = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px ${gutter(2)};
+  padding: ${gutter(1)};
   cursor: pointer;
   background-color: ${cssVar('ThemePrimaryDark')};
   border: none;
@@ -86,8 +79,8 @@ const styleVariant: Frozen<Layout, string> = {
     css`
       &::before,
       &::after {
-        width: ${(ICON_SIZE - 2) / 2}px;
-        height: ${ICON_SIZE}px;
+        width: ${iconSize / 2}px;
+        height: ${iconSize}px;
       }
 
       > :not(:first-child) {
@@ -101,8 +94,8 @@ const styleVariant: Frozen<Layout, string> = {
       flex-direction: column;
       &::before,
       &::after {
-        width: ${ICON_SIZE}px;
-        height: ${(ICON_SIZE - 2) / 2}px;
+        width: ${iconSize}px;
+        height: ${iconSize / 2}px;
       }
 
       > :not(:first-child) {
@@ -114,7 +107,7 @@ const styleVariant: Frozen<Layout, string> = {
     styleButton,
     css`
       &::before {
-        ${square(20)}
+        ${square(16)}
       }
       &::after {
         content: normal;

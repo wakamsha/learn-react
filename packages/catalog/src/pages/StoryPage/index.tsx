@@ -1,6 +1,6 @@
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
-import { BorderRadius, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
+import { FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
 import type { FC } from 'react';
@@ -25,11 +25,11 @@ type Params = {
 const Presentation = () => {
   const { storyId = '' } = useParams<keyof Params>();
 
-  const storyParams = storyId.split('__');
-
   const { layoutConfig } = LayoutConfigContainer.useContainer();
 
-  const { Component, sourceCode } = useMemo(() => {
+  const storyParams = storyId.split('__');
+
+  const { sourceCode } = useMemo(() => {
     let snapShot: any = stories;
 
     for (let i = 0; i < storyParams.length; i++) {
@@ -47,91 +47,73 @@ const Presentation = () => {
       <DocumentTitle title={storyParams.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <div className={styleBase}>
-        <SplitPane
-          primary="second"
-          defaultSize="40%"
-          minSize="20%"
-          maxSize="80%"
-          orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
-        >
-          <section className={stylePreview}>
-            <header className={styleHeader}>
-              <h1>{`@learn-react/${storyParams.join('/')}`}</h1>
-            </header>
-            <Component />
-          </section>
+        <header className={styleHeader}>
+          <h1 className={styleTitle}>{`@learn-react/${storyParams.join('/')}`}</h1>
+          <LayoutSwitch />
+        </header>
 
-          {layoutConfig !== Layout.Zen ? (
-            <aside className={styleCodeBlock}>
-              <div className={styleCodeBlockBody}>
-                <CodeBlock>{sourceCode}</CodeBlock>
-              </div>
-            </aside>
-          ) : null}
-        </SplitPane>
+        <div className={styleBody}>
+          <SplitPane
+            primary="second"
+            defaultSize="40%"
+            minSize="20%"
+            maxSize="80%"
+            orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
+          >
+            <iframe
+              src={`/preview.html?storyId=${storyId}`}
+              title={storyParams.slice().reverse().join(' | ')}
+              className={stylePreview}
+              sandbox="allow-scripts"
+            />
+
+            {layoutConfig !== Layout.Zen ? (
+              <aside className={styleCodeBlock}>
+                <div className={styleCodeBlockBody}>
+                  <CodeBlock>{sourceCode}</CodeBlock>
+                </div>
+              </aside>
+            ) : null}
+          </SplitPane>
+        </div>
       </div>
-      <LayoutSwitch />
     </>
   );
 };
 
 const styleBase = css`
+  display: grid;
+  grid-template-rows: auto 1fr;
   height: 100dvh;
-  overflow: auto;
+  overflow: hidden;
   color: ${cssVar('TextNeutral')};
   background-color: ${cssVar('TextureBody')};
 `;
 
 const styleHeader = css`
-  display: grid;
-  flex-direction: column;
-  grid-gap: ${gutter(2)};
-  margin: 0 0 ${gutter(8)};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${gutter(2)} ${gutter(6)};
   line-height: ${LineHeight.Compressed};
-
-  > h1 {
-    font-family: ${FontFamily.Monospace};
-    font-size: ${FontSize.Small};
-    color: ${cssVar('TextSub')};
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
 `;
 
+const styleTitle = css`
+  font-family: ${FontFamily.Monospace};
+  font-size: ${FontSize.Small};
+  font-weight: normal;
+  color: ${cssVar('TextSub')};
+  letter-spacing: 1px;
+`;
+
+const styleBody = css`
+  overflow: hidden;
+`;
 const stylePreview = css`
+  display: block;
+  width: 100%;
   height: 100%;
-  padding: ${gutter(4)} ${gutter(6)};
-  overflow-y: auto;
-
-  > h2,
-  > h3,
-  > h4 {
-    margin: 2em 0 0.5em;
-  }
-
-  > h2 {
-    font-size: 20px;
-  }
-
-  > hr {
-    margin: ${gutter(6)} 0;
-  }
-
-  pre {
-    display: block;
-    max-width: 100%;
-    padding: ${gutter(4)};
-    margin: ${gutter(6)} 0;
-    overflow: auto;
-    background-color: ${cssVar('TextureInput')};
-    border: 1px solid ${cssVar('LineNeutral')};
-    border-radius: ${BorderRadius.Small};
-
-    > code {
-      font-family: ${FontFamily.Monospace};
-      font-size: ${FontSize.Small};
-    }
-  }
+  border: none;
 `;
 
 const styleCodeBlock = css`
