@@ -48,6 +48,10 @@
     {
       "groupName": "Stylelint families",
       "matchPackagePatterns": ["^stylelint", "^@stylelint", "^postcss"]
+    },
+    {
+      "groupName": "Vite families",
+      "matchPackagePatterns": ["^vite", "^@vitejs"]
     }
   ]
 }
