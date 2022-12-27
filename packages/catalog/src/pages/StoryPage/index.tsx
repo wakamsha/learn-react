@@ -1,10 +1,12 @@
+import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
+import { Tooltip } from '@learn-react/core/components/dataDisplay/Tooltip';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
-import { FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
-import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { FontFamily, FontSize, IconSize, LineHeight } from '@learn-react/core/constants/Style';
+import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
 import type { FC } from 'react';
-import { useMemo } from 'react';
+import { useId, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import { CodeBlock } from './CodeBlock';
@@ -26,6 +28,8 @@ const Presentation = () => {
   const { storyId = '' } = useParams<keyof Params>();
 
   const { layoutConfig } = LayoutConfigContainer.useContainer();
+
+  const outerLinkId = useId();
 
   const storyParams = storyId.split('__');
 
@@ -49,7 +53,20 @@ const Presentation = () => {
       <div className={styleBase}>
         <header className={styleHeader}>
           <h1 className={styleTitle}>{`@learn-react/${storyParams.join('/')}`}</h1>
-          <LayoutSwitch />
+
+          <div className={styleControls}>
+            <a
+              href={`/preview.html?storyId=${storyId}`}
+              id={outerLinkId}
+              className={styleOuterLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Icon name="open-window" />
+            </a>
+            <Tooltip targetId={outerLinkId}>Go fullscreen</Tooltip>
+            <LayoutSwitch />
+          </div>
         </header>
 
         <div className={styleBody}>
@@ -104,6 +121,28 @@ const styleTitle = css`
   font-weight: normal;
   color: ${cssVar('TextSub')};
   letter-spacing: 1px;
+`;
+
+const styleControls = css`
+  display: flex;
+  gap: ${gutter(6)};
+`;
+
+const styleOuterLink = css`
+  display: inline-flex;
+  place-content: center;
+  padding: ${gutter(0.5)};
+  background-color: ${cssVar('ThemePrimaryDark')};
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  > svg {
+    ${square(IconSize.Regular)}
+    fill: white;
+  }
 `;
 
 const styleBody = css`
