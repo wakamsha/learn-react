@@ -5,10 +5,9 @@ import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
 import { FontFamily, FontSize, IconSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { FC } from 'react';
-import { useId, useMemo } from 'react';
+import { useId } from 'react';
 import { useParams } from 'react-router-dom';
-import { stories } from '../../constants/Stories';
+import { useStory } from '../../hooks/useStory';
 import { CodeBlock } from './CodeBlock';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
@@ -31,28 +30,17 @@ const Presentation = () => {
 
   const outerLinkId = useId();
 
-  const storyParams = storyId.split('__');
+  const storyKeys = storyId.split('__');
 
-  const { sourceCode } = useMemo(() => {
-    let snapShot: any = stories;
-
-    for (let i = 0; i < storyParams.length; i++) {
-      if (!snapShot[storyParams[i]]) {
-        break;
-      }
-      snapShot = snapShot[storyParams[i]];
-    }
-
-    return snapShot as { Component: FC; sourceCode: string };
-  }, [storyParams]);
+  const { sourceCode } = useStory(storyKeys);
 
   return (
     <>
-      <DocumentTitle title={storyParams.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={storyKeys.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <div className={styleBase}>
         <header className={styleHeader}>
-          <h1 className={styleTitle}>{`@learn-react/${storyParams.join('/')}`}</h1>
+          <h1 className={styleTitle}>{`@learn-react/${storyKeys.join('/')}`}</h1>
 
           <div className={styleControls}>
             <a
@@ -79,7 +67,7 @@ const Presentation = () => {
           >
             <iframe
               src={`/preview.html?storyId=${storyId}`}
-              title={storyParams.slice().reverse().join(' | ')}
+              title={storyKeys.slice().reverse().join(' | ')}
               className={stylePreview}
               sandbox="allow-scripts"
             />

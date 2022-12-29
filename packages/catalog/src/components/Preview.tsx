@@ -2,31 +2,18 @@ import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle'
 import { BorderRadius, FontFamily, FontSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { FC } from 'react';
-import { useMemo } from 'react';
-import { stories } from '../constants/Stories';
+import { useStory } from '../hooks/useStory';
 
 export const Preview = () => {
   const storyId = getParam('storyId');
 
-  const storyParams = storyId.split('__');
+  const storyKeys = storyId.split('__');
 
-  const { Component } = useMemo(() => {
-    let snapShot: any = stories;
-
-    for (let i = 0; i < storyParams.length; i++) {
-      if (!snapShot[storyParams[i]]) {
-        break;
-      }
-      snapShot = snapShot[storyParams[i]];
-    }
-
-    return snapShot as { Component: FC };
-  }, [storyParams]);
+  const { Component } = useStory(storyKeys);
 
   return (
     <>
-      <DocumentTitle title={storyParams.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={storyKeys.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <article className={stylePreview}>
         <Component />
