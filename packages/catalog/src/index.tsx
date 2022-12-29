@@ -1,7 +1,3 @@
-/**
- * @file catalog アプリケーションのエントリポイント。
- */
-
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { StrictMode } from 'react';
