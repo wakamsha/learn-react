@@ -3,7 +3,7 @@ import { Tooltip } from '@learn-react/core/components/dataDisplay/Tooltip';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
 import { FontFamily, FontSize, IconSize, LineHeight } from '@learn-react/core/constants/Style';
-import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
+import { cssVar, gutter, square, textEllipsis } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
 import { useId } from 'react';
 import { useParams } from 'react-router-dom';
@@ -97,18 +97,22 @@ const styleBase = css`
 
 const styleHeader = css`
   display: flex;
+  gap: ${gutter(6)};
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   padding: ${gutter(2)} ${gutter(6)};
-  line-height: ${LineHeight.Compressed};
+  overflow: hidden;
 `;
 
 const styleTitle = css`
   font-family: ${FontFamily.Monospace};
   font-size: ${FontSize.Small};
   font-weight: normal;
+  line-height: ${LineHeight.Compressed};
   color: ${cssVar('TextSub')};
   letter-spacing: 1px;
+  ${textEllipsis()}
 `;
 
 const styleControls = css`
