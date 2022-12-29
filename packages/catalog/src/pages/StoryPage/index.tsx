@@ -66,10 +66,12 @@ const Presentation = () => {
             orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
           >
             <iframe
+              // story page 切替時に前回の preview が一瞬だが残ってしまうのを回避するために
+              // 強制的に再マウントしてゼロからレンダリングさせている。
+              key={storyId}
               src={`/preview.html?storyId=${storyId}`}
               title={storyKeys.slice().reverse().join(' | ')}
               className={stylePreview}
-              sandbox="allow-scripts"
             />
 
             {layoutConfig !== Layout.Zen ? (
@@ -140,6 +142,7 @@ const styleOuterLink = css`
 const styleBody = css`
   overflow: hidden;
 `;
+
 const stylePreview = css`
   display: block;
   width: 100%;
