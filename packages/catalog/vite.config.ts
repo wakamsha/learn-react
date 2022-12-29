@@ -17,5 +17,13 @@ export default defineConfig(({ mode }): UserConfig => {
     define: {
       ENV: JSON.stringify({ ENV_TARGET, ENV_VARIANT }),
     },
+    build: {
+      rollupOptions: {
+        input: {
+          index: resolve(__dirname, 'index.html'),
+          preview: resolve(__dirname, 'preview.html'),
+        },
+      },
+    },
   });
 });
