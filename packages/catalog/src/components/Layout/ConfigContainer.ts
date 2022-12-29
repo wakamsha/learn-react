@@ -1,10 +1,11 @@
+import { createContainer } from '@learn-react/core/helpers/Container';
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { useEffect, useState } from 'react';
 import { LayoutMode } from './VO';
 
 const storageKey = 'GLOBAL_LAYOUT';
 
-export function useLayoutConfig() {
+function useHook() {
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [layoutConfig, setLayoutConfig] = useState<LayoutMode>(() =>
@@ -17,5 +18,7 @@ export function useLayoutConfig() {
     storage.setValue(storageKey, `${layoutConfig}`);
   }, [layoutConfig, storage]);
 
-  return [layoutConfig, setLayoutConfig] as const;
+  return { layoutConfig, setLayoutConfig };
 }
+
+export const LayoutConfigContainer = createContainer(useHook);

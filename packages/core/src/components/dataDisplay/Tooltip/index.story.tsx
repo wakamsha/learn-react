@@ -1,7 +1,6 @@
 import { css } from '@linaria/core';
 import { useState } from 'react';
 import { Tooltip } from '.';
-import { FontSize } from '../../../constants/Style';
 import { gutter, square } from '../../../helpers/Style';
 import { Checkbox } from '../../inputs/Checkbox';
 import { Icon } from '../Icon';
@@ -152,13 +151,11 @@ const styleGrid = css`
     'q r s t u'
     'v w x y z';
   gap: ${gutter(8)} ${gutter(2)};
-  max-width: 480px;
-  margin: auto;
+  max-width: 600px;
 
   button {
     display: block;
     width: 100%;
-    font-size: ${FontSize.Small};
   }
 `;
 

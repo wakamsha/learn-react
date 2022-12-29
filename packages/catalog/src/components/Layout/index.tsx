@@ -7,15 +7,21 @@ import { css, cx } from '@linaria/core';
 import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { Navigation } from '../Navigation';
-import { useLayoutConfig } from './useLayoutConfig';
+import { LayoutConfigContainer } from './ConfigContainer';
 import { LayoutMode } from './VO';
 
 type Props = {
   children: ReactNode;
 };
 
-export const Layout = ({ children }: Props) => {
-  const [layoutConfig, setLayoutConfig] = useLayoutConfig();
+export const Layout = ({ children }: Props) => (
+  <LayoutConfigContainer.Provider>
+    <Presentation>{children}</Presentation>
+  </LayoutConfigContainer.Provider>
+);
+
+const Presentation = ({ children }: Props) => {
+  const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
   const [disabled, setDisabled] = useState(false);
 

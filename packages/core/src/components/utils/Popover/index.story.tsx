@@ -119,13 +119,11 @@ const styleGrid = css`
     'q r s t u'
     'v w x y z';
   gap: ${gutter(8)} ${gutter(2)};
-  max-width: 480px;
-  margin: auto;
+  max-width: 600px;
 
   button {
     display: block;
     width: 100%;
-    font-size: ${FontSize.Small};
   }
 `;
 
