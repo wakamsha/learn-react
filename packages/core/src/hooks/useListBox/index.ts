@@ -179,8 +179,8 @@ export function useListBox(itemCount: number): Response {
     const handleEveryClick = (e: globalThis.MouseEvent) => {
       if (
         !(e.target instanceof Element) ||
-        e.target === triggerRef.current ||
-        e.target.closest('[role="menu"]') instanceof Element
+        e.target.closest('[role="menu"]') instanceof Element ||
+        e.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === triggerRef.current
       )
         return;
 

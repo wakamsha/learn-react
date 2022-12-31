@@ -89,8 +89,8 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
     const handleEveryClick = (e: globalThis.MouseEvent) => {
       if (
         !(e.target instanceof Element) ||
-        e.target === buttonRef.current ||
-        e.target.closest('[role="menu"]') instanceof Element
+        e.target.closest('[role="menu"]') instanceof Element ||
+        e.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === buttonRef.current
       )
         return;
       setOpened(false);
