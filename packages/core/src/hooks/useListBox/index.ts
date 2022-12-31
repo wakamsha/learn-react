@@ -11,9 +11,11 @@ import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 're
 
 type TriggerProps = {
   ref: RefObject<HTMLButtonElement>;
-} & Pick<
-  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-  'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
+} & Required<
+  Pick<
+    DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+    'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
+  >
 >;
 
 type Response = Readonly<{
@@ -181,6 +183,7 @@ export function useListBox(itemCount: number): Response {
         e.target.closest('[role="menu"]') instanceof Element
       )
         return;
+
       setActive(active => !active);
     };
 
