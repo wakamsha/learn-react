@@ -1,7 +1,7 @@
 import type { IconName } from '@learn-react/icon';
 import { css, cx } from '@linaria/core';
-import type { MouseEvent } from 'react';
-import { useMemo } from 'react';
+import type { AriaAttributes, ForwardedRef, KeyboardEvent, MouseEvent } from 'react';
+import { forwardRef, useMemo } from 'react';
 import { BorderRadius, Duration } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
@@ -23,8 +23,18 @@ type Props = {
   theme?: Theme;
   size?: Size;
   /** アクセシビリティのために指定するラベルです。 */
-  ariaLabel?: string;
+  ariaLabel?: AriaAttributes['aria-label'];
   disabled?: boolean;
+  tabIndex?: number;
+  onKeyDown?: (e: KeyboardEvent<HTMLButtonElement>) => void;
+  /**
+   * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
+   */
+  ariaHaspopup?: AriaAttributes['aria-haspopup'];
+  /**
+   * 要素、またはそれが制御する別のグループ化要素が現在展開されているか、または折りたたまれているかを示します。
+   */
+  ariaExpanded?: AriaAttributes['aria-expanded'];
 };
 
 /**
@@ -35,35 +45,48 @@ type Props = {
  *
  * @param props
  */
-export const IconButton = ({
-  name,
-  id,
-  variant = 'solid',
-  theme = 'primary',
-  size = 'neutral',
-  ariaLabel,
-  disabled,
-  onClick,
-}: Props) => {
-  const styleButton = useMemo(
-    () => cx(styleBase, getVariantStyle(variant, theme), styleSize[size]),
-    [theme, variant, size],
-  );
+export const IconButton = forwardRef(
+  (
+    {
+      name,
+      id,
+      variant = 'solid',
+      theme = 'primary',
+      size = 'neutral',
+      ariaLabel,
+      disabled,
+      tabIndex = -1,
+      onClick,
+      onKeyDown,
+      ariaHaspopup,
+      ariaExpanded,
+    }: Props,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
+    const styleButton = useMemo(
+      () => cx(styleBase, getVariantStyle(variant, theme), styleSize[size]),
+      [theme, variant, size],
+    );
 
-  return (
-    <button
-      type="button"
-      aria-label={ariaLabel}
-      id={id}
-      className={styleButton}
-      tabIndex={-1}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      <Icon name={name} />
-    </button>
-  );
-};
+    return (
+      <button
+        ref={ref}
+        type="button"
+        aria-label={ariaLabel}
+        id={id}
+        className={styleButton}
+        tabIndex={tabIndex}
+        disabled={disabled}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
+      >
+        <Icon name={name} />
+      </button>
+    );
+  },
+);
 
 function getVariantStyle(variant: Variant, theme: Theme) {
   switch (variant) {

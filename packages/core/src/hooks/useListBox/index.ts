@@ -11,9 +11,11 @@ import { createRef, useCallback, useEffect, useMemo, useRef, useState } from 're
 
 type TriggerProps = {
   ref: RefObject<HTMLButtonElement>;
-} & Pick<
-  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-  'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
+} & Required<
+  Pick<
+    DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+    'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
+  >
 >;
 
 type Response = Readonly<{
@@ -177,10 +179,11 @@ export function useListBox(itemCount: number): Response {
     const handleEveryClick = (e: globalThis.MouseEvent) => {
       if (
         !(e.target instanceof Element) ||
-        e.target === triggerRef.current ||
-        e.target.closest('[role="menu"]') instanceof Element
+        e.target.closest('[role="menu"]') instanceof Element ||
+        e.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === triggerRef.current
       )
         return;
+
       setActive(active => !active);
     };
 
