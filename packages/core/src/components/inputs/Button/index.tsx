@@ -1,6 +1,6 @@
 import { css, cx } from '@linaria/core';
-import type { ButtonHTMLAttributes, MouseEvent, ReactNode } from 'react';
-import { Children, useMemo } from 'react';
+import type { AriaAttributes, ButtonHTMLAttributes, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import { Children, forwardRef, useMemo } from 'react';
 import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 
@@ -23,6 +23,15 @@ type Props = Partial<
     {
       onClick: (e: MouseEvent<HTMLButtonElement>) => void;
       tabIndex: ButtonHTMLAttributes<HTMLButtonElement>['tabIndex'];
+      onKeyDown?: (e: KeyboardEvent<HTMLButtonElement>) => void;
+      /**
+       * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
+       */
+      ariaHaspopup?: AriaAttributes['aria-haspopup'];
+      /**
+       * 要素、またはそれが制御する別のグループ化要素が現在展開されているか、または折りたたまれているかを示します。
+       */
+      ariaExpanded?: AriaAttributes['aria-expanded'];
     },
     {
       noop: true;
@@ -35,37 +44,56 @@ type Props = Partial<
  *
  * @param props
  */
-export const Button = ({
-  id,
-  variant = 'solid',
-  theme = 'primary',
-  type,
-  children,
-  block,
-  disabled,
-  onClick,
-  tabIndex,
-  noop,
-}: Props) => {
-  const buttonStyle = useMemo(
-    () => cx(styleBase, getVariantStyle(variant, theme), block && styleBlock),
-    [variant, block, theme],
-  );
+export const Button = forwardRef(
+  (
+    {
+      id,
+      variant = 'solid',
+      theme = 'primary',
+      type,
+      children,
+      block,
+      disabled,
+      onClick,
+      tabIndex,
+      onKeyDown,
+      ariaHaspopup,
+      ariaExpanded,
+      noop,
+    }: Props,
+    ref: ForwardedRef<HTMLSpanElement | HTMLButtonElement>,
+  ) => {
+    const buttonStyle = useMemo(
+      () => cx(styleBase, getVariantStyle(variant, theme), block && styleBlock),
+      [variant, block, theme],
+    );
 
-  return noop ? (
-    <span id={id} className={buttonStyle} aria-disabled={disabled}>
-      {Children.toArray(children).map(child =>
-        typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
-      )}
-    </span>
-  ) : (
-    <button id={id} className={buttonStyle} type={type} tabIndex={tabIndex} disabled={disabled} onClick={onClick}>
-      {Children.toArray(children).map(child =>
-        typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
-      )}
-    </button>
-  );
-};
+    return noop ? (
+      <span ref={ref} id={id} className={buttonStyle} aria-disabled={disabled}>
+        {Children.toArray(children).map(child =>
+          typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
+        )}
+      </span>
+    ) : (
+      <button
+        ref={ref as ForwardedRef<HTMLButtonElement>}
+        id={id}
+        className={buttonStyle}
+        type={type}
+        tabIndex={tabIndex}
+        disabled={disabled}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
+      >
+        {Children.toArray(children).map(child =>
+          typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
+        )}
+      </button>
+    );
+  },
+);
 
 function getVariantStyle(variant: Variant, theme: Theme) {
   switch (variant) {
@@ -190,6 +218,7 @@ const styleBase = css`
   > svg {
     margin-top: -1px;
     margin-bottom: -1px;
+    pointer-events: none;
     ${square(16)}
 
     &:first-child:not(:last-child) {
@@ -199,6 +228,10 @@ const styleBase = css`
     &:last-child:not(:first-child) {
       margin-right: ${gutter(-2)};
     }
+  }
+
+  > span {
+    pointer-events: none;
   }
 `;
 
