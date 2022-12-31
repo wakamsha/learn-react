@@ -218,7 +218,6 @@ const styleBase = css`
   > svg {
     margin-top: -1px;
     margin-bottom: -1px;
-    pointer-events: none;
     ${square(16)}
 
     &:first-child:not(:last-child) {
@@ -228,10 +227,6 @@ const styleBase = css`
     &:last-child:not(:first-child) {
       margin-right: ${gutter(-2)};
     }
-  }
-
-  > span {
-    pointer-events: none;
   }
 `;
 

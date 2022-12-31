@@ -183,10 +183,6 @@ const styleBase = css`
   &:active {
     transition: none;
   }
-
-  > svg {
-    pointer-events: none;
-  }
 `;
 
 const styleSolid: Frozen<Theme, string> = {
