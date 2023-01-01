@@ -272,7 +272,7 @@ const stylePopoverBase = css`
   min-height: 48px;
   visibility: hidden;
   opacity: 0;
-  transition: visibility ${Duration.Fade}, opacity ${Duration.Fade}, transform ${Duration.Fade};
+  transition: opacity ${Duration.Fade}, transform ${Duration.Fade};
 
   &[aria-hidden='false'] {
     visibility: visible;
