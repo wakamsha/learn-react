@@ -2,16 +2,19 @@ import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { Tooltip } from '@learn-react/core/components/dataDisplay/Tooltip';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
-import { FontFamily, FontSize, IconSize, LineHeight } from '@learn-react/core/constants/Style';
-import { cssVar, gutter, square, textEllipsis } from '@learn-react/core/helpers/Style';
-import { css } from '@linaria/core';
-import { useId } from 'react';
+import { Duration, Easing, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
+import { cssVar, gutter, textEllipsis } from '@learn-react/core/helpers/Style';
+import { nonNull } from '@learn-react/core/helpers/Type';
+import { css, cx } from '@linaria/core';
+import { useId, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStory } from '../../hooks/useStory';
 import { CodeBlock } from './CodeBlock';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
-import { Layout } from './VO';
+import { ToolbarButton } from './ToolbarButton';
+import { ViewportSwitch } from './ViewportSwitch';
+import { DeviceSize, Layout } from './VO';
 
 export const StoryPage = () => (
   <LayoutConfigContainer.Provider>
@@ -34,6 +37,8 @@ const Presentation = () => {
 
   const { sourceCode } = useStory(storyKeys);
 
+  const [deviceSizeValue, setDeviceSizeValue] = useState<DeviceSize>(DeviceSize.unset);
+
   return (
     <>
       <DocumentTitle title={storyKeys.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
@@ -43,6 +48,7 @@ const Presentation = () => {
           <h1 className={styleTitle}>{`@learn-react/${storyKeys.join('/')}`}</h1>
 
           <div className={styleControls}>
+            <ViewportSwitch onChange={setDeviceSizeValue} />
             <a
               href={`/preview.html?storyId=${storyId}`}
               id={outerLinkId}
@@ -50,7 +56,9 @@ const Presentation = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <Icon name="open-window" />
+              <ToolbarButton noop>
+                <Icon name="open-window" />
+              </ToolbarButton>
             </a>
             <Tooltip targetId={outerLinkId}>Go fullscreen</Tooltip>
             <LayoutSwitch />
@@ -65,13 +73,14 @@ const Presentation = () => {
             maxSize="80%"
             orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
           >
-            <div className={stylePreview}>
+            <div className={cx(styleViewport, Object.values(deviceSizeValue).every(nonNull) && styleViewportChanged)}>
               <iframe
                 // story page 切替時に前回の preview が一瞬だが残ってしまうのを回避するために
                 // 強制的に再マウントしてゼロからレンダリングさせている。
                 key={storyId}
                 src={`/preview.html?storyId=${storyId}`}
                 title={storyKeys.slice().reverse().join(' | ')}
+                style={deviceSizeValue}
               />
             </div>
 
@@ -99,7 +108,8 @@ const styleBase = css`
 `;
 
 const styleHeader = css`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: ${gutter(6)};
   align-items: center;
   justify-content: space-between;
@@ -120,42 +130,20 @@ const styleTitle = css`
 
 const styleControls = css`
   display: flex;
-  gap: ${gutter(6)};
+  gap: ${gutter(4)};
 `;
 
 const styleOuterLink = css`
   display: inline-flex;
-  place-content: center;
-  padding: ${gutter(0.5)};
-  background-color: ${cssVar('ThemePrimaryDark')};
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  > svg {
-    ${square(IconSize.Regular)}
-    fill: white;
-  }
 `;
 
 const styleBody = css`
   overflow: hidden;
 `;
 
-const stylePreview = css`
-  display: grid;
-  /* place-content: center; */
+const styleViewport = css`
   width: 100%;
   height: 100%;
-  background-color: ${cssVar('TextureBackdrop')};
-  background-image: linear-gradient(rgba(128, 128, 128, 0.1) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 2px, transparent 2px),
-    linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 
   > iframe {
     display: block;
@@ -163,7 +151,20 @@ const stylePreview = css`
     height: 100%;
     border: none;
     box-shadow: ${cssVar('ShadowDialog')};
+    transition: width ${Duration.Fade} ${Easing.Enter}, height ${Duration.Fade} ${Easing.Enter};
   }
+`;
+
+const styleViewportChanged = css`
+  padding: ${gutter(4)};
+  overflow: auto;
+  background-color: ${cssVar('TextureBackdrop')};
+  background-image: linear-gradient(rgba(128, 128, 128, 0.1) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 2px, transparent 2px),
+    linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 `;
 
 const styleCodeBlock = css`
