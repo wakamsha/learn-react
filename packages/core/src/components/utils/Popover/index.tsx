@@ -259,6 +259,7 @@ const styleBase = css`
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: ${ZIndex.Popover - 1};
   pointer-events: none;
   opacity: 0;
   transition: opacity ${Duration.Fade};
