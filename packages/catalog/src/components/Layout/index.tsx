@@ -114,7 +114,7 @@ const styleNavigationWrapper: Frozen<LayoutMode, LinariaClassName> = {
 
 const styleToggleButtonWrapperBase = css`
   position: fixed;
-  top: ${gutter(4)};
+  top: ${gutter(2)};
   z-index: 2;
   transition: left ${Duration.Fade} ${Easing.Enter};
 `;

@@ -97,12 +97,9 @@ const styleBase = css`
 `;
 
 const styleMasthead = css`
-  flex-shrink: 0;
-  padding: ${gutter(3)} ${gutter(4)} 0;
-
-  > :not(:first-child) {
-    margin-top: ${gutter(2)};
-  }
+  display: grid;
+  gap: ${gutter(2)};
+  padding: ${gutter(2)} ${gutter(4)} 0;
 `;
 
 const styleLogo = css`
@@ -111,7 +108,7 @@ const styleLogo = css`
   margin: auto;
   background-color: ${cssVar('ThemePrimaryDarker')};
   border-radius: ${BorderRadius.Circle};
-  ${square(40)}
+  ${square(32)}
 `;
 
 const styleTitle = css`
