@@ -53,8 +53,8 @@ export const Layout = ({ children }: Props) => {
 };
 
 const delayTime = 300;
-const navigationWidth = 272;
-const navigationGutter = 48;
+const navigationWidth = 256;
+const navigationGutter = 64;
 
 const styleBaseBase = css`
   width: 100%;
@@ -114,7 +114,7 @@ const styleNavigationWrapper: Frozen<LayoutMode, LinariaClassName> = {
 
 const styleToggleButtonWrapperBase = css`
   position: fixed;
-  top: ${gutter(4)};
+  top: ${gutter(2)};
   z-index: 2;
   transition: left ${Duration.Fade} ${Easing.Enter};
 `;
@@ -129,7 +129,7 @@ const styleToggleButtonWrapper: Frozen<LayoutMode, LinariaClassName> = {
   [LayoutMode.Zen]: cx(
     styleToggleButtonWrapperBase,
     css`
-      left: ${gutter(2)};
+      left: ${gutter(4)};
     `,
   ),
 };
