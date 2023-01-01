@@ -93,7 +93,6 @@ const styleBase = css`
   height: 100%;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};
-  border-right: 1px solid ${cssVar('LineNeutral')};
 `;
 
 const styleMasthead = css`
