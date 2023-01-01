@@ -1,8 +1,7 @@
 import { css } from '@linaria/core';
 import { useState } from 'react';
 import { useListBox } from '.';
-import { Icon } from '../../components/dataDisplay/Icon';
-import { Button } from '../../components/inputs/Button';
+import { IconButton } from '../../components/inputs/IconButton';
 import { FontSize } from '../../constants/Style';
 import { cssVar, gutter } from '../../helpers/Style';
 
@@ -23,21 +22,16 @@ export const Story = () => {
       <pre>
         <code>{JSON.stringify(value, null, 2)}</code>
       </pre>
-
       <hr />
-
-      <Button
+      <IconButton
+        name="list"
         ref={triggerProps.ref}
         onKeyDown={triggerProps.onKeyDown}
         onClick={triggerProps.onClick}
         tabIndex={triggerProps.tabIndex}
-        ariaHaspopup={triggerProps['aria-haspopup']}
-        ariaExpanded={triggerProps['aria-expanded']}
-      >
-        Open
-        <Icon name="angle-bottom" />
-      </Button>
-
+        ariaHaspopup={triggerProps['aria-haspopup'] as any}
+        ariaExpanded={triggerProps['aria-expanded'] as any}
+      />
       <ul className={styleMenu} role="menu" aria-hidden={!active}>
         {menuItems.map((item, index) => (
           <li key={item}>
