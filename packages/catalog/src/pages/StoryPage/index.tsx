@@ -65,14 +65,15 @@ const Presentation = () => {
             maxSize="80%"
             orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
           >
-            <iframe
-              // story page 切替時に前回の preview が一瞬だが残ってしまうのを回避するために
-              // 強制的に再マウントしてゼロからレンダリングさせている。
-              key={storyId}
-              src={`/preview.html?storyId=${storyId}`}
-              title={storyKeys.slice().reverse().join(' | ')}
-              className={stylePreview}
-            />
+            <div className={stylePreview}>
+              <iframe
+                // story page 切替時に前回の preview が一瞬だが残ってしまうのを回避するために
+                // 強制的に再マウントしてゼロからレンダリングさせている。
+                key={storyId}
+                src={`/preview.html?storyId=${storyId}`}
+                title={storyKeys.slice().reverse().join(' | ')}
+              />
+            </div>
 
             {layoutConfig !== Layout.Zen ? (
               <aside className={styleCodeBlock}>
@@ -144,10 +145,25 @@ const styleBody = css`
 `;
 
 const stylePreview = css`
-  display: block;
+  display: grid;
+  /* place-content: center; */
   width: 100%;
   height: 100%;
-  border: none;
+  background-color: ${cssVar('TextureBackdrop')};
+  background-image: linear-gradient(rgba(128, 128, 128, 0.1) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 2px, transparent 2px),
+    linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+
+  > iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: ${cssVar('ShadowDialog')};
+  }
 `;
 
 const styleCodeBlock = css`
