@@ -58,8 +58,6 @@ export const ToolbarButton = forwardRef(
 
 const styleBase = css`
   display: inline-flex;
-  gap: ${gutter(2)};
-  place-content: center;
   align-items: center;
   padding: ${gutter(0.5)};
   font-size: ${FontSize.Tiny};
