@@ -1,6 +1,7 @@
 import { css } from '@linaria/core';
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { useListBox } from '.';
+import { Popover } from '../../components/utils/Popover';
 import { FontSize } from '../../constants/Style';
 import { cssVar, gutter } from '../../helpers/Style';
 
@@ -10,6 +11,8 @@ export const Story = () => {
   const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
+
+  const id = useId();
 
   const handleSelect = (value: string) => {
     setValue(value);
@@ -23,6 +26,7 @@ export const Story = () => {
       </pre>
       <hr />
       <button
+        id={id}
         ref={triggerProps.ref}
         onKeyDown={triggerProps.onKeyDown}
         onClick={triggerProps.onClick}
@@ -33,28 +37,29 @@ export const Story = () => {
       >
         Open
       </button>
-      <ul className={styleMenu} role="menu" aria-hidden={!active}>
-        {menuItems.map((item, index) => (
-          <li key={item}>
-            <button
-              className={styleMenuItem}
-              onClick={() => handleSelect(item)}
-              onKeyDown={itemProps[index].onKeyDown}
-              tabIndex={itemProps[index].tabIndex}
-              role={itemProps[index].role}
-              ref={itemProps[index].ref}
-            >
-              {item}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Popover targetId={id} visible={active} alignment="start">
+        <ul className={styleMenu} role="menu" aria-hidden={!active}>
+          {menuItems.map((item, index) => (
+            <li key={item}>
+              <button
+                className={styleMenuItem}
+                onClick={() => handleSelect(item)}
+                onKeyDown={itemProps[index].onKeyDown}
+                tabIndex={itemProps[index].tabIndex}
+                role={itemProps[index].role}
+                ref={itemProps[index].ref}
+              >
+                {item}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </Popover>
     </>
   );
 };
 
 const styleMenu = css`
-  display: none;
   width: 240px;
   max-height: 120px;
   padding: ${gutter(2)} 0;
@@ -62,10 +67,6 @@ const styleMenu = css`
   font-size: ${FontSize.Regular};
   background-color: ${cssVar('TexturePaper')};
   box-shadow: ${cssVar('ShadowDialog')};
-
-  &[aria-hidden='false'] {
-    display: block;
-  }
 
   > :not(:first-child) {
     border-top: 1px solid ${cssVar('LineLight')};

@@ -259,10 +259,13 @@ const styleBase = css`
   right: 0;
   bottom: 0;
   left: 0;
-  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity ${Duration.Fade};
 
   &[aria-hidden='false'] {
-    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
   }
 `;
 
@@ -270,13 +273,11 @@ const stylePopoverBase = css`
   position: absolute;
   z-index: ${ZIndex.Popover};
   min-height: 48px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility ${Duration.Fade}, opacity ${Duration.Fade}, transform ${Duration.Fade};
+  pointer-events: none;
+  transition: transform ${Duration.Fade};
 
   &[aria-hidden='false'] {
-    visibility: visible;
-    opacity: 1;
+    pointer-events: auto;
     transform: translate3d(0, 0, 0);
   }
 `;
