@@ -200,6 +200,7 @@ export function applyGlobalStyle() {
         font-family: ${FontFamily.Default};
         font-weight: 500;
         font-feature-settings: palt 1;
+        background-color: ${cssVar('TextureBody')};
       }
       body,
       h1,

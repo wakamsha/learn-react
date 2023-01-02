@@ -1,0 +1,85 @@
+import { FontSize, IconSize } from '@learn-react/core/constants/Style';
+import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
+import { css, cx } from '@linaria/core';
+import type { AriaAttributes, ButtonHTMLAttributes, ForwardedRef, MouseEvent, ReactNode } from 'react';
+import { forwardRef } from 'react';
+
+type Props = {
+  children: ReactNode;
+  id?: string;
+  /**
+   * @default false
+   */
+  active?: boolean;
+} & XOR<
+  {
+    tabIndex?: ButtonHTMLAttributes<HTMLButtonElement>['tabIndex'];
+    onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
+     */
+    ariaHaspopup?: AriaAttributes['aria-haspopup'];
+    /**
+     * 要素、またはそれが制御する別のグループ化要素が現在展開されているか、または折りたたまれているかを示します。
+     */
+    ariaExpanded?: AriaAttributes['aria-expanded'];
+  },
+  {
+    noop: true;
+  }
+>;
+
+export const ToolbarButton = forwardRef(
+  (
+    { children, id, active = false, tabIndex, onClick, ariaHaspopup, ariaExpanded, noop }: Props,
+    ref: ForwardedRef<HTMLSpanElement | HTMLButtonElement>,
+  ) => {
+    const styleButton = cx(styleBase, active && styleActive);
+
+    return noop ? (
+      <span ref={ref} id={id} className={styleButton}>
+        {children}
+      </span>
+    ) : (
+      <button
+        ref={ref as ForwardedRef<HTMLButtonElement>}
+        id={id}
+        className={styleButton}
+        tabIndex={tabIndex}
+        onClick={onClick}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
+      >
+        {children}
+      </button>
+    );
+  },
+);
+
+const styleBase = css`
+  display: inline-flex;
+  align-items: center;
+  padding: ${gutter(0.5)};
+  font-size: ${FontSize.Tiny};
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  background-color: ${cssVar('ThemePrimaryDark')};
+  border: none;
+  opacity: 0.8;
+  appearance: none;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  > svg {
+    ${square(IconSize.Regular)}
+    fill: white;
+  }
+`;
+
+const styleActive = css`
+  background-color: ${cssVar('ThemePrimaryDarker')};
+  opacity: 1;
+`;
