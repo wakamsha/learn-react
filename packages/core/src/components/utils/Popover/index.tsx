@@ -273,9 +273,11 @@ const stylePopoverBase = css`
   position: absolute;
   z-index: ${ZIndex.Popover};
   min-height: 48px;
+  pointer-events: none;
   transition: transform ${Duration.Fade};
 
   &[aria-hidden='false'] {
+    pointer-events: auto;
     transform: translate3d(0, 0, 0);
   }
 `;
