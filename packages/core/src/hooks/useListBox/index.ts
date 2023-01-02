@@ -79,6 +79,24 @@ export function useListBox(itemCount: number): Response {
     [itemRefs],
   );
 
+  /**
+   * メニュー項目の活性・非活性を切り替える。
+   *
+   * リストボックスが非表示のときは非活性にしておくことで、誤って選択イベントが発火するのを防げる。
+   */
+  const toggleItemsActivity = useCallback(
+    (disabled: boolean) => {
+      itemRefs.forEach(itemRef => {
+        if (disabled) {
+          itemRef.current?.setAttribute('disabled', 'true');
+        } else {
+          itemRef.current?.removeAttribute('disabled');
+        }
+      });
+    },
+    [itemRefs],
+  );
+
   const handleTrigger = useCallback(
     (e: KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLButtonElement>) => {
       if (isKeyboardEvent(e)) {
@@ -165,12 +183,21 @@ export function useListBox(itemCount: number): Response {
     [focusIndex, itemRefs, moveFocus],
   );
 
-  // メニューが開いたら最初の項目にフォーカスインする。
+  // リストボックス表示・非表示時に実行する処理。
   useEffect(() => {
     if (active) {
+      // リストボックスが開いたら全てのメニュー項目を活性化する。
+      toggleItemsActivity(false);
+      // リストボックスが開いたら最初のメニュー項目にフォーカスインする。
       moveFocus(0);
+    } else {
+      // リストボックスが閉じたら全てのメニュー項目を非活性化する。
+      // メニューの選択イベント発火後に実行するためにワンテンポ遅らせる。
+      requestAnimationFrame(() => {
+        toggleItemsActivity(true);
+      });
     }
-  }, [moveFocus, active]);
+  }, [moveFocus, active, toggleItemsActivity]);
 
   // すべてのクリックイベントをリッスンし、クリック対象がメニュー領域外であれば強制的に閉じる。
   useEffect(() => {
@@ -194,7 +221,7 @@ export function useListBox(itemCount: number): Response {
     };
   }, [active]);
 
-  // メニュー表示中は矢印キーによるページスクロールを抑止する。
+  // リストボックス表示中は矢印キーによるページスクロールを抑止する。
   // これをやらないと矢印キーでメニュー項目間を移動すると同時にページ全体もスクロールしてしまう。
   useEffect(() => {
     const handleDisableArrowScroll = (e: globalThis.KeyboardEvent) => {
