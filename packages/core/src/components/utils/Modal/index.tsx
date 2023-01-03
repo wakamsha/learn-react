@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
+import { scrollbarSize } from '../../../helpers/Browser';
 import { gutter, hex2rgba } from '../../../helpers/Style';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
@@ -28,13 +29,18 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
   const dialogRef = useFocusTrap<HTMLDivElement>(visible);
 
   useEffect(() => {
-    const app = document.getElementById('app');
-    if (!app) return;
-
-    app.setAttribute('aria-hidden', `${visible}`);
+    // モーダル表示時にページ全体をスクロールロックする。
+    if (visible) {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
+    } else {
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.paddingRight = '';
+    }
 
     return () => {
-      app.removeAttribute('aria-hidden');
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.paddingRight = '';
     };
   }, [visible]);
 
@@ -53,7 +59,7 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
         </div>
       </div>
     </div>,
-    document.getElementById('app') || document.body,
+    document.body,
   );
 };
 
