@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
+import { scrollbarSize } from '../../../helpers/Browser';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
@@ -74,13 +75,20 @@ export const Popover = ({
   }, [position, alignment, targetId, visible, offset, popoverRef]);
 
   useEffect(() => {
-    const app = document.getElementById('app');
-    if (!app) return;
-
-    app.setAttribute('aria-hidden', `${visible}`);
+    // TODO: prop によってこの処理をオプトイン・オプトアウトできるようにする。
+    // アプリケーションのレイアウト次第では不要となるだけでなく、padding 調整が余計となることがあるため。
+    // モーダル表示時にページ全体をスクロールロックする。
+    if (visible) {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
+    } else {
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.paddingRight = '';
+    }
 
     return () => {
-      app.removeAttribute('aria-hidden');
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.paddingRight = '';
     };
   }, [visible]);
 
