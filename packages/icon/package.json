@@ -6,7 +6,7 @@
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/",
     "generate": "node ./bin/build",
-    "format": "run --top-level prettier -c -w ./dist/*; eslint -c ../../.eslintrc.cjs ./dist/* --fix",
+    "format": "run -T prettier -c -w ./dist/*; eslint -c ../../.eslintrc.cjs ./dist/* --fix",
     "build": "yarn reset; yarn generate; yarn format"
   }
 }

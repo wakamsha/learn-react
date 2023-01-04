@@ -13,10 +13,10 @@
     "@learn-react/icon": "1.0.0"
   },
   "scripts": {
-    "develop": "run -T vite serve",
+    "develop": "   run -T vite serve",
     "type-check": "run -T tsc --noEmit",
-    "start": "run-p \"type-check --watch\" \"develop\"",
+    "start": "     run -T run-p \"type-check --watch\" \"develop\"",
     "build": "yarn type-check && vite build",
-    "preview": "run -T vite preview"
+    "preview": "   run -T vite preview"
   }
 }
