@@ -71,6 +71,7 @@ yarn icon build
 
 ```bash
 yarn (catalog|esnext|routing|statement) start
+# e.g. yarn catalog start
 ```
 
 上記コマンドで指定のアプリケーションが起動し、web ブラウザも自動で立ち上がります。起動中はファイルの変更を検知して自動的にリビルド、リロードされます。
@@ -91,6 +92,7 @@ yarn (catalog|esnext|routing|statement) start
 
 ```bash
 yarn (catalog|doc|esnext|routing|statement) build
+# e.g. yarn catalog build
 ```
 
 ## Lint
