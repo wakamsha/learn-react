@@ -24,3 +24,13 @@ export function scrollbarSize(): number {
 
   return widthNoScroll - widthWithScroll;
 }
+
+/**
+ * HTML 要素のスクロールバー ( 縦 ) が表示されているかどうかを検証します。
+ *
+ * @param element 検証する HTML 要素。未指定の場合は `document.documentElement` ( `<html />` ) を検証します。
+ * @returns 表示されているかどうか
+ */
+export function isVisibleScrollbarOf(element: HTMLElement = document.documentElement): boolean {
+  return element.scrollHeight > element.clientHeight;
+}
