@@ -75,7 +75,7 @@ export const Popover = ({
   }, [position, alignment, targetId, visible, offset, popoverRef]);
 
   useEffect(() => {
-    // モーダル表示時にページ全体のスクロールを無効化する。
+    // ポップオーバー表示時にページ全体のスクロールを無効化する。
     if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
       document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
