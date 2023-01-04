@@ -4,13 +4,13 @@
 
 当該プロジェクトにある様々な `Story` コンポーネントを自動的に収集することで、一覧表示および実際の動作確認が出来ます。
 
-## setup
+<!-- ## setup
 
 ```bash
 yarn prepare-msw
 ```
 
-[MSW](https://mswjs.io/) が使用する Service Worker を公開ディレクトリ（ `dist/` ）に生成します。
+[MSW](https://mswjs.io/) が使用する Service Worker を公開ディレクトリ（ `dist/` ）に生成します。 -->
 
 ## Usage
 
@@ -20,15 +20,15 @@ yarn prepare-msw
 [ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn start [--mode=<mode>]
 ```
 
-`http://localhost:4001` が立ち上がります。
+`http://localhost:3010` が立ち上がります。
 
 #### Options
 
-| name        | value                       | description                             |
-| :---------- | :-------------------------- | :-------------------------------------- |
-| `<target>`  | `dev`, `stg`, `prod`        | 疎通する API サーバタイプを指定します。 |
-| `<variant>` | number                      | specify Pull Request number.            |
-| `<mode>`    | `development`, `production` | どんな用途でビルドするか指定する        |
+| name        | value                       | description                             | default     |
+| :---------- | :-------------------------- | :-------------------------------------- | :---------- |
+| `<target>`  | `dev`, `stg`, `prod`        | 疎通する API サーバタイプを指定します。 | `dev`       |
+| `<variant>` | number                      | specify Pull Request number.            | `undefined` |
+| `<mode>`    | `development`, `production` | どのような用途でビルドするか指定する    | `undefined` |
 
 ### Build for publish
 
@@ -41,7 +41,16 @@ yarn prepare-msw
 ### Requirement
 
 - [AWS CLI](https://aws.amazon.com/jp/cli/)
+  - デプロイスクリプトは aws cli に依存するため、予めインストールしておきます。
+
+### Setup
+
+`~/.aws/` ディレクトリ配下に S3 と CloudFront へのアクセス権を持つ `profile` を設定します。
+
+### Deploy
 
 ```bash
 yarn deploy
 ```
+
+デプロイに成功すると `https://learn-react.wakamsha.net` に反映されます。

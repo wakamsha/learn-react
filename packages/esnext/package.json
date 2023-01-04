@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "develop": "run -T vite serve",
-    "type-check": "run --top-level tsc --noEmit",
-    "start": "run-p \"develop\" \"type-check --watch\"",
+    "develop": "   run -T vite serve",
+    "type-check": "run -T tsc --noEmit",
+    "start": "     run -T run-p \"develop\" \"type-check --watch\"",
     "build": "yarn type-check && vite build"
   }
 }
