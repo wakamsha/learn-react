@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
-import { scrollbarSize } from '../../../helpers/Browser';
+import { isVisibleScrollbarOf, scrollbarSize } from '../../../helpers/Browser';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
@@ -32,6 +32,16 @@ type Props = {
   alignment?: Alignment;
   offset?: number;
   /**
+   * `true` の場合はポップオーバー表示時に `document.documentElement` ( ページ全体 ) のスクロールを無効化する。
+   *
+   * @remarks
+   * アプリケーションのレイアウト次第では `document.documentElement` のスクロールが発生しないことがあります。
+   * その場合はプロパティを `true` にする必要はありません。
+   *
+   * @default false
+   */
+  disableScroll?: boolean;
+  /**
    * ポップオーバー領域外をクリックした時に呼ばれるコールバック関数。
    */
   onClickOutside?: () => void;
@@ -49,6 +59,7 @@ export const Popover = ({
   position = 'bottom',
   alignment = 'center',
   offset = 0,
+  disableScroll = false,
   onClickOutside,
 }: Props) => {
   const popoverRef = useFocusTrap<HTMLDivElement>(visible);
@@ -75,10 +86,10 @@ export const Popover = ({
   }, [position, alignment, targetId, visible, offset, popoverRef]);
 
   useEffect(() => {
-    // TODO: prop によってこの処理をオプトイン・オプトアウトできるようにする。
-    // アプリケーションのレイアウト次第では不要となるだけでなく、padding 調整が余計となることがあるため。
-    // モーダル表示時にページ全体をスクロールロックする。
-    if (visible) {
+    if (!disableScroll) return;
+
+    // モーダル表示時にページ全体のスクロールを無効化する。
+    if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
       document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
     } else {
@@ -90,7 +101,7 @@ export const Popover = ({
       document.documentElement.style.overflow = '';
       document.documentElement.style.paddingRight = '';
     };
-  }, [visible]);
+  }, [disableScroll, visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} onClick={onClickOutside}>
