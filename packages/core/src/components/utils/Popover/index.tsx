@@ -32,16 +32,6 @@ type Props = {
   alignment?: Alignment;
   offset?: number;
   /**
-   * `true` の場合はポップオーバー表示時に `document.documentElement` ( ページ全体 ) のスクロールを無効化する。
-   *
-   * @remarks
-   * アプリケーションのレイアウト次第では `document.documentElement` のスクロールが発生しないことがあります。
-   * その場合はプロパティを `true` にする必要はありません。
-   *
-   * @default false
-   */
-  disableScroll?: boolean;
-  /**
    * ポップオーバー領域外をクリックした時に呼ばれるコールバック関数。
    */
   onClickOutside?: () => void;
@@ -59,7 +49,6 @@ export const Popover = ({
   position = 'bottom',
   alignment = 'center',
   offset = 0,
-  disableScroll = false,
   onClickOutside,
 }: Props) => {
   const popoverRef = useFocusTrap<HTMLDivElement>(visible);
@@ -86,8 +75,6 @@ export const Popover = ({
   }, [position, alignment, targetId, visible, offset, popoverRef]);
 
   useEffect(() => {
-    if (!disableScroll) return;
-
     // モーダル表示時にページ全体のスクロールを無効化する。
     if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
@@ -101,7 +88,7 @@ export const Popover = ({
       document.documentElement.style.overflow = '';
       document.documentElement.style.paddingRight = '';
     };
-  }, [disableScroll, visible]);
+  }, [visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} onClick={onClickOutside}>

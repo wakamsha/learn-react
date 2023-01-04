@@ -14,16 +14,6 @@ type Props = {
    */
   visible: boolean;
   /**
-   * `true` の場合はポップオーバー表示時に `document.documentElement` ( ページ全体 ) のスクロールを無効化する。
-   *
-   * @remarks
-   * アプリケーションのレイアウト次第では `document.documentElement` のスクロールが発生しないことがあります。
-   * その場合はプロパティを `true` にする必要はありません。
-   *
-   * @default false
-   */
-  disableScroll?: boolean;
-  /**
    * コンテンツ領域外をクリックした時に呼ばれるコールバック関数。
    */
   onClickOutside?: () => void;
@@ -35,12 +25,10 @@ type Props = {
  *
  * @param props
  */
-export const Modal = ({ children, visible, disableScroll, onClickOutside }: Props) => {
+export const Modal = ({ children, visible, onClickOutside }: Props) => {
   const dialogRef = useFocusTrap<HTMLDivElement>(visible);
 
   useEffect(() => {
-    if (!disableScroll) return;
-
     // モーダル表示時にページ全体をスクロールロックする。
     if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
@@ -54,7 +42,7 @@ export const Modal = ({ children, visible, disableScroll, onClickOutside }: Prop
       document.documentElement.style.overflow = '';
       document.documentElement.style.paddingRight = '';
     };
-  }, [disableScroll, visible]);
+  }, [visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} tabIndex={-1}>

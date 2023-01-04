@@ -96,7 +96,6 @@ export const Story = () => {
         position={position}
         alignment={alignment}
         visible={visible}
-        disableScroll
         onClickOutside={() => setVisible(false)}
       >
         <div className={styleCard}>
