@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
-import { scrollbarSize } from '../../../helpers/Browser';
+import { isVisibleScrollbarOf, scrollbarSize } from '../../../helpers/Browser';
 import { gutter, hex2rgba } from '../../../helpers/Style';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
@@ -13,6 +13,16 @@ type Props = {
    * `true` の場合はモーダルコンテンツを表示する。
    */
   visible: boolean;
+  /**
+   * `true` の場合はポップオーバー表示時に `document.documentElement` ( ページ全体 ) のスクロールを無効化する。
+   *
+   * @remarks
+   * アプリケーションのレイアウト次第では `document.documentElement` のスクロールが発生しないことがあります。
+   * その場合はプロパティを `true` にする必要はありません。
+   *
+   * @default false
+   */
+  disableScroll?: boolean;
   /**
    * コンテンツ領域外をクリックした時に呼ばれるコールバック関数。
    */
@@ -25,12 +35,14 @@ type Props = {
  *
  * @param props
  */
-export const Modal = ({ children, visible, onClickOutside }: Props) => {
+export const Modal = ({ children, visible, disableScroll, onClickOutside }: Props) => {
   const dialogRef = useFocusTrap<HTMLDivElement>(visible);
 
   useEffect(() => {
+    if (!disableScroll) return;
+
     // モーダル表示時にページ全体をスクロールロックする。
-    if (visible) {
+    if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
       document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
     } else {
@@ -42,7 +54,7 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
       document.documentElement.style.overflow = '';
       document.documentElement.style.paddingRight = '';
     };
-  }, [visible]);
+  }, [disableScroll, visible]);
 
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} tabIndex={-1}>

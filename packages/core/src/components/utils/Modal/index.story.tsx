@@ -35,7 +35,7 @@ export const Story = () => {
       <h2>Liquid Content</h2>
       <button onClick={handleToggle3}>Open</button>
 
-      <Modal visible={visible1} onClickOutside={handleToggle1}>
+      <Modal visible={visible1} onClickOutside={handleToggle1} disableScroll>
         <article className={styleCard}>
           <h1 className={styleHeading}>Hello!!</h1>
           <footer className={styleFooter}>
@@ -45,7 +45,7 @@ export const Story = () => {
         </article>
       </Modal>
 
-      <Modal visible={visible2} onClickOutside={handleToggle2}>
+      <Modal visible={visible2} onClickOutside={handleToggle2} disableScroll>
         <article className={styleCard}>
           <h1 className={styleHeading}>ポラーノの広場</h1>
           <div className={styleBody}>
@@ -58,7 +58,7 @@ export const Story = () => {
         </article>
       </Modal>
 
-      <Modal visible={visible3} onClickOutside={handleToggle3}>
+      <Modal visible={visible3} onClickOutside={handleToggle3} disableScroll>
         <Card maxWidth={400} maxHeight={`calc(100dvh - ${gutter(20)})`}>
           <Card.Header>
             <h1>ポラーノの広場</h1>
