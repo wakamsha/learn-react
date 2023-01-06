@@ -32,7 +32,7 @@
     "@linaria/shaker": "3.0.0-beta.23",
     "@linaria/stylelint": "3.0.0-beta.23",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@types/jest": "29.2.4",
+    "@types/jest": "29.2.5",
     "@types/node": "18.11.18",
     "@types/qs": "6.9.7",
     "@types/react": "18.0.26",
