@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 import * as pdfjsLib from 'pdfjs-dist';
-import type { PDFPageProxy, TextContent, TextStyle } from 'pdfjs-dist/types/src/display/api';
+import type { PDFPageProxy, TextStyle } from 'pdfjs-dist/types/src/display/api';
 import type { PageViewport } from 'pdfjs-dist/types/src/display/display_utils';
 import { useEffect, useRef } from 'react';
 import { cssVar } from '../../../helpers/Style';
@@ -54,7 +54,7 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
       const container = textLayerRef.current;
       if (!container) return;
 
-      const textContent: TextContent = await page.getTextContent();
+      const textContent = await page.getTextContent();
 
       if (textContent.styles) {
         Object.entries(textContent.styles).forEach(([key, value]: [string, TextStyle]) => {
@@ -63,7 +63,7 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
         });
       }
 
-      pdfjsLib.renderTextLayer({ textContent, viewport, container: container as unknown as DocumentFragment });
+      pdfjsLib.renderTextLayer({ textContentSource: textContent, viewport, container });
     })();
   }, [textLayerRef, page, viewport]);
 

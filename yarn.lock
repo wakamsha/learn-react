@@ -4376,15 +4376,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"canvas@npm:^2.10.2":
-  version: 2.10.2
-  resolution: "canvas@npm:2.10.2"
+"canvas@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "canvas@npm:2.11.0"
   dependencies:
     "@mapbox/node-pre-gyp": ^1.0.0
     nan: ^2.17.0
     node-gyp: latest
     simple-get: ^3.0.3
-  checksum: b2e3eb4c3635fa2f67857619621c3d314f935a9e51904536dadf4908ab580dff4f5bcbaafe6eb0255247fa027ca494d5cd97c33376a49a0f994997263fa9944b
+  checksum: a69a6e0c90014a1b02e52c4c38a627d1a01ffe9539047bec84105cb3554907a947cf39b4a333be43fc1583dd142b641bb5480a4e23f59c6098618c33bf78f67f
   languageName: node
   linkType: hard
 
@@ -7902,7 +7902,7 @@ __metadata:
     mobx: 6.7.0
     mobx-react: 7.6.0
     npm-run-all: 4.1.5
-    pdfjs-dist: 3.1.81
+    pdfjs-dist: 3.2.146
     postcss-syntax: 0.36.2
     prettier: 2.8.1
     prettier-plugin-organize-imports: 3.2.1
@@ -9162,16 +9162,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pdfjs-dist@npm:3.1.81":
-  version: 3.1.81
-  resolution: "pdfjs-dist@npm:3.1.81"
+"pdfjs-dist@npm:3.2.146":
+  version: 3.2.146
+  resolution: "pdfjs-dist@npm:3.2.146"
   dependencies:
-    canvas: ^2.10.2
+    canvas: ^2.11.0
     web-streams-polyfill: ^3.2.1
   dependenciesMeta:
     canvas:
       optional: true
-  checksum: f72bf7dbdf1f96b67c75aa04cdf9eed87a2d51b151eeee139495e589e61099ca258b425326a6e481753d98e9c82b608e3064e5d35b41cb0b28e715d7d1c44102
+  checksum: 54d4c75140f7fc1eb2008a7bb55e664c59602be09def9883da6aff4c1a7ad58a09aaa927d07f2a695181da0f20b8a96b569365195c34a0aac6ecb0d378959f8a
   languageName: node
   linkType: hard
 
