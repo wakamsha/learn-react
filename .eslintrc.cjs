@@ -40,6 +40,7 @@ module.exports = {
     '@typescript-eslint/switch-exhaustiveness-check': ['error'],
     'arrow-body-style': ['error', 'as-needed'],
     'func-names': ['error'],
+    'import/no-default-export': ['error'],
     'lines-between-class-members': [
       'error',
       'always',
@@ -100,9 +101,9 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['off'],
     'class-methods-use-this': ['off'],
     'consistent-return': ['off'], // TypeScript のフロー解析を考慮できないため false positive が発生する
-    'import/extensions': ['off'],
-    'import/no-extraneous-dependencies': ['off'],
-    'import/no-unresolved': ['off'],
+    'import/extensions': ['off'], // import path に拡張子を含めることを強制するため無効化する。
+    'import/no-extraneous-dependencies': ['off'], // プロジェクトルートにある node モジュールの import を指摘するため無効化する。
+    'import/no-unresolved': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
     'import/prefer-default-export': ['off'],
     'jsx-a11y/accessible-emoji': ['off'],
     'jsx-a11y/control-has-associated-label': ['off'],
@@ -113,7 +114,6 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': ['off'],
     'jsx-a11y/no-autofocus': ['off'],
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
-    // 'jsx-a11y/no-static-element-interactions': ['off'],
     'default-case': ['off'],
     'global-require': ['off'],
     'max-classes-per-file': ['off'],
@@ -139,6 +139,12 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['./**/ambience.d.ts'],
+      rules: {
+        'import/no-default-export': ['off'],
+      },
+    },
+    {
       files: ['./**/stores/**/*.ts'],
       rules: {
         'react-hooks/rules-of-hooks': ['off'],
@@ -148,6 +154,8 @@ module.exports = {
       files: ['./**/vite.config.ts'],
       rules: {
         'no-underscore-dangle': ['off'],
+        'import/no-default-export': ['off'],
+        'import/no-relative-packages': ['off'], // サブパッケージを越境した import を指摘するため無効化する。
       },
     },
     {
@@ -155,8 +163,8 @@ module.exports = {
       rules: {
         '@typescript-eslint/ban-ts-comment': ['off'],
         '@typescript-eslint/no-var-requires': ['off'],
-        'import/no-relative-packages': ['off'],
         'no-underscore-dangle': ['off'],
+        'import/no-default-export': ['off'],
       },
     },
     {

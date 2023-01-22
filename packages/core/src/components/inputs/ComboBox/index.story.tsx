@@ -24,7 +24,7 @@ export const Story = () => {
 
   const [state1, setState1] = useState<Option | null>(options[0]);
 
-  const handleChange1 = (item: typeof options[number] | null) => {
+  const handleChange1 = (item: (typeof options)[number] | null) => {
     setState1(item);
   };
 
