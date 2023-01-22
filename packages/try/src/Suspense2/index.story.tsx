@@ -8,7 +8,7 @@ import { RenderAsYouFetch } from './RenderAsYouFetch';
 
 const DemoList = ['DataFetching1', 'DataFetching2', 'RenderAsYouFetch'] as const;
 
-type Demo = typeof DemoList[number];
+type Demo = (typeof DemoList)[number];
 
 export const Story = () => {
   const [demo, setDemo] = useState<Demo>('DataFetching1');
