@@ -95,9 +95,9 @@
   "lint-staged": {
     "packages/**/src/**/*.{ts,tsx}": [
       "cspell",
-      "prettier -c -w",
-      "eslint -c .eslintrc.cjs --fix",
-      "stylelint --cache --fix"
+      "prettier -c",
+      "eslint -c .eslintrc.cjs",
+      "stylelint --cache"
     ]
   }
 }
