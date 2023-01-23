@@ -81,6 +81,7 @@ module.exports = {
         message: 'Do not declare enums',
       },
     ],
+    'no-return-assign': ['error'],
     'react/function-component-definition': [
       'error',
       {
@@ -128,7 +129,6 @@ module.exports = {
     'no-useless-constructor': ['off'],
     'no-nested-ternary': ['off'],
     'no-plusplus': ['off'],
-    'no-return-assign': ['off'],
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
     'no-unused-expressions': ['off'],
