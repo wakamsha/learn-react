@@ -95,7 +95,7 @@ module.exports = {
     'react/jsx-key': ['error'],
     'react/jsx-no-target-blank': ['error'],
     'react/sort-comp': ['error'],
-    'react-hooks/exhaustive-deps': ['warn'],
+    'react-hooks/exhaustive-deps': ['error'],
     'react-hooks/rules-of-hooks': ['error'],
 
     // Disable
