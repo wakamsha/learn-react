@@ -82,6 +82,13 @@ module.exports = {
       },
     ],
     'no-return-assign': ['error'],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+      },
+    ],
     'react/function-component-definition': [
       'error',
       {
@@ -131,7 +138,6 @@ module.exports = {
     'no-plusplus': ['off'],
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
-    'no-unused-expressions': ['off'],
     'react/button-has-type': ['off'],
     'react/display-name': ['off'],
     'react/jsx-indent': ['off'],
