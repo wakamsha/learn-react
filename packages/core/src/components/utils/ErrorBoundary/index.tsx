@@ -1,5 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
-import { Component } from 'react';
+import { Component, type ComponentType, type ReactNode } from 'react';
 
 export type FallbackProps<ERROR extends Record<string, unknown>> = {
   error: ERROR;

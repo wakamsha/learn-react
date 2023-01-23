@@ -1,7 +1,6 @@
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { ListContainer } from '../containers/ListContainer';
 
 export const ListPage = () => {

@@ -1,6 +1,5 @@
 import { useContext } from '@learn-react/core/hooks/useContext';
-import type { ComponentType, ReactNode } from 'react';
-import { createContext } from 'react';
+import { createContext, type ComponentType, type ReactNode } from 'react';
 
 type ContainerProviderProps<S = void> = {
   initialState?: S;

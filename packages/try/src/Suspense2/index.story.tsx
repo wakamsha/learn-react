@@ -1,7 +1,6 @@
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { DataFetching1 } from './DataFetching1';
 import { DataFetching2 } from './DataFetching2';
 import { RenderAsYouFetch } from './RenderAsYouFetch';

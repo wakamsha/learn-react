@@ -1,5 +1,5 @@
 import { stringify } from 'qs';
-import type { CreateUserRequest, CreateUserResponse, User } from './model';
+import { type CreateUserRequest, type CreateUserResponse, type User } from './model';
 
 export type Error = {
   conditions: string[];
@@ -13,7 +13,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-async function request<REQ extends {}, RES>({
+async function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   token,
@@ -25,7 +25,7 @@ async function request<REQ extends {}, RES>({
   path: string;
   token?: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
   withCredentials: boolean;
 }): Promise<RES> {
   const headers = {
@@ -53,7 +53,7 @@ async function request<REQ extends {}, RES>({
 }
 
 export async function requestGetUsers(): Promise<User[]> {
-  return request<any, User[]>({
+  return request<Record<string, unknown>, User[]>({
     method: 'GET',
     path: '/users',
     ...{
@@ -63,7 +63,7 @@ export async function requestGetUsers(): Promise<User[]> {
 }
 
 export async function requestGetUser({ path }: { path: string }): Promise<User> {
-  return request<any, User>({
+  return request<Record<string, unknown>, User>({
     method: 'GET',
     path: `/users/${path}`,
     ...{

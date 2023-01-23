@@ -1,10 +1,7 @@
-import type { IconName } from '@learn-react/icon';
-import { iconElements } from '@learn-react/icon';
+import { iconElements, type IconName } from '@learn-react/icon';
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
-import { useMemo, useReducer, useState } from 'react';
-import type { Toast } from '.';
-import { ToastProvider, useAddToast } from '.';
+import { useMemo, useReducer, useState, type ChangeEvent } from 'react';
+import { ToastProvider, useAddToast, type Toast } from '.';
 import { FontSize, LineHeight } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 

@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import { useMemo } from 'react';
+import { useMemo, type FC } from 'react';
 import { stories } from '../constants/Stories';
 
 type StoryData = {

@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 import { createPortal } from 'react-dom';
-import type { Toast } from '.';
+import { type Toast } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Item } from './Item';
 

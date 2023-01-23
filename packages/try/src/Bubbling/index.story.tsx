@@ -1,6 +1,6 @@
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 
 export const Story = () => {
   const handleClickOuter = (e: MouseEvent<HTMLDivElement>) => {

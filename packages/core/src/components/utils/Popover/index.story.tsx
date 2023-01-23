@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ComponentProps, MouseEvent } from 'react';
-import { useState } from 'react';
+import { useState, type ComponentProps, type MouseEvent } from 'react';
 import { Popover } from '.';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';

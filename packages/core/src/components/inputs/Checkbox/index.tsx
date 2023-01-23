@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent, ReactNode } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type ChangeEvent, type ReactNode } from 'react';
 import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 

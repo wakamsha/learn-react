@@ -1,5 +1,4 @@
-import type { IconName } from '@learn-react/icon';
-import { iconElements } from '@learn-react/icon';
+import { iconElements, type IconName } from '@learn-react/icon';
 import { css } from '@linaria/core';
 import { Icon } from '.';
 import { FontSize } from '../../../constants/Style';

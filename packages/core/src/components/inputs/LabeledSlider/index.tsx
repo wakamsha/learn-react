@@ -1,5 +1,5 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 
 type Props = {
   label: string;

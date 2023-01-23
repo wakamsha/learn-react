@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
-import { useRef, useState } from 'react';
+import { useRef, useState, type ChangeEvent } from 'react';
 import { useSpy } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 

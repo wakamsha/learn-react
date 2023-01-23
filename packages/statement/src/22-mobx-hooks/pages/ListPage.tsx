@@ -2,8 +2,7 @@ import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { ListStore } from '../stores/ListStore';
 
 export const ListPage = () => {

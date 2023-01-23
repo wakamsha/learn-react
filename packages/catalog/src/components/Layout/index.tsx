@@ -1,11 +1,9 @@
 import { IconButton } from '@learn-react/core/components/inputs/IconButton';
 import { Duration, Easing } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
-import type { IconName } from '@learn-react/icon';
-import type { LinariaClassName } from '@linaria/core';
-import { css, cx } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { useEffect, useState } from 'react';
+import { type IconName } from '@learn-react/icon';
+import { css, cx, type LinariaClassName } from '@linaria/core';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Navigation } from '../Navigation';
 import { useLayoutConfig } from './useLayoutConfig';
 import { LayoutMode } from './VO';

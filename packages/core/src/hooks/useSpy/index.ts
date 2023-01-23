@@ -1,5 +1,4 @@
-import type { RefObject } from 'react';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, type RefObject } from 'react';
 
 type Props = {
   /**

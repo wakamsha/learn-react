@@ -1,7 +1,6 @@
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { RouteObject } from 'react-router-dom';
-import { BrowserRouter, Outlet, useRoutes } from 'react-router-dom';
+import { BrowserRouter, Outlet, useRoutes, type RouteObject } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { About } from './pages/About';
 import { Friends } from './pages/Friends';

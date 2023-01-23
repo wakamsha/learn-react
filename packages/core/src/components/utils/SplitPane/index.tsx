@@ -1,6 +1,5 @@
 import { css, cx } from '@linaria/core';
-import type { MouseEvent, ReactNode } from 'react';
-import { Children, useRef, useState } from 'react';
+import { Children, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { Pane } from './Pane';
 import { Splitter } from './Splitter';
 

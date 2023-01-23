@@ -12,7 +12,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function request<REQ extends {}, RES>({
+function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   send,
@@ -21,7 +21,7 @@ function request<REQ extends {}, RES>({
   method: Method;
   path: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
 }): Promise<RES> {
   const headers = {
     Accept: 'application/json',
@@ -110,7 +110,7 @@ type User = {
 };
 
 export function fetchUser(userId = 1) {
-  const promise = request<{}, User>({
+  const promise = request<Record<string, unknown>, User>({
     method: 'GET',
     path: `/users/${userId}`,
   });

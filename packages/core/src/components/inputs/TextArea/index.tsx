@@ -1,5 +1,5 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 

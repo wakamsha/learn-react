@@ -25,8 +25,14 @@ module.exports = {
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
+    '@typescript-eslint/ban-types': ['error'],
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
-    '@typescript-eslint/consistent-type-imports': ['error'],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        fixStyle: 'inline-type-imports',
+      },
+    ],
     '@typescript-eslint/dot-notation': ['error'],
     '@typescript-eslint/no-unused-expressions': [
       'error',
@@ -55,6 +61,7 @@ module.exports = {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       },
     ],
+    'no-param-reassign': ['error'],
     'no-restricted-imports': [
       'error',
       {
@@ -74,6 +81,14 @@ module.exports = {
         message: 'Do not declare enums',
       },
     ],
+    'no-return-assign': ['error'],
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+      },
+    ],
     'react/function-component-definition': [
       'error',
       {
@@ -89,12 +104,12 @@ module.exports = {
     ],
     'react/jsx-key': ['error'],
     'react/jsx-no-target-blank': ['error'],
+    'react/jsx-props-no-spreading': ['warn'],
     'react/sort-comp': ['error'],
-    'react-hooks/exhaustive-deps': ['warn'],
+    'react-hooks/exhaustive-deps': ['error'],
     'react-hooks/rules-of-hooks': ['error'],
 
     // Disable
-    '@typescript-eslint/ban-types': ['off'],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],
@@ -114,24 +129,19 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': ['off'],
     'jsx-a11y/no-autofocus': ['off'],
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
-    'default-case': ['off'],
-    'global-require': ['off'],
+    'default-case': ['off'], // switch の条件式に渡される値の型次第では default は不要となる。
     'max-classes-per-file': ['off'],
     'no-bitwise': ['off'],
-    'no-param-reassign': ['off'],
     'no-undef': ['off'],
     'no-use-before-define': ['off'],
     'no-useless-constructor': ['off'],
     'no-nested-ternary': ['off'],
     'no-plusplus': ['off'],
-    'no-return-assign': ['off'],
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
-    'no-unused-expressions': ['off'],
     'react/button-has-type': ['off'],
     'react/display-name': ['off'],
     'react/jsx-indent': ['off'],
-    'react/jsx-props-no-spreading': ['off'],
     'react/no-array-index-key': ['off'],
     'react/prop-types': ['off'],
     'react/react-in-jsx-scope': ['off'],

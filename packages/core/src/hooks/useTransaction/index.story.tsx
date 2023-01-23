@@ -1,5 +1,4 @@
-import type { ChangeEvent } from 'react';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, type ChangeEvent } from 'react';
 import { useTransaction } from '.';
 import { request } from '../../helpers/Api';
 
@@ -62,7 +61,7 @@ function useSubmit() {
 
   const [onSubmit, submitStatus] = useTransaction(
     useCallback(async (userId: number) => {
-      const user = await request<{}, User>({
+      const user = await request<Record<string, unknown>, User>({
         method: 'GET',
         path: `/users/${userId}`,
         ...{

@@ -1,5 +1,4 @@
-import type { Context } from 'react';
-import { useContext as useContextOrigin } from 'react';
+import { useContext as useContextOrigin, type Context } from 'react';
 
 /**
  * React 標準の useContext を拡張したもの。

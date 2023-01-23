@@ -2,8 +2,7 @@ import { PageTransition } from '@learn-react/core/components/utils/PageTransitio
 import { withSuspense } from '@learn-react/core/helpers/Component';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { lazy } from 'react';
+import { lazy, type ReactNode } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Router } from './constants/Router';

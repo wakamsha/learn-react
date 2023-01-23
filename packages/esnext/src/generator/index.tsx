@@ -1,5 +1,4 @@
-import type { PlaceholderUser } from './api-client';
-import { requestGetPlaceholderUsers, requestGetRandomUser } from './api-client';
+import { requestGetPlaceholderUsers, requestGetRandomUser, type PlaceholderUser } from './api-client';
 
 function p(str: string, delay = 1000): Promise<string> {
   return new Promise(resolve => {
@@ -39,5 +38,5 @@ export async function runGenerator() {
   console.info('Sync 1');
 
   loop<PlaceholderUser[]>(connectPlaceholderUsersAPI());
-  loop<any>(connectRandomUserAPI());
+  loop<Record<string, unknown>>(connectRandomUserAPI());
 }

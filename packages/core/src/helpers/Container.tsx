@@ -1,5 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
-import { createContext } from 'react';
+import { createContext, type ComponentType, type ReactNode } from 'react';
 import { useContext } from '../hooks/useContext';
 
 type ContainerProviderProps<S = void> = {

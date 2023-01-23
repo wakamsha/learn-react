@@ -12,7 +12,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-export async function request<REQ extends {}, RES>({
+export async function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   token,
@@ -24,7 +24,7 @@ export async function request<REQ extends {}, RES>({
   path: string;
   token?: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
   withCredentials: boolean;
 }): Promise<RES> {
   const headers = {

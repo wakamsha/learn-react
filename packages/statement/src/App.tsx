@@ -1,8 +1,7 @@
 import { StorageProxy } from '@learn-react/core/helpers/Storage';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { ChangeEvent, FC } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ChangeEvent, type FC } from 'react';
 import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';
 import { createContainer } from './31-unstated-basic/helpers/Unstated';

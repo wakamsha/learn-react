@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react';
-import type { ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import { ProfileStore } from './stores/ProfileStore';
 
 /**

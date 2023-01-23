@@ -1,7 +1,6 @@
 import { useContext } from '@learn-react/core/hooks/useContext';
 import { useTransaction } from '@learn-react/core/hooks/useTransaction';
-import type { ChangeEvent } from 'react';
-import { useReducer } from 'react';
+import { useReducer, type ChangeEvent } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 
 type State = {
