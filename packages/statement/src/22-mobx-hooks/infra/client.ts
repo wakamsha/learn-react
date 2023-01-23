@@ -13,7 +13,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-async function request<REQ extends {}, RES>({
+async function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   token,

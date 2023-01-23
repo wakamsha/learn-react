@@ -25,6 +25,7 @@ module.exports = {
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
+    '@typescript-eslint/ban-types': ['error'],
     '@typescript-eslint/consistent-type-definitions': ['warn', 'type'],
     '@typescript-eslint/consistent-type-imports': [
       'error',
@@ -99,7 +100,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': ['error'],
 
     // Disable
-    '@typescript-eslint/ban-types': ['off'],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],

@@ -61,7 +61,7 @@ function useSubmit() {
 
   const [onSubmit, submitStatus] = useTransaction(
     useCallback(async (userId: number) => {
-      const user = await request<{}, User>({
+      const user = await request<Record<string, unknown>, User>({
         method: 'GET',
         path: `/users/${userId}`,
         ...{

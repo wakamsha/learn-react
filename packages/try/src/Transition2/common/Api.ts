@@ -3,7 +3,7 @@ import { Loadable } from './Loadable';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function request<REQ extends {}, RES>({
+function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   send,

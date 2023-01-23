@@ -12,7 +12,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function request<REQ extends {}, RES>({
+function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,
   send,
@@ -110,7 +110,7 @@ type User = {
 };
 
 export function fetchUser(userId = 1) {
-  const promise = request<{}, User>({
+  const promise = request<Record<string, unknown>, User>({
     method: 'GET',
     path: `/users/${userId}`,
   });
