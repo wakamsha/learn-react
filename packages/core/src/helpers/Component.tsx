@@ -25,7 +25,10 @@ export function withSuspense<Props extends Record<string, unknown>>(
 ) {
   return (props: Props) => (
     <Suspense fallback={fallback}>
-      <Component {...props} />
+      <Component
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...props}
+      />
     </Suspense>
   );
 }
