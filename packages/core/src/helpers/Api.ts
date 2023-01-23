@@ -24,7 +24,7 @@ export async function request<REQ extends Record<string, unknown>, RES>({
   path: string;
   token?: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
   withCredentials: boolean;
 }): Promise<RES> {
   const headers = {

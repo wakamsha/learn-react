@@ -38,5 +38,5 @@ export async function runGenerator() {
   console.info('Sync 1');
 
   loop<PlaceholderUser[]>(connectPlaceholderUsersAPI());
-  loop<any>(connectRandomUserAPI());
+  loop<Record<string, unknown>>(connectRandomUserAPI());
 }

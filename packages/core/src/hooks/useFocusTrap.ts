@@ -25,7 +25,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
       if (!targetRef.current.contains(document.activeElement)) {
         focusableNodes[0].focus();
       } else {
-        const focusedItemIndex = focusableNodes.indexOf(document.activeElement as any);
+        const focusedItemIndex = focusableNodes.indexOf(document.activeElement as HTMLElement);
 
         if (e.shiftKey && focusedItemIndex === 0) {
           focusableNodes[focusableNodes.length - 1].focus();

@@ -21,7 +21,7 @@ function request<REQ extends Record<string, unknown>, RES>({
   method: Method;
   path: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
 }): Promise<RES> {
   const headers = {
     Accept: 'application/json',

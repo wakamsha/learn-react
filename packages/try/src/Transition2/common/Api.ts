@@ -12,7 +12,7 @@ function request<REQ extends Record<string, unknown>, RES>({
   method: Method;
   path: string;
   send?: REQ;
-  query?: any;
+  query?: Record<string, unknown>;
 }): Promise<RES> {
   const headers = {
     Accept: 'application/json',
@@ -70,7 +70,7 @@ export type IssueType = {
 };
 
 export function fetchIssues(page: number) {
-  return request<any, IssueType[]>({
+  return request<Record<string, unknown>, IssueType[]>({
     method: 'GET',
     path: '/repos/facebook/react/issues',
     query: {
