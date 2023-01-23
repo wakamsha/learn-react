@@ -61,6 +61,7 @@ module.exports = {
         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
       },
     ],
+    'no-param-reassign': ['error'],
     'no-restricted-imports': [
       'error',
       {
@@ -119,11 +120,9 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': ['off'],
     'jsx-a11y/no-autofocus': ['off'],
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
-    'default-case': ['off'],
-    'global-require': ['off'],
+    'default-case': ['off'], // switch の条件式に渡される値の型次第では default は不要となる。
     'max-classes-per-file': ['off'],
     'no-bitwise': ['off'],
-    'no-param-reassign': ['off'],
     'no-undef': ['off'],
     'no-use-before-define': ['off'],
     'no-useless-constructor': ['off'],
