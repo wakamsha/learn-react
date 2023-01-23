@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { createRoutesFromChildren, matchRoutes, Routes, useLocation } from 'react-router-dom';
 import { Transition } from '../Transition';
 

@@ -1,6 +1,5 @@
 import { css, cx } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
 import { isVisibleScrollbarOf, scrollbarSize } from '../../../helpers/Browser';

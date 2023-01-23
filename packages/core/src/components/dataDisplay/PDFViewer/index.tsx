@@ -1,9 +1,8 @@
 import { css } from '@linaria/core';
 import * as pdfjsLib from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.js?url';
-import type { PDFPageProxy } from 'pdfjs-dist/types/src/display/api';
-import type { ComponentProps } from 'react';
-import { useEffect, useState } from 'react';
+import { type PDFPageProxy } from 'pdfjs-dist/types/src/display/api';
+import { useEffect, useState, type ComponentProps } from 'react';
 import { gutter } from '../../../helpers/Style';
 import { Page } from './Page';
 

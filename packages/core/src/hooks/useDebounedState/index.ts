@@ -1,5 +1,4 @@
-import type { Dispatch, SetStateAction } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 
 /**
  * 即時反映される値をデバウンスします。

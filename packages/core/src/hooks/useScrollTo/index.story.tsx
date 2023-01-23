@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent, MouseEvent } from 'react';
-import { useRef, useState } from 'react';
+import { useRef, useState, type ChangeEvent, type MouseEvent } from 'react';
 import { useScrollTo } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';
 

@@ -1,5 +1,4 @@
-import type { ChangeEvent } from 'react';
-import { useDeferredValue, useState } from 'react';
+import { useDeferredValue, useState, type ChangeEvent } from 'react';
 
 /**
  * `useDeferredValue` を使ったサンプル。

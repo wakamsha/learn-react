@@ -1,8 +1,6 @@
 import { css, cx } from '@linaria/core';
-import type { AnimationEvent, ReactNode } from 'react';
-import { useEffect, useState } from 'react';
-import type { Toast } from '.';
-import { useRemoveToast } from '.';
+import { useEffect, useState, type AnimationEvent, type ReactNode } from 'react';
+import { useRemoveToast, type Toast } from '.';
 import { Duration, Easing, FontSize, IconSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';

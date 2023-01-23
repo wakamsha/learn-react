@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { useRef, useState } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import { useShuffleLetters } from '.';
 import { gutter } from '../../helpers/Style';
 

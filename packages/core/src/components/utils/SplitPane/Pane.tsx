@@ -1,7 +1,6 @@
 import { css } from '@linaria/core';
-import type { ComponentProps, ForwardedRef, ReactNode } from 'react';
-import { forwardRef } from 'react';
-import type { SplitPane } from '.';
+import { forwardRef, type ComponentProps, type ForwardedRef, type ReactNode } from 'react';
+import { type SplitPane } from '.';
 
 type ParentProps = ComponentProps<typeof SplitPane>;
 

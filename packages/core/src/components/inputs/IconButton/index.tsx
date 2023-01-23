@@ -1,7 +1,13 @@
-import type { IconName } from '@learn-react/icon';
+import { type IconName } from '@learn-react/icon';
 import { css, cx } from '@linaria/core';
-import type { AriaAttributes, ForwardedRef, KeyboardEvent, MouseEvent } from 'react';
-import { forwardRef, useMemo } from 'react';
+import {
+  forwardRef,
+  useMemo,
+  type AriaAttributes,
+  type ForwardedRef,
+  type KeyboardEvent,
+  type MouseEvent,
+} from 'react';
 import { BorderRadius, Duration } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';

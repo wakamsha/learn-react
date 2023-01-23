@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { useId } from 'react';
+import { useId, type ReactNode } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';
 import { Tooltip } from '../../../components/dataDisplay/Tooltip';
 import { FontSize, IconSize } from '../../../constants/Style';

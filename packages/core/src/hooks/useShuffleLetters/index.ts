@@ -1,5 +1,4 @@
-import type { RefObject } from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type RefObject } from 'react';
 
 export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, duration = 800) {
   const [key, setKey] = useState(0);

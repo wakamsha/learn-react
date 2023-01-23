@@ -1,8 +1,14 @@
 import { FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { css, cx } from '@linaria/core';
-import type { AriaAttributes, ButtonHTMLAttributes, ForwardedRef, MouseEvent, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import {
+  forwardRef,
+  type AriaAttributes,
+  type ButtonHTMLAttributes,
+  type ForwardedRef,
+  type MouseEvent,
+  type ReactNode,
+} from 'react';
 
 type Props = {
   children: ReactNode;

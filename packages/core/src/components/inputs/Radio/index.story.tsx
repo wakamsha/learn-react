@@ -1,5 +1,4 @@
-import type { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, type ChangeEvent } from 'react';
 import { Radio } from '.';
 
 export const Story = () => {

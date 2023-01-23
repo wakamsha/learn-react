@@ -1,6 +1,5 @@
 import { dirname, resolve } from 'path';
-import type { UserConfig } from 'vite';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv, type UserConfig } from 'vite';
 import { createUserConfig } from '../../builder/vite';
 
 const __dirname = dirname(new URL(import.meta.url).pathname);

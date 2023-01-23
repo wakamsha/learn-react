@@ -1,6 +1,5 @@
 import { createContainer } from '@learn-react/core/helpers/Container';
-import type { ReactNode } from 'react';
-import { Component, Suspense, useState } from 'react';
+import { Component, Suspense, useState, type ReactNode } from 'react';
 import { fetchUser } from './api';
 import { Loader } from './components/Loader';
 

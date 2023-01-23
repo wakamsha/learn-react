@@ -1,6 +1,5 @@
 import { css } from '@linaria/core';
-import type { ReactNode } from 'react';
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useRef, useState, type ReactNode } from 'react';
 import { Duration, Easing } from '../../../constants/Style';
 
 type TransitionType = 'horizontal' | 'vertical' | 'scale';

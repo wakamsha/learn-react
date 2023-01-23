@@ -1,11 +1,8 @@
 import { css } from '@linaria/core';
-import type { ChangeEvent } from 'react';
-import { Suspense, useState, useTransition } from 'react';
+import { Suspense, useState, useTransition, type ChangeEvent } from 'react';
 import { useData } from '.';
-import type { FallbackProps } from '../../components/utils/ErrorBoundary';
-import { ErrorBoundary } from '../../components/utils/ErrorBoundary';
-import type { ErrorResult } from '../../helpers/Api';
-import { request } from '../../helpers/Api';
+import { ErrorBoundary, type FallbackProps } from '../../components/utils/ErrorBoundary';
+import { request, type ErrorResult } from '../../helpers/Api';
 import { cssVar } from '../../helpers/Style';
 
 export const Story = () => {

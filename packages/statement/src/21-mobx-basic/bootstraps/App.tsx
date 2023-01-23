@@ -2,7 +2,7 @@ import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { css } from '@linaria/core';
-import type { ComponentProps } from 'react';
+import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { HomePage } from '../pages/Home';

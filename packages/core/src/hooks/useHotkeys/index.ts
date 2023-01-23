@@ -1,7 +1,5 @@
-import type { HotkeysEvent, KeyHandler } from 'hotkeys-js';
-import hotkeys from 'hotkeys-js';
-import type { RefObject } from 'react';
-import { useCallback, useEffect, useRef } from 'react';
+import hotkeys, { type HotkeysEvent, type KeyHandler } from 'hotkeys-js';
+import { useCallback, useEffect, useRef, type RefObject } from 'react';
 
 type Options = {
   /**

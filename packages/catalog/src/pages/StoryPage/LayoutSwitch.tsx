@@ -1,6 +1,6 @@
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
 import { css, cx } from '@linaria/core';
-import type { MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { Layout } from './VO';
 

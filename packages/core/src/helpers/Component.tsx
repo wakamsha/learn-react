@@ -1,5 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
-import { Suspense } from 'react';
+import { Suspense, type ComponentType, type ReactNode } from 'react';
 
 /**
  * 非同期で読み込むコンポーネントを React.Suspense でラップした新しいコンポーネントを返します。

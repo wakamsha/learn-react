@@ -1,10 +1,9 @@
 /**
  * Constate を使った実装。
  */
-import type { IconName } from '@learn-react/icon';
+import { type IconName } from '@learn-react/icon';
 import constate from 'constate';
-import type { ReactNode } from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type ReactNode } from 'react';
 import { Container } from './Container';
 
 type ProviderProps = {
