@@ -7,7 +7,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
 
   const start = useCallback((text: string) => {
     setOriginStr(text);
-    setKey(state => state + 1);
+    setKey((state) => state + 1);
   }, []);
 
   useEffect(() => {

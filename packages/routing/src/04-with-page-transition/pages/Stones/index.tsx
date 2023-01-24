@@ -83,7 +83,7 @@ const memberData: MemberType[] = [
 ];
 
 export function getMemberById(id: string): MemberType | void {
-  return memberData.find(f => f.id === id);
+  return memberData.find((f) => f.id === id);
 }
 
 const Member = withSuspense(lazy(() => import('./Member').then(({ Member }) => ({ default: Member }))));

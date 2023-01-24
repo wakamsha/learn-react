@@ -9,7 +9,7 @@ export const Story = () => (
   <>
     <h2>Solid</h2>
     <div className={styleRow}>
-      {themes.map(theme => (
+      {themes.map((theme) => (
         <div key={theme} className={styleCell}>
           <Button theme={theme}>{theme}</Button>
         </div>
@@ -21,7 +21,7 @@ export const Story = () => (
 
     <h2>Ghost</h2>
     <div className={styleRow}>
-      {themes.map(theme => (
+      {themes.map((theme) => (
         <div key={theme} className={styleCell}>
           <Button variant="ghost" theme={theme}>
             {theme}
@@ -37,7 +37,7 @@ export const Story = () => (
 
     <h2>Bare</h2>
     <div className={styleRow}>
-      {themes.map(theme => (
+      {themes.map((theme) => (
         <div key={theme} className={styleCell}>
           <Button variant="bare" theme={theme}>
             {theme}
@@ -53,7 +53,7 @@ export const Story = () => (
 
     <h2>With Icon</h2>
     <div className={styleRow}>
-      {(['solid', 'ghost', 'bare'] as const).map(variant => (
+      {(['solid', 'ghost', 'bare'] as const).map((variant) => (
         <div key={variant} className={styleCell}>
           <Button variant={variant}>
             <Icon name="plus" />
@@ -63,7 +63,7 @@ export const Story = () => (
       ))}
     </div>
     <div className={styleRow}>
-      {(['solid', 'ghost', 'bare'] as const).map(variant => (
+      {(['solid', 'ghost', 'bare'] as const).map((variant) => (
         <div key={variant} className={styleCell}>
           <Button variant={variant}>
             {variant}

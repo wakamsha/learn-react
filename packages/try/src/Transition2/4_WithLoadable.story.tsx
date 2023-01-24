@@ -46,7 +46,7 @@ const Presentation = ({ page }: { page: number }) => {
 
   return (
     <ul className={styleIssues}>
-      {issues?.map(issue => (
+      {issues?.map((issue) => (
         <li key={issue.id}>
           <Issue issue={issue} />
         </li>

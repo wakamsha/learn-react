@@ -36,7 +36,7 @@ function request<REQ extends Record<string, unknown>, RES>({
       method,
       ...(send ? { body: JSON.stringify(send) } : {}),
     })
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           console.error('エラーレスポンス', response);
           reject(response);
@@ -46,13 +46,13 @@ function request<REQ extends Record<string, unknown>, RES>({
             .then((data: RES) => {
               resolve(data);
             })
-            .catch(error => {
+            .catch((error) => {
               console.error(error);
               reject(error);
             });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         reject(error);
       });

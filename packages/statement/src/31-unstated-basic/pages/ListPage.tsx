@@ -44,7 +44,7 @@ const AddForm = () => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <fieldset>
         <legend>Add</legend>
         <p>
@@ -93,7 +93,7 @@ const EditForm = () => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <fieldset>
         <legend>Edit</legend>
         <p>

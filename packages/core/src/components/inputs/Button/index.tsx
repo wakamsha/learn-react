@@ -79,7 +79,7 @@ export const Button = forwardRef(
 
     return noop ? (
       <span ref={ref} id={id} className={buttonStyle} aria-disabled={disabled}>
-        {Children.toArray(children).map(child =>
+        {Children.toArray(children).map((child) =>
           typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
         )}
       </span>
@@ -96,7 +96,7 @@ export const Button = forwardRef(
         aria-haspopup={ariaHaspopup}
         aria-expanded={ariaExpanded}
       >
-        {Children.toArray(children).map(child =>
+        {Children.toArray(children).map((child) =>
           typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
         )}
       </button>

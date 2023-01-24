@@ -12,7 +12,7 @@ export const Story = () => {
 
   const handleClick = () => {
     startTransition(() => {
-      setCounter(c => {
+      setCounter((c) => {
         console.info(c, '→', c + 1);
         return c + 1;
       });

@@ -92,8 +92,8 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     targetElm.addEventListener('mouseenter', schedule);
 
     // target 非活性状態変更時に mouseleave イベントを実行し、当要素を確実に非表示とする。
-    const observer: MutationObserver = new MutationObserver(records =>
-      records.forEach(record => (record.target as HTMLButtonElement).disabled && handleMouseLeave()),
+    const observer: MutationObserver = new MutationObserver((records) =>
+      records.forEach((record) => (record.target as HTMLButtonElement).disabled && handleMouseLeave()),
     );
 
     observer.observe(targetElm, {

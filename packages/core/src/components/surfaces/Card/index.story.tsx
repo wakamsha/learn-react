@@ -65,7 +65,7 @@ export const Story = () => (
         <h1>ポラーノの広場</h1>
       </Card.Header>
       <Card.Body thickness="small">
-        {[...Array(8).keys()].map(index => (
+        {[...Array(8).keys()].map((index) => (
           <Content key={index} />
         ))}
       </Card.Body>

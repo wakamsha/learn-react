@@ -21,11 +21,11 @@ function useToast(limit = 1) {
   const [toasts, SetToasts] = useState<Toast[]>([]);
 
   const addToast = useCallback(({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => {
-    setQueue(toasts => [...toasts, { id: Date.now(), message, icon, theme }]);
+    setQueue((toasts) => [...toasts, { id: Date.now(), message, icon, theme }]);
   }, []);
 
   const removeToast = useCallback((id: number) => {
-    setQueue(toasts => toasts.filter(toast => toast.id !== id));
+    setQueue((toasts) => toasts.filter((toast) => toast.id !== id));
   }, []);
 
   useEffect(() => {

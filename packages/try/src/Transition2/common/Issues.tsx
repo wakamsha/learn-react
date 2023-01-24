@@ -25,7 +25,7 @@ export const Issues = ({ page, suspense = false }: Props) => {
     () => {
       const url = `https://api.github.com/repos/facebook/react/issues?per_page=10&state=all&page=${page}`;
 
-      return fetch(url).then<IssueType[]>(result => result.json());
+      return fetch(url).then<IssueType[]>((result) => result.json());
     },
     {
       suspense,
@@ -34,7 +34,7 @@ export const Issues = ({ page, suspense = false }: Props) => {
 
   return (
     <ul className={styleIssues}>
-      {issues?.map(issue => (
+      {issues?.map((issue) => (
         <li key={issue.id}>
           <Issue issue={issue} />
         </li>

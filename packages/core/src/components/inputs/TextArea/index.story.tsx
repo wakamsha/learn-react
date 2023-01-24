@@ -25,11 +25,23 @@ export const Story = () => {
       <div className={styleFormControls}>
         <label className={styleFormControl}>
           <span>Min Lines</span>
-          <input type="number" min={1} max={100} value={minLines} onChange={e => setMinLines(Number(e.target.value))} />
+          <input
+            type="number"
+            min={1}
+            max={100}
+            value={minLines}
+            onChange={(e) => setMinLines(Number(e.target.value))}
+          />
         </label>
         <label className={styleFormControl}>
           <span>Max Lines</span>
-          <input type="number" min={1} max={100} value={maxLines} onChange={e => setMaxLines(Number(e.target.value))} />
+          <input
+            type="number"
+            min={1}
+            max={100}
+            value={maxLines}
+            onChange={(e) => setMaxLines(Number(e.target.value))}
+          />
         </label>
       </div>
 

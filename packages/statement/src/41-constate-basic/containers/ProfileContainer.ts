@@ -9,8 +9,8 @@ const useProfile = () => {
 
 const [ProfileContainer, useName, useEditName] = constate(
   useProfile,
-  hook => hook.name,
-  hook => hook.setName,
+  (hook) => hook.name,
+  (hook) => hook.setName,
 );
 
 export { ProfileContainer, useName, useEditName };

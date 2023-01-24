@@ -72,11 +72,11 @@ export const Profile = () => {
           <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
           <Route
             path={Router.paths.profileShow}
-            element={<Context.Consumer>{store => <ProfileShowPage store={store.current} />}</Context.Consumer>}
+            element={<Context.Consumer>{(store) => <ProfileShowPage store={store.current} />}</Context.Consumer>}
           />
           <Route
             path={Router.paths.profileEdit}
-            element={<Context.Consumer>{store => <ProfileEditPage store={store.current} />}</Context.Consumer>}
+            element={<Context.Consumer>{(store) => <ProfileEditPage store={store.current} />}</Context.Consumer>}
           />
         </PageTransition>
       </Context.Provider>

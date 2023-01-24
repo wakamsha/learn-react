@@ -9,7 +9,7 @@ function sleep(sec: number) {
 }
 
 function delay(sec: number): Promise<void> {
-  return new Promise(r => {
+  return new Promise((r) => {
     setTimeout(r, sec * 1000);
   });
 }

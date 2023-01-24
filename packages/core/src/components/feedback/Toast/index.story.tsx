@@ -12,7 +12,7 @@ export const Story = () => {
     <ToastProvider limit={limit}>
       <label className={styleFormControl}>
         <span>表示する上限数</span>
-        <input type="number" min={1} max={10} value={limit} onChange={e => setLimit(Number(e.target.value))} />
+        <input type="number" min={1} max={10} value={limit} onChange={(e) => setLimit(Number(e.target.value))} />
       </label>
 
       <AddMessage />
@@ -50,7 +50,7 @@ const AddMessage = () => {
   };
 
   return (
-    <form className={styleForm} onSubmit={e => e.preventDefault()}>
+    <form className={styleForm} onSubmit={(e) => e.preventDefault()}>
       <div className={styleFormControl}>
         <select
           className={styleFormItem}
@@ -58,7 +58,7 @@ const AddMessage = () => {
           value={theme}
           onChange={handleChangeTheme}
         >
-          {['primary', 'danger'].map(label => (
+          {['primary', 'danger'].map((label) => (
             <option key={label} value={label}>
               {label}
             </option>
@@ -69,7 +69,7 @@ const AddMessage = () => {
       <div className={styleFormControl}>
         <input className={styleFormItem} list="icon-list" placeholder="アイコン" onChange={handleChangeIcon} />
         <datalist id="icon-list">
-          {iconNames.map(iconName => (
+          {iconNames.map((iconName) => (
             <option key={iconName} value={iconName}>
               {iconName}
             </option>

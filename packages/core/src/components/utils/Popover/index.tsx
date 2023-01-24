@@ -98,7 +98,7 @@ export const Popover = ({
         aria-hidden={!visible}
         aria-modal={visible}
         style={{ ...point }}
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

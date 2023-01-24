@@ -12,7 +12,7 @@ export const Story = () => {
     startTransition(() => {
       // setCounter2(counter2 + 1);
       // @see https://zenn.dev/uhyo/books/react-concurrent-handson-2/viewer/branching#世界の分岐を体験する
-      setCounter2(c => c + 1);
+      setCounter2((c) => c + 1);
     });
   };
 
@@ -50,7 +50,7 @@ function useData<T>(cacheKey: string, fetch: () => Promise<T>): T {
   const cachedData = dataMap.get(cacheKey) as T | undefined;
 
   if (cachedData === undefined) {
-    throw fetch().then(data => {
+    throw fetch().then((data) => {
       dataMap.set(cacheKey, data);
     });
   }

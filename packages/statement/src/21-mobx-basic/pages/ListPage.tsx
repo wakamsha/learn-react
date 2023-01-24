@@ -13,7 +13,7 @@ export const ListPage = () => {
     <Context.Provider value={store}>
       <div className={styleBase}>
         <Context.Consumer>
-          {store => (
+          {(store) => (
             <>
               <div className={styleColumn}>
                 <AddForm listStore={store} />
@@ -46,7 +46,7 @@ const AddForm = ({ listStore }: { listStore: ListStore }) => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <fieldset>
         <legend>Add</legend>
         <p>
@@ -83,7 +83,7 @@ const EditForm = ({ listStore }: { listStore: ListStore }) => {
   };
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <fieldset>
         <legend>Edit</legend>
         <p>

@@ -34,7 +34,7 @@ const styleBase = css`
 
 const List = () => (
   <ul>
-    {FriendData.map(friend => (
+    {FriendData.map((friend) => (
       <li key={friend.id}>
         <Link to={`/friends/${friend.id}`}>{friend.nameJa}</Link>
       </li>
@@ -71,5 +71,5 @@ const FriendData: FriendType[] = [
 ];
 
 export function getFriendById(id: string): FriendType | void {
-  return FriendData.find(f => f.id === id);
+  return FriendData.find((f) => f.id === id);
 }

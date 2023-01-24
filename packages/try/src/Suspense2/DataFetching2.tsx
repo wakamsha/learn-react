@@ -33,7 +33,7 @@ function useData<T>(cacheKey: string, fetch: () => Promise<T>) {
 
   // dataがまだ無ければローディングを開始する
   if (!cachedData) {
-    throw fetch().then(d => {
+    throw fetch().then((d) => {
       dataMap.set(cacheKey, d);
     });
   }

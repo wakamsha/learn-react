@@ -45,7 +45,7 @@ function useLoadPdfPages(src: string) {
       const pdf = await pdfjsLib.getDocument({ url: src, cMapUrl: 'cmaps/', cMapPacked: true }).promise;
 
       const loadPdfPages = await Promise.all(
-        [...Array(pdf.numPages).keys()].map(async i => getPageProps(await pdf.getPage(i + 1), pageWidth)),
+        [...Array(pdf.numPages).keys()].map(async (i) => getPageProps(await pdf.getPage(i + 1), pageWidth)),
       );
 
       setPdfPages(loadPdfPages);

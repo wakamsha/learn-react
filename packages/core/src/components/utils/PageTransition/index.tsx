@@ -26,7 +26,7 @@ type Props = {
 export const PageTransition = ({ children, parentPath = '' }: Props) => {
   const location = useLocation();
 
-  const routes = createRoutesFromChildren(children).map(route => ({
+  const routes = createRoutesFromChildren(children).map((route) => ({
     ...route,
     ...(route.path && parentPath ? { path: `${parentPath}${route.path}` } : {}),
   }));

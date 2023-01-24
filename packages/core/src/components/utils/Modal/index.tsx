@@ -52,7 +52,7 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
           ref={dialogRef}
           aria-modal={visible}
           aria-hidden={!visible}
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {children}
         </div>

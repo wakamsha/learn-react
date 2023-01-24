@@ -25,7 +25,7 @@ export const Story = () => {
   return (
     <>
       <h2>Get by Params</h2>
-      <form onSubmit={e => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <p>取得する User の id を指定</p>
         <input type="number" max={100} value={userId} disabled={isPending} onChange={handleChangeUserId} />
         {isPending ? <span className={styleIndicator}>Loading...</span> : null}

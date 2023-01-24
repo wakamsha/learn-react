@@ -91,7 +91,7 @@ export function useListBox(itemCount: number): Response {
    */
   const toggleItemsActivity = useCallback(
     (disabled: boolean) => {
-      itemRefs.forEach(itemRef => {
+      itemRefs.forEach((itemRef) => {
         if (disabled) {
           itemRef.current?.setAttribute('disabled', 'true');
         } else {
@@ -125,7 +125,7 @@ export function useListBox(itemCount: number): Response {
         return;
       }
 
-      setActive(active => !active);
+      setActive((active) => !active);
     },
     [active, moveFocus],
   );
@@ -171,7 +171,7 @@ export function useListBox(itemCount: number): Response {
 
       // 入力したキーの文字で始まるラベルのメニュー項目にフォーカスを移動する。
       if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
-        const index = itemRefs.findIndex(ref => {
+        const index = itemRefs.findIndex((ref) => {
           const key = e.key.toLowerCase();
           return (
             ref.current?.innerText.toLowerCase().startsWith(key) ||
@@ -216,7 +216,7 @@ export function useListBox(itemCount: number): Response {
       )
         return;
 
-      setActive(active => !active);
+      setActive((active) => !active);
     };
 
     document.addEventListener('click', handleEveryClick);
@@ -254,7 +254,7 @@ export function useListBox(itemCount: number): Response {
       'aria-haspopup': true,
       'aria-expanded': active,
     },
-    itemProps: [...Array(itemCount).keys()].map(index => ({
+    itemProps: [...Array(itemCount).keys()].map((index) => ({
       onKeyDown: handleItemKeyDown,
       tabIndex: -1,
       role: 'menuitem',

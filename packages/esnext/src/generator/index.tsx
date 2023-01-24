@@ -1,7 +1,7 @@
 import { requestGetPlaceholderUsers, requestGetRandomUser, type PlaceholderUser } from './api-client';
 
 function p(str: string, delay = 1000): Promise<string> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve(str);
     }, delay);
@@ -19,7 +19,7 @@ function loop<T>(g: IterableIterator<Promise<T>>) {
   const p = g.next();
   if (p.done) return;
   // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  p.value.then(value => {
+  p.value.then((value) => {
     console.info(value);
     loop(g);
   });

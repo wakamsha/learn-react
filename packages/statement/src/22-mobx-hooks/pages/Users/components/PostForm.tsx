@@ -32,7 +32,7 @@ export const PostForm = () => {
   const validInputs = !!name && !!job;
 
   return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <h3>POST</h3>
       <p>
         <input placeholder="Name ..." value={name} onChange={handleChangeName} disabled={fetching} />
@@ -80,7 +80,7 @@ function useSubmit() {
 
       await store.postUser();
     },
-    e => console.error('😓😓😓', e.message),
+    (e) => console.error('😓😓😓', e.message),
   );
 
   return { onSubmit, fetching: !!submitStatus.running };

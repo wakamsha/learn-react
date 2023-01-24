@@ -151,7 +151,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
         clickedOpen.current = !opened;
       }
 
-      setOpened(state => !state);
+      setOpened((state) => !state);
     },
     [moveFocus, opened, onClickDisableFocusFirstItem],
   );
@@ -198,7 +198,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       // 入力したキーの文字で始まるラベルのメニュー項目にフォーカスを移動する。
       if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
         const index = itemRefs.findIndex(
-          ref =>
+          (ref) =>
             ref.current?.innerText.toLowerCase().startsWith(e.key.toLowerCase()) ||
             ref.current?.textContent?.toLowerCase().startsWith(e.key.toLowerCase()) ||
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(e.key.toLowerCase()),
@@ -222,7 +222,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       'aria-haspopup': true,
       'aria-expanded': opened,
     },
-    itemProps: [...Array(itemCount).keys()].map(index => ({
+    itemProps: [...Array(itemCount).keys()].map((index) => ({
       onKeyDown: handleItemKeyDown,
       tabIndex: -1,
       role: 'menuitem',

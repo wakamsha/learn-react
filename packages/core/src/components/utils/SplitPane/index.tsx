@@ -194,7 +194,7 @@ export const SplitPane = ({
     }
   };
 
-  const nonNullChildren = Children.toArray(children).filter(c => !!c);
+  const nonNullChildren = Children.toArray(children).filter((c) => !!c);
 
   return (
     <div className={styleBase}>

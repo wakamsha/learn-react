@@ -80,9 +80,9 @@ export const Calendar = ({
       <div role="menubar" className={styleMenubar}>
         <IconButton name="angle-left" variant="bare" ariaLabel="Preview month" onClick={handleClickPrevMonth} />
         <select name="month year" value={page.getTime()} onChange={handleChangeYearMonth}>
-          {yearGroup.map(group => (
+          {yearGroup.map((group) => (
             <optgroup key={group.year} label={`${group.year}`}>
-              {group.months.map(month => (
+              {group.months.map((month) => (
                 <option key={month.value} value={month.value}>
                   {month.label}
                 </option>
@@ -95,7 +95,7 @@ export const Calendar = ({
       <table className={styleCalendar}>
         <thead>
           <tr>
-            {WeekLabels.map(label => (
+            {WeekLabels.map((label) => (
               <th key={label}>{label}</th>
             ))}
           </tr>
@@ -159,9 +159,9 @@ const styleCalendar = css`
   }
 `;
 
-const yearGroup = [...Array(31).keys()].map(year => ({
+const yearGroup = [...Array(31).keys()].map((year) => ({
   year: 2000 + year,
-  months: [...Array(12).keys()].map(month => {
+  months: [...Array(12).keys()].map((month) => {
     const d = new Date(2000 + year, month);
     return {
       label: format(d, 'MMM yyyy'),
@@ -186,7 +186,7 @@ const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 function getDateArray(page: Date): (Date | undefined)[][] {
   const padStart = [...Array(setDate(page, 1).getDay())].fill(undefined);
 
-  const dates = [...Array(lastDayOfMonth(page).getDate()).keys()].map(i => setDate(page, i + 1));
+  const dates = [...Array(lastDayOfMonth(page).getDate()).keys()].map((i) => setDate(page, i + 1));
 
   const headLength = (padStart.length + dates.length) % 7 || 7;
 

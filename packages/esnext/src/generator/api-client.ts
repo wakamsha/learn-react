@@ -32,17 +32,17 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
     method: 'GET',
   });
   if (!res.ok) {
-    await res.json().catch(err => {
+    await res.json().catch((err) => {
       console.info('ここでエラー処理をしてください');
       throw new Error(err);
     });
   }
-  return res.json().then(res => res);
+  return res.json().then((res) => res);
 }
 
 export async function requestGetRandomUser(): Promise<any> {
   const url = 'https://randomuser.me/api/';
-  return request<any>(url).then(res => res.results);
+  return request<any>(url).then((res) => res.results);
 }
 
 export function requestGetPlaceholderUsers(): Promise<PlaceholderUser[]> {
