@@ -41,9 +41,15 @@ function request<REQ extends Record<string, unknown>, RES>({
           console.error('エラーレスポンス', response);
           reject(response);
         } else {
-          response.json().then((data: RES) => {
-            resolve(data);
-          });
+          response
+            .json()
+            .then((data: RES) => {
+              resolve(data);
+            })
+            .catch(error => {
+              console.error(error);
+              reject(error);
+            });
         }
       })
       .catch(error => {

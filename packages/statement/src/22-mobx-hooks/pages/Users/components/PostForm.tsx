@@ -25,7 +25,7 @@ export const PostForm = () => {
     dispatch({ type: 'job', payload: { job: value } });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     onSubmit({ name, job });
   };
 

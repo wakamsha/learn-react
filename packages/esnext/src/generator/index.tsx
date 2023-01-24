@@ -18,6 +18,7 @@ function* gfn(): IterableIterator<Promise<string>> {
 function loop<T>(g: IterableIterator<Promise<T>>) {
   const p = g.next();
   if (p.done) return;
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   p.value.then(value => {
     console.info(value);
     loop(g);
@@ -32,7 +33,7 @@ function* connectPlaceholderUsersAPI(): IterableIterator<Promise<PlaceholderUser
   yield requestGetPlaceholderUsers();
 }
 
-export async function runGenerator() {
+export function runGenerator() {
   const g = gfn();
   loop<string>(g);
   console.info('Sync 1');

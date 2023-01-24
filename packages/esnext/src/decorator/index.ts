@@ -33,5 +33,6 @@ class Example {
 
 export function runDecorator() {
   new Example('world').greet();
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   new Example('async world').greetAsync();
 }

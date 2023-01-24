@@ -9,6 +9,7 @@
 export function outputLog(target: any, propKey: string, descriptor: PropertyDescriptor) {
   const origin = descriptor.value;
   descriptor.value = function () {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     const key = `${target.constructor.name}#${propKey}`;
     console.info(`${key}: start`);
     console.time(key);

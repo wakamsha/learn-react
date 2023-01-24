@@ -68,7 +68,7 @@ export const Popover = ({
         alignment,
         offset,
         popoverElement: popoverRef.current,
-        targetElement: targetElement as HTMLElement,
+        targetElement,
       }),
     );
   }, [position, alignment, targetId, visible, offset, popoverRef]);
