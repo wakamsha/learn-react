@@ -136,11 +136,7 @@ export const SplitPane = ({
       sizeDelta = -sizeDelta;
     }
 
-    let newMaxSize = maxSize && numberAsPixelOf(maxSize);
-    if (typeof maxSize === 'number' && maxSize <= 0) {
-      const { width, height } = container.current.getBoundingClientRect();
-      newMaxSize = maxSize + (orientation === 'horizontal' ? width : height);
-    }
+    const newMaxSize = maxSize && numberAsPixelOf(maxSize);
 
     let newSize = size - sizeDelta;
     const newPosition = position - positionDelta;
