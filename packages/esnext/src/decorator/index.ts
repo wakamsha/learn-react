@@ -9,7 +9,7 @@ function sleep(sec: number) {
 }
 
 function delay(sec: number): Promise<void> {
-  return new Promise(r => {
+  return new Promise((r) => {
     setTimeout(r, sec * 1000);
   });
 }
@@ -33,5 +33,6 @@ class Example {
 
 export function runDecorator() {
   new Example('world').greet();
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   new Example('async world').greetAsync();
 }

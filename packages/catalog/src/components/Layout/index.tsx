@@ -23,7 +23,7 @@ export const Layout = ({ children }: Props) => {
   };
 
   const handleClickToggle = () => {
-    setLayoutConfig(mode => (mode === LayoutMode.Neutral ? LayoutMode.Zen : LayoutMode.Neutral));
+    setLayoutConfig((mode) => (mode === LayoutMode.Neutral ? LayoutMode.Zen : LayoutMode.Neutral));
   };
 
   useEffect(() => {

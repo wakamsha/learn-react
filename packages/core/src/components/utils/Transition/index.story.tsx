@@ -9,9 +9,9 @@ export const Story = () => {
   const [state2, setState2] = useState(false);
   const [state3, setState3] = useState(false);
 
-  const handleToggle1 = () => setState1(state => !state);
-  const handleToggle2 = () => setState2(state => !state);
-  const handleToggle3 = () => setState3(state => !state);
+  const handleToggle1 = () => setState1((state) => !state);
+  const handleToggle2 = () => setState2((state) => !state);
+  const handleToggle3 = () => setState3((state) => !state);
 
   return (
     <>

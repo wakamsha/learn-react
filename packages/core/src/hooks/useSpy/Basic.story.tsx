@@ -28,7 +28,7 @@ export const Story = () => {
   spy(
     // spy('[data-spy]', onSpyChange) のようにセレクターに文字列だけ渡すこともできるが、
     // このような高度な選び方も可能。
-    e => [...e.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    (e) => [...e.querySelectorAll('[data-spy]')].filter((e) => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
     onSpyChange,
   );
 
@@ -44,7 +44,7 @@ export const Story = () => {
       </div>
 
       <div ref={rootRef} className={styleRoot} style={{ gridArea: 'content' }}>
-        {fruits.map(name => (
+        {fruits.map((name) => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>
           </div>

@@ -31,11 +31,11 @@ const useToast = ({ limit = 1 }) => {
   const [toasts, SetToasts] = useState<Toast[]>([]);
 
   const addToast = useCallback(({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => {
-    setQueue(toasts => [...toasts, { id: Date.now(), message, icon, theme }]);
+    setQueue((toasts) => [...toasts, { id: Date.now(), message, icon, theme }]);
   }, []);
 
   const removeToast = useCallback((id: number) => {
-    setQueue(toasts => toasts.filter(toast => toast.id !== id));
+    setQueue((toasts) => toasts.filter((toast) => toast.id !== id));
   }, []);
 
   useEffect(() => {
@@ -49,9 +49,9 @@ const useToast = ({ limit = 1 }) => {
 
 const [Provider, useToasts, useAddToast, useRemoveToast] = constate(
   useToast,
-  hook => hook.toasts,
-  hook => hook.addToast,
-  hook => hook.removeToast,
+  (hook) => hook.toasts,
+  (hook) => hook.addToast,
+  (hook) => hook.removeToast,
 );
 
 const ToastProvider = ({ children, limit = 1 }: ProviderProps) => (

@@ -7,7 +7,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
 
   const start = useCallback((text: string) => {
     setOriginStr(text);
-    setKey(state => state + 1);
+    setKey((state) => state + 1);
   }, []);
 
   useEffect(() => {
@@ -18,6 +18,8 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
       const randomIndexes = [...Array(originStr.length).keys()].reduce((acc: number[], i) => {
         const rate = i / originStr.length;
 
+        // 明らかに全て number 型のみの四則演算なのにエラー判定される。
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         return [...acc, Math.random() * (1 - rate) + rate];
       }, []);
 

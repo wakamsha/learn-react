@@ -68,7 +68,7 @@ export const Popover = ({
         alignment,
         offset,
         popoverElement: popoverRef.current,
-        targetElement: targetElement as HTMLElement,
+        targetElement,
       }),
     );
   }, [position, alignment, targetId, visible, offset, popoverRef]);
@@ -98,7 +98,7 @@ export const Popover = ({
         aria-hidden={!visible}
         aria-modal={visible}
         style={{ ...point }}
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         {children}
       </div>

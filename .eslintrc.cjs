@@ -3,6 +3,7 @@ module.exports = {
     'airbnb',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:import/errors',
     'plugin:react/recommended',
     'prettier',
@@ -34,6 +35,18 @@ module.exports = {
       },
     ],
     '@typescript-eslint/dot-notation': ['error'],
+    '@typescript-eslint/no-floating-promises': [
+      'error',
+      {
+        ignoreIIFE: true,
+      },
+    ],
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
     '@typescript-eslint/no-unused-expressions': [
       'error',
       {
@@ -43,6 +56,12 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-useless-constructor': ['error'],
+    '@typescript-eslint/restrict-template-expressions': [
+      'error',
+      {
+        allowBoolean: true,
+      },
+    ],
     '@typescript-eslint/switch-exhaustiveness-check': ['error'],
     'arrow-body-style': ['error', 'as-needed'],
     'func-names': ['error'],
@@ -113,6 +132,11 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/no-unsafe-call': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
+    '@typescript-eslint/no-unsafe-argument': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
+    '@typescript-eslint/no-unsafe-assignment': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
+    '@typescript-eslint/no-unsafe-member-access': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
+    '@typescript-eslint/no-unsafe-return': ['off'], // tsconfig にて設定した alias path を認識できないため無効化する。
     '@typescript-eslint/no-use-before-define': ['off'],
     'class-methods-use-this': ['off'],
     'consistent-return': ['off'], // TypeScript のフロー解析を考慮できないため false positive が発生する

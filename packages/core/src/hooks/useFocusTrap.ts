@@ -18,7 +18,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
     (e: KeyboardEvent) => {
       if (!targetRef.current) return;
 
-      const focusableNodes = getFocusableNodes(targetRef.current).filter(node => node.offsetParent !== null);
+      const focusableNodes = getFocusableNodes(targetRef.current).filter((node) => node.offsetParent !== null);
 
       if (!focusableNodes.length) return;
 

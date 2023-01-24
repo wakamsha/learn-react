@@ -38,7 +38,7 @@ const Presentation = () => {
         <code>{JSON.stringify(result, null, 2)}</code>
       </pre>
       <hr />
-      <form onSubmit={e => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input type="number" value={userId} onChange={handleChange} />
         <button onClick={handleSubmit}>Submit</button>
       </form>

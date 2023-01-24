@@ -29,14 +29,14 @@ export class Loadable<T> {
     this.#state = {
       status: 'pending',
       promise: promise.then(
-        data => {
+        (data) => {
           this.#state = {
             data,
             status: 'fulfilled',
           };
           return data;
         },
-        error => {
+        (error) => {
           this.#state = {
             error,
             status: 'rejected',

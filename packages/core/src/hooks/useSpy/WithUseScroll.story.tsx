@@ -28,7 +28,7 @@ export const Story = () => {
     e.preventDefault();
 
     setTarget(name);
-    scrollTo(root => root.querySelector(`[data-spy="${name}"]`));
+    scrollTo((root) => root.querySelector(`[data-spy="${name}"]`));
   };
 
   const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +36,8 @@ export const Story = () => {
   };
 
   spy(
-    root => [...root.querySelectorAll('[data-spy]')].filter(e => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    (root) =>
+      [...root.querySelectorAll('[data-spy]')].filter((e) => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
     onSpyChange,
   );
 
@@ -44,9 +45,9 @@ export const Story = () => {
     <div className={styleWrapper}>
       <div className={styleControls} style={{ gridArea: 'controls' }}>
         <ul className={styleNavigation}>
-          {fruits.map(name => (
+          {fruits.map((name) => (
             <li key={name}>
-              <a href={`#${name}`} onClick={e => handleSelectNav(e, name)}>
+              <a href={`#${name}`} onClick={(e) => handleSelectNav(e, name)}>
                 {name}
               </a>
             </li>
@@ -61,7 +62,7 @@ export const Story = () => {
       </div>
 
       <div ref={rootRef} className={styleRoot} style={{ gridArea: 'content' }}>
-        {fruits.map(name => (
+        {fruits.map((name) => (
           <div key={name} className={styleContent} data-spy={name}>
             <h2 className={styleLabel}>{name}</h2>
           </div>

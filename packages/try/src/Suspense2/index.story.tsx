@@ -24,7 +24,7 @@ export const Story = () => {
       <label className={styleSelectForm}>
         <span>Demo</span>
         <select name="demo" value={demo} onChange={handleChange}>
-          {DemoList.map(demo => (
+          {DemoList.map((demo) => (
             <option key={demo}>{demo}</option>
           ))}
         </select>

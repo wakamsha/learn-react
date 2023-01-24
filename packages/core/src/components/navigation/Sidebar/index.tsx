@@ -34,13 +34,15 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
   const [keyword, setKeyword] = useState('');
 
   const flattenLabels = useMemo(() => {
-    const pattern = keyword.replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, replace => `\\${replace}`).trim();
+    const pattern = keyword
+      .replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, (replace) => `\\${replace}`)
+      .trim();
     const query = new RegExp(pattern, 'i');
 
     return items
       .reduce((acc: (string | string[])[], item) => [...acc, item.items?.map(({ label }) => label) ?? item.label], [])
       .flat()
-      .filter(label => label.match(query));
+      .filter((label) => label.match(query));
   }, [items, keyword]);
 
   useEffect(() => {

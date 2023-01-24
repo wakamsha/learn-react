@@ -11,7 +11,7 @@ export const Story = () => {
   const [submitLog, setSubmitLog] = useState('');
 
   const handleToggleModalVisibility = () => {
-    setModalVisibility(state => !state);
+    setModalVisibility((state) => !state);
   };
 
   useHotkeys(
@@ -25,7 +25,7 @@ export const Story = () => {
   );
 
   const textareaRef = useHotkeys<HTMLTextAreaElement>('command+enter', () => {
-    setSubmitLog(state => `${state}送信しました!\n`);
+    setSubmitLog((state) => `${state}送信しました!\n`);
   });
 
   return (

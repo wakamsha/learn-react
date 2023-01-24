@@ -8,11 +8,11 @@ export const Story = () => {
 
   const [indeterminate, setIndeterminate] = useState(false);
 
-  const handleChange1 = () => setChecked1(v => !v);
+  const handleChange1 = () => setChecked1((v) => !v);
 
-  const handleChange2 = () => setChecked2(v => !v);
+  const handleChange2 = () => setChecked2((v) => !v);
 
-  const handleChangeIndeterminate = () => setIndeterminate(v => !v);
+  const handleChangeIndeterminate = () => setIndeterminate((v) => !v);
 
   return (
     <ul>

@@ -65,5 +65,5 @@ const FriendData: FriendType[] = [
 ];
 
 export function getFriendById(id: string): FriendType | void {
-  return FriendData.find(f => f.id === id);
+  return FriendData.find((f) => f.id === id);
 }

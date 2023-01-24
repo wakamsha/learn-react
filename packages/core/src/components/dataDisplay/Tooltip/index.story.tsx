@@ -10,7 +10,7 @@ export const Story = () => {
   const [disabled, setDisabled] = useState(false);
 
   const handleChangeDisabled = () => {
-    setDisabled(b => !b);
+    setDisabled((b) => !b);
   };
 
   return (

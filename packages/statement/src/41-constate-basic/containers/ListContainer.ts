@@ -15,11 +15,11 @@ const useList = () => {
   ]);
 
   const addItem = useCallback((item: Item) => {
-    setItems(items => [...items, item]);
+    setItems((items) => [...items, item]);
   }, []);
 
   const editItem = useCallback((editedItem: Item, index: number) => {
-    setItems(items => items.map((item, i) => (i === index ? editedItem : item)));
+    setItems((items) => items.map((item, i) => (i === index ? editedItem : item)));
   }, []);
 
   return { items, addItem, editItem };
@@ -27,9 +27,9 @@ const useList = () => {
 
 const [ListProvider, useListItems, useAddListItem, useEditListItem] = constate(
   useList,
-  hook => hook.items,
-  hook => hook.addItem,
-  hook => hook.editItem,
+  (hook) => hook.items,
+  (hook) => hook.addItem,
+  (hook) => hook.editItem,
 );
 
 export { ListProvider, useListItems, useAddListItem, useEditListItem };

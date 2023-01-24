@@ -13,15 +13,15 @@ export const Story = () => {
   const [visible3, setVisible3] = useState(false);
 
   const handleToggle1 = () => {
-    setVisible1(state => !state);
+    setVisible1((state) => !state);
   };
 
   const handleToggle2 = () => {
-    setVisible2(state => !state);
+    setVisible2((state) => !state);
   };
 
   const handleToggle3 = () => {
-    setVisible3(state => !state);
+    setVisible3((state) => !state);
   };
 
   return (

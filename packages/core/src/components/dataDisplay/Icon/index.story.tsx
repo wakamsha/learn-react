@@ -6,7 +6,7 @@ import { cssVar, gutter, square } from '../../../helpers/Style';
 
 export const Story = () => (
   <ul className={styleBase}>
-    {Object.keys(iconElements).map(iconName => (
+    {Object.keys(iconElements).map((iconName) => (
       <li key={iconName}>
         <Icon name={iconName as IconName} />
         <span>{iconName}</span>

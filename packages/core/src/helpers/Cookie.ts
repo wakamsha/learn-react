@@ -26,7 +26,7 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
   }
 
   document.cookie = Object.keys(segments)
-    .map(key => (segments[key] === '' ? `${key}=` : `${key}=${segments[key]}`))
+    .map((key) => (segments[key] === '' ? `${key}=` : `${key}=${segments[key]}`))
     .join('; ');
 }
 

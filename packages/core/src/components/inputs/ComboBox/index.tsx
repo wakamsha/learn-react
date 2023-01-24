@@ -38,7 +38,7 @@ export const ComboBox = <T extends string | number>({
 }: Props<T>) => {
   const listId = useId();
 
-  const [inputValue, setInputValue] = useState(options.find(option => option.value === value)?.label);
+  const [inputValue, setInputValue] = useState(options.find((option) => option.value === value)?.label);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
