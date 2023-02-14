@@ -2863,18 +2863,12 @@ __metadata:
 "@learn-react/catalog@workspace:packages/catalog":
   version: 0.0.0-use.local
   resolution: "@learn-react/catalog@workspace:packages/catalog"
-  dependencies:
-    "@learn-react/core": 1.0.0
-    "@learn-react/icon": 1.0.0
-    "@learn-react/try": 1.0.0
   languageName: unknown
   linkType: soft
 
-"@learn-react/core@1.0.0, @learn-react/core@workspace:packages/core":
+"@learn-react/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@learn-react/core@workspace:packages/core"
-  dependencies:
-    "@learn-react/icon": 1.0.0
   languageName: unknown
   linkType: soft
 
@@ -2890,7 +2884,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@learn-react/icon@1.0.0, @learn-react/icon@workspace:packages/icon":
+"@learn-react/icon@workspace:packages/icon":
   version: 0.0.0-use.local
   resolution: "@learn-react/icon@workspace:packages/icon"
   languageName: unknown
@@ -2899,25 +2893,18 @@ __metadata:
 "@learn-react/routing@workspace:packages/routing":
   version: 0.0.0-use.local
   resolution: "@learn-react/routing@workspace:packages/routing"
-  dependencies:
-    "@learn-react/core": 1.0.0
   languageName: unknown
   linkType: soft
 
 "@learn-react/statement@workspace:packages/statement":
   version: 0.0.0-use.local
   resolution: "@learn-react/statement@workspace:packages/statement"
-  dependencies:
-    "@learn-react/core": 1.0.0
-    "@learn-react/icon": 1.0.0
   languageName: unknown
   linkType: soft
 
-"@learn-react/try@1.0.0, @learn-react/try@workspace:packages/try":
+"@learn-react/try@workspace:packages/try":
   version: 0.0.0-use.local
   resolution: "@learn-react/try@workspace:packages/try"
-  dependencies:
-    "@learn-react/core": 1.0.0
   languageName: unknown
   linkType: soft
 
