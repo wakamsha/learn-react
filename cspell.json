@@ -3,7 +3,8 @@
     "**/node_modules/**",
     "./packages/icon/dist/*",
     "./packages/catalog/src/constants/StorySpec.ts",
-    "./packages/catalog/src/constants/Stories.ts"
+    "./packages/catalog/src/constants/Stories.ts",
+    "./yarn.lock"
   ],
   "words": [
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",

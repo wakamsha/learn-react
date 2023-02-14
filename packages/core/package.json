@@ -5,8 +5,5 @@
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules run --top-level jest"
-  },
-  "dependencies": {
-    "@learn-react/icon": "1.0.0"
   }
 }
