@@ -8127,7 +8127,7 @@ __metadata:
     svgo: 3.0.2
     swr: 2.0.3
     ts-jest: 29.0.5
-    ts-xor: 1.0.8
+    ts-xor: 1.1.0
     typedoc: 0.23.25
     typedoc-plugin-missing-exports: 1.0.0
     typedoc-theme-hierarchy: 3.0.2
@@ -11049,10 +11049,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-xor@npm:1.0.8":
-  version: 1.0.8
-  resolution: "ts-xor@npm:1.0.8"
-  checksum: a8b0e30878280bf7e9ae6f1bb7b19a61a23224b86b93f4ec24197382b0e97d973c64b104af2e0428f191334fedb88c0fdc0cf86e8d1fbdbc6d76f5a644f30842
+"ts-xor@npm:1.1.0":
+  version: 1.1.0
+  resolution: "ts-xor@npm:1.1.0"
+  checksum: 8a5e940209089a21a4d3da55ce947342f5e611968c3e92b32a124ddcf89cd8a73744e063bab4aa32217b7b4770472767cffc37c55b4d3bf386f709050bf522c5
   languageName: node
   linkType: hard
 
