@@ -39,7 +39,7 @@ const List = () => (
       <li key={id}>
         <NavLink
           to={generatePath(Router.StonesMember.To, { id })}
-          style={({ isActive }) => ({ color: isactive ? 'red' : 'inherit' })}
+          style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
         >
           {nameJa}
         </NavLink>

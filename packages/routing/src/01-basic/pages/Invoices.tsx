@@ -10,7 +10,7 @@ export const Invoices = () => (
           {/* Link と違い NavLink は style と className に `isActive` を引数に取る関数を渡せるようになる */}
           <NavLink
             to={generatePath(Router.Invoice, { id: `${number}` })}
-            style={({ isActive }) => ({ color: isactive ? 'red' : 'inherit' })}
+            style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
           >
             {name}
           </NavLink>

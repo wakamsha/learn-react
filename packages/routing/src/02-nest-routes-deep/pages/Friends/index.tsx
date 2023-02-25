@@ -42,7 +42,7 @@ const List = () => (
       <li key={id}>
         <NavLink
           to={generatePath(Router.Friend.To, { id })}
-          style={({ isActive }) => ({ color: isactive ? 'red' : 'inherit' })}
+          style={({ isActive }) => ({ color: isActive ? 'red' : 'inherit' })}
         >
           {nameJa}
         </NavLink>
