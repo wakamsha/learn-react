@@ -81,6 +81,7 @@ const styleBase = css`
 
   > svg {
     ${square(IconSize.Regular)}
+
     fill: white;
   }
 `;

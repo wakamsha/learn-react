@@ -88,7 +88,7 @@ const styleBase = css`
   box-shadow: none;
   transition: box-shadow ${Duration.Fade};
 
-  &:after {
+  &::after {
     position: absolute;
     bottom: 0;
     width: 100%;

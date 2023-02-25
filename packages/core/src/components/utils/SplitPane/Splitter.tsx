@@ -31,7 +31,7 @@ const styleBase = css`
   position: relative;
   z-index: 1;
   flex: 0 0 auto;
-  background: radial-gradient(at center center, rgba(0, 0, 0, 0.24) 0%, transparent 70%, transparent 100%) no-repeat;
+  background: radial-gradient(at center center, rgb(0 0 0 / 24%) 0%, transparent 70%, transparent 100%) no-repeat;
   transition: background-position ${Duration.Fade} linear 0.2s;
 
   &[aria-orientation='horizontal'] {

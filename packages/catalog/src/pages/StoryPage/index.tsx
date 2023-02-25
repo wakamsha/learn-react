@@ -159,10 +159,10 @@ const styleViewportChanged = css`
   padding: ${gutter(4)};
   overflow: auto;
   background-color: ${cssVar('TextureBackdrop')};
-  background-image: linear-gradient(rgba(128, 128, 128, 0.1) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 2px, transparent 2px),
-    linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+  background-image: linear-gradient(rgb(128 128 128 / 10%) 2px, transparent 2px),
+    linear-gradient(90deg, rgb(128 128 128 / 10%) 2px, transparent 2px),
+    linear-gradient(rgb(128 128 128 / 10%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(128 128 128 / 10%) 1px, transparent 1px);
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
 `;

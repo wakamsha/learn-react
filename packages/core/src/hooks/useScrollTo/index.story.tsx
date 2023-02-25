@@ -100,11 +100,9 @@ export const Story = () => {
 
 const styleWrapper = css`
   display: grid;
-  grid-template-areas:
-    'controls content'
+  grid-template:
+    200px 1fr auto 'controls content'
     'log      log';
-  grid-template-rows: auto;
-  grid-template-columns: 200px 1fr;
   gap: 0 ${gutter(4)};
 `;
 

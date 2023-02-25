@@ -92,6 +92,7 @@ const styleVariant: Frozen<Layout, string> = {
     styleButton,
     css`
       flex-direction: column;
+
       &::before,
       &::after {
         width: ${iconSize}px;
@@ -109,6 +110,7 @@ const styleVariant: Frozen<Layout, string> = {
       &::before {
         ${square(16)}
       }
+
       &::after {
         content: normal;
       }

@@ -93,31 +93,36 @@ export function applyResetStyle() {
   return css`
     :global() {
       *,
-      *:before,
-      *:after {
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
       }
+
       html {
         overflow-x: hidden;
         font-family: sans-serif;
         -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
         scroll-behavior: smooth;
       }
+
       body {
         min-height: 100dvh;
-        text-rendering: optimizeSpeed;
+        text-rendering: optimizespeed;
         line-height: 1.5;
       }
+
       a:not([class]) {
         text-decoration-skip-ink: auto;
       }
+
       img,
       picture {
         display: block;
         max-width: 100%;
       }
+
       input,
       button,
       textarea,
@@ -129,6 +134,7 @@ export function applyResetStyle() {
           outline: 0;
         }
       }
+
       main {
         display: block;
         overflow-x: hidden;
@@ -147,6 +153,7 @@ export function applyGlobalStyle() {
         src: local('Noto Sans Japanese'), url(${NotoSansRegular}) format('woff');
         font-display: swap;
       }
+
       @font-face {
         font-family: 'Noto Sans Japanese';
         font-style: normal;
@@ -154,6 +161,7 @@ export function applyGlobalStyle() {
         src: local('Noto Sans Japanese Bold'), url(${NotoSansMedium}) format('woff');
         font-display: swap;
       }
+
       @font-face {
         font-family: 'Noto Serif Japanese';
         font-style: normal;
@@ -161,6 +169,7 @@ export function applyGlobalStyle() {
         src: local('Noto Serif Japanese'), url(${NotoSerifRegular}) format('woff');
         font-display: swap;
       }
+
       @font-face {
         font-family: 'Noto Serif Japanese';
         font-style: normal;
@@ -202,6 +211,7 @@ export function applyGlobalStyle() {
         font-feature-settings: palt 1;
         background-color: ${cssVar('TextureBody')};
       }
+
       body,
       h1,
       h2,
@@ -216,6 +226,7 @@ export function applyGlobalStyle() {
       dd {
         margin: 0;
       }
+
       ul,
       ol {
         padding: 0;
