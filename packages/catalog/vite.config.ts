@@ -1,8 +1,6 @@
-import { dirname, resolve } from 'path';
+import { resolve } from 'path';
 import { defineConfig, loadEnv, type UserConfig } from 'vite';
 import { createUserConfig } from '../../builder/vite';
-
-const __dirname = dirname(new URL(import.meta.url).pathname);
 
 export default defineConfig(({ mode }): UserConfig => {
   const projectRootPath = resolve(__dirname, '../../');
