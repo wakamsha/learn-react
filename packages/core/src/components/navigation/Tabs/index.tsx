@@ -95,7 +95,7 @@ const styleInner = css`
     box-shadow: inset 0 -1px 0 0 ${cssVar('ThemePrimaryDark')};
   }
 
-  input:not(:checked):not(:disabled) + &:hover {
+  input:not(:checked, :disabled) + &:hover {
     background-color: ${cssVar('ThemePrimaryLight')};
   }
 `;

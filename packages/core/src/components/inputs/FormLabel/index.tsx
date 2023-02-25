@@ -49,6 +49,7 @@ const styleLabelText = css`
   display: inline-flex;
   gap: ${gutter(1)};
   align-items: center;
+  /* stylelint-disable-next-line value-no-vendor-prefix */
   width: -moz-fit-content;
   width: fit-content;
   font-size: ${FontSize.Small};

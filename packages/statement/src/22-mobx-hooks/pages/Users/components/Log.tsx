@@ -31,7 +31,7 @@ const styleBase = css`
     color: #d1edff;
 
     > code {
-      font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+      font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
       font-size: 0.65rem;
       line-height: ${LineHeight.Compressed};
     }

@@ -41,12 +41,13 @@ export const Preloader = ({ size = 'neutral', theme = 'neutral' }: Props) => {
 const baseSize = 50;
 
 const styleBase = css`
-  animation: rotateAnimation 1.4s linear infinite;
+  animation: rotate-animation 1.4s linear infinite;
 
-  @keyframes rotateAnimation {
+  @keyframes rotate-animation {
     from {
       transform: rotateZ(0);
     }
+
     to {
       transform: rotateZ(360deg);
     }
@@ -57,17 +58,19 @@ const stylePath = css`
   stroke-dasharray: 1, 800;
   stroke-dashoffset: 0;
   stroke-linecap: round;
-  animation: dashAnimation 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  animation: dash-animation 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
 
-  @keyframes dashAnimation {
+  @keyframes dash-animation {
     0% {
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0;
     }
+
     50% {
       stroke-dasharray: 89, 200;
       stroke-dashoffset: -35;
     }
+
     100% {
       stroke-dasharray: 89, 200;
       stroke-dashoffset: -124;

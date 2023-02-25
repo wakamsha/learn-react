@@ -50,13 +50,14 @@ const styleBase = css`
   font-size: ${FontSize.Regular};
   color: white;
   box-shadow: ${cssVar('ShadowNeutral')};
-  animation: baseAnimation ${Duration.Enter} ${Easing.Enter};
+  animation: base-animation ${Duration.Enter} ${Easing.Enter};
 
-  @keyframes baseAnimation {
+  @keyframes base-animation {
     from {
       opacity: 0;
       transform: translate3d(-10%, 0, 0);
     }
+
     to {
       opacity: 1;
       transform: translate3d(0, 0, 0);
@@ -78,13 +79,14 @@ const styleRemove = cx(
   styleBase,
   css`
     opacity: 0;
-    animation: removeAnimation ${Duration.Leave} ${Easing.Leave};
+    animation: remove-animation ${Duration.Leave} ${Easing.Leave};
 
-    @keyframes removeAnimation {
+    @keyframes remove-animation {
       from {
         opacity: 1;
         transform: translate3d(0, 0, 0);
       }
+
       to {
         opacity: 0;
         transform: translate3d(-40%, 0, 0);

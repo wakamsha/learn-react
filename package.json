@@ -22,8 +22,8 @@
     "icon": "     yarn workspace @learn-react/icon",
     "routing": "  yarn workspace @learn-react/routing",
     "statement": "yarn workspace @learn-react/statement",
-    "lint": "  prettier -c    packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs       packages/**/*.{ts,tsx}; stylelint packages/**/*.{ts,tsx}",
-    "format": "prettier -c -w packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs --fix packages/**/*.{ts,tsx}; stylelint --fix packages/**/*.{ts,tsx}"
+    "lint": "  prettier -c    packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx};       stylelint packages/**/*.{ts,tsx}",
+    "format": "prettier -c -w packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx} --fix; stylelint packages/**/*.{ts,tsx} --fix"
   },
   "devDependencies": {
     "@babel/preset-typescript": "7.21.0",
@@ -63,9 +63,9 @@
     "prettier": "2.8.4",
     "prettier-plugin-organize-imports": "3.2.2",
     "stylelint": "15.2.0",
-    "stylelint-config-prettier": "9.0.5",
     "stylelint-config-recess-order": "4.0.0",
     "stylelint-config-recommended": "10.0.1",
+    "stylelint-config-standard": "30.0.1",
     "svgo": "3.0.2",
     "ts-jest": "29.0.5",
     "ts-xor": "1.1.0",
