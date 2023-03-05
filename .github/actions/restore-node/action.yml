@@ -7,10 +7,19 @@ runs:
     - name: Set node version
       shell: bash
       run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ env.NODE_VERSION }}
+
+    # package.json に記載されている pnpm のバージョンを参照する。
+    - name: Set pnpm version
+      shell: bash
+      run: |
+        pnpm=$(cat package.json | jq -r .engines.pnpm)
+        echo "PNPM_VERSION=${pnpm}" >> $GITHUB_ENV
+    - uses: pnpm/action-setup@v2.2.4
+      with:
+        version: ${{ env.PNPM_VERSION }}
 
     - name: Restore node_modules
       uses: actions/cache@v3

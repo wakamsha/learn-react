@@ -23,10 +23,19 @@ jobs:
 
       - name: Set node version
         run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
+
+      # package.json に記載されている pnpm のバージョンを参照する。
+      - name: Set pnpm version
+        shell: bash
+        run: |
+          pnpm=$(cat package.json | jq -r .engines.pnpm)
+          echo "PNPM_VERSION=${pnpm}" >> $GITHUB_ENV
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: ${{ env.PNPM_VERSION }}
 
       - name: Cache node modules
         uses: actions/cache@v3
@@ -34,7 +43,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
