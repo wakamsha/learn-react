@@ -26,9 +26,9 @@
   "devDependencies": {
     "@babel/preset-typescript": "7.21.0",
     "@commitlint/cli": "17.4.4",
-    "@linaria/rollup": "3.0.0-beta.23",
-    "@linaria/shaker": "3.0.0-beta.23",
-    "@linaria/stylelint": "3.0.0-beta.23",
+    "@linaria/rollup": "4.3.6",
+    "@linaria/shaker": "4.2.9",
+    "@linaria/stylelint": "4.1.15",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@types/jest": "29.4.0",
     "@types/node": "18.14.5",
@@ -75,7 +75,7 @@
     "yargs": "17.7.1"
   },
   "dependencies": {
-    "@linaria/core": "3.0.0-beta.22",
+    "@linaria/core": "4.2.8",
     "constate": "3.3.2",
     "csx": "10.0.2",
     "date-fns": "2.29.3",
