@@ -4,6 +4,6 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules run --top-level jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
   }
 }

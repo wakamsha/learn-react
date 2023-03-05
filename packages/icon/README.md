@@ -13,7 +13,7 @@ SVG ファイルを読み込み、そこから SVG アイコン の dom を返�
 ## Usage
 
 ```bash
-yarn codegen
+pnpm codegen
 ```
 
 `./src` ディレクトリにある `*.svg` ファイルから `TSX` コードを生成して下記ファイルを生成します。

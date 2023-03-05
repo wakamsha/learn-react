@@ -7,21 +7,19 @@
   "private": true,
   "engines": {
     "node": "18.14.2",
-    "npm": "please_use_yarn_instead"
+    "pnpm": "7.28.0",
+    "npm": "please use pnpm instead"
   },
-  "packageManager": "yarn@3.4.1",
-  "workspaces": [
-    "packages/*"
-  ],
+  "packageManager": "pnpm@7.28.0",
   "scripts": {
     "postinstall": "husky install",
-    "catalog": "  yarn workspace @learn-react/catalog",
-    "core": "     yarn workspace @learn-react/core",
-    "doc": "      yarn workspace @learn-react/doc",
-    "esnext": "   yarn workspace @learn-react/esnext",
-    "icon": "     yarn workspace @learn-react/icon",
-    "routing": "  yarn workspace @learn-react/routing",
-    "statement": "yarn workspace @learn-react/statement",
+    "catalog": "  pnpm -F \"@learn-react/catalog\"",
+    "core": "     pnpm -F \"@learn-react/core\"",
+    "doc": "      pnpm -F \"@learn-react/doc\"",
+    "esnext": "   pnpm -F \"@learn-react/esnext\"",
+    "icon": "     pnpm -F \"@learn-react/icon\"",
+    "routing": "  pnpm -F \"@learn-react/routing\"",
+    "statement": "pnpm -F \"@learn-react/statement\"",
     "lint": "  prettier -c    packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx};       stylelint packages/**/*.{ts,tsx}",
     "format": "prettier -c -w packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx} --fix; stylelint packages/**/*.{ts,tsx} --fix"
   },

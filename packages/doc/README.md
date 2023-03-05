@@ -7,5 +7,5 @@
 ### Build for publish
 
 ```bash
-yarn build --name (catalog|core|statement)
+pnpm build --name (catalog|core|statement)
 ```

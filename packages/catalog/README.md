@@ -7,7 +7,7 @@
 <!-- ## setup
 
 ```bash
-yarn prepare-msw
+pnpm prepare-msw
 ```
 
 [MSW](https://mswjs.io/) が使用する Service Worker を公開ディレクトリ（ `dist/` ）に生成します。 -->
@@ -17,7 +17,7 @@ yarn prepare-msw
 ### Development
 
 ```bash
-[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn start [--mode=<mode>]
+[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] pnpm start [--mode=<mode>]
 ```
 
 `http://localhost:3010` が立ち上がります。
@@ -33,7 +33,7 @@ yarn prepare-msw
 ### Build for publish
 
 ```bash
-[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] yarn build [--mode=<mode>]
+[ENV_TARGET=<target>] [ENV_VARIANT=<variant>] pnpm build [--mode=<mode>]
 ```
 
 ## Deployment
@@ -50,7 +50,7 @@ yarn prepare-msw
 ### Deploy
 
 ```bash
-yarn deploy
+pnpm deploy
 ```
 
 デプロイに成功すると `https://learn-react.wakamsha.net` に反映されます。
