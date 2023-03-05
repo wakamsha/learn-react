@@ -4,7 +4,7 @@
     "./packages/icon/dist/*",
     "./packages/catalog/src/constants/StorySpec.ts",
     "./packages/catalog/src/constants/Stories.ts",
-    "./yarn.lock"
+    "./pnpm-lock.yaml"
   ],
   "words": [
     "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -13,6 +13,7 @@
     "builtins",
     "cmaps",
     "codegen",
+    "commitlint",
     "consolas",
     "constate",
     "contenteditable",
@@ -34,6 +35,7 @@
     "optimizespeed",
     "palt",
     "plusplus",
+    "pnpm",
     "servor",
     "stylelint",
     "tabindex",

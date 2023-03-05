@@ -1,3 +1,5 @@
+const organizeImports = require('prettier-plugin-organize-imports');
+
 module.exports = {
   printWidth: 120, // Extend from default (80) to prevent excessive line breaks.
   // tabWidth: 2,
@@ -22,4 +24,6 @@ module.exports = {
   // endOfLine: 'lf',
   // embeddedLanguageFormatting: 'auto',
   // singleAttributePerLine: false,
+
+  plugins: [organizeImports],
 };

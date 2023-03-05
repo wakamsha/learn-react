@@ -16,7 +16,7 @@
 |  Module | Ver.                     |
 | ------: | ------------------------ |
 | Node.js | `./.node-version` を参照 |
-|    Yarn | `./.yarnrc.yml` を参照   |
+|    pnpm | `./.package.json` を参照 |
 
 ### Node.js
 
@@ -28,18 +28,18 @@
 - [NVS](https://github.com/jasongin/nvs)
 - [fnm](https://github.com/Schniz/fnm)
 
-### Yarn
+### pnpm
 
-本リポジトリではパッケージマネージャーに Yarn を使用します。corepack コマンドを実行して Yarn を有効化します。
+本リポジトリではパッケージマネージャーに pnpm を使用します。corepack コマンドを実行して pnpm を有効化します。
 
 ```bash
-corepack enable yarn
+corepack enable pnpm
 ```
 
 ## Install dependencies
 
 ```bash
-yarn
+pnpm install
 ```
 
 ## Setup
@@ -49,7 +49,7 @@ yarn
 `@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。以下のコマンドを実行します。
 
 ```bash
-yarn icon build
+pnpm icon build
 ```
 
 これで `@learn-react/core/components/dataDisplay/Icon` コンポーネントが使えるようになります。
@@ -70,8 +70,8 @@ yarn icon build
 ### Run
 
 ```bash
-yarn (catalog|esnext|routing|statement) start
-# e.g. yarn catalog start
+pnpm (catalog|esnext|routing|statement) start
+# e.g. pnpm catalog start
 ```
 
 上記コマンドで指定のアプリケーションが起動し、web ブラウザも自動で立ち上がります。起動中はファイルの変更を検知して自動的にリビルド、リロードされます。
@@ -91,18 +91,18 @@ yarn (catalog|esnext|routing|statement) start
 ### Build
 
 ```bash
-yarn (catalog|doc|esnext|routing|statement) build
-# e.g. yarn catalog build
+pnpm (catalog|doc|esnext|routing|statement) build
+# e.g. pnpm catalog build
 ```
 
 ## Lint
 
 ```bash
-yarn lint
+pnpm lint
 ```
 
 ## Format
 
 ```bash
-yarn format
+pnpm format
 ```

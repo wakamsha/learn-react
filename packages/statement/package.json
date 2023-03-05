@@ -9,10 +9,10 @@
     "constate"
   ],
   "scripts": {
-    "develop": "   run -T vite serve",
-    "type-check": "run -T tsc --noEmit",
-    "start": "     run -T run-p \"type-check --watch\" \"develop\"",
-    "build": "yarn type-check && vite build",
-    "preview": "   run -T vite preview"
+    "develop": "vite serve",
+    "type-check": "tsc --noEmit",
+    "start": "run-p \"type-check --watch\" \"develop\"",
+    "build": "pnpm type-check && vite build",
+    "preview": "vite preview"
   }
 }
