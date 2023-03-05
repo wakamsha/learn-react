@@ -11,9 +11,6 @@
     "npm": "please use pnpm instead"
   },
   "packageManager": "pnpm@7.28.0",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "postinstall": "husky install",
     "catalog": "  pnpm -F \"@learn-react/catalog\"",
