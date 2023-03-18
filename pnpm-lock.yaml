@@ -136,7 +136,24 @@ importers:
     specifiers: {}
 
   packages/icon:
-    specifiers: {}
+    specifiers:
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      cheerio: 1.0.0-rc.12
+      glob: 9.2.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      svgo: 3.0.2
+      typescript: 4.9.5
+    devDependencies:
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      cheerio: 1.0.0-rc.12
+      glob: 9.2.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      svgo: 3.0.2
+      typescript: 4.9.5
 
   packages/routing:
     specifiers: {}
@@ -6125,7 +6142,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -6168,7 +6184,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-pkg-up/7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -6366,7 +6381,6 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver/5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
