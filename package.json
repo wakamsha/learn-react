@@ -20,6 +20,7 @@
     "icon": "     pnpm -F \"@learn-react/icon\"",
     "routing": "  pnpm -F \"@learn-react/routing\"",
     "statement": "pnpm -F \"@learn-react/statement\"",
+    "try": "      pnpm -F \"@learn-react/try\"",
     "lint": "  prettier -c    packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx};       stylelint packages/**/*.{ts,tsx}",
     "format": "prettier -c -w packages/**/*.{ts,tsx}; eslint -c .eslintrc.cjs packages/**/*.{ts,tsx} --fix; stylelint packages/**/*.{ts,tsx} --fix"
   },
@@ -70,11 +71,9 @@
   "dependencies": {
     "@emotion/css": "11.10.6",
     "highlight.js": "11.7.0",
-    "qs": "6.11.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.9.0",
-    "swr": "2.1.1"
+    "react-router-dom": "6.8.2"
   },
   "lint-staged": {
     "packages/**/src/**/*.{ts,tsx}": [
