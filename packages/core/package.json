@@ -14,7 +14,8 @@
     "date-fns": "2.29.3",
     "hotkeys-js": "3.10.1",
     "pdfjs-dist": "3.4.120",
-    "qs": "6.11.1"
+    "qs": "6.11.1",
+    "ts-xor": "1.1.0"
   },
   "devDependencies": {
     "@types/jest": "29.4.4",

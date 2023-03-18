@@ -17,12 +17,17 @@ const { watch } = await yargs(hideBin(process.argv))
   })
   .parseAsync();
 
-const targetFiles = glob.sync(resolve(__dirname, '../../**/*.story.tsx'));
+const targetFiles = await glob(resolve(__dirname, '../../**/*.story.tsx'));
+const sortedTargetFiles = targetFiles.sort((a, b) => {
+  const nameA = a.toLowerCase();
+  const nameB = b.toLowerCase();
+  return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+});
 
 function addTree(filePath, fileLocations, acc) {
   const [location, ...restLocations] = fileLocations;
 
-  let component = acc.find(item => item.name === location);
+  let component = acc.find((item) => item.name === location);
 
   if (!component) {
     component = { name: location, ...(!restLocations.length ? { sourceCode: readFileSync(filePath, 'utf-8') } : {}) };
@@ -37,9 +42,11 @@ function addTree(filePath, fileLocations, acc) {
 }
 
 function exec() {
-  const importPaths = targetFiles.map(rawPath => rawPath.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '')).flat(2);
+  const importPaths = sortedTargetFiles
+    .map((rawPath) => rawPath.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, ''))
+    .flat(2);
 
-  const storyTreeMap = targetFiles.reduce(
+  const storyTreeMap = sortedTargetFiles.reduce(
     (acc, path) => addTree(path, path.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '').split('/'), acc),
     [],
   );
@@ -49,4 +56,4 @@ function exec() {
 
 exec();
 
-watch && chokidar.watch(targetFiles).on('raw', exec);
+watch && chokidar.watch(sortedTargetFiles).on('raw', exec);
