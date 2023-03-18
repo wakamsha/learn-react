@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';

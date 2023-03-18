@@ -1,4 +1,4 @@
-import { css, cx } from '@linaria/core';
+import { css, cx } from '@emotion/css';
 import { useId, type ChangeEvent } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { cssVar, gutter, textEllipsis, visuallyHidden } from '../../../helpers/Style';

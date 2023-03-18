@@ -1,3 +1,4 @@
+import { css, cx } from '@emotion/css';
 import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
 import { Tooltip } from '@learn-react/core/components/dataDisplay/Tooltip';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
@@ -5,7 +6,6 @@ import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
 import { Duration, Easing, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, textEllipsis } from '@learn-react/core/helpers/Style';
 import { nonNull } from '@learn-react/core/helpers/Type';
-import { css, cx } from '@linaria/core';
 import { useId, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStory } from '../../hooks/useStory';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useRef, useState, type ChangeEvent, type MouseEvent } from 'react';
 import { useSpy } from '.';
 import { cssVar, gutter, textEllipsis } from '../../helpers/Style';

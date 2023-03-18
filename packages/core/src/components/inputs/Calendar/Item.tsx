@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { BorderRadius, Duration, FontSize, IconSize } from '../../../constants/Style';
 import { cssVar, square } from '../../../helpers/Style';
 

@@ -1,4 +1,4 @@
-import { css, cx } from '@linaria/core';
+import { css, cx } from '@emotion/css';
 import { Children, useRef, useState, type MouseEvent, type ReactNode } from 'react';
 import { Pane } from './Pane';
 import { Splitter } from './Splitter';

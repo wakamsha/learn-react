@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { Suspense, useState, useTransition, type ChangeEvent } from 'react';
 import { useData } from '.';
 import { ErrorBoundary, type FallbackProps } from '../../components/utils/ErrorBoundary';

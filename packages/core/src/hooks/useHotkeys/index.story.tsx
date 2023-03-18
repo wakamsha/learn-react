@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useState } from 'react';
 import { useHotkeys } from '.';
 import { Modal } from '../../components/utils/Modal';

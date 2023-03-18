@@ -1,5 +1,5 @@
+import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
-import { css } from '@linaria/core';
 import { type MouseEvent } from 'react';
 
 export const Story = () => {

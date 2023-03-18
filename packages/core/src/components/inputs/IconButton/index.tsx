@@ -1,5 +1,5 @@
+import { css, cx } from '@emotion/css';
 import { type IconName } from '@learn-react/icon';
-import { css, cx } from '@linaria/core';
 import {
   forwardRef,
   useMemo,

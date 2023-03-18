@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { FontSize } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 

@@ -1,6 +1,6 @@
+import { css, cx } from '@emotion/css';
 import { FontSize, IconSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/helpers/Style';
-import { css, cx } from '@linaria/core';
 import {
   forwardRef,
   type AriaAttributes,

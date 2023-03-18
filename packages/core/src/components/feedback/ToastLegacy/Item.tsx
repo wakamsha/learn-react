@@ -1,4 +1,4 @@
-import { css, cx } from '@linaria/core';
+import { css, cx } from '@emotion/css';
 import { useEffect, useState, type AnimationEvent, type ReactNode } from 'react';
 import { Toast } from '.';
 import { Duration, Easing, IconSize } from '../../../constants/Style';

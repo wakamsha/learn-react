@@ -1,8 +1,8 @@
+import { css, cx } from '@emotion/css';
 import { IconButton } from '@learn-react/core/components/inputs/IconButton';
 import { Duration, Easing } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
 import { type IconName } from '@learn-react/icon';
-import { css, cx, type LinariaClassName } from '@linaria/core';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Navigation } from '../Navigation';
 import { useLayoutConfig } from './useLayoutConfig';
@@ -60,7 +60,7 @@ const styleBaseBase = css`
   transition: padding-left ${Duration.Fade} ${Easing.Enter};
 `;
 
-const styleBase: Frozen<LayoutMode, LinariaClassName> = {
+const styleBase: Frozen<LayoutMode, string> = {
   [LayoutMode.Neutral]: cx(
     styleBaseBase,
     css`
@@ -86,7 +86,7 @@ const styleNavigationWrapperBase = css`
     padding-right ${Duration.Fade} ${delayTime}ms, box-shadow ${Duration.Fade};
 `;
 
-const styleNavigationWrapper: Frozen<LayoutMode, LinariaClassName> = {
+const styleNavigationWrapper: Frozen<LayoutMode, string> = {
   [LayoutMode.Neutral]: cx(
     styleNavigationWrapperBase,
     css`
@@ -118,7 +118,7 @@ const styleToggleButtonWrapperBase = css`
   transition: left ${Duration.Fade} ${Easing.Enter};
 `;
 
-const styleToggleButtonWrapper: Frozen<LayoutMode, LinariaClassName> = {
+const styleToggleButtonWrapper: Frozen<LayoutMode, string> = {
   [LayoutMode.Neutral]: cx(
     styleToggleButtonWrapperBase,
     css`

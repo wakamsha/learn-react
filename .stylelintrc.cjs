@@ -1,10 +1,5 @@
 module.exports = {
-  extends: [
-    'stylelint-config-recommended',
-    'stylelint-config-standard',
-    'stylelint-config-recess-order',
-    '@linaria/stylelint',
-  ],
+  extends: ['stylelint-config-recommended', 'stylelint-config-standard', 'stylelint-config-recess-order'],
   ignoreFiles: ['**/node_modules/**'],
   customSyntax: '@stylelint/postcss-css-in-js',
   rules: {

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useState } from 'react';
 import { useDropdownMenu } from '.';
 import { FontSize } from '../../../constants/Style';

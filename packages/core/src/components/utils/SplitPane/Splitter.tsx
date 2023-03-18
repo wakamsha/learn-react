@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { type ComponentProps, type MouseEvent } from 'react';
 import { type SplitPane } from '.';
 import { Duration } from '../../../constants/Style';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useRef, useState, type ReactNode } from 'react';
 import { useShuffleLetters } from '.';
 import { gutter } from '../../helpers/Style';

@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useId, useState } from 'react';
 import { useListBox } from '.';
 import { Popover } from '../../components/utils/Popover';
