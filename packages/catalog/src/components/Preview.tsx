@@ -1,7 +1,7 @@
+import { css } from '@emotion/css';
 import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
 import { BorderRadius, FontFamily, FontSize } from '@learn-react/core/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/helpers/Style';
-import { css } from '@linaria/core';
 import { useStory } from '../hooks/useStory';
 
 export const Preview = () => {

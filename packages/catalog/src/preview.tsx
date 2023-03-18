@@ -5,8 +5,13 @@
  * URL `/preview.html?storyId=foo_bar_baz` にアクセスすることでプレビューのみの表示も可能です。
  */
 
+import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
 import { createRoot } from 'react-dom/client';
 import { Preview } from './components/Preview';
+
+applyResetStyle();
+
+applyGlobalStyle();
 
 const root = createRoot(document.getElementById('preview') as HTMLElement);
 root.render(<Preview />);

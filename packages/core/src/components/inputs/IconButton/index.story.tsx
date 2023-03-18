@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { IconButton } from '.';
 import { gutter } from '../../../helpers/Style';
 

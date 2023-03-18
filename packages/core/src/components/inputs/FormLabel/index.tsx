@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useId, type ReactNode } from 'react';
 import { Icon } from '../../../components/dataDisplay/Icon';
 import { Tooltip } from '../../../components/dataDisplay/Tooltip';

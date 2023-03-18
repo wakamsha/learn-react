@@ -1,7 +1,7 @@
+import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
 import { withSuspense } from '@learn-react/core/helpers/Component';
 import { gutter } from '@learn-react/core/helpers/Style';
-import { css } from '@linaria/core';
 import { lazy } from 'react';
 import { generatePath, Navigate, NavLink, Route } from 'react-router-dom';
 import { Router } from '../../constants/Router';

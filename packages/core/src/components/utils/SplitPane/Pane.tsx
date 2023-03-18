@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { forwardRef, type ComponentProps, type ForwardedRef, type ReactNode } from 'react';
 import { type SplitPane } from '.';
 

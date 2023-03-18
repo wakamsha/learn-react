@@ -1,5 +1,5 @@
+import { css } from '@emotion/css';
 import { iconElements, type IconName } from '@learn-react/icon';
-import { css } from '@linaria/core';
 import { Icon } from '.';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';

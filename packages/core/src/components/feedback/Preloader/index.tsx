@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { cssVar } from '../../../helpers/Style';
 
 type Size = 'neutral' | 'button';

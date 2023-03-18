@@ -1,4 +1,4 @@
-import { css } from '@linaria/core';
+import { css } from '@emotion/css';
 import { useState, type ComponentProps, type MouseEvent } from 'react';
 import { Popover } from '.';
 import { FontSize } from '../../../constants/Style';

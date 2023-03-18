@@ -34,10 +34,6 @@
       "matchPackagePatterns": ["^react", "^@types/react"]
     },
     {
-      "groupName": "Linaria families",
-      "matchPackagePatterns": ["linaria"]
-    },
-    {
       "groupName": "ESLint families",
       "matchPackagePatterns": ["^eslint", "^@typescript-eslint"]
     },

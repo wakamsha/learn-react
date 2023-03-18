@@ -1,5 +1,5 @@
+import { css } from '@emotion/css';
 import { iconElements, type IconName } from '@learn-react/icon';
-import { css } from '@linaria/core';
 import { useMemo, useReducer, useState, type ChangeEvent } from 'react';
 import { ToastProvider, useAddToast, type Toast } from '.';
 import { FontSize, LineHeight } from '../../../constants/Style';
