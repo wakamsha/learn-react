@@ -1,4 +1,4 @@
-import { classDecorator, outputLog } from './Decorators';
+import { outputLog } from './Decorators';
 
 function sleep(sec: number) {
   const start = Date.now();
@@ -14,7 +14,8 @@ function delay(sec: number): Promise<void> {
   });
 }
 
-@classDecorator
+// TypeScript のバージョンが上がったことで動作しなくなったため、無効化する。
+// @classDecorator
 class Example {
   constructor(private name: string) {}
 
