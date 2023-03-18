@@ -7,10 +7,10 @@
   "private": true,
   "engines": {
     "node": "18.15.0",
-    "pnpm": "7.29.1",
+    "pnpm": "7.29.3",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@7.29.3",
   "scripts": {
     "postinstall": "husky install",
     "catalog": "  pnpm -F \"@learn-react/catalog\"",
