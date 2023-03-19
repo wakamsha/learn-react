@@ -18,6 +18,7 @@
     "ts-xor": "1.1.0"
   },
   "devDependencies": {
+    "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/jest": "29.4.4",
     "@types/qs": "6.9.7",
     "@types/react": "18.0.28",

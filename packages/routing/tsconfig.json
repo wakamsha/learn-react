@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "@learn-react/tsconfig",
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
@@ -7,5 +7,5 @@
       "@learn-react/icon": ["../icon/dist/index"]
     }
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "../core/src/*.d.ts"]
+  "include": ["./src/**/*", "../core/src/*.d.ts"]
 }

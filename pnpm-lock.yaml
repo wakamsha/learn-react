@@ -76,6 +76,7 @@ importers:
       '@learn-react/core': workspace:1.0.0
       '@learn-react/icon': workspace:1.0.0
       '@learn-react/try': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -100,6 +101,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -115,6 +117,7 @@ importers:
     specifiers:
       '@emotion/css': 11.10.6
       '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/jest': 29.4.4
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
@@ -144,6 +147,7 @@ importers:
       qs: 6.11.1
       ts-xor: 1.1.0
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/jest': 29.4.4
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
@@ -161,10 +165,12 @@ importers:
 
   packages/esnext:
     specifiers:
+      '@learn-react/tsconfig': workspace:1.0.0
       npm-run-all: 4.1.5
       typescript: 4.9.5
       vite: 4.1.4
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       npm-run-all: 4.1.5
       typescript: 4.9.5
       vite: 4.1.4
@@ -193,6 +199,7 @@ importers:
     specifiers:
       '@emotion/css': 11.10.6
       '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       '@vitejs/plugin-react': 3.1.0
@@ -209,6 +216,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       '@vitejs/plugin-react': 3.1.0_vite@4.1.4
@@ -220,6 +228,7 @@ importers:
     specifiers:
       '@emotion/css': 11.10.6
       '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -227,6 +236,7 @@ importers:
       constate: 3.3.2
       mobx: 6.8.0
       mobx-react: 7.6.0
+      npm-run-all: 4.1.5
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -244,10 +254,12 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       '@vitejs/plugin-react': 3.1.0_vite@4.1.4
+      npm-run-all: 4.1.5
       typescript: 4.9.5
       vite: 4.1.4
 
@@ -255,6 +267,7 @@ importers:
     specifiers:
       '@emotion/css': 11.10.6
       '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -269,6 +282,7 @@ importers:
       qs: 6.11.1
       swr: 2.1.0_react@18.2.0
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11

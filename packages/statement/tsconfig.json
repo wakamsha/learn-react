@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "@learn-react/tsconfig",
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {

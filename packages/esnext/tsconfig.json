@@ -1,4 +1,4 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "@learn-react/tsconfig",
   "include": ["./src/**/*"]
 }

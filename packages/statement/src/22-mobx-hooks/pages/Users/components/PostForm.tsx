@@ -25,8 +25,8 @@ export const PostForm = () => {
     dispatch({ type: 'job', payload: { job: value } });
   };
 
-  const handleSubmit = () => {
-    onSubmit({ name, job });
+  const handleSubmit = async () => {
+    await onSubmit({ name, job });
   };
 
   const validInputs = !!name && !!job;

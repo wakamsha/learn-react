@@ -20,9 +20,9 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: ['./tsconfig.json', './packages/**/tsconfig.json'],
+    project: ['./packages/**/tsconfig.json'],
   },
-  ignorePatterns: ['.eslintrc.*'],
+  ignorePatterns: ['.eslintrc.*', '**/vite.config.ts'],
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
@@ -182,14 +182,6 @@ module.exports = {
       files: ['./**/stores/**/*.ts'],
       rules: {
         'react-hooks/rules-of-hooks': ['off'],
-      },
-    },
-    {
-      files: ['./**/vite.config.ts'],
-      rules: {
-        'no-underscore-dangle': ['off'],
-        'import/no-default-export': ['off'],
-        'import/no-relative-packages': ['off'], // サブパッケージを越境した import を指摘するため無効化する。
       },
     },
     {
