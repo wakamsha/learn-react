@@ -1,6 +1,6 @@
+import { createUserConfig } from '@learn-react/builder';
 import { resolve } from 'path';
 import { defineConfig, loadEnv, type UserConfig } from 'vite';
-import { createUserConfig } from '../../builder/vite';
 
 export default defineConfig(({ mode }): UserConfig => {
   const projectRootPath = resolve(__dirname, '../../');
@@ -13,6 +13,11 @@ export default defineConfig(({ mode }): UserConfig => {
     port: 3010,
     define: {
       ENV: JSON.stringify({ ENV_TARGET, ENV_VARIANT }),
+    },
+    alias: {
+      '@learn-react/core': resolve(__dirname, '../core/src'),
+      '@learn-react/icon': resolve(__dirname, '../icon/dist'),
+      '@learn-react/try': resolve(__dirname, '../try/src'),
     },
     build: {
       rollupOptions: {
