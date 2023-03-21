@@ -1,0 +1,28 @@
+{
+  "name": "@learn-react/builder",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepack": "tsc --declaration"
+  },
+  "dependencies": {
+    "@babel/core": "7.21.3",
+    "@babel/preset-typescript": "7.21.0",
+    "@linaria/vite": "4.2.9",
+    "@vitejs/plugin-react": "3.1.0",
+    "babel-plugin-module-resolver": "5.0.0"
+  },
+  "devDependencies": {
+    "@learn-react/tsconfig": "workspace:1.0.0",
+    "@types/node": "18.14.6",
+    "typescript": "4.9.5",
+    "vite": "4.1.4"
+  },
+  "peerDependencies": {
+    "@types/node": "18.14.6",
+    "vite": "4.1.4"
+  }
+}
