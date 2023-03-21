@@ -9,7 +9,7 @@ const __dirname = dirname(new URL(import.meta.url).pathname);
 const { name, watch } = await yargs(hideBin(process.argv))
   .option('name', {
     alias: 'n',
-    choices: ['catalog', 'core', 'statement'],
+    choices: ['catalog', 'core', 'routing', 'statement'],
   })
   .option('watch', {
     alias: 'w',
@@ -28,12 +28,14 @@ async function main() {
   app.bootstrap({
     watch,
     entryPoints: [resolve(__dirname, `../../${name}`)],
-    entryPointStrategy: 'expand',
     exclude: [resolve(__dirname, '../../**/*.(test|story).tsx')],
     tsconfig: resolve(__dirname, `../../${name}/tsconfig.json`),
+    basePath: resolve(__dirname, `../${name}/src`),
     readme: resolve(__dirname, `../../${name}/README.md`),
     out: resolve(__dirname, `../dist/${name}`),
-    name: `@lf-webapp-frontend/${name}`,
+    entryPointStrategy: 'expand',
+    excludeExternals: true,
+    name: `@learn-react/${name}`,
     theme: 'hierarchy',
   });
 

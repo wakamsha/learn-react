@@ -6,6 +6,13 @@
     "prepare": "mkdir -p dist",
     "copy": "cp public/index.html dist/index.html",
     "docgen": "node ./bin/typedoc",
-    "build": "pnpm prepare; pnpm copy; pnpm docgen"
+    "build": "pnpm prepare && pnpm copy && pnpm docgen"
+  },
+  "devDependencies": {
+    "typedoc": "0.23.27",
+    "typedoc-plugin-missing-exports": "1.0.0",
+    "typedoc-theme-hierarchy": "3.1.0",
+    "typescript": "4.9.5",
+    "yargs": "17.7.1"
   }
 }
