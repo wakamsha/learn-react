@@ -6,6 +6,7 @@ module.exports = {
     'function-name-case': null,
     'function-no-unknown': null,
     'property-no-vendor-prefix': null,
+    'declaration-block-no-redundant-longhand-properties': null,
     'selector-pseudo-class-no-unknown': [
       true,
       {
