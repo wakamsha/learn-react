@@ -15,9 +15,9 @@ export default defineConfig(({ mode }): UserConfig => {
       ENV: JSON.stringify({ ENV_TARGET, ENV_VARIANT }),
     },
     alias: {
-      '@learn-react/core': resolve(__dirname, '../core/src'),
-      '@learn-react/icon': resolve(__dirname, '../icon/dist'),
-      '@learn-react/try': resolve(__dirname, '../try/src'),
+      '@learn-react/core': resolve(__dirname, '../../packages/core/src'),
+      '@learn-react/icon': resolve(__dirname, '../../packages/icon/dist'),
+      '@learn-react/try': resolve(__dirname, '../../packages/try/src'),
     },
     build: {
       rollupOptions: {

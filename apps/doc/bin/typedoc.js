@@ -9,7 +9,7 @@ const __dirname = dirname(new URL(import.meta.url).pathname);
 const { name, watch } = await yargs(hideBin(process.argv))
   .option('name', {
     alias: 'n',
-    choices: ['catalog', 'core', 'routing', 'statement'],
+    choices: ['catalog', 'routing', 'statement', 'core'],
   })
   .option('watch', {
     alias: 'w',
@@ -17,6 +17,8 @@ const { name, watch } = await yargs(hideBin(process.argv))
     default: false,
   })
   .parseAsync();
+
+const workspace = name === 'core' ? 'packages' : 'apps';
 
 console.info({ name, watch });
 
@@ -27,11 +29,11 @@ async function main() {
 
   app.bootstrap({
     watch,
-    entryPoints: [resolve(__dirname, `../../${name}`)],
+    entryPoints: [resolve(__dirname, `../../../${workspace}/${name}`)],
     exclude: [resolve(__dirname, '../../**/*.(test|story).tsx')],
-    tsconfig: resolve(__dirname, `../../${name}/tsconfig.json`),
-    basePath: resolve(__dirname, `../${name}/src`),
-    readme: resolve(__dirname, `../../${name}/README.md`),
+    tsconfig: resolve(__dirname, `../../../${workspace}/${name}/tsconfig.json`),
+    basePath: resolve(__dirname, `../../../${workspace}/${name}/src`),
+    readme: resolve(__dirname, `../../../${workspace}/${name}/README.md`),
     out: resolve(__dirname, `../dist/${name}`),
     entryPointStrategy: 'expand',
     excludeExternals: true,

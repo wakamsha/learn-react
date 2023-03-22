@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/helpers/Style';
 import { useParams } from 'react-router-dom';
-import { getFriendById } from '../Friends';
+import { getFriendById } from '.';
 
 export const Friend = () => {
   const { id = '' } = useParams();

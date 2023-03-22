@@ -56,22 +56,7 @@ importers:
       stylelint-config-standard: 30.0.1_stylelint@15.2.0
       typescript: 4.9.5
 
-  packages/builder:
-    specifiers:
-      '@learn-react/tsconfig': workspace:1.0.0
-      '@types/node': 18.14.6
-      '@vitejs/plugin-react': 3.1.0
-      typescript: 4.9.5
-      vite: 4.1.4
-    dependencies:
-      '@vitejs/plugin-react': 3.1.0_vite@4.1.4
-    devDependencies:
-      '@learn-react/tsconfig': link:../tsconfig
-      '@types/node': 18.14.6
-      typescript: 4.9.5
-      vite: 4.1.4_@types+node@18.14.6
-
-  packages/catalog:
+  apps/catalog:
     specifiers:
       '@emotion/css': 11.10.6
       '@learn-react/builder': workspace:1.0.0
@@ -94,16 +79,16 @@ importers:
       yargs: 17.7.1
     dependencies:
       '@emotion/css': 11.10.6
-      '@learn-react/core': link:../core
-      '@learn-react/icon': link:../icon
-      '@learn-react/try': link:../try
+      '@learn-react/core': link:../../packages/core
+      '@learn-react/icon': link:../../packages/icon
+      '@learn-react/try': link:../../packages/try
       highlight.js: 11.7.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
     devDependencies:
-      '@learn-react/builder': link:../builder
-      '@learn-react/tsconfig': link:../tsconfig
+      '@learn-react/builder': link:../../packages/builder
+      '@learn-react/tsconfig': link:../../packages/tsconfig
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -113,6 +98,115 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4
       yargs: 17.7.1
+
+  apps/doc:
+    specifiers:
+      typedoc: 0.23.27
+      typedoc-plugin-missing-exports: 1.0.0
+      typedoc-theme-hierarchy: 3.1.0
+      typescript: 4.9.5
+      yargs: 17.7.1
+    devDependencies:
+      typedoc: 0.23.27_typescript@4.9.5
+      typedoc-plugin-missing-exports: 1.0.0_typedoc@0.23.27
+      typedoc-theme-hierarchy: 3.1.0_typedoc@0.23.27
+      typescript: 4.9.5
+      yargs: 17.7.1
+
+  apps/esnext:
+    specifiers:
+      '@learn-react/tsconfig': workspace:1.0.0
+      npm-run-all: 4.1.5
+      typescript: 4.9.5
+      vite: 4.1.4
+    devDependencies:
+      '@learn-react/tsconfig': link:../../packages/tsconfig
+      npm-run-all: 4.1.5
+      typescript: 4.9.5
+      vite: 4.1.4
+
+  apps/routing:
+    specifiers:
+      '@emotion/css': 11.10.6
+      '@learn-react/builder': workspace:1.0.0
+      '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      npm-run-all: 4.1.5
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-router-dom: 6.8.2
+      typescript: 4.9.5
+      vite: 4.1.4
+    dependencies:
+      '@emotion/css': 11.10.6
+      '@learn-react/core': link:../../packages/core
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@learn-react/builder': link:../../packages/builder
+      '@learn-react/tsconfig': link:../../packages/tsconfig
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      npm-run-all: 4.1.5
+      typescript: 4.9.5
+      vite: 4.1.4
+
+  apps/statement:
+    specifiers:
+      '@emotion/css': 11.10.6
+      '@learn-react/builder': workspace:1.0.0
+      '@learn-react/core': workspace:1.0.0
+      '@learn-react/tsconfig': workspace:1.0.0
+      '@types/qs': 6.9.7
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      constate: 3.3.2
+      mobx: 6.8.0
+      mobx-react: 7.6.0
+      npm-run-all: 4.1.5
+      qs: 6.11.1
+      react: 18.2.0
+      react-dom: 18.2.0
+      react-router-dom: 6.8.2
+      typescript: 4.9.5
+      vite: 4.1.4
+    dependencies:
+      '@emotion/css': 11.10.6
+      '@learn-react/core': link:../../packages/core
+      constate: 3.3.2_react@18.2.0
+      mobx: 6.8.0
+      mobx-react: 7.6.0_woojb62cqeyk443mbl7msrwu2e
+      qs: 6.11.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+    devDependencies:
+      '@learn-react/builder': link:../../packages/builder
+      '@learn-react/tsconfig': link:../../packages/tsconfig
+      '@types/qs': 6.9.7
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.0.11
+      npm-run-all: 4.1.5
+      typescript: 4.9.5
+      vite: 4.1.4
+
+  packages/builder:
+    specifiers:
+      '@learn-react/tsconfig': workspace:1.0.0
+      '@types/node': 18.14.6
+      '@vitejs/plugin-react': 3.1.0
+      typescript: 4.9.5
+      vite: 4.1.4
+    dependencies:
+      '@vitejs/plugin-react': 3.1.0_vite@4.1.4
+    devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
+      '@types/node': 18.14.6
+      typescript: 4.9.5
+      vite: 4.1.4_@types+node@18.14.6
 
   packages/core:
     specifiers:
@@ -163,21 +257,6 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4
 
-  packages/doc:
-    specifiers: {}
-
-  packages/esnext:
-    specifiers:
-      '@learn-react/tsconfig': workspace:1.0.0
-      npm-run-all: 4.1.5
-      typescript: 4.9.5
-      vite: 4.1.4
-    devDependencies:
-      '@learn-react/tsconfig': link:../tsconfig
-      npm-run-all: 4.1.5
-      typescript: 4.9.5
-      vite: 4.1.4
-
   packages/icon:
     specifiers:
       '@types/react': 18.0.28
@@ -197,74 +276,6 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       svgo: 3.0.2
       typescript: 4.9.5
-
-  packages/routing:
-    specifiers:
-      '@emotion/css': 11.10.6
-      '@learn-react/builder': workspace:1.0.0
-      '@learn-react/core': workspace:1.0.0
-      '@learn-react/tsconfig': workspace:1.0.0
-      '@types/react': 18.0.28
-      '@types/react-dom': 18.0.11
-      npm-run-all: 4.1.5
-      react: 18.2.0
-      react-dom: 18.2.0
-      react-router-dom: 6.8.2
-      typescript: 4.9.5
-      vite: 4.1.4
-    dependencies:
-      '@emotion/css': 11.10.6
-      '@learn-react/core': link:../core
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
-    devDependencies:
-      '@learn-react/builder': link:../builder
-      '@learn-react/tsconfig': link:../tsconfig
-      '@types/react': 18.0.28
-      '@types/react-dom': 18.0.11
-      npm-run-all: 4.1.5
-      typescript: 4.9.5
-      vite: 4.1.4
-
-  packages/statement:
-    specifiers:
-      '@emotion/css': 11.10.6
-      '@learn-react/builder': workspace:1.0.0
-      '@learn-react/core': workspace:1.0.0
-      '@learn-react/tsconfig': workspace:1.0.0
-      '@types/qs': 6.9.7
-      '@types/react': 18.0.28
-      '@types/react-dom': 18.0.11
-      constate: 3.3.2
-      mobx: 6.8.0
-      mobx-react: 7.6.0
-      npm-run-all: 4.1.5
-      qs: 6.11.1
-      react: 18.2.0
-      react-dom: 18.2.0
-      react-router-dom: 6.8.2
-      typescript: 4.9.5
-      vite: 4.1.4
-    dependencies:
-      '@emotion/css': 11.10.6
-      '@learn-react/core': link:../core
-      constate: 3.3.2_react@18.2.0
-      mobx: 6.8.0
-      mobx-react: 7.6.0_woojb62cqeyk443mbl7msrwu2e
-      qs: 6.11.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
-    devDependencies:
-      '@learn-react/builder': link:../builder
-      '@learn-react/tsconfig': link:../tsconfig
-      '@types/qs': 6.9.7
-      '@types/react': 18.0.28
-      '@types/react-dom': 18.0.11
-      npm-run-all: 4.1.5
-      typescript: 4.9.5
-      vite: 4.1.4
 
   packages/try:
     specifiers:
@@ -2263,6 +2274,10 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /ansi-sequence-parser/1.1.0:
+    resolution: {integrity: sha512-lEm8mt52to2fT8GhciPCGeCXACSz2UwIN4X2e2LJSnZ5uAbn2/dsYdOmUXq0AtWS5cpAupysIneExOgH0Vd2TQ==}
+    dev: true
+
   /ansi-styles/3.2.1:
     resolution: {integrity: sha512-VT0ZI6kZRdTh8YyJw3SMbYm/u+NqfsAxEpWO0Pf9sq8/e94WxxOpPKx9FR1FlyCtOVDNOQ+8ntlqFxiRc+r5qA==}
     engines: {node: '>=4'}
@@ -3973,6 +3988,15 @@ packages:
       mime-types: 2.1.35
     dev: true
 
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs-extra/11.1.0:
     resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
     engines: {node: '>=14.14'}
@@ -5220,6 +5244,10 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  /jsonc-parser/3.2.0:
+    resolution: {integrity: sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==}
+    dev: true
+
   /jsonfile/6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
     dependencies:
@@ -5444,6 +5472,10 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  /lunr/2.3.9:
+    resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
+    dev: true
+
   /magic-string/0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -5475,6 +5507,12 @@ packages:
   /map-obj/4.3.0:
     resolution: {integrity: sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==}
     engines: {node: '>=8'}
+    dev: true
+
+  /marked/4.3.0:
+    resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /mathml-tag-names/2.1.3:
@@ -6558,6 +6596,15 @@ packages:
     resolution: {integrity: sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==}
     dev: true
 
+  /shiki/0.14.1:
+    resolution: {integrity: sha512-+Jz4nBkCBe0mEDqo1eKRcCdjRtrCjozmcbTUjbPTX7OOJfEbTZzlUWlZtGe3Gb5oV1/jnojhG//YZc3rs9zSEw==}
+    dependencies:
+      ansi-sequence-parser: 1.1.0
+      jsonc-parser: 3.2.0
+      vscode-oniguruma: 1.7.0
+      vscode-textmate: 8.0.0
+    dev: true
+
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
     dependencies:
@@ -7202,6 +7249,37 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
+  /typedoc-plugin-missing-exports/1.0.0_typedoc@0.23.27:
+    resolution: {integrity: sha512-7s6znXnuAj1eD9KYPyzVzR1lBF5nwAY8IKccP5sdoO9crG4lpd16RoFpLsh2PccJM+I2NASpr0+/NMka6ThwVA==}
+    peerDependencies:
+      typedoc: 0.22.x || 0.23.x
+    dependencies:
+      typedoc: 0.23.27_typescript@4.9.5
+    dev: true
+
+  /typedoc-theme-hierarchy/3.1.0_typedoc@0.23.27:
+    resolution: {integrity: sha512-y0lCXC4JC9lQvirAhCd5NX75vFV/XsUzS1QRFRiqW2vJtDYPb+bsKdvSzbC1KpLI4nb8BJg+8wenKshKm8WGOA==}
+    peerDependencies:
+      typedoc: ^0.23.6
+    dependencies:
+      fs-extra: 10.1.0
+      typedoc: 0.23.27_typescript@4.9.5
+    dev: true
+
+  /typedoc/0.23.27_typescript@4.9.5:
+    resolution: {integrity: sha512-YKjlxX3LEhYbMCkemjlpNh1OKDiFa+ynqP0VRPsH28bEugrMTGI6l8DC6oX5kzFcUKKlYWKpZDSGWszuO/FR3g==}
+    engines: {node: '>= 14.14'}
+    hasBin: true
+    peerDependencies:
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
+    dependencies:
+      lunr: 2.3.9
+      marked: 4.3.0
+      minimatch: 7.4.2
+      shiki: 0.14.1
+      typescript: 4.9.5
+    dev: true
+
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
@@ -7360,6 +7438,14 @@ packages:
 
   /vscode-languageserver-textdocument/1.0.8:
     resolution: {integrity: sha512-1bonkGqQs5/fxGT5UchTgjGVnfysL0O8v1AYMBjqTbWQTFn721zaPGDYFkOKtfDgFiSgXM3KwaG3FMGfW4Ed9Q==}
+    dev: true
+
+  /vscode-oniguruma/1.7.0:
+    resolution: {integrity: sha512-L9WMGRfrjOhgHSdOYgCt/yRMsXzLDJSL7BPrOZt73gU0iWO4mpqzqQzOz5srxqTvMBaR0XZTSrVWo4j55Rc6cA==}
+    dev: true
+
+  /vscode-textmate/8.0.0:
+    resolution: {integrity: sha512-AFbieoL7a5LMqcnOF04ji+rpXadgOXnZsxQr//r83kLPr7biP7am3g9zbaZIaBGwBRWeSvoMD4mgPdX3e4NWBg==}
     dev: true
 
   /vscode-uri/3.0.7:

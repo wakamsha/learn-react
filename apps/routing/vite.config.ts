@@ -8,8 +8,7 @@ export default defineConfig(({ mode }): UserConfig => {
   return createUserConfig({
     basePath: __dirname,
     alias: {
-      '@learn-react/core': resolve(__dirname, '../core/src'),
-      '@learn-react/icon': resolve(__dirname, '../icon/dist'),
+      '@learn-react/core': resolve(__dirname, '../../packages/core/src'),
     },
   });
 });

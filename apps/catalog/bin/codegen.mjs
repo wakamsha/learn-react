@@ -17,7 +17,7 @@ const { watch } = await yargs(hideBin(process.argv))
   })
   .parseAsync();
 
-const targetFiles = await glob(resolve(__dirname, '../../**/*.story.tsx'));
+const targetFiles = await glob(resolve(__dirname, '../../../**/*.story.tsx'));
 const sortedTargetFiles = targetFiles.sort((a, b) => {
   const nameA = a.toLowerCase();
   const nameB = b.toLowerCase();
