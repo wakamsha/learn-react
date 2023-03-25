@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "type": "module",
+  "main": "./dist/index.tsx",
+  "types": "./dist/index.tsx",
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/",
     "generate": "node ./bin/build",
