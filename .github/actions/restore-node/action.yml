@@ -2,29 +2,25 @@ name: Restore Node.js env
 description: Node.js によるタスクランナー基盤を復元する
 
 runs:
-  using: composite
+  using: 'composite'
   steps:
-    - name: Set node version
-      shell: bash
-      run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-    - uses: actions/setup-node@v3
+    - name: Setup node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: ${{ env.NODE_VERSION }}
+        node-version-file: ./.node-version
 
-    # package.json に記載されている pnpm のバージョンを参照する。
-    - name: Set pnpm version
-      shell: bash
-      run: |
-        pnpm=$(cat package.json | jq -r .engines.pnpm)
-        echo "PNPM_VERSION=${pnpm}" >> $GITHUB_ENV
-    - uses: pnpm/action-setup@v2.2.4
-      with:
-        version: ${{ env.PNPM_VERSION }}
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2.2.4
 
-    - name: Restore node_modules
+    - name: cache node_modules
       uses: actions/cache@v3
-      env:
-        cache-name: cache-node-modules
       with:
-        path: node_modules
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+        path: |
+          ./node_modules
+          ./apps/*/node_modules
+          ./packages/*/node_modules
+        key: node-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+    - name: install node_modules
+      shell: bash
+      run: pnpm install --frozen-lockfile

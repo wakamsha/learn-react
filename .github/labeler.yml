@@ -1,0 +1,10 @@
+catalog:
+  - apps/catalog/**/*
+core:
+  - packages/core/**/*
+try:
+  - packages/try/**/*
+documentation:
+  - apps/**/*.md
+  - packages/**/*.md
+  - '*.md'

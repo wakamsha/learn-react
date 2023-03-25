@@ -1,10 +1,10 @@
 # Pull Request Merge に必要なチェックを行う。
 #
-# (Start) ── setup ─┬─ lint ────────────┬─ (Done)
-#                   ├─ test  ───────────┤
-#                   ├─ build_catalog ───┤
-#                   ├─ build_routing ───┤
-#                   └─ build_statement ─┘
+# (Start) ─┬─ lint ────────────┬─ (Done)
+#          ├─ test  ───────────┤
+#          ├─ build_catalog ───┤
+#          ├─ build_routing ───┤
+#          └─ build_statement ─┘
 
 name: Check Syntax
 
@@ -14,112 +14,53 @@ on:
       - '*'
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Set node version
-        run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      # package.json に記載されている pnpm のバージョンを参照する。
-      - name: Set pnpm version
-        shell: bash
-        run: |
-          pnpm=$(cat package.json | jq -r .engines.pnpm)
-          echo "PNPM_VERSION=${pnpm}" >> $GITHUB_ENV
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Install Dependencies
-        run: pnpm install
-
   lint:
-    needs: setup
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/restore-node
-
+      - uses: actions/checkout@v3
+      - name: Initialize
+        uses: ./.github/actions/restore-node
       - name: Run Lint
         run: pnpm lint
 
   test:
-    needs: setup
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: ./.github/actions/restore-node
+      - uses: actions/checkout@v3
+      - name: Initialize
+        uses: ./.github/actions/restore-node
       - name: Unit Test
         run: pnpm core test
 
   build_catalog:
-    needs: setup
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/restore-node
-
-      - name: Build icon data
-        run: pnpm icon build
-
+      - uses: actions/checkout@v3
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+      - name: Build builder & icon
+        run: pnpm builder build; pnpm icon build
       - name: Build
         run: pnpm catalog build
 
   build_routing:
-    needs: setup
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/restore-node
-
-      - name: Build icon data
-        run: pnpm icon build
-
+      - uses: actions/checkout@v3
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+      - name: Build builder & icon
+        run: pnpm builder build; pnpm icon build
       - name: Build
         run: pnpm routing build
 
   build_statement:
-    needs: setup
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/restore-node
-
-      - name: Build icon data
-        run: pnpm icon build
-
+      - uses: actions/checkout@v3
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+      - name: Build builder & icon
+        run: pnpm builder build; pnpm icon build
       - name: Build
         run: pnpm statement build

@@ -6,10 +6,10 @@ import { optimize } from 'svgo';
 import { template } from '../templates/index.js';
 
 async function exec() {
-  const data = await glob.sync('src/*.svg');
+  const data = await glob('src/*.svg');
 
   const result = await Promise.all(
-    data.map(async file => {
+    data.map(async (file) => {
       const content = readFileSync(file).toString('utf8');
       const source = await optimize(content);
       const $ = load(source.data.toString(), {
@@ -25,7 +25,7 @@ async function exec() {
       $('svg[id]').removeAttr('id');
       $('[fill]').removeAttr('fill');
 
-      const key = file.split('/').pop().split('.').shift();
+      const key = file.split('/').pop()?.split('.').shift();
       const value = $.xml('svg');
 
       return { key, value };

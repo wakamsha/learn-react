@@ -158,7 +158,7 @@ type BodyProps = {
 /**
  * Card 用のボディコンポーネント。
  *
- * @param {BodyProps}} bodyProps
+ * @param {BodyProps} bodyProps
  *
  * @example
  * <Card>
@@ -209,7 +209,7 @@ type FooterProps = {
 /**
  * Card 用のフッターコンポーネント。
  *
- * @param {FooterProps}} footerProps
+ * @param {FooterProps} footerProps
  *
  * @example
  * <Card>

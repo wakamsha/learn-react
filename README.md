@@ -2,14 +2,26 @@
 
 > The Sandbox for learning React.
 
-| Sub package                                  | 概要                                                                                                        | 備考                                                                                                                                              |
-| :------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`catalog`](/tree/main/packages/catalog)     | 当該プロジェクトにある様々な `Story` コンポーネントを import することで、一覧表示および動作確認が出来ます。 | https://learn-react.wakamsha.net/                                                                                                                 |
-| [`core`](/tree/main/packages/core)           | 当リポジトリ横断（共通）で使用する Components, Constants, Hooks, Helpers を管理します。                     |                                                                                                                                                   |
-| [`icon`](/tree/main/packages/icon)           | SVG ファイルを読み込み、そこから SVG アイコン の dom を返す React コンポーネントを生成します。              |                                                                                                                                                   |
-| [`routing`](/tree/main/packages/routing)     | ReactRouter を用いたアプリケーションの実装デモを管理します。                                                | https://reactrouter.com/                                                                                                                          |
-| [`statement`](/tree/main/packages/statement) | 様々な状態管理ライブラリと React を組み合わせたアプリケーションの実装デモを管理します。                     | [MobX](https://mobx.js.org/)<br>[Unstated Next](https://github.com/jamiebuilds/unstated-next)<br>[Constate](https://github.com/diegohaz/constate) |
-| [`try`](/tree/main/packages/try)             | React 単体の機能な振る舞いについての実装デモを管理します。                                                  |                                                                                                                                                   |
+## Workspaces
+
+### apps
+
+| Sub package                              | 概要                                                                                                                      | 備考                                                                                                                                              |
+| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`catalog`](/tree/main/apps/catalog)     | 当該プロジェクトにある様々な `Story` コンポーネントを import することで、一覧表示および動作確認が出来ます。               | https://learn-react.wakamsha.net/                                                                                                                 |
+| [`doc`](/tree/main/apps/doc)             | 各種サブパッケージ・コードベースの JSDoc コメントからドキュメントページを生成します。生成処理には TypDoc を使っています。 | https://typedoc.org/net/                                                                                                                          |
+| [`routing`](/tree/main/apps/routing)     | ReactRouter を用いたアプリケーションの実装デモを管理します。                                                              | https://reactrouter.com/                                                                                                                          |
+| [`statement`](/tree/main/apps/statement) | 様々な状態管理ライブラリと React を組み合わせたアプリケーションの実装デモを管理します。                                   | [MobX](https://mobx.js.org/)<br>[Unstated Next](https://github.com/jamiebuilds/unstated-next)<br>[Constate](https://github.com/diegohaz/constate) |
+
+### packages
+
+| Sub package                                | 概要                                                                                           | 備考                |
+| :----------------------------------------- | :--------------------------------------------------------------------------------------------- | :------------------ |
+| [`builder`](/tree/main/packages/builder)   | 各サブパッケージをビルドするためのスクリプトを管理します。ビルドには Vite を使います。         | https://vitejs.dev/ |
+| [`core`](/tree/main/packages/core)         | 当リポジトリ横断（共通）で使用する Components, Constants, Hooks, Helpers を管理します。        |                     |
+| [`icon`](/tree/main/packages/icon)         | SVG ファイルを読み込み、そこから SVG アイコン の dom を返す React コンポーネントを生成します。 |                     |
+| [`try`](/tree/main/packages/try)           | React 単体の機能な振る舞いについての実装デモを管理します。                                     |                     |
+| [`tsconfig`](/tree/main/packages/tsconfig) | 各サブパッケージが参照する `tsconfig.json` を管理します。                                      |                     |
 
 ## Prerequisites
 
@@ -44,15 +56,13 @@ pnpm install
 
 ## Setup
 
-### Icon コードを生成する
-
-`@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。以下のコマンドを実行します。
-
 ```bash
-pnpm icon build
+pnpm setup
+# - `@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。
+# - `@learn-react/builder` パッケージをビルドして、 Apps ワークスペース配下のパッケージをビルドできるようにします。
 ```
 
-これで `@learn-react/core/components/dataDisplay/Icon` コンポーネントが使えるようになります。
+これで `@learn-react/core/components/dataDisplay/Icon` コンポーネントが使えるようになります。また、 Apps ワークスペース配下の各パッケージをビルドできるようになります。
 
 ## Develop
 
