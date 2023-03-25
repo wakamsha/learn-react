@@ -213,7 +213,7 @@ importers:
       '@emotion/css': 11.10.6
       '@learn-react/icon': workspace:1.0.0
       '@learn-react/tsconfig': workspace:1.0.0
-      '@types/jest': 29.4.4
+      '@types/jest': 29.5.0
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -244,7 +244,7 @@ importers:
       ts-xor: 1.1.0
     devDependencies:
       '@learn-react/tsconfig': link:../tsconfig
-      '@types/jest': 29.4.4
+      '@types/jest': 29.5.0
       '@types/qs': 6.9.7
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -1879,8 +1879,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/29.4.4:
-    resolution: {integrity: sha512-qezb65VIH7X1wobSnd6Lvdve7PXSyQRa3dljTkhTtDhi603RvHQCshSlJcuyMLHJpeHgY3NKwvDJWxMOOHxGDQ==}
+  /@types/jest/29.5.0:
+    resolution: {integrity: sha512-3Emr5VOl/aoBwnWcH/EFQvlSAmjV+XtV9GGu5mwdYew5vhQh0IUZx/60x0TzHDu09Bi7HMx10t/namdJw5QIcg==}
     dependencies:
       expect: 29.5.0
       pretty-format: 29.5.0
