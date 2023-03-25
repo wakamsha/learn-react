@@ -60,7 +60,7 @@ importers:
       typedoc-plugin-missing-exports: 1.0.0
       typedoc-theme-hierarchy: 3.1.0
       typescript: 4.9.5
-      vite: 4.2.0
+      vite: 4.2.1
       yargs: 17.7.1
     dependencies:
       '@emotion/css': 11.10.6
@@ -87,7 +87,7 @@ importers:
       '@types/react-dom': 18.0.11
       '@typescript-eslint/eslint-plugin': 5.56.0_iskin7c6dxqunwflhstekcjqmq
       '@typescript-eslint/parser': 5.56.0_vgl77cfdswitgr47lm5swmv43m
-      '@vitejs/plugin-react': 3.1.0_vite@4.2.0
+      '@vitejs/plugin-react': 3.1.0_vite@4.2.1
       cheerio: 1.0.0-rc.12
       chokidar: 3.5.3
       cspell: 6.29.3
@@ -120,7 +120,7 @@ importers:
       typedoc-plugin-missing-exports: 1.0.0_typedoc@0.23.28
       typedoc-theme-hierarchy: 3.1.0_typedoc@0.23.28
       typescript: 4.9.5
-      vite: 4.2.0_@types+node@18.15.5
+      vite: 4.2.1_@types+node@18.15.5
       yargs: 17.7.1
 
   packages/catalog:
@@ -2009,7 +2009,7 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitejs/plugin-react/3.1.0_vite@4.2.0:
+  /@vitejs/plugin-react/3.1.0_vite@4.2.1:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2020,7 +2020,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.12
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.2.0_@types+node@18.15.5
+      vite: 4.2.1_@types+node@18.15.5
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7188,8 +7188,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite/4.2.0_@types+node@18.15.5:
-    resolution: {integrity: sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==}
+  /vite/4.2.1_@types+node@18.15.5:
+    resolution: {integrity: sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
