@@ -56,7 +56,7 @@ importers:
       swr: 2.1.1
       ts-jest: 29.0.5
       ts-xor: 1.1.0
-      typedoc: 0.23.27
+      typedoc: 0.23.28
       typedoc-plugin-missing-exports: 1.0.0
       typedoc-theme-hierarchy: 3.1.0
       typescript: 4.9.5
@@ -116,9 +116,9 @@ importers:
       svgo: 3.0.2
       ts-jest: 29.0.5_doipufordlnvh5g4adbwayvyvy
       ts-xor: 1.1.0
-      typedoc: 0.23.27_typescript@4.9.5
-      typedoc-plugin-missing-exports: 1.0.0_typedoc@0.23.27
-      typedoc-theme-hierarchy: 3.1.0_typedoc@0.23.27
+      typedoc: 0.23.28_typescript@4.9.5
+      typedoc-plugin-missing-exports: 1.0.0_typedoc@0.23.28
+      typedoc-theme-hierarchy: 3.1.0_typedoc@0.23.28
       typescript: 4.9.5
       vite: 4.2.0_@types+node@18.15.5
       yargs: 17.7.1
@@ -7066,29 +7066,29 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc-plugin-missing-exports/1.0.0_typedoc@0.23.27:
+  /typedoc-plugin-missing-exports/1.0.0_typedoc@0.23.28:
     resolution: {integrity: sha512-7s6znXnuAj1eD9KYPyzVzR1lBF5nwAY8IKccP5sdoO9crG4lpd16RoFpLsh2PccJM+I2NASpr0+/NMka6ThwVA==}
     peerDependencies:
       typedoc: 0.22.x || 0.23.x
     dependencies:
-      typedoc: 0.23.27_typescript@4.9.5
+      typedoc: 0.23.28_typescript@4.9.5
     dev: true
 
-  /typedoc-theme-hierarchy/3.1.0_typedoc@0.23.27:
+  /typedoc-theme-hierarchy/3.1.0_typedoc@0.23.28:
     resolution: {integrity: sha512-y0lCXC4JC9lQvirAhCd5NX75vFV/XsUzS1QRFRiqW2vJtDYPb+bsKdvSzbC1KpLI4nb8BJg+8wenKshKm8WGOA==}
     peerDependencies:
       typedoc: ^0.23.6
     dependencies:
       fs-extra: 10.1.0
-      typedoc: 0.23.27_typescript@4.9.5
+      typedoc: 0.23.28_typescript@4.9.5
     dev: true
 
-  /typedoc/0.23.27_typescript@4.9.5:
-    resolution: {integrity: sha512-YKjlxX3LEhYbMCkemjlpNh1OKDiFa+ynqP0VRPsH28bEugrMTGI6l8DC6oX5kzFcUKKlYWKpZDSGWszuO/FR3g==}
+  /typedoc/0.23.28_typescript@4.9.5:
+    resolution: {integrity: sha512-9x1+hZWTHEQcGoP7qFmlo4unUoVJLB0H/8vfO/7wqTnZxg4kPuji9y3uRzEu0ZKez63OJAUmiGhUrtukC6Uj3w==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
     dependencies:
       lunr: 2.3.9
       marked: 4.2.12
