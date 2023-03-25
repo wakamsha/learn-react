@@ -42,7 +42,7 @@ importers:
       pdfjs-dist: 3.4.120
       postcss: 8.4.21
       postcss-syntax: 0.36.2
-      prettier: 2.8.4
+      prettier: 2.8.6
       prettier-plugin-organize-imports: 3.2.2
       qs: 6.11.1
       react: 18.2.0
@@ -107,8 +107,8 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.21
       postcss-syntax: 0.36.2_postcss@8.4.21
-      prettier: 2.8.4
-      prettier-plugin-organize-imports: 3.2.2_silln3pw57har7jydmecgzoypa
+      prettier: 2.8.6
+      prettier-plugin-organize-imports: 3.2.2_k4ha7c5shlzw7es36i4xz5r3bm
       stylelint: 15.2.0
       stylelint-config-recess-order: 4.0.0_stylelint@15.2.0
       stylelint-config-recommended: 10.0.1_stylelint@15.2.0
@@ -6031,7 +6031,7 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-organize-imports/3.2.2_silln3pw57har7jydmecgzoypa:
+  /prettier-plugin-organize-imports/3.2.2_k4ha7c5shlzw7es36i4xz5r3bm:
     resolution: {integrity: sha512-e97lE6odGSiHonHJMTYC0q0iLXQyw0u5z/PJpvP/3vRy6/Zi9kLBwFAbEGjDzIowpjQv8b+J04PDamoUSQbzGA==}
     peerDependencies:
       '@volar/vue-language-plugin-pug': ^1.0.4
@@ -6044,12 +6044,12 @@ packages:
       '@volar/vue-typescript':
         optional: true
     dependencies:
-      prettier: 2.8.4
+      prettier: 2.8.6
       typescript: 4.9.5
     dev: true
 
-  /prettier/2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+  /prettier/2.8.6:
+    resolution: {integrity: sha512-mtuzdiBbHwPEgl7NxWlqOkithPyp4VN93V7VeHVWBF+ad3I5avc0RVDT4oImXQy9H/AqxA2NSQH8pSxHW6FYbQ==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
