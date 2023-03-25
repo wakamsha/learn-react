@@ -56,15 +56,13 @@ pnpm install
 
 ## Setup
 
-### Icon コードを生成する
-
-`@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。以下のコマンドを実行します。
-
 ```bash
-pnpm icon build
+pnpm setup
+# - `@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。
+# - `@learn-react/builder` パッケージをビルドして、 Apps ワークスペース配下のパッケージをビルドできるようにします。
 ```
 
-これで `@learn-react/core/components/dataDisplay/Icon` コンポーネントが使えるようになります。
+これで `@learn-react/core/components/dataDisplay/Icon` コンポーネントが使えるようになります。また、 Apps ワークスペース配下の各パッケージをビルドできるようになります。
 
 ## Develop
 

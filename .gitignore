@@ -76,6 +76,3 @@ dist/
 .envrc
 .stylelintcache
 Stories.ts
-
-# monorepo
-!packages/builder/dist
