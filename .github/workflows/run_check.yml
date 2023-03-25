@@ -86,8 +86,8 @@ jobs:
 
       - uses: ./.github/actions/restore-node
 
-      - name: Build icon data
-        run: pnpm icon build
+      - name: Build icon & builder
+        run: pnpm icon build; pnpm builder build
 
       - name: Build
         run: pnpm catalog build
@@ -102,8 +102,8 @@ jobs:
 
       - uses: ./.github/actions/restore-node
 
-      - name: Build icon data
-        run: pnpm icon build
+      - name: Build icon & builder
+        run: pnpm icon build; pnpm builder build
 
       - name: Build
         run: pnpm routing build
@@ -118,8 +118,8 @@ jobs:
 
       - uses: ./.github/actions/restore-node
 
-      - name: Build icon data
-        run: pnpm icon build
+      - name: Build icon & builder
+        run: pnpm icon build; pnpm builder build
 
       - name: Build
         run: pnpm statement build
