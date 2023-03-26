@@ -8,14 +8,16 @@
   "scripts": {
     "reset": "rm -rf dist/; mkdir -p dist/",
     "generate": "node ./bin/build",
-    "format": "prettier -c -w ./dist/*; eslint -c ../../.eslintrc.cjs ./dist/* --fix",
+    "format": "prettier -c -w ./dist/*",
     "build": "pnpm reset; pnpm generate; pnpm format"
   },
   "devDependencies": {
+    "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "cheerio": "1.0.0-rc.12",
     "glob": "9.3.2",
+    "prettier": "2.8.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "svgo": "3.0.2",
