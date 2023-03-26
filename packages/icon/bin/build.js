@@ -6,10 +6,15 @@ import { optimize } from 'svgo';
 import { template } from '../templates/index.js';
 
 async function exec() {
-  const data = await glob('src/*.svg');
+  const targetFiles = await glob('src/*.svg');
+  const sortedTargetFiles = targetFiles.sort((a, b) => {
+    const nameA = a.toLowerCase();
+    const nameB = b.toLowerCase();
+    return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
+  });
 
   const result = await Promise.all(
-    data.map(async (file) => {
+    sortedTargetFiles.map(async (file) => {
       const content = readFileSync(file).toString('utf8');
       const source = await optimize(content);
       const $ = load(source.data.toString(), {
