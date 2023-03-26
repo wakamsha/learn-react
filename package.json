@@ -13,7 +13,7 @@
   "packageManager": "pnpm@7.30.3",
   "scripts": {
     "postinstall": "husky install",
-    "setup": "pnpm builder build; pnpm icon build",
+    "prepare": "pnpm builder build; pnpm icon build",
     "builder": "  pnpm -F \"@learn-react/builder\"",
     "catalog": "  pnpm -F \"@learn-react/catalog\"",
     "core": "     pnpm -F \"@learn-react/core\"",
