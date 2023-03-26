@@ -68,7 +68,7 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       chokidar: 3.5.3
-      glob: 9.2.1
+      glob: 9.3.2
       highlight.js: 11.7.0
       npm-run-all: 4.1.5
       react: 18.2.0
@@ -93,7 +93,7 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       chokidar: 3.5.3
-      glob: 9.2.1
+      glob: 9.3.2
       npm-run-all: 4.1.5
       typescript: 5.0.2
       vite: 4.1.4
@@ -262,7 +262,7 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       cheerio: 1.0.0-rc.12
-      glob: 9.2.1
+      glob: 9.3.2
       react: 18.2.0
       react-dom: 18.2.0
       svgo: 3.0.2
@@ -271,7 +271,7 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       cheerio: 1.0.0-rc.12
-      glob: 9.2.1
+      glob: 9.3.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       svgo: 3.0.2
@@ -4061,8 +4061,8 @@ packages:
       once: 1.4.0
       path-is-absolute: 1.0.1
 
-  /glob/9.2.1:
-    resolution: {integrity: sha512-Pxxgq3W0HyA3XUvSXcFhRSs+43Jsx0ddxcFrbjxNGkL2Ak5BAUBxLqI5G6ADDeCHLfzzXFhe0b1yYcctGmytMA==}
+  /glob/9.3.2:
+    resolution: {integrity: sha512-BTv/JhKXFEHsErMte/AnfiSv8yYOLLiyH2lTg8vn02O21zWFgHPTfxtgn1QRe7NRgggUhC8hacR2Re94svHqeA==}
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       fs.realpath: 1.0.0
