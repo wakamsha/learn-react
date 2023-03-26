@@ -7,10 +7,10 @@
   "private": true,
   "engines": {
     "node": "18.15.0",
-    "pnpm": "7.30.2",
+    "pnpm": "7.30.3",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@7.30.2",
+  "packageManager": "pnpm@7.30.3",
   "scripts": {
     "postinstall": "husky install",
     "setup": "pnpm builder build; pnpm icon build",
