@@ -57,7 +57,7 @@ pnpm install
 ## Setup
 
 ```bash
-pnpm setup
+pnpm prepare
 # - `@learn-react/icon` パッケージで管理している SVG ファイルから SVG アイコンコンポーネント用のオブジェクトデータを生成します。
 # - `@learn-react/builder` パッケージをビルドして、 Apps ワークスペース配下のパッケージをビルドできるようにします。
 ```

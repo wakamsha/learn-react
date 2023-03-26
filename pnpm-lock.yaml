@@ -259,19 +259,23 @@ importers:
 
   packages/icon:
     specifiers:
+      '@learn-react/tsconfig': workspace:1.0.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       cheerio: 1.0.0-rc.12
       glob: 9.3.2
+      prettier: 2.8.7
       react: 18.2.0
       react-dom: 18.2.0
       svgo: 3.0.2
       typescript: 5.0.2
     devDependencies:
+      '@learn-react/tsconfig': link:../tsconfig
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       cheerio: 1.0.0-rc.12
       glob: 9.3.2
+      prettier: 2.8.7
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       svgo: 3.0.2
