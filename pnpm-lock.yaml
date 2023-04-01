@@ -164,7 +164,7 @@ importers:
       '@types/react': 18.0.31
       '@types/react-dom': 18.0.11
       constate: 3.3.2
-      mobx: 6.8.0
+      mobx: 6.9.0
       mobx-react: 7.6.0
       npm-run-all: 4.1.5
       qs: 6.11.1
@@ -177,8 +177,8 @@ importers:
       '@emotion/css': 11.10.6
       '@learn-react/core': link:../../packages/core
       constate: 3.3.2_react@18.2.0
-      mobx: 6.8.0
-      mobx-react: 7.6.0_woojb62cqeyk443mbl7msrwu2e
+      mobx: 6.9.0
+      mobx-react: 7.6.0_lrdhi4fih7ii4kmeak7ov4c3ha
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -5661,7 +5661,7 @@ packages:
     dev: false
     optional: true
 
-  /mobx-react-lite/3.4.0_woojb62cqeyk443mbl7msrwu2e:
+  /mobx-react-lite/3.4.0_lrdhi4fih7ii4kmeak7ov4c3ha:
     resolution: {integrity: sha512-bRuZp3C0itgLKHu/VNxi66DN/XVkQG7xtoBVWxpvC5FhAqbOCP21+nPhULjnzEqd7xBMybp6KwytdUpZKEgpIQ==}
     peerDependencies:
       mobx: ^6.1.0
@@ -5674,12 +5674,12 @@ packages:
       react-native:
         optional: true
     dependencies:
-      mobx: 6.8.0
+      mobx: 6.9.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /mobx-react/7.6.0_woojb62cqeyk443mbl7msrwu2e:
+  /mobx-react/7.6.0_lrdhi4fih7ii4kmeak7ov4c3ha:
     resolution: {integrity: sha512-+HQUNuh7AoQ9ZnU6c4rvbiVVl+wEkb9WqYsVDzGLng+Dqj1XntHu79PvEWKtSMoMj67vFp/ZPXcElosuJO8ckA==}
     peerDependencies:
       mobx: ^6.1.0
@@ -5692,14 +5692,14 @@ packages:
       react-native:
         optional: true
     dependencies:
-      mobx: 6.8.0
-      mobx-react-lite: 3.4.0_woojb62cqeyk443mbl7msrwu2e
+      mobx: 6.9.0
+      mobx-react-lite: 3.4.0_lrdhi4fih7ii4kmeak7ov4c3ha
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /mobx/6.8.0:
-    resolution: {integrity: sha512-+o/DrHa4zykFMSKfS8Z+CPSEg5LW9tSNGTuN8o6MF1GKxlfkSHSeJn5UtgxvPkGgaouplnrLXCF+duAsmm6FHQ==}
+  /mobx/6.9.0:
+    resolution: {integrity: sha512-HdKewQEREEJgsWnErClfbFoVebze6rGazxFLU/XUyrII8dORfVszN1V0BMRnQSzcgsNNtkX8DHj3nC6cdWE9YQ==}
     dev: false
 
   /ms/2.1.2:
