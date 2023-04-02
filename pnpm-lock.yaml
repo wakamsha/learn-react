@@ -73,7 +73,7 @@ importers:
       npm-run-all: 4.1.5
       react: 18.2.0
       react-dom: 18.2.0
-      react-router-dom: 6.8.2
+      react-router-dom: 6.10.0
       typescript: 5.0.3
       vite: 4.2.1
       yargs: 17.7.1
@@ -85,7 +85,7 @@ importers:
       highlight.js: 11.7.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@learn-react/builder': link:../../packages/builder
       '@learn-react/tsconfig': link:../../packages/tsconfig
@@ -136,7 +136,7 @@ importers:
       npm-run-all: 4.1.5
       react: 18.2.0
       react-dom: 18.2.0
-      react-router-dom: 6.8.2
+      react-router-dom: 6.10.0
       typescript: 5.0.3
       vite: 4.2.1
     dependencies:
@@ -144,7 +144,7 @@ importers:
       '@learn-react/core': link:../../packages/core
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@learn-react/builder': link:../../packages/builder
       '@learn-react/tsconfig': link:../../packages/tsconfig
@@ -170,7 +170,7 @@ importers:
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0
-      react-router-dom: 6.8.2
+      react-router-dom: 6.10.0
       typescript: 5.0.3
       vite: 4.2.1
     dependencies:
@@ -182,7 +182,7 @@ importers:
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@learn-react/builder': link:../../packages/builder
       '@learn-react/tsconfig': link:../../packages/tsconfig
@@ -227,7 +227,7 @@ importers:
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0
-      react-router-dom: 6.8.2
+      react-router-dom: 6.10.0
       ts-jest: 29.0.5
       ts-xor: 1.1.0
       typescript: 5.0.3
@@ -252,7 +252,7 @@ importers:
       jest-environment-jsdom: 29.5.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+      react-router-dom: 6.10.0_biqbaboplfbrettd7655fr4n2y
       ts-jest: 29.0.5_ntm4xngu7em45lqojwsg6ufzc4
       typescript: 5.0.3
       vite: 4.2.1
@@ -1778,8 +1778,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@remix-run/router/1.3.3:
-    resolution: {integrity: sha512-YRHie1yQEj0kqqCTCJEfHqYSSNlZQ696QJG+MMiW4mxSl9I0ojz/eRhJS4fs88Z5i6D1SmoF9d3K99/QOhI8/w==}
+  /@remix-run/router/1.5.0:
+    resolution: {integrity: sha512-bkUDCp8o1MvFO+qxkODcbhSqRa6P2GXgrGZVpt0dCXNW2HCSCqYI0ZoAqEOSAjRWmmlKcYgFvN4B4S+zo/f8kg==}
     engines: {node: '>=14'}
 
   /@sinclair/typebox/0.25.21:
@@ -6309,25 +6309,25 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom/6.8.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-N/oAF1Shd7g4tWy+75IIufCGsHBqT74tnzHQhbiUTYILYF0Blk65cg+HPZqwC+6SqEyx033nKqU7by38v3lBZg==}
+  /react-router-dom/6.10.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-E5dfxRPuXKJqzwSe/qGcqdwa18QiWC6f3H3cWXM24qj4N0/beCIf/CWTipop2xm7mR0RCS99NnaqPNjHtrAzCg==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.3.3
+      '@remix-run/router': 1.5.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router: 6.8.2_react@18.2.0
+      react-router: 6.10.0_react@18.2.0
 
-  /react-router/6.8.2_react@18.2.0:
-    resolution: {integrity: sha512-lF7S0UmXI5Pd8bmHvMdPKI4u4S5McxmHnzJhrYi9ZQ6wE+DA8JN5BzVC5EEBuduWWDaiJ8u6YhVOCmThBli+rw==}
+  /react-router/6.10.0_react@18.2.0:
+    resolution: {integrity: sha512-Nrg0BWpQqrC3ZFFkyewrflCud9dio9ME3ojHCF/WLsprJVzkq3q3UeEhMCAW1dobjeGbWgjNn/PVF6m46ANxXQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.3.3
+      '@remix-run/router': 1.5.0
       react: 18.2.0
 
   /react/18.2.0:
