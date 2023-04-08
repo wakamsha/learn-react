@@ -292,13 +292,13 @@ importers:
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0
-      swr: 2.1.0
+      swr: 2.1.2
       typescript: 5.0.3
     dependencies:
       '@emotion/css': 11.10.6
       '@learn-react/core': link:../core
       qs: 6.11.1
-      swr: 2.1.0_react@18.2.0
+      swr: 2.1.2_react@18.2.0
     devDependencies:
       '@learn-react/tsconfig': link:../tsconfig
       '@types/qs': 6.9.7
@@ -6990,9 +6990,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /swr/2.1.0_react@18.2.0:
-    resolution: {integrity: sha512-4hYl5p3/KalQ1MORealM79g/DtLohmud6yyfXw5l4wjtFksYUnocRFudvyaoUtgj3FrVNK9lS25Av9dsZYvz0g==}
-    engines: {pnpm: '7'}
+  /swr/2.1.2_react@18.2.0:
+    resolution: {integrity: sha512-ocfaD2rnYZKqTDplCEX2bH5Z1++n2JSej9oYi7hVfXXWYm+0RP+H6fVrogWB0mtMclv1guk9kEnAzNLygOy9Hw==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
