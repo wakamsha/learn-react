@@ -223,7 +223,7 @@ importers:
       hotkeys-js: 3.10.2
       jest: 29.5.0
       jest-environment-jsdom: 29.5.0
-      pdfjs-dist: 3.4.120
+      pdfjs-dist: 3.5.141
       qs: 6.11.1
       react: 18.2.0
       react-dom: 18.2.0
@@ -239,7 +239,7 @@ importers:
       csx: 10.0.2
       date-fns: 2.29.3
       hotkeys-js: 3.10.2
-      pdfjs-dist: 3.4.120
+      pdfjs-dist: 3.5.141
       qs: 6.11.1
       ts-xor: 1.1.0
     devDependencies:
@@ -6080,8 +6080,9 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /pdfjs-dist/3.4.120:
-    resolution: {integrity: sha512-B1hw9ilLG4m/jNeFA0C2A0PZydjxslP8ylU+I4XM7Bzh/xWETo9EiBV848lh0O0hLut7T6lK1V7cpAXv5BhxWw==}
+  /pdfjs-dist/3.5.141:
+    resolution: {integrity: sha512-lYIvyi5grtYOIatsfCifIKwxHeAJ8eHyP22DTdvY4pm0yWVSFQnMafpgCPSw8gaNRDDdcHnBVOkqMsyK8SRxZg==}
+    engines: {node: '>=16'}
     dependencies:
       path2d-polyfill: 2.0.1
       web-streams-polyfill: 3.2.1
