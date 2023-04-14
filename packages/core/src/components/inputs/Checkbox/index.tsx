@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useEffect, useRef, type ChangeEvent, type ReactNode } from 'react';
+import { useRef, type ChangeEvent, type ReactNode } from 'react';
 import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 
@@ -27,16 +27,15 @@ type Props = Partial<{
 export const Checkbox = ({ checked, value, disabled, indeterminate = false, onChange }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const ariaChecked = checked || (indeterminate ? 'mixed' : false);
+  const ariaChecked = indeterminate ? 'mixed' : checked;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     !disabled && onChange?.(e);
   };
 
-  useEffect(() => {
-    if (!inputRef.current) return;
+  if (inputRef.current) {
     inputRef.current.indeterminate = indeterminate;
-  }, [indeterminate]);
+  }
 
   return (
     <span className={styleBase}>
