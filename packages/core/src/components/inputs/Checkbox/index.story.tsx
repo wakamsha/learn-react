@@ -4,13 +4,17 @@ import { Checkbox } from '.';
 export const Story = () => {
   const [checked1, setChecked1] = useState(false);
 
-  const [checked2, setChecked2] = useState(false);
+  const [checked2, setChecked2] = useState(true);
 
-  const [indeterminate, setIndeterminate] = useState(false);
+  const [checked3, setChecked3] = useState(false);
+
+  const [indeterminate, setIndeterminate] = useState(true);
 
   const handleChange1 = () => setChecked1((v) => !v);
 
   const handleChange2 = () => setChecked2((v) => !v);
+
+  const handleChange3 = () => setChecked3((v) => !v);
 
   const handleChangeIndeterminate = () => setIndeterminate((v) => !v);
 
@@ -30,7 +34,9 @@ export const Story = () => {
         </Checkbox.Label>
       </li>
       <li>
-        <Checkbox indeterminate={indeterminate} />
+        <Checkbox.Label label={`Checked: ${checked3}`}>
+          <Checkbox checked={checked3} onChange={handleChange3} indeterminate={indeterminate} />
+        </Checkbox.Label>
       </li>
       <li>
         <Checkbox disabled />

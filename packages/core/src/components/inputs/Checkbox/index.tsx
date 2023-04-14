@@ -27,7 +27,7 @@ type Props = Partial<{
 export const Checkbox = ({ checked, value, disabled, indeterminate = false, onChange }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const ariaChecked = checked || (indeterminate ? 'mixed' : false);
+  const ariaChecked = indeterminate ? 'mixed' : checked;
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     !disabled && onChange?.(e);
