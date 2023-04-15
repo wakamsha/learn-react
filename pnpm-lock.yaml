@@ -144,14 +144,14 @@ importers:
   apps/doc:
     devDependencies:
       typedoc:
-        specifier: 0.23.27
-        version: 0.23.27(typescript@5.0.4)
+        specifier: 0.24.1
+        version: 0.24.1(typescript@5.0.4)
       typedoc-plugin-missing-exports:
         specifier: 1.0.0
-        version: 1.0.0(typedoc@0.23.27)
+        version: 1.0.0(typedoc@0.24.1)
       typedoc-theme-hierarchy:
         specifier: 3.1.0
-        version: 3.1.0(typedoc@0.23.27)
+        version: 3.1.0(typedoc@0.24.1)
       typescript:
         specifier: 5.0.4
         version: 5.0.4
@@ -7314,29 +7314,29 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc-plugin-missing-exports@1.0.0(typedoc@0.23.27):
+  /typedoc-plugin-missing-exports@1.0.0(typedoc@0.24.1):
     resolution: {integrity: sha512-7s6znXnuAj1eD9KYPyzVzR1lBF5nwAY8IKccP5sdoO9crG4lpd16RoFpLsh2PccJM+I2NASpr0+/NMka6ThwVA==}
     peerDependencies:
       typedoc: 0.22.x || 0.23.x
     dependencies:
-      typedoc: 0.23.27(typescript@5.0.4)
+      typedoc: 0.24.1(typescript@5.0.4)
     dev: true
 
-  /typedoc-theme-hierarchy@3.1.0(typedoc@0.23.27):
+  /typedoc-theme-hierarchy@3.1.0(typedoc@0.24.1):
     resolution: {integrity: sha512-y0lCXC4JC9lQvirAhCd5NX75vFV/XsUzS1QRFRiqW2vJtDYPb+bsKdvSzbC1KpLI4nb8BJg+8wenKshKm8WGOA==}
     peerDependencies:
       typedoc: ^0.23.6
     dependencies:
       fs-extra: 10.1.0
-      typedoc: 0.23.27(typescript@5.0.4)
+      typedoc: 0.24.1(typescript@5.0.4)
     dev: true
 
-  /typedoc@0.23.27(typescript@5.0.4):
-    resolution: {integrity: sha512-YKjlxX3LEhYbMCkemjlpNh1OKDiFa+ynqP0VRPsH28bEugrMTGI6l8DC6oX5kzFcUKKlYWKpZDSGWszuO/FR3g==}
+  /typedoc@0.24.1(typescript@5.0.4):
+    resolution: {integrity: sha512-u4HwjZcSQhQSkkhLjgcs0ooAf6HrFVLDHHrwU2xZW8WxH0KnGZlNkaWxiOcK5Gagj7mxJSgwWx0dv8ACDAOXAQ==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
-      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x
+      typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
     dependencies:
       lunr: 2.3.9
       marked: 4.3.0
