@@ -29,10 +29,10 @@
   "devDependencies": {
     "@commitlint/cli": "17.5.1",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@typescript-eslint/eslint-plugin": "5.57.1",
-    "@typescript-eslint/parser": "5.57.1",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
     "cspell": "6.31.1",
-    "eslint": "8.37.0",
+    "eslint": "8.38.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
