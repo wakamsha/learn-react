@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "18.16.0",
+    "node": "18.15.0",
     "pnpm": "8.2.0",
     "npm": "please use pnpm instead"
   },
