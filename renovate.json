@@ -8,14 +8,14 @@
   "reviewers": ["wakamsha"],
   "separateMinorPatch": true,
   "major": {
-    "stabilityDays": 7
+    "minimumReleaseAge": "7 days"
   },
   "minor": {
-    "stabilityDays": 3,
+    "minimumReleaseAge": "3 days",
     "automerge": true
   },
   "patch": {
-    "stabilityDays": 2,
+    "minimumReleaseAge": "2 days",
     "automerge": true
   },
   "vulnerabilityAlerts": {
