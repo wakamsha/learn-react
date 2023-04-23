@@ -135,8 +135,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
       yargs:
         specifier: 17.7.1
         version: 17.7.1
@@ -171,8 +171,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
 
   apps/routing:
     dependencies:
@@ -211,8 +211,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
 
   apps/statement:
     dependencies:
@@ -266,14 +266,14 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
 
   packages/builder:
     dependencies:
       '@vitejs/plugin-react':
         specifier: 3.1.0
-        version: 3.1.0(vite@4.3.0)
+        version: 3.1.0(vite@4.3.1)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -285,8 +285,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
 
   packages/core:
     dependencies:
@@ -355,8 +355,8 @@ importers:
         specifier: 5.0.4
         version: 5.0.4
       vite:
-        specifier: 4.3.0
-        version: 4.3.0(@types/node@18.15.13)
+        specifier: 4.3.1
+        version: 4.3.1(@types/node@18.15.13)
 
   packages/icon:
     devDependencies:
@@ -2287,7 +2287,7 @@ packages:
       eslint-visitor-keys: 3.4.0
     dev: true
 
-  /@vitejs/plugin-react@3.1.0(vite@4.3.0):
+  /@vitejs/plugin-react@3.1.0(vite@4.3.1):
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2298,7 +2298,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.3)
       magic-string: 0.27.0
       react-refresh: 0.14.0
-      vite: 4.3.0(@types/node@18.15.13)
+      vite: 4.3.1(@types/node@18.15.13)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -7425,8 +7425,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.3.0(@types/node@18.15.13):
-    resolution: {integrity: sha512-JTGFgDh3dVxeGBpuQX04Up+JZmuG6wu9414Ei36vQzaEruY/M4K0AgwtuB2b4HaBgB7R8l+LHxjB0jcgz4d2qQ==}
+  /vite@4.3.1(@types/node@18.15.13):
+    resolution: {integrity: sha512-EPmfPLAI79Z/RofuMvkIS0Yr091T2ReUoXQqc5ppBX/sjFRhHKiPPF/R46cTdoci/XgeQpB23diiJxq5w30vdg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
