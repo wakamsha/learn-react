@@ -2,8 +2,8 @@
  * @file catalog アプリケーションのエントリポイント。
  */
 
-import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
-import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
+import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
+import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/src/helpers/Style';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route } from 'react-router-dom';

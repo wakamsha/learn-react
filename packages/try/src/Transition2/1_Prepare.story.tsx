@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { Issues } from './common/Issues';
 import { usePageNumberV1 } from './common/usePageNumber';
 

@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileContainer } from '../../containers/ProfileContainer';

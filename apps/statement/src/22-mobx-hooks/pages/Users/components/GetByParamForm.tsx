@@ -1,4 +1,4 @@
-import { useTransaction } from '@learn-react/core/hooks/useTransaction';
+import { useTransaction } from '@learn-react/core/src/hooks/useTransaction';
 import { observer } from 'mobx-react';
 import { useCallback, useState, type ChangeEvent } from 'react';
 import { UsersStore } from '../stores/UsersStore';

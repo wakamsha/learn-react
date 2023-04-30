@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Router } from './constants/Router';

@@ -1,10 +1,7 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@learn-react/core/*": ["../../packages/core/src/*"]
-    }
+    "types": ["vite/client"],
   },
   "include": ["./src/**/*", "../../packages/core/src/*.d.ts"]
 }

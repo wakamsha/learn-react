@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { StorageProxy } from '@learn-react/core/helpers/Storage';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { StorageProxy } from '@learn-react/core/src/helpers/Storage';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useEffect, useState, type ChangeEvent, type FC } from 'react';
 import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';
