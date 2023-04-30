@@ -1,4 +1,4 @@
-import { useContext } from '@learn-react/core/hooks/useContext';
+import { useContext } from '@learn-react/core/src/hooks/useContext';
 import { action, makeObservable, observable } from 'mobx';
 import { createContext } from 'react';
 

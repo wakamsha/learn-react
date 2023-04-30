@@ -1,7 +1,7 @@
 import { css } from '@emotion/css';
-import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
-import { withSuspense } from '@learn-react/core/helpers/Component';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
+import { withSuspense } from '@learn-react/core/src/helpers/Component';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { lazy, type ReactNode } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';

@@ -1,4 +1,4 @@
-import { useContext } from '@learn-react/core/hooks/useContext';
+import { useContext } from '@learn-react/core/src/hooks/useContext';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { createContext } from 'react';
 import { requestGetUser, requestGetUsers, requestPostUser } from '../../../infra/client';

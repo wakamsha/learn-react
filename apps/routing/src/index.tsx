@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
-import { LineHeight } from '@learn-react/core/constants/Style';
-import { createContainer } from '@learn-react/core/helpers/Container';
-import { StorageProxy } from '@learn-react/core/helpers/Storage';
-import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/helpers/Style';
+import { LineHeight } from '@learn-react/core/src/constants/Style';
+import { createContainer } from '@learn-react/core/src/helpers/Container';
+import { StorageProxy } from '@learn-react/core/src/helpers/Storage';
+import { applyGlobalStyle, applyResetStyle, gutter } from '@learn-react/core/src/helpers/Style';
 import { StrictMode, useEffect, useState, type ChangeEvent, type FC } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Basic } from './01-basic';

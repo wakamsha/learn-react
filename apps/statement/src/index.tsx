@@ -1,4 +1,4 @@
-import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/helpers/Style';
+import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/src/helpers/Style';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App, TypeContainer } from './App';

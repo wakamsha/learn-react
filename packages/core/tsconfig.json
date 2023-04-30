@@ -1,6 +1,7 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
+    "types": ["jest"],
     "baseUrl": "./",
     "paths": {}
   },

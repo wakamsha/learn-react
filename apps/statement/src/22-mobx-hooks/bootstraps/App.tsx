@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { Sidebar } from '@learn-react/core/components/navigation/Sidebar';
-import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
+import { Sidebar } from '@learn-react/core/src/components/navigation/Sidebar';
+import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useState, type ChangeEvent } from 'react';
 import { DataFetching1 } from './DataFetching1';
 import { DataFetching2 } from './DataFetching2';

@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { FontFamily, LineHeight } from '@learn-react/core/constants/Style';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { FontFamily, LineHeight } from '@learn-react/core/src/constants/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import hljs from 'highlight.js';
 import { useEffect, useRef } from 'react';
 

@@ -1,4 +1,4 @@
-import { PageTransition } from '@learn-react/core/components/utils/PageTransition';
+import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { createContext, useMemo, useRef } from 'react';
 import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';

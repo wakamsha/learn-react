@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useState } from 'react';
 import { GetByParamForm } from './components/GetByParamForm';
 import { GetForm } from './components/GetForm';

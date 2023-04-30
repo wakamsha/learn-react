@@ -1,11 +1,11 @@
 import { css, cx } from '@emotion/css';
-import { Icon } from '@learn-react/core/components/dataDisplay/Icon';
-import { Tooltip } from '@learn-react/core/components/dataDisplay/Tooltip';
-import { DocumentTitle } from '@learn-react/core/components/utils/DocumentTitle';
-import { SplitPane } from '@learn-react/core/components/utils/SplitPane';
-import { Duration, Easing, FontFamily, FontSize, LineHeight } from '@learn-react/core/constants/Style';
-import { cssVar, gutter, textEllipsis } from '@learn-react/core/helpers/Style';
-import { nonNull } from '@learn-react/core/helpers/Type';
+import { Icon } from '@learn-react/core/src/components/dataDisplay/Icon';
+import { Tooltip } from '@learn-react/core/src/components/dataDisplay/Tooltip';
+import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
+import { SplitPane } from '@learn-react/core/src/components/utils/SplitPane';
+import { Duration, Easing, FontFamily, FontSize, LineHeight } from '@learn-react/core/src/constants/Style';
+import { cssVar, gutter, textEllipsis } from '@learn-react/core/src/helpers/Style';
+import { nonNull } from '@learn-react/core/src/helpers/Type';
 import { useId, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStory } from '../../hooks/useStory';
@@ -13,8 +13,8 @@ import { CodeBlock } from './CodeBlock';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
 import { ToolbarButton } from './ToolbarButton';
-import { ViewportSwitch } from './ViewportSwitch';
 import { DeviceSize, Layout } from './VO';
+import { ViewportSwitch } from './ViewportSwitch';
 
 export const StoryPage = () => (
   <LayoutConfigContainer.Provider>

@@ -1,4 +1,4 @@
-import { useTransaction } from '@learn-react/core/hooks/useTransaction';
+import { useTransaction } from '@learn-react/core/src/hooks/useTransaction';
 import { useCallback } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 
