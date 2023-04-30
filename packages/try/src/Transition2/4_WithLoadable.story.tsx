@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
-import { FontSize } from '@learn-react/core/constants/Style';
-import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { FontSize } from '@learn-react/core/src/constants/Style';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { Suspense } from 'react';
 import { fetchIssues, useData, type IssueType } from './common/Api';
 import { usePageNumberV2 } from './common/usePageNumber';

@@ -1,7 +1,6 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "types": [],
     "outDir": "./dist"
   },
   "include": ["./dist/index.tsx"],

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { Suspense } from 'react';
 import { Issues } from './common/Issues';
 import { usePageNumberV2 } from './common/usePageNumber';

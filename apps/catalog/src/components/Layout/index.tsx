@@ -1,12 +1,12 @@
 import { css, cx } from '@emotion/css';
-import { IconButton } from '@learn-react/core/components/inputs/IconButton';
-import { Duration, Easing } from '@learn-react/core/constants/Style';
-import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { IconButton } from '@learn-react/core/src/components/inputs/IconButton';
+import { Duration, Easing } from '@learn-react/core/src/constants/Style';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type IconName } from '@learn-react/icon';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Navigation } from '../Navigation';
-import { useLayoutConfig } from './useLayoutConfig';
 import { LayoutMode } from './VO';
+import { useLayoutConfig } from './useLayoutConfig';
 
 type Props = {
   children: ReactNode;

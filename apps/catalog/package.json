@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "generate": "node ./bin/codegen.mjs",
+    "generate": "node ./bin/codegen.js",
     "develop": "vite serve",
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",

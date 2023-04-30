@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/helpers/Style';
+import { gutter } from '@learn-react/core/src/helpers/Style';
 import { observer } from 'mobx-react';
 import { createContext, useMemo, useState, type ChangeEvent } from 'react';
 import { ListStore } from '../stores/ListStore';

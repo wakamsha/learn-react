@@ -1,5 +1,5 @@
-import { useContext } from '@learn-react/core/hooks/useContext';
-import { useTransaction } from '@learn-react/core/hooks/useTransaction';
+import { useContext } from '@learn-react/core/src/hooks/useContext';
+import { useTransaction } from '@learn-react/core/src/hooks/useTransaction';
 import { useReducer, type ChangeEvent } from 'react';
 import { UsersStore } from '../stores/UsersStore';
 

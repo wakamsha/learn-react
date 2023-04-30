@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { cssVar, gutter } from '@learn-react/core/helpers/Style';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { Link } from 'react-router-dom';
 import { Router } from '../constants/Router';
 

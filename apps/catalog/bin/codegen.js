@@ -42,12 +42,10 @@ function addTree(filePath, fileLocations, acc) {
 }
 
 function exec() {
-  const importPaths = sortedTargetFiles
-    .map((rawPath) => rawPath.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, ''))
-    .flat(2);
+  const importPaths = sortedTargetFiles.map((rawPath) => rawPath.replace(/^\/.+\/packages\/|\.story.tsx/g, '')).flat(2);
 
   const storyTreeMap = sortedTargetFiles.reduce(
-    (acc, path) => addTree(path, path.replace(/^\/.+\/packages\/|\/src|\.story.tsx/g, '').split('/'), acc),
+    (acc, path) => addTree(path, path.replace(/^\/.+\/packages\/|\.story.tsx/g, '').split('/'), acc),
     [],
   );
 

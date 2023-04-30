@@ -1,4 +1,4 @@
-import { StorageProxy } from '@learn-react/core/helpers/Storage';
+import { StorageProxy } from '@learn-react/core/src/helpers/Storage';
 import { useEffect, useState } from 'react';
 import { LayoutMode } from './VO';
 
