@@ -76,3 +76,4 @@ dist/
 .envrc
 .stylelintcache
 Stories.ts
+__screenshots__
