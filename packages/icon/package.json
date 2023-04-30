@@ -16,7 +16,7 @@
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "cheerio": "1.0.0-rc.12",
-    "glob": "9.3.5",
+    "glob": "10.2.2",
     "prettier": "2.8.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",

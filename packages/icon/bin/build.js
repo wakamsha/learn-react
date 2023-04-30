@@ -1,12 +1,12 @@
 // @ts-check
 import { load } from 'cheerio';
 import { readFileSync, writeFileSync } from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import { optimize } from 'svgo';
 import { template } from '../templates/index.js';
 
 async function exec() {
-  const targetFiles = await glob('src/*.svg');
+  const targetFiles = await glob('src/*.svg', { ignore: 'node_modules/**' });
   const sortedTargetFiles = targetFiles.sort((a, b) => {
     const nameA = a.toLowerCase();
     const nameB = b.toLowerCase();
