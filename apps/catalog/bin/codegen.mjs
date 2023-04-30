@@ -1,7 +1,7 @@
 // @ts-check
 import chokidar from 'chokidar';
 import { readFileSync, writeFileSync } from 'fs';
-import glob from 'glob';
+import { glob } from 'glob';
 import { dirname, resolve } from 'path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -17,7 +17,7 @@ const { watch } = await yargs(hideBin(process.argv))
   })
   .parseAsync();
 
-const targetFiles = await glob(resolve(__dirname, '../../../**/*.story.tsx'));
+const targetFiles = await glob(resolve(__dirname, '../../../**/*.story.tsx'), { ignore: 'node_modules/**' });
 const sortedTargetFiles = targetFiles.sort((a, b) => {
   const nameA = a.toLowerCase();
   const nameB = b.toLowerCase();
