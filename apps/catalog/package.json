@@ -9,7 +9,7 @@
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
     "build": "pnpm generate && pnpm type-check && vite build",
-    "capture": "node ./bin/capture.js",
+    "capture": "rm -rf ./__screenshots__ && node ./bin/capture.js",
     "preview": "vite preview",
     "deploy": "bash ./bin/sync-s3.sh"
   },
