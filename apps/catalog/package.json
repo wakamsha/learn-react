@@ -9,6 +9,7 @@
     "type-check": "tsc --noEmit",
     "start": "run-p \"generate --watch\" \"type-check --watch\" \"develop {@}\" --",
     "build": "pnpm generate && pnpm type-check && vite build",
+    "capture": "rm -rf ./__screenshots__ && node ./bin/capture.js",
     "preview": "vite preview",
     "deploy": "bash ./bin/sync-s3.sh"
   },
@@ -31,6 +32,7 @@
     "chokidar": "3.5.3",
     "glob": "10.2.2",
     "npm-run-all": "4.1.5",
+    "playwright": "1.33.0",
     "typescript": "5.0.4",
     "vite": "4.3.3",
     "yargs": "17.7.2"
