@@ -3,6 +3,7 @@ import { exec } from 'child_process';
 import playwright from 'playwright';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
+import config from '../capture.config.js';
 
 /**
  * 接続先となる catalog の URL.
@@ -44,7 +45,11 @@ async function main() {
     await wait(10);
   }
 
-  const storyIdList = await getStoryIdList(`${baseUrl}:${port}`, 'ul[role="tree"] a');
+  const storyIdList = await getStoryIdList(`${baseUrl}:${port}`, 'ul[role="tree"] a').then((list) =>
+    list.filter((storyId) => !config.ignoreStoryIdList.includes(storyId)),
+  );
+
+  console.info({ Browsers: browserTypes, Found: `${storyIdList.length} stories` });
 
   await Promise.all(
     browserTypes.map((browserType) =>
@@ -99,11 +104,14 @@ async function captureScreenshotsPerBrowser({ browserType, storyIdList }) {
  */
 async function captureScreenshot({ storyId, url, browserType, page }) {
   await page.goto(`${url}?storyId=${storyId}`, { waitUntil: 'load' });
+  const path = `__screenshots__/${browserType}/${storyId}.png`;
 
   await page.screenshot({
-    path: `__screenshots__/${browserType}/${storyId}.png`,
+    path,
     fullPage: true,
   });
+
+  console.info(`📸 ${path}`);
 }
 
 /**
