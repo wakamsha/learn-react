@@ -16,10 +16,10 @@ const baseUrl = 'http://localhost';
 const port = 3010;
 
 /**
- * @typedef {'chromium' | 'webkit'} BrowserType
+ * @typedef {'chromium' | 'webkit' | 'firefox'} BrowserType
  * @type {BrowserType[]}
  */
-const browserTypes = ['chromium', 'webkit'];
+const browserTypes = ['chromium', 'webkit', 'firefox'];
 
 const { browsers, withServer } = await yargs(hideBin(process.argv))
   .option('browsers', {
