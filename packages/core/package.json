@@ -11,7 +11,7 @@
     "@learn-react/icon": "workspace:1.0.0",
     "constate": "3.3.2",
     "csx": "10.0.2",
-    "date-fns": "2.29.3",
+    "date-fns": "2.30.0",
     "hotkeys-js": "3.10.2",
     "pdfjs-dist": "3.5.141",
     "qs": "6.11.1",
