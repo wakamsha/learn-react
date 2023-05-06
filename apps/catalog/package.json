@@ -21,13 +21,13 @@
     "highlight.js": "11.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.11.0"
+    "react-router-dom": "6.11.1"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.9.7",
-    "@types/react": "18.2.4",
+    "@types/react": "18.2.5",
     "@types/react-dom": "18.2.3",
     "chokidar": "3.5.3",
     "glob": "10.2.2",
