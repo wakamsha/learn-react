@@ -312,8 +312,8 @@ importers:
         specifier: 3.10.2
         version: 3.10.2
       pdfjs-dist:
-        specifier: 3.5.141
-        version: 3.5.141
+        specifier: 3.6.172
+        version: 3.6.172
       qs:
         specifier: 6.11.1
         version: 6.11.1
@@ -1950,7 +1950,7 @@ packages:
       nopt: 5.0.0
       npmlog: 5.0.1
       rimraf: 3.0.2
-      semver: 7.3.8
+      semver: 7.5.0
       tar: 6.1.11
     transitivePeerDependencies:
       - encoding
@@ -2818,8 +2818,8 @@ packages:
   /caniuse-lite@1.0.30001420:
     resolution: {integrity: sha512-OnyeJ9ascFA9roEj72ok2Ikp7PHJTKubtEJIQ/VK3fdsS50q4KWy+Z5X0A1/GswEItKX0ctAp8n4SYDE7wTu6A==}
 
-  /canvas@2.11.0:
-    resolution: {integrity: sha512-bdTjFexjKJEwtIo0oRx8eD4G2yWoUOXP9lj279jmQ2zMnTQhT8C3512OKz3s+ZOaQlLbE7TuVvRDYDB3Llyy5g==}
+  /canvas@2.11.2:
+    resolution: {integrity: sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==}
     engines: {node: '>=6'}
     requiresBuild: true
     dependencies:
@@ -6249,14 +6249,14 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /pdfjs-dist@3.5.141:
-    resolution: {integrity: sha512-lYIvyi5grtYOIatsfCifIKwxHeAJ8eHyP22DTdvY4pm0yWVSFQnMafpgCPSw8gaNRDDdcHnBVOkqMsyK8SRxZg==}
+  /pdfjs-dist@3.6.172:
+    resolution: {integrity: sha512-bfOhCg+S9DXh/ImWhWYTOiq3aVMFSCvzGiBzsIJtdMC71kVWDBw7UXr32xh0y56qc5wMVylIeqV3hBaRsu+e+w==}
     engines: {node: '>=16'}
     dependencies:
       path2d-polyfill: 2.0.1
       web-streams-polyfill: 3.2.1
     optionalDependencies:
-      canvas: 2.11.0
+      canvas: 2.11.2
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -6739,6 +6739,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.5.0:
     resolution: {integrity: sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==}
@@ -6746,7 +6747,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
