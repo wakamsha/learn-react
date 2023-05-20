@@ -14,7 +14,7 @@
     "date-fns": "2.30.0",
     "hotkeys-js": "3.10.2",
     "pdfjs-dist": "3.6.172",
-    "qs": "6.11.1",
+    "qs": "6.11.2",
     "ts-xor": "1.1.0"
   },
   "devDependencies": {

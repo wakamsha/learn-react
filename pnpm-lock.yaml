@@ -235,8 +235,8 @@ importers:
         specifier: 7.6.0
         version: 7.6.0(mobx@6.9.0)(react-dom@18.2.0)(react@18.2.0)
       qs:
-        specifier: 6.11.1
-        version: 6.11.1
+        specifier: 6.11.2
+        version: 6.11.2
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -315,8 +315,8 @@ importers:
         specifier: 3.6.172
         version: 3.6.172
       qs:
-        specifier: 6.11.1
-        version: 6.11.1
+        specifier: 6.11.2
+        version: 6.11.2
       ts-xor:
         specifier: 1.1.0
         version: 1.1.0
@@ -403,8 +403,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../core
       qs:
-        specifier: 6.11.1
-        version: 6.11.1
+        specifier: 6.11.2
+        version: 6.11.2
       swr:
         specifier: 2.1.5
         version: 2.1.5(react@18.2.0)
@@ -6459,8 +6459,8 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     dev: true
 
-  /qs@6.11.1:
-    resolution: {integrity: sha512-0wsrzgTz/kAVIeuxSjnpGC56rzYtr6JT/2BwEvMaPhFIoYa1aGO8LbzuU1R0uUYQkLpWBTOj0l/CLAJB64J6nQ==}
+  /qs@6.11.2:
+    resolution: {integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==}
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.4
