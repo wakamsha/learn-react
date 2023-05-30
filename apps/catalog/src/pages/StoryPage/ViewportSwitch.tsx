@@ -42,6 +42,8 @@ export const ViewportSwitch = ({ onChange }: Props) => {
         <Icon name="devices" />
       </ToolbarButton>
 
+      <Tooltip targetId={id}>Change the viewport</Tooltip>
+
       <Popover targetId={id} visible={active} alignment="end">
         <Card shadow="floating">
           <ul role="menu">
@@ -69,8 +71,6 @@ export const ViewportSwitch = ({ onChange }: Props) => {
           </ul>
         </Card>
       </Popover>
-
-      <Tooltip targetId={id}>Change the viewport</Tooltip>
     </>
   );
 };
@@ -99,6 +99,10 @@ const styleMenuItem = css`
   &:focus {
     color: white;
     background-color: ${cssVar('ThemePrimaryNeutral')};
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 `;
 

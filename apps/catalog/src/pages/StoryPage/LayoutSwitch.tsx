@@ -1,43 +1,107 @@
 import { css, cx } from '@emotion/css';
+import { Icon } from '@learn-react/core/src/components/dataDisplay/Icon';
+import { Tooltip } from '@learn-react/core/src/components/dataDisplay/Tooltip';
+import { Card } from '@learn-react/core/src/components/surfaces/Card';
+import { Popover } from '@learn-react/core/src/components/utils/Popover';
+import { Duration, FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/src/helpers/Style';
-import { type MouseEvent } from 'react';
+import { useListBox } from '@learn-react/core/src/hooks/useListBox';
+import { useId } from 'react';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
+import { ToolbarButton } from './ToolbarButton';
 import { Layout } from './VO';
 
 export const LayoutSwitch = () => {
   const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>) => setLayoutConfig(e.currentTarget.dataset.layout as Layout);
+  const { itemProps, active, setActive, triggerProps } = useListBox(Object.keys(Layout).length);
+
+  const id = useId();
+
+  const handleSelect = (layoutValue: ValueOf<typeof Layout>) => {
+    setActive(false);
+    setLayoutConfig(layoutValue);
+  };
 
   return (
-    <div role="menubar" className={styleBase}>
-      <button
-        className={cx(styleVariant[Layout.Horizontal], layoutConfig === Layout.Horizontal && styleButtonSelected)}
-        role="menuitem"
-        data-layout={Layout.Horizontal}
-        onClick={handleClick}
-      />
-      <button
-        className={cx(styleVariant[Layout.Vertical], layoutConfig === Layout.Vertical && styleButtonSelected)}
-        role="menuitem"
-        data-layout={Layout.Vertical}
-        onClick={handleClick}
-      />
-      <button
-        className={cx(styleVariant[Layout.Zen], layoutConfig === Layout.Zen && styleButtonSelected)}
-        role="menuitem"
-        data-layout={Layout.Zen}
-        onClick={handleClick}
-      />
-    </div>
+    <>
+      <ToolbarButton
+        ref={triggerProps.ref}
+        id={id}
+        onClick={triggerProps.onClick}
+        tabIndex={triggerProps.tabIndex}
+        ariaExpanded={triggerProps['aria-expanded']}
+        ariaHaspopup={triggerProps['aria-haspopup']}
+      >
+        <Icon name="dashboard" />
+      </ToolbarButton>
+
+      <Tooltip targetId={id} alignment="end">
+        Change the layout
+      </Tooltip>
+
+      <Popover targetId={id} visible={active} alignment="end">
+        <Card shadow="floating">
+          <ul role="menu">
+            {Object.entries(Layout).map(([key, value], index) => (
+              <li key={key}>
+                <button
+                  ref={itemProps[index].ref}
+                  onClick={() => handleSelect(value)}
+                  onKeyDown={itemProps[index].onKeyDown}
+                  tabIndex={itemProps[index].tabIndex}
+                  role={itemProps[index].role}
+                  className={cx(styleMenuItem, value === layoutConfig && styleMenuItemSelected)}
+                >
+                  <i className={cx(styleVariant[value], value === layoutConfig && styleButtonSelected)} />
+                  {value}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </Popover>
+    </>
   );
 };
 
 const iconSize = 16;
 
-const styleBase = css`
+const styleMenuItem = css`
   display: flex;
-  gap: ${gutter(1)};
+  gap: ${gutter(2)};
+  align-items: center;
+  width: 100%;
+  padding: ${gutter(1)} ${gutter(4)};
+  font-size: ${FontSize.Small};
+  font-weight: bold;
+  color: ${cssVar('TextNeutral')};
+  text-align: left;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  transition: background-color ${Duration.Fade};
+  appearance: none;
+
+  &:hover {
+    color: white;
+    background-color: ${cssVar('ThemePrimaryDark')};
+  }
+
+  &:focus {
+    color: white;
+    background-color: ${cssVar('ThemePrimaryNeutral')};
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+`;
+
+const styleMenuItemSelected = css`
+  color: white;
+  cursor: default;
+  background-color: ${cssVar('ThemePrimaryNeutral')};
 `;
 
 const styleButton = css`

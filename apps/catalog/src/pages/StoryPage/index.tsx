@@ -130,7 +130,7 @@ const styleTitle = css`
 
 const styleControls = css`
   display: flex;
-  gap: ${gutter(4)};
+  gap: ${gutter(2)};
 `;
 
 const styleOuterLink = css`
