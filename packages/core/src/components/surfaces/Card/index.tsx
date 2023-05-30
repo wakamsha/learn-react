@@ -48,7 +48,6 @@ const styleBase = css`
     'body'
     'footer';
   grid-template-rows: auto 1fr auto;
-  min-height: 240px;
   overflow: hidden;
   background-color: ${cssVar('TexturePaper')};
 `;
