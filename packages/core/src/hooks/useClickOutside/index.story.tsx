@@ -8,7 +8,7 @@ export const Story = () => {
 
   const [count, setCount] = useState(0);
 
-  const handleClickOutside = (event: MouseEvent) => {
+  const handleClickOutside = (event: Event) => {
     setCount((count) => count + 1);
 
     console.info(`outside was clicked`, event);

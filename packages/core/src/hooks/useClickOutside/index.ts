@@ -17,26 +17,22 @@ import { useEffect, useRef, type RefObject } from 'react';
  * return <div ref={ref}>Inner area</div>;
  * ```
  */
-export function useClickOutside<T extends HTMLElement>(
-  callback: (event: MouseEvent) => void,
-  enabled = true,
-): RefObject<T> {
+export function useClickOutside<T extends HTMLElement>(callback: (event: Event) => void, enabled = true): RefObject<T> {
   const ref = useRef<T>(null);
 
   useEffect(() => {
-    const args = [
-      'click',
-      (event: MouseEvent) => {
-        !ref.current?.contains(event.target as HTMLElement) && callback(event);
-      },
-    ] as const;
+    const listener = (event: Event) => {
+      !ref.current?.contains(event.target as HTMLElement) && callback(event);
+    };
 
     if (enabled) {
-      document.addEventListener(...args);
+      document.addEventListener('click', listener);
+      document.addEventListener('touchstart', listener);
     }
 
     return () => {
-      document.removeEventListener(...args);
+      document.removeEventListener('click', listener);
+      document.removeEventListener('touchstart', listener);
     };
   }, [callback, enabled]);
 
