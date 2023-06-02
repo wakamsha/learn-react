@@ -27,7 +27,7 @@
     "format": "prettier -c -w {apps,packages}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages}/**/*.{ts,tsx} --fix; stylelint {apps,packages}/**/*.{ts,tsx} --fix"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.3",
+    "@commitlint/cli": "17.6.5",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@typescript-eslint/eslint-plugin": "5.59.8",
     "@typescript-eslint/parser": "5.59.8",
