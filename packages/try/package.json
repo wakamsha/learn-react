@@ -11,14 +11,14 @@
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.9.7",
-    "@types/react": "18.2.7",
+    "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
   },
   "peerDependencies": {
-    "@types/react": "18.2.7",
+    "@types/react": "18.2.8",
     "@types/react-dom": "18.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
