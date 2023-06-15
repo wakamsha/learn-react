@@ -22,7 +22,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./{apps,packages}/**/tsconfig.json'],
   },
-  ignorePatterns: ['.eslintrc.*', 'vite.config.ts', 'dist/**/*', '**/bin/*', '*.config.js'],
+  ignorePatterns: ['.eslintrc.*', 'dist*', 'bin*', '*.config.*'],
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable

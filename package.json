@@ -5,6 +5,7 @@
   "author": "wakamsha <wakamsha@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
+  "type": "module",
   "engines": {
     "node": "18.16.0",
     "pnpm": "8.6.0",
@@ -14,17 +15,17 @@
   "scripts": {
     "postinstall": "husky install",
     "prepare": "pnpm builder build; pnpm icon build",
-    "builder": "  pnpm -F \"@learn-react/builder\"",
-    "catalog": "  pnpm -F \"@learn-react/catalog\"",
-    "core": "     pnpm -F \"@learn-react/core\"",
-    "doc": "      pnpm -F \"@learn-react/doc\"",
-    "esnext": "   pnpm -F \"@learn-react/esnext\"",
-    "icon": "     pnpm -F \"@learn-react/icon\"",
-    "routing": "  pnpm -F \"@learn-react/routing\"",
-    "statement": "pnpm -F \"@learn-react/statement\"",
-    "try": "      pnpm -F \"@learn-react/try\"",
-    "lint": "  prettier -c    {apps,packages}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages}/**/*.{ts,tsx};       stylelint {apps,packages}/**/*.{ts,tsx}",
-    "format": "prettier -c -w {apps,packages}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages}/**/*.{ts,tsx} --fix; stylelint {apps,packages}/**/*.{ts,tsx} --fix"
+    "builder": "  pnpm -F '@learn-react/builder'",
+    "catalog": "  pnpm -F '@learn-react/catalog'",
+    "core": "     pnpm -F '@learn-react/core'",
+    "doc": "      pnpm -F '@learn-react/doc'",
+    "esnext": "   pnpm -F '@learn-react/esnext'",
+    "icon": "     pnpm -F '@learn-react/icon'",
+    "routing": "  pnpm -F '@learn-react/routing'",
+    "statement": "pnpm -F '@learn-react/statement'",
+    "try": "      pnpm -F '@learn-react/try'",
+    "lint": "  prettier -c    {apps,packages}/**/*.{ts,tsx}; eslint './**/*.{js,ts,tsx}';       stylelint {apps,packages}/**/*.{ts,tsx}",
+    "format": "prettier -c -w {apps,packages}/**/*.{ts,tsx}; eslint './**/*.{js,ts,tsx}' --fix; stylelint {apps,packages}/**/*.{ts,tsx} --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.5",
@@ -52,13 +53,5 @@
     "stylelint-config-recommended": "12.0.0",
     "stylelint-config-standard": "33.0.0",
     "typescript": "5.0.4"
-  },
-  "lint-staged": {
-    "{apps,packages}/**/src/**/*.{ts,tsx}": [
-      "cspell",
-      "prettier -c",
-      "eslint -c .eslintrc.cjs",
-      "stylelint --cache"
-    ]
   }
 }
