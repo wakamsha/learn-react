@@ -1,6 +1,6 @@
 import { Suspense, useState, useTransition } from 'react';
-import { fetchData } from './common/fetchData';
 import { Loadable } from './common/Loadable';
+import { fetchData } from './common/fetchData';
 import { useTime } from './common/useTime';
 
 export const Story = () => {

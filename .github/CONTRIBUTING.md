@@ -14,10 +14,10 @@ Lets using <https://gitmoji.carloscuesta.me/>
 
 - `:sparkles:`: 新機能
 - `:bug:`: バグ修正
-- `:lipstick:`: カイゼン（UI変更あり）
-- `:recycle:`: カイゼン（UI変更なし）
+- `:lipstick:`: カイゼン（UI 変更あり）
+- `:recycle:`: カイゼン（UI 変更なし）
 - `:memo:`: ドキュメント・コメント追加変更
-- `:wrench:`: ビルド設定、CI設定、開発環境変更など
+- `:wrench:`: ビルド設定、CI 設定、開発環境変更など
 - `:pill:`: 依存ライブラリ更新
 - `:construction:`: 仮
 - `:cyclone:`: その他
