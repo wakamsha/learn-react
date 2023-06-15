@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 export function template(importPaths, storyTreeMap) {
   return `/* eslint-disable no-template-curly-in-string */
 /*
@@ -6,17 +7,17 @@ export function template(importPaths, storyTreeMap) {
  */
 ${importPaths
   .map(
-    path =>
+    (path) =>
       `import { Story as ${path
         .split('/')
-        .filter(fragment => fragment !== 'index')
+        .filter((fragment) => fragment !== 'index')
         .map(pascalCase)
         .join('')} } from '@learn-react/${path}.story';`,
   )
   .join(`\n`)}
 
   export const stories = {
-    ${storyTreeMap.map(item => makeTree(item))}
+    ${storyTreeMap.map((item) => makeTree(item))}
   };
   `;
 }
@@ -27,7 +28,7 @@ function makeTree({ name, sourceCode, children }, prefix = '') {
   return children
     ? children.every(({ name }) => name === 'index')
       ? `'${name}': { Component: ${optimizedName}, sourceCode: ${JSON.stringify(children[0]?.sourceCode)} }`
-      : `'${name}': { ${children.map(subPackage => makeTree(subPackage, optimizedName))} }`
+      : `'${name}': { ${children.map((subPackage) => makeTree(subPackage, optimizedName))} }`
     : `'${name}': { Component: ${name === 'index' ? prefix : optimizedName}, sourceCode: ${JSON.stringify(
         sourceCode,
       )} }`;
