@@ -14,7 +14,7 @@
     "deploy": "bash ./bin/sync-s3.sh"
   },
   "dependencies": {
-    "@emotion/css": "11.11.0",
+    "@emotion/css": "11.11.2",
     "@learn-react/core": "workspace:1.0.0",
     "@learn-react/icon": "workspace:1.0.0",
     "@learn-react/try": "workspace:1.0.0",
