@@ -87,8 +87,8 @@ importers:
   apps/catalog:
     dependencies:
       '@emotion/css':
-        specifier: 11.11.0
-        version: 11.11.0
+        specifier: 11.11.2
+        version: 11.11.2
       '@learn-react/core':
         specifier: workspace:1.0.0
         version: link:../../packages/core
@@ -184,8 +184,8 @@ importers:
   apps/routing:
     dependencies:
       '@emotion/css':
-        specifier: 11.11.0
-        version: 11.11.0
+        specifier: 11.11.2
+        version: 11.11.2
       '@learn-react/core':
         specifier: workspace:1.0.0
         version: link:../../packages/core
@@ -224,8 +224,8 @@ importers:
   apps/statement:
     dependencies:
       '@emotion/css':
-        specifier: 11.11.0
-        version: 11.11.0
+        specifier: 11.11.2
+        version: 11.11.2
       '@learn-react/core':
         specifier: workspace:1.0.0
         version: link:../../packages/core
@@ -298,8 +298,8 @@ importers:
   packages/core:
     dependencies:
       '@emotion/css':
-        specifier: 11.11.0
-        version: 11.11.0
+        specifier: 11.11.2
+        version: 11.11.2
       '@learn-react/icon':
         specifier: workspace:1.0.0
         version: link:../icon
@@ -401,8 +401,8 @@ importers:
   packages/try:
     dependencies:
       '@emotion/css':
-        specifier: 11.11.0
-        version: 11.11.0
+        specifier: 11.11.2
+        version: 11.11.2
       '@learn-react/core':
         specifier: workspace:1.0.0
         version: link:../core
@@ -1398,8 +1398,8 @@ packages:
       stylis: 4.2.0
     dev: false
 
-  /@emotion/css@11.11.0:
-    resolution: {integrity: sha512-m4g6nKzZyiKyJ3WOfdwrBdcujVcpaScIWHAnyNKPm/A/xJKwfXPfQAbEVi1kgexWTDakmg+r2aDj0KvnMTo4oQ==}
+  /@emotion/css@11.11.2:
+    resolution: {integrity: sha512-VJxe1ucoMYMS7DkiMdC2T7PWNbrEI0a39YRiyDvK2qq4lXwjRbVP/z4lpG+odCsRzadlR+1ywwrTzhdm5HNdew==}
     dependencies:
       '@emotion/babel-plugin': 11.11.0
       '@emotion/cache': 11.11.0
@@ -5100,7 +5100,7 @@ packages:
     resolution: {integrity: sha512-Kijeg9Dag6CKtIDA7O21zNTACqD5MD/8HfIV8pdD94vFyFuer52SigdC3IQMhab3vACxXMiFk+yMHNdbqtyTGA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
-      '@babel/code-frame': 7.18.6
+      '@babel/code-frame': 7.21.4
       '@jest/types': 29.5.0
       '@types/stack-utils': 2.0.1
       chalk: 4.1.2
