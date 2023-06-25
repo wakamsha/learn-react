@@ -130,8 +130,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       glob:
-        specifier: 10.2.7
-        version: 10.2.7
+        specifier: 10.3.0
+        version: 10.3.0
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -380,8 +380,8 @@ importers:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
       glob:
-        specifier: 10.2.7
-        version: 10.2.7
+        specifier: 10.3.0
+        version: 10.3.0
       prettier:
         specifier: 2.8.8
         version: 2.8.8
@@ -4354,8 +4354,8 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob@10.2.7:
-    resolution: {integrity: sha512-jTKehsravOJo8IJxUGfZILnkvVJM/MOfHRs8QcXolVef2zNI9Tqyy5+SeuOAZd3upViEZQLyFpQhYiHLrMUNmA==}
+  /glob@10.3.0:
+    resolution: {integrity: sha512-AQ1/SB9HH0yCx1jXAT4vmCbTOPe5RQ+kCurjbel5xSCGhebumUv+GJZfa1rEqor3XIViqwSEmlkZCQD43RWrBg==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
