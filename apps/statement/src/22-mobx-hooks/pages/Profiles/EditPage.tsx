@@ -40,7 +40,7 @@ export const ProfileEditPage = observer(() => {
       <h2>Edit Profile</h2>
       <fieldset>
         <legend>name</legend>
-        <input onChange={handleChange} value={store.name} />
+        <input value={store.name} onChange={handleChange} />
       </fieldset>
       <p>name: {store.name}</p>
     </>

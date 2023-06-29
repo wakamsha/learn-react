@@ -46,6 +46,9 @@
     "vitejs",
     "wakamsha",
     "zipcode",
-    "IIFE"
+    "IIFE",
+    "multilines",
+    "setstate",
+    "textnodes"
   ]
 }

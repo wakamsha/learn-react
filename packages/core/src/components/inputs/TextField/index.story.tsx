@@ -9,46 +9,46 @@ export const Story = () => {
   return (
     <>
       <h2>Basic</h2>
-      <TextField name="input-basic" value={value} onChange={setValue} placeholder="Input something..." />
+      <TextField name="input-basic" value={value} placeholder="Input something..." onChange={setValue} />
 
       <h2>With Clear button</h2>
       <TextField
+        clearable
         name="input-with-button"
         value={value}
-        onChange={setValue}
         placeholder="Input something..."
-        clearable
+        onChange={setValue}
       />
 
       <h2>Variant</h2>
       <div className={styleRow}>
-        <TextField name="input-text" value={value} onChange={setValue} placeholder="text" type="text" />
-        <TextField name="input-email" value={value} onChange={setValue} placeholder="email" type="email" />
-        <TextField name="input-password" value={value} onChange={setValue} placeholder="password" type="password" />
+        <TextField name="input-text" value={value} placeholder="text" type="text" onChange={setValue} />
+        <TextField name="input-email" value={value} placeholder="email" type="email" onChange={setValue} />
+        <TextField name="input-password" value={value} placeholder="password" type="password" onChange={setValue} />
         <TextField
           name="input-search"
           value={value}
-          onChange={setValue}
           placeholder="search"
           type="search"
           icon="search"
+          onChange={setValue}
         />
-        <TextField name="input-tel" value={value} onChange={setValue} placeholder="tel" type="tel" />
-        <TextField name="input-url" value={value} onChange={setValue} placeholder="url" type="url" />
-        <TextField name="input-number" value={value} onChange={setValue} placeholder="number" type="number" />
+        <TextField name="input-tel" value={value} placeholder="tel" type="tel" onChange={setValue} />
+        <TextField name="input-url" value={value} placeholder="url" type="url" onChange={setValue} />
+        <TextField name="input-number" value={value} placeholder="number" type="number" onChange={setValue} />
       </div>
 
       <h2>Invalid</h2>
-      <TextField name="input-invalid" value={value} onChange={setValue} placeholder="Input something..." invalid />
+      <TextField invalid name="input-invalid" value={value} placeholder="Input something..." onChange={setValue} />
 
       <h2>Disabled</h2>
       <TextField
-        name="input-disabled"
-        value={value}
-        onChange={setValue}
-        placeholder="Input something..."
         clearable
         disabled
+        name="input-disabled"
+        value={value}
+        placeholder="Input something..."
+        onChange={setValue}
       />
     </>
   );

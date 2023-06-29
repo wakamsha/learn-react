@@ -28,11 +28,11 @@ export const Story = () => {
 
       <Button
         ref={triggerProps.ref}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
         tabIndex={triggerProps.tabIndex}
         ariaHaspopup={triggerProps['aria-haspopup']}
         ariaExpanded={triggerProps['aria-expanded']}
+        onKeyDown={triggerProps.onKeyDown}
+        onClick={triggerProps.onClick}
       >
         Open
         <Icon name="angle-bottom" />
@@ -42,12 +42,12 @@ export const Story = () => {
         {menuItems.map((item, index) => (
           <li key={item}>
             <button
+              ref={itemProps[index].ref}
               className={styleMenuItem}
-              onClick={() => handleSelect(item)}
-              onKeyDown={itemProps[index].onKeyDown}
               tabIndex={itemProps[index].tabIndex}
               role={itemProps[index].role}
-              ref={itemProps[index].ref}
+              onClick={() => handleSelect(item)}
+              onKeyDown={itemProps[index].onKeyDown}
             >
               {item}
             </button>

@@ -106,7 +106,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
   }, [targetId, schedule, handleMouseLeave]);
 
   return createPortal(
-    <div role="tooltip" className={styleBase} ref={baseRef} style={point} aria-hidden={!shown}>
+    <div ref={baseRef} role="tooltip" className={styleBase} style={point} aria-hidden={!shown}>
       {children}
     </div>,
     document.getElementById('app') || document.body,

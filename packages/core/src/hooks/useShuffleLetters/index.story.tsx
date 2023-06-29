@@ -28,7 +28,7 @@ export const Story = () => {
       <p ref={ref1}>{value}</p>
 
       <h3>Click</h3>
-      <p className={styleParagraph} ref={ref2} role="presentation" onClick={() => startShuffle2('my name is wakamsha')}>
+      <p ref={ref2} className={styleParagraph} role="presentation" onClick={() => startShuffle2('my name is wakamsha')}>
         my name is wakamsha
       </p>
 

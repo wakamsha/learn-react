@@ -26,14 +26,14 @@ export const Story = () => {
       </pre>
       <hr />
       <button
-        id={id}
         ref={triggerProps.ref}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
+        id={id}
         tabIndex={triggerProps.tabIndex}
         role={triggerProps.role}
         aria-haspopup={triggerProps['aria-haspopup']}
         aria-expanded={triggerProps['aria-expanded']}
+        onKeyDown={triggerProps.onKeyDown}
+        onClick={triggerProps.onClick}
       >
         Open
       </button>
@@ -42,12 +42,12 @@ export const Story = () => {
           {menuItems.map((item, index) => (
             <li key={item}>
               <button
+                ref={itemProps[index].ref}
                 className={styleMenuItem}
-                onClick={() => handleSelect(item)}
-                onKeyDown={itemProps[index].onKeyDown}
                 tabIndex={itemProps[index].tabIndex}
                 role={itemProps[index].role}
-                ref={itemProps[index].ref}
+                onClick={() => handleSelect(item)}
+                onKeyDown={itemProps[index].onKeyDown}
               >
                 {item}
               </button>

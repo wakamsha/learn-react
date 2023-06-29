@@ -63,12 +63,12 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
 
       <div role="form" className={styleForm}>
         <TextField
+          clearable
           name="search"
           type="search"
           placeholder="Search..."
           value={keyword}
           onChange={setKeyword}
-          clearable
         />
       </div>
 

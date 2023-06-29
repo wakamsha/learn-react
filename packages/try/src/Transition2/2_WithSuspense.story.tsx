@@ -15,7 +15,7 @@ export const Story = () => {
       </div>
 
       <Suspense fallback={<p>Loading...</p>}>
-        <Issues page={page} suspense />
+        <Issues suspense page={page} />
       </Suspense>
     </div>
   );

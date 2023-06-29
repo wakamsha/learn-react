@@ -83,10 +83,10 @@ export const IconButton = forwardRef(
         className={styleButton}
         tabIndex={tabIndex}
         disabled={disabled}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
         aria-haspopup={ariaHaspopup}
         aria-expanded={ariaExpanded}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
       >
         <Icon name={name} />
       </button>

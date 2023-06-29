@@ -199,7 +199,7 @@ export const SplitPane = ({
 
   return (
     <div className={styleBase}>
-      <div aria-orientation={orientation} className={styleContainer} ref={container}>
+      <div ref={container} aria-orientation={orientation} className={styleContainer}>
         {active ? (
           <div
             role="presentation"

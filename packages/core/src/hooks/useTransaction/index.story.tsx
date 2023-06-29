@@ -20,7 +20,7 @@ export const Story = () => {
         <p>
           ID: <code>{userId}</code>
         </p>
-        <button onClick={() => onSubmit(userId)} disabled={submitRunning}>
+        <button disabled={submitRunning} onClick={() => onSubmit(userId)}>
           GET
         </button>
       </form>

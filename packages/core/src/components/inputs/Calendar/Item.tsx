@@ -22,8 +22,8 @@ export const Item = ({ value, active, disabled, onClick }: Props) => {
       className={styleBase}
       aria-pressed={active}
       aria-disabled={disabled}
-      onClick={handleClick}
       tabIndex={!value || disabled ? -1 : undefined}
+      onClick={handleClick}
     >
       {value ? value.getDate() : null}
     </button>

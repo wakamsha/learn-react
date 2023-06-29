@@ -50,7 +50,7 @@ const BootLoader = () => {
   return (
     <div className={styleBase}>
       <Component />
-      <select className={styleSwitch} onChange={handleSwitch} value={type}>
+      <select className={styleSwitch} value={type} onChange={handleSwitch}>
         {Object.keys(Components).map((key) => (
           <option key={key} value={key}>
             {key}

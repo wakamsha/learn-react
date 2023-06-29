@@ -31,10 +31,10 @@ export const LayoutSwitch = () => {
       <ToolbarButton
         ref={triggerProps.ref}
         id={id}
-        onClick={triggerProps.onClick}
         tabIndex={triggerProps.tabIndex}
         ariaExpanded={triggerProps['aria-expanded']}
         ariaHaspopup={triggerProps['aria-haspopup']}
+        onClick={triggerProps.onClick}
       >
         <Icon name="dashboard" />
       </ToolbarButton>
@@ -50,11 +50,11 @@ export const LayoutSwitch = () => {
               <li key={key}>
                 <button
                   ref={itemProps[index].ref}
-                  onClick={() => handleSelect(value)}
-                  onKeyDown={itemProps[index].onKeyDown}
                   tabIndex={itemProps[index].tabIndex}
                   role={itemProps[index].role}
                   className={cx(styleMenuItem, value === layoutConfig && styleMenuItemSelected)}
+                  onClick={() => handleSelect(value)}
+                  onKeyDown={itemProps[index].onKeyDown}
                 >
                   <i className={cx(styleVariant[value], value === layoutConfig && styleButtonSelected)} />
                   {value}

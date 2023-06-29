@@ -7,13 +7,13 @@ export const Story = () => {
   return (
     <>
       <h2>Basic</h2>
-      <Range value={value} onChange={setValue} step={0.5} />
+      <Range value={value} step={0.5} onChange={setValue} />
       <p>
         Value: <b>{value}</b>
       </p>
       <h2>Theme</h2>
-      <Range value={50} onChange={console.info} theme="primary" />
-      <Range value={50} onChange={console.info} theme="danger" />
+      <Range value={50} theme="primary" onChange={console.info} />
+      <Range value={50} theme="danger" onChange={console.info} />
     </>
   );
 };

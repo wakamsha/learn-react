@@ -24,24 +24,24 @@ export const Story = () => {
       </pre>
       <hr />
       <IconButton
-        name="list"
         ref={triggerProps.ref}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
+        name="list"
         tabIndex={triggerProps.tabIndex}
         ariaHaspopup={triggerProps['aria-haspopup'] as any}
         ariaExpanded={triggerProps['aria-expanded'] as any}
+        onKeyDown={triggerProps.onKeyDown}
+        onClick={triggerProps.onClick}
       />
       <ul className={styleMenu} role="menu" aria-hidden={!active}>
         {menuItems.map((item, index) => (
           <li key={item}>
             <button
+              ref={itemProps[index].ref}
               className={styleMenuItem}
-              onClick={() => handleSelect(item)}
-              onKeyDown={itemProps[index].onKeyDown}
               tabIndex={itemProps[index].tabIndex}
               role={itemProps[index].role}
-              ref={itemProps[index].ref}
+              onClick={() => handleSelect(item)}
+              onKeyDown={itemProps[index].onKeyDown}
             >
               {item}
             </button>

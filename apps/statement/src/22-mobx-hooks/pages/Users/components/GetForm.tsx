@@ -10,7 +10,7 @@ export const GetForm = () => {
   return (
     <div>
       <h3>Get</h3>
-      <button onClick={load} disabled={!!loadStatus.running}>
+      <button disabled={!!loadStatus.running} onClick={load}>
         GET ALL USERS
       </button>
     </div>

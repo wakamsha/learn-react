@@ -45,9 +45,9 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
     <div role="presentation" className={styleBase} aria-hidden={!visible} tabIndex={-1}>
       <div role="presentation" className={styleInner} onClick={onClickOutside}>
         <div
+          ref={dialogRef}
           role="dialog"
           className={styleContent}
-          ref={dialogRef}
           aria-modal={visible}
           aria-hidden={!visible}
           onClick={(e) => e.stopPropagation()}

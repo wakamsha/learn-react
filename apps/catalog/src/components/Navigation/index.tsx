@@ -38,14 +38,14 @@ export const Navigation = () => {
 
       <div role="form" className={styleForm}>
         <TextField
+          clearable
+          autoFocus
           name="search"
           type="search"
           icon="search"
           placeholder="Search..."
           value={keyword}
           onChange={setKeyword}
-          clearable
-          autoFocus
         />
       </div>
 

@@ -52,9 +52,9 @@ export const ToolbarButton = forwardRef(
         id={id}
         className={styleButton}
         tabIndex={tabIndex}
-        onClick={onClick}
         aria-haspopup={ariaHaspopup}
         aria-expanded={ariaExpanded}
+        onClick={onClick}
       >
         {children}
       </button>

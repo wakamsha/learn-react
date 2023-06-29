@@ -24,7 +24,7 @@ export const GetByParamForm = observer(() => {
       <p>
         ID: <code>{store.userId}</code>
       </p>
-      <button onClick={() => onSubmit(userId)} disabled={submitRunning}>
+      <button disabled={submitRunning} onClick={() => onSubmit(userId)}>
         GET
       </button>
     </form>

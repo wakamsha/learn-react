@@ -35,13 +35,13 @@ export const PostForm = () => {
     <form onSubmit={(e) => e.preventDefault()}>
       <h3>POST</h3>
       <p>
-        <input placeholder="Name ..." value={name} onChange={handleChangeName} disabled={fetching} />
+        <input placeholder="Name ..." value={name} disabled={fetching} onChange={handleChangeName} />
       </p>
       <p>
-        <textarea placeholder="Job ..." value={job} onChange={handleChangeJob} disabled={fetching} />
+        <textarea placeholder="Job ..." value={job} disabled={fetching} onChange={handleChangeJob} />
       </p>
       <p>
-        <button onClick={handleSubmit} disabled={!validInputs || fetching}>
+        <button disabled={!validInputs || fetching} onClick={handleSubmit}>
           POST
         </button>
       </p>

@@ -81,8 +81,8 @@ const AddMessage = () => {
         <input
           className={styleFormItem}
           value={message}
-          onChange={handleInputMessage}
           placeholder="メッセージを入力してください"
+          onChange={handleInputMessage}
         />
       </div>
       <button onClick={handleSubmit}>送信</button>

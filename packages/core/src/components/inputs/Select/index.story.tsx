@@ -52,7 +52,7 @@ export const Story = () => {
   return (
     <>
       <h2>Basic</h2>
-      <Select options={options} value={state1} onChange={handleChange1} icon="list" />
+      <Select options={options} value={state1} icon="list" onChange={handleChange1} />
       <pre>
         <code>{JSON.stringify({ value: state1 }, null, 2)}</code>
       </pre>
@@ -64,7 +64,7 @@ export const Story = () => {
       </pre>
 
       <h2>Disabled</h2>
-      <Select options={options} value={options[0].value} onChange={console.info} disabled />
+      <Select disabled options={options} value={options[0].value} onChange={console.info} />
     </>
   );
 };

@@ -6,23 +6,23 @@ export const Story = () => (
   <>
     <h2>Solid</h2>
     <div className={styleRow}>
-      <IconButton name="plus" onClick={console.info} ariaLabel="追加する" />
+      <IconButton name="plus" ariaLabel="追加する" onClick={console.info} />
       <IconButton name="plus" theme="danger" onClick={console.info} />
-      <IconButton name="plus" disabled onClick={console.info} />
+      <IconButton disabled name="plus" onClick={console.info} />
     </div>
 
     <h2>Ghost</h2>
     <div className={styleRow}>
       <IconButton name="plus" variant="ghost" onClick={console.info} />
       <IconButton name="plus" variant="ghost" theme="danger" onClick={console.info} />
-      <IconButton name="plus" variant="ghost" disabled onClick={console.info} />
+      <IconButton disabled name="plus" variant="ghost" onClick={console.info} />
     </div>
 
     <h2>Bare</h2>
     <div className={styleRow}>
       <IconButton name="plus" variant="bare" onClick={console.info} />
       <IconButton name="plus" variant="bare" theme="danger" onClick={console.info} />
-      <IconButton name="plus" variant="bare" disabled onClick={console.info} />
+      <IconButton disabled name="plus" variant="bare" onClick={console.info} />
     </div>
 
     <h2>Size</h2>

@@ -18,8 +18,8 @@ export const Story = () => {
         value={value}
         minRows={minLines}
         maxRows={maxLines}
-        onChange={setValue}
         placeholder="Input something..."
+        onChange={setValue}
       />
 
       <div className={styleFormControls}>
@@ -47,22 +47,22 @@ export const Story = () => {
 
       <h2>Invalid</h2>
       <TextArea
+        invalid
         name="input-basic"
         value={value}
         minRows={2}
-        onChange={setValue}
         placeholder="Input something..."
-        invalid
+        onChange={setValue}
       />
 
       <h2>Disabled</h2>
       <TextArea
+        disabled
         name="input-basic"
         value={value}
         minRows={2}
-        onChange={setValue}
         placeholder="Input something..."
-        disabled
+        onChange={setValue}
       />
     </>
   );

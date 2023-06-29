@@ -94,11 +94,11 @@ export const TextField = ({
         inputMode={inputMode}
         pattern={pattern}
         tabIndex={tabIndex}
-        onChange={handleChange}
-        onFocus={onFocus}
         maxLength={maxLength}
         min={min}
         max={max}
+        onChange={handleChange}
+        onFocus={onFocus}
       />
       {clearable && !disabled && value ? (
         <IconButton name="times" variant="bare" size="small" onClick={handleClickClear} />

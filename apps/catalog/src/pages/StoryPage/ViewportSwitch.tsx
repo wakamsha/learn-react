@@ -36,11 +36,11 @@ export const ViewportSwitch = ({ onChange }: Props) => {
       <ToolbarButton
         ref={triggerProps.ref}
         id={id}
-        onClick={triggerProps.onClick}
         tabIndex={triggerProps.tabIndex}
         ariaExpanded={triggerProps['aria-expanded']}
         ariaHaspopup={triggerProps['aria-haspopup']}
         active={selectedKey !== 'unset'}
+        onClick={triggerProps.onClick}
       >
         <Icon name="devices" />
       </ToolbarButton>
@@ -54,11 +54,11 @@ export const ViewportSwitch = ({ onChange }: Props) => {
               <li key={key}>
                 <button
                   ref={itemProps[index].ref}
-                  onClick={() => handleSelect(key as keyof typeof DeviceSize, value)}
-                  onKeyDown={itemProps[index].onKeyDown}
                   tabIndex={itemProps[index].tabIndex}
                   role={itemProps[index].role}
                   className={cx(styleMenuItem, key === selectedKey && styleMenuItemSelected)}
+                  onClick={() => handleSelect(key as keyof typeof DeviceSize, value)}
+                  onKeyDown={itemProps[index].onKeyDown}
                 >
                   {key}
                   {Object.values(value).every(nonNull) ? (

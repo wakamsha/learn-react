@@ -30,12 +30,12 @@ export const Story = () => {
       </li>
       <li>
         <Checkbox.Label label="Switch to indeterminate">
-          <Checkbox onChange={handleChangeIndeterminate} checked={indeterminate} />
+          <Checkbox checked={indeterminate} onChange={handleChangeIndeterminate} />
         </Checkbox.Label>
       </li>
       <li>
         <Checkbox.Label label={`Checked: ${checked3}`}>
-          <Checkbox checked={checked3} onChange={handleChange3} indeterminate={indeterminate} />
+          <Checkbox checked={checked3} indeterminate={indeterminate} onChange={handleChange3} />
         </Checkbox.Label>
       </li>
       <li>
