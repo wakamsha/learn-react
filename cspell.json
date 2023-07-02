@@ -49,6 +49,7 @@
     "IIFE",
     "multilines",
     "setstate",
-    "textnodes"
+    "textnodes",
+    "chunkname"
   ]
 }
