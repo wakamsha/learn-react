@@ -130,10 +130,10 @@ const styleInput = css`
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
   color: ${cssVar('TextNeutral')};
-  background-color: transparent;
-  border: none;
-  outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
 `;

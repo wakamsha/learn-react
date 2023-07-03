@@ -13,4 +13,4 @@ const [ProfileContainer, useName, useEditName] = constate(
   (hook) => hook.setName,
 );
 
-export { ProfileContainer, useName, useEditName };
+export { ProfileContainer, useEditName, useName };

@@ -68,12 +68,12 @@ const styleBase = css`
   padding: ${gutter(0.5)};
   font-size: ${FontSize.Tiny};
   color: white;
+  appearance: none;
   cursor: pointer;
   user-select: none;
   background-color: ${cssVar('ThemePrimaryDark')};
   border: none;
   opacity: 0.8;
-  appearance: none;
 
   &:hover {
     opacity: 1;

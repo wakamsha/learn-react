@@ -85,11 +85,11 @@ const styleMenuItem = css`
   font-weight: bold;
   color: ${cssVar('TextNeutral')};
   text-align: left;
+  appearance: none;
   cursor: pointer;
   background-color: transparent;
   border: none;
   transition: background-color ${Duration.Fade};
-  appearance: none;
 
   &:hover {
     color: white;

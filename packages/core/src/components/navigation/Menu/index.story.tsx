@@ -78,10 +78,10 @@ const styleMenuItem = css`
   width: 100%;
   padding: ${gutter(1)} ${gutter(2)};
   text-align: left;
+  appearance: none;
   cursor: pointer;
   background: transparent;
   border: none;
-  appearance: none;
 
   &:hover {
     background-color: ${cssVar('ThemePrimaryLight')};

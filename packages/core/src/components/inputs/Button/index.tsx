@@ -212,13 +212,13 @@ const styleBase = css`
   text-decoration: none;
   white-space: nowrap;
   vertical-align: middle;
+  appearance: none;
   touch-action: manipulation;
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
   border-radius: ${BorderRadius.Circle};
   transition: background-color ${Duration.Fade};
-  appearance: none;
 
   > :not(:first-child) {
     margin-left: ${gutter(1)};

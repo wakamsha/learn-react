@@ -116,12 +116,12 @@ const styleInput = css`
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
   color: ${cssVar('TextNeutral')};
+  -webkit-appearance: none;
+  -moz-appearance: none;
   resize: none;
   background-color: transparent;
   border: none;
   outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button,
