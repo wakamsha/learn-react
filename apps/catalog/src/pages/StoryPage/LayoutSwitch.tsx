@@ -77,11 +77,11 @@ const styleMenuItem = css`
   font-weight: bold;
   color: ${cssVar('TextNeutral')};
   text-align: left;
+  appearance: none;
   cursor: pointer;
   background-color: transparent;
   border: none;
   transition: background-color ${Duration.Fade};
-  appearance: none;
 
   &:hover {
     color: white;
@@ -109,11 +109,11 @@ const styleButton = css`
   align-items: center;
   justify-content: center;
   padding: ${gutter(1)};
+  appearance: none;
   cursor: pointer;
   background-color: ${cssVar('ThemePrimaryDark')};
   border: none;
   opacity: 0.8;
-  appearance: none;
 
   &:hover {
     opacity: 1;

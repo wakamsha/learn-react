@@ -32,4 +32,4 @@ const [ListProvider, useListItems, useAddListItem, useEditListItem] = constate(
   (hook) => hook.editItem,
 );
 
-export { ListProvider, useListItems, useAddListItem, useEditListItem };
+export { ListProvider, useAddListItem, useEditListItem, useListItems };

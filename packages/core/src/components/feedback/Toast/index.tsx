@@ -61,4 +61,4 @@ const ToastProvider = ({ children, limit = 1 }: ProviderProps) => (
   </Provider>
 );
 
-export { ToastProvider, useToasts, useAddToast, useRemoveToast };
+export { ToastProvider, useAddToast, useRemoveToast, useToasts };

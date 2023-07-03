@@ -89,12 +89,12 @@ const track = `
 `;
 
 const styleBase = css`
-  -webkit-appearance: none;
   position: relative;
   z-index: 2;
   width: 100%;
   height: ${diameter}px;
   margin: 0;
+  -webkit-appearance: none;
   background-color: transparent;
   outline: none;
 

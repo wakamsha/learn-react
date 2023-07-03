@@ -134,10 +134,10 @@ const styleMenubar = css`
   > select {
     flex: 1 1 100%;
     text-align: center;
-    background-color: transparent;
-    border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    background-color: transparent;
+    border: none;
   }
 `;
 
