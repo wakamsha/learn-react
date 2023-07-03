@@ -82,6 +82,16 @@ export default [
     },
     files: ['**/*.ts{,x}', '**/*.js', '*.mjs'],
     ignores: ['*.config.*', '**/*.d.ts'],
+    settings: {
+      'import/resolver': {
+        node: {
+          extensions: ['.mjs', '.js', '.json'],
+        },
+      },
+      'import/extensions': ['.js', '.mjs', '.jsx', 'ts', 'tsx'],
+      'import/core-modules': [],
+      'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
+    },
     rules: {
       // 'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
 
@@ -104,11 +114,11 @@ export default [
 
       // do not allow a default import name to match a named export
       // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md
-      // 'import/no-named-as-default': ['error'],
+      'import/no-named-as-default': ['error'],
 
       // warn on accessing default export property names that are also named exports
       // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default-member.md
-      // 'import/no-named-as-default-member': ['error'],
+      'import/no-named-as-default-member': ['error'],
 
       // disallow use of jsdoc-marked-deprecated imports
       // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-deprecated.md
