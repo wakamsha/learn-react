@@ -13,12 +13,12 @@
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/node": "18.16.18",
+    "@types/node": "18.16.19",
     "typescript": "5.1.6",
     "vite": "4.3.9"
   },
   "peerDependencies": {
-    "@types/node": "18.16.18",
+    "@types/node": "18.16.19",
     "vite": "4.3.9"
   }
 }
