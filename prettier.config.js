@@ -1,6 +1,7 @@
-const organizeImports = require('prettier-plugin-organize-imports');
+// const organizeImports = require('prettier-plugin-organize-imports');
+import organizeImports from 'prettier-plugin-organize-imports';
 
-module.exports = {
+export default {
   printWidth: 120, // Extend from default (80) to prevent excessive line breaks.
   // tabWidth: 2,
   // useTabs: false,

@@ -151,7 +151,9 @@ const styleViewport = css`
     height: 100%;
     border: none;
     box-shadow: ${cssVar('ShadowDialog')};
-    transition: width ${Duration.Fade} ${Easing.Enter}, height ${Duration.Fade} ${Easing.Enter};
+    transition:
+      width ${Duration.Fade} ${Easing.Enter},
+      height ${Duration.Fade} ${Easing.Enter};
   }
 `;
 
@@ -163,8 +165,16 @@ const styleViewportChanged = css`
     linear-gradient(90deg, rgb(128 128 128 / 10%) 2px, transparent 2px),
     linear-gradient(rgb(128 128 128 / 10%) 1px, transparent 1px),
     linear-gradient(90deg, rgb(128 128 128 / 10%) 1px, transparent 1px);
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position:
+    -2px -2px,
+    -2px -2px,
+    -1px -1px,
+    -1px -1px;
+  background-size:
+    100px 100px,
+    100px 100px,
+    20px 20px,
+    20px 20px;
 `;
 
 const styleCodeBlock = css`

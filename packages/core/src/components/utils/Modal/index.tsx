@@ -73,7 +73,9 @@ const styleBase = css`
   visibility: hidden;
   background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
   opacity: 0;
-  transition: visibility ${Duration.Enter} ${Easing.Enter}, opacity ${Duration.Enter} ${Easing.Enter};
+  transition:
+    visibility ${Duration.Enter} ${Easing.Enter},
+    opacity ${Duration.Enter} ${Easing.Enter};
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 

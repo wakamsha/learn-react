@@ -82,8 +82,11 @@ const styleNavigationWrapperBase = css`
   z-index: 1;
   height: 100dvh;
   border-right: 1px solid ${cssVar('LineLight')};
-  transition: left ${Duration.Fade} ${Easing.Enter} ${delayTime}ms, width ${Duration.Fade} ${delayTime}ms,
-    padding-right ${Duration.Fade} ${delayTime}ms, box-shadow ${Duration.Fade};
+  transition:
+    left ${Duration.Fade} ${Easing.Enter} ${delayTime}ms,
+    width ${Duration.Fade} ${delayTime}ms,
+    padding-right ${Duration.Fade} ${delayTime}ms,
+    box-shadow ${Duration.Fade};
 `;
 
 const styleNavigationWrapper: Frozen<LayoutMode, string> = {

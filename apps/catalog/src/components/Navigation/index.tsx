@@ -115,7 +115,9 @@ const styleTitle = css`
   margin: 0;
   text-align: center;
   border-radius: ${BorderRadius.Small};
-  transition: background-color ${Duration.Fade}, border-color ${Duration.Fade};
+  transition:
+    background-color ${Duration.Fade},
+    border-color ${Duration.Fade};
 
   &:hover {
     background-color: ${cssVar('ThemePrimaryLight')};
