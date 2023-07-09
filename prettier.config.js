@@ -1,4 +1,3 @@
-// const organizeImports = require('prettier-plugin-organize-imports');
 import organizeImports from 'prettier-plugin-organize-imports';
 
 export default {
