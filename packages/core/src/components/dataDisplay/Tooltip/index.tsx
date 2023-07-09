@@ -283,7 +283,9 @@ const styleBase = css`
   background-color: ${cssVar('ThemePrimaryNeutral')};
   border-radius: ${BorderRadius.Small};
   opacity: 0;
-  transition: visibility ${Duration.Fade}, opacity ${Duration.Fade};
+  transition:
+    visibility ${Duration.Fade},
+    opacity ${Duration.Fade};
 
   &[aria-hidden='false'] {
     visibility: visible;

@@ -179,7 +179,10 @@ const styleBase = css`
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: ${BorderRadius.Circle};
-  transition: background-color ${Duration.Fade}, fill ${Duration.Fade}, fill ${Duration.Fade};
+  transition:
+    background-color ${Duration.Fade},
+    fill ${Duration.Fade},
+    fill ${Duration.Fade};
 
   &:disabled {
     pointer-events: none;

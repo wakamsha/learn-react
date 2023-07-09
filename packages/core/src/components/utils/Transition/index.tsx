@@ -86,7 +86,8 @@ const styleBase = css`
 
 const styleAnimation = css`
   opacity: 1;
-  transition: transform ${Duration.Enter} ${enterDelay}ms ${Easing.Enter},
+  transition:
+    transform ${Duration.Enter} ${enterDelay}ms ${Easing.Enter},
     opacity ${Duration.Enter} ${enterDelay}ms ${Easing.Enter};
   transform: none;
 `;
@@ -99,7 +100,9 @@ const styleEnter = css`
 
 const styleLeave = css`
   opacity: 0;
-  transition: transform ${Duration.Leave} ${Easing.Leave}, opacity ${Duration.Leave} ${Easing.Leave};
+  transition:
+    transform ${Duration.Leave} ${Easing.Leave},
+    opacity ${Duration.Leave} ${Easing.Leave};
 `;
 
 const styleType: Frozen<TransitionType, string> = {

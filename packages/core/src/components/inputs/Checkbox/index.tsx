@@ -83,7 +83,9 @@ const styleIndicator = css`
   background-color: white;
   border: 1px solid ${cssVar('LineNeutral')};
   border-radius: ${BorderRadius.Small};
-  transition: background-color ${Duration.Fade}, border ${Duration.Fade};
+  transition:
+    background-color ${Duration.Fade},
+    border ${Duration.Fade};
   ${square(20)}
 
   &:not([aria-checked='false']) {

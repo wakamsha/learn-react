@@ -84,7 +84,10 @@ const styleInner = css`
   user-select: none;
   border-bottom: 1px solid transparent;
   box-shadow: none;
-  transition: color ${Duration.Fade}, background-color ${Duration.Fade}, border-color ${Duration.Fade},
+  transition:
+    color ${Duration.Fade},
+    background-color ${Duration.Fade},
+    border-color ${Duration.Fade},
     box-shadow ${Duration.Fade};
   ${textEllipsis()}
 
