@@ -180,7 +180,7 @@ const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 /**
  * 任意の月を構成する日にちの配列を取得します。
  *
- * @param page 取得したい月に該当する Date オブジェクト
+ * @param page - 取得したい月に該当する Date オブジェクト
  *
  * @example
  * ```

@@ -37,7 +37,7 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
 /**
  * Cookie から任意の値を取得します。
  *
- * @param cname 取得したい値のキー
+ * @param cname - 取得したい値のキー
  */
 export function getCookie(cname: string): string | void {
   const sensor = `${cname}=`;
@@ -57,7 +57,7 @@ export function getCookie(cname: string): string | void {
 /**
  * Cookie から任意の値を削除します。
  *
- * @param cname 削除したい値のキー
+ * @param cname - 削除したい値のキー
  */
 export function destroyCookie(cname: string) {
   setCookie({ cname, cvalue: '', expireAt: new Date(0) });

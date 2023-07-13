@@ -4,13 +4,14 @@ import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
  * 即時反映される値をデバウンスします。
  * デバウンスされた値は、指定された期間更新関数が実行されなかった場合にのみ最新の値が反映されます。
  *
- * @param initialValue 初期値
- * @param delay        反映されるまでの遅延時間。 ( ms )
+ * @param initialValue - 初期値
+ *
+ * @param delay - 反映されるまでの遅延時間。 ( ms )
  *
  * @returns
- *                     - 即時反映される値。
- *                     - 指定時間後に変化した値。
- *                     - 更新関数。
+ * - 即時反映される値。
+ * - 指定時間後に変化した値。
+ * - 更新関数。
  *
  * @remarks
  * 遅延時間が明確でなく ( ≒ 明確にする必要がない ) React のレンダリングスケジュールに一任したい場合は

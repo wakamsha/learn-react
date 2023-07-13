@@ -176,7 +176,8 @@ export const SplitPane = ({
   /**
    * Size 型の値を実際の px 値に変換します。
    *
-   * @param size 変換したい size 値。
+   * @param size - 変換したい size 値。
+   *
    * @returns    変換後の px 値。
    */
   const numberAsPixelOf = (size: Size): number => {

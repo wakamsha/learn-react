@@ -2,9 +2,11 @@
 /**
  * catalog の `src/constants/Stories.ts` を生成するテンプレートです。
  *
- * @param   {string[]} importPaths  各ストーリーのインポートパスを構成する部分文字列の配列
- * @param   {object}   storyTreeMap 各ストーリーのツリー構造データ
- * @returns {string}                `src/constants/Stories.ts` となるコード文字列。
+ * @param {string[]} importPaths - 各ストーリーのインポートパスを構成する部分文字列の配列
+ *
+ * @param {object} storyTreeMap - 各ストーリーのツリー構造データ
+ *
+ * @returns {string} - `src/constants/Stories.ts` となるコード文字列。
  */
 export function template(importPaths, storyTreeMap) {
   return `/* eslint-disable no-template-curly-in-string */
@@ -46,8 +48,9 @@ function makeTree({ name, sourceCode, children }, prefix = '') {
  *
  * camelCase, kebab-case, snake_case な文字列が対象。
  *
- * @param   {string} value 変換する文字列
- * @returns {string}       PascalCase に変換された文字列
+ * @param {string} value - 変換する文字列
+ *
+ * @returns {string} - PascalCase に変換された文字列
  */
 function pascalCase(value) {
   return `-${value.replace(/_/g, '-')}`.replace(/-(\w)/g, (_, m) => m.toUpperCase());

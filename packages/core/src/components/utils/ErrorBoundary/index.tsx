@@ -28,7 +28,7 @@ export class ErrorBoundary<ERROR extends Record<string, unknown>> extends Compon
    * なにもせずエラーオブジェクトを返すだけ。
    * Lint エラー回避のために実装しています。
    *
-   * @param error スローされたエラーオブジェクト
+   * @param error - スローされたエラーオブジェクト
    */
   static getDerivedStateFromError(error: unknown) {
     return { error };

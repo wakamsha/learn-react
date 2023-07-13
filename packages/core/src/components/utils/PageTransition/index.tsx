@@ -19,9 +19,7 @@ type Props = {
 /**
  * ルート (≒ URL ) 遷移の開始・終了にアニメーションを適用します。
  *
- * @param props
- *
- *              `Transition` コンポーネントに依存: {@link Transition}
+ * @param props -`Transition` コンポーネントに依存: {@link Transition}
  */
 export const PageTransition = ({ children, parentPath = '' }: Props) => {
   const location = useLocation();

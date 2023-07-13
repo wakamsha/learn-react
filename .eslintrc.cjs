@@ -201,12 +201,10 @@ module.exports = {
     // jsdoc
     // ----------------
     // Enable
-    'jsdoc/check-line-alignment': ['error', 'always'],
-    'jsdoc/tag-lines': [
+    'jsdoc/check-param-names': [
       'error',
-      'any',
       {
-        startLines: 1,
+        checkDestructured: false,
       },
     ],
     'jsdoc/check-tag-names': [
@@ -215,6 +213,7 @@ module.exports = {
         definedTags: ['remarks', 'typeParam'],
       },
     ],
+    'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
     'jsdoc/require-jsdoc': [
       'error',
       {
@@ -230,21 +229,29 @@ module.exports = {
         checkConstructors: false,
       },
     ],
-    'jsdoc/check-param-names': [
-      'error',
-      {
-        checkDestructured: false,
-      },
-    ],
     'jsdoc/require-param': [
       'error',
       {
         checkDestructuredRoots: false,
       },
     ],
+    'jsdoc/tag-lines': [
+      'error',
+      'always',
+      {
+        startLines: 1,
+        applyToEndTag: false,
+      },
+    ],
+    'jsdoc/sort-tags': [
+      'error',
+      {
+        reportIntraTagGroupSpacing: false,
+      },
+    ],
     // Disable
-    'jsdoc/require-returns': ['off'],
     'jsdoc/require-param-type': ['off'],
+    'jsdoc/require-returns': ['off'],
     'jsdoc/require-returns-type': ['off'],
   },
   overrides: [

@@ -19,8 +19,9 @@ type StoryData = {
  * コンポーネントは props なしの React コンポーネントとして実行し、
  * ソースコード文字列は `<code>` 要素の子要素として展開すると story コンポーネントのソースコードを表示できます。
  *
- * @param storyKeys 取得する Story コンポーネントにアクセスするための key ( = ディレクトリ名 ) の配列。
- * @returns         Story コンポーネントとそのソースコード文字列のペア
+ * @param storyKeys - 取得する Story コンポーネントにアクセスするための key ( = ディレクトリ名 ) の配列。
+ *
+ * @returns Story コンポーネントとそのソースコード文字列のペア
  *
  * @example
  * ```ts

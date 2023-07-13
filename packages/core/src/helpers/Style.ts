@@ -9,7 +9,7 @@ import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
 /**
  * スタイル定数から CSS 変数にアクセスする式を返します。
  *
- * @param key カラーネーム
+ * @param key - カラーネーム
  *
  * @example
  * ```
@@ -28,7 +28,7 @@ export function cssVar(
  *
  * 余白は 4 の倍数として定義されている。
  *
- * @param value 係数
+ * @param value - 係数
  */
 export function gutter(value: number): string {
   return `${4 * value}px`;
@@ -37,7 +37,7 @@ export function gutter(value: number): string {
 /**
  * 矩形サイズを返す。
  *
- * @param value 一辺の長さ
+ * @param value - 一辺の長さ
  */
 export function square(value: string | number) {
   const side = typeof value === 'number' ? `${value}px` : value;
@@ -51,8 +51,9 @@ export function square(value: string | number) {
 /**
  * rgba カラーモデルの値（文字列）を生成して返す。
  *
- * @param hex     HEX 値のカラーコード
- * @param opacity 不透明度
+ * @param hex - HEX 値のカラーコード
+ *
+ * @param opacity - 不透明度
  *
  * @example
  * toRGBA('#0ff', 0.5) //=> rgba(0, 255, 255, 0.5)

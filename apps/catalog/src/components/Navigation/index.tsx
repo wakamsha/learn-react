@@ -68,7 +68,7 @@ export const Navigation = () => {
  *
  * 一覧の下の方にあるリンクはハードリロード時にビューポート外に追いやられてしまうことによるユーザビリティ低下の防止が期待できます。
  *
- * @param containerRef スクロール操作するコンテナ要素
+ * @param containerRef - スクロール操作するコンテナ要素
  */
 function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
   useEffect(() => {
