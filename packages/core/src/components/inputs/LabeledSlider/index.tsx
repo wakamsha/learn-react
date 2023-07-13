@@ -10,6 +10,9 @@ type Props = {
   onValueChange: (value: number) => void;
 };
 
+/**
+ * `LabeledSlider` はスライダー型のインターフェースとキャプション（ラベル）を表示します。
+ */
 export const LabeledSlider = ({ label, unit, min, max, value, onValueChange }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onValueChange(Number(e.target.value));

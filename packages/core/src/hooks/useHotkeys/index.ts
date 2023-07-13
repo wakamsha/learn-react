@@ -20,14 +20,14 @@ type Options = {
  * キーボードショートカットを定義します。
  *
  * @param keys
- * リッスンするキーストローク。単一または修飾キーとの組み合わせを指定します。
- * 詳細は [hotkey-js の README](https://github.com/jaywcjlove/hotkeys/#defining-shortcuts) を参照ください。
+ *                 リッスンするキーストローク。単一または修飾キーとの組み合わせを指定します。
+ *                 詳細は [hotkey-js の README](https://github.com/jaywcjlove/hotkeys/#defining-shortcuts) を参照ください。
  *
  * @param callback 指定のキーストロークが入力されたときに実行する関数。
  *
- * @param options
+ * @param options  振る舞いをカスタマイズするオプション。
  *
- * @returns RefObject を返します。これを JSX に渡すと、その要素にフォーカス中のときのみ hotkeys が有効となります。
+ * @returns        RefObject を返します。これを JSX に渡すと、その要素にフォーカス中のときのみ hotkeys が有効となります。
  */
 export function useHotkeys<T extends Element>(keys: string, callback: KeyHandler, options?: Options): RefObject<T> {
   const { enabled = true, trigger = 'keydown' } = options || {};

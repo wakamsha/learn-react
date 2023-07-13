@@ -5,8 +5,8 @@ import { Suspense, type ComponentType, type ReactNode } from 'react';
  *
  * @typeParam Props - `Component` が持つ Props の型。自動推論されるため、殆どの場合において指定不要。
  *
- * @param Component ラップするコンポーネント。
- * @param fallback フォールバック時に表示する Node。
+ * @param     Component ラップするコンポーネント。
+ * @param     fallback  フォールバック時に表示する Node。
  *
  * @example
  * ```ts

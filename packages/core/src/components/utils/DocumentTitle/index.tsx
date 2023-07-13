@@ -7,8 +7,6 @@ type Props = Partial<{
 
 /**
  * web ページのタイトル ( `<title>` ) をセットします。
- *
- * @param props
  */
 export const DocumentTitle = ({ title, baseTitle = 'Learn React' }: Props) => {
   useEffect(() => {

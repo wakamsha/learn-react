@@ -4,6 +4,9 @@ import { BorderRadius, FontFamily, FontSize } from '@learn-react/core/src/consta
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { useStory } from '../hooks/useStory';
 
+/**
+ * ストーリーをレンダリングして実際に動作させます。
+ */
 export const Preview = () => {
   const storyId = getParam('storyId');
 

@@ -9,6 +9,9 @@ type Props = {
   disabled?: boolean;
 };
 
+/**
+ * カレンダーの日にち部分を表現する UI コンポーネントです。
+ */
 export const Item = ({ value, active, disabled, onClick }: Props) => {
   const handleClick = () => {
     !disabled && value && onClick(value);

@@ -8,6 +8,9 @@ type Props = {
   children: string;
 };
 
+/**
+ * ストーリーのソースコードをレンダリングして読める状態にします。
+ */
 export const CodeBlock = ({ children }: Props) => {
   const ref = useRef<HTMLElement>(null);
 

@@ -12,6 +12,12 @@ type Props = {
   children: ReactNode;
 };
 
+/**
+ * Catalog 全体のレイアウトを司ります。
+ *
+ * @remarks
+ * ナビゲーションの開閉状態はブラウザの LocalStorage で保持・永続化します。
+ */
 export const Layout = ({ children }: Props) => {
   const [layoutConfig, setLayoutConfig] = useLayoutConfig();
 

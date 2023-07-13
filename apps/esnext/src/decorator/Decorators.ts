@@ -2,8 +2,9 @@
 /* eslint-disable no-param-reassign */
 /**
  * 関数デコレータ
- * @param target 対象クラスの prototype
- * @param propKey 対象となるメソッド名
+ *
+ * @param target     対象クラスの prototype
+ * @param propKey    対象となるメソッド名
  * @param descriptor value: メソッドそのもの, writable: 上書きできるかどうか
  */
 export function outputLog(target: any, propKey: string, descriptor: PropertyDescriptor) {
@@ -26,6 +27,11 @@ export function outputLog(target: any, propKey: string, descriptor: PropertyDesc
   };
 }
 
+/**
+ * Class Component 用デコレーター
+ *
+ * @param target デコレート対象となるクラスコンポーネント
+ */
 export function classDecorator<T extends { new (...args: any[]): Record<string, unknown> }>(target: T) {
   return class extends target {
     newProperty = 'new property';

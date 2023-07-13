@@ -3,6 +3,9 @@ import { gutter } from '@learn-react/core/src/helpers/Style';
 import { generatePath, Link, Outlet } from 'react-router-dom';
 import { Router } from '../../constants/Router';
 
+/**
+ * フレンズを列挙するページコンポーネントです。
+ */
 export const Friends = () => (
   <main className={styleBase}>
     <h1>Friends page</h1>
@@ -64,6 +67,10 @@ const FriendData: FriendType[] = [
   },
 ];
 
+/**
+ *
+ * @param id
+ */
 export function getFriendById(id: string): FriendType | void {
   return FriendData.find((f) => f.id === id);
 }

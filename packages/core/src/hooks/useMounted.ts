@@ -3,7 +3,8 @@ import { useEffect, useRef } from 'react';
 /**
  * コンポーネントがマウントされているかどうかチェックする
  *
- * @return {boolean}
+ * @returns マウントされていれば true
+ *
  * @example
  * const mounted = useMounted();
  *

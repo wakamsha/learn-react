@@ -60,9 +60,14 @@ type Response = Readonly<{
 }>;
 
 /**
- * TODO:
+ * リストボックスコンポーネントの動作とアクセシビリティの実装を提供します。
+ * リストボックスにはオプションのリストが表示され、ユーザーは 1 つ以上のオプションを選択できます。
+ *
+ * @todo
  * - disabled item をサポートする。
  * - autoInactive オプション。
+ *
+ * @param itemCount リストボックスに表示したいメニューの項目数。
  */
 export function useListBox(itemCount: number): Response {
   const [active, setActive] = useState(false);

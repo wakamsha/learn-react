@@ -26,6 +26,9 @@ type Props = {
   width?: number;
 };
 
+/**
+ * サンプルアプリケーションのページリンク一覧を表示します。
+ */
 export const Sidebar = ({ title, width = 272, items }: Props) => {
   const location = useLocation();
 

@@ -6,7 +6,7 @@ import { useCallback, useEffect, useRef, type RefObject } from 'react';
  * モーダル表示中にフォーカスが外に移動するのを防ぐのに役立ちます。
  *
  * @param active フォーカストラップの有効・無効を切り替える。
- * @returns フォーカストラップのスコープとなる DOM の RefObject.
+ * @returns      フォーカストラップのスコープとなる DOM の RefObject.
  */
 export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<T> {
   const targetRef = useRef<T>(null);
@@ -65,10 +65,10 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
 }
 
 /**
- * 任意の DOM 配下にあるフォーカス可能な DOM 要素を取得します。
+ * 任意の DOM をスコープとし、その配下にあるフォーカス可能な DOM 要素を取得します。
  *
- * @param {HTMLElement} scopeElement
- * @returns フォーカス可能な DOM 要素配列
+ * @param scopeElement スコープとなる DOM 要素
+ * @returns            フォーカス可能な DOM 要素配列
  */
 function getFocusableNodes(scopeElement: HTMLElement): HTMLElement[] {
   const nodes = scopeElement.querySelectorAll(focusableElements.join(','));

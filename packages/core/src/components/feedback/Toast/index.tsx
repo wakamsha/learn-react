@@ -54,6 +54,9 @@ const [Provider, useToasts, useAddToast, useRemoveToast] = constate(
   (hook) => hook.removeToast,
 );
 
+/**
+ * トーストの状態を管理します。
+ */
 const ToastProvider = ({ children, limit = 1 }: ProviderProps) => (
   <Provider limit={limit}>
     {children}

@@ -11,8 +11,6 @@ type Props = {
  * このコンポーネントはシンプルな svg 要素としてレンダリングされるため、
  * スタイルの指定は全て呼び出し側となる親要素側で行います。
  *
- * @param {Props} props
- *
  * @example
  * ```tsx
  * <div className={styleParent}>

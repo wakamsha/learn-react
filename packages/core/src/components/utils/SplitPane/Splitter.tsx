@@ -13,6 +13,9 @@ type Props = Required<Pick<ParentProps, 'orientation'>> & {
   onDoubleClick: (e: MouseEvent<HTMLSpanElement>) => void;
 };
 
+/**
+ * Pane を分割する境界線を表現します。
+ */
 export const Splitter = ({ orientation, grabbed, onMouseDown, onMouseUp, onDoubleClick }: Props) => (
   <span
     role="separator"

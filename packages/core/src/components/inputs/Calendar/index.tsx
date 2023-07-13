@@ -45,6 +45,9 @@ type Props = {
   onChangeMonth?: (date: Date) => void;
 };
 
+/**
+ * カレンダーには 1 か月以上の日のグリッドが表示され、ユーザーは単一の日付を選択できます。
+ */
 export const Calendar = ({
   value,
   page: rawPage,
@@ -175,13 +178,19 @@ const opts = yearGroup.reduce((acc: number[], { months }) => [...acc, ...months.
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 
 /**
+ * 任意の月を構成する日にちの配列を取得します。
+ *
+ * @param page 取得したい月に該当する Date オブジェクト
+ *
  * @example
+ * ```
  * [
  *   [undefined, undefined, undefined, 1/01, 1/02, 1/03, 1/04],
  *   [1/05,      1/06,      1/07,      1/08, 1/09, 1/10, 1/11],
  *   ...
  *   [1/26,      1/27,      1/28,      1/29, 1/30, 1/31, undefined],
  * ]
+ * ```
  */
 function getDateArray(page: Date): (Date | undefined)[][] {
   const padStart = [...Array(setDate(page, 1).getDay())].fill(undefined);

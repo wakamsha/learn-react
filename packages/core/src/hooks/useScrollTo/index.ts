@@ -39,8 +39,6 @@ type Callback = () => void;
  * `scrollTo` の第二引数にコールバック関数を渡すことができます。
  * そのコールバック関数はスクロール処理完了時に呼び出されます。
  *
- * @param params
- *
  * @example
  * ```tsx
  * const ref = useRef<HTMLDivElement>(null);
@@ -66,9 +64,7 @@ type Callback = () => void;
  * +---------------+     +---------------+
  * ```
  */
-export function useScrollTo(props?: Props) {
-  const { rootRef, offset = 0, behavior = 'smooth' } = props ?? {};
-
+export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props) {
   const callbackRef = useRef<Callback>();
 
   const [to, setTo] = useState(Infinity);

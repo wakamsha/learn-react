@@ -4,6 +4,9 @@ import { Toast } from '.';
 import { gutter } from '../../../helpers/Style';
 import { Item } from './Item';
 
+/**
+ * トーストが表示される領域を確保します。トーストはこの中に表示されます。
+ */
 export const Container = () => {
   const { toasts } = Toast.useToast();
 

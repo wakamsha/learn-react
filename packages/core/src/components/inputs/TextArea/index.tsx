@@ -33,8 +33,6 @@ type Props = {
  * TextArea コンポーネントは、複数行のテキスト入力で、ユーザーが大量のテキストを入力する場合に便利です。
  *
  * テキストエリアの高さはコンテンツに応じて自動的に伸縮します。
- *
- * @param props
  */
 export const TextArea = ({
   value,

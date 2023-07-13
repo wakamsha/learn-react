@@ -8,6 +8,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
+/**
+ * Catalog の各ストーリーリンクを列挙します。
+ * キーワードを入力することでリンク一覧を絞り込むことができます。
+ */
 export const Navigation = () => {
   const [keyword, setKeyword] = useState('');
 

@@ -21,7 +21,7 @@ type Props = {
  *
  * @param props
  *
- * `Transition` コンポーネントに依存: {@link Transition}
+ *              `Transition` コンポーネントに依存: {@link Transition}
  */
 export const PageTransition = ({ children, parentPath = '' }: Props) => {
   const location = useLocation();

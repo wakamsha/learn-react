@@ -17,8 +17,6 @@ type PageProps = ComponentProps<typeof Page>;
 
 /**
  * PDF ファイルを読み込んでテキストデータ込で描画します。
- *
- * @param props
  */
 export const PdfViewer = ({ src }: Props) => {
   const pdfPages = useLoadPdfPages(src);

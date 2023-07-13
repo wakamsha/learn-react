@@ -20,7 +20,7 @@ type LoadableState<T> =
  *
  * @typeParam T - 非同期で取得するデータの型
  *
- * @param promise 取得するデータの Promise オブジェクト
+ * @param     promise 取得するデータの Promise オブジェクト
  */
 export class Loadable<T> {
   #state: LoadableState<T>;
@@ -52,7 +52,7 @@ export class Loadable<T> {
    * `Loadable` の内部に生成された Promise も一緒に取得します。
    *
    * @param promise
-   * @returns Loadable インスタンスとその内部の Promise オブジェクト。
+   * @returns       Loadable インスタンスとその内部の Promise オブジェクト。
    */
   static newAndGoPromise<T>(promise: Promise<T>): [Loadable<T>, Promise<T>] {
     const result = new Loadable(promise);

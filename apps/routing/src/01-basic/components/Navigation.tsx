@@ -3,6 +3,9 @@ import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { Link } from 'react-router-dom';
 import { Router } from '../constants/Router';
 
+/**
+ * ページリンク一覧を列挙します。
+ */
 export const Navigation = () => (
   <ul className={styleBase}>
     <li>

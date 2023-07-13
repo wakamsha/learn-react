@@ -3,6 +3,9 @@ import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useParams } from 'react-router-dom';
 import { getFriendById } from '.';
 
+/**
+ * フレンドの詳細情報を表示するページコンポーネントです。
+ */
 export const Friend = () => {
   const { id = '' } = useParams();
 

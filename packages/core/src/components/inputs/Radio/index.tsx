@@ -16,8 +16,6 @@ type Props = {
  *
  * ラジオボタンは、ユーザーがすべての利用可能なオプションを確認する必要がある場合に使用します。
  * 利用可能なオプションを折りたたむことができる場合は、 Select コンポーネントを使用することを検討します。
- *
- * @param props
  */
 export const Radio = ({ name, checked = false, disabled, value, onChange }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

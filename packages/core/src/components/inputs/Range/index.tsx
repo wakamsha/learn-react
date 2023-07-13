@@ -17,8 +17,6 @@ type Props = {
 
 /**
  * スライダーを操作して規定の範囲から任意の値を選択できる UI です。
- *
- * @param props
  */
 export const Range = ({ value, onChange, min = 0, max = 100, step = 1, disabled, theme = 'primary' }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => onChange(Number(e.target.value));

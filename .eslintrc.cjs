@@ -4,6 +4,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:jsdoc/recommended-typescript-error',
     'plugin:import/errors',
     'plugin:react/recommended',
     'prettier',
@@ -195,6 +196,56 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': ['off'],
     'jsx-a11y/no-autofocus': ['off'],
     'jsx-a11y/no-noninteractive-element-interactions': ['off'],
+
+    // ----------------
+    // jsdoc
+    // ----------------
+    // Enable
+    'jsdoc/check-line-alignment': ['error', 'always'],
+    'jsdoc/tag-lines': [
+      'error',
+      'any',
+      {
+        startLines: 1,
+      },
+    ],
+    'jsdoc/check-tag-names': [
+      'error',
+      {
+        definedTags: ['remarks', 'typeParam'],
+      },
+    ],
+    'jsdoc/require-jsdoc': [
+      'error',
+      {
+        publicOnly: true,
+        require: {
+          ArrowFunctionExpression: true,
+          ClassDeclaration: true,
+          ClassExpression: true,
+          FunctionDeclaration: true,
+          FunctionExpression: true,
+          MethodDefinition: true,
+        },
+        checkConstructors: false,
+      },
+    ],
+    'jsdoc/check-param-names': [
+      'error',
+      {
+        checkDestructured: false,
+      },
+    ],
+    'jsdoc/require-param': [
+      'error',
+      {
+        checkDestructuredRoots: false,
+      },
+    ],
+    // Disable
+    'jsdoc/require-returns': ['off'],
+    'jsdoc/require-param-type': ['off'],
+    'jsdoc/require-returns-type': ['off'],
   },
   overrides: [
     // ----------------
@@ -257,6 +308,26 @@ module.exports = {
             ignoreTypeOfDescribeName: true,
           },
         ],
+      },
+    },
+
+    // ----------------
+    // jsdoc
+    // ----------------
+    {
+      files: ['*.js', '*.mjs'],
+      rules: {
+        'jsdoc/require-param-type': ['error'],
+        'jsdoc/require-returns': ['error'],
+        'jsdoc/require-returns-type': ['error'],
+        'jsdoc/no-types': ['off'],
+      },
+    },
+    {
+      files: ['./apps/{routing,statement}/**/*', './packages/try/**/*', '**/*.story.tsx'],
+      rules: {
+        'jsdoc/require-jsdoc': ['off'],
+        'jsdoc/require-param-description': ['off'],
       },
     },
   ],

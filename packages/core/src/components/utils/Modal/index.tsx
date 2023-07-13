@@ -21,8 +21,6 @@ type Props = {
 /**
  * モーダルは、ダイアログ、ポップオーバー、ライトボックスなど、
  * ユーザを特定のコンテキストへ強制的にスイッチさせる必要のあるあらゆるものを作成するための基盤を提供します。
- *
- * @param props
  */
 export const Modal = ({ children, visible, onClickOutside }: Props) => {
   const dialogRef = useFocusTrap<HTMLDivElement>(visible);
