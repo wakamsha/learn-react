@@ -16,6 +16,9 @@ import { ToolbarButton } from './ToolbarButton';
 import { DeviceSize, Layout } from './VO';
 import { ViewportSwitch } from './ViewportSwitch';
 
+/**
+ * ストーリーを表示するページコンポーネントです。
+ */
 export const StoryPage = () => (
   <LayoutConfigContainer.Provider>
     <Presentation />

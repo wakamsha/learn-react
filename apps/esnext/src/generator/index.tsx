@@ -33,6 +33,9 @@ function* connectPlaceholderUsersAPI(): IterableIterator<Promise<PlaceholderUser
   yield requestGetPlaceholderUsers();
 }
 
+/**
+ * generator のデモを実行する。
+ */
 export function runGenerator() {
   const g = gfn();
   loop<string>(g);

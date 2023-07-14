@@ -32,6 +32,9 @@ class Example {
   }
 }
 
+/**
+ * decorator のデモを実行する
+ */
 export function runDecorator() {
   new Example('world').greet();
   // eslint-disable-next-line @typescript-eslint/no-floating-promises

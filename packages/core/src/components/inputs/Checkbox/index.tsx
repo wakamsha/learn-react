@@ -21,8 +21,6 @@ type Props = Partial<{
  * チェックボックスは、ユーザーが一つまたは複数の項目を選択する UI です。
  *
  * オプションが1つの場合は、チェックボックスの代わりにオン/オフスイッチを使用します。
- *
- * @param props
  */
 export const Checkbox = ({ checked, value, disabled, indeterminate = false, onChange }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);

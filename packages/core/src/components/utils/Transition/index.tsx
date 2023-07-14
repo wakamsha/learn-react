@@ -16,8 +16,6 @@ type Props = {
 
 /**
  * ReactNode の表示・非表示にアニメーションを適用します。
- *
- * @param props
  */
 export const Transition = ({ id: propId, children, type = 'horizontal' }: Props) => {
   /**

@@ -8,6 +8,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { stories } from '../../constants/Stories';
 import Logo from './logo192.png';
 
+/**
+ * Catalog の各ストーリーリンクを列挙します。
+ * キーワードを入力することでリンク一覧を絞り込むことができます。
+ */
 export const Navigation = () => {
   const [keyword, setKeyword] = useState('');
 
@@ -64,7 +68,7 @@ export const Navigation = () => {
  *
  * 一覧の下の方にあるリンクはハードリロード時にビューポート外に追いやられてしまうことによるユーザビリティ低下の防止が期待できます。
  *
- * @param containerRef スクロール操作するコンテナ要素
+ * @param containerRef - スクロール操作するコンテナ要素
  */
 function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
   useEffect(() => {

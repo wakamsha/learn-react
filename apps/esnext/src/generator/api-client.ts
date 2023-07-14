@@ -40,11 +40,17 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
   return res.json().then((res) => res);
 }
 
+/**
+ * ユーザーデータをランダムに取得します。
+ */
 export async function requestGetRandomUser(): Promise<any> {
   const url = 'https://randomuser.me/api/';
   return request<any>(url).then((res) => res.results);
 }
 
+/**
+ * JSON Placeholder からユーザー一覧データを取得します。
+ */
 export function requestGetPlaceholderUsers(): Promise<PlaceholderUser[]> {
   const url = 'http://jsonplaceholder.typicode.com/users';
   return request<PlaceholderUser[]>(url);

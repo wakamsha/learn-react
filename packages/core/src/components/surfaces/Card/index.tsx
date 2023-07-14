@@ -19,6 +19,7 @@ type Props = {
  * これにより Card 全体の高さが設定され、コンテンツ量がそれを超えると Card.Body 内がスクロールできるようになります。
  *
  * @example
+ * ```
  * <Card>
  *   <Card.Header>
  *     <h1 className={styleTitle}>Title</h1>
@@ -34,6 +35,7 @@ type Props = {
  *     <Button variant="ghost">Cancel</Button>
  *   </Card.Footer>
  * </Card>
+ * ```
  */
 export const Card = ({ children, shadow = 'neutral', hover, height, maxHeight, width, maxWidth }: Props) => (
   <article className={cx(styleCard[shadow], hover && styleHover)} style={{ height, maxHeight, width, maxWidth }}>
@@ -105,15 +107,15 @@ type HeaderProps = {
 /**
  * Card 用のヘッダーコンポーネント。
  *
- * @param {HeaderProps} headerProps
- *
  * @example
+ * ```
  * <Card>
  *   <Card.Header>
  *     <h1 className={styleTitle}>Title</h1>
  *   </Card.Header>
  *   ...
  * </Card>
+ * ```
  */
 Card.Header = ({ children, thickness = 'neutral' }: HeaderProps) => (
   <header className={styleHeader[thickness]}>{children}</header>
@@ -157,9 +159,8 @@ type BodyProps = {
 /**
  * Card 用のボディコンポーネント。
  *
- * @param {BodyProps} bodyProps
- *
  * @example
+ * ```
  * <Card>
  *   ...
  *   <Card.Body>
@@ -168,6 +169,7 @@ type BodyProps = {
  *   </Card.Body>
  *   ...
  * </Card>
+ * ```
  */
 Card.Body = ({ children, thickness = 'neutral' }: BodyProps) => <div className={styleBody[thickness]}>{children}</div>;
 
@@ -208,9 +210,8 @@ type FooterProps = {
 /**
  * Card 用のフッターコンポーネント。
  *
- * @param {FooterProps} footerProps
- *
  * @example
+ * ```
  * <Card>
  *   ...
  *   <Card.Footer>
@@ -218,6 +219,7 @@ type FooterProps = {
  *     <Button variant="ghost">Cancel</Button>
  *   </Card.Footer>
  * </Card>
+ * ```
  */
 Card.Footer = ({ children, thickness = 'neutral' }: FooterProps) => (
   <footer className={styleFooter[thickness]}>{children}</footer>

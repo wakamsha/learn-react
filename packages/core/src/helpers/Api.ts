@@ -12,6 +12,9 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
+/**
+ * JSON Placeholder の任意のエンドポイントと REST で疎通します。
+ */
 export async function request<REQ extends Record<string, unknown>, RES>({
   method,
   path,

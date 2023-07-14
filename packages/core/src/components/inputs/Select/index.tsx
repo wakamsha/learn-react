@@ -43,8 +43,6 @@ type Props<T> = {
 
 /**
  * Selectコンポーネントは、ユーザーが提供する情報を選択肢の中から収集するために使用する UI です。
- *
- * @param props
  */
 export const Select = <T extends string | number>({
   onChange,

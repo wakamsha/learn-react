@@ -16,8 +16,9 @@ type ErrorResult = {
  * 非同期処理をラップするカスタムフック。
  * Decorator の transaction の hooks 版（機能的には同じ）。
  *
- * @param onAction 非同期処理する関数
- * @param onError エラー時に実行する関数
+ * @param onAction - 非同期処理する関数
+ *
+ * @param onError  - エラー時に実行する関数
  *
  * @example
  * const fooStore = useContext(FooStore.Context);

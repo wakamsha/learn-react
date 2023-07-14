@@ -6,6 +6,10 @@ type Props = {
   orientation: 'horizontal' | 'vertical';
 };
 
+/**
+ * 子要素である1つ以上のコンテンツを指定した方向に並べて表示します。
+ * 各コンテンツは必ず `Box.Cell` コンポーネントでラップします。
+ */
 export const Box = ({ children, orientation }: Props) => (
   <div className={styleBase} aria-orientation={orientation}>
     {children}

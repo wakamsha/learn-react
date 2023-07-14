@@ -5,6 +5,10 @@ type Cookie = {
   expireAt?: Date;
 };
 
+/**
+ * Cookie に任意の値を保存します。
+ * 指定したキーが既に存在する場合は、新しい値で上書きします。
+ */
 export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
   const segments: { [key: string]: string } = {};
   segments[cname] = cvalue;
@@ -30,6 +34,11 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
     .join('; ');
 }
 
+/**
+ * Cookie から任意の値を取得します。
+ *
+ * @param cname - 取得したい値のキー
+ */
 export function getCookie(cname: string): string | void {
   const sensor = `${cname}=`;
   const segments = document.cookie.split(';');
@@ -45,6 +54,11 @@ export function getCookie(cname: string): string | void {
   }
 }
 
+/**
+ * Cookie から任意の値を削除します。
+ *
+ * @param cname - 削除したい値のキー
+ */
 export function destroyCookie(cname: string) {
   setCookie({ cname, cvalue: '', expireAt: new Date(0) });
 }

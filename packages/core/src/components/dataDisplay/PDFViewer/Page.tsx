@@ -11,6 +11,9 @@ type Props = {
   viewportForTextLayer: PageViewport;
 };
 
+/**
+ * PDF データのページに相当する箇所をレンダリングします。
+ */
 export const Page = ({ pdfPage, viewportForCanvas, viewportForTextLayer }: Props) => {
   const canvasRef = useRenderCanvas(pdfPage, viewportForCanvas);
   const textLayerRef = useRenderTextLayer(pdfPage, viewportForTextLayer);

@@ -3,6 +3,8 @@
  *
  * Array.prototype.filter と組み合わせると、配列から `null` と `undefined` を取り除くことができます。
  *
+ * @param value - 判定する値
+ *
  * @example
  * ```ts
  * const ary = ['🍎', undefined, '🍊', null, '🍇'];

@@ -20,8 +20,6 @@ type Props<T> = {
 
 /**
  * タブは、関連する同じレベルの階層にあるコンテンツのグループを整理し、その間を行き来できるようにする UI です。
- *
- * @param props
  */
 export const Tabs = <T extends string | number>({ value, options, onChange, size = 'neutral' }: Props<T>) => {
   const groupName = useId();

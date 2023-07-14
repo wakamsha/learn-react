@@ -9,6 +9,10 @@ type Props = {
   children: ReactNode;
 } & Pick<Toast, 'id' | 'icon' | 'theme'>;
 
+/**
+ * 指定のメッセージをトースト UI として表示します。
+ * トーストは親である `Container` 内に表示します。
+ */
 export const Item = ({ children, id, icon, theme = 'primary' }: Props) => {
   const { removeToast } = Toast.useToast();
 

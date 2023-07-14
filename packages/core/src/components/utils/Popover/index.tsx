@@ -38,8 +38,6 @@ type Props = {
 
 /**
  * ポップオーバーは、あるコンテンツの上に別のコンテンツを表示するために使用する UI です。
- *
- * @param props
  */
 export const Popover = ({
   targetId,

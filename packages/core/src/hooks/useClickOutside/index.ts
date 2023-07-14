@@ -4,9 +4,10 @@ import { useEffect, useRef, type RefObject } from 'react';
  * ある要素の領域外をクリックしたイベントを検知します。
  *
  * @param callback - 領域外をクリックした時に発火するコールバック関数
- * @param enabled - 有効化フラグ ( default: true )
  *
- * @returns 領域（起点）となる要素。
+ * @param enabled  - 有効化フラグ ( default: true )
+ *
+ * @returns        領域（起点）となる要素。
  *
  * @example
  * ```tsx

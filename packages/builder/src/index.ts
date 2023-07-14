@@ -23,6 +23,9 @@ type Props = {
   alias?: Record<string, string>;
 };
 
+/**
+ * Vite に渡す設定のうち共通部分を生成します。
+ */
 export function createUserConfig({ basePath, port = 3000, define = {}, build = {}, alias = {} }: Props): UserConfig {
   return {
     define,

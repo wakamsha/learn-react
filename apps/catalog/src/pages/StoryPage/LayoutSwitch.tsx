@@ -11,6 +11,9 @@ import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { ToolbarButton } from './ToolbarButton';
 import { Layout } from './VO';
 
+/**
+ * Preview と CodeBlock のレイアウトを切り替える UI コンポーネントです。
+ */
 export const LayoutSwitch = () => {
   const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 

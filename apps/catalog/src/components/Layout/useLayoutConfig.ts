@@ -4,6 +4,9 @@ import { LayoutMode } from './VO';
 
 const storageKey = 'GLOBAL_LAYOUT';
 
+/**
+ * Catalog 全体のレイアウト設定値を管理します。
+ */
 export function useLayoutConfig() {
   const [storage] = useState(() => new StorageProxy('localStorage'));
 

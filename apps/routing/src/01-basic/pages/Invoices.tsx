@@ -1,6 +1,9 @@
 import { generatePath, NavLink, Outlet } from 'react-router-dom';
 import { Router } from '../constants/Router';
 
+/**
+ * インボイス一覧を列挙するページコンポーネントです。
+ */
 export const Invoices = () => (
   <main>
     <h1>Invoices page</h1>

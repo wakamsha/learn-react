@@ -7,10 +7,10 @@ import { useDeferredValue, useState, type ChangeEvent } from 'react';
  * ( 多少遅延したとしても ) 最新の値さえ反映されれば良い場合に効果的です。
  * 実際に反映までどれくらい遅延するかは React のレンダリングスケジュールに依存します。
  *
- * @see {@link https://ja.reactjs.org/docs/hooks-reference.html#usedeferredvalue useDeferredValue}
- *
  * @remarks
  * 遅延時間を明示的に指定する必要がある場合は {@link useDebouncedState} を使ってください。
+ *
+ * @see {@link https://ja.reactjs.org/docs/hooks-reference.html#usedeferredvalue useDeferredValue}
  */
 export const Story = () => {
   const [text, setText] = useState('');

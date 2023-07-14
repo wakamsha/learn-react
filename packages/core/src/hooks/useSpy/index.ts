@@ -23,8 +23,6 @@ type Callback = (element: HTMLElement, index: number) => void;
  * コンテナ要素のスクロール位置を監視し、
  * 任意の子要素のうちどの子要素がビューポート内でアクティブなのかを示すのに使います。
  *
- * @param params
- *
  * @example
  * ```tsx
  * const ref = useRef<HTMLDivElement>(null);
@@ -42,9 +40,7 @@ type Callback = (element: HTMLElement, index: number) => void;
  * </div>
  * ```
  */
-export function useSpy(props?: Props) {
-  const { rootRef, offset = 0 } = props ?? {};
-
+export function useSpy({ rootRef, offset = 0 }: Props) {
   const selectorRef = useRef<Selector>();
   const callbackRef = useRef<Callback>();
 

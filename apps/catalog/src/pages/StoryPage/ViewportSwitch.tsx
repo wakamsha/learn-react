@@ -15,6 +15,9 @@ type Props = {
   onChange: (value: DeviceSize) => void;
 };
 
+/**
+ * Preview のビューポートを切り替える UI コンポーネントです。
+ */
 export const ViewportSwitch = ({ onChange }: Props) => {
   const [selectedKey, setSelectedKey] = useState<keyof typeof DeviceSize>('unset');
 

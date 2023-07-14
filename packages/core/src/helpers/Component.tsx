@@ -3,10 +3,11 @@ import { Suspense, type ComponentType, type ReactNode } from 'react';
 /**
  * 非同期で読み込むコンポーネントを React.Suspense でラップした新しいコンポーネントを返します。
  *
- * @typeParam Props - `Component` が持つ Props の型。自動推論されるため、殆どの場合において指定不要。
+ * @param Component - ラップするコンポーネント。
  *
- * @param Component ラップするコンポーネント。
- * @param fallback フォールバック時に表示する Node。
+ * @param fallback  - フォールバック時に表示する Node。
+ *
+ * @typeParam Props - `Component` が持つ Props の型。自動推論されるため、殆どの場合において指定不要。
  *
  * @example
  * ```ts

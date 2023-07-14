@@ -3,6 +3,9 @@ import { SplashBanner } from '@learn-react/core/src/components/surfaces/SplashBa
 import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { cssVar } from '@learn-react/core/src/helpers/Style';
 
+/**
+ * Catalog のトップに表示するページコンポーネントです。
+ */
 export const IndexPage = () => (
   <>
     <DocumentTitle title="Catalog" />

@@ -17,6 +17,9 @@ type Props = {
   }
 >;
 
+/**
+ * ユーザーインターフェイスの項目のキャプション（ラベル）を表します。
+ */
 export const FormLabel = ({ label, tooltip, htmlFor, children }: Props) => {
   const tooltipId = useId();
 

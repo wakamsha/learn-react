@@ -1,5 +1,12 @@
 import { useCallback, useEffect, useState, type RefObject } from 'react';
 
+/**
+ * 文字列をランダムにシャッフルしながら1文字ずつ表示します。
+ *
+ * @param ref      - シャッフルする対象となる DOM 要素
+ *
+ * @param duration - 文字列を表示し終わるまでの時間 (ms)
+ */
 export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, duration = 800) {
   const [key, setKey] = useState(0);
 

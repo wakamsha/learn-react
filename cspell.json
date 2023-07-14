@@ -45,6 +45,7 @@
     "vite",
     "vitejs",
     "wakamsha",
-    "zipcode"
+    "zipcode",
+    "IIFE"
   ]
 }

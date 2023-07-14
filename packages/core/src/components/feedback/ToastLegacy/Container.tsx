@@ -8,6 +8,9 @@ type Props = {
   toasts: Toast[];
 };
 
+/**
+ * トーストが表示される領域を確保します。トーストはこの中に表示されます。
+ */
 export const Container = ({ toasts }: Props) =>
   createPortal(
     <aside className={styleBase}>

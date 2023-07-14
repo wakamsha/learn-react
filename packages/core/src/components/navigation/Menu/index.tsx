@@ -50,6 +50,14 @@ type DropdownMenuResponse = Readonly<{
   moveFocus: (itemIndex: number) => void;
 }>;
 
+/**
+ * リストボックスコンポーネントの動作とアクセシビリティの実装を提供します。
+ * リストボックスにはオプションのリストが表示され、ユーザーは 1 つ以上のオプションを選択できます。
+ *
+ * @param itemCount - リストボックスに表示したいメニューの項目数。
+ *
+ * @param options   - リストボックスの振る舞いをカスタマイズするオプション。
+ */
 export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions): DropdownMenuResponse {
   const { onClickDisableFocusFirstItem = false, autoHide = true } = options || {};
 

@@ -9,11 +9,13 @@ import NotoSerifSemiBold from './fonts/noto-serif/NotoSerifJP-SemiBold.woff';
 /**
  * スタイル定数から CSS 変数にアクセスする式を返します。
  *
- * @param key カラーネーム
+ * @param key - カラーネーム
  *
  * @example
+ * ```
  * cssVar('Primary')      // var(--primary)
  * cssVar('TexturePaper') // var(--texture-paper)
+ * ```
  */
 export function cssVar(
   key: keyof typeof Color | keyof typeof Shadow,
@@ -25,7 +27,8 @@ export function cssVar(
  * Margin や Padding など余白の値を算出して返す。
  *
  * 余白は 4 の倍数として定義されている。
- * @param value
+ *
+ * @param value - 係数
  */
 export function gutter(value: number): string {
   return `${4 * value}px`;
@@ -34,7 +37,7 @@ export function gutter(value: number): string {
 /**
  * 矩形サイズを返す。
  *
- * @param value 一辺の長さ
+ * @param value - 一辺の長さ
  */
 export function square(value: string | number) {
   const side = typeof value === 'number' ? `${value}px` : value;
@@ -48,8 +51,9 @@ export function square(value: string | number) {
 /**
  * rgba カラーモデルの値（文字列）を生成して返す。
  *
- * @param hex HEX 値のカラーコード
- * @param opacity 不透明度
+ * @param hex - HEX 値のカラーコード
+ *
+ * @param opacity - 不透明度
  *
  * @example
  * toRGBA('#0ff', 0.5) //=> rgba(0, 255, 255, 0.5)
@@ -78,6 +82,9 @@ export function visuallyHidden() {
   `;
 }
 
+/**
+ * 単一業テキストの末尾を三点リーダーで省略します。
+ */
 export function textEllipsis() {
   return `
     overflow: hidden;
@@ -141,6 +148,9 @@ export function applyResetStyle() {
   `;
 }
 
+/**
+ * アプリケーション全体にベースとなるスタイルを適用します。
+ */
 export function applyGlobalStyle() {
   return injectGlobal`
     @font-face {

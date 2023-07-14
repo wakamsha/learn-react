@@ -4,8 +4,10 @@ import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
  * 即時反映される値をデバウンスします。
  * デバウンスされた値は、指定された期間更新関数が実行されなかった場合にのみ最新の値が反映されます。
  *
- * @param value 初期値
- * @param delay 反映されるまでの遅延時間。 ( ms )
+ * @param initialValue - 初期値
+ *
+ * @param delay - 反映されるまでの遅延時間。 ( ms )
+ *
  * @returns
  * - 即時反映される値。
  * - 指定時間後に変化した値。

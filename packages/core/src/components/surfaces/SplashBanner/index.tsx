@@ -3,9 +3,15 @@ import { FontSize } from '../../../constants/Style';
 import { gutter } from '../../../helpers/Style';
 
 type Props = {
+  /**
+   * アプリケーションのタイトル
+   */
   title: string;
 };
 
+/**
+ * アプリケーションのタイトルロゴを表示します。
+ */
 export const SplashBanner = ({ title }: Props) => (
   <div className={baseStyle}>
     <h1 className={titleStyle}>{title}</h1>

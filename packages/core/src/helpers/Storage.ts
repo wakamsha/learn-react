@@ -13,7 +13,7 @@ type StorageType = 'cookieStorage' | 'sessionStorage' | 'localStorage';
  *
  * LocalStorage にアクセスできなかった場合は、代わりに Cookie を使用します。
  *
- * @param {StorageType} storageType 使用するストレージの種類
+ * @param storageType - 使用するストレージの種類
  */
 export class StorageProxy {
   private readonly storage: Storage;
@@ -31,14 +31,32 @@ export class StorageProxy {
     }
   }
 
+  /**
+   * ストレージから任意の値を取得します。
+   *
+   * @param key - 取得したい値のキー
+   */
   public getValue(key: string) {
     return this.storage.getValue(key);
   }
 
+  /**
+   * ストレージに任意の値を保存し永続化します。
+   * 指定したキーが既に存在する場合は、新しい値で上書きします。
+   *
+   * @param key   - 保存したい値のキー
+   *
+   * @param value - 保存する値
+   */
   public setValue(key: string, value: string) {
     this.storage.setValue(key, value);
   }
 
+  /**
+   * ストレージから任意の値を削除します。
+   *
+   * @param key - 削除したい値のキー
+   */
   public removeValue(key: string) {
     this.storage.removeValue(key);
   }

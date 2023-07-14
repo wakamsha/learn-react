@@ -30,8 +30,6 @@ type Props = {
 /**
  * ツールチップは、ユーザーが要素にカーソルを合わせたり、フォーカスしたり、タップしたりしたときに、
  * 情報を伝えるテキストを表示します。
- *
- * @param props
  */
 export const Tooltip = ({ children, targetId, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
   const baseRef = useRef<HTMLDivElement>(null);

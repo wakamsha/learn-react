@@ -47,9 +47,9 @@ const ColorTip = ({ name, color }: ColorTipProps) => {
 /**
  * コントラスト比的に対照的な（背景色 vs 前景色としたとき視認性が落ちない）色を返す。
  *
- * @see https://zenn.dev/hyiromori/articles/hatena-20201112-182643
+ * @param color - #FFCC00 のような値
  *
- * @param color #FFCC00 のような値
+ * @see https://zenn.dev/hyiromori/articles/hatena-20201112-182643
  */
 function getReadableColor(color: string) {
   const darkColor = '#000000';
@@ -64,8 +64,9 @@ function getReadableColor(color: string) {
 /**
  * 色のコントラスト比を算出する
  *
- * @param color1 #FFCC00 のような値
- * @param color2 #FFCC00 のような値
+ * @param color1 - #FFCC00 のような値
+ *
+ * @param color2 - #FFCC00 のような値
  */
 function getContrastRatio(color1: string, color2: string) {
   const luminance1 = getRelativeLuminance(color1);
@@ -80,7 +81,7 @@ function getContrastRatio(color1: string, color2: string) {
 /**
  * 相対輝度に変換する
  *
- * @param hexColor #FFCC00 のような値
+ * @param hexColor - #FFCC00 のような値
  */
 function getRelativeLuminance(hexColor: string) {
   const { red, green, blue } = parseHexColor(hexColor);
@@ -95,7 +96,7 @@ function getRelativeLuminance(hexColor: string) {
 /**
  * HEX 文字列を R, G, B それぞれの値にパースする
  *
- * @param value #FFCC00 のような値
+ * @param value - #FFCC00 のような値
  */
 function parseHexColor(value: string) {
   const [, red, green, blue] = value.match(/#(..)(..)(..)/) ?? [];
@@ -110,7 +111,7 @@ function parseHexColor(value: string) {
 /**
  * 人間の視覚特性にあった輝度に変換する
  *
- * @param color 0 から 255 までの RGB どれかの値
+ * @param color - 0 から 255 までの RGB どれかの値
  */
 function getRGBForCalculateLuminance(color: number) {
   const ratio = color / 255;
