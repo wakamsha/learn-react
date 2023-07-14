@@ -145,8 +145,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
       yargs:
         specifier: 17.7.2
         version: 17.7.2
@@ -181,8 +181,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
 
   apps/routing:
     dependencies:
@@ -221,8 +221,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
 
   apps/statement:
     dependencies:
@@ -276,14 +276,14 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
 
   packages/builder:
     dependencies:
       '@vitejs/plugin-react':
-        specifier: 4.0.2
-        version: 4.0.2(vite@4.4.2)
+        specifier: 4.0.3
+        version: 4.0.3(vite@4.4.3)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -295,8 +295,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
 
   packages/core:
     dependencies:
@@ -365,8 +365,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.2
-        version: 4.4.2(@types/node@18.16.19)
+        specifier: 4.4.3
+        version: 4.4.3(@types/node@18.16.19)
 
   packages/icon:
     devDependencies:
@@ -452,7 +452,7 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/gen-mapping': 0.1.1
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
 
   /@babel/code-frame@7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
@@ -522,7 +522,7 @@ packages:
     dependencies:
       '@babel/types': 7.22.5
       '@jridgewell/gen-mapping': 0.3.2
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       jsesc: 2.5.2
     dev: true
 
@@ -532,7 +532,7 @@ packages:
     dependencies:
       '@babel/types': 7.22.5
       '@jridgewell/gen-mapping': 0.3.2
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
       jsesc: 2.5.2
 
   /@babel/helper-compilation-targets@7.20.7(@babel/core@7.21.3):
@@ -1969,7 +1969,7 @@ packages:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.14
-      '@jridgewell/trace-mapping': 0.3.17
+      '@jridgewell/trace-mapping': 0.3.18
 
   /@jridgewell/resolve-uri@3.1.0:
     resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
@@ -1982,18 +1982,11 @@ packages:
   /@jridgewell/sourcemap-codec@1.4.14:
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
 
-  /@jridgewell/trace-mapping@0.3.17:
-    resolution: {integrity: sha512-MCNzAp77qzKca9+W/+I0+sEpaUnZoeasnghNeVc41VZCEKaCH73Vq3BZZ/SzWIgrqE4H4ceI+p+b6C0mHf9T4g==}
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.0
-      '@jridgewell/sourcemap-codec': 1.4.14
-
   /@jridgewell/trace-mapping@0.3.18:
     resolution: {integrity: sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==}
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
-    dev: true
 
   /@jridgewell/trace-mapping@0.3.9:
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
@@ -2445,8 +2438,8 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react@4.0.2(vite@4.4.2):
-    resolution: {integrity: sha512-zbnVp3Esfg33zDaoLrjxG+p/dPiOtpvJA+1oOEQwSxMMTRL9zi1eghIcd2WtLjkcKnPsa3S15LzS/OzDn2BOCA==}
+  /@vitejs/plugin-react@4.0.3(vite@4.4.3):
+    resolution: {integrity: sha512-pwXDog5nwwvSIzwrvYYmA2Ljcd/ZNlcsSG2Q9CNDBwnsd55UGAyr2doXtB5j+2uymRCnCfExlznzzSFbBRcoCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^4.2.0
@@ -2455,7 +2448,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.5)
       react-refresh: 0.14.0
-      vite: 4.4.2(@types/node@18.16.19)
+      vite: 4.4.3(@types/node@18.16.19)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -7819,8 +7812,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.4.2(@types/node@18.16.19):
-    resolution: {integrity: sha512-zUcsJN+UvdSyHhYa277UHhiJ3iq4hUBwHavOpsNUGsTgjBeoBlK8eDt+iT09pBq0h9/knhG/SPrZiM7cGmg7NA==}
+  /vite@4.4.3(@types/node@18.16.19):
+    resolution: {integrity: sha512-IMnXQXXWgLi5brBQx/4WzDxdzW0X3pjO4nqFJAuNvwKtxzAmPzFE1wszW3VDpAGQJm3RZkm/brzRdyGsnwgJIA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
