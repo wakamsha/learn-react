@@ -12,14 +12,14 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.9.7",
     "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
+    "@types/react-dom": "18.2.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
   },
   "peerDependencies": {
     "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
+    "@types/react-dom": "18.2.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
