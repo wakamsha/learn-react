@@ -139,8 +139,8 @@ importers:
         specifier: 4.1.5
         version: 4.1.5
       playwright:
-        specifier: 1.35.1
-        version: 1.35.1
+        specifier: 1.36.0
+        version: 1.36.0
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -6374,19 +6374,19 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /playwright-core@1.35.1:
-    resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}
+  /playwright-core@1.36.0:
+    resolution: {integrity: sha512-7RTr8P6YJPAqB+8j5ATGHqD6LvLLM39sYVNsslh78g8QeLcBs5750c6+msjrHUwwGt+kEbczBj1XB22WMwn+WA==}
     engines: {node: '>=16'}
     hasBin: true
     dev: true
 
-  /playwright@1.35.1:
-    resolution: {integrity: sha512-NbwBeGJLu5m7VGM0+xtlmLAH9VUfWwYOhUi/lSEDyGg46r1CA9RWlvoc5yywxR9AzQb0mOCm7bWtOXV7/w43ZA==}
+  /playwright@1.36.0:
+    resolution: {integrity: sha512-ODVOTp5WoRMxDJY3liMmC+wVNicc0cQB17gASvQ+zLBggVK9a2x3gdT5mbl7av+zomvtdirWOqqfD+O6qIrFgw==}
     engines: {node: '>=16'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.35.1
+      playwright-core: 1.36.0
     dev: true
 
   /postcss-resolve-nested-selector@0.1.1:
