@@ -61,6 +61,8 @@
     "treegrid",
     "treeitem",
     "gridcell",
-    "tabpanel"
+    "tabpanel",
+    "backreference",
+    "backreferences"
   ]
 }

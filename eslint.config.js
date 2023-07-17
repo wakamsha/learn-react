@@ -3,6 +3,7 @@ import typescript from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
 import bestPractices from './eslint-rules/best-practices.js';
+import errors from './eslint-rules/errors.js';
 import imports from './eslint-rules/imports.js';
 import jsdoc from './eslint-rules/jsdoc.js';
 import jsxA11y from './eslint-rules/jsx-a11y.js';
@@ -15,6 +16,7 @@ export default [
   },
   {
     ...bestPractices,
+    ...errors,
     files: ['**/*.ts{,x}', '**/*.js', '*.mjs'],
   },
   // origin
@@ -26,12 +28,6 @@ export default [
   //       'always',
   //       {
   //         exceptAfterSingleLine: true,
-  //       },
-  //     ],
-  //     'no-console': [
-  //       'error',
-  //       {
-  //         allow: ['info', 'warn', 'error', 'time', 'timeEnd'],
   //       },
   //     ],
   //     'no-restricted-imports': [
