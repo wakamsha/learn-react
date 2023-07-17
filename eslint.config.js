@@ -5,6 +5,7 @@ import prettier from 'eslint-config-prettier';
 import bestPractices from './eslint-rules/best-practices.js';
 import imports from './eslint-rules/imports.js';
 import jsdoc from './eslint-rules/jsdoc.js';
+import jsxA11y from './eslint-rules/jsx-a11y.js';
 import reactHooks from './eslint-rules/react-hooks.js';
 import react from './eslint-rules/react.js';
 
@@ -158,6 +159,7 @@ export default [
   {
     ...jsdoc,
     files: ['**/*.ts{,x}', '**/*.js', '**/*.mjs'],
+    ignores: ['apps/{routing,statement}/**/*', 'packages/try/**/*', '**/*.story.tsx'],
   },
   {
     ...jsdoc,
@@ -169,12 +171,9 @@ export default [
       'jsdoc/no-types': ['off'],
     },
   },
+  // jsx-a11y
   {
-    ...jsdoc,
-    files: ['apps/{routing,statement}/**/*', 'packages/try/**/*', '**/*.story.tsx'],
-    rules: {
-      'jsdoc/require-jsdoc': ['off'],
-      'jsdoc/require-param-description': ['off'],
-    },
+    ...jsxA11y,
+    files: ['**/*.ts{,x}'],
   },
 ];
