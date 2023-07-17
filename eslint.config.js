@@ -4,6 +4,7 @@ import typescriptParser from '@typescript-eslint/parser';
 import prettier from 'eslint-config-prettier';
 import bestPractices from './eslint-rules/best-practices.js';
 import imports from './eslint-rules/imports.js';
+import jsdoc from './eslint-rules/jsdoc.js';
 import reactHooks from './eslint-rules/react-hooks.js';
 import react from './eslint-rules/react.js';
 
@@ -151,6 +152,29 @@ export default [
   {
     rules: {
       ...prettier.rules,
+    },
+  },
+  // jsdoc
+  {
+    ...jsdoc,
+    files: ['**/*.ts{,x}', '**/*.js', '**/*.mjs'],
+  },
+  {
+    ...jsdoc,
+    files: ['**/*.js', '**/*.mjs'],
+    rules: {
+      'jsdoc/require-param-type': ['error'],
+      'jsdoc/require-returns': ['error'],
+      'jsdoc/require-returns-type': ['error'],
+      'jsdoc/no-types': ['off'],
+    },
+  },
+  {
+    ...jsdoc,
+    files: ['apps/{routing,statement}/**/*', 'packages/try/**/*', '**/*.story.tsx'],
+    rules: {
+      'jsdoc/require-jsdoc': ['off'],
+      'jsdoc/require-param-description': ['off'],
     },
   },
 ];
