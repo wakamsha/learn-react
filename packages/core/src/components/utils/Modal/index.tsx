@@ -70,12 +70,12 @@ const styleBase = css`
   overflow: auto;
   visibility: hidden;
   background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   opacity: 0;
   transition:
     visibility ${Duration.Enter} ${Easing.Enter},
     opacity ${Duration.Enter} ${Easing.Enter};
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
 
   @media (prefers-color-scheme: dark) {
     background-color: ${hex2rgba(Color.TextureBackdrop.dark, 0.8)};
