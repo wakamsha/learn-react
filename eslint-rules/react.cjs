@@ -1,10 +1,5 @@
-import react from 'eslint-plugin-react';
-
-// eslint-disable-next-line import/no-default-export
-export default {
-  plugins: {
-    react,
-  },
+module.exports = {
+  plugins: ['react'],
   rules: {
     // 'react/display-name': ['off'],
     // 'react/forbid-prop-types': ['off'],
@@ -18,7 +13,7 @@ export default {
     //   eventHandlerPropPrefix: 'on',
     // }],
     'react/jsx-indent-props': ['error', 2],
-    // 'react/jsx-key': ['off'],
+    'react/jsx-key': ['error'],
     'react/jsx-max-props-per-line': ['error', { maximum: 1, when: 'multiline' }],
     'react/jsx-no-bind': [
       'error',

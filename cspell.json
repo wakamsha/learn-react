@@ -63,6 +63,11 @@
     "gridcell",
     "tabpanel",
     "backreference",
-    "backreferences"
+    "backreferences",
+    "camelcase",
+    "linebreak",
+    "linebreaks",
+    "nonblock",
+    "nonwords"
   ]
 }

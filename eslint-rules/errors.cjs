@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-default-export
-export default {
+module.exports = {
   rules: {
     // Enforce “for” loop update clause moving the counter in the right direction
     // https://eslint.org/docs/rules/for-direction

@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-default-export
-export default {
+module.exports = {
   rules: {
     // enforces getter/setter pairs in objects
     // https://eslint.org/docs/rules/accessor-pairs
@@ -19,17 +18,12 @@ export default {
 
     // enforce that class methods use "this"
     // https://eslint.org/docs/rules/class-methods-use-this
-    // 'class-methods-use-this': [
-    //   'error',
-    //   {
-    //     exceptMethods: [],
-    //   },
-    // ],
+    'class-methods-use-this': ['off'],
 
     // require return statements to either always or never specify values
     // TypeScript のフロー解析を考慮できないため false positive が発生する
     // https://eslint.org/docs/rules/consistent-return
-    // 'consistent-return': 'error',
+    'consistent-return': ['off'],
 
     // specify curly brace conventions for all control statements
     // https://eslint.org/docs/rules/curly
@@ -38,7 +32,7 @@ export default {
     // require default case in switch statements
     // switch の条件式に渡される値の型次第では default は不要となる。
     // https://eslint.org/docs/rules/default-case
-    // 'default-case': ['error', { commentPattern: '^no default$' }],
+    'default-case': ['off'],
 
     // Enforce default clauses in switch statements to be last
     // https://eslint.org/docs/rules/default-case-last
@@ -69,7 +63,7 @@ export default {
 
     // enforce a maximum number of classes per file
     // https://eslint.org/docs/rules/max-classes-per-file
-    // 'max-classes-per-file': ['error', 1],
+    'max-classes-per-file': ['off'],
 
     // disallow the use of alert, confirm, and prompt
     // https://eslint.org/docs/rules/no-alert
@@ -263,7 +257,7 @@ export default {
 
     // disallow declaring the same variable more than once
     // https://eslint.org/docs/rules/no-redeclare
-    // 'no-redeclare': 'error',
+    'no-redeclare': 'error',
 
     // disallow certain object properties
     // https://eslint.org/docs/rules/no-restricted-properties
@@ -350,7 +344,7 @@ export default {
 
     // restrict what can be thrown as an exception
     // https://eslint.org/docs/rules/no-throw-literal
-    // 'no-throw-literal': 'error',
+    'no-throw-literal': ['off'],
 
     // disallow unmodified conditions of loops
     // https://eslint.org/docs/rules/no-unmodified-loop-condition

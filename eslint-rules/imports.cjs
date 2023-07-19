@@ -1,10 +1,5 @@
-import imports from 'eslint-plugin-import';
-
-// eslint-disable-next-line import/no-default-export
-export default {
-  plugins: {
-    import: imports,
-  },
+module.exports = {
+  plugins: ['import'],
   settings: {
     'import/resolver': {
       node: {
@@ -16,7 +11,8 @@ export default {
     'import/ignore': ['node_modules', '\\.(coffee|scss|css|less|hbs|svg|json)$'],
   },
   rules: {
-    // 'import/no-unresolved': ['error', { commonjs: true, caseSensitive: true }],
+    // tsconfig にて設定した alias path を認識できないため無効化する。
+    'import/no-unresolved': ['off'],
 
     // ensure named imports coupled with named exports
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/named.md#when-not-to-use-it
@@ -118,9 +114,10 @@ export default {
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-namespace.md
     'import/no-namespace': ['off'],
 
+    // import path に拡張子を含めることを強制するため無効化する。
     // Ensure consistent use of file extension within the import path
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    // 'import/extensions': ['error'],
+    'import/extensions': ['off'],
 
     // ensure absolute imports are above relative imports and that unassigned imports are ignored
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
@@ -133,7 +130,7 @@ export default {
 
     // Require modules with a single export to use a default export
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
-    // 'import/prefer-default-export': ['error'],
+    'import/prefer-default-export': ['off'],
 
     // Restrict which files can be imported in a given folder
     // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-restricted-paths.md
@@ -253,4 +250,19 @@ export default {
     // https://github.com/benmosher/eslint-plugin-import/blob/1012eb951767279ce3b540a4ec4f29236104bb5b/docs/rules/no-relative-packages.md
     'import/no-relative-packages': ['error'],
   },
+
+  overrides: [
+    {
+      files: ['./**/ambience.d.ts'],
+      rules: {
+        'import/no-default-export': ['off'],
+      },
+    },
+    {
+      files: ['*.js', '*.mjs'],
+      rules: {
+        'import/no-default-export': ['off'],
+      },
+    },
+  ],
 };
