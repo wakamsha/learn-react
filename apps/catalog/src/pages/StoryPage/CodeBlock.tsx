@@ -23,7 +23,7 @@ export const CodeBlock = ({ children }: Props) => {
 
   return (
     <pre className={styleBase}>
-      <code className="typescript" ref={ref}>
+      <code ref={ref} className="typescript">
         {children}
       </code>
     </pre>

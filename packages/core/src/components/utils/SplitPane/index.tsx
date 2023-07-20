@@ -153,7 +153,12 @@ export const SplitPane = ({
     onChange?.(newSize);
 
     setDraggedSize(`${newSize}px`);
-    primary === 'first' ? setPane1Size(`${newSize}px`) : setPane2Size(`${newSize}px`);
+
+    if (primary === 'first') {
+      setPane1Size(`${newSize}px`);
+    } else {
+      setPane2Size(`${newSize}px`);
+    }
   };
 
   const handleMouseUp = () => {
@@ -166,11 +171,15 @@ export const SplitPane = ({
   const handleDoubleClick = () => {
     if (draggedSize === initialSize) return;
 
-    primary === 'first' ? setPane1Size(initialSize) : setPane2Size(initialSize);
-
     onChange?.(numberAsPixelOf(initialSize));
 
     setDraggedSize(initialSize);
+
+    if (primary === 'first') {
+      setPane1Size(initialSize);
+    } else {
+      setPane2Size(initialSize);
+    }
   };
 
   /**
@@ -199,7 +208,7 @@ export const SplitPane = ({
 
   return (
     <div className={styleBase}>
-      <div aria-orientation={orientation} className={styleContainer} ref={container}>
+      <div ref={container} aria-orientation={orientation} className={styleContainer}>
         {active ? (
           <div
             role="presentation"

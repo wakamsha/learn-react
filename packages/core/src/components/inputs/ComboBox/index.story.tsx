@@ -34,16 +34,16 @@ export const Story = () => {
       <ComboBox
         options={options}
         value={state1 ? state1.value : null}
-        onChange={handleChange1}
         icon="list"
         placeholder="くだもの"
+        onChange={handleChange1}
       />
       <pre>
         <code>{JSON.stringify(state1, null, 2)}</code>
       </pre>
 
       <h2>Disabled</h2>
-      <ComboBox options={options} value={state1 ? state1.value : null} onChange={handleChange1} icon="list" disabled />
+      <ComboBox disabled options={options} value={state1 ? state1.value : null} icon="list" onChange={handleChange1} />
     </>
   );
 };

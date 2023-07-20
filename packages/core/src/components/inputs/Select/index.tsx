@@ -77,9 +77,9 @@ export const Select = <T extends string | number>({
         id={id}
         className={styleSelect}
         value={value}
-        onChange={handleChange}
         disabled={disabled}
         tabIndex={tabIndex}
+        onChange={handleChange}
       >
         {options ? <Options options={options} /> : optGroups ? <OptGroups optGroups={optGroups} /> : null}
       </select>

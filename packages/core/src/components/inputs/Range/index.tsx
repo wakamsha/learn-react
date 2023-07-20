@@ -29,11 +29,11 @@ export const Range = ({ value, onChange, min = 0, max = 100, step = 1, disabled,
         className={styleBase}
         type="range"
         value={value}
-        onChange={handleChange}
         min={min}
         max={max}
         step={step}
         disabled={disabled}
+        onChange={handleChange}
       />
       <div
         style={{

@@ -91,10 +91,10 @@ export const Button = forwardRef(
         type={type}
         tabIndex={tabIndex}
         disabled={disabled}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
         aria-haspopup={ariaHaspopup}
         aria-expanded={ariaExpanded}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
       >
         {Children.toArray(children).map((child) =>
           typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,

@@ -14,7 +14,7 @@ export const ProfileEditPage = () => {
       <h2>Edit Page</h2>
       <fieldset>
         <legend>name</legend>
-        <input onChange={handleChange} value={name} />
+        <input value={name} onChange={handleChange} />
       </fieldset>
       <p>name: {name}</p>
     </>

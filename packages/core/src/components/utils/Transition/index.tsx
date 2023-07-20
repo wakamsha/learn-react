@@ -61,7 +61,7 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
 
   return (
     <div className={styleBase}>
-      <div className={`${styleAnimation} ${styleType[type]}`} ref={nextElm}>
+      <div ref={nextElm} className={`${styleAnimation} ${styleType[type]}`}>
         {children}
       </div>
       <div

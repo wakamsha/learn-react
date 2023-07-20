@@ -19,7 +19,7 @@ export const App = () => {
   return (
     <div className={styleBase}>
       <Component />
-      <select className={styleSwitch} onChange={handleSwitch} value={type}>
+      <select className={styleSwitch} value={type} onChange={handleSwitch}>
         <option value="mobx">mobx</option>
         <option value="unstated-next">unstated-next</option>
         <option value="constate">constate</option>

@@ -21,12 +21,12 @@ export const Story = () => {
       <h2>Basic</h2>
       <button
         ref={buttonProps.ref}
-        onKeyDown={buttonProps.onKeyDown}
-        onClick={buttonProps.onClick}
         tabIndex={buttonProps.tabIndex}
         role={buttonProps.role}
         aria-haspopup={buttonProps['aria-haspopup']}
         aria-expanded={buttonProps['aria-expanded']}
+        onKeyDown={buttonProps.onKeyDown}
+        onClick={buttonProps.onClick}
       >
         Button
       </button>
@@ -34,12 +34,12 @@ export const Story = () => {
         {menuItems.map((item, index) => (
           <li key={item}>
             <button
+              ref={itemProps[index].ref}
               className={styleMenuItem}
-              onClick={() => handleSelect(item)}
-              onKeyDown={itemProps[index].onKeyDown}
               tabIndex={itemProps[index].tabIndex}
               role={itemProps[index].role}
-              ref={itemProps[index].ref}
+              onClick={() => handleSelect(item)}
+              onKeyDown={itemProps[index].onKeyDown}
             >
               {item}
             </button>

@@ -42,9 +42,9 @@ export const Checkbox = ({ checked, value, disabled, indeterminate = false, onCh
         <span className={styleSymbol} aria-checked={ariaChecked} />
       </span>
       <input
+        ref={inputRef}
         className={styleInput}
         type="checkbox"
-        ref={inputRef}
         checked={checked}
         value={value}
         disabled={disabled}

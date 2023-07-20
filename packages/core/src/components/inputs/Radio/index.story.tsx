@@ -23,7 +23,7 @@ export const Story = () => {
       </li>
       <li>
         <Radio.Label label="Radio Button 3">
-          <Radio name="radio-group" value="lorem" checked={value === 'lorem'} disabled />
+          <Radio disabled name="radio-group" value="lorem" checked={value === 'lorem'} />
         </Radio.Label>
       </li>
     </ul>

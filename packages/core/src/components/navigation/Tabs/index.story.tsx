@@ -31,7 +31,7 @@ export const Story = () => {
 
       <h2>Sizes</h2>
       <Tabs options={options} value={1} onChange={console.info} />
-      <Tabs options={options} value={1} onChange={console.info} size="small" />
+      <Tabs options={options} value={1} size="small" onChange={console.info} />
     </>
   );
 };

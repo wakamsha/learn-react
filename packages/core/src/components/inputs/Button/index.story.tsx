@@ -29,7 +29,7 @@ export const Story = () => (
         </div>
       ))}
       <div className={styleCell}>
-        <Button variant="ghost" disabled>
+        <Button disabled variant="ghost">
           disabled
         </Button>
       </div>
@@ -45,7 +45,7 @@ export const Story = () => (
         </div>
       ))}
       <div className={styleCell}>
-        <Button variant="bare" disabled>
+        <Button disabled variant="bare">
           disabled
         </Button>
       </div>
@@ -78,7 +78,7 @@ export const Story = () => (
       <Button block>Solid</Button>
     </div>
     <div className={styleCell}>
-      <Button variant="ghost" block>
+      <Button block variant="ghost">
         Ghost
       </Button>
     </div>
@@ -89,12 +89,12 @@ export const Story = () => (
         <Button noop>Solid</Button>
       </div>
       <div className={styleCell}>
-        <Button variant="ghost" noop>
+        <Button noop variant="ghost">
           Ghost
         </Button>
       </div>
       <div className={styleCell}>
-        <Button variant="bare" noop>
+        <Button noop variant="bare">
           disabled
         </Button>
       </div>

@@ -90,8 +90,8 @@ export const Popover = ({
   return createPortal(
     <div role="presentation" className={styleBase} aria-hidden={!visible} onClick={onClickOutside}>
       <div
-        role="dialog"
         ref={popoverRef}
+        role="dialog"
         className={stylePopover[position]}
         aria-hidden={!visible}
         aria-modal={visible}
