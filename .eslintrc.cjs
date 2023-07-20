@@ -6,6 +6,7 @@ module.exports = {
     './eslint-rules/es6.cjs',
     './eslint-rules/imports.cjs',
     './eslint-rules/style.cjs',
+    './eslint-rules/variables.cjs',
     './eslint-rules/jsx-a11y.cjs',
     './eslint-rules/jsdoc.cjs',
     './eslint-rules/react.cjs',
@@ -29,13 +30,4 @@ module.exports = {
     project: ['./{apps,packages}/**/tsconfig.json'],
   },
   ignorePatterns: ['.eslintrc.*', 'dist*', 'bin*', '*.config.*', 'eslint-rules*'],
-  rules: {
-    // ----------------
-    // variables
-    // ----------------
-    // Disable
-    'no-undef': ['off'],
-    'no-use-before-define': ['off'],
-    'no-shadow': ['off'],
-  },
 };
