@@ -15,6 +15,12 @@ module.exports = {
         definedTags: ['remarks', 'typeParam'],
       },
     ],
+    'jsdoc/require-description': [
+      'error',
+      {
+        contexts: ['TSInterfaceDeclaration', 'TSTypeAliasDeclaration', 'TSPropertySignature', 'TSMethodSignature'],
+      },
+    ],
     'jsdoc/require-hyphen-before-param-description': ['error', 'always'],
     'jsdoc/require-jsdoc': [
       'error',
@@ -28,6 +34,7 @@ module.exports = {
           FunctionExpression: true,
           MethodDefinition: true,
         },
+        contexts: ['TSInterfaceDeclaration', 'TSTypeAliasDeclaration', 'TSPropertySignature', 'TSMethodSignature'],
         checkConstructors: false,
       },
     ],
