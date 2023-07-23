@@ -1,3 +1,5 @@
+/* eslint-disable jsdoc/require-jsdoc */
+
 export const Layout = {
   Horizontal: 'horizontal',
   Vertical: 'vertical',

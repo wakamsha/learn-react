@@ -14,6 +14,8 @@ type Props = {
   children: ReactNode;
   id?: string;
   /**
+   * `true` の場合、ボタンにはアクティブ状態を示すスタイルが適用される。
+   *
    * @default false
    */
   active?: boolean;

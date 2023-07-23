@@ -1,12 +1,30 @@
 import { stringify } from 'qs';
 
+/**
+ * エラーの詳細。
+ */
 export type Error = {
+  /**
+   * 発生したエラーにおける詳細を説明するメッセージの一覧。
+   */
   conditions: string[];
 };
 
+/**
+ * API 疎通中に発生したエラーの詳細。
+ */
 export type ErrorResult = {
+  /**
+   * エラーの種別を分類するためのコード。
+   */
   code: number;
+  /**
+   * エラーの概要を説明するメッセージ文。
+   */
   message: string;
+  /**
+   * 発生したエラーの詳細一覧。
+   */
   errors: Error[];
 };
 

@@ -9,10 +9,14 @@ type Props = {
   onChange: (value: string) => void;
   id?: string;
   /**
+   * 最小行数。
+   *
    * @default 1
    */
   minRows?: number;
   /**
+   * 最大行数。
+   *
    * @default Infinity
    */
   maxRows?: number;
