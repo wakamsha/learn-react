@@ -77,6 +77,11 @@ const Provider = ({ children, limit = 1 }: ProviderProps) => {
 
 const useToast = (): Context => useContext(Context);
 
+/**
+ * トーストは、アプリケーションが実行した、または実行する予定の処理をユーザーに知らせます。
+ * トーストは、一時的に画面の下に表示されます。
+ * ユーザーエクスペリエンスを妨げるものであってはならず、消えるためにユーザーの入力を必要とするものでもありません。
+ */
 export const Toast = {
   Provider,
   useToast,

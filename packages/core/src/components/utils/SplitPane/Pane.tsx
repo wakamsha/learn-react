@@ -9,6 +9,9 @@ type Props = Required<Pick<ParentProps, 'orientation'>> & {
   size?: `${number}px` | `${number}%`;
 };
 
+/**
+ * コンテンツを表示する領域。
+ */
 export const Pane = forwardRef(({ orientation, children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   const style = {
     ...(orientation === 'horizontal' ? { width: size } : { height: size }),

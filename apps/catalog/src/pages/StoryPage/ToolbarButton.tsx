@@ -37,6 +37,9 @@ type Props = {
   }
 >;
 
+/**
+ * ツールバーに表示するためのシンプルなアクションボタン。
+ */
 export const ToolbarButton = forwardRef(
   (
     { children, id, active = false, tabIndex, onClick, ariaHaspopup, ariaExpanded, noop }: Props,

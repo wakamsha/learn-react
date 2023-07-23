@@ -1,12 +1,17 @@
-/* eslint-disable jsdoc/require-jsdoc */
-
+/** プレビュー領域とソースコード領域のレイアウト。 */
 export const Layout = {
+  /** 双方を縦方向に並べて表示する。 */
   Horizontal: 'horizontal',
+  /** 双方を横方向に並べて表示する。 */
   Vertical: 'vertical',
+  /** ソースコードを非表示にし、プレビューを領域いっぱいに表示する。 */
   Zen: 'zen',
 } as const;
+
+/** プレビュー領域とソースコード領域のレイアウト。 */
 export type Layout = ValueOf<typeof Layout>;
 
+/** プレビュー領域の表示サイズ。 */
 export const DeviceSize = {
   unset: {
     width: undefined,
@@ -45,4 +50,6 @@ export const DeviceSize = {
     height: 1366,
   },
 } as const;
+
+/** プレビュー領域の表示サイズ。 */
 export type DeviceSize = ValueOf<typeof DeviceSize>;
