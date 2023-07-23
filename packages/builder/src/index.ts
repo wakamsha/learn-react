@@ -19,8 +19,8 @@ type Props = {
   define?: Record<string, unknown>;
   /**
    * 最終的なバンドルのブラウザ互換性のターゲット。
-   * デフォルトは Vite の特別な値 `'modules'` で、こ
-   * れはネイティブ ES モジュール、ネイティブ ESM の動的インポート、import.metaをサポートするブラウザを対象にします。
+   * デフォルトは Vite の特別な値 `'modules'` で、
+   * これはネイティブ ES モジュール、ネイティブ ESM の動的インポート、import.metaをサポートするブラウザを対象にします。
    *
    * @default {}
    */
