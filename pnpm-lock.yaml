@@ -145,8 +145,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
       yargs:
         specifier: 17.7.2
         version: 17.7.2
@@ -181,8 +181,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
 
   apps/routing:
     dependencies:
@@ -221,8 +221,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
 
   apps/statement:
     dependencies:
@@ -276,14 +276,14 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
 
   packages/builder:
     dependencies:
       '@vitejs/plugin-react':
         specifier: 4.0.3
-        version: 4.0.3(vite@4.4.5)
+        version: 4.0.3(vite@4.4.6)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -295,8 +295,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
 
   packages/core:
     dependencies:
@@ -365,8 +365,8 @@ importers:
         specifier: 5.1.6
         version: 5.1.6
       vite:
-        specifier: 4.4.5
-        version: 4.4.5(@types/node@18.16.19)
+        specifier: 4.4.6
+        version: 4.4.6(@types/node@18.16.19)
 
   packages/icon:
     devDependencies:
@@ -2358,7 +2358,7 @@ packages:
       eslint-visitor-keys: 3.4.1
     dev: true
 
-  /@vitejs/plugin-react@4.0.3(vite@4.4.5):
+  /@vitejs/plugin-react@4.0.3(vite@4.4.6):
     resolution: {integrity: sha512-pwXDog5nwwvSIzwrvYYmA2Ljcd/ZNlcsSG2Q9CNDBwnsd55UGAyr2doXtB5j+2uymRCnCfExlznzzSFbBRcoCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2368,7 +2368,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.22.5(@babel/core@7.22.5)
       '@babel/plugin-transform-react-jsx-source': 7.22.5(@babel/core@7.22.5)
       react-refresh: 0.14.0
-      vite: 4.4.5(@types/node@18.16.19)
+      vite: 4.4.6(@types/node@18.16.19)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6404,14 +6404,6 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss@8.4.26:
-    resolution: {integrity: sha512-jrXHFF8iTloAenySjM/ob3gSj7pCu0Ji49hnjqzsgSRa50hkWCKD0HQ+gMNJkW38jBI68MpAAg7ZWwHwX8NMMw==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss@8.4.27:
     resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -6419,7 +6411,6 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -7638,8 +7629,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@4.4.5(@types/node@18.16.19):
-    resolution: {integrity: sha512-4m5kEtAWHYr0O1Fu7rZp64CfO1PsRGZlD3TAB32UmQlpd7qg15VF7ROqGN5CyqN7HFuwr7ICNM2+fDWRqFEKaA==}
+  /vite@4.4.6(@types/node@18.16.19):
+    resolution: {integrity: sha512-EY6Mm8vJ++S3D4tNAckaZfw3JwG3wa794Vt70M6cNJ6NxT87yhq7EC8Rcap3ahyHdo8AhCmV9PTk+vG1HiYn1A==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -7668,7 +7659,7 @@ packages:
     dependencies:
       '@types/node': 18.16.19
       esbuild: 0.18.12
-      postcss: 8.4.26
+      postcss: 8.4.27
       rollup: 3.26.2
     optionalDependencies:
       fsevents: 2.3.2
