@@ -23,6 +23,11 @@ type LoadableState<T> =
  * @typeParam T 非同期で取得するデータの型
  */
 export class Loadable<T> {
+  /**
+   * 非同期処理の状態オブジェクト
+   *
+   * @typeParam T 非同期で取得するデータの型
+   */
   #state: LoadableState<T>;
 
   constructor(promise: Promise<T>) {
@@ -53,7 +58,7 @@ export class Loadable<T> {
    *
    * @param promise - データをフェッチするための Promise
    *
-   * @returns       Loadable インスタンスとその内部の Promise オブジェクト。
+   * @returns Loadable インスタンスとその内部の Promise オブジェクト。
    */
   static newAndGoPromise<T>(promise: Promise<T>): [Loadable<T>, Promise<T>] {
     const result = new Loadable(promise);

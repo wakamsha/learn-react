@@ -8,10 +8,25 @@ import { Container } from './Container';
 
 type Theme = 'primary' | 'danger';
 
+/**
+ * トーストアイテムの詳細。
+ */
 export type Toast = {
+  /**
+   * トーストアイテムを識別するためのユニークな値。
+   */
   id: number;
+  /**
+   * 表示するメッセージ。
+   */
   message: string;
+  /**
+   * トーストに表示するアイコンの名前。
+   */
   icon?: IconName;
+  /**
+   * トーストのカラーテーマ。
+   */
   theme?: Theme;
 };
 
@@ -51,6 +66,11 @@ const Provider = ({ children, limit = 1 }: Props) => (
   </ToastContainer.Provider>
 );
 
+/**
+ * トーストは、アプリケーションが実行した、または実行する予定の処理をユーザーに知らせます。
+ * トーストは、一時的に画面の下に表示されます。
+ * ユーザーエクスペリエンスを妨げるものであってはならず、消えるためにユーザーの入力を必要とするものでもありません。
+ */
 export const Toast = {
   Provider,
   useToast: ToastContainer.useContainer,

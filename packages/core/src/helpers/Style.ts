@@ -94,6 +94,8 @@ export function textEllipsis() {
 }
 
 /**
+ * アプリケーション全体に Reset CSS を適用します。
+ *
  * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
  */
 export function applyResetStyle() {

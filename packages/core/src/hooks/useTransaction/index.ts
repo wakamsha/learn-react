@@ -1,14 +1,36 @@
 import { useCallback, useState, type Dispatch, type SetStateAction } from 'react';
 import { useMounted } from '../useMounted';
 
-export type TransactionStatus = Partial<{
-  running: boolean;
-  error: boolean;
-}>;
+/**
+ * 非同期処理をしている最中とその前後の状態を表す。
+ *
+ * @remarks
+ * 一度も実行していない場合は `{ running: undefined, error: undefined }` となります。
+ */
+export type TransactionStatus = {
+  /**
+   * `true` の場合は非同期処理が実行中である。
+   */
+  running?: boolean;
+  /**
+   * 非同期処理中にエラーが発生すると `true` となる。
+   * 非同期処理が成功で終わると `false` となる。
+   */
+  error?: boolean;
+};
 
 type ErrorResult = {
+  /**
+   * エラーの種別を分類するためのコード。
+   */
   code: number;
+  /**
+   * エラーの概要を説明するメッセージ文。
+   */
   message: string;
+  /**
+   * 発生したエラーの詳細一覧。
+   */
   errors: Error[];
 };
 
@@ -21,6 +43,7 @@ type ErrorResult = {
  * @param onError  - エラー時に実行する関数
  *
  * @example
+ * ```
  * const fooStore = useContext(FooStore.Context);
  *
  * const [handler, status] = useTransaction(
@@ -31,6 +54,7 @@ type ErrorResult = {
  *     console.error(e.message);
  *   }, []),
  * );
+ * ```
  */
 export function useTransaction<T extends any[]>(
   onAction: (...args: T) => Promise<void>,

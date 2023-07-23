@@ -4,8 +4,10 @@ import { Transition } from '../Transition';
 
 type Props = {
   /**
+   * 子ルートのセット。
+   *
    * @remarks
-   * ReactRouter の `<Route>` タグのみ配置可能。
+   * ReactRouter の `<Route>` タグで囲われたコンポーネントのみ配置可能。
    */
   children: ReactNode;
   /**

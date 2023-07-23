@@ -19,4 +19,7 @@ function useHook() {
   return { layoutConfig, setLayoutConfig };
 }
 
+/**
+ * プレビュー領域とソースコードブロック領域のレイアウト情報を `React.Context` で管理します。
+ */
 export const LayoutConfigContainer = createContainer(useHook);

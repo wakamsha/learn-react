@@ -14,6 +14,8 @@ type Props = {
   children: ReactNode;
   id?: string;
   /**
+   * `true` の場合、ボタンにはアクティブ状態を示すスタイルが適用される。
+   *
    * @default false
    */
   active?: boolean;
@@ -35,6 +37,9 @@ type Props = {
   }
 >;
 
+/**
+ * ツールバーに表示するためのシンプルなアクションボタン。
+ */
 export const ToolbarButton = forwardRef(
   (
     { children, id, active = false, tabIndex, onClick, ariaHaspopup, ariaExpanded, noop }: Props,

@@ -18,10 +18,25 @@ type ProviderProps = {
 
 type Theme = 'primary' | 'danger';
 
+/**
+ * トーストアイテムの詳細。
+ */
 export type Toast = {
+  /**
+   * トーストアイテムを識別するためのユニークな値。
+   */
   id: number;
+  /**
+   * 表示するメッセージ。
+   */
   message: string;
+  /**
+   * トーストに表示するアイコンの名前。
+   */
   icon?: IconName;
+  /**
+   * トーストのカラーテーマ。
+   */
   theme?: Theme;
 };
 

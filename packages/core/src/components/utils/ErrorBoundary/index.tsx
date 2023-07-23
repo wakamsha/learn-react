@@ -1,7 +1,16 @@
 import { Component, type ComponentType, type ReactNode } from 'react';
 
+/**
+ * フォールバックとしてレンダリングするコンポーネントに持たせるプロパティの型です。
+ */
 export type FallbackProps<ERROR extends Record<string, unknown>> = {
+  /**
+   * キャッチしたエラーの詳細。
+   */
   error: ERROR;
+  /**
+   * 状態をリセットしたときに呼び出す関数。
+   */
   onReset?: () => void;
 };
 

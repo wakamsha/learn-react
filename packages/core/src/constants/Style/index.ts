@@ -1,3 +1,6 @@
+/**
+ * カラーパレット。
+ */
 export const Color = {
   // Theme
   ThemePrimaryNeutral: {
@@ -94,12 +97,18 @@ export const Color = {
   },
 } as const;
 
+/**
+ * フォントファミリー
+ */
 export const FontFamily = {
   Default: '"Noto Sans Japanese", "メイリオ", Meiryo, sans-serif',
   Serif: '"Noto Serif Japanese", serif',
   Monospace: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
 } as const;
 
+/**
+ * フォントサイズ
+ */
 export const FontSize = {
   Large: '20px',
   Medium: '16px',
@@ -109,12 +118,18 @@ export const FontSize = {
   Nano: '10px',
 } as const;
 
+/**
+ * 行ボックスの高さ
+ */
 export const LineHeight = {
   Medium: 1.8,
   Regular: 1.6,
   Compressed: 1.4,
 } as const;
 
+/**
+ * アイコン要素の矩形サイズ ( 縦横同じ )。
+ */
 export const IconSize = {
   Tiny: '14px',
   Small: '16px',
@@ -123,6 +138,9 @@ export const IconSize = {
   Huge: '32px',
 } as const;
 
+/**
+ * ボーダーの角丸における半径値。
+ */
 export const BorderRadius = {
   Small: '2px',
   Regular: '5px',
@@ -130,18 +148,27 @@ export const BorderRadius = {
   Circle: '999rem',
 } as const;
 
+/**
+ * CSS Transition や CSS Animation によるアニメーションが完了するまでの所要時間。
+ */
 export const Duration = {
   Fade: '0.15s',
   Enter: '0.25s',
   Leave: '0.3s',
 } as const;
 
+/**
+ * アニメーション中の速度変化。
+ */
 export const Easing = {
   Enter: 'cubic-bezier(.11, .57, .14, 1)',
   Leave: 'cubic-bezier(0, .14, .75, 1)',
   Filter: 'cubic-bezier(0, 2.5, 0.2, 2.5)',
 } as const;
 
+/**
+ * z-index.
+ */
 export const ZIndex = {
   Modal: 100,
   GlobalProgress: 1000,
@@ -150,14 +177,9 @@ export const ZIndex = {
   Tooltip: 1300,
 } as const;
 
-export const UnsafeShadow = {
-  Neutral: `0 1px 4px 0 rgba(0, 0, 0, .2)`,
-  Floating: `0 1px 8px 0 rgba(0, 0, 0, .2)`,
-  Dialog: `0 10px 40px 0 rgba(0, 0, 0, .2)`,
-  Deep: '0 6px 12px 0 rgba(0, 0, 0, .3)',
-  Hover: `0 8px 12px 0 rgba(0, 0, 0, .3)`,
-} as const;
-
+/**
+ * 要素の周囲に適用するシャドウ効果の値。
+ */
 export const Shadow = {
   ShadowNeutral: {
     light: `0 1px 4px 0 rgba(0, 0, 0, .2)`,

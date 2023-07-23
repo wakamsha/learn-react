@@ -25,6 +25,9 @@ ${importPaths
   )
   .join(`\n`)}
 
+  /**
+   * Story コンポーネントとそのソースコード文字列のペアを格納したオブジェクト。
+   */
   export const stories = {
     ${storyTreeMap.map((item) => makeTree(item))}
   };
