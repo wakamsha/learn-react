@@ -79,9 +79,7 @@ module.exports = {
       },
     ],
     // Disable
-    'jsdoc/require-param-type': ['off'],
     'jsdoc/require-returns': ['off'],
-    'jsdoc/require-returns-type': ['off'],
   },
 
   overrides: [
