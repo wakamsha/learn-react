@@ -1,4 +1,4 @@
-import { useEditName, useName } from '../../containers/ProfileContainer';
+import { useEditName, useName } from './containers/ProfileContainer';
 
 export const ProfileShowPage = () => {
   const name = useName();

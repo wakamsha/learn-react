@@ -7,7 +7,7 @@ import { Router } from '../../@core/constants/Router';
 import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { Profile } from '../pages/Profiles';
+import { ProfilePage } from '../pages/ProfilePage';
 import { UsersPage } from '../pages/UsersPage';
 
 export const App = () => (
@@ -17,7 +17,7 @@ export const App = () => (
     <div className={styleContent}>
       <PageTransition>
         <Route path={Router.paths.home} element={<HomePage />} />
-        <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
+        <Route path={`${Router.paths.profile}/*`} element={<ProfilePage />} />
         <Route path={Router.paths.list} element={<ListPage />} />
         <Route path={Router.paths.users} element={<UsersPage />} />
         <Route element={<NotFoundPage />} />

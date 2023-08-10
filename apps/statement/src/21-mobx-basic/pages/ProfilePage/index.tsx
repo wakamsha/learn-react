@@ -2,9 +2,9 @@ import { PageTransition } from '@learn-react/core/src/components/utils/PageTrans
 import { createContext, useMemo, useRef } from 'react';
 import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
-import { ProfileStore } from '../../stores/ProfileStore';
 import { ProfileEditPage } from './EditPage';
 import { ProfileShowPage } from './ShowPage';
+import { ProfileStore } from './stores/ProfileStore';
 
 /**
  * クラスコンポーネントと Provider を使ったレガシーなパターン
@@ -59,7 +59,7 @@ import { ProfileShowPage } from './ShowPage';
 /**
  * FC と ContextAPI を使ったモダンなパターン
  */
-export const Profile = () => {
+export const ProfilePage = () => {
   const store = useRef(new ProfileStore());
 
   const Context = useMemo(() => createContext(store), [store]);

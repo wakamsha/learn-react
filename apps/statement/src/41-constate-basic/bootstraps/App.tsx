@@ -1,14 +1,13 @@
 import { css } from '@emotion/css';
 import { Sidebar } from '@learn-react/core/src/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
-import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
 import { Router } from '../../@core/constants/Router';
 import { HomePage } from '../pages/HomePage';
 import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { ProfilePage } from '../pages/profiles';
+import { ProfilePage } from '../pages/ProfilePage';
 
 export const App = () => (
   <div className={styleBase}>
@@ -52,5 +51,4 @@ const styleBase = css`
 const styleContent = css`
   flex-grow: 1;
   height: 100dvh;
-  padding: ${gutter(4)};
 `;

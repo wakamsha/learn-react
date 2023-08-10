@@ -37,17 +37,17 @@ import { ProfileStore } from './stores/ProfileStore';
 /**
  * グローバルストアと同様に Static な Context を使用するパターン
  */
-export const Profile = () => {
+export const ProfilePage = () => {
   const [store] = useState(() => new ProfileStore());
 
   return (
     <>
       <h1>Profile</h1>
       <ProfileStore.Context.Provider value={store}>
-        <PageTransition>
+        <PageTransition parentPath={`/${Router.paths.profile}`}>
           <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
-          <Route path={Router.paths.profileShow} element={<ProfileShowPage />} />
-          <Route path={Router.paths.profileEdit} element={<ProfileEditPage />} />
+          <Route path={`/${Router.paths.profileShow}`} element={<ProfileShowPage />} />
+          <Route path={`/${Router.paths.profileEdit}`} element={<ProfileEditPage />} />
         </PageTransition>
       </ProfileStore.Context.Provider>
     </>

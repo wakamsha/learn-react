@@ -1,5 +1,5 @@
 import { type ChangeEvent } from 'react';
-import { ProfileContainer } from '../../containers/ProfileContainer';
+import { ProfileContainer } from './containers/ProfileContainer';
 
 export const ProfileEditPage = () => {
   const { name, setName } = ProfileContainer.useContainer();

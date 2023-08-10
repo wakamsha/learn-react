@@ -8,7 +8,7 @@ import { Router } from '../../@core/constants/Router';
 import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-import { Profile } from '../pages/profiles';
+import { ProfilePage } from '../pages/ProfilePage';
 
 export const App = () => (
   <div className={baseStyle}>
@@ -16,7 +16,7 @@ export const App = () => (
     <div className={contentStyle}>
       <PageTransition>
         <Route path={Router.paths.home} element={<HomePage />} />
-        <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
+        <Route path={`${Router.paths.profile}/*`} element={<ProfilePage />} />
         <Route path={Router.paths.list} element={<ListPage />} />
         <Route element={<NotFoundPage />} />
       </PageTransition>

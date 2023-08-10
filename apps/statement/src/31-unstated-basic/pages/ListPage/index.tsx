@@ -1,21 +1,18 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/src/helpers/Style';
-import { useState } from 'react';
 import { AddForm } from './components/AddForm';
 import { EditForm } from './components/EditForm';
 import { ShowSection } from './components/ShowSection';
-import { ListStore } from './stores/ListStore';
+import { ListContainer } from './containers/ListContainer';
 
 export const ListPage = () => {
   console.info('list page');
 
-  const [store] = useState(() => new ListStore());
-
   return (
-    <ListStore.Context.Provider value={store}>
+    <ListContainer.Provider>
       <div className={styleBase}>
         <div className={styleFormColumn}>
-          <h1>MobX</h1>
+          <h1>Unstated Next</h1>
           <AddForm />
           <EditForm />
         </div>
@@ -23,7 +20,7 @@ export const ListPage = () => {
           <ShowSection />
         </div>
       </div>
-    </ListStore.Context.Provider>
+    </ListContainer.Provider>
   );
 };
 

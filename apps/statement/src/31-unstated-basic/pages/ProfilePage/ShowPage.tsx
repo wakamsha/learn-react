@@ -1,4 +1,4 @@
-import { ProfileContainer } from '../../containers/ProfileContainer';
+import { ProfileContainer } from './containers/ProfileContainer';
 
 export const ProfileShowPage = () => {
   const { name, setName } = ProfileContainer.useContainer();
