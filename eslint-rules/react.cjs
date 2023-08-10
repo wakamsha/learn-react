@@ -220,7 +220,7 @@ module.exports = {
         exceptions: [],
       },
     ],
-    'react/prefer-read-only-props': ['error'],
+    // 'react/prefer-read-only-props': ['error'],
     'react/jsx-no-script-url': [
       'error',
       [
