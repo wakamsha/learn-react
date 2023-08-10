@@ -6,6 +6,7 @@ import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';
 import { createContainer } from './31-unstated-basic/helpers/Unstated';
 import { ConstateBasicApp } from './41-constate-basic';
+import { RecoilBasic } from './51-recoil-basic';
 
 export const App = () => {
   const { type, updateType } = TypeContainer.useContainer();
@@ -20,9 +21,11 @@ export const App = () => {
     <div className={styleBase}>
       <Component />
       <select className={styleSwitch} value={type} onChange={handleSwitch}>
-        <option value="mobx">mobx</option>
-        <option value="unstated-next">unstated-next</option>
-        <option value="constate">constate</option>
+        {Object.keys(Components).map((key) => (
+          <option key={key} value={key}>
+            {key}
+          </option>
+        ))}
       </select>
     </div>
   );
@@ -34,9 +37,10 @@ const Components: Frozen<Type, FC> = {
   mobx: MobxHooksApp,
   'unstated-next': UnstatedBasicApp,
   constate: ConstateBasicApp,
+  recoil: RecoilBasic,
 };
 
-type Type = 'mobx' | 'unstated-next' | 'constate';
+type Type = 'mobx' | 'unstated-next' | 'constate' | 'recoil';
 
 const storageKey = 'STATEMENT_TYPE';
 

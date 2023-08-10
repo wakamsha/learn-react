@@ -7,6 +7,7 @@ export const Router = {
     profileFoo: 'foo/',
     list: 'list',
     users: 'users',
+    note: 'note',
   },
 } as const;
 
