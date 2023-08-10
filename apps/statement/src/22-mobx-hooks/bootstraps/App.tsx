@@ -8,7 +8,7 @@ import { HomePage } from '../pages/Home';
 import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { Profile } from '../pages/Profiles';
-import { UsersPage } from '../pages/Users';
+import { UsersPage } from '../pages/UsersPage';
 
 export const App = () => (
   <div className={styleBase}>

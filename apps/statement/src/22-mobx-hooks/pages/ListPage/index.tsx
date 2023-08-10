@@ -3,7 +3,7 @@ import { gutter } from '@learn-react/core/src/helpers/Style';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react';
 import { useState, type ChangeEvent } from 'react';
-import { ListStore } from '../stores/ListStore';
+import { ListStore } from './stores/ListStore';
 
 export const ListPage = () => {
   console.info('list page');
