@@ -1,11 +1,10 @@
 import { useReducer, type ChangeEvent } from 'react';
-import { useSetRecoilState, type UnwrapRecoilValue } from 'recoil';
-import { listState } from './states/listState';
+import { useUpdateList } from '../states/ListState';
 
 export const AddForm = () => {
   console.info('add form');
 
-  const setListState = useSetRecoilState(listState);
+  const { add } = useUpdateList();
 
   const [{ name, age }, dispatch] = useReducer(reducer, {
     name: '',
@@ -27,7 +26,7 @@ export const AddForm = () => {
   };
 
   const handleSubmit = () => {
-    setListState((list) => [...list, { name, age }]);
+    add({ name, age });
   };
 
   return (
@@ -52,7 +51,7 @@ export const AddForm = () => {
   );
 };
 
-type State = UnwrapRecoilValue<typeof listState>[number];
+type State = Parameters<ReturnType<typeof useUpdateList>['add']>[0];
 
 type Action =
   | {

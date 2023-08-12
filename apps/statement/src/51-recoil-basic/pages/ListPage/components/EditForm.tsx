@@ -1,11 +1,10 @@
 import { useReducer, type ChangeEvent } from 'react';
-import { useSetRecoilState, type UnwrapRecoilValue } from 'recoil';
-import { listState } from './states/listState';
+import { useUpdateList } from '../states/ListState';
 
 export const EditForm = () => {
   console.info('edit form');
 
-  const setListState = useSetRecoilState(listState);
+  const { edit } = useUpdateList();
 
   const [{ index, name }, dispatch] = useReducer(reducer, {
     index: 0,
@@ -27,7 +26,7 @@ export const EditForm = () => {
   };
 
   const handleSubmit = () => {
-    setListState((list) => list.map((item, i) => (i === index ? { ...item, name } : item)));
+    edit(name, index);
   };
 
   return (
@@ -54,7 +53,8 @@ export const EditForm = () => {
 
 type State = {
   index: number;
-} & Pick<UnwrapRecoilValue<typeof listState>[number], 'name'>;
+  name: Parameters<ReturnType<typeof useUpdateList>['edit']>[0];
+};
 
 type Action =
   | {

@@ -1,42 +1,39 @@
 import { type ChangeEvent } from 'react';
-import { useRecoilState, type UnwrapRecoilValue } from 'recoil';
-import { notepadState } from '../states/notepadState';
+import { useNotepad, useUpdateNotepad } from '../states/NotepadState';
 
-type NoteType = UnwrapRecoilValue<typeof notepadState>[number];
+type NoteType = ReturnType<typeof useNotepad>['notes'][number];
 
 type Props = {
   readonly item: NoteType;
 };
 
 export const NoteItem = ({ item }: Props) => {
-  const [notes, setNotes] = useRecoilState(notepadState);
+  console.info('NoteItem');
 
-  const index = notes.findIndex((listItem) => listItem === item);
+  const { notes } = useNotepad();
+
+  const { update } = useUpdateNotepad();
+
+  const index = notes.findIndex((note) => note === item);
 
   const handleChangeText = (e: ChangeEvent<HTMLInputElement>) => {
-    const newList = notes.map<NoteType>((note, i) =>
-      i === index
-        ? {
-            ...note,
-            value: e.target.value,
-          }
-        : note,
+    update(
+      {
+        type: 'value',
+        payload: e.target.value,
+      },
+      index,
     );
-
-    setNotes(newList);
   };
 
   const handleToggleComplete = () => {
-    const newList = notes.map<NoteType>((note, i) =>
-      i === index
-        ? {
-            ...note,
-            isComplete: !note.isComplete,
-          }
-        : note,
+    update(
+      {
+        type: 'isComplete',
+        payload: !notes[index].isComplete,
+      },
+      index,
     );
-
-    setNotes(newList);
   };
 
   return (

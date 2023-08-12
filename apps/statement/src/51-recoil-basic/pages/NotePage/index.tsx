@@ -1,8 +1,8 @@
 import { css } from '@emotion/css';
-import { RecoilRoot, useRecoilState, useSetRecoilState } from 'recoil';
+import { RecoilRoot } from 'recoil';
 import { Log } from './components/Log';
 import { NoteItem } from './components/NoteItem';
-import { notepadState } from './states/notepadState';
+import { useNotepad, useUpdateNotepad } from './states/NotepadState';
 
 /**
  * @see https://ics.media/entry/210224/
@@ -14,26 +14,15 @@ export const NotePage = () => (
 );
 
 const Presentation = () => {
-  // Recoilの Atoms を呼び出して定義
-  const setNotepad = useSetRecoilState(notepadState);
+  const { notes } = useNotepad();
 
-  // ステートとして利用する
-  const [notes] = useRecoilState(notepadState);
+  const { add } = useUpdateNotepad();
 
   /**
    * メモ帳を新しく作成します。
    */
   const handleCreate = () => {
-    setNotepad((state) =>
-      [
-        ...state,
-        {
-          id: `${state.length + 1}`,
-          value: '',
-          isComplete: false,
-        },
-      ].sort((a, b) => a.id.localeCompare(b.id)),
-    );
+    add();
   };
 
   return (

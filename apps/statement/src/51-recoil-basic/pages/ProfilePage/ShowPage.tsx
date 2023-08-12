@@ -1,11 +1,12 @@
-import { useRecoilState } from 'recoil';
-import { profileState } from './states/profileState';
+import { useProfile, useUpdateProfile } from './states/ProfileState';
 
 export const ShowPage = () => {
-  const [profile, setProfile] = useRecoilState(profileState);
+  const { profile } = useProfile();
+
+  const { reset } = useUpdateProfile();
 
   const handleReset = () => {
-    setProfile({ name: '' });
+    reset();
   };
 
   return (

@@ -1,12 +1,13 @@
 import { type ChangeEvent } from 'react';
-import { useRecoilState } from 'recoil';
-import { profileState } from './states/profileState';
+import { useProfile, useUpdateProfile } from './states/ProfileState';
 
 export const EditPage = () => {
-  const [profile, setProfile] = useRecoilState(profileState);
+  const { profile } = useProfile();
+
+  const { edit } = useUpdateProfile();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setProfile({ name: e.target.value });
+    edit(e.target.value);
   };
 
   return (

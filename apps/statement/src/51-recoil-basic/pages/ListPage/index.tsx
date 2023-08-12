@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { RecoilRoot } from 'recoil';
-import { AddForm } from './AddForm';
-import { EditForm } from './EditForm';
-import { LogSection } from './LogSection';
+import { AddForm } from './components/AddForm';
+import { EditForm } from './components/EditForm';
+import { LogSection } from './components/LogSection';
 
 export const ListPage = () => (
   <RecoilRoot>

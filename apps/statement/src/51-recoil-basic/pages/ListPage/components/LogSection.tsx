@@ -1,13 +1,12 @@
 import { css } from '@emotion/css';
 import { FontFamily, LineHeight } from '@learn-react/core/src/constants/Style';
 import { gutter } from '@learn-react/core/src/helpers/Style';
-import { useRecoilValue } from 'recoil';
-import { listState } from './states/listState';
+import { useList } from '../states/ListState';
 
 export const LogSection = () => {
   console.info('log section');
 
-  const list = useRecoilValue(listState);
+  const { list } = useList();
 
   return (
     <figure className={styleBase}>

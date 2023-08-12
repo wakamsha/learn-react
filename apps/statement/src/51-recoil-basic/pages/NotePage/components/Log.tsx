@@ -1,11 +1,14 @@
 import { css } from '@emotion/css';
 import { FontFamily, LineHeight } from '@learn-react/core/src/constants/Style';
 import { gutter } from '@learn-react/core/src/helpers/Style';
-import { selector, useRecoilValue } from 'recoil';
-import { notepadState } from '../states/notepadState';
+import { useNotepad } from '../states/NotepadState';
 
 export const Log = () => {
-  const { totalNum, totalCompletedNum, totalUncompletedNum, percentCompleted } = useRecoilValue(notesSelector);
+  console.info('log');
+
+  const {
+    stats: { totalNum, totalCompletedNum, totalUncompletedNum, percentCompleted },
+  } = useNotepad();
 
   const formattedPercentCompleted = Math.round(percentCompleted);
 
@@ -40,24 +43,24 @@ const styleBase = css`
   }
 `;
 
-/**
- * このセレクターは、メモ帳リストの統計を計算するために使用されます。
- */
-const notesSelector = selector({
-  key: 'notepadStats',
-  get: ({ get }) => {
-    const notepadList = get(notepadState);
+// /**
+//  * このセレクターは、メモ帳リストの統計を計算するために使用されます。
+//  */
+// const notesSelector = selector({
+//   key: 'notepadStats',
+//   get: ({ get }) => {
+//     const notepadList = get(notepadState);
 
-    const totalNum = notepadList.length;
-    const totalCompletedNum = notepadList.filter((item) => item.isComplete).length;
-    const totalUncompletedNum = totalNum - totalCompletedNum;
-    const percentCompleted = totalNum === 0 ? 0 : (totalCompletedNum / totalNum) * 100;
+//     const totalNum = notepadList.length;
+//     const totalCompletedNum = notepadList.filter((item) => item.isComplete).length;
+//     const totalUncompletedNum = totalNum - totalCompletedNum;
+//     const percentCompleted = totalNum === 0 ? 0 : (totalCompletedNum / totalNum) * 100;
 
-    return {
-      totalNum,
-      totalCompletedNum,
-      totalUncompletedNum,
-      percentCompleted,
-    };
-  },
-});
+//     return {
+//       totalNum,
+//       totalCompletedNum,
+//       totalUncompletedNum,
+//       percentCompleted,
+//     };
+//   },
+// });
