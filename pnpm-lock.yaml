@@ -160,8 +160,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(typedoc@0.24.8)
       typedoc-theme-hierarchy:
-        specifier: 4.0.0
-        version: 4.0.0(typedoc@0.24.8)
+        specifier: 4.0.1
+        version: 4.0.1(typedoc@0.24.8)
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -8118,8 +8118,8 @@ packages:
       typedoc: 0.24.8(typescript@5.1.6)
     dev: true
 
-  /typedoc-theme-hierarchy@4.0.0(typedoc@0.24.8):
-    resolution: {integrity: sha512-/y8QfmkLN+NS57hoxsS/vD1fdAPdkd7JtC7xWp2Lk3rE6/cRweFdEfaKD6GJCQMD3CuSD7Ldcc5vjwwrF4UqyQ==}
+  /typedoc-theme-hierarchy@4.0.1(typedoc@0.24.8):
+    resolution: {integrity: sha512-JEL4wU7zCAVKaqncoWdleJVlBC0/DTOn3fvvdh0Cl+iOKIP/VBqvHaUC4JSVIG9kuLB7952ufkAGJTZyLHmqOQ==}
     peerDependencies:
       typedoc: ^0.24.0
     dependencies:
