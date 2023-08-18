@@ -94,7 +94,7 @@ module.exports = {
     'no-empty-function': [
       'error',
       {
-        allow: ['arrowFunctions', 'functions', 'methods'],
+        allow: ['arrowFunctions', 'functions', 'methods', 'constructors'],
       },
     ],
 
