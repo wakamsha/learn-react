@@ -14,14 +14,14 @@ export const AddForm = () => {
   const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'name',
-      payload: e.currentTarget.value,
+      payload: e.target.value,
     });
   };
 
   const handleInputAge = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'age',
-      payload: Number(e.currentTarget.value),
+      payload: Number(e.target.value),
     });
   };
 

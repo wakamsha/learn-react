@@ -9,6 +9,8 @@ import { ListPage } from '../pages/ListPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { NotePage } from '../pages/NotePage';
 import { Profile } from '../pages/ProfilePage';
+import { TodoPage } from '../pages/TodoPage';
+import { UsersPage } from '../pages/UsersPage';
 
 export const App = () => (
   <div className={styleBase}>
@@ -19,6 +21,8 @@ export const App = () => (
         <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
         <Route path={Router.paths.list} element={<ListPage />} />
         <Route path={Router.paths.note} element={<NotePage />} />
+        <Route path={Router.paths.users} element={<UsersPage />} />
+        <Route path="todo" element={<TodoPage />} />
         <Route element={<NotFoundPage />} />
       </PageTransition>
     </main>
@@ -48,8 +52,16 @@ const linkItems: ComponentProps<typeof Sidebar>['items'] = [
     to: `${Router.paths.home}${Router.paths.list}`,
   },
   {
+    label: 'Users',
+    to: `${Router.paths.home}${Router.paths.users}`,
+  },
+  {
     label: 'Note',
     to: `${Router.paths.home}${Router.paths.note}`,
+  },
+  {
+    label: 'Todo',
+    to: '/todo',
   },
 ];
 

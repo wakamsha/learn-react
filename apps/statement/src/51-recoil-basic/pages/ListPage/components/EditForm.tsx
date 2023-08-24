@@ -21,7 +21,7 @@ export const EditForm = () => {
   const handleInputIndex = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: 'index',
-      payload: Number(e.currentTarget.value),
+      payload: Number(e.target.value),
     });
   };
 
