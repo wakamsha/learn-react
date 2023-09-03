@@ -160,8 +160,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1(typedoc@0.24.8)
       typedoc-theme-hierarchy:
-        specifier: 4.1.0
-        version: 4.1.0(typedoc@0.24.8)
+        specifier: 4.1.1
+        version: 4.1.1(typedoc@0.24.8)
       typescript:
         specifier: 5.1.6
         version: 5.1.6
@@ -4469,17 +4469,17 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /fs-extra@10.1.0:
-    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
-    engines: {node: '>=12'}
+  /fs-extra@11.1.0:
+    resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
+    engines: {node: '>=14.14'}
     dependencies:
       graceful-fs: 4.2.10
       jsonfile: 6.1.0
       universalify: 2.0.0
     dev: true
 
-  /fs-extra@11.1.0:
-    resolution: {integrity: sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==}
+  /fs-extra@11.1.1:
+    resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==}
     engines: {node: '>=14.14'}
     dependencies:
       graceful-fs: 4.2.10
@@ -8099,12 +8099,12 @@ packages:
       typedoc: 0.24.8(typescript@5.1.6)
     dev: true
 
-  /typedoc-theme-hierarchy@4.1.0(typedoc@0.24.8):
-    resolution: {integrity: sha512-23qYZ1JzFWcU8Zy50NfLN8LWuPXud1pirsqySyUJW+kOYJpSF5lPa1dqA/0WnpJhnuSI2YBu2qDlpmmXiuGsKQ==}
+  /typedoc-theme-hierarchy@4.1.1(typedoc@0.24.8):
+    resolution: {integrity: sha512-0xwHh23VCyUMarPkXYW3BYv0DYJgVXc1xByXBC0XdxHDF1ju4aozaD62uo+ToM2bU36lGECAU3ciaHTVpUUjwA==}
     peerDependencies:
-      typedoc: ^0.24.0
+      typedoc: '>=0.24.0'
     dependencies:
-      fs-extra: 10.1.0
+      fs-extra: 11.1.1
       typedoc: 0.24.8(typescript@5.1.6)
     dev: true
 
