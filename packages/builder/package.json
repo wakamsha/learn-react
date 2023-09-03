@@ -14,7 +14,7 @@
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/node": "18.17.12",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "vite": "4.4.9"
   },
   "peerDependencies": {
