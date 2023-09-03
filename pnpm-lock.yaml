@@ -319,8 +319,8 @@ importers:
         specifier: 3.12.0
         version: 3.12.0
       pdfjs-dist:
-        specifier: 3.9.179
-        version: 3.9.179
+        specifier: 3.10.111
+        version: 3.10.111
       qs:
         specifier: 6.11.2
         version: 6.11.2
@@ -6764,8 +6764,8 @@ packages:
     dev: false
     optional: true
 
-  /pdfjs-dist@3.9.179:
-    resolution: {integrity: sha512-AZBEIAORYDaOAlM0/A4Zg465+XF3ugYDdgrVmioVvNW5tH3xs3RpGFBYOG5PM9/vLM3M/wNncsMLTgyIKdqMKg==}
+  /pdfjs-dist@3.10.111:
+    resolution: {integrity: sha512-+SXXGN/3YTNQSK5Ae7EyqQuR+4IAsNunJq/Us5ByOkRJ45qBXXOwkiWi3RIDU+CyF+ak5eSWXl2FQW2PKBrsRA==}
     engines: {node: '>=18'}
     optionalDependencies:
       canvas: 2.11.2
