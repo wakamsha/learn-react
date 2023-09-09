@@ -30,8 +30,8 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@typescript-eslint/eslint-plugin": "6.5.0",
-    "@typescript-eslint/parser": "6.5.0",
+    "@typescript-eslint/eslint-plugin": "6.6.0",
+    "@typescript-eslint/parser": "6.6.0",
     "cspell": "7.2.0",
     "eslint": "8.48.0",
     "eslint-config-airbnb-base": "15.0.0",
