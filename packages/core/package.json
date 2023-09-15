@@ -15,7 +15,7 @@
     "hotkeys-js": "3.12.0",
     "pdfjs-dist": "3.10.111",
     "qs": "6.11.2",
-    "ts-xor": "1.1.0"
+    "ts-xor": "1.1.1"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
