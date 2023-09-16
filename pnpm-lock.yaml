@@ -325,8 +325,8 @@ importers:
         specifier: 6.11.2
         version: 6.11.2
       ts-xor:
-        specifier: 1.1.1
-        version: 1.1.1
+        specifier: 1.2.0
+        version: 1.2.0
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -7985,8 +7985,8 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-xor@1.1.1:
-    resolution: {integrity: sha512-mT56tKgMhtnL8icVC18ffg/qMlmqYpMjNvOfy8nqac30IA4LrShy9fZQmCS5DEGOcMFYSltH+lMpfXG4gnPLKA==}
+  /ts-xor@1.2.0:
+    resolution: {integrity: sha512-BZVhUoILPOfM/G5qwwlLMFXizriuTYI9httFBxW4CWqsoDCtgssEsa1+kmnFV0UcdyKA8F0WBlzUtGX/SMTnog==}
     dev: false
 
   /tsconfig-paths@3.14.2:
