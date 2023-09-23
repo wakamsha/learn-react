@@ -8,10 +8,10 @@
   "type": "module",
   "engines": {
     "node": "18.17.1",
-    "pnpm": "8.7.5",
+    "pnpm": "8.7.6",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@8.7.5",
+  "packageManager": "pnpm@8.7.6",
   "scripts": {
     "postinstall": "husky install",
     "prepare": "pnpm builder build; pnpm icon build",
