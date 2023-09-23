@@ -133,8 +133,8 @@ importers:
         specifier: 3.5.3
         version: 3.5.3
       glob:
-        specifier: 10.3.4
-        version: 10.3.4
+        specifier: 10.3.5
+        version: 10.3.5
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -383,8 +383,8 @@ importers:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
       glob:
-        specifier: 10.3.4
-        version: 10.3.4
+        specifier: 10.3.5
+        version: 10.3.5
       prettier:
         specifier: 3.0.3
         version: 3.0.3
@@ -4619,14 +4619,14 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /glob@10.3.4:
-    resolution: {integrity: sha512-6LFElP3A+i/Q8XQKEvZjkEWEOTgAIALR9AO2rwT8bgPhDd1anmqDJDZ6lLddI4ehxxxR1S5RIqKe1uapMQfYaQ==}
+  /glob@10.3.5:
+    resolution: {integrity: sha512-bYUpUD7XDEHI4Q2O5a7PXGvyw4deKR70kHiDxzQbe925wbZknhOzUt2xBgTkYL6RBcVeXYuD9iNYeqoWbBZQnA==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.1.1
-      minimatch: 9.0.1
+      minimatch: 9.0.3
       minipass: 5.0.0
       path-scurry: 1.10.1
     dev: true
@@ -6230,13 +6230,6 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
-
-  /minimatch@9.0.1:
-    resolution: {integrity: sha512-0jWhJpD/MdhPXwPuiRkCbfYfSKp2qnn2eOc279qI7f+osl/l+prKSrvhg157zSYvx/1nmgn2NqdT6k2Z7zSH9w==}
-    engines: {node: '>=16 || 14 >=14.17'}
-    dependencies:
-      brace-expansion: 2.0.1
-    dev: true
 
   /minimatch@9.0.3:
     resolution: {integrity: sha512-RHiac9mvaRw0x3AYRgDC1CxAP7HTcNrrECeA8YYJeWnpo+2Q5CegtZjaotWTWxDG3UeGA1coE05iH1mPjT/2mg==}
