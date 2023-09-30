@@ -413,8 +413,8 @@ importers:
         specifier: 6.11.2
         version: 6.11.2
       swr:
-        specifier: 2.2.2
-        version: 2.2.2(react@18.2.0)
+        specifier: 2.2.4
+        version: 2.2.4(react@18.2.0)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -7712,8 +7712,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /swr@2.2.2(react@18.2.0):
-    resolution: {integrity: sha512-CbR41AoMD4TQBQw9ic3GTXspgfM9Y8Mdhb5Ob4uIKXhWqnRLItwA5fpGvB7SmSw3+zEjb0PdhiEumtUvYoQ+bQ==}
+  /swr@2.2.4(react@18.2.0):
+    resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
