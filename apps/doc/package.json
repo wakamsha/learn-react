@@ -11,7 +11,7 @@
   "devDependencies": {
     "typedoc": "0.25.1",
     "typedoc-plugin-missing-exports": "2.1.0",
-    "typedoc-theme-hierarchy": "4.1.1",
+    "typedoc-theme-hierarchy": "4.1.2",
     "typescript": "5.2.2",
     "yargs": "17.7.2"
   }
