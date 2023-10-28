@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 18.0.0
-        version: 18.0.0(typescript@5.2.2)
+        specifier: 18.1.0
+        version: 18.1.0(typescript@5.2.2)
       '@stylelint/postcss-css-in-js':
         specifier: 0.38.0
         version: 0.38.0(postcss-syntax@0.36.2)(postcss@8.4.31)
@@ -1074,8 +1074,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@commitlint/cli@18.0.0(typescript@5.2.2):
-    resolution: {integrity: sha512-0HuJB7VfxSqia0r+mZ9VLgTc5gPaRDiQtloLfwCBp63PvpFn2sZsidiZBbym3jDC6+P47HSuIdRRg3/JsCcBwA==}
+  /@commitlint/cli@18.1.0(typescript@5.2.2):
+    resolution: {integrity: sha512-ZT95pRNGD9fEEX1ih0yKyJ65U3Y88vLrJjK6hlSpLrJFioQNXTI4sSoOq7hHnOsJAmTsgEg5zxIY8qTzgEQtWg==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
@@ -6495,7 +6495,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      is-core-module: 2.13.0
+      is-core-module: 2.13.1
       semver: 7.5.4
       validate-npm-package-license: 3.0.4
     dev: true
