@@ -9,6 +9,7 @@ import importConfig from './eslint-rules/imports.js';
 import jestConfig from './eslint-rules/jest.js';
 import jsDocConfig from './eslint-rules/jsdoc.js';
 import jsxA11yConfig from './eslint-rules/jsx-a11y.js';
+import promiseConfig from './eslint-rules/promise.js';
 import reactHooksConfig from './eslint-rules/react-hooks.js';
 import reactConfig from './eslint-rules/react.js';
 import styleConfig from './eslint-rules/style.js';
@@ -63,6 +64,12 @@ export default [
     rules: {
       'import/no-default-export': ['off'],
     },
+  },
+
+  /* promise */
+  {
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs'],
+    ...promiseConfig,
   },
 
   /* jsx-a11y */
