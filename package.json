@@ -25,7 +25,6 @@
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",
     "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}';    eslint './**/*.{js,cjs,ts,tsx}';       stylelint './**/*.{ts,tsx}'",
-    "lint2": "eslint './**/*.{js,cjs,ts,tsx}' -c 'eslint.config.js'",
     "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
