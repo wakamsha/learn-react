@@ -21,5 +21,5 @@ export function isValidEmail(value: string): boolean {
  */
 export function count(value: string): number {
   if (!value) return 0;
-  return (value.replace(/\r?\n/g, ' ').match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) || []).length;
+  return (value.replace(/\r?\n/g, ' ').match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) ?? []).length;
 }

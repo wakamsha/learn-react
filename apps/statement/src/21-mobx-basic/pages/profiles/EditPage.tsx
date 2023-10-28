@@ -8,7 +8,9 @@ type Props = {
 
 export const ProfileEditPage = observer(({ store }: Props) => {
   const handleChange = useCallback(
-    ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => store.setName(value),
+    ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+      store.setName(value);
+    },
     [store],
   );
 

@@ -37,4 +37,4 @@ export function useData<T, P>(key: Key<P>, fetcher: (...p: P[]) => Promise<T>, r
   return cachedData.getOrThrow();
 }
 
-const dataMap: Map<PrimitiveTypes, unknown> = new Map();
+const dataMap = new Map<PrimitiveTypes, unknown>();

@@ -1,7 +1,13 @@
-module.exports = {
-  extends: ['plugin:jsdoc/recommended-typescript-error'],
-  plugins: ['jsdoc'],
+import jsdoc from 'eslint-plugin-jsdoc';
+
+const recommendTypescript = {
+  plugins: {
+    jsdoc,
+  },
+
   rules: {
+    ...jsdoc.configs['flat/recommended-typescript-error'].rules,
+
     // Enable
     'jsdoc/check-param-names': [
       'error',
@@ -81,24 +87,21 @@ module.exports = {
     // Disable
     'jsdoc/require-returns': ['off'],
   },
+};
 
-  overrides: [
-    {
-      files: ['*.js', '*.mjs'],
-      rules: {
-        'jsdoc/require-param-type': ['error'],
-        'jsdoc/require-returns': ['error'],
-        'jsdoc/require-returns-type': ['error'],
-        'jsdoc/no-types': ['off'],
-      },
-    },
-    {
-      files: ['./apps/{routing,statement}/**/*', './packages/try/**/*', '**/*.story.tsx'],
-      rules: {
-        'jsdoc/require-jsdoc': ['off'],
-        'jsdoc/require-description': ['off'],
-        'jsdoc/require-param-description': ['off'],
-      },
-    },
-  ],
+const recommendJavaScript = {
+  plugins: {
+    jsdoc,
+  },
+  rules: {
+    'jsdoc/require-param-type': ['error'],
+    'jsdoc/require-returns': ['error'],
+    'jsdoc/require-returns-type': ['error'],
+    'jsdoc/no-types': ['off'],
+  },
+};
+
+export default {
+  recommendTypescript,
+  recommendJavaScript,
 };

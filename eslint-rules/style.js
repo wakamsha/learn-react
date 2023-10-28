@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   rules: {
     // enforce line breaks after opening and before closing array brackets
     // https://eslint.org/docs/rules/array-bracket-newline
@@ -371,9 +371,6 @@ module.exports = {
       },
     ],
 
-    // disallow mixed spaces and tabs for indentation
-    'no-mixed-spaces-and-tabs': 'error',
-
     // disallow use of chained assignment expressions
     // https://eslint.org/docs/rules/no-multi-assign
     'no-multi-assign': ['error'],
@@ -622,13 +619,4 @@ module.exports = {
     // require regex literals to be wrapped in parentheses
     'wrap-regex': 'off',
   },
-
-  overrides: [
-    {
-      files: ['*.js', '*.mjs'],
-      rules: {
-        'no-underscore-dangle': ['off'],
-      },
-    },
-  ],
 };

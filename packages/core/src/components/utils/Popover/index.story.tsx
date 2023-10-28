@@ -95,7 +95,9 @@ export const Story = () => {
         position={position}
         alignment={alignment}
         visible={visible}
-        onClickOutside={() => setVisible(false)}
+        onClickOutside={() => {
+          setVisible(false);
+        }}
       >
         <div className={styleCard}>
           <p>

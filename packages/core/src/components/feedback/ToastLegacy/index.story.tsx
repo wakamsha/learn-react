@@ -12,7 +12,15 @@ export const Story = () => {
     <Toast.Provider limit={limit}>
       <label className={styleFormControl}>
         <span>表示する上限数</span>
-        <input type="number" min={1} max={10} value={limit} onChange={(e) => setLimit(Number(e.target.value))} />
+        <input
+          type="number"
+          min={1}
+          max={10}
+          value={limit}
+          onChange={(e) => {
+            setLimit(Number(e.target.value));
+          }}
+        />
       </label>
 
       <AddMessage />
@@ -50,7 +58,12 @@ const AddMessage = () => {
   };
 
   return (
-    <form className={styleForm} onSubmit={(e) => e.preventDefault()}>
+    <form
+      className={styleForm}
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <div className={styleFormControl}>
         <select
           className={styleFormItem}

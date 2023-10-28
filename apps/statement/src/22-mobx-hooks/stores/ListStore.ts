@@ -11,6 +11,7 @@ export class ListStore {
   public static Context = createContext<ListStore | null>(null);
 
   public static useStore() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return useContext(ListStore.Context);
   }
 

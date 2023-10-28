@@ -21,7 +21,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
     let id = 0;
     let running = true;
 
-    if (ref?.current && originStr.length) {
+    if (ref.current && originStr.length) {
       const randomIndexes = [...Array(originStr.length).keys()].reduce((acc: number[], i) => {
         const rate = i / originStr.length;
 
@@ -32,7 +32,9 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
 
       const startTime = new Date().getTime();
 
-      id = window.requestAnimationFrame(() => onInterval());
+      id = window.requestAnimationFrame(() => {
+        onInterval();
+      });
 
       const onInterval = () => {
         if (!ref.current) return;
@@ -61,7 +63,9 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
         ref.current.innerHTML = letters;
 
         if (running) {
-          id = window.requestAnimationFrame(() => onInterval());
+          id = window.requestAnimationFrame(() => {
+            onInterval();
+          });
         }
       };
     }

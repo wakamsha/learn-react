@@ -38,7 +38,9 @@ export const Story = () => {
               className={styleMenuItem}
               tabIndex={itemProps[index].tabIndex}
               role={itemProps[index].role}
-              onClick={() => handleSelect(item)}
+              onClick={() => {
+                handleSelect(item);
+              }}
               onKeyDown={itemProps[index].onKeyDown}
             >
               {item}

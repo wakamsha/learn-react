@@ -73,7 +73,7 @@ export class StorageProxy {
 
 class CookieStorage implements Storage {
   public getValue(key: string) {
-    return getCookie(key) || '';
+    return getCookie(key) ?? '';
   }
 
   public setValue(key: string, value: string) {

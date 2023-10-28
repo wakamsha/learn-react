@@ -11,7 +11,13 @@ export const Story = () => {
         {/* <AlwaysSuspend /> */}
         <SometimesSuspend />
         <RenderingNotifier name="inside-Suspense" />
-        <button onClick={() => setCount((state) => state + 1)}>{count}</button>
+        <button
+          onClick={() => {
+            setCount((state) => state + 1);
+          }}
+        >
+          {count}
+        </button>
       </Suspense>
     </div>
   );

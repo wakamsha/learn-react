@@ -35,9 +35,13 @@ const AddForm = ({ listStore }: { listStore: ListStore }) => {
 
   const [age, setAge] = useState(18);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setName(value);
+  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setName(value);
+  };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setAge(Number(value));
+  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(value));
+  };
 
   const handleSubmit = () => {
     listStore.addItem({ name, age });
@@ -46,16 +50,24 @@ const AddForm = ({ listStore }: { listStore: ListStore }) => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <fieldset>
         <legend>Add</legend>
         <p>
-          <label>name</label>
-          <input value={name} onChange={handleInputName} />
+          <label>
+            name
+            <input value={name} onChange={handleInputName} />
+          </label>
         </p>
         <p>
-          <label>age</label>
-          <input type="number" value={age} onChange={handleInputAge} />
+          <label>
+            age
+            <input type="number" value={age} onChange={handleInputAge} />
+          </label>
         </p>
         <button onClick={handleSubmit}>Add</button>
       </fieldset>
@@ -70,11 +82,17 @@ const EditForm = ({ listStore }: { listStore: ListStore }) => {
 
   const [index, setIndex] = useState(0);
 
-  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setName(value);
+  const handleInputName = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setName(value);
+  };
 
-  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setAge(Number(value));
+  const handleInputAge = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(value));
+  };
 
-  const handleInputIndex = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => setIndex(Number(value));
+  const handleInputIndex = ({ currentTarget: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setIndex(Number(value));
+  };
 
   const handleSubmit = () => {
     listStore.editItem({ name, age }, index);
@@ -83,20 +101,30 @@ const EditForm = ({ listStore }: { listStore: ListStore }) => {
   };
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <fieldset>
         <legend>Edit</legend>
         <p>
-          <label>index:</label>
-          <input type="number" value={index} onChange={handleInputIndex} />
+          <label>
+            index:
+            <input type="number" value={index} onChange={handleInputIndex} />
+          </label>
         </p>
         <p>
-          <label>name:</label>
-          <input value={name} onChange={handleInputName} />
+          <label>
+            name:
+            <input value={name} onChange={handleInputName} />
+          </label>
         </p>
         <p>
-          <label>age:</label>
-          <input type="number" value={age} onChange={handleInputAge} />
+          <label>
+            age:
+            <input type="number" value={age} onChange={handleInputAge} />
+          </label>
         </p>
         <button onClick={handleSubmit}>Add</button>
       </fieldset>

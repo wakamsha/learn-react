@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   rules: {
     // enforces getter/setter pairs in objects
     // https://eslint.org/docs/rules/accessor-pairs
@@ -73,10 +73,6 @@ module.exports = {
     // https://eslint.org/docs/rules/no-caller
     'no-caller': ['error'],
 
-    // disallow lexical declarations in case/default clauses
-    // https://eslint.org/docs/rules/no-case-declarations
-    'no-case-declarations': 'error',
-
     // Disallow returning value in constructor
     // https://eslint.org/docs/rules/no-constructor-return
     'no-constructor-return': 'error',
@@ -98,10 +94,6 @@ module.exports = {
       },
     ],
 
-    // disallow empty destructuring patterns
-    // https://eslint.org/docs/rules/no-empty-pattern
-    'no-empty-pattern': 'error',
-
     // disallow comparisons to null without a type-checking operator
     // https://eslint.org/docs/rules/no-eq-null
     'no-eq-null': 'off',
@@ -122,21 +114,9 @@ module.exports = {
     // https://eslint.org/docs/rules/no-extra-label
     'no-extra-label': 'error',
 
-    // disallow fallthrough of case statements
-    // https://eslint.org/docs/rules/no-fallthrough
-    'no-fallthrough': 'error',
-
     // disallow the use of leading or trailing decimal points in numeric literals
     // https://eslint.org/docs/rules/no-floating-decimal
     'no-floating-decimal': 'error',
-
-    // disallow reassignments of native objects or read-only globals
-    // https://eslint.org/docs/rules/no-global-assign
-    'no-global-assign': ['error', { exceptions: [] }],
-
-    // deprecated in favor of no-global-assign
-    // https://eslint.org/docs/rules/no-native-reassign
-    // 'no-native-reassign': 'off',
 
     // disallow implicit type conversions
     // https://eslint.org/docs/rules/no-implicit-coercion
@@ -219,10 +199,6 @@ module.exports = {
     // https://eslint.org/docs/rules/no-nonoctal-decimal-escape
     'no-nonoctal-decimal-escape': 'error',
 
-    // disallow use of (old style) octal literals
-    // https://eslint.org/docs/rules/no-octal
-    'no-octal': 'error',
-
     // disallow use of octal escape sequences in string literals, such as
     // var foo = 'Copyright \251';
     // https://eslint.org/docs/rules/no-octal-escape
@@ -254,10 +230,6 @@ module.exports = {
     // disallow usage of __proto__ property
     // https://eslint.org/docs/rules/no-proto
     'no-proto': 'error',
-
-    // disallow declaring the same variable more than once
-    // https://eslint.org/docs/rules/no-redeclare
-    'no-redeclare': 'error',
 
     // disallow certain object properties
     // https://eslint.org/docs/rules/no-restricted-properties
@@ -357,13 +329,9 @@ module.exports = {
       {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: false,
+        allowTaggedTemplates: true,
       },
     ],
-
-    // disallow unused labels
-    // https://eslint.org/docs/rules/no-unused-labels
-    'no-unused-labels': 'error',
 
     // disallow unnecessary .call() and .apply()
     // https://eslint.org/docs/rules/no-useless-call
@@ -377,10 +345,6 @@ module.exports = {
     // https://eslint.org/docs/rules/no-useless-concat
     'no-useless-concat': 'error',
 
-    // disallow unnecessary string escaping
-    // https://eslint.org/docs/rules/no-useless-escape
-    'no-useless-escape': 'error',
-
     // disallow redundant return; keywords
     // https://eslint.org/docs/rules/no-useless-return
     'no-useless-return': 'error',
@@ -392,10 +356,6 @@ module.exports = {
     // disallow usage of configurable warning terms in comments: e.g. todo
     // https://eslint.org/docs/rules/no-warning-comments
     'no-warning-comments': ['off', { terms: ['todo', 'fixme', 'xxx'], location: 'start' }],
-
-    // disallow use of the with statement
-    // https://eslint.org/docs/rules/no-with
-    'no-with': 'error',
 
     // require using Error objects as Promise rejection reasons
     // https://eslint.org/docs/rules/prefer-promise-reject-errors

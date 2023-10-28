@@ -20,7 +20,7 @@ export const Story = () => {
   const scrollTo = useScrollTo({ rootRef, offset });
 
   const onSpyChange = (e: HTMLElement) => {
-    if (!e.dataset?.spy) return;
+    if (!e.dataset.spy) return;
     setSpyKey(e.dataset.spy);
   };
 
@@ -47,7 +47,12 @@ export const Story = () => {
         <ul className={styleNavigation}>
           {fruits.map((name) => (
             <li key={name}>
-              <a href={`#${name}`} onClick={(e) => handleSelectNav(e, name)}>
+              <a
+                href={`#${name}`}
+                onClick={(e) => {
+                  handleSelectNav(e, name);
+                }}
+              >
                 {name}
               </a>
             </li>

@@ -26,7 +26,7 @@ const DataLoader2 = () => {
   return <p>data is {data}</p>;
 };
 
-const dataMap: Map<string, unknown> = new Map();
+const dataMap = new Map<string, unknown>();
 
 function useData<T>(cacheKey: string, fetch: () => Promise<T>) {
   const cachedData = dataMap.get(cacheKey) as T | undefined;

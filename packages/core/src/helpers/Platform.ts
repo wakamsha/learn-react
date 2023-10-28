@@ -6,5 +6,5 @@ export function isMac() {
 }
 
 function testPlatform(re: RegExp) {
-  return typeof window !== 'undefined' && window.navigator != null ? re.test(window.navigator.platform) : false;
+  return re.test(window.navigator.platform);
 }

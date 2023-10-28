@@ -53,7 +53,9 @@ export const LayoutSwitch = () => {
                   tabIndex={itemProps[index].tabIndex}
                   role={itemProps[index].role}
                   className={cx(styleMenuItem, value === layoutConfig && styleMenuItemSelected)}
-                  onClick={() => handleSelect(value)}
+                  onClick={() => {
+                    handleSelect(value);
+                  }}
                   onKeyDown={itemProps[index].onKeyDown}
                 >
                   <i className={cx(styleVariant[value], value === layoutConfig && styleButtonSelected)} />

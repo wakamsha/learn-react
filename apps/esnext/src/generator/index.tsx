@@ -18,7 +18,7 @@ function* gfn(): IterableIterator<Promise<string>> {
 function loop<T>(g: IterableIterator<Promise<T>>) {
   const p = g.next();
   if (p.done) return;
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises, promise/catch-or-return
   p.value.then((value) => {
     console.info(value);
     loop(g);

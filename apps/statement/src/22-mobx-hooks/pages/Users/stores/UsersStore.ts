@@ -8,6 +8,7 @@ export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);
 
   public static useStore() {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     return useContext(UsersStore.Context);
   }
 

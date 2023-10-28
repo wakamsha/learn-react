@@ -54,7 +54,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
   useEffect(() => {
     if (active) {
       document.addEventListener('keydown', onKeyDown);
-      (document.activeElement as HTMLElement)?.blur();
+      (document.activeElement as HTMLElement | null)?.blur();
     }
 
     return () => {

@@ -29,7 +29,12 @@ const DataLoader = () => {
   return (
     <>
       <p>data is {data}</p>
-      <button className="border p-1" onClick={() => setLoading(true)}>
+      <button
+        className="border p-1"
+        onClick={() => {
+          setLoading(true);
+        }}
+      >
         load
       </button>
     </>

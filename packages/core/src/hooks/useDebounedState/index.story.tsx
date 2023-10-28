@@ -12,13 +12,24 @@ export const Story = () => {
       <div>
         <label>
           Value:
-          <input value={value} onChange={(e) => setValue(e.target.value)} />
+          <input
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+            }}
+          />
         </label>
       </div>
       <div>
         <label>
           Delay:
-          <input type="number" value={delay} onChange={(e) => setDelay(Number(e.target.value))} />
+          <input
+            type="number"
+            value={delay}
+            onChange={(e) => {
+              setDelay(Number(e.target.value));
+            }}
+          />
         </label>
       </div>
       <code>

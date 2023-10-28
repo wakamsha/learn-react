@@ -44,7 +44,12 @@ export const Story = () => {
         <ul className={styleNavigation}>
           {fruits.map((name) => (
             <li key={name}>
-              <a href={`#${name}`} onClick={(e) => handleSelectNav(e, name)}>
+              <a
+                href={`#${name}`}
+                onClick={(e) => {
+                  handleSelectNav(e, name);
+                }}
+              >
                 {name}
               </a>
             </li>

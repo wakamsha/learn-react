@@ -88,7 +88,7 @@ function topOf(e: Element | Document) {
 
 function findTargetByTopPosition(targets: ArrayLike<Element>, y: number) {
   for (let i = 0; i < targets.length; i++) {
-    const top = targets[i]?.getBoundingClientRect().top;
+    const { top } = targets[i].getBoundingClientRect();
 
     if (typeof top === 'number' && top >= y) {
       const index = i >= 1 ? i - 1 : 0;

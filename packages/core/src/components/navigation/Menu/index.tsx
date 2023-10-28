@@ -59,7 +59,7 @@ type DropdownMenuResponse = Readonly<{
  * @param options   - リストボックスの振る舞いをカスタマイズするオプション。
  */
 export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions): DropdownMenuResponse {
-  const { onClickDisableFocusFirstItem = false, autoHide = true } = options || {};
+  const { onClickDisableFocusFirstItem = false, autoHide = true } = options ?? {};
 
   const [opened, setOpened] = useState(false);
   const currentFocusIndex = useRef(0);
@@ -207,8 +207,8 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
         const index = itemRefs.findIndex(
           (ref) =>
-            ref.current?.innerText.toLowerCase().startsWith(e.key.toLowerCase()) ||
-            ref.current?.textContent?.toLowerCase().startsWith(e.key.toLowerCase()) ||
+            ref.current?.innerText.toLowerCase().startsWith(e.key.toLowerCase()) ??
+            ref.current?.textContent?.toLowerCase().startsWith(e.key.toLowerCase()) ??
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(e.key.toLowerCase()),
         );
 

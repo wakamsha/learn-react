@@ -21,14 +21,30 @@ export const Story = () => {
   return (
     <>
       <h4>Submit</h4>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <input
+          value={input}
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
         <button onClick={handleSubmit}>submit</button>
       </form>
       <p ref={ref1}>{value}</p>
 
       <h3>Click</h3>
-      <p ref={ref2} className={styleParagraph} role="presentation" onClick={() => startShuffle2('my name is wakamsha')}>
+      <p
+        ref={ref2}
+        className={styleParagraph}
+        role="presentation"
+        onClick={() => {
+          startShuffle2('my name is wakamsha');
+        }}
+      >
         my name is wakamsha
       </p>
 
@@ -48,7 +64,12 @@ const ListItem = ({ children }: { children: ReactNode }) => {
   const [startShuffle] = useShuffleLetters(ref);
 
   return (
-    <li ref={ref} onMouseEnter={() => startShuffle(children as string)}>
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        startShuffle(children as string);
+      }}
+    >
       {children}
     </li>
   );
