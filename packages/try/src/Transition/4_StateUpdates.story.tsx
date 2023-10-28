@@ -39,7 +39,7 @@ const ShowData = ({ dataKey }: { dataKey: number }) => {
   );
 };
 
-const dataMap: Map<string, unknown> = new Map();
+const dataMap = new Map<string, unknown>();
 
 function useData<T>(cacheKey: string, fetch: () => Promise<T>): T {
   const cachedData = dataMap.get(cacheKey) as Loadable<T> | undefined;

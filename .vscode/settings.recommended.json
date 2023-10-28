@@ -10,6 +10,9 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
 
+  // ESLint Flat Config を使用する
+  "eslint.experimental.useFlatConfig": true,
+
   // TS バージョンを揃える
   "typescript.tsdk": "node_modules/typescript/lib",
   // 相対インポート パスでパッケージまたはプロジェクト ディレクトリが提供される場合にのみ、非相対インポートを優先します。

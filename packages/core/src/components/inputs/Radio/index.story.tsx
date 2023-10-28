@@ -4,7 +4,9 @@ import { Radio } from '.';
 export const Story = () => {
   const [value, setValue] = useState('');
 
-  const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => setValue(value);
+  const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
+    setValue(value);
+  };
 
   return (
     <ul>

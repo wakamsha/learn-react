@@ -10,13 +10,13 @@ type Cookie = {
  * 指定したキーが既に存在する場合は、新しい値で上書きします。
  */
 export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
-  const segments: { [key: string]: string } = {};
+  const segments: Record<string, string> = {};
   segments[cname] = cvalue;
   segments.path = '/';
 
   if (domain) {
     segments.domain =
-      window.location.hostname === 'localhost' || /192\.168\./.test(window.location.hostname)
+      window.location.hostname === 'localhost' || window.location.hostname.includes('192.168.')
         ? window.location.hostname
         : domain;
   }
@@ -39,19 +39,20 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
  *
  * @param cname - 取得したい値のキー
  */
-export function getCookie(cname: string): string | void {
+export function getCookie(cname: string): string | undefined {
   const sensor = `${cname}=`;
   const segments = document.cookie.split(';');
 
   for (let i = 0; i < segments.length; i++) {
     let pair = segments[i];
-    while (pair[0] === ' ') {
+    while (pair.startsWith(' ')) {
       pair = pair.substring(1);
     }
-    if (pair.indexOf(sensor) === 0) {
+    if (pair.startsWith(sensor)) {
       return pair.substring(sensor.length, pair.length);
     }
   }
+  return undefined;
 }
 
 /**

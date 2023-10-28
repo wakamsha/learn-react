@@ -34,7 +34,7 @@ export function outputLog(target: any, propKey: string, descriptor: PropertyDesc
  *
  * @param target - デコレート対象となるクラスコンポーネント
  */
-export function classDecorator<T extends { new (...args: any[]): Record<string, unknown> }>(target: T) {
+export function classDecorator<T extends new (...args: any[]) => Record<string, unknown>>(target: T) {
   return class extends target {
     newProperty = 'new property';
     hello = 'override';

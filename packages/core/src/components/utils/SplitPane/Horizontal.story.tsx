@@ -7,7 +7,9 @@ export const Story = () => (
       maxSize="600px"
       defaultSize="40%"
       primary="second"
-      onStarted={() => console.info('started')}
+      onStarted={() => {
+        console.info('started');
+      }}
       onFinished={console.info}
     >
       <div>

@@ -99,7 +99,7 @@ export function textEllipsis() {
  * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
  */
 export function applyResetStyle() {
-  return injectGlobal`
+  injectGlobal`
     *,
     *::before,
     *::after {
@@ -154,7 +154,7 @@ export function applyResetStyle() {
  * アプリケーション全体にベースとなるスタイルを適用します。
  */
 export function applyGlobalStyle() {
-  return injectGlobal`
+  injectGlobal`
     @font-face {
       font-family: 'Noto Sans Japanese';
       font-style: normal;

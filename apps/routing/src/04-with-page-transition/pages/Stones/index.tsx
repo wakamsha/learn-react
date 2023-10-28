@@ -82,7 +82,7 @@ const memberData: MemberType[] = [
   },
 ];
 
-export function getMemberById(id: string): MemberType | void {
+export function getMemberById(id: string): MemberType | undefined {
   return memberData.find((f) => f.id === id);
 }
 

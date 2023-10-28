@@ -74,7 +74,7 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
 
       <nav className={styleBody}>
         <ul className={styleNavigation} role="tree">
-          {items?.map((item, i) => (
+          {items.map((item, i) => (
             <li
               key={i}
               className={cx(styleItem, !item.to && styleItemCaption)}

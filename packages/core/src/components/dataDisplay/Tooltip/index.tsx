@@ -61,7 +61,9 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     [alignment, offset, position],
   );
 
-  const hide = () => setShown(false);
+  const hide = () => {
+    setShown(false);
+  };
 
   const handleMouseLeave = useCallback(() => {
     hide();
@@ -77,7 +79,9 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
 
     if (!targetElement) return;
 
-    timerIdRef.current = window.setTimeout(() => show(targetElement), 300);
+    timerIdRef.current = window.setTimeout(() => {
+      show(targetElement);
+    }, 300);
     targetElement.addEventListener('mouseleave', handleMouseLeave);
   }, [handleMouseLeave, show]);
 
@@ -90,9 +94,11 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     targetElm.addEventListener('mouseenter', schedule);
 
     // target 非活性状態変更時に mouseleave イベントを実行し、当要素を確実に非表示とする。
-    const observer: MutationObserver = new MutationObserver((records) =>
-      records.forEach((record) => (record.target as HTMLButtonElement).disabled && handleMouseLeave()),
-    );
+    const observer: MutationObserver = new MutationObserver((records) => {
+      records.forEach((record) => {
+        (record.target as HTMLButtonElement).disabled && handleMouseLeave();
+      });
+    });
 
     observer.observe(targetElm, {
       attributes: true,
@@ -109,46 +115,46 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     <div ref={baseRef} role="tooltip" className={styleBase} style={point} aria-hidden={!shown}>
       {children}
     </div>,
-    document.getElementById('app') || document.body,
+    document.getElementById('app') ?? document.body,
   );
 };
 
 function getStyle(element: HTMLElement, styleProp: string): string {
-  const { defaultView } = element.ownerDocument || document;
+  const { defaultView } = element.ownerDocument;
 
   return defaultView?.getComputedStyle ? defaultView.getComputedStyle(element, '').getPropertyValue(styleProp) : '';
 }
 
 function getAnchorElement(tooltipElement: HTMLDivElement): HTMLElement {
-  let parent = tooltipElement.parentNode as HTMLElement;
+  let parent = tooltipElement.parentNode;
 
   while (parent && parent !== document.body) {
-    const pos = getStyle(parent, 'position');
+    const pos = getStyle(parent as HTMLElement, 'position');
     if (pos === 'absolute' || pos === 'relative' || pos === 'fixed') {
-      return parent;
+      return parent as HTMLElement;
     }
     parent = parent.parentNode as HTMLElement;
   }
 
-  return parent;
+  return parent as HTMLElement;
 }
 
 function getWrapperElement(srcDOM: Element): HTMLElement {
   if (srcDOM === document.body) return srcDOM as HTMLElement;
 
-  let wrappingElement = srcDOM.parentNode as HTMLElement;
+  let wrappingElement = srcDOM.parentNode;
 
   while (wrappingElement && wrappingElement !== document.body) {
-    const overflow = getStyle(wrappingElement, 'overflow');
+    const overflow = getStyle(wrappingElement as HTMLElement, 'overflow');
 
     if (overflow === 'auto' || overflow === 'scroll' || overflow === 'hidden') {
-      return wrappingElement;
+      return wrappingElement as HTMLElement;
     }
 
     wrappingElement = wrappingElement.parentNode as HTMLElement;
   }
 
-  return wrappingElement;
+  return wrappingElement as HTMLElement;
 }
 
 function getOptimizedPoint({

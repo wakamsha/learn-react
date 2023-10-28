@@ -60,6 +60,15 @@ export class ErrorBoundary<ERROR extends Record<string, unknown>> extends Compon
     const { children, fallbackComponent: FallbackComponent } = this.props;
     const { error } = this.state;
 
-    return error ? <FallbackComponent error={error} onReset={() => this.#reset()} /> : children;
+    return error ? (
+      <FallbackComponent
+        error={error}
+        onReset={() => {
+          this.#reset();
+        }}
+      />
+    ) : (
+      children
+    );
   }
 }

@@ -111,7 +111,7 @@ export const Calendar = ({
                   <Item
                     value={cell}
                     active={cell && isSameDay(cell, value)}
-                    disabled={cell && ((maxDate && isAfter(cell, maxDate)) || (minDate && isBefore(cell, minDate)))}
+                    disabled={cell && ((maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate)))}
                     onClick={handleClickDate}
                   />
                 </td>
@@ -205,5 +205,5 @@ function getDateArray(page: Date): (Date | undefined)[][] {
 }
 
 function splitChunk<T>(array: T[], size: number) {
-  return array.reduce((acc, _, i) => (i % size ? acc : [...acc, array.slice(i, i + size)]), [] as T[][]);
+  return array.reduce<T[][]>((acc, _, i) => (i % size ? acc : [...acc, array.slice(i, i + size)]), []);
 }

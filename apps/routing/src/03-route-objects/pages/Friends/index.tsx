@@ -70,6 +70,6 @@ const FriendData: FriendType[] = [
   },
 ];
 
-export function getFriendById(id: string): FriendType | void {
+export function getFriendById(id: string): FriendType | undefined {
   return FriendData.find((f) => f.id === id);
 }

@@ -36,9 +36,9 @@ export const Story = () => {
         <DataFetching1 />
       ) : demo === 'DataFetching2' ? (
         <DataFetching2 />
-      ) : demo === 'RenderAsYouFetch' ? (
+      ) : (
         <RenderAsYouFetch />
-      ) : null}
+      )}
     </>
   );
 };

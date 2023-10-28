@@ -8,7 +8,9 @@ export function useTime() {
       setTime(formatter.format(new Date()));
     }, 100);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+    };
   });
 
   return time;

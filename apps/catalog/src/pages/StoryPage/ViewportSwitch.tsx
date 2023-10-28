@@ -57,7 +57,9 @@ export const ViewportSwitch = ({ onChange }: Props) => {
                   tabIndex={itemProps[index].tabIndex}
                   role={itemProps[index].role}
                   className={cx(styleMenuItem, key === selectedKey && styleMenuItemSelected)}
-                  onClick={() => handleSelect(key as keyof typeof DeviceSize, value)}
+                  onClick={() => {
+                    handleSelect(key as keyof typeof DeviceSize, value);
+                  }}
                   onKeyDown={itemProps[index].onKeyDown}
                 >
                   {key}

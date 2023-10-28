@@ -25,6 +25,7 @@
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",
     "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}';    eslint './**/*.{js,cjs,ts,tsx}';       stylelint './**/*.{ts,tsx}'",
+    "lint2": "eslint './**/*.{js,cjs,ts,tsx}' -c 'eslint.config.js'",
     "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@typescript-eslint/eslint-plugin": "6.9.0",
     "@typescript-eslint/parser": "6.9.0",
+    "confusing-browser-globals": "1.0.11",
     "cspell": "7.3.8",
     "eslint": "8.52.0",
     "eslint-config-airbnb-base": "15.0.0",

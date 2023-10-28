@@ -1,6 +1,6 @@
 import { css } from '@emotion/css';
 import { type IconName } from '@learn-react/icon';
-import { useMemo, type ChangeEvent } from 'react';
+import { type ChangeEvent } from 'react';
 import { Duration, FontSize, LineHeight } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
 import { Icon } from '../../dataDisplay/Icon';
@@ -55,16 +55,13 @@ export const Select = <T extends string | number>({
   value: propValue,
   selectedIndex,
 }: Props<T>) => {
-  const opts = useMemo(
-    () => options || optGroups?.reduce((acc: Option<T>[], { options }) => [...acc, ...options], []) || [],
-    [options, optGroups],
-  );
+  const opts = options ?? optGroups.reduce((acc: Option<T>[], { options }) => [...acc, ...options], []);
 
-  const value =
-    propValue !== undefined ? propValue : selectedIndex !== undefined ? opts[selectedIndex].value : undefined;
+  const value = propValue ?? (selectedIndex !== undefined ? opts[selectedIndex].value : undefined);
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) =>
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     !disabled && onChange(opts[e.target.selectedIndex], e.target.selectedIndex);
+  };
 
   return (
     <div className={styleBase} aria-disabled={disabled}>
@@ -81,7 +78,7 @@ export const Select = <T extends string | number>({
         tabIndex={tabIndex}
         onChange={handleChange}
       >
-        {options ? <Options options={options} /> : optGroups ? <OptGroups optGroups={optGroups} /> : null}
+        {options ? <Options options={options} /> : <OptGroups optGroups={optGroups} />}
       </select>
       <span className={styleSymbol} role="presentation">
         <Icon name="caret-updown" />

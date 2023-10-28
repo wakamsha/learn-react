@@ -19,7 +19,7 @@ export const Story = () => {
   };
 
   const onSpyChange = (e: HTMLElement, index: number) => {
-    if (!e.dataset?.spy) return;
+    if (!e.dataset.spy) return;
     console.info(index, e.dataset.spy);
 
     setSpyKey(e.dataset.spy);

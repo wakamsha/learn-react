@@ -7,7 +7,9 @@ export const Story = () => (
       minSize="100px"
       maxSize="360px"
       defaultSize="40%"
-      onStarted={() => console.info('started')}
+      onStarted={() => {
+        console.info('started');
+      }}
       onFinished={console.info}
     >
       <div style={{ overflow: 'hidden' }}>

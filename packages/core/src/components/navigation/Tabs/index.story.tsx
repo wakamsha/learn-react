@@ -19,7 +19,9 @@ const options = [
 export const Story = () => {
   const [state, setState] = useState(1);
 
-  const handleChange = ({ value }: { value: number }) => setState(value);
+  const handleChange = ({ value }: { value: number }) => {
+    setState(value);
+  };
 
   return (
     <>

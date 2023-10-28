@@ -45,9 +45,13 @@ export const Story = () => {
 
   const [state2, setState2] = useState(optGroups[0].options[0].value);
 
-  const handleChange1 = ({ value }: { value: string }) => setState1(value);
+  const handleChange1 = ({ value }: { value: string }) => {
+    setState1(value);
+  };
 
-  const handleChange2 = ({ value }: { value: string }) => setState2(value);
+  const handleChange2 = ({ value }: { value: string }) => {
+    setState2(value);
+  };
 
   return (
     <>

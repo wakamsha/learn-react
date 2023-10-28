@@ -96,51 +96,53 @@ export const Popover = ({
         aria-hidden={!visible}
         aria-modal={visible}
         style={{ ...point }}
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
         {children}
       </div>
     </div>,
-    document.getElementById('app') || document.body,
+    document.getElementById('app') ?? document.body,
   );
 };
 
 function getStyle(element: HTMLElement, styleProp: string) {
-  const { defaultView } = element.ownerDocument || document;
+  const { defaultView } = element.ownerDocument;
 
   return defaultView?.getComputedStyle ? defaultView.getComputedStyle(element, '').getPropertyPriority(styleProp) : '';
 }
 
 function getAnchorElement(popoverElement: HTMLElement): HTMLElement {
-  let anchorElement = popoverElement.parentNode as HTMLElement;
+  let anchorElement = popoverElement.parentNode;
 
   while (anchorElement && anchorElement !== document.body) {
-    const pos = getStyle(anchorElement, 'position');
+    const pos = getStyle(anchorElement as HTMLElement, 'position');
     if (pos === 'absolute' || pos === 'relative' || pos === 'fixed') {
-      return anchorElement;
+      return anchorElement as HTMLElement;
     }
     anchorElement = anchorElement.parentNode as HTMLElement;
   }
 
-  return anchorElement;
+  return anchorElement as HTMLElement;
 }
 
 function getWrapperElement(srcDOM: Element): HTMLElement {
   if (srcDOM === document.body) return srcDOM as HTMLElement;
 
-  let wrappingElement = srcDOM.parentNode as HTMLElement;
+  let wrappingElement = srcDOM.parentNode;
 
   while (wrappingElement && wrappingElement !== document.body) {
-    const overflow = getStyle(wrappingElement, 'overflow');
+    const overflow = getStyle(wrappingElement as HTMLElement, 'overflow');
 
     if (overflow === 'auto' || overflow === 'scroll' || overflow === 'hidden') {
-      return wrappingElement;
+      return wrappingElement as HTMLElement;
     }
 
     wrappingElement = wrappingElement.parentNode as HTMLElement;
   }
 
-  return wrappingElement;
+  return wrappingElement as HTMLElement;
 }
 
 function getOptimizedPoint({

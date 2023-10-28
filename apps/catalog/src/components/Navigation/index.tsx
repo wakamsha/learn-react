@@ -184,6 +184,7 @@ const styleCaptionSubPackage = css`
 `;
 
 type TreeProps = {
+  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   value: Record<string, { [key: string]: ValueOf<TreeProps['value']> }> | { Component: FC; sourceCode: string };
   basePath: string;
   query: RegExp;
@@ -200,7 +201,7 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
       {Object.entries(value).map(([key, subValue]: [string, TreeProps['value']]) => {
         const path = `${basePath}__${key}`;
 
-        if (subValue.sourceCode && subValue.Component) {
+        if (subValue.sourceCode) {
           return path.match(query) ? (
             <li key={key}>
               <Link

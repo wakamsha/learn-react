@@ -30,7 +30,9 @@ export const Story = () => {
             min={1}
             max={100}
             value={minLines}
-            onChange={(e) => setMinLines(Number(e.target.value))}
+            onChange={(e) => {
+              setMinLines(Number(e.target.value));
+            }}
           />
         </label>
         <label className={styleFormControl}>
@@ -40,7 +42,9 @@ export const Story = () => {
             min={1}
             max={100}
             value={maxLines}
-            onChange={(e) => setMaxLines(Number(e.target.value))}
+            onChange={(e) => {
+              setMaxLines(Number(e.target.value));
+            }}
           />
         </label>
       </div>
