@@ -127,11 +127,11 @@ importers:
         specifier: 6.9.9
         version: 6.9.9
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       chokidar:
         specifier: 3.5.3
         version: 3.5.3
@@ -212,11 +212,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -267,11 +267,11 @@ importers:
         specifier: 6.9.9
         version: 6.9.9
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -341,11 +341,11 @@ importers:
         specifier: 6.9.9
         version: 6.9.9
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@18.18.8)
@@ -377,11 +377,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -426,11 +426,11 @@ importers:
         specifier: 6.9.9
         version: 6.9.9
       '@types/react':
-        specifier: 18.2.34
-        version: 18.2.34
+        specifier: 18.2.37
+        version: 18.2.37
       '@types/react-dom':
-        specifier: 18.2.14
-        version: 18.2.14
+        specifier: 18.2.15
+        version: 18.2.15
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -2255,14 +2255,14 @@ packages:
     resolution: {integrity: sha512-wYLxw35euwqGvTDx6zfY1vokBFnsK0HNrzc6xNHchxfO2hpuRg74GbkEW7e3sSmPvj0TjCDT1VCa6OtHXnubsg==}
     dev: true
 
-  /@types/react-dom@18.2.14:
-    resolution: {integrity: sha512-V835xgdSVmyQmI1KLV2BEIUgqEuinxp9O4G6g3FqO/SqLac049E53aysv0oEFD2kHfejeKU+ZqL2bcFWj9gLAQ==}
+  /@types/react-dom@18.2.15:
+    resolution: {integrity: sha512-HWMdW+7r7MR5+PZqJF6YFNSCtjz1T0dsvo/f1BV6HkV+6erD/nA7wd9NM00KVG83zf2nJ7uATPO9ttdIPvi3gg==}
     dependencies:
-      '@types/react': 18.2.34
+      '@types/react': 18.2.37
     dev: true
 
-  /@types/react@18.2.34:
-    resolution: {integrity: sha512-U6eW/alrRk37FU/MS2RYMjx0Va2JGIVXELTODaTIYgvWGCV4Y4TfTUzG8DdmpDNIT0Xpj/R7GfyHOJJrDttcvg==}
+  /@types/react@18.2.37:
+    resolution: {integrity: sha512-RGAYMi2bhRgEXT3f4B92WTohopH6bIXw05FuGlmJEnv/omEn190+QYEIYxIAuIBdKgboYYdVved2p1AxZVQnaw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
