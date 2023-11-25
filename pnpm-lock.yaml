@@ -114,8 +114,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.19.0
-        version: 6.19.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.20.0
+        version: 6.20.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -202,8 +202,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.19.0
-        version: 6.19.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.20.0
+        version: 6.20.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -254,8 +254,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.19.0
-        version: 6.19.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.20.0
+        version: 6.20.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -359,8 +359,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.19.0
-        version: 6.19.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.20.0
+        version: 6.20.0(react-dom@18.2.0)(react@18.2.0)
       ts-jest:
         specifier: 29.1.1
         version: 29.1.1(@babel/core@7.23.2)(jest@29.7.0)(typescript@5.3.2)
@@ -2142,8 +2142,8 @@ packages:
     dev: true
     optional: true
 
-  /@remix-run/router@1.12.0:
-    resolution: {integrity: sha512-2hXv036Bux90e1GXTWSMfNzfDDK8LA8JYEWfyHxzvwdp6GyoWEovKc9cotb3KCKmkdwsIBuFGX7ScTWyiHv7Eg==}
+  /@remix-run/router@1.13.0:
+    resolution: {integrity: sha512-5dMOnVnefRsl4uRnAdoWjtVTdh8e6aZqgM4puy9nmEADH72ck+uXwzpJLEKE9Q6F8ZljNewLgmTfkxUrBdv4WA==}
     engines: {node: '>=14.0.0'}
 
   /@sinclair/typebox@0.27.8:
@@ -7078,25 +7078,25 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom@6.19.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-N6dWlcgL2w0U5HZUUqU2wlmOrSb3ighJmtQ438SWbhB1yuLTXQ8yyTBMK3BSvVjp7gBtKurT554nCtMOgxCZmQ==}
+  /react-router-dom@6.20.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-CbcKjEyiSVpA6UtCHOIYLUYn/UJfwzp55va4yEfpk7JBN3GPqWfHrdLkAvNCcpXr8QoihcDMuk0dzWZxtlB/mQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.12.0
+      '@remix-run/router': 1.13.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.19.0(react@18.2.0)
+      react-router: 6.20.0(react@18.2.0)
 
-  /react-router@6.19.0(react@18.2.0):
-    resolution: {integrity: sha512-0W63PKCZ7+OuQd7Tm+RbkI8kCLmn4GPjDbX61tWljPxWgqTKlEpeQUwPkT1DRjYhF8KSihK0hQpmhU4uxVMcdw==}
+  /react-router@6.20.0(react@18.2.0):
+    resolution: {integrity: sha512-pVvzsSsgUxxtuNfTHC4IxjATs10UaAtvLGVSA1tbUE4GDaOSU1Esu2xF5nWLz7KPiMuW8BJWuPFdlGYJ7/rW0w==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.12.0
+      '@remix-run/router': 1.13.0
       react: 18.2.0
 
   /react@18.2.0:
