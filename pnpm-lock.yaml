@@ -322,8 +322,8 @@ importers:
         specifier: 3.12.0
         version: 3.12.0
       pdfjs-dist:
-        specifier: 3.11.174
-        version: 3.11.174
+        specifier: 4.0.189
+        version: 4.0.189
       qs:
         specifier: 6.11.2
         version: 6.11.2
@@ -3218,7 +3218,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /chownr@2.0.0:
@@ -5656,7 +5656,7 @@ packages:
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /jest-leak-detector@29.7.0:
@@ -6923,8 +6923,8 @@ packages:
     dev: false
     optional: true
 
-  /pdfjs-dist@3.11.174:
-    resolution: {integrity: sha512-TdTZPf1trZ8/UFu5Cx/GXB7GZM30LT+wWUNfsi6Bq8ePLnb+woNKtDymI2mxZYBpMbonNFqKmiz684DIfnd8dA==}
+  /pdfjs-dist@4.0.189:
+    resolution: {integrity: sha512-5IWbLRJjQJhk3cu3nNFAvIYoSzT8xRYlRkFCIV1tn7hK1eq9H+6vOP0ytJhZz9YI35IXlu33uQspvmYO6Oir4g==}
     engines: {node: '>=18'}
     optionalDependencies:
       canvas: 2.11.2
