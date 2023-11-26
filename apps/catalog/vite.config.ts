@@ -15,6 +15,9 @@ export default defineConfig(({ mode }): UserConfig => {
       ENV: JSON.stringify({ ENV_TARGET, ENV_VARIANT }),
     },
     build: {
+      // Top-level await をサポートしているブラウザを対象にする。
+      // PDF.js の worker が Top-level await を使用しているため、この設定が必要。
+      target: 'esnext',
       rollupOptions: {
         input: {
           index: resolve(__dirname, 'index.html'),
