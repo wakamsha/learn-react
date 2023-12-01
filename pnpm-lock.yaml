@@ -319,8 +319,8 @@ importers:
         specifier: 2.30.0
         version: 2.30.0
       hotkeys-js:
-        specifier: 3.12.0
-        version: 3.12.0
+        specifier: 3.12.2
+        version: 3.12.2
       pdfjs-dist:
         specifier: 4.0.189
         version: 4.0.189
@@ -4956,8 +4956,8 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
-  /hotkeys-js@3.12.0:
-    resolution: {integrity: sha512-Z+N573ycUKIGwFYS3ID1RzMJiGmtWMGKMiaNLyJS8B1ei+MllF4ZYmKS2T0kMWBktOz+WZLVNikftEgnukOrXg==}
+  /hotkeys-js@3.12.2:
+    resolution: {integrity: sha512-Fi1g0SaDMJZosXLQzs7pbFj2T9VTwvJWx0e4dURXJqa9ERhd4q9fj3XXzgKQgyEnULZh88aQl5fiMv/vxzrEBQ==}
     dev: false
 
   /html-encoding-sniffer@3.0.0:
