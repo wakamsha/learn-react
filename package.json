@@ -30,8 +30,8 @@
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@typescript-eslint/eslint-plugin": "6.13.1",
-    "@typescript-eslint/parser": "6.13.1",
+    "@typescript-eslint/eslint-plugin": "6.13.2",
+    "@typescript-eslint/parser": "6.13.2",
     "confusing-browser-globals": "1.0.11",
     "cspell": "8.0.0",
     "eslint": "8.54.0",
