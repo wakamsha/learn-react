@@ -12,7 +12,7 @@
     "typedoc": "0.25.4",
     "typedoc-plugin-missing-exports": "2.1.0",
     "typedoc-theme-hierarchy": "4.1.2",
-    "typescript": "5.3.2",
+    "typescript": "5.3.3",
     "yargs": "17.7.2"
   }
 }
