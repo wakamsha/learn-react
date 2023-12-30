@@ -114,8 +114,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.21.0
-        version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.21.1
+        version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -127,11 +127,11 @@ importers:
         specifier: 6.9.10
         version: 6.9.10
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       chokidar:
         specifier: 3.5.3
         version: 3.5.3
@@ -202,8 +202,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.21.0
-        version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.21.1
+        version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -212,11 +212,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -254,8 +254,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.21.0
-        version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.21.1
+        version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@learn-react/builder':
         specifier: workspace:1.0.0
@@ -267,11 +267,11 @@ importers:
         specifier: 6.9.10
         version: 6.9.10
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       npm-run-all:
         specifier: 4.1.5
         version: 4.1.5
@@ -341,11 +341,11 @@ importers:
         specifier: 6.9.10
         version: 6.9.10
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       jest:
         specifier: 29.7.0
         version: 29.7.0(@types/node@18.18.9)
@@ -359,8 +359,8 @@ importers:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
       react-router-dom:
-        specifier: 6.21.0
-        version: 6.21.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 6.21.1
+        version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
       ts-jest:
         specifier: 29.1.1
         version: 29.1.1(@babel/core@7.23.3)(jest@29.7.0)(typescript@5.3.3)
@@ -377,11 +377,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -426,11 +426,11 @@ importers:
         specifier: 6.9.10
         version: 6.9.10
       '@types/react':
-        specifier: 18.2.42
-        version: 18.2.42
+        specifier: 18.2.46
+        version: 18.2.46
       '@types/react-dom':
-        specifier: 18.2.17
-        version: 18.2.17
+        specifier: 18.2.18
+        version: 18.2.18
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -2145,8 +2145,8 @@ packages:
     dev: true
     optional: true
 
-  /@remix-run/router@1.14.0:
-    resolution: {integrity: sha512-WOHih+ClN7N8oHk9N4JUiMxQJmRVaOxcg8w7F/oHUXzJt920ekASLI/7cYX8XkntDWRhLZtsk6LbGrkgOAvi5A==}
+  /@remix-run/router@1.14.1:
+    resolution: {integrity: sha512-Qg4DMQsfPNAs88rb2xkdk03N3bjK4jgX5fR24eHCTR9q6PrhZQZ4UJBPzCHJkIpTRN1UKxx2DzjZmnC+7Lj0Ow==}
     engines: {node: '>=14.0.0'}
 
   /@rollup/rollup-android-arm-eabi@4.5.2:
@@ -2373,14 +2373,14 @@ packages:
     resolution: {integrity: sha512-3Gnx08Ns1sEoCrWssEgTSJs/rsT2vhGP+Ja9cnnk9k4ALxinORlQneLXFeFKOTJMOeZUFD1s7w+w2AphTpvzZw==}
     dev: true
 
-  /@types/react-dom@18.2.17:
-    resolution: {integrity: sha512-rvrT/M7Df5eykWFxn6MYt5Pem/Dbyc1N8Y0S9Mrkw2WFCRiqUgw9P7ul2NpwsXCSM1DVdENzdG9J5SreqfAIWg==}
+  /@types/react-dom@18.2.18:
+    resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
     dependencies:
-      '@types/react': 18.2.42
+      '@types/react': 18.2.46
     dev: true
 
-  /@types/react@18.2.42:
-    resolution: {integrity: sha512-c1zEr96MjakLYus/wPnuWDo1/zErfdU9rNsIGmE+NV71nx88FG9Ttgo5dqorXTu/LImX2f63WBP986gJkMPNbA==}
+  /@types/react@18.2.46:
+    resolution: {integrity: sha512-nNCvVBcZlvX4NU1nRRNV/mFl1nNRuTuslAJglQsq+8ldXe5Xv0Wd2f7WTE3jOxhLH2BFfiZGC6GCp+kHQbgG+w==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -7103,25 +7103,25 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom@6.21.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-1dUdVj3cwc1npzJaf23gulB562ESNvxf7E4x8upNJycqyUm5BRRZ6dd3LrlzhtLaMrwOCO8R0zoiYxdaJx4LlQ==}
+  /react-router-dom@6.21.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-QCNrtjtDPwHDO+AO21MJd7yIcr41UetYt5jzaB9Y1UYaPTCnVuJq6S748g1dE11OQlCFIQg+RtAA1SEZIyiBeA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.14.0
+      '@remix-run/router': 1.14.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-router: 6.21.0(react@18.2.0)
+      react-router: 6.21.1(react@18.2.0)
 
-  /react-router@6.21.0(react@18.2.0):
-    resolution: {integrity: sha512-hGZ0HXbwz3zw52pLZV3j3+ec+m/PQ9cTpBvqjFQmy2XVUWGn5MD+31oXHb6dVTxYzmAeaiUBYjkoNz66n3RGCg==}
+  /react-router@6.21.1(react@18.2.0):
+    resolution: {integrity: sha512-W0l13YlMTm1YrpVIOpjCADJqEUpz1vm+CMo47RuFX4Ftegwm6KOYsL5G3eiE52jnJpKvzm6uB/vTKTPKM8dmkA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
-      '@remix-run/router': 1.14.0
+      '@remix-run/router': 1.14.1
       react: 18.2.0
 
   /react@18.2.0:
