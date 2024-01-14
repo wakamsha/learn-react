@@ -148,8 +148,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
       yargs:
         specifier: 17.7.2
         version: 17.7.2
@@ -184,8 +184,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
 
   apps/routing:
     dependencies:
@@ -224,8 +224,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
 
   apps/statement:
     dependencies:
@@ -279,14 +279,14 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
 
   packages/builder:
     dependencies:
       '@vitejs/plugin-react':
         specifier: 4.2.1
-        version: 4.2.1(vite@5.0.10)
+        version: 4.2.1(vite@5.0.11)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -298,8 +298,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
 
   packages/core:
     dependencies:
@@ -368,8 +368,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       vite:
-        specifier: 5.0.10
-        version: 5.0.10(@types/node@20.10.8)
+        specifier: 5.0.11
+        version: 5.0.11(@types/node@20.10.8)
 
   packages/icon:
     devDependencies:
@@ -2605,7 +2605,7 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@vitejs/plugin-react@4.2.1(vite@5.0.10):
+  /@vitejs/plugin-react@4.2.1(vite@5.0.11):
     resolution: {integrity: sha512-oojO9IDc4nCUUi8qIR11KoQm0XFFLIwsRBwHRR4d/88IWghn1y6ckz/bJ8GHDCsYEJee8mDzqtJxh15/cisJNQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2616,7 +2616,7 @@ packages:
       '@babel/plugin-transform-react-jsx-source': 7.23.3(@babel/core@7.23.5)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.0
-      vite: 5.0.10(@types/node@20.10.8)
+      vite: 5.0.11(@types/node@20.10.8)
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -6935,14 +6935,6 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss@8.4.32:
-    resolution: {integrity: sha512-D/kj5JNu6oo2EIy+XL/26JEDTlIbB8hw85G8StOE6L74RQAVVP5rej6wxCNqyMbR4RkPfqvezVbPw81Ngd6Kcw==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
-
   /postcss@8.4.33:
     resolution: {integrity: sha512-Kkpbhhdjw2qQs2O2DGX+8m5OVqEcbB9HRBvuYM9pgrjEFUg30A9LmXNlTAUj4S9kgtGyrMbTzVjH7E+s5Re2yg==}
     engines: {node: ^10 || ^12 || >=14}
@@ -6950,7 +6942,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
 
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
@@ -8241,8 +8232,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite@5.0.10(@types/node@20.10.8):
-    resolution: {integrity: sha512-2P8J7WWgmc355HUMlFrwofacvr98DAjoE52BfdbwQtyLH06XKwaL/FMnmKM2crF0iX4MpmMKoDlNCB1ok7zHCw==}
+  /vite@5.0.11(@types/node@20.10.8):
+    resolution: {integrity: sha512-XBMnDjZcNAw/G1gEiskiM1v6yzM4GE5aMGvhWTlHAYYhxb7S3/V1s3m2LDHa8Vh6yIWYYB0iJwsEaS523c4oYA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -8271,7 +8262,7 @@ packages:
     dependencies:
       '@types/node': 20.10.8
       esbuild: 0.19.7
-      postcss: 8.4.32
+      postcss: 8.4.33
       rollup: 4.5.2
     optionalDependencies:
       fsevents: 2.3.3
