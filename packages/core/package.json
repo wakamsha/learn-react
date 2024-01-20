@@ -27,7 +27,7 @@
     "jest-environment-jsdom": "29.7.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.21.2",
+    "react-router-dom": "6.21.3",
     "ts-jest": "29.1.1",
     "typescript": "5.3.3",
     "vite": "5.0.12"
@@ -35,7 +35,7 @@
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.21.2",
+    "react-router-dom": "6.21.3",
     "typescript": "5.3.3"
   }
 }
