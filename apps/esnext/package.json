@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "npm-run-all2": "5.0.2",
+    "npm-run-all2": "6.1.2",
     "typescript": "5.3.3",
     "vite": "5.1.1"
   }
