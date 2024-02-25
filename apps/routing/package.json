@@ -18,12 +18,12 @@
     "@learn-react/core": "workspace:1.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.22.0"
+    "react-router-dom": "6.22.1"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "18.2.55",
+    "@types/react": "18.2.58",
     "@types/react-dom": "18.2.19",
     "npm-run-all2": "6.1.2",
     "typescript": "5.3.3",
