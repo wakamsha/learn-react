@@ -62,6 +62,7 @@ const recommendTypeScript = {
     '@typescript-eslint/no-use-before-define': ['off'],
     '@typescript-eslint/non-nullable-type-assertion-style': ['off'], // このルールは、TypeScript 4.3 で廃止されました。
     '@typescript-eslint/prefer-for-of': ['off'], // no-restricted-syntax で for-of を禁止にしている。 for 文はインデックスを使う構文に統一する。
+    '@typescript-eslint/prefer-promise-reject-errors': ['off'],
   },
 };
 
