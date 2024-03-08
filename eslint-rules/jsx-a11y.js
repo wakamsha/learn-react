@@ -117,7 +117,16 @@ export default {
 
     // Enforce that a label tag has a text label and an associated control.
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
-    'jsx-a11y/label-has-associated-control': ['off'],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        labelComponents: [],
+        labelAttributes: [],
+        controlComponents: [],
+        assert: 'both',
+        depth: 25,
+      },
+    ],
 
     // require HTML element's lang prop to be valid
     // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
