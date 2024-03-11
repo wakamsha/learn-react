@@ -1,3 +1,4 @@
+/* eslint-disable react/hook-use-state */
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { useState } from 'react';
 import { Navigate, Route } from 'react-router-dom';

@@ -110,8 +110,10 @@ export const Calendar = ({
                 <td key={j}>
                   <Item
                     value={cell}
-                    active={cell && isSameDay(cell, value)}
-                    disabled={cell && ((maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate)))}
+                    active={cell ? isSameDay(cell, value) : undefined}
+                    disabled={
+                      cell ? (maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate)) : undefined
+                    }
                     onClick={handleClickDate}
                   />
                 </td>
