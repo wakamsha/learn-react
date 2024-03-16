@@ -23,8 +23,8 @@
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "18.2.64",
-    "@types/react-dom": "18.2.21",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22",
     "npm-run-all2": "6.1.2",
     "typescript": "5.4.2",
     "vite": "5.1.5"
