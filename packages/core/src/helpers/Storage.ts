@@ -87,7 +87,7 @@ class CookieStorage implements Storage {
 
 class SessionStorage implements Storage {
   public getValue(key: string): string {
-    return sessionStorage[key] ?? '';
+    return (sessionStorage[key] ?? '') as string;
   }
 
   public setValue(key: string, value: string) {
@@ -95,13 +95,13 @@ class SessionStorage implements Storage {
   }
 
   public removeValue(key: string) {
-    sessionStorage.removeValue(key);
+    sessionStorage.removeItem(key);
   }
 }
 
 class LocalStorage implements Storage {
   public getValue(key: string): string {
-    return localStorage[key] ?? '';
+    return (localStorage[key] ?? '') as string;
   }
 
   public setValue(key: string, value: string) {
@@ -109,6 +109,6 @@ class LocalStorage implements Storage {
   }
 
   public removeValue(key: string) {
-    localStorage.removeValue(key);
+    localStorage.removeItem(key);
   }
 }

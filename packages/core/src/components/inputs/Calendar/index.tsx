@@ -195,13 +195,13 @@ const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
  * ```
  */
 function getDateArray(page: Date): (Date | undefined)[][] {
-  const padStart = [...Array(setDate(page, 1).getDay())].fill(undefined);
+  const padStart = new Array<undefined>(setDate(page, 1).getDay()).fill(undefined);
 
   const dates = [...Array(lastDayOfMonth(page).getDate()).keys()].map((i) => setDate(page, i + 1));
 
   const headLength = (padStart.length + dates.length) % 7 || 7;
 
-  const padEnd = [...Array(7 - headLength)].fill(undefined);
+  const padEnd = new Array<undefined>(7 - headLength).fill(undefined);
 
   return splitChunk<Date | undefined>([...padStart, ...dates, ...padEnd], 7);
 }
