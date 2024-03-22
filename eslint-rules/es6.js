@@ -10,9 +10,10 @@ export default {
       },
     ],
 
+    // Deprecated (prettier already handles this)
     // require parens in arrow function arguments
     // https://eslint.org/docs/rules/arrow-parens
-    'arrow-parens': ['error', 'always'],
+    // 'arrow-parens': ['error', 'always'],
 
     // require space before/after arrow function's arrow
     // https://eslint.org/docs/rules/arrow-spacing
@@ -21,22 +22,24 @@ export default {
     // verify super() callings in constructors
     'constructor-super': 'error',
 
+    // Deprecated (prettier already handles this)
     // enforce the spacing around the * in generator functions
     // https://eslint.org/docs/rules/generator-star-spacing
-    'generator-star-spacing': ['error', { before: false, after: true }],
+    // 'generator-star-spacing': ['error', { before: false, after: true }],
 
     // disallow modifying variables of class declarations
     // https://eslint.org/docs/rules/no-class-assign
     'no-class-assign': 'error',
 
+    // Deprecated (prettier already handles this)
     // disallow arrow functions where they could be confused with comparisons
     // https://eslint.org/docs/rules/no-confusing-arrow
-    'no-confusing-arrow': [
-      'error',
-      {
-        allowParens: true,
-      },
-    ],
+    // 'no-confusing-arrow': [
+    //   'error',
+    //   {
+    //     allowParens: true,
+    //   },
+    // ],
 
     // disallow modifying variables that are declared using const
     'no-const-assign': ['error'],
@@ -91,7 +94,7 @@ export default {
 
     // disallow unnecessary constructor
     // https://eslint.org/docs/rules/no-useless-constructor
-    'no-useless-constructor': ['off'],
+    'no-useless-constructor': ['error'],
 
     // disallow renaming import, export, and destructured assignments to the same name
     // https://eslint.org/docs/rules/no-useless-rename
@@ -159,6 +162,7 @@ export default {
     // https://eslint.org/docs/rules/prefer-numeric-literals
     'prefer-numeric-literals': ['error'],
 
+    // Deprecated
     // suggest using Reflect methods where applicable
     // https://eslint.org/docs/rules/prefer-reflect
     'prefer-reflect': ['off'],
@@ -175,9 +179,10 @@ export default {
     // https://eslint.org/docs/rules/prefer-template
     'prefer-template': ['error'],
 
+    // Deprecated (prettier already handles this)
     // enforce spacing between object rest-spread
     // https://eslint.org/docs/rules/rest-spread-spacing
-    'rest-spread-spacing': ['error', 'never'],
+    // 'rest-spread-spacing': ['error', 'never'],
 
     // import sorting
     // https://eslint.org/docs/rules/sort-imports
@@ -195,12 +200,14 @@ export default {
     // https://eslint.org/docs/rules/symbol-description
     'symbol-description': ['error'],
 
+    // Deprecated (prettier already handles this)
     // enforce usage of spacing in template strings
     // https://eslint.org/docs/rules/template-curly-spacing
-    'template-curly-spacing': ['error'],
+    // 'template-curly-spacing': ['error'],
 
+    // Deprecated (prettier already handles this)
     // enforce spacing around the * in yield* expressions
     // https://eslint.org/docs/rules/yield-star-spacing
-    'yield-star-spacing': ['error', 'after'],
+    // 'yield-star-spacing': ['error', 'after'],
   },
 };

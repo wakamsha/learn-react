@@ -45,9 +45,10 @@ export default {
     // https://eslint.org/docs/rules/dot-notation
     'dot-notation': ['error', { allowKeywords: true }],
 
+    // Deprecated (prettier already handles this)
     // enforces consistent newlines before or after dots
     // https://eslint.org/docs/rules/dot-location
-    'dot-location': ['error', 'property'],
+    // 'dot-location': ['error', 'property'],
 
     // require the use of === and !==
     // https://eslint.org/docs/rules/eqeqeq
@@ -132,14 +133,16 @@ export default {
     // https://eslint.org/docs/rules/no-fallthrough
     'no-fallthrough': ['error'],
 
+    // Deprecated (prettier already handles this)
     // disallow the use of leading or trailing decimal points in numeric literals
     // https://eslint.org/docs/rules/no-floating-decimal
-    'no-floating-decimal': ['error'],
+    // 'no-floating-decimal': ['error'],
 
     // disallow reassignments of native objects or read-only globals
     // https://eslint.org/docs/rules/no-global-assign
     'no-global-assign': ['error', { exceptions: [] }],
 
+    // Deprecated
     // deprecated in favor of no-global-assign
     // https://eslint.org/docs/rules/no-native-reassign
     'no-native-reassign': ['off'],
@@ -196,14 +199,15 @@ export default {
       },
     ],
 
+    // Deprecated (prettier already handles this)
     // disallow use of multiple spaces
     // https://eslint.org/docs/rules/no-multi-spaces
-    'no-multi-spaces': [
-      'error',
-      {
-        ignoreEOLComments: false,
-      },
-    ],
+    // 'no-multi-spaces': [
+    //   'error',
+    //   {
+    //     ignoreEOLComments: false,
+    //   },
+    // ],
 
     // disallow use of multiline strings
     // https://eslint.org/docs/rules/no-multi-str
@@ -323,6 +327,7 @@ export default {
     // https://eslint.org/docs/rules/no-return-assign
     'no-return-assign': ['error', 'always'],
 
+    // Deprecated
     // disallow redundant `return await`
     // https://eslint.org/docs/rules/no-return-await
     'no-return-await': ['error'],
@@ -350,7 +355,7 @@ export default {
 
     // restrict what can be thrown as an exception
     // https://eslint.org/docs/rules/no-throw-literal
-    'no-throw-literal': ['error'],
+    'no-throw-literal': ['off'],
 
     // disallow unmodified conditions of loops
     // https://eslint.org/docs/rules/no-unmodified-loop-condition
@@ -405,7 +410,7 @@ export default {
 
     // require using Error objects as Promise rejection reasons
     // https://eslint.org/docs/rules/prefer-promise-reject-errors
-    'prefer-promise-reject-errors': ['error', { allowEmptyReject: true }],
+    'prefer-promise-reject-errors': ['off', { allowEmptyReject: true }],
 
     // Suggest using named capture group in regular expression
     // https://eslint.org/docs/rules/prefer-named-capture-group
@@ -439,9 +444,10 @@ export default {
     // https://eslint.org/docs/rules/vars-on-top
     'vars-on-top': ['error'],
 
+    // Deprecated (prettier already handles this)
     // require immediate function invocation to be wrapped in parentheses
     // https://eslint.org/docs/rules/wrap-iife.html
-    'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
+    // 'wrap-iife': ['error', 'outside', { functionPrototypeMethods: false }],
 
     // require or disallow Yoda conditions
     // https://eslint.org/docs/rules/yoda

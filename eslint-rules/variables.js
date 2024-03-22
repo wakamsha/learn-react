@@ -6,6 +6,7 @@ export default {
     // https://eslint.org/docs/rules/init-declarations
     'init-declarations': 'off',
 
+    // Deprecated
     // disallow the catch clause parameter name being the same as a variable in the outer scope
     // https://eslint.org/docs/rules/no-catch-shadow
     'no-catch-shadow': 'off',
