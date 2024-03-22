@@ -46,13 +46,13 @@ export function useStory(storyKeys: string[]): StoryData {
   const { Component, sourceCode } = useMemo(() => {
     let snapShot: any = stories;
 
-    for (let i = 0; i < storyKeys.length; i++) {
+    for (const storyKey of storyKeys) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (!snapShot[storyKeys[i]]) {
+      if (!snapShot[storyKey]) {
         break;
       }
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-      snapShot = snapShot[storyKeys[i]];
+      snapShot = snapShot[storyKey];
     }
 
     return snapShot as unknown as StoryData;

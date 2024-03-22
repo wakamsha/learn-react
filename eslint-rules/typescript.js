@@ -12,12 +12,11 @@ const recommendTypeScript = {
     ...typescriptEslint.configs['strict-type-checked'].rules,
     ...typescriptEslint.configs['stylistic-type-checked'].rules,
 
-    // Replace 'dot-notation' rule with '@typescript-eslint' version.
     // https://typescript-eslint.io/rules/dot-notation/
     '@typescript-eslint/dot-notation': bestPractices.rules['dot-notation'],
 
-    // Replace 'no-unused-expressions' rule with '@typescript-eslint' version
     // https://typescript-eslint.io/rules/no-unused-expressions/
+    // Replace 'no-unused-expressions' rule with '@typescript-eslint' version
     'no-unused-expressions': 'off',
     '@typescript-eslint/no-unused-expressions': bestPractices.rules['no-unused-expressions'],
 
@@ -101,7 +100,7 @@ const recommendTypeScript = {
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
 
     // https://typescript-eslint.io/rules/no-explicit-any/
-    '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/no-explicit-any': ['off', { ignoreRestArgs: true }],
 
     // https://typescript-eslint.io/rules/no-unsafe-assignment/
     // TODO: Enable as "warn".
@@ -122,10 +121,6 @@ const recommendTypeScript = {
     // https://typescript-eslint.io/rules/non-nullable-type-assertion-style/
     // You should use type assertion style "as" instead of non-null assertion style.
     '@typescript-eslint/non-nullable-type-assertion-style': ['off'],
-
-    // https://typescript-eslint.io/rules/prefer-for-of/
-    // "for-of" is prohibited with "no-restricted-syntax". The for statement uses an index-based syntax.
-    '@typescript-eslint/prefer-for-of': ['off'],
   },
 };
 
