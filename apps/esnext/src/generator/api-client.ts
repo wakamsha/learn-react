@@ -24,6 +24,23 @@ export type PlaceholderUser = {
   };
 };
 
+export type RandomUserResponse = {
+  info: {
+    seed: string;
+    results: number;
+    page: number;
+    version: string;
+  };
+  results: {
+    gender: 'male' | 'female';
+    name: {
+      title: 'Ms' | 'Mr' | 'Miss' | 'Mrs' | 'Dr' | 'Prof' | 'Rev' | 'PhD';
+      first: string;
+      last: string;
+    };
+  }[];
+};
+
 async function request<ResponseType>(url: string): Promise<ResponseType> {
   const headers = {
     Accept: 'application/json',
@@ -36,18 +53,18 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
   if (!res.ok) {
     await res.json().catch((err) => {
       console.info('ここでエラー処理をしてください');
-      throw new Error(err);
+      throw new Error(err as string);
     });
   }
-  return res.json().then((res) => res);
+  return res.json().then((res) => res as ResponseType);
 }
 
 /**
  * ユーザーデータをランダムに取得します。
  */
-export async function requestGetRandomUser(): Promise<any> {
+export async function requestGetRandomUser(): Promise<RandomUserResponse> {
   const url = 'https://randomuser.me/api/';
-  return request<any>(url).then((res) => res.results);
+  return request<RandomUserResponse>(url);
 }
 
 /**

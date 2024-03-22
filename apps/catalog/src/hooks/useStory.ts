@@ -47,13 +47,15 @@ export function useStory(storyKeys: string[]): StoryData {
     let snapShot: any = stories;
 
     for (let i = 0; i < storyKeys.length; i++) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (!snapShot[storyKeys[i]]) {
         break;
       }
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       snapShot = snapShot[storyKeys[i]];
     }
 
-    return snapShot as StoryData;
+    return snapShot as unknown as StoryData;
   }, [storyKeys]);
 
   return { Component, sourceCode };

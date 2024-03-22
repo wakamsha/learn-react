@@ -65,6 +65,7 @@ export async function request<REQ extends Record<string, unknown>, RES>({
 
   if (!response.ok) {
     // 共通のエラー処理があれば、ここに実装する。
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const error = await response.json();
     throw {
       code: response.status,
@@ -72,5 +73,5 @@ export async function request<REQ extends Record<string, unknown>, RES>({
     };
   }
 
-  return response.json();
+  return response.json().then((res) => res as RES);
 }
