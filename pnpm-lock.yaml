@@ -127,8 +127,8 @@ importers:
         specifier: 6.9.14
         version: 6.9.14
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -212,8 +212,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -267,8 +267,8 @@ importers:
         specifier: 6.9.14
         version: 6.9.14
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -341,8 +341,8 @@ importers:
         specifier: 6.9.14
         version: 6.9.14
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -377,8 +377,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -426,8 +426,8 @@ importers:
         specifier: 6.9.14
         version: 6.9.14
       '@types/react':
-        specifier: 18.2.66
-        version: 18.2.66
+        specifier: 18.2.67
+        version: 18.2.67
       '@types/react-dom':
         specifier: 18.2.22
         version: 18.2.22
@@ -2366,11 +2366,11 @@ packages:
   /@types/react-dom@18.2.22:
     resolution: {integrity: sha512-fHkBXPeNtfvri6gdsMYyW+dW7RXFo6Ad09nLFK0VQWR7yGLai/Cyvyj696gbwYvBnhGtevUG9cET0pmUbMtoPQ==}
     dependencies:
-      '@types/react': 18.2.66
+      '@types/react': 18.2.67
     dev: true
 
-  /@types/react@18.2.66:
-    resolution: {integrity: sha512-OYTmMI4UigXeFMF/j4uv0lBBEbongSgptPrHBxqME44h9+yNov+oL6Z3ocJKo0WyXR84sQUNeyIp9MRfckvZpg==}
+  /@types/react@18.2.67:
+    resolution: {integrity: sha512-vkIE2vTIMHQ/xL0rgmuoECBCkZFZeHr49HeWSc24AptMbNRo7pwSBvj73rlJJs9fGKj0koS+V7kQB1jHS0uCgw==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
