@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 19.1.0
-        version: 19.1.0(@types/node@20.11.30)(typescript@5.4.3)
+        specifier: 19.2.1
+        version: 19.2.1(@types/node@20.11.30)(typescript@5.4.3)
       '@stylelint/postcss-css-in-js':
         specifier: 0.38.0
         version: 0.38.0(postcss-syntax@0.36.2)(postcss@8.4.38)
@@ -1027,8 +1027,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@commitlint/cli@19.1.0(@types/node@20.11.30)(typescript@5.4.3):
-    resolution: {integrity: sha512-SYGm8HGbVzrlSYeB6oo6pG1Ec6bOMJcDsXgNGa4vgZQsPj6nJkcbTWlIRmtmIk0tHi0d5sCljGuQ+g/0NCPv7w==}
+  /@commitlint/cli@19.2.1(@types/node@20.11.30)(typescript@5.4.3):
+    resolution: {integrity: sha512-cbkYUJsLqRomccNxvoJTyv5yn0bSy05BBizVyIcLACkRbVUqYorC351Diw/XFSWC/GtpwiwT2eOvQgFZa374bg==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
@@ -5854,7 +5854,7 @@ packages:
     resolution: {integrity: sha512-g1MWMLBiz8FKi1e4w0UyVL3w+iJceWAFBAaBnnGKOpNa5f8TLktkbre1+s6oICydWAm+HRUGTmI+//xv2hvXYA==}
     hasBin: true
     dependencies:
-      minimist: 1.2.7
+      minimist: 1.2.8
     dev: true
 
   /json5@2.2.3:
@@ -6187,10 +6187,6 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dependencies:
       brace-expansion: 2.0.1
-    dev: true
-
-  /minimist@1.2.7:
-    resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
     dev: true
 
   /minimist@1.2.8:
@@ -7713,7 +7709,7 @@ packages:
     dependencies:
       '@types/json5': 0.0.29
       json5: 1.0.2
-      minimist: 1.2.7
+      minimist: 1.2.8
       strip-bom: 3.0.0
     dev: true
 
