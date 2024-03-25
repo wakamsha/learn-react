@@ -53,7 +53,7 @@ function request<REQ extends Record<string, unknown>, RES>({
 const dataMap = new Map<string, unknown>();
 
 export function useData<T, P>(cacheKey: string, fetch: (p: P) => Promise<T>, prop: P): T {
-  const cachedData = dataMap.get(cacheKey) as Loadable<any> | undefined;
+  const cachedData = dataMap.get(cacheKey) as Loadable<T> | undefined;
 
   if (cachedData === undefined) {
     const [loadable, promise] = Loadable.newAndGoPromise(fetch(prop));

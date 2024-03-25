@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useState } from 'react';
+import { useState, type AriaAttributes } from 'react';
 import { useListBox } from '.';
 import { IconButton } from '../../components/inputs/IconButton';
 import { FontSize } from '../../constants/Style';
@@ -27,8 +27,8 @@ export const Story = () => {
         ref={triggerProps.ref}
         name="list"
         tabIndex={triggerProps.tabIndex}
-        ariaHaspopup={triggerProps['aria-haspopup'] as any}
-        ariaExpanded={triggerProps['aria-expanded'] as any}
+        ariaHaspopup={triggerProps['aria-haspopup'] as AriaAttributes['aria-haspopup']}
+        ariaExpanded={triggerProps['aria-expanded'] as AriaAttributes['aria-expanded']}
         onKeyDown={triggerProps.onKeyDown}
         onClick={triggerProps.onClick}
       />

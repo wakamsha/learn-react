@@ -55,7 +55,7 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
   return (
     <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: `calc(${width}px - 1px)` }}>
       <header className={styleMasthead}>
-        <img src={Logo} alt="React Logo" className={styleLogo} />
+        <img src={Logo as string} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
           <Link to="/">{title}</Link>
         </h1>

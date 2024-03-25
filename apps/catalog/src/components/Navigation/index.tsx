@@ -30,7 +30,7 @@ export const Navigation = () => {
   return (
     <div role="complementary" className={styleBase}>
       <header className={styleMasthead}>
-        <img src={Logo} alt="React Logo" className={styleLogo} />
+        <img src={Logo as string} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
           <Link to="/">Catalog | Learn React</Link>
         </h1>

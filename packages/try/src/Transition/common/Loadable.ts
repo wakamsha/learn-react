@@ -36,7 +36,7 @@ export class Loadable<T> {
           };
           return data;
         },
-        (error) => {
+        (error: unknown) => {
           this.#state = {
             error,
             status: 'rejected',

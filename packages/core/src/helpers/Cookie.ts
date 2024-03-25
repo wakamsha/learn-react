@@ -43,8 +43,8 @@ export function getCookie(cname: string): string | undefined {
   const sensor = `${cname}=`;
   const segments = document.cookie.split(';');
 
-  for (let i = 0; i < segments.length; i++) {
-    let pair = segments[i];
+  for (const segment of segments) {
+    let pair = segment;
     while (pair.startsWith(' ')) {
       pair = pair.substring(1);
     }

@@ -1,4 +1,9 @@
-import { requestGetPlaceholderUsers, requestGetRandomUser, type PlaceholderUser } from './api-client';
+import {
+  requestGetPlaceholderUsers,
+  requestGetRandomUser,
+  type PlaceholderUser,
+  type RandomUserResponse,
+} from './api-client';
 
 function p(str: string, delay = 1000): Promise<string> {
   return new Promise((resolve) => {
@@ -25,7 +30,7 @@ function loop<T>(g: IterableIterator<Promise<T>>) {
   });
 }
 
-function* connectRandomUserAPI(): IterableIterator<Promise<any>> {
+function* connectRandomUserAPI(): IterableIterator<Promise<RandomUserResponse>> {
   yield requestGetRandomUser();
 }
 

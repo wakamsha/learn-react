@@ -1,3 +1,4 @@
+/* eslint-disable react/hook-use-state */
 import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/src/constants/Style';
 import { createContainer } from '@learn-react/core/src/helpers/Container';

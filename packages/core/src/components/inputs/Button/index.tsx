@@ -80,7 +80,7 @@ export const Button = forwardRef(
     return noop ? (
       <span ref={ref} id={id} className={buttonStyle} aria-disabled={disabled}>
         {Children.toArray(children).map((child) =>
-          typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
+          typeof child === 'string' ? <span key={child}>{child}</span> : child,
         )}
       </span>
     ) : (
@@ -97,7 +97,7 @@ export const Button = forwardRef(
         onKeyDown={onKeyDown}
       >
         {Children.toArray(children).map((child) =>
-          typeof child === 'string' ? <span key={`${child}`}>{child}</span> : child,
+          typeof child === 'string' ? <span key={child}>{child}</span> : child,
         )}
       </button>
     );
