@@ -13,8 +13,8 @@
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "18.2.73",
-    "@types/react-dom": "18.2.22",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.23",
     "cheerio": "1.0.0-rc.12",
     "glob": "10.3.10",
     "prettier": "3.2.5",
@@ -24,8 +24,8 @@
     "typescript": "5.4.3"
   },
   "peerDependencies": {
-    "@types/react": "18.2.73",
-    "@types/react-dom": "18.2.22",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.4.3"
