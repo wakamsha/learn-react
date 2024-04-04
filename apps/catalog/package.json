@@ -30,7 +30,7 @@
     "@types/react": "18.2.74",
     "@types/react-dom": "18.2.23",
     "chokidar": "3.6.0",
-    "glob": "10.3.10",
+    "glob": "10.3.12",
     "npm-run-all2": "6.1.2",
     "playwright": "1.42.1",
     "typescript": "5.4.3",
