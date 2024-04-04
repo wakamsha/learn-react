@@ -21,7 +21,7 @@
     "@learn-react/core": "workspace:1.0.0",
     "constate": "3.3.2",
     "mobx": "6.12.3",
-    "mobx-react": "9.1.0",
+    "mobx-react": "9.1.1",
     "qs": "6.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
