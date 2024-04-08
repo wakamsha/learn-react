@@ -28,7 +28,7 @@ export default [
   },
 
   {
-    ignores: ['**/dist/**', '.stylelintrc.cjs', '.eslintrc.cjs', '**/*.config.*', 'eslint-rules/*', '**/bin/*'],
+    ignores: ['**/dist/**', '**/vitest.setup.*', '.eslintrc.cjs', '**/*.config.*', 'eslint-rules/*', '**/bin/*'],
   },
 
   js.configs.recommended,
