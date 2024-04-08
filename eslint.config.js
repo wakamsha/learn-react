@@ -53,6 +53,13 @@ export default [
     files: ['**/*.js', '**/*.mjs'],
     ...typescriptConfig.recommendJavaScript,
   },
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      '@typescript-eslint/no-unsafe-call': ['off'],
+      '@typescript-eslint/no-unsafe-member-access': ['off'],
+    },
+  },
 
   /* import */
   {

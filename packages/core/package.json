@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "NODE_OPTIONS=--experimental-vm-modules vitest"
   },
   "dependencies": {
     "@emotion/css": "11.11.2",
@@ -30,7 +30,8 @@
     "react-router-dom": "6.22.3",
     "ts-jest": "29.1.2",
     "typescript": "5.4.4",
-    "vite": "5.2.8"
+    "vite": "5.2.8",
+    "vitest": "1.4.0"
   },
   "peerDependencies": {
     "react": "18.2.0",
