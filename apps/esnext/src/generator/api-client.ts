@@ -51,7 +51,7 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
     method: 'GET',
   });
   if (!res.ok) {
-    await res.json().catch((err) => {
+    await res.json().catch((err: unknown) => {
       console.info('ここでエラー処理をしてください');
       throw new Error(err as string);
     });

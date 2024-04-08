@@ -103,24 +103,23 @@ const recommendTypeScript = {
     '@typescript-eslint/no-explicit-any': ['off', { ignoreRestArgs: true }],
 
     // https://typescript-eslint.io/rules/no-unsafe-assignment/
-    // TODO: Enable as "warn".
-    // '@typescript-eslint/no-unsafe-assignment': ['warn'],
+    '@typescript-eslint/no-unsafe-assignment': ['warn'],
 
     // https://typescript-eslint.io/rules/no-unsafe-call/
-    // TODO: Enable as "warn".
-    // '@typescript-eslint/no-unsafe-call': ['warn'],
+    '@typescript-eslint/no-unsafe-call': ['warn'],
 
     // https://typescript-eslint.io/rules/no-unsafe-argument/
-    // TODO: Enable as "warn".
-    // '@typescript-eslint/no-unsafe-argument': ['warn'],
+    '@typescript-eslint/no-unsafe-argument': ['warn'],
 
     // https://typescript-eslint.io/rules/no-unsafe-member-access/
-    // TODO: Enable as "warn".
-    // '@typescript-eslint/no-unsafe-member-access': ['warn'],
+    '@typescript-eslint/no-unsafe-member-access': ['warn'],
 
     // https://typescript-eslint.io/rules/non-nullable-type-assertion-style/
     // You should use type assertion style "as" instead of non-null assertion style.
     '@typescript-eslint/non-nullable-type-assertion-style': ['off'],
+
+    // https://typescript-eslint.io/rules/only-throw-error/
+    '@typescript-eslint/only-throw-error': ['off'],
   },
 };
 

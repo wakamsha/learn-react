@@ -37,13 +37,13 @@ function request<REQ extends Record<string, unknown>, RES>({
             .then((data: RES) => {
               resolve(data);
             })
-            .catch((error) => {
+            .catch((error: unknown) => {
               console.error(error);
               reject(error);
             });
         }
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         console.error(error);
         reject(error);
       });
