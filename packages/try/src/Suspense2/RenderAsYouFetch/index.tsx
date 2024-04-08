@@ -1,3 +1,4 @@
+/* eslint-disable react/hook-use-state */
 import { Suspense, useState } from 'react';
 import { fetchData } from '../fetchData';
 import { Loadable } from './Loadable';

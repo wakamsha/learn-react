@@ -27,7 +27,7 @@ async function request<REQ extends Record<string, unknown>, RES>({
   send?: REQ;
   query?: Record<string, unknown>;
   withCredentials: boolean;
-}): Promise<RES> {
+}) {
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -43,13 +43,14 @@ async function request<REQ extends Record<string, unknown>, RES>({
   });
   if (!res.ok) {
     console.info('ここでエラー処理をしてください');
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const error = await res.json();
     throw {
       code: res.status,
       ...error,
     };
   }
-  return res.json();
+  return res.json().then((res) => res as RES);
 }
 
 export async function requestGetUsers(): Promise<User[]> {

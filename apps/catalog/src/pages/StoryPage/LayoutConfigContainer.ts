@@ -13,7 +13,7 @@ function useHook() {
   );
 
   useEffect(() => {
-    storage.current.setValue(storageKey, `${layoutConfig}`);
+    storage.current.setValue(storageKey, layoutConfig);
   }, [layoutConfig]);
 
   return { layoutConfig, setLayoutConfig };

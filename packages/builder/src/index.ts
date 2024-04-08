@@ -1,7 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import type { BuildOptions, UserConfig } from 'vite';
-import { splitVendorChunkPlugin } from 'vite';
+import { splitVendorChunkPlugin, type BuildOptions, type UserConfig } from 'vite';
 
 type Props = {
   basePath: string;

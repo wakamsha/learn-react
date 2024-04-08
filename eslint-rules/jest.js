@@ -7,8 +7,10 @@ export default {
   },
 
   rules: {
-    ...jest.configs.recommended.rules,
+    ...jest.configs['flat/recommended'].rules,
+    ...jest.configs['flat/style'].rules,
 
+    'jest/no-duplicate-hooks': ['error'],
     'jest/valid-title': [
       'error',
       {

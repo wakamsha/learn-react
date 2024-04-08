@@ -35,23 +35,23 @@ describe('String.ts', () => {
 
   describe(count.name, () => {
     test(`${count.name}('hello, world!') === 13`, () => {
-      expect(count('hello, world!')).toEqual(13);
+      expect(count('hello, world!')).toBe(13);
     });
 
     test(`${count.name}('Always問題ない') === 10`, () => {
-      expect(count('Always問題ない')).toEqual(10);
+      expect(count('Always問題ない')).toBe(10);
     });
 
     test(`${count.name}('こんにちは！\nさようなら！') === 13`, () => {
-      expect(count('こんにちは！\nさようなら！')).toEqual(13);
+      expect(count('こんにちは！\nさようなら！')).toBe(13);
     });
 
     test(`${count.name}('🍎は赤い') === 4`, () => {
-      expect(count('🍎は赤い')).toEqual(4);
+      expect(count('🍎は赤い')).toBe(4);
     });
 
     test(`${count.name}('') === 0`, () => {
-      expect(count('')).toEqual(0);
+      expect(count('')).toBe(0);
     });
   });
 });

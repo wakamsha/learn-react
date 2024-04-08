@@ -43,7 +43,7 @@ export type Toast = {
 const useToast = ({ limit = 1 }) => {
   const [queue, setQueue] = useState<Toast[]>([]);
 
-  const [toasts, SetToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<Toast[]>([]);
 
   const addToast = useCallback(({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => {
     setQueue((toasts) => [...toasts, { id: Date.now(), message, icon, theme }]);
@@ -55,7 +55,7 @@ const useToast = ({ limit = 1 }) => {
 
   useEffect(() => {
     if (toasts.length <= limit) {
-      SetToasts(queue.slice(0, limit));
+      setToasts(queue.slice(0, limit));
     }
   }, [limit, toasts.length, queue]);
 
