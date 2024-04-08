@@ -1,7 +1,6 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "types": ["jest"],
     "outDir": "./dist",
     "module": "ESNext",
     "sourceMap": false

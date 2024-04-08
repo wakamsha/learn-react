@@ -6,7 +6,6 @@ import bestPracticesConfig from './eslint-rules/best-practices.js';
 import errorsConfig from './eslint-rules/errors.js';
 import es6Config from './eslint-rules/es6.js';
 import importConfig from './eslint-rules/imports.js';
-import jestConfig from './eslint-rules/jest.js';
 import jsDocConfig from './eslint-rules/jsdoc.js';
 import jsxA11yConfig from './eslint-rules/jsx-a11y.js';
 import promiseConfig from './eslint-rules/promise.js';
@@ -15,6 +14,7 @@ import reactConfig from './eslint-rules/react.js';
 import styleConfig from './eslint-rules/style.js';
 import typescriptConfig from './eslint-rules/typescript.js';
 import variablesConfig from './eslint-rules/variables.js';
+import vitestConfig from './eslint-rules/vitest.js';
 
 export default [
   {
@@ -52,6 +52,13 @@ export default [
   {
     files: ['**/*.js', '**/*.mjs'],
     ...typescriptConfig.recommendJavaScript,
+  },
+  {
+    files: ['**/*.test.ts', '**/*.test.tsx'],
+    rules: {
+      '@typescript-eslint/no-unsafe-call': ['off'],
+      '@typescript-eslint/no-unsafe-member-access': ['off'],
+    },
   },
 
   /* import */
@@ -99,10 +106,10 @@ export default [
     },
   },
 
-  /* jest */
+  /* vitest */
   {
     files: ['**/*.test.*', '**/*.test.tsx'],
-    ...jestConfig,
+    ...vitestConfig,
   },
 
   /* react */

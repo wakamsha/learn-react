@@ -1,7 +1,7 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "types": ["jest"],
+    "types": ["vitest/globals"],
     "baseUrl": "./",
     "paths": {}
   },
