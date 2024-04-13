@@ -51,8 +51,8 @@ importers:
         specifier: 4.6.0
         version: 4.6.0(eslint@8.57.0)
       eslint-plugin-vitest:
-        specifier: 0.4.2-beta.3
-        version: 0.4.2-beta.3(@typescript-eslint/eslint-plugin@7.4.0)(eslint@8.57.0)(typescript@5.4.4)
+        specifier: 0.4.2-beta.5
+        version: 0.4.2-beta.5(@typescript-eslint/eslint-plugin@7.4.0)(eslint@8.57.0)(typescript@5.4.4)
       husky:
         specifier: 9.0.11
         version: 9.0.11
@@ -3793,8 +3793,8 @@ packages:
       string.prototype.matchall: 4.0.10
     dev: true
 
-  /eslint-plugin-vitest@0.4.2-beta.3(@typescript-eslint/eslint-plugin@7.4.0)(eslint@8.57.0)(typescript@5.4.4):
-    resolution: {integrity: sha512-3SrcEvVKEA0k8HkOpWkdU6zMlbt2fPG14LATAYvdvF9v5cuQ2Q2wWi7VcTcpV5QXMQYIyKmfBd2+lYu+OmEr2w==}
+  /eslint-plugin-vitest@0.4.2-beta.5(@typescript-eslint/eslint-plugin@7.4.0)(eslint@8.57.0)(typescript@5.4.4):
+    resolution: {integrity: sha512-+KgsqDasq94KUNc0qHw9J5sPmuPdRqwkSSXfSbboYPFasWwdoxixR0ArQt4CTjER2j9tRik4Kd6Ldf4aMFb0JA==}
     engines: {node: ^18.0.0 || >= 20.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '*'
