@@ -20,7 +20,7 @@
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@testing-library/jest-dom": "6.4.2",
-    "@testing-library/react": "14.2.2",
+    "@testing-library/react": "14.3.0",
     "@types/qs": "6.9.14",
     "@types/react": "18.2.77",
     "@types/react-dom": "18.2.25",
