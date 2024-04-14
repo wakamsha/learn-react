@@ -26,7 +26,7 @@
     "@types/react": "18.2.77",
     "@types/react-dom": "18.2.25",
     "npm-run-all2": "6.1.2",
-    "typescript": "5.4.4",
+    "typescript": "5.4.5",
     "vite": "5.2.8"
   }
 }
