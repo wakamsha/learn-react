@@ -7,7 +7,7 @@ on:
     types: [opened, reopened]
 
 jobs:
-  label:
+  triage:
     runs-on: ubuntu-latest
     permissions:
       contents: read
