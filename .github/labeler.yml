@@ -1,10 +1,17 @@
 catalog:
-  - apps/catalog/**/*
+  - changed-files:
+      - apps/catalog/**/*
+
 core:
-  - packages/core/**/*
+  - changed-files:
+      - packages/core/**/*
+
 try:
-  - packages/try/**/*
+  - changed-files:
+      - packages/try/**/*
+
 documentation:
-  - apps/**/*.md
-  - packages/**/*.md
-  - '*.md'
+  - changed-files:
+      - apps/**/*.md
+      - packages/**/*.md
+      - '*.md'
