@@ -17,10 +17,9 @@ export const AddForm = ({ onAdd }: Props) => {
   };
 
   const handleSubmit = () => {
-    // if (!title) return;
+    if (!title) return;
 
-    // onAdd(title);
-    onAdd(title || Date.now().toString());
+    onAdd(title);
     setTitle('');
   };
 
@@ -32,7 +31,10 @@ export const AddForm = ({ onAdd }: Props) => {
         }}
       >
         <input value={title} placeholder="what needs to be done?" onChange={handleInput} />
-        <button onClick={handleSubmit}>Add</button>
+
+        <button aria-label="add" onClick={handleSubmit}>
+          Add
+        </button>
       </form>
     </div>
   );
