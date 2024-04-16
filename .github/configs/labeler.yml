@@ -1,0 +1,18 @@
+catalog:
+  - changed-files:
+      - any-glob-to-any-file: 'apps/catalog/**'
+
+core:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/core/**'
+
+try:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/try/**'
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'apps/**/*.md'
+          - 'packages/**/*.md'
+          - '*.md'
