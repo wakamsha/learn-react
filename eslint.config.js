@@ -6,12 +6,14 @@ import bestPracticesConfig from './eslint-rules/best-practices.js';
 import errorsConfig from './eslint-rules/errors.js';
 import es6Config from './eslint-rules/es6.js';
 import importConfig from './eslint-rules/imports.js';
+import jestDomConfig from './eslint-rules/jest-dom.js';
 import jsDocConfig from './eslint-rules/jsdoc.js';
 import jsxA11yConfig from './eslint-rules/jsx-a11y.js';
 import promiseConfig from './eslint-rules/promise.js';
 import reactHooksConfig from './eslint-rules/react-hooks.js';
 import reactConfig from './eslint-rules/react.js';
 import styleConfig from './eslint-rules/style.js';
+import testingLibraryConfig from './eslint-rules/testing-library.js';
 import typescriptConfig from './eslint-rules/typescript.js';
 import variablesConfig from './eslint-rules/variables.js';
 import vitestConfig from './eslint-rules/vitest.js';
@@ -110,6 +112,18 @@ export default [
   {
     files: ['**/*.test.*', '**/*.test.tsx'],
     ...vitestConfig,
+  },
+
+  /* jest-dom */
+  {
+    files: ['**/*.test.*', '**/*.test.tsx'],
+    ...jestDomConfig,
+  },
+
+  /* testing-library */
+  {
+    files: ['**/*.test.*', '**/*.test.tsx'],
+    ...testingLibraryConfig,
   },
 
   /* react */
