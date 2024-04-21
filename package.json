@@ -30,8 +30,8 @@
   "devDependencies": {
     "@commitlint/cli": "19.2.2",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@typescript-eslint/eslint-plugin": "7.6.0",
-    "@typescript-eslint/parser": "7.6.0",
+    "@typescript-eslint/eslint-plugin": "7.7.0",
+    "@typescript-eslint/parser": "7.7.0",
     "confusing-browser-globals": "1.0.11",
     "cspell": "8.7.0",
     "eslint": "8.57.0",
