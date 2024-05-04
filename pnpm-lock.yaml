@@ -325,8 +325,8 @@ importers:
         specifier: 3.13.7
         version: 3.13.7
       pdfjs-dist:
-        specifier: 4.1.392
-        version: 4.1.392
+        specifier: 4.2.67
+        version: 4.2.67
       qs:
         specifier: 6.12.1
         version: 6.12.1
@@ -5730,8 +5730,8 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
 
-  /path2d@0.1.2:
-    resolution: {integrity: sha512-LW++2uxgHNL/FANhgGTPo/yDDQcgsVbKotwIVbpTgTBgRlKUpjOpjp3s3+KjG4OWCQ/r6z+WLDljH1/fC03PWw==}
+  /path2d@0.2.0:
+    resolution: {integrity: sha512-KdPAykQX6kmLSOO6Jpu2KNcCED7CKjmaBNGGNuctOsG0hgYO1OdYQaan6cYXJiG0WmXOwZZPILPBimu5QAIw3A==}
     engines: {node: '>=6'}
     requiresBuild: true
     dev: false
@@ -5745,12 +5745,12 @@ packages:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: true
 
-  /pdfjs-dist@4.1.392:
-    resolution: {integrity: sha512-fUV14+CG81uDLjgZ2Nmy35GvJsLIekotJb2VhXAoUfMCrWHhQtPJbqryUuevAdSHyEiAdr675ULikoD087+lMg==}
+  /pdfjs-dist@4.2.67:
+    resolution: {integrity: sha512-rJmuBDFpD7cqC8WIkQUEClyB4UAH05K4AsyewToMTp2gSy3Rrx8c1ydAVqlJlGv3yZSOrhEERQU/4ScQQFlLHA==}
     engines: {node: '>=18'}
     optionalDependencies:
       canvas: 2.11.2
-      path2d: 0.1.2
+      path2d: 0.2.0
     transitivePeerDependencies:
       - encoding
       - supports-color
