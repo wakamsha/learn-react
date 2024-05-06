@@ -338,8 +338,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@testing-library/jest-dom':
-        specifier: 6.4.2
-        version: 6.4.2(vitest@1.5.3)
+        specifier: 6.4.5
+        version: 6.4.5(vitest@1.5.3)
       '@testing-library/react':
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
@@ -426,8 +426,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@testing-library/jest-dom':
-        specifier: 6.4.2
-        version: 6.4.2(vitest@1.5.3)
+        specifier: 6.4.5
+        version: 6.4.5(vitest@1.5.3)
       '@testing-library/react':
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
@@ -1908,8 +1908,8 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
-  /@testing-library/jest-dom@6.4.2(vitest@1.5.3):
-    resolution: {integrity: sha512-CzqH0AFymEMG48CpzXFriYYkOjk6ZGPCLMhW9e9jg3KMCn5OfJecF8GtGW7yGfR/IgCe3SX8BSwjdzI6BBbZLw==}
+  /@testing-library/jest-dom@6.4.5(vitest@1.5.3):
+    resolution: {integrity: sha512-AguB9yvTXmCnySBP1lWjfNNUwpbElsaQ567lt2VdGqAdHtpieLgjmcVyv1q7PMIvLbgpDdkWV5Ydv3FEejyp2A==}
     engines: {node: '>=14', npm: '>=6', yarn: '>=1'}
     peerDependencies:
       '@jest/globals': '>= 28'
