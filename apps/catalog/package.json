@@ -32,7 +32,7 @@
     "chokidar": "3.6.0",
     "glob": "10.3.12",
     "npm-run-all2": "6.1.2",
-    "playwright": "1.43.1",
+    "playwright": "1.44.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "yargs": "17.7.2"
