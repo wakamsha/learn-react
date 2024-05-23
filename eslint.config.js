@@ -30,7 +30,15 @@ export default [
   },
 
   {
-    ignores: ['**/dist/**', '**/vitest.setup.*', '.eslintrc.cjs', '**/*.config.*', 'eslint-rules/*', '**/bin/*'],
+    ignores: [
+      '**/dist/**',
+      '**/vitest.setup.*',
+      '.eslintrc.cjs',
+      '**/*.config.*',
+      'eslint-rules/*',
+      '**/bin/*',
+      '**/eslint-config/**',
+    ],
   },
 
   js.configs.recommended,
