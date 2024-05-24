@@ -2,10 +2,13 @@
   "name": "@learn-react/eslint-config",
   "version": "0.0.1",
   "exports": {
-    "./essentials": "./configs/essentials.js"
+    "./essentials": "./configs/essentials.js",
+    "./typescript": "./configs/typescript.js"
   },
   "type": "module",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "7.9.0",
+    "@typescript-eslint/parser": "7.9.0",
     "confusing-browser-globals": "1.0.11",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-promise": "6.1.1"
