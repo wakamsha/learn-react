@@ -394,9 +394,18 @@ importers:
       eslint-plugin-import:
         specifier: 2.29.1
         version: 2.29.1(@typescript-eslint/parser@7.9.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
+      eslint-plugin-jest-dom:
+        specifier: 5.4.0
+        version: 5.4.0(@testing-library/dom@10.1.0)(eslint@8.57.0)
       eslint-plugin-promise:
         specifier: 6.1.1
         version: 6.1.1(eslint@8.57.0)
+      eslint-plugin-testing-library:
+        specifier: 6.2.2
+        version: 6.2.2(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-vitest:
+        specifier: 0.5.4
+        version: 0.5.4(@typescript-eslint/eslint-plugin@7.9.0(@typescript-eslint/parser@7.9.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)(vitest@1.6.0(@types/node@20.12.12))
     devDependencies:
       eslint:
         specifier: 8.57.0

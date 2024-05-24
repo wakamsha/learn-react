@@ -1,4 +1,5 @@
 import essentials from '@learn-react/eslint-config/essentials';
+import testReact from '@learn-react/eslint-config/test/react';
 import typescript from '@learn-react/eslint-config/typescript';
 
 export default [
@@ -6,6 +7,8 @@ export default [
     files: ['**/*.{ts,tsx}'],
   },
   essentials,
+
+  testReact,
 
   typescript,
   // {

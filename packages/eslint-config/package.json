@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "exports": {
     "./essentials": "./configs/essentials.js",
-    "./typescript": "./configs/typescript.js"
+    "./typescript": "./configs/typescript.js",
+    "./test/*": "./configs/test/*.js"
   },
   "type": "module",
   "dependencies": {
@@ -11,7 +12,10 @@
     "@typescript-eslint/parser": "7.9.0",
     "confusing-browser-globals": "1.0.11",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-promise": "6.1.1"
+    "eslint-plugin-jest-dom": "5.4.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-testing-library": "6.2.2",
+    "eslint-plugin-vitest": "0.5.4"
   },
   "devDependencies": {
     "eslint": "8.57.0",
