@@ -400,6 +400,9 @@ importers:
       eslint-plugin-jest-dom:
         specifier: 5.4.0
         version: 5.4.0(@testing-library/dom@10.1.0)(eslint@8.57.0)
+      eslint-plugin-jsdoc:
+        specifier: 48.2.5
+        version: 48.2.5(eslint@8.57.0)
       eslint-plugin-jsx-a11y:
         specifier: 6.8.0
         version: 6.8.0(eslint@8.57.0)

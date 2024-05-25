@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "exports": {
     "./essentials": "./configs/essentials.js",
+    "./jsdoc": "./configs/jsdoc.js",
     "./react": "./configs/react.js",
     "./test/*": "./configs/test/*.js",
     "./typescript": "./configs/typescript.js"
@@ -14,6 +15,7 @@
     "confusing-browser-globals": "1.0.11",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jest-dom": "5.4.0",
+    "eslint-plugin-jsdoc": "48.2.5",
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-react": "7.34.1",
