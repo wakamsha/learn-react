@@ -7,19 +7,21 @@ import promiseConfig from '../rules/promise.js';
 import styleConfig from '../rules/style.js';
 import variablesConfig from '../rules/variables.js';
 
-export default defineFlatConfig({
-  languageOptions: {
-    parserOptions: {
-      ecmaVersion: 2023,
-      sourceType: 'module',
+export default defineFlatConfig([
+  {
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 2023,
+        sourceType: 'module',
+      },
     },
-  },
 
-  ...bestPracticesConfig,
-  ...errorsConfig,
-  ...es6Config,
-  ...importsConfig,
-  ...promiseConfig,
-  ...styleConfig,
-  ...variablesConfig,
-});
+    ...bestPracticesConfig,
+    ...errorsConfig,
+    ...es6Config,
+    ...importsConfig,
+    ...promiseConfig,
+    ...styleConfig,
+    ...variablesConfig,
+  },
+]);
