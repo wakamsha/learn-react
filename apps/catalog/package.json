@@ -31,7 +31,7 @@
     "@types/react-dom": "18.3.0",
     "chokidar": "3.6.0",
     "glob": "10.3.16",
-    "npm-run-all2": "6.1.2",
+    "npm-run-all2": "6.2.0",
     "playwright": "1.44.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
