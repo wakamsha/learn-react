@@ -1,11 +1,10 @@
 // @ts-check
 import essentials from '@wakamsha/eslint-config/essentials';
+import jsdoc from '@wakamsha/eslint-config/jsdoc';
 import react from '@wakamsha/eslint-config/react';
 import typescript from '@wakamsha/eslint-config/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import jsdoc from 'eslint-plugin-jsdoc';
 import jestDomConfig from './eslint-rules/jest-dom.js';
-import jsDocConfig from './eslint-rules/jsdoc.js';
 import testingLibraryConfig from './eslint-rules/testing-library.js';
 import vitestConfig from './eslint-rules/vitest.js';
 
@@ -39,20 +38,9 @@ export default [
     },
   },
 
-  /* jsdoc */
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    ...jsDocConfig.recommendTypescript,
-  },
-  {
-    files: ['**/*.js', '**/*.mjs'],
-    ...jsDocConfig.recommendJavaScript,
-  },
+  ...jsdoc,
   {
     files: ['apps/{routing,statement}/**/*', 'packages/try/**/*', '**/*.story.tsx'],
-    plugins: {
-      jsdoc,
-    },
     rules: {
       'jsdoc/require-jsdoc': ['off'],
       'jsdoc/require-description': ['off'],
