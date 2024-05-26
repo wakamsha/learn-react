@@ -1,13 +1,11 @@
 // @ts-check
 import essentials from '@wakamsha/eslint-config/essentials';
+import react from '@wakamsha/eslint-config/react';
 import typescript from '@wakamsha/eslint-config/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsdoc from 'eslint-plugin-jsdoc';
 import jestDomConfig from './eslint-rules/jest-dom.js';
 import jsDocConfig from './eslint-rules/jsdoc.js';
-import jsxA11yConfig from './eslint-rules/jsx-a11y.js';
-import reactHooksConfig from './eslint-rules/react-hooks.js';
-import reactConfig from './eslint-rules/react.js';
 import testingLibraryConfig from './eslint-rules/testing-library.js';
 import vitestConfig from './eslint-rules/vitest.js';
 
@@ -34,10 +32,11 @@ export default [
     },
   },
 
-  /* jsx-a11y */
+  ...react,
   {
-    files: ['**/*.ts', '**/*.tsx'],
-    ...jsxA11yConfig,
+    rules: {
+      'jsx-a11y/no-autofocus': ['off'],
+    },
   },
 
   /* jsdoc */
@@ -77,18 +76,6 @@ export default [
   {
     files: ['**/*.test.*', '**/*.test.tsx'],
     ...testingLibraryConfig,
-  },
-
-  /* react */
-  {
-    files: ['**/*.tsx', '**/*.ts'],
-    ...reactConfig,
-  },
-
-  /* react hooks */
-  {
-    files: ['**/*.tsx', '**/*.ts'],
-    ...reactHooksConfig,
   },
 
   /* prettier */
