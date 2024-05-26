@@ -2,11 +2,9 @@
   "name": "@learn-react/eslint-config",
   "version": "0.0.1",
   "exports": {
-    "./essentials": "./configs/essentials.js",
-    "./jsdoc": "./configs/jsdoc.js",
-    "./react": "./configs/react.js",
-    "./test/*": "./configs/test/*.js",
-    "./typescript": "./configs/typescript.js"
+    ".": {
+      "import": "./index.js"
+    }
   },
   "type": "module",
   "dependencies": {
