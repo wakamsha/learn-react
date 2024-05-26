@@ -15,8 +15,8 @@ importers:
         specifier: 0.38.0
         version: 0.38.0(postcss-syntax@0.36.2(postcss@8.4.38))(postcss@8.4.38)
       '@wakamsha/eslint-config':
-        specifier: 1.0.1
-        version: 1.0.1(eslint@8.57.0)(typescript@5.4.5)
+        specifier: 1.1.0
+        version: 1.1.0(eslint@8.57.0)(typescript@5.4.5)
       confusing-browser-globals:
         specifier: 1.0.11
         version: 1.0.11
@@ -1556,8 +1556,9 @@ packages:
   '@vitest/utils@1.6.0':
     resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
 
-  '@wakamsha/eslint-config@1.0.1':
-    resolution: {integrity: sha512-NyEGHWSzaiebVWSdx7sRJkJQDydMGktNKZPDop/Itdmiuwe3QgD70XL57tXnKuaxFSET8GLI89rLPYACEvBhuQ==}
+  '@wakamsha/eslint-config@1.1.0':
+    resolution: {integrity: sha512-OZVl6z0Te/kNUEu3gWOE6+nqkGtRpcETr6685cdmuyJcn7arfApnzjEq14aNGm9/h/8dqI8509BOCkpmprJ15w==}
+    engines: {node: '>= 18.18.0 || >= 20.0.0'}
     peerDependencies:
       eslint: ^8.56.0
       typescript: ^4.7.5 || ^5.0.0
@@ -5540,7 +5541,7 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@wakamsha/eslint-config@1.0.1(eslint@8.57.0)(typescript@5.4.5)':
+  '@wakamsha/eslint-config@1.1.0(eslint@8.57.0)(typescript@5.4.5)':
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.10.0(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.10.0(eslint@8.57.0)(typescript@5.4.5)
@@ -5548,7 +5549,10 @@ snapshots:
       eslint: 8.57.0
       eslint-define-config: 2.1.0
       eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)
+      eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
       eslint-plugin-promise: 6.1.1(eslint@8.57.0)
+      eslint-plugin-react: 7.34.1(eslint@8.57.0)
+      eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
     optionalDependencies:
       typescript: 5.4.5
     transitivePeerDependencies:
