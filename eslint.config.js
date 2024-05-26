@@ -2,11 +2,9 @@
 import essentials from '@wakamsha/eslint-config/essentials';
 import jsdoc from '@wakamsha/eslint-config/jsdoc';
 import react from '@wakamsha/eslint-config/react';
+import testReact from '@wakamsha/eslint-config/test/react';
 import typescript from '@wakamsha/eslint-config/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import jestDomConfig from './eslint-rules/jest-dom.js';
-import testingLibraryConfig from './eslint-rules/testing-library.js';
-import vitestConfig from './eslint-rules/vitest.js';
 
 export default [
   {
@@ -48,23 +46,7 @@ export default [
     },
   },
 
-  /* vitest */
-  {
-    files: ['**/*.test.*', '**/*.test.tsx'],
-    ...vitestConfig,
-  },
-
-  /* jest-dom */
-  {
-    files: ['**/*.test.*', '**/*.test.tsx'],
-    ...jestDomConfig,
-  },
-
-  /* testing-library */
-  {
-    files: ['**/*.test.*', '**/*.test.tsx'],
-    ...testingLibraryConfig,
-  },
+  ...testReact,
 
   /* prettier */
   eslintConfigPrettier,
