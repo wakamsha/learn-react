@@ -29,6 +29,7 @@ export default [
   {
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
+      // React.Suspense で throw するため無効化する。
       '@typescript-eslint/no-throw-literal': ['off'],
     },
   },
