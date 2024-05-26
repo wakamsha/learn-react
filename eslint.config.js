@@ -1,9 +1,5 @@
 // @ts-check
-import essentials from '@wakamsha/eslint-config/essentials';
-import jsdoc from '@wakamsha/eslint-config/jsdoc';
-import react from '@wakamsha/eslint-config/react';
-import testReact from '@wakamsha/eslint-config/test/react';
-import typescript from '@wakamsha/eslint-config/typescript';
+import { essentials, jsdoc, react, test, typescript } from '@wakamsha/eslint-config';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
@@ -46,7 +42,7 @@ export default [
     },
   },
 
-  ...testReact,
+  ...test.react,
 
   /* prettier */
   eslintConfigPrettier,
