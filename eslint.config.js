@@ -1,84 +1,37 @@
-import js from '@eslint/js';
-import typescriptEslintParser from '@typescript-eslint/parser';
+// @ts-check
+import essentials from '@wakamsha/eslint-config/essentials';
+import typescript from '@wakamsha/eslint-config/typescript';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import jsdoc from 'eslint-plugin-jsdoc';
-import bestPracticesConfig from './eslint-rules/best-practices.js';
-import errorsConfig from './eslint-rules/errors.js';
-import es6Config from './eslint-rules/es6.js';
-import importConfig from './eslint-rules/imports.js';
 import jestDomConfig from './eslint-rules/jest-dom.js';
 import jsDocConfig from './eslint-rules/jsdoc.js';
 import jsxA11yConfig from './eslint-rules/jsx-a11y.js';
-import promiseConfig from './eslint-rules/promise.js';
 import reactHooksConfig from './eslint-rules/react-hooks.js';
 import reactConfig from './eslint-rules/react.js';
-import styleConfig from './eslint-rules/style.js';
 import testingLibraryConfig from './eslint-rules/testing-library.js';
-import typescriptConfig from './eslint-rules/typescript.js';
-import variablesConfig from './eslint-rules/variables.js';
 import vitestConfig from './eslint-rules/vitest.js';
 
 export default [
   {
-    languageOptions: {
-      parser: typescriptEslintParser,
-      parserOptions: {
-        sourceType: 'module',
-        project: ['./{apps,packages}/**/tsconfig.json'],
-      },
-    },
+    ignores: [
+      '**/dist/**',
+      '**/vitest.setup.*',
+      '**/*.config.*',
+      'eslint-rules/*',
+      '**/bin/*',
+      '**/catalog/templates/*',
+    ],
   },
 
-  {
-    ignores: ['**/dist/**', '**/vitest.setup.*', '.eslintrc.cjs', '**/*.config.*', 'eslint-rules/*', '**/bin/*'],
-  },
+  ...essentials,
 
-  js.configs.recommended,
-  errorsConfig,
-  bestPracticesConfig,
-  es6Config,
-  styleConfig,
-  variablesConfig,
+  ...typescript,
   {
     files: ['**/*.ts', '**/*.tsx'],
     rules: {
-      'no-redeclare': ['off'],
+      // React.Suspense で throw するため無効化する。
+      '@typescript-eslint/no-throw-literal': ['off'],
     },
-  },
-
-  /* typescript */
-  {
-    files: ['**/*.ts', '**/*.tsx'],
-    ...typescriptConfig.recommendTypeScript,
-  },
-  {
-    files: ['**/*.js', '**/*.mjs'],
-    ...typescriptConfig.recommendJavaScript,
-  },
-  {
-    files: ['**/*.test.ts', '**/*.test.tsx'],
-    rules: {
-      '@typescript-eslint/no-unsafe-call': ['off'],
-      '@typescript-eslint/no-unsafe-member-access': ['off'],
-    },
-  },
-
-  /* import */
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs'],
-    ...importConfig,
-  },
-  {
-    files: ['**/*.d.ts'],
-    rules: {
-      'import/no-default-export': ['off'],
-    },
-  },
-
-  /* promise */
-  {
-    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.mjs'],
-    ...promiseConfig,
   },
 
   /* jsx-a11y */
