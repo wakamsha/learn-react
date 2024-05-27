@@ -154,6 +154,7 @@ export function applyResetStyle() {
  * アプリケーション全体にベースとなるスタイルを適用します。
  */
 export function applyGlobalStyle() {
+  /* eslint-disable @typescript-eslint/no-unsafe-argument */
   injectGlobal`
     @font-face {
       font-family: 'Noto Sans Japanese';
@@ -251,4 +252,5 @@ export function applyGlobalStyle() {
       }
     }
   `;
+  /* eslint-enable @typescript-eslint/no-unsafe-argument */
 }

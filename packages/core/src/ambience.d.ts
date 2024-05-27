@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 
 declare module '*.gif' {

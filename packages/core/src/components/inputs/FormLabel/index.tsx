@@ -1,9 +1,9 @@
 import { css } from '@emotion/css';
 import { useId, type ReactNode } from 'react';
-import { Icon } from '../../../components/dataDisplay/Icon';
-import { Tooltip } from '../../../components/dataDisplay/Tooltip';
 import { FontSize, IconSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
+import { Icon } from '../../dataDisplay/Icon';
+import { Tooltip } from '../../dataDisplay/Tooltip';
 
 type Props = {
   label: string;
