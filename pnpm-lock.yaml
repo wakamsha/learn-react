@@ -15,8 +15,8 @@ importers:
         specifier: 0.38.0
         version: 0.38.0(postcss-syntax@0.36.2(postcss@8.4.38))(postcss@8.4.38)
       '@wakamsha/eslint-config':
-        specifier: 2.2.0
-        version: 2.2.0(@testing-library/dom@10.1.0)(eslint@8.57.0)(typescript@5.4.5)(vitest@1.6.0(@types/node@20.12.14))
+        specifier: 2.2.3
+        version: 2.2.3(@testing-library/dom@10.1.0)(eslint@8.57.0)(typescript@5.4.5)(vitest@1.6.0(@types/node@20.12.14))
       confusing-browser-globals:
         specifier: 1.0.11
         version: 1.0.11
@@ -1515,8 +1515,8 @@ packages:
   '@vitest/utils@1.6.0':
     resolution: {integrity: sha512-21cPiuGMoMZwiOHa2i4LXkMkMkCGzA+MVFV70jRwHo95dL4x/ts5GZhML1QWuy7yfp3WzK3lRvZi3JnXTYqrBw==}
 
-  '@wakamsha/eslint-config@2.2.0':
-    resolution: {integrity: sha512-Irg5cfQFCmS4k608pLcwXyagKBWai8jHGmAoNdyB6K43F3n5h2y7Awbw0lWM2hXmGNd2kb2NN4MAQahF8/dNQg==}
+  '@wakamsha/eslint-config@2.2.3':
+    resolution: {integrity: sha512-KM5Drr0xcemR5ubxTfeyB2TyevIcgHF+aE4HvD0q9osTjxpB3AKDlN/unvOGiklZ8+hGhqpDxJf0BKFEp8jEcQ==}
     engines: {node: '>= 18.18.0 || >= 20.0.0'}
     peerDependencies:
       eslint: ^8.56.0
@@ -5506,7 +5506,7 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@wakamsha/eslint-config@2.2.0(@testing-library/dom@10.1.0)(eslint@8.57.0)(typescript@5.4.5)(vitest@1.6.0(@types/node@20.12.14))':
+  '@wakamsha/eslint-config@2.2.3(@testing-library/dom@10.1.0)(eslint@8.57.0)(typescript@5.4.5)(vitest@1.6.0(@types/node@20.12.14))':
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.10.0(@typescript-eslint/parser@7.10.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.10.0(eslint@8.57.0)(typescript@5.4.5)
