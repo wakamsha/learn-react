@@ -9,16 +9,16 @@
     "build": "tsc --declaration"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "4.3.0"
+    "@vitejs/plugin-react": "4.3.1"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/node": "20.14.2",
     "typescript": "5.4.5",
-    "vite": "5.2.12"
+    "vite": "5.2.13"
   },
   "peerDependencies": {
     "@types/node": "20.14.2",
-    "vite": "5.2.12"
+    "vite": "5.2.13"
   }
 }
