@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "typedoc": "0.25.13",
-    "typedoc-plugin-missing-exports": "2.2.0",
+    "typedoc-plugin-missing-exports": "2.3.0",
     "typedoc-theme-hierarchy": "4.1.2",
     "typescript": "5.4.5",
     "yargs": "17.7.2"
