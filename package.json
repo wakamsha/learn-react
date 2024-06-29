@@ -45,6 +45,6 @@
     "stylelint-config-recess-order": "5.0.1",
     "stylelint-config-recommended": "14.0.1",
     "stylelint-config-standard": "36.0.1",
-    "typescript": "5.4.5"
+    "typescript": "5.5.2"
   }
 }
