@@ -295,8 +295,8 @@ importers:
         specifier: 3.13.7
         version: 3.13.7
       pdfjs-dist:
-        specifier: 4.3.136
-        version: 4.3.136
+        specifier: 4.4.168
+        version: 4.4.168
       qs:
         specifier: 6.12.2
         version: 6.12.2
@@ -3399,8 +3399,8 @@ packages:
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
 
-  pdfjs-dist@4.3.136:
-    resolution: {integrity: sha512-gzfnt1qc4yA+U46golPGYtU4WM2ssqP2MvFjKga8GEKOrEnzRPrA/9jogLLPYHiA3sGBPJ+p7BdAq+ytmw3jEg==}
+  pdfjs-dist@4.4.168:
+    resolution: {integrity: sha512-MbkAjpwka/dMHaCfQ75RY1FXX3IewBVu6NGZOcxerRFlaBiIkZmUoR0jotX5VUzYZEXAGzSFtknWs5xRKliXPA==}
     engines: {node: '>=18'}
 
   picocolors@1.0.0:
@@ -7648,7 +7648,7 @@ snapshots:
 
   pathval@1.1.1: {}
 
-  pdfjs-dist@4.3.136:
+  pdfjs-dist@4.4.168:
     optionalDependencies:
       canvas: 2.11.2
       path2d: 0.2.0
