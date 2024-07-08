@@ -133,8 +133,8 @@ importers:
         specifier: 0.26.3
         version: 0.26.3(typescript@5.5.3)
       typedoc-plugin-missing-exports:
-        specifier: 2.3.0
-        version: 2.3.0(typedoc@0.26.3(typescript@5.5.3))
+        specifier: 3.0.0
+        version: 3.0.0(typedoc@0.26.3(typescript@5.5.3))
       typedoc-theme-hierarchy:
         specifier: 5.0.3
         version: 5.0.3(typedoc@0.26.3(typescript@5.5.3))
@@ -4027,10 +4027,10 @@ packages:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
 
-  typedoc-plugin-missing-exports@2.3.0:
-    resolution: {integrity: sha512-iI9ITNNLlbsLCBBeYDyu0Qqp3GN/9AGyWNKg8bctRXuZEPT7G1L+0+MNWG9MsHcf/BFmNbXL0nQ8mC/tXRicog==}
+  typedoc-plugin-missing-exports@3.0.0:
+    resolution: {integrity: sha512-R7D8fYrK34mBFZSlF1EqJxfqiUSlQSmyrCiQgTQD52nNm6+kUtqwiaqaNkuJ2rA2wBgWFecUA8JzHT7x2r7ePg==}
     peerDependencies:
-      typedoc: 0.24.x || 0.25.x
+      typedoc: 0.26.x
 
   typedoc-theme-hierarchy@5.0.3:
     resolution: {integrity: sha512-88ItQMqVCb/QstNsP3i18tNp7NvQb1fTCFcHmte56pm6FCeMHzemP9AilRu3MYqfu1FM9FX8QsLl6gDzUxKTDg==}
@@ -8318,7 +8318,7 @@ snapshots:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  typedoc-plugin-missing-exports@2.3.0(typedoc@0.26.3(typescript@5.5.3)):
+  typedoc-plugin-missing-exports@3.0.0(typedoc@0.26.3(typescript@5.5.3)):
     dependencies:
       typedoc: 0.26.3(typescript@5.5.3)
 
