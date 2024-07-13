@@ -18,7 +18,7 @@
     "@learn-react/core": "workspace:1.0.0",
     "@learn-react/icon": "workspace:1.0.0",
     "@learn-react/try": "workspace:1.0.0",
-    "highlight.js": "11.9.0",
+    "highlight.js": "11.10.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-router-dom": "6.24.1"
