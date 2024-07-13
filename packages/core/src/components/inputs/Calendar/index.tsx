@@ -1,18 +1,6 @@
 import { css } from '@emotion/css';
-import {
-  addMonths,
-  endOfDay,
-  format,
-  isAfter,
-  isBefore,
-  isSameDay,
-  lastDayOfMonth,
-  setDate,
-  startOfDay,
-  startOfMonth,
-  subMonths,
-} from 'date-fns';
-import { useMemo, type ChangeEvent } from 'react';
+import { addMonth, dayEnd, dayStart, format, isAfter, isBefore, monthEnd, monthStart, sameDay } from '@formkit/tempo';
+import { type ChangeEvent } from 'react';
 import { FontSize } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
 import { IconButton } from '../IconButton';
@@ -56,22 +44,22 @@ export const Calendar = ({
   onChangeDate,
   onChangeMonth,
 }: Props) => {
-  const page = useMemo(() => startOfMonth(rawPage), [rawPage]);
+  const page = monthStart(rawPage);
 
-  const maxDate = useMemo(() => rawMaxDate && endOfDay(rawMaxDate), [rawMaxDate]);
+  const maxDate = rawMaxDate && dayEnd(rawMaxDate);
 
-  const minDate = useMemo(() => rawMinDate && startOfDay(rawMinDate), [rawMinDate]);
+  const minDate = rawMinDate && dayStart(rawMinDate);
 
   const handleClickDate = (value: Date) => {
-    onChangeDate?.(startOfDay(value));
+    onChangeDate?.(dayStart(value));
   };
 
   const handleClickPrevMonth = () => {
-    onChangeMonth?.(subMonths(page, 1));
+    onChangeMonth?.(addMonth(page, -1));
   };
 
   const handleClickNextMonth = () => {
-    onChangeMonth?.(addMonths(page, 1));
+    onChangeMonth?.(addMonth(page, 1));
   };
 
   const handleChangeYearMonth = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -110,7 +98,7 @@ export const Calendar = ({
                 <td key={j}>
                   <Item
                     value={cell}
-                    active={cell ? isSameDay(cell, value) : undefined}
+                    active={cell ? sameDay(cell, value) : undefined}
                     disabled={
                       cell ? (maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate)) : undefined
                     }
@@ -169,7 +157,7 @@ const yearGroup = [...Array(31).keys()].map((year) => ({
   months: [...Array(12).keys()].map((month) => {
     const d = new Date(2000 + year, month);
     return {
-      label: format(d, 'MMM yyyy'),
+      label: format(d, 'MMM YYYY', 'en'),
       value: d.getTime(),
     };
   }),
@@ -195,9 +183,11 @@ const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
  * ```
  */
 function getDateArray(page: Date): (Date | undefined)[][] {
-  const padStart = new Array<undefined>(setDate(page, 1).getDay()).fill(undefined);
+  const padStart = new Array<undefined>(monthStart(page).getDay()).fill(undefined);
 
-  const dates = [...Array(lastDayOfMonth(page).getDate()).keys()].map((i) => setDate(page, i + 1));
+  const dates = [...Array(monthEnd(page).getDate()).keys()].map(
+    (i) => new Date(page.getFullYear(), page.getMonth(), i + 1),
+  );
 
   const headLength = (padStart.length + dates.length) % 7 || 7;
 
