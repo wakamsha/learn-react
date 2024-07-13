@@ -1,6 +1,6 @@
 // @ts-check
 import { dirname, resolve } from 'path';
-import TypeDoc from 'typedoc';
+import TypeDoc, { Application } from 'typedoc';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -23,11 +23,7 @@ const workspace = name === 'core' ? 'packages' : 'apps';
 console.info({ name, watch });
 
 async function main() {
-  const app = new TypeDoc.Application();
-
-  app.options.addReader(new TypeDoc.TSConfigReader());
-
-  app.bootstrap({
+  const app = await Application.bootstrap({
     watch,
     entryPoints: [resolve(__dirname, `../../../${workspace}/${name}`)],
     exclude: [resolve(__dirname, '../../**/*.(test|story).tsx')],
@@ -38,10 +34,11 @@ async function main() {
     entryPointStrategy: 'expand',
     excludeExternals: true,
     name: `@learn-react/${name}`,
-    theme: 'hierarchy',
   });
 
-  const project = app.convert();
+  app.options.addReader(new TypeDoc.TSConfigReader());
+
+  const project = await app.convert();
 
   if (!project) return;
 
