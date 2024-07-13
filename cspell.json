@@ -70,6 +70,7 @@
     "linebreaks",
     "nonblock",
     "nonwords",
-    "stylelintrc"
+    "stylelintrc",
+    "formkit"
   ]
 }

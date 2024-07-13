@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "@emotion/css": "11.11.2",
+    "@formkit/tempo": "0.1.2",
     "@learn-react/icon": "workspace:1.0.0",
     "constate": "3.3.2",
     "csx": "10.0.2",
-    "date-fns": "3.6.0",
     "hotkeys-js": "3.13.7",
     "pdfjs-dist": "4.4.168",
     "qs": "6.12.3",
