@@ -6,7 +6,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/css": "11.11.2",
+    "@emotion/css": "11.13.0",
     "@learn-react/core": "workspace:1.0.0",
     "qs": "6.12.3",
     "swr": "2.2.5"
