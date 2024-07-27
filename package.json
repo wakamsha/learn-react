@@ -7,7 +7,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "20.15.1",
+    "node": "20.16.0",
     "pnpm": "9.5.0",
     "npm": "please use pnpm instead"
   },
