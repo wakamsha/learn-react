@@ -15,6 +15,20 @@ export default [
   },
 
   ...essentials,
+  {
+    rules: {
+      'unicorn/filename-case': [
+        'error',
+        {
+          cases: {
+            camelCase: true,
+            pascalCase: true,
+          },
+          ignore: [/\d_\w+\.story.tsx$/],
+        },
+      ],
+    },
+  },
 
   ...typescript,
   {

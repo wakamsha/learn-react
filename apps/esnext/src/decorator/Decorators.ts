@@ -23,15 +23,15 @@ export function outputLog(target: any, propKey: string, descriptor: PropertyDesc
     console.info(`${key}: start`);
     console.time(key);
     // eslint-disable-next-line prefer-rest-params
-    const ret = Reflect.apply(origin, this, arguments);
-    if (ret) {
-      return ret.then((ret: any) => {
+    const returnValue = Reflect.apply(origin, this, arguments);
+    if (returnValue) {
+      return returnValue.then((returnValue_: any) => {
         console.timeEnd(key);
-        return ret;
+        return returnValue_;
       });
     }
     console.timeEnd(key);
-    return ret;
+    return returnValue;
   };
 }
 

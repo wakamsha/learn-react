@@ -5,7 +5,7 @@ import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type IconName } from '@learn-react/icon';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Navigation } from '../Navigation';
-import { LayoutMode } from './VO';
+import { LayoutMode } from './ValueObject';
 import { useLayoutConfig } from './useLayoutConfig';
 
 type Props = {

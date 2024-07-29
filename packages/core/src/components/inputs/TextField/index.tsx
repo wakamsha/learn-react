@@ -27,7 +27,7 @@ type Props = {
    * @default false
    */
   invalid?: boolean;
-  onFocus?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: ChangeEvent<HTMLInputElement>) => void;
 } & XOR<
   {
     type?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url';
@@ -66,8 +66,8 @@ export const TextField = ({
   min,
   max,
 }: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    onChange(event.target.value);
   };
 
   const handleClickClear = () => {

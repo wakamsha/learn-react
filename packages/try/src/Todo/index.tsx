@@ -8,15 +8,15 @@ export const TodoApp = () => {
   const [todos, setTodos] = useState<Todo[]>([{ id: makeId('todo'), title: 'Implement Todo App', completed: false }]);
 
   const handleTodoAdd = (title: string) => {
-    setTodos((prevTodos) => [...prevTodos, { id: makeId('todo'), title, completed: false }]);
+    setTodos((previousTodos) => [...previousTodos, { id: makeId('todo'), title, completed: false }]);
   };
 
   const handleTodoCompleted = (id: Todo['id'], completed: Todo['completed']) => {
-    setTodos((prevTodos) => prevTodos.map((todo) => (todo.id === id ? { ...todo, completed } : todo)));
+    setTodos((previousTodos) => previousTodos.map((todo) => (todo.id === id ? { ...todo, completed } : todo)));
   };
 
   const handleTodoDelete = (id: Todo['id']) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    setTodos((previousTodos) => previousTodos.filter((todo) => todo.id !== id));
   };
 
   return (

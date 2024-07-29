@@ -113,10 +113,10 @@ export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props)
   return scrollTo;
 }
 
-function topOf(e: Element | Window) {
-  return e instanceof Window ? 0 : e.getBoundingClientRect().top;
+function topOf(element: Element | Window) {
+  return element instanceof Window ? 0 : element.getBoundingClientRect().top;
 }
 
-function scrollTopOf(e: Element | Window) {
-  return e instanceof Window ? document.documentElement.scrollTop : e.scrollTop;
+function scrollTopOf(element: Element | Window) {
+  return element instanceof Window ? document.documentElement.scrollTop : element.scrollTop;
 }

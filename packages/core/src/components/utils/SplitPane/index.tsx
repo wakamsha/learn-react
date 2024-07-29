@@ -109,16 +109,16 @@ export const SplitPane = ({
     }
   };
 
-  const handleMouseDown = (e: MouseEvent<HTMLSpanElement>) => {
+  const handleMouseDown = (event: MouseEvent<HTMLSpanElement>) => {
     unFocus();
 
     setActive(true);
-    setPosition(orientation === 'horizontal' ? e.clientX : e.clientY);
+    setPosition(orientation === 'horizontal' ? event.clientX : event.clientY);
 
     onStarted?.();
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = (event: MouseEvent) => {
     if (!active || !container.current || !pane1.current || !pane2.current) return;
 
     unFocus();
@@ -126,12 +126,12 @@ export const SplitPane = ({
     const [ref1, ref2] = primary === 'first' ? [pane1.current, pane2.current] : [pane2.current, pane1.current];
 
     const { width, height } = ref1.getBoundingClientRect();
-    const [current, size] = orientation === 'horizontal' ? [e.clientX, width] : [e.clientY, height];
+    const [current, size] = orientation === 'horizontal' ? [event.clientX, width] : [event.clientY, height];
     const positionDelta = position - current;
     let sizeDelta = positionDelta * (primary === 'first' ? 1 : -1);
 
-    const pane1Order = parseInt(window.getComputedStyle(ref1).order, 10);
-    const pane2Order = parseInt(window.getComputedStyle(ref2).order, 10);
+    const pane1Order = Number.parseInt(window.getComputedStyle(ref1).order, 10);
+    const pane2Order = Number.parseInt(window.getComputedStyle(ref2).order, 10);
     if (pane1Order > pane2Order) {
       sizeDelta = -sizeDelta;
     }

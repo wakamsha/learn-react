@@ -54,7 +54,7 @@ export const Calendar = ({
     onChangeDate?.(dayStart(value));
   };
 
-  const handleClickPrevMonth = () => {
+  const handleClickPreviousMonth = () => {
     onChangeMonth?.(addMonth(page, -1));
   };
 
@@ -62,14 +62,14 @@ export const Calendar = ({
     onChangeMonth?.(addMonth(page, 1));
   };
 
-  const handleChangeYearMonth = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChangeMonth?.(new Date(opts[e.target.selectedIndex]));
+  const handleChangeYearMonth = (event: ChangeEvent<HTMLSelectElement>) => {
+    onChangeMonth?.(new Date(options[event.target.selectedIndex]));
   };
 
   return (
     <div>
       <div role="menubar" className={styleMenubar}>
-        <IconButton name="angle-left" variant="bare" ariaLabel="Preview month" onClick={handleClickPrevMonth} />
+        <IconButton name="angle-left" variant="bare" ariaLabel="Preview month" onClick={handleClickPreviousMonth} />
         <select name="month year" value={page.getTime()} onChange={handleChangeYearMonth}>
           {yearGroup.map((group) => (
             <optgroup key={group.year} label={`${group.year}`}>
@@ -100,7 +100,7 @@ export const Calendar = ({
                     value={cell}
                     active={cell ? sameDay(cell, value) : undefined}
                     disabled={
-                      cell ? (maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate)) : undefined
+                      cell ? ((maxDate && isAfter(cell, maxDate)) ?? (minDate && isBefore(cell, minDate))) : undefined
                     }
                     onClick={handleClickDate}
                   />
@@ -163,7 +163,7 @@ const yearGroup = [...Array(31).keys()].map((year) => ({
   }),
 }));
 
-const opts = yearGroup.reduce((acc: number[], { months }) => [...acc, ...months.map(({ value }) => value)], []);
+const options = yearGroup.reduce((acc: number[], { months }) => [...acc, ...months.map(({ value }) => value)], []);
 
 const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
 
@@ -183,7 +183,7 @@ const WeekLabels = ['日', '月', '火', '水', '木', '金', '土'] as const;
  * ```
  */
 function getDateArray(page: Date): (Date | undefined)[][] {
-  const padStart = new Array<undefined>(monthStart(page).getDay()).fill(undefined);
+  const padStart = Array.from<undefined>({ length: monthStart(page).getDay() });
 
   const dates = [...Array(monthEnd(page).getDate()).keys()].map(
     (i) => new Date(page.getFullYear(), page.getMonth(), i + 1),
@@ -191,7 +191,7 @@ function getDateArray(page: Date): (Date | undefined)[][] {
 
   const headLength = (padStart.length + dates.length) % 7 || 7;
 
-  const padEnd = new Array<undefined>(7 - headLength).fill(undefined);
+  const padEnd = Array.from<undefined>({ length: 7 - headLength });
 
   return splitChunk<Date | undefined>([...padStart, ...dates, ...padEnd], 7);
 }

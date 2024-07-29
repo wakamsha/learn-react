@@ -18,7 +18,7 @@ function request<REQ extends Record<string, unknown>, RES>({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
-  const queryStrings = Object.keys(query).length ? `?${stringify(query)}` : '';
+  const queryStrings = Object.keys(query).length > 0 ? `?${stringify(query)}` : '';
   const url = `https://api.github.com${path}${queryStrings}`;
 
   return new Promise((resolve, reject) => {

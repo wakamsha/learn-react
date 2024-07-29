@@ -46,10 +46,10 @@ export function getCookie(cname: string): string | undefined {
   for (const segment of segments) {
     let pair = segment;
     while (pair.startsWith(' ')) {
-      pair = pair.substring(1);
+      pair = pair.slice(1);
     }
     if (pair.startsWith(sensor)) {
-      return pair.substring(sensor.length, pair.length);
+      return pair.slice(sensor.length, pair.length);
     }
   }
   return undefined;

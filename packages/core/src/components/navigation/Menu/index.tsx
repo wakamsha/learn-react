@@ -34,7 +34,7 @@ type DropdownMenuOptions = {
 type DropdownMenuResponse = Readonly<{
   buttonProps: ButtonProps;
   itemProps: {
-    onKeyDown: (e: KeyboardEvent<HTMLElement>) => void;
+    onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
     tabIndex: number;
     role: 'menuitem';
     ref: RefObject<any>;
@@ -70,7 +70,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
   const itemRefs = useMemo(() => [...Array(itemCount).keys()].map(() => createRef<HTMLElement>()), [itemCount]);
 
   // キーボードイベントかどうかを判定する。
-  const isKeyboardEvent = (e: KeyboardEvent | MouseEvent): e is KeyboardEvent => !!(e as KeyboardEvent).key;
+  const isKeyboardEvent = (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key;
 
   // メニュー項目のフォーカスを移動する。
   const moveFocus = useCallback(
@@ -99,11 +99,11 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
   useEffect(() => {
     if (!opened) return;
 
-    const handleEveryClick = (e: globalThis.MouseEvent) => {
+    const handleEveryClick = (event: globalThis.MouseEvent) => {
       if (
-        !(e.target instanceof Element) ||
-        e.target.closest('[role="menu"]') instanceof Element ||
-        e.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === buttonRef.current
+        !(event.target instanceof Element) ||
+        event.target.closest('[role="menu"]') instanceof Element ||
+        event.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === buttonRef.current
       )
         return;
       setOpened(false);
@@ -119,9 +119,9 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
   // メニュー表示中は十字キーによるページスクロールを抑止する。
   // これをやらないと十字キーでメニュー項目間を移動すると同時にページ全体もスクロールしてしまう。
   useEffect(() => {
-    const handleDisableArrowScroll = (e: globalThis.KeyboardEvent) => {
-      if (opened && ['ArrowDown', 'ArrowUp'].includes(e.key)) {
-        e.preventDefault();
+    const handleDisableArrowScroll = (event: globalThis.KeyboardEvent) => {
+      if (opened && ['ArrowDown', 'ArrowUp'].includes(event.key)) {
+        event.preventDefault();
       }
     };
 
@@ -133,22 +133,22 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
   }, [opened]);
 
   const handleButton = useCallback(
-    (e: KeyboardEvent | MouseEvent) => {
-      if (isKeyboardEvent(e)) {
-        if (!['Enter', ' ', 'Tab', 'ArrowDown', 'Escape'].includes(e.key)) return;
+    (event: KeyboardEvent | MouseEvent) => {
+      if (isKeyboardEvent(event)) {
+        if (!['Enter', ' ', 'Tab', 'ArrowDown', 'Escape'].includes(event.key)) return;
 
-        if (['Tab', 'ArrowDown'].includes(e.key) && clickedOpen.current && opened) {
-          e.preventDefault();
+        if (['Tab', 'ArrowDown'].includes(event.key) && clickedOpen.current && opened) {
+          event.preventDefault();
           moveFocus(0);
         }
 
-        if (['Enter', ' '].includes(e.key)) {
-          e.preventDefault();
+        if (['Enter', ' '].includes(event.key)) {
+          event.preventDefault();
           setOpened(true);
         }
 
-        if (e.key === 'Escape') {
-          e.preventDefault();
+        if (event.key === 'Escape') {
+          event.preventDefault();
           setOpened(false);
         }
 
@@ -166,9 +166,9 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
 
   // メニュー項目で発火するキーボードイベントに基づいて実施する処理を定義する。
   const handleItemKeyDown = useCallback(
-    (e: KeyboardEvent<HTMLElement>) => {
-      if (['Tab', 'Shift', 'Enter', 'Escape', 'ArrowUp', 'ArrowDown', ' '].includes(e.key)) {
-        switch (e.key) {
+    (event: KeyboardEvent<HTMLElement>) => {
+      if (['Tab', 'Shift', 'Enter', 'Escape', 'ArrowUp', 'ArrowDown', ' '].includes(event.key)) {
+        switch (event.key) {
           case 'Escape':
             setOpened(false);
             buttonRef.current?.focus();
@@ -177,15 +177,15 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
             setOpened(false);
             break;
           case 'Enter':
-            if (!['BUTTON', 'INPUT', 'A'].includes(e.currentTarget.nodeName)) {
-              e.currentTarget.click();
+            if (!['BUTTON', 'INPUT', 'A'].includes(event.currentTarget.nodeName)) {
+              event.currentTarget.click();
             }
             if (autoHide) {
               setOpened(false);
             }
             break;
           case ' ':
-            e.currentTarget.click();
+            event.currentTarget.click();
             if (autoHide) {
               setOpened(false);
             }
@@ -193,9 +193,9 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
         }
 
         let newFocusIndex = currentFocusIndex.current;
-        if (e.key === 'ArrowUp') {
+        if (event.key === 'ArrowUp') {
           newFocusIndex += newFocusIndex > 0 ? -1 : itemRefs.length - 1;
-        } else if (e.key === 'ArrowDown') {
+        } else if (event.key === 'ArrowDown') {
           newFocusIndex += newFocusIndex < itemRefs.length - 1 ? 1 : (itemRefs.length - 1) * -1;
         }
         moveFocus(newFocusIndex);
@@ -204,12 +204,11 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       }
 
       // 入力したキーの文字で始まるラベルのメニュー項目にフォーカスを移動する。
-      if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
+      if (/[\w!"#$%&'()*+,./:;<=>?@[\\-~]/.test(event.key)) {
         const index = itemRefs.findIndex(
           (ref) =>
-            ref.current?.innerText.toLowerCase().startsWith(e.key.toLowerCase()) ??
-            ref.current?.textContent?.toLowerCase().startsWith(e.key.toLowerCase()) ??
-            ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(e.key.toLowerCase()),
+            ref.current?.textContent?.toLowerCase().startsWith(event.key.toLowerCase()) ??
+            ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(event.key.toLowerCase()),
         );
 
         if (index > -1) {

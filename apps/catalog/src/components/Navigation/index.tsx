@@ -16,9 +16,7 @@ export const Navigation = () => {
   const [keyword, setKeyword] = useState('');
 
   const query = useMemo(() => {
-    const pattern = keyword
-      .replace(/\\|\*|\+|\.|\?|\{|\}|\(|\)|\[|\]|\^|\$|\||\//g, (replace) => `\\${replace}`)
-      .trim();
+    const pattern = keyword.replaceAll(/[$()*+./?[\\]^{|}]/g, (replace) => `\\${replace}`).trim();
 
     return new RegExp(pattern, 'i');
   }, [keyword]);
@@ -202,7 +200,7 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
         const path = `${basePath}__${key}`;
 
         if (subValue.sourceCode) {
-          return path.match(query) ? (
+          return query.test(path) ? (
             <li key={key}>
               <Link
                 to={path}
@@ -221,7 +219,9 @@ const Tree = ({ value, basePath, query, nestLevel = 1 }: TreeProps) => {
             <div
               className={styleTreeCaption}
               style={{ paddingLeft: offset }}
-              aria-disabled={!Object.keys(subValue).filter((subKey) => subKey.match(query)).length && !key.match(query)}
+              aria-disabled={
+                Object.keys(subValue).filter((subKey) => subKey.match(query)).length === 0 && !query.test(key)
+              }
             >
               <Icon name="folder" />
               {key}

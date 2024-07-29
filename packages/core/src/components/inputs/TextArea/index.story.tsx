@@ -30,8 +30,8 @@ export const Story = () => {
             min={1}
             max={100}
             value={minLines}
-            onChange={(e) => {
-              setMinLines(Number(e.target.value));
+            onChange={(event) => {
+              setMinLines(Number(event.target.value));
             }}
           />
         </label>
@@ -42,8 +42,8 @@ export const Story = () => {
             min={1}
             max={100}
             value={maxLines}
-            onChange={(e) => {
-              setMaxLines(Number(e.target.value));
+            onChange={(event) => {
+              setMaxLines(Number(event.target.value));
             }}
           />
         </label>

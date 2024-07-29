@@ -13,5 +13,5 @@ applyResetStyle();
 
 applyGlobalStyle();
 
-const root = createRoot(document.getElementById('preview') as HTMLElement);
+const root = createRoot(document.querySelector('#preview') as HTMLElement);
 root.render(<Preview />);

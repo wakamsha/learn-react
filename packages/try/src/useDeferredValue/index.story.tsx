@@ -17,8 +17,8 @@ export const Story = () => {
 
   const deferredText = useDeferredValue(text);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
   };
 
   return (

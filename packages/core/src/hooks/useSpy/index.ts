@@ -82,8 +82,8 @@ export function useSpy({ rootRef, offset = 0 }: Props) {
   return spy;
 }
 
-function topOf(e: Element | Document) {
-  return e instanceof Document ? 0 : e.getBoundingClientRect().top;
+function topOf(element: Element | Document) {
+  return element instanceof Document ? 0 : element.getBoundingClientRect().top;
 }
 
 function findTargetByTopPosition(targets: ArrayLike<Element>, y: number) {

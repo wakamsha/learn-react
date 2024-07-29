@@ -19,25 +19,27 @@ export const Story = () => {
 
   const scrollTo = useScrollTo({ rootRef, offset });
 
-  const onSpyChange = (e: HTMLElement) => {
-    if (!e.dataset.spy) return;
-    setSpyKey(e.dataset.spy);
+  const onSpyChange = (event: HTMLElement) => {
+    if (!event.dataset.spy) return;
+    setSpyKey(event.dataset.spy);
   };
 
-  const handleSelectNav = (e: MouseEvent<HTMLAnchorElement>, name: string) => {
-    e.preventDefault();
+  const handleSelectNav = (event: MouseEvent<HTMLAnchorElement>, name: string) => {
+    event.preventDefault();
 
     setTarget(name);
     scrollTo((root) => root.querySelector(`[data-spy="${name}"]`));
   };
 
-  const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
-    setOffset(Number(e.target.value));
+  const onChangeOffset = (event: ChangeEvent<HTMLInputElement>) => {
+    setOffset(Number(event.target.value));
   };
 
   spy(
     (root) =>
-      [...root.querySelectorAll('[data-spy]')].filter((e) => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+      [...root.querySelectorAll('[data-spy]')].filter(
+        (element) => !(element as HTMLElement).dataset.spy?.startsWith('rotten'),
+      ),
     onSpyChange,
   );
 
@@ -49,8 +51,8 @@ export const Story = () => {
             <li key={name}>
               <a
                 href={`#${name}`}
-                onClick={(e) => {
-                  handleSelectNav(e, name);
+                onClick={(event) => {
+                  handleSelectNav(event, name);
                 }}
               >
                 {name}

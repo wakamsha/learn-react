@@ -38,15 +38,15 @@ export const ComboBox = <T extends string | number>({
 
   const [inputValue, setInputValue] = useState(options.find((option) => option.value === value)?.label);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
 
-    if (e.target.value === '') {
+    if (event.target.value === '') {
       onChange(null);
       return;
     }
 
-    const selectedItem = options.find(({ label }) => label === e.target.value);
+    const selectedItem = options.find(({ label }) => label === event.target.value);
 
     selectedItem && onChange(selectedItem);
   };

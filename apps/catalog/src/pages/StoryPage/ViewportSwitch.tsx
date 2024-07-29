@@ -9,7 +9,7 @@ import { nonNull } from '@learn-react/core/src/helpers/Type';
 import { useListBox } from '@learn-react/core/src/hooks/useListBox';
 import { useId, useState } from 'react';
 import { ToolbarButton } from './ToolbarButton';
-import { DeviceSize } from './VO';
+import { DeviceSize } from './ValueObject';
 
 type Props = {
   onChange: (value: DeviceSize) => void;

@@ -13,7 +13,7 @@ import { CodeBlock } from './CodeBlock';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { LayoutSwitch } from './LayoutSwitch';
 import { ToolbarButton } from './ToolbarButton';
-import { DeviceSize, Layout } from './VO';
+import { DeviceSize, Layout } from './ValueObject';
 import { ViewportSwitch } from './ViewportSwitch';
 
 /**
@@ -44,7 +44,7 @@ const Presentation = () => {
 
   return (
     <>
-      <DocumentTitle title={storyKeys.slice().reverse().join(' | ')} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={[...storyKeys].reverse().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <div className={styleBase}>
         <header className={styleHeader}>
@@ -82,7 +82,7 @@ const Presentation = () => {
                 // 強制的に再マウントしてゼロからレンダリングさせている。
                 key={storyId}
                 src={`/preview.html?storyId=${storyId}`}
-                title={storyKeys.slice().reverse().join(' | ')}
+                title={[...storyKeys].reverse().join(' | ')}
                 style={deviceSizeValue}
                 sandbox="allow-scripts allow-popups-to-escape-sandbox"
               />

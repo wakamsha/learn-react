@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import path from 'node:path';
 import { splitVendorChunkPlugin, type BuildOptions, type UserConfig } from 'vite';
 
 type Props = {
@@ -42,7 +42,7 @@ type Props = {
 export function createUserConfig({ basePath, port = 3000, define = {}, build = {}, alias = {} }: Props): UserConfig {
   return {
     define,
-    root: resolve(basePath, './'),
+    root: path.resolve(basePath, './'),
     build: {
       sourcemap: true,
       ...build,

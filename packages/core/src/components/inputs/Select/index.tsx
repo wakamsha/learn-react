@@ -55,12 +55,12 @@ export const Select = <T extends string | number>({
   value: propValue,
   selectedIndex,
 }: Props<T>) => {
-  const opts = options ?? optGroups.reduce((acc: Option<T>[], { options }) => [...acc, ...options], []);
+  const flattenedOptions = options ?? optGroups.reduce((acc: Option<T>[], { options }) => [...acc, ...options], []);
 
-  const value = propValue ?? (selectedIndex !== undefined ? opts[selectedIndex].value : undefined);
+  const value = propValue ?? (selectedIndex !== undefined ? flattenedOptions[selectedIndex].value : undefined);
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    !disabled && onChange(opts[e.target.selectedIndex], e.target.selectedIndex);
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    !disabled && onChange(flattenedOptions[event.target.selectedIndex], event.target.selectedIndex);
   };
 
   return (

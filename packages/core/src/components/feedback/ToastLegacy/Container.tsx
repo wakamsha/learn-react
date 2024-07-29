@@ -20,7 +20,7 @@ export const Container = ({ toasts }: Props) =>
         </Item>
       ))}
     </aside>,
-    document.getElementById('app') ?? document.body,
+    document.querySelector('#app') ?? document.body,
   );
 
 const styleBase = css`

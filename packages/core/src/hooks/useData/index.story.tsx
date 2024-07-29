@@ -26,8 +26,8 @@ export const Story = () => {
     <>
       <h2>Get by Params</h2>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={(event) => {
+          event.preventDefault();
         }}
       >
         <p>取得する User の id を指定</p>
@@ -91,9 +91,8 @@ function fetchUser(userId: number) {
   return request<Record<string, unknown>, User>({
     method: 'GET',
     path: `/users/${userId}`,
-    ...{
-      withCredentials: false,
-    },
+
+    withCredentials: false,
   });
 }
 

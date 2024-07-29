@@ -35,7 +35,7 @@ type Response = Readonly<{
     /**
      * メニュー項目にフォーカスしてる最中にキーが入力された際のリストボックスメニューの振る舞いを管理します。
      */
-    onKeyDown: (e: KeyboardEvent<HTMLElement>) => void;
+    onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
     /**
      * ブラウザのネイティブフォーカスロジックを無効化するため `-1` を設定します。
      */
@@ -78,7 +78,7 @@ export function useListBox(itemCount: number): Response {
   const itemRefs = useMemo(() => [...Array(itemCount).keys()].map(() => createRef<HTMLElement>()), [itemCount]);
 
   // キーボードイベントかどうかを判定する。
-  const isKeyboardEvent = (e: KeyboardEvent | MouseEvent): e is KeyboardEvent => !!(e as KeyboardEvent).key;
+  const isKeyboardEvent = (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key;
 
   /** メニュー項目のフォーカスを移動する。 */
   const moveFocus = useCallback(
@@ -108,22 +108,22 @@ export function useListBox(itemCount: number): Response {
   );
 
   const handleTrigger = useCallback(
-    (e: KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLButtonElement>) => {
-      if (isKeyboardEvent(e)) {
-        if (![KeyMaps.ArrowDown, KeyMaps.Escape, KeyMaps.Enter, KeyMaps.Space, KeyMaps.Tab].includes(e.key)) return;
+    (event: KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLButtonElement>) => {
+      if (isKeyboardEvent(event)) {
+        if (![KeyMaps.ArrowDown, KeyMaps.Escape, KeyMaps.Enter, KeyMaps.Space, KeyMaps.Tab].includes(event.key)) return;
 
-        if ([KeyMaps.ArrowDown, KeyMaps.Tab].includes(e.key) && active) {
-          e.preventDefault();
+        if ([KeyMaps.ArrowDown, KeyMaps.Tab].includes(event.key) && active) {
+          event.preventDefault();
           moveFocus(0);
         }
 
-        if ([KeyMaps.Enter, KeyMaps.Space].includes(e.key)) {
-          e.preventDefault();
+        if ([KeyMaps.Enter, KeyMaps.Space].includes(event.key)) {
+          event.preventDefault();
           setActive(true);
         }
 
-        if (e.key === KeyMaps.Escape) {
-          e.preventDefault();
+        if (event.key === KeyMaps.Escape) {
+          event.preventDefault();
           setActive(false);
         }
 
@@ -137,9 +137,9 @@ export function useListBox(itemCount: number): Response {
 
   /** メニュー項目で発火するキーボードイベントに応じて実施する処理を定義する。 */
   const handleItemKeyDown = useCallback(
-    (e: KeyboardEvent<HTMLElement>) => {
-      if (Object.values(KeyMaps).includes(e.key)) {
-        switch (e.key) {
+    (event: KeyboardEvent<HTMLElement>) => {
+      if (Object.values(KeyMaps).includes(event.key)) {
+        switch (event.key) {
           case KeyMaps.Escape:
             setActive(false);
             triggerRef.current?.focus();
@@ -148,19 +148,19 @@ export function useListBox(itemCount: number): Response {
             setActive(false);
             break;
           case KeyMaps.Enter:
-            if (!['BUTTON', 'INPUT', 'A'].includes(e.currentTarget.nodeName)) {
-              e.currentTarget.click();
+            if (!['BUTTON', 'INPUT', 'A'].includes(event.currentTarget.nodeName)) {
+              event.currentTarget.click();
             }
             setActive(false);
             break;
           case KeyMaps.Space:
-            e.currentTarget.click();
+            event.currentTarget.click();
             setActive(false);
             break;
         }
 
         const newFocusIndex = (() => {
-          switch (e.key) {
+          switch (event.key) {
             case KeyMaps.ArrowUp:
               return focusIndex + (focusIndex > 0 ? -1 : itemRefs.length - 1);
             case KeyMaps.ArrowDown:
@@ -175,11 +175,10 @@ export function useListBox(itemCount: number): Response {
       }
 
       // 入力したキーの文字で始まるラベルのメニュー項目にフォーカスを移動する。
-      if (/[a-zA-Z0-9./<>?;:"'`!@#$%^&*()\\[\]{}_+=|\\-~,]/.test(e.key)) {
+      if (/[\w!"#$%&'()*+,./:;<=>?@[\\-~]/.test(event.key)) {
         const index = itemRefs.findIndex((ref) => {
-          const key = e.key.toLowerCase();
+          const key = event.key.toLowerCase();
           return (
-            ref.current?.innerText.toLowerCase().startsWith(key) ??
             ref.current?.textContent?.toLowerCase().startsWith(key) ??
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(key)
           );
@@ -213,11 +212,11 @@ export function useListBox(itemCount: number): Response {
   useEffect(() => {
     if (!active) return;
 
-    const handleEveryClick = (e: globalThis.MouseEvent) => {
+    const handleEveryClick = (event: globalThis.MouseEvent) => {
       if (
-        !(e.target instanceof Element) ||
-        e.target.closest('[role="menu"]') instanceof Element ||
-        e.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === triggerRef.current
+        !(event.target instanceof Element) ||
+        event.target.closest('[role="menu"]') instanceof Element ||
+        event.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === triggerRef.current
       )
         return;
 
@@ -234,9 +233,9 @@ export function useListBox(itemCount: number): Response {
   // リストボックス表示中は矢印キーによるページスクロールを抑止する。
   // これをやらないと矢印キーでメニュー項目間を移動すると同時にページ全体もスクロールしてしまう。
   useEffect(() => {
-    const handleDisableArrowScroll = (e: globalThis.KeyboardEvent) => {
-      if (active && [KeyMaps.ArrowDown, KeyMaps.ArrowUp].includes(e.key)) {
-        e.preventDefault();
+    const handleDisableArrowScroll = (event: globalThis.KeyboardEvent) => {
+      if (active && [KeyMaps.ArrowDown, KeyMaps.ArrowUp].includes(event.key)) {
+        event.preventDefault();
       }
     };
 

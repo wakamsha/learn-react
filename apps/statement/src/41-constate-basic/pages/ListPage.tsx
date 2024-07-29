@@ -31,12 +31,12 @@ const AddForm = () => {
 
   const [age, setAge] = useState(18);
 
-  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.currentTarget.value);
+  const handleInputName = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
   };
 
-  const handleInputAge = (e: ChangeEvent<HTMLInputElement>) => {
-    setAge(Number(e.currentTarget.value));
+  const handleInputAge = (event: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(event.currentTarget.value));
   };
 
   const handleSubmit = () => {
@@ -45,8 +45,8 @@ const AddForm = () => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <fieldset>
@@ -80,16 +80,16 @@ const EditForm = () => {
 
   const [index, setIndex] = useState(0);
 
-  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.currentTarget.value);
+  const handleInputName = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.currentTarget.value);
   };
 
-  const handleInputAge = (e: ChangeEvent<HTMLInputElement>) => {
-    setAge(Number(e.currentTarget.value));
+  const handleInputAge = (event: ChangeEvent<HTMLInputElement>) => {
+    setAge(Number(event.currentTarget.value));
   };
 
-  const handleInputIndex = (e: ChangeEvent<HTMLInputElement>) => {
-    setIndex(Number(e.currentTarget.value));
+  const handleInputIndex = (event: ChangeEvent<HTMLInputElement>) => {
+    setIndex(Number(event.currentTarget.value));
   };
 
   const handleSubmit = () => {
@@ -98,8 +98,8 @@ const EditForm = () => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <fieldset>

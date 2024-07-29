@@ -18,7 +18,7 @@ export const Container = () => {
         </Item>
       ))}
     </aside>,
-    document.getElementById('app') ?? document.body,
+    document.querySelector('#app') ?? document.body,
   );
 };
 

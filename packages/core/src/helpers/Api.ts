@@ -53,25 +53,25 @@ export async function request<REQ extends Record<string, unknown>, RES>({
     'Content-Type': 'application/json',
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
-  const queryStrings = Object.keys(query).length ? `?${stringify(query)}` : '';
+  const queryStrings = Object.keys(query).length > 0 ? `?${stringify(query)}` : '';
   const url = `https://jsonplaceholder.typicode.com${path}${queryStrings}`;
 
-  const response = await fetch(url, {
+  const result = await fetch(url, {
     headers,
     method,
     credentials: withCredentials ? 'include' : 'omit',
     ...(send ? { body: JSON.stringify(send) } : {}),
   });
 
-  if (!response.ok) {
+  if (!result.ok) {
     // 共通のエラー処理があれば、ここに実装する。
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const error = await response.json();
+    const error = await result.json();
     throw {
-      code: response.status,
+      code: result.status,
       ...error,
     };
   }
 
-  return response.json().then((res) => res as RES);
+  return result.json().then((response) => response as RES);
 }

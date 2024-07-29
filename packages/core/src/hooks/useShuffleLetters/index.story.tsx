@@ -22,14 +22,14 @@ export const Story = () => {
     <>
       <h4>Submit</h4>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={(event) => {
+          event.preventDefault();
         }}
       >
         <input
           value={input}
-          onChange={(e) => {
-            setInput(e.target.value);
+          onChange={(event) => {
+            setInput(event.target.value);
           }}
         />
         <button onClick={handleSubmit}>submit</button>

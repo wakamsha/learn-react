@@ -9,7 +9,7 @@ import { useListBox } from '@learn-react/core/src/hooks/useListBox';
 import { useId } from 'react';
 import { LayoutConfigContainer } from './LayoutConfigContainer';
 import { ToolbarButton } from './ToolbarButton';
-import { Layout } from './VO';
+import { Layout } from './ValueObject';
 
 /**
  * Preview と CodeBlock のレイアウトを切り替える UI コンポーネントです。

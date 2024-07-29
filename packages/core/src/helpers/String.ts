@@ -6,7 +6,7 @@
  * @returns 有効かどうか。
  */
 export function isValidEmail(value: string): boolean {
-  return !!value.match(/^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+  return !!/^[\w!#$%&'*+./=?\\^`{|}~-]+@[\dA-Za-z-]+(?:\.[\dA-Za-z-]+)*$/.test(value);
 }
 
 /**
@@ -21,5 +21,5 @@ export function isValidEmail(value: string): boolean {
  */
 export function count(value: string): number {
   if (!value) return 0;
-  return (value.replace(/\r?\n/g, ' ').match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) ?? []).length;
+  return (value.replaceAll(/\r?\n/g, ' ').match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) ?? []).length;
 }

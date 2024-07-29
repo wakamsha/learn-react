@@ -22,7 +22,7 @@ type Props = {
 } & XOR<
   {
     tabIndex?: ButtonHTMLAttributes<HTMLButtonElement>['tabIndex'];
-    onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+    onClick: (event: MouseEvent<HTMLButtonElement>) => void;
     /**
      * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
      */

@@ -24,8 +24,8 @@ type Props<T> = {
 export const Tabs = <T extends string | number>({ value, options, onChange, size = 'neutral' }: Props<T>) => {
   const groupName = useId();
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const index = Number(e.currentTarget.value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const index = Number(event.currentTarget.value);
     onChange(options[index], index);
   };
 

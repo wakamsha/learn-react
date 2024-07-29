@@ -17,8 +17,8 @@ export const Story = () => {
           min={1}
           max={10}
           value={limit}
-          onChange={(e) => {
-            setLimit(Number(e.target.value));
+          onChange={(event) => {
+            setLimit(Number(event.target.value));
           }}
         />
       </label>
@@ -37,16 +37,19 @@ const AddMessage = () => {
 
   const iconNames = useMemo(() => Object.keys(iconElements), []);
 
-  const handleChangeTheme = (e: ChangeEvent<HTMLSelectElement>) => {
-    dispatch({ type: 'theme', payload: e.target.value as Toast['theme'] });
+  const handleChangeTheme = (event: ChangeEvent<HTMLSelectElement>) => {
+    dispatch({ type: 'theme', payload: event.target.value as Toast['theme'] });
   };
 
-  const handleChangeIcon = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'icon', payload: iconNames.includes(e.target.value) ? (e.target.value as IconName) : undefined });
+  const handleChangeIcon = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: 'icon',
+      payload: iconNames.includes(event.target.value) ? (event.target.value as IconName) : undefined,
+    });
   };
 
-  const handleInputMessage = (e: ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'message', payload: e.target.value });
+  const handleInputMessage = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch({ type: 'message', payload: event.target.value });
   };
 
   const handleSubmit = () => {
@@ -60,8 +63,8 @@ const AddMessage = () => {
   return (
     <form
       className={styleForm}
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <div className={styleFormControl}>
@@ -120,7 +123,7 @@ type Action =
 type State = Pick<Toast, 'message' | 'icon' | 'theme'>;
 
 function reducer(state: State, action: Action) {
-  return { ...state, ...{ [action.type]: action.payload } };
+  return { ...state, [action.type]: action.payload };
 }
 
 const styleForm = css`

@@ -33,33 +33,32 @@ async function request<REQ extends Record<string, unknown>, RES>({
     'Content-Type': 'application/json',
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
-  const queryStrings = Object.keys(query).length ? `?${stringify(query)}` : '';
+  const queryStrings = Object.keys(query).length > 0 ? `?${stringify(query)}` : '';
   const url = `https://jsonplaceholder.typicode.com${path}${queryStrings}`;
-  const res = await fetch(url, {
+  const result = await fetch(url, {
     headers,
     method,
     credentials: withCredentials ? 'include' : 'omit',
     ...(send ? { body: JSON.stringify(send) } : {}),
   });
-  if (!res.ok) {
+  if (!result.ok) {
     console.info('ここでエラー処理をしてください');
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const error = await res.json();
+    const error = await result.json();
     throw {
-      code: res.status,
+      code: result.status,
       ...error,
     };
   }
-  return res.json().then((res) => res as RES);
+  return result.json().then((response) => response as RES);
 }
 
 export async function requestGetUsers(): Promise<User[]> {
   return request<Record<string, unknown>, User[]>({
     method: 'GET',
     path: '/users',
-    ...{
-      withCredentials: false,
-    },
+
+    withCredentials: false,
   });
 }
 
@@ -67,9 +66,8 @@ export async function requestGetUser({ path }: { path: string }): Promise<User> 
   return request<Record<string, unknown>, User>({
     method: 'GET',
     path: `/users/${path}`,
-    ...{
-      withCredentials: false,
-    },
+
+    withCredentials: false,
   });
 }
 
@@ -77,9 +75,8 @@ export async function requestPostUser({ send }: { send: CreateUserRequest }): Pr
   return request<CreateUserRequest, CreateUserResponse>({
     method: 'POST',
     path: '/users',
-    ...{
-      send,
-      withCredentials: false,
-    },
+
+    send,
+    withCredentials: false,
   });
 }
