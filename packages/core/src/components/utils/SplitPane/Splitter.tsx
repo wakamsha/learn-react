@@ -8,9 +8,9 @@ type ParentProps = ComponentProps<typeof SplitPane>;
 
 type Props = Required<Pick<ParentProps, 'orientation'>> & {
   grabbed: boolean;
-  onMouseDown: (e: MouseEvent<HTMLSpanElement>) => void;
-  onMouseUp: (e: MouseEvent<HTMLSpanElement>) => void;
-  onDoubleClick: (e: MouseEvent<HTMLSpanElement>) => void;
+  onMouseDown: (event: MouseEvent<HTMLSpanElement>) => void;
+  onMouseUp: (event: MouseEvent<HTMLSpanElement>) => void;
+  onDoubleClick: (event: MouseEvent<HTMLSpanElement>) => void;
 };
 
 /**

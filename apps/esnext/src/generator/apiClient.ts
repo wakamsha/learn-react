@@ -46,17 +46,17 @@ async function request<ResponseType>(url: string): Promise<ResponseType> {
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
-  const res = await fetch(url, {
+  const result = await fetch(url, {
     headers,
     method: 'GET',
   });
-  if (!res.ok) {
-    await res.json().catch((err: unknown) => {
+  if (!result.ok) {
+    await result.json().catch((error: unknown) => {
       console.info('ここでエラー処理をしてください');
-      throw new Error(err as string);
+      throw new Error(error as string);
     });
   }
-  return res.json().then((res) => res as ResponseType);
+  return result.json().then((response) => response as ResponseType);
 }
 
 /**

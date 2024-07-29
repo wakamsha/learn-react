@@ -14,8 +14,8 @@ export const Story = () => {
           Value:
           <input
             value={value}
-            onChange={(e) => {
-              setValue(e.target.value);
+            onChange={(event) => {
+              setValue(event.target.value);
             }}
           />
         </label>
@@ -26,8 +26,8 @@ export const Story = () => {
           <input
             type="number"
             value={delay}
-            onChange={(e) => {
-              setDelay(Number(e.target.value));
+            onChange={(event) => {
+              setDelay(Number(event.target.value));
             }}
           />
         </label>

@@ -5,7 +5,7 @@ export function scrollbarSize(): number {
   const outer = document.createElement('div');
   outer.style.visibility = 'hidden';
   outer.style.width = '100px';
-  document.body.appendChild(outer);
+  document.body.append(outer);
 
   const widthNoScroll = outer.offsetWidth;
 
@@ -15,12 +15,12 @@ export function scrollbarSize(): number {
   // add inner div
   const inner = document.createElement('div');
   inner.style.width = '100%';
-  outer.appendChild(inner);
+  outer.append(inner);
 
   const widthWithScroll = inner.offsetWidth;
 
   // remove div
-  outer.parentNode?.removeChild(outer);
+  outer.remove();
 
   return widthNoScroll - widthWithScroll;
 }

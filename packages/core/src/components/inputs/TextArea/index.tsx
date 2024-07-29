@@ -54,8 +54,8 @@ export const TextArea = ({
 }: Props) => {
   const rows = Math.min(Math.max(minRows, value.split(`\n`).length), maxRows);
 
-  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e.target.value);
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    onChange(event.target.value);
   };
 
   return (

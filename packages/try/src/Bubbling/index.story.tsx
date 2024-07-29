@@ -3,17 +3,17 @@ import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type MouseEvent } from 'react';
 
 export const Story = () => {
-  const handleClickOuter = (e: MouseEvent<HTMLDivElement>) => {
-    console.info('outer', e);
+  const handleClickOuter = (event: MouseEvent<HTMLDivElement>) => {
+    console.info('outer', event);
   };
 
-  const handleClickInner = (e: MouseEvent<HTMLButtonElement>) => {
-    console.info('inner', e);
+  const handleClickInner = (event: MouseEvent<HTMLButtonElement>) => {
+    console.info('inner', event);
   };
 
-  const handleClickLabel = (e: MouseEvent<HTMLLabelElement>) => {
-    e.stopPropagation();
-    console.info('label', e);
+  const handleClickLabel = (event: MouseEvent<HTMLLabelElement>) => {
+    event.stopPropagation();
+    console.info('label', event);
   };
 
   return (

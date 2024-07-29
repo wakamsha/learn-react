@@ -57,6 +57,7 @@ export const Popover = ({
 
     if (!visible) return;
 
+    // eslint-disable-next-line unicorn/prefer-query-selector
     const targetElement = document.getElementById(targetId);
     if (!targetElement) return;
 
@@ -96,14 +97,14 @@ export const Popover = ({
         aria-hidden={!visible}
         aria-modal={visible}
         style={{ ...point }}
-        onClick={(e) => {
-          e.stopPropagation();
+        onClick={(event) => {
+          event.stopPropagation();
         }}
       >
         {children}
       </div>
     </div>,
-    document.getElementById('app') ?? document.body,
+    document.querySelector('#app') ?? document.body,
   );
 };
 

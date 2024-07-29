@@ -21,7 +21,7 @@ type Size = 'small' | 'neutral';
 type Props = {
   /** 表示するアイコン名。 */
   name: IconName;
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
   id?: string;
   /** 使用するバリアント。 */
   variant?: Variant;
@@ -32,7 +32,7 @@ type Props = {
   ariaLabel?: AriaAttributes['aria-label'];
   disabled?: boolean;
   tabIndex?: number;
-  onKeyDown?: (e: KeyboardEvent<HTMLButtonElement>) => void;
+  onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void;
   /**
    * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
    */

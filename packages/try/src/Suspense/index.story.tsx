@@ -19,8 +19,8 @@ const Presentation = () => {
 
   const [userId, setUserId] = useState(result.id);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setUserId(Number(e.target.value));
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setUserId(Number(event.target.value));
   };
 
   const handleSubmit = () => {
@@ -39,8 +39,8 @@ const Presentation = () => {
       </pre>
       <hr />
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={(event) => {
+          event.preventDefault();
         }}
       >
         <input type="number" value={userId} onChange={handleChange} />

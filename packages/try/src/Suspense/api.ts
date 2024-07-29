@@ -27,7 +27,7 @@ function request<REQ extends Record<string, unknown>, RES>({
     Accept: 'application/json',
     'Content-Type': 'application/json',
   };
-  const queryStrings = Object.keys(query).length ? `?${stringify(query)}` : '';
+  const queryStrings = Object.keys(query).length > 0 ? `?${stringify(query)}` : '';
   const url = `https://jsonplaceholder.typicode.com${path}${queryStrings}`;
 
   return new Promise((resolve, reject) => {
@@ -71,9 +71,9 @@ function wrapPromise<T>(promise: Promise<T>) {
       status = 'fulfilled';
       result = r;
     },
-    (e: ErrorResult) => {
+    (error_: ErrorResult) => {
       status = 'rejected';
-      error = e;
+      error = error_;
     },
   );
 

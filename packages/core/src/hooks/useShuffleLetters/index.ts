@@ -10,10 +10,10 @@ import { useCallback, useEffect, useState, type RefObject } from 'react';
 export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, duration = 800) {
   const [key, setKey] = useState(0);
 
-  const [originStr, setOriginStr] = useState('');
+  const [originString, setOriginString] = useState('');
 
   const start = useCallback((text: string) => {
-    setOriginStr(text);
+    setOriginString(text);
     setKey((state) => state + 1);
   }, []);
 
@@ -21,16 +21,16 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
     let id = 0;
     let running = true;
 
-    if (ref.current && originStr.length) {
-      const randomIndexes = [...Array(originStr.length).keys()].reduce((acc: number[], i) => {
-        const rate = i / originStr.length;
+    if (ref.current && originString.length > 0) {
+      const randomIndexes = [...Array(originString.length).keys()].reduce((acc: number[], i) => {
+        const rate = i / originString.length;
 
         // 明らかに全て number 型のみの四則演算なのにエラー判定される。
         // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         return [...acc, Math.random() * (1 - rate) + rate];
       }, []);
 
-      const startTime = new Date().getTime();
+      const startTime = Date.now();
 
       id = window.requestAnimationFrame(() => {
         onInterval();
@@ -39,14 +39,14 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
       const onInterval = () => {
         if (!ref.current) return;
 
-        const currentTime = new Date().getTime() - startTime;
+        const currentTime = Date.now() - startTime;
         const percent = currentTime / duration;
 
         let letters = '';
 
-        for (let i = 0; i < originStr.length; i++) {
+        for (let i = 0; i < originString.length; i++) {
           if (percent >= randomIndexes[i]) {
-            letters += originStr.charAt(i);
+            letters += originString.charAt(i);
           } else if (percent < randomIndexes[i] / 3) {
             letters += emptyChar;
           } else {
@@ -55,7 +55,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
         }
 
         if (percent > 1) {
-          letters = originStr;
+          letters = originString;
           running = false;
         }
 
@@ -74,7 +74,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
       running = false;
       window.cancelAnimationFrame(id);
     };
-  }, [duration, key, originStr, ref]);
+  }, [duration, key, originString, ref]);
 
   return [start];
 }

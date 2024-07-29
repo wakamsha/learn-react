@@ -14,7 +14,7 @@ type Props = Partial<{
    * `true` の場合、コンポーネントは不定形に表示される。
    */
   indeterminate: boolean;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }>;
 
 /**
@@ -27,8 +27,8 @@ export const Checkbox = ({ checked, value, disabled, indeterminate = false, onCh
 
   const ariaChecked = indeterminate ? 'mixed' : checked;
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    !disabled && onChange?.(e);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    !disabled && onChange?.(event);
   };
 
   useEffect(() => {

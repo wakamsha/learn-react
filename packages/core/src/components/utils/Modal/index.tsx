@@ -50,8 +50,8 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
           className={styleContent}
           aria-modal={visible}
           aria-hidden={!visible}
-          onClick={(e) => {
-            e.stopPropagation();
+          onClick={(event) => {
+            event.stopPropagation();
           }}
         >
           {children}

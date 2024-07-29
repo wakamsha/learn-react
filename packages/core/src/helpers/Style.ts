@@ -189,26 +189,14 @@ export function applyGlobalStyle() {
     }
 
     :root {
-      ${Object.entries({ ...Color, ...Shadow }).reduce(
-        (acc, [key, value]) => ({
-          ...acc,
-          [`--${key}`]: value.light,
-        }),
-        {},
-      )}
+      ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.light]))}
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
         color-scheme: dark;
 
-        ${Object.entries({ ...Color, ...Shadow }).reduce(
-          (acc, [key, value]) => ({
-            ...acc,
-            [`--${key}`]: value.dark,
-          }),
-          {},
-        )}
+        ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.dark]))}
       }
     }
 

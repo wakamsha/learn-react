@@ -86,6 +86,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
   }, [handleMouseLeave, show]);
 
   useEffect(() => {
+    // eslint-disable-next-line unicorn/prefer-query-selector
     const targetElm = document.getElementById(targetId);
 
     if (!targetElm) return;
@@ -115,7 +116,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     <div ref={baseRef} role="tooltip" className={styleBase} style={point} aria-hidden={!shown}>
       {children}
     </div>,
-    document.getElementById('app') ?? document.body,
+    document.querySelector('#app') ?? document.body,
   );
 };
 

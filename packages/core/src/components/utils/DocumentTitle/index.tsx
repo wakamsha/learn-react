@@ -10,11 +10,7 @@ type Props = Partial<{
  */
 export const DocumentTitle = ({ title, baseTitle = 'Learn React' }: Props) => {
   useEffect(() => {
-    if (title) {
-      document.title = `${title} | ${baseTitle}`;
-    } else {
-      document.title = baseTitle;
-    }
+    document.title = title ? `${title} | ${baseTitle}` : baseTitle;
   }, [baseTitle, title]);
 
   return null;

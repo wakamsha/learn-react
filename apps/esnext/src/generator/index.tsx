@@ -3,12 +3,12 @@ import {
   requestGetRandomUser,
   type PlaceholderUser,
   type RandomUserResponse,
-} from './api-client';
+} from './apiClient';
 
-function p(str: string, delay = 1000): Promise<string> {
+function p(string_: string, delay = 1000): Promise<string> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(str);
+      resolve(string_);
     }, delay);
   });
 }

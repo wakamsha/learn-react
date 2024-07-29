@@ -11,8 +11,8 @@ import { ConstateBasicApp } from './41-constate-basic';
 export const App = () => {
   const { type, updateType } = TypeContainer.useContainer();
 
-  const handleSwitch = (e: ChangeEvent<HTMLSelectElement>) => {
-    updateType(e.target.value as Type);
+  const handleSwitch = (event: ChangeEvent<HTMLSelectElement>) => {
+    updateType(event.target.value as Type);
   };
 
   const Component = Components[type];

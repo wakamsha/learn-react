@@ -51,8 +51,8 @@ const AddForm = ({ listStore }: { listStore: ListStore }) => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <fieldset>
@@ -102,8 +102,8 @@ const EditForm = ({ listStore }: { listStore: ListStore }) => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <fieldset>

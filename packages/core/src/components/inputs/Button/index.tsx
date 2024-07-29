@@ -30,9 +30,9 @@ type Props = Partial<
     disabled: ButtonHTMLAttributes<HTMLButtonElement>['disabled'];
   } & XOR<
     {
-      onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+      onClick: (event: MouseEvent<HTMLButtonElement>) => void;
       tabIndex: ButtonHTMLAttributes<HTMLButtonElement>['tabIndex'];
-      onKeyDown?: (e: KeyboardEvent<HTMLButtonElement>) => void;
+      onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void;
       /**
        * メニューやダイアログなど、要素によって起動されるインタラクティブなポップアップ要素の有無と種類を示します。
        */

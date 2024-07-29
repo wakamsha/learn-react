@@ -19,8 +19,8 @@ export const Story = () => {
     behavior: scrollBehavior,
   });
 
-  const handleSelectNav = (e: MouseEvent<HTMLAnchorElement>, name: string) => {
-    e.preventDefault();
+  const handleSelectNav = (event: MouseEvent<HTMLAnchorElement>, name: string) => {
+    event.preventDefault();
 
     scrollTo(
       (root) => root.querySelector(`[data-spy="${name}"]`),
@@ -30,12 +30,12 @@ export const Story = () => {
     );
   };
 
-  const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
-    setOffset(Number(e.target.value));
+  const onChangeOffset = (event: ChangeEvent<HTMLInputElement>) => {
+    setOffset(Number(event.target.value));
   };
 
-  const handleChangeScrollBehavior = (e: ChangeEvent<HTMLInputElement>) => {
-    setScrollBehavior(e.target.value as typeof scrollBehavior);
+  const handleChangeScrollBehavior = (event: ChangeEvent<HTMLInputElement>) => {
+    setScrollBehavior(event.target.value as typeof scrollBehavior);
   };
 
   return (
@@ -46,8 +46,8 @@ export const Story = () => {
             <li key={name}>
               <a
                 href={`#${name}`}
-                onClick={(e) => {
-                  handleSelectNav(e, name);
+                onClick={(event) => {
+                  handleSelectNav(event, name);
                 }}
               >
                 {name}

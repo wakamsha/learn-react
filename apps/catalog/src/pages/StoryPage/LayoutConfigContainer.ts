@@ -1,7 +1,7 @@
 import { createContainer } from '@learn-react/core/src/helpers/Container';
 import { StorageProxy } from '@learn-react/core/src/helpers/Storage';
 import { useEffect, useRef, useState } from 'react';
-import { Layout } from './VO';
+import { Layout } from './ValueObject';
 
 const storageKey = 'STORY_PAGE_LAYOUT';
 

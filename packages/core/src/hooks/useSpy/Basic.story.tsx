@@ -14,21 +14,24 @@ export const Story = () => {
 
   const spy = useSpy({ rootRef, offset });
 
-  const onChangeOffset = (e: ChangeEvent<HTMLInputElement>) => {
-    setOffset(Number(e.target.value));
+  const onChangeOffset = (event: ChangeEvent<HTMLInputElement>) => {
+    setOffset(Number(event.target.value));
   };
 
-  const onSpyChange = (e: HTMLElement, index: number) => {
-    if (!e.dataset.spy) return;
-    console.info(index, e.dataset.spy);
+  const onSpyChange = (event: HTMLElement, index: number) => {
+    if (!event.dataset.spy) return;
+    console.info(index, event.dataset.spy);
 
-    setSpyKey(e.dataset.spy);
+    setSpyKey(event.dataset.spy);
   };
 
   spy(
     // spy('[data-spy]', onSpyChange) のようにセレクターに文字列だけ渡すこともできるが、
     // このような高度な選び方も可能。
-    (e) => [...e.querySelectorAll('[data-spy]')].filter((e) => !(e as HTMLElement).dataset.spy?.startsWith('rotten')),
+    (element) =>
+      [...element.querySelectorAll('[data-spy]')].filter(
+        (innerElement) => !(innerElement as HTMLElement).dataset.spy?.startsWith('rotten'),
+      ),
     onSpyChange,
   );
 

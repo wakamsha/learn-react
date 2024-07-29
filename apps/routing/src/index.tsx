@@ -41,9 +41,9 @@ const Components: Record<Type, FC> = {
 const BootLoader = () => {
   const { type, updateType } = TypeContainer.useContainer();
 
-  const handleSwitch = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSwitch = (event: ChangeEvent<HTMLSelectElement>) => {
     window.location.replace('/');
-    updateType(e.target.value as Type);
+    updateType(event.target.value as Type);
   };
 
   const Component = Components[type];
@@ -78,7 +78,7 @@ applyResetStyle();
 
 applyGlobalStyle();
 
-const root = createRoot(document.getElementById('app') as HTMLElement);
+const root = createRoot(document.querySelector('#app') as HTMLElement);
 
 root.render(
   <StrictMode>

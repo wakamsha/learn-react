@@ -102,9 +102,9 @@ function parseHexColor(value: string) {
   const [, red, green, blue] = value.match(/#(..)(..)(..)/) ?? [];
 
   return {
-    red: parseInt(`0x${red}`, 16),
-    green: parseInt(`0x${green}`, 16),
-    blue: parseInt(`0x${blue}`, 16),
+    red: Number.parseInt(`0x${red}`, 16),
+    green: Number.parseInt(`0x${green}`, 16),
+    blue: Number.parseInt(`0x${blue}`, 16),
   };
 }
 
@@ -115,7 +115,7 @@ function parseHexColor(value: string) {
  */
 function getRGBForCalculateLuminance(color: number) {
   const ratio = color / 255;
-  if (ratio <= 0.03928) {
+  if (ratio <= 0.039_28) {
     return ratio / 12.92;
   }
 

@@ -18,8 +18,8 @@ export const GetByParamForm = observer(() => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <h3>Get by Params</h3>

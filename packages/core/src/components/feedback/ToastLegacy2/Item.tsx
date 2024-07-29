@@ -18,8 +18,8 @@ export const Item = ({ children, id, icon, theme = 'primary' }: Props) => {
 
   const [styleAddon, setStyleAddon] = useState('');
 
-  const handleAnimationEnd = (e: AnimationEvent<HTMLDivElement>) => {
-    if (window.getComputedStyle(e.currentTarget).opacity === '0') {
+  const handleAnimationEnd = (event: AnimationEvent<HTMLDivElement>) => {
+    if (window.getComputedStyle(event.currentTarget).opacity === '0') {
       removeToast(id);
     }
   };

@@ -26,8 +26,8 @@ export const AddForm = ({ onAdd }: Props) => {
   return (
     <div>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
+        onSubmit={(event) => {
+          event.preventDefault();
         }}
       >
         <input value={title} placeholder="what needs to be done?" onChange={handleInput} />

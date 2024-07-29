@@ -8,7 +8,7 @@ type Props = {
   checked?: boolean;
   disabled?: boolean;
   value?: string | number;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
 /**
@@ -18,8 +18,8 @@ type Props = {
  * 利用可能なオプションを折りたたむことができる場合は、 Select コンポーネントを使用することを検討します。
  */
 export const Radio = ({ name, checked = false, disabled, value, onChange }: Props) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    !disabled && onChange?.(e);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    !disabled && onChange?.(event);
   };
 
   return (

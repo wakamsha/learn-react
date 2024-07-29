@@ -7,7 +7,7 @@ applyResetStyle();
 
 applyGlobalStyle();
 
-const root = createRoot(document.getElementById('app') as HTMLElement);
+const root = createRoot(document.querySelector('#app') as HTMLElement);
 
 root.render(
   <StrictMode>

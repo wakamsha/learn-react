@@ -33,8 +33,8 @@ export const PostForm = () => {
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
+      onSubmit={(event) => {
+        event.preventDefault();
       }}
     >
       <h3>POST</h3>
@@ -84,8 +84,8 @@ function useSubmit() {
 
       await store.postUser();
     },
-    (e) => {
-      console.error('😓😓😓', e.message);
+    (error) => {
+      console.error('😓😓😓', error.message);
     },
   );
 

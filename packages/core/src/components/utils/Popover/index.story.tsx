@@ -10,10 +10,10 @@ export const Story = () => {
   const [alignment, setAlignment] = useState<ComponentProps<typeof Popover>['alignment']>('center');
   const [target, setTarget] = useState('top-start');
 
-  const handleClickShow = (e: MouseEvent<HTMLButtonElement>) => {
-    const { id } = e.currentTarget;
-    const position = e.currentTarget.dataset.position as ComponentProps<typeof Popover>['position'];
-    const alignment = e.currentTarget.dataset.alignment as ComponentProps<typeof Popover>['alignment'];
+  const handleClickShow = (event: MouseEvent<HTMLButtonElement>) => {
+    const { id } = event.currentTarget;
+    const position = event.currentTarget.dataset.position as ComponentProps<typeof Popover>['position'];
+    const alignment = event.currentTarget.dataset.alignment as ComponentProps<typeof Popover>['alignment'];
 
     setTarget(id);
     setPosition(position);
