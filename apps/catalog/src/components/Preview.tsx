@@ -16,7 +16,7 @@ export const Preview = () => {
 
   return (
     <>
-      <DocumentTitle title={[...storyKeys].reverse().join(' | ')} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={storyKeys.toReversed().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <article className={stylePreview}>
         <Component />
