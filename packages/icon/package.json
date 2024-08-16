@@ -15,7 +15,7 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
-    "cheerio": "1.0.0-rc.12",
+    "cheerio": "1.0.0",
     "glob": "11.0.0",
     "prettier": "3.3.3",
     "react": "18.3.1",
