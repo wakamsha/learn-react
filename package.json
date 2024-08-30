@@ -28,7 +28,7 @@
     "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.4.0",
+    "@commitlint/cli": "19.4.1",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@wakamsha/eslint-config": "3.0.1",
     "confusing-browser-globals": "1.0.11",
