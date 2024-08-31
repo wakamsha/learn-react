@@ -59,12 +59,18 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
 
       const textContent = await page.getTextContent();
 
-      Object.entries(textContent.styles).forEach(([key, value]: [string, TextStyle]) => {
+      Object.entries<TextStyle>(textContent.styles).forEach(([key, value]) => {
         if (value.fontFamily !== 'sans-serif') return;
         textContent.styles[key].fontFamily = 'Noto Sans Japanese';
       });
 
-      pdfjsLib.renderTextLayer({ textContentSource: textContent, viewport, container });
+      const textLayer = new pdfjsLib.TextLayer({
+        viewport,
+        container,
+        textContentSource: textContent,
+      });
+
+      await textLayer.render();
     })();
   }, [textLayerRef, page, viewport]);
 
