@@ -15,10 +15,10 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/node": "20.16.5",
     "typescript": "5.5.4",
-    "vite": "5.4.2"
+    "vite": "5.4.3"
   },
   "peerDependencies": {
     "@types/node": "20.16.5",
-    "vite": "5.4.2"
+    "vite": "5.4.3"
   }
 }
