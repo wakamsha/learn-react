@@ -27,7 +27,7 @@
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.9.16",
-    "@types/react": "18.3.5",
+    "@types/react": "18.3.7",
     "@types/react-dom": "18.3.0",
     "chokidar": "3.6.0",
     "glob": "11.0.0",
