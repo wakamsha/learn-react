@@ -15,8 +15,8 @@ importers:
         specifier: 0.38.0
         version: 0.38.0(postcss-syntax@0.36.2(postcss@8.4.47))(postcss@8.4.47)
       '@wakamsha/eslint-config':
-        specifier: 3.0.2
-        version: 3.0.2(@testing-library/dom@10.1.0)(eslint@8.57.1)(typescript@5.6.2)(vitest@2.1.1(@types/node@20.16.8)(jsdom@25.0.0(canvas@2.11.2)))
+        specifier: 3.0.3
+        version: 3.0.3(@testing-library/dom@10.1.0)(eslint@8.57.1)(typescript@5.6.2)(vitest@2.1.1(@types/node@20.16.8)(jsdom@25.0.0(canvas@2.11.2)))
       confusing-browser-globals:
         specifier: 1.0.11
         version: 1.0.11
@@ -1546,8 +1546,8 @@ packages:
   '@vitest/utils@2.1.1':
     resolution: {integrity: sha512-Y6Q9TsI+qJ2CC0ZKj6VBb+T8UPz593N113nnUykqwANqhgf3QkZeHFlusgKLTqrnVHbj/XDKZcDHol+dxVT+rQ==}
 
-  '@wakamsha/eslint-config@3.0.2':
-    resolution: {integrity: sha512-uBHgkGJ4ENqCcX73mDKuQSnn5ulYF3VptaIQDdnOTknTfKkIsB2WNSQqJp2+X53ezYO4SyTog1Hnkkevr/K/uA==}
+  '@wakamsha/eslint-config@3.0.3':
+    resolution: {integrity: sha512-FRRV5Rcr5HkJE049Dlp4qWAMqmq/XIPkrXm29AtMKWERMVp6stELiT6ORrxqFzYykVnsKghXKPZR1TDyyBjz1g==}
     engines: {node: '>= 18.18.0 || >= 20.0.0'}
     peerDependencies:
       eslint: ^8.56.0
@@ -5723,7 +5723,7 @@ snapshots:
       loupe: 3.1.1
       tinyrainbow: 1.2.0
 
-  '@wakamsha/eslint-config@3.0.2(@testing-library/dom@10.1.0)(eslint@8.57.1)(typescript@5.6.2)(vitest@2.1.1(@types/node@20.16.8)(jsdom@25.0.0(canvas@2.11.2)))':
+  '@wakamsha/eslint-config@3.0.3(@testing-library/dom@10.1.0)(eslint@8.57.1)(typescript@5.6.2)(vitest@2.1.1(@types/node@20.16.8)(jsdom@25.0.0(canvas@2.11.2)))':
     dependencies:
       '@typescript-eslint/eslint-plugin': 7.10.0(@typescript-eslint/parser@7.10.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)
       '@typescript-eslint/parser': 7.10.0(eslint@8.57.1)(typescript@5.6.2)
