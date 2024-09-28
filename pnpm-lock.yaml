@@ -209,11 +209,11 @@ importers:
         specifier: 3.3.2
         version: 3.3.2(react@18.3.1)
       mobx:
-        specifier: 6.13.2
-        version: 6.13.2
+        specifier: 6.13.3
+        version: 6.13.3
       mobx-react:
         specifier: 9.1.1
-        version: 9.1.1(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 9.1.1(mobx@6.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       qs:
         specifier: 6.13.0
         version: 6.13.0
@@ -3283,8 +3283,8 @@ packages:
       react-native:
         optional: true
 
-  mobx@6.13.2:
-    resolution: {integrity: sha512-GIubI2qf+P6lG6rSEG0T2pg3jV9/0+O0ncF09+0umRe75+Cbnh1KNLM1GvbTY9RSc7QuU+LcPNZfxDY8B+3XRg==}
+  mobx@6.13.3:
+    resolution: {integrity: sha512-YtAS+ZMbdpbHYUU4ESht3na8KiX11KuMT1yOiKtbKlQ0GZkHDYPKyEw/Tdp7h7aHyLrTWj2TBaSNJ6bCr638iQ==}
 
   ms@2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
@@ -7712,23 +7712,23 @@ snapshots:
   mkdirp@1.0.4:
     optional: true
 
-  mobx-react-lite@4.0.7(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  mobx-react-lite@4.0.7(mobx@6.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      mobx: 6.13.2
+      mobx: 6.13.3
       react: 18.3.1
       use-sync-external-store: 1.2.0(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  mobx-react@9.1.1(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  mobx-react@9.1.1(mobx@6.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      mobx: 6.13.2
-      mobx-react-lite: 4.0.7(mobx@6.13.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      mobx: 6.13.3
+      mobx-react-lite: 4.0.7(mobx@6.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
 
-  mobx@6.13.2: {}
+  mobx@6.13.3: {}
 
   ms@2.1.2: {}
 
