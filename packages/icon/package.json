@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "18.3.9",
+    "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
     "cheerio": "1.0.0",
     "glob": "11.0.0",
@@ -24,7 +24,7 @@
     "typescript": "5.6.2"
   },
   "peerDependencies": {
-    "@types/react": "18.3.9",
+    "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
