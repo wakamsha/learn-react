@@ -1,10 +1,11 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useParams } from 'react-router-dom';
-import { getFriendById } from '.';
+import { FriendData } from './data';
+import { type FriendType } from './type';
 
 export const Friend = () => {
-  const { id = '' } = useParams();
+  const { id = '' } = useParams<{ id: string }>();
 
   const friend = getFriendById(id);
 
@@ -21,6 +22,10 @@ export const Friend = () => {
     </article>
   );
 };
+
+function getFriendById(id: string): FriendType | undefined {
+  return FriendData.find((f) => f.id === id);
+}
 
 const styleBase = css`
   padding: ${gutter(4)};
