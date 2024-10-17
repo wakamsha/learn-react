@@ -1,7 +1,8 @@
 import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { useParams } from 'react-router-dom';
-import { getMemberById } from '.';
+import { MemberData } from './data';
+import { type MemberType } from './type';
 
 export const Member = () => {
   const { id = '' } = useParams();
@@ -21,6 +22,10 @@ export const Member = () => {
     </article>
   );
 };
+
+function getMemberById(id: string): MemberType | undefined {
+  return MemberData.find((f) => f.id === id);
+}
 
 const styleBase = css`
   padding: ${gutter(4)};

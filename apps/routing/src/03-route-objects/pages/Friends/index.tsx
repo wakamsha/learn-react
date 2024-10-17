@@ -2,6 +2,7 @@ import { css } from '@emotion/css';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { Link, Navigate, useRoutes, type RouteObject } from 'react-router-dom';
 import { Friend } from './Friend';
+import { FriendData } from './data';
 
 export const Friends = () => {
   const routes: RouteObject[] = [
@@ -41,35 +42,3 @@ const List = () => (
     ))}
   </ul>
 );
-
-type FriendType = {
-  id: string;
-  nameJa: string;
-  nameEn: string;
-  family: string;
-};
-
-const FriendData: FriendType[] = [
-  {
-    id: 'serval',
-    nameJa: 'サーバル',
-    nameEn: 'Serval Cat',
-    family: 'ネコ目ネコ科ネコ属',
-  },
-  {
-    id: 'raccoon',
-    nameJa: 'アライグマ',
-    nameEn: 'Common raccoon',
-    family: 'ネコ目アライグマ科アライグマ属',
-  },
-  {
-    id: 'fennec',
-    nameJa: 'フェネック',
-    nameEn: 'Fennec',
-    family: 'ネコ目イヌ科キツネ属',
-  },
-];
-
-export function getFriendById(id: string): FriendType | undefined {
-  return FriendData.find((f) => f.id === id);
-}

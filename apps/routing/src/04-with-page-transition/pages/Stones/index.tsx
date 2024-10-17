@@ -5,6 +5,7 @@ import { gutter } from '@learn-react/core/src/helpers/Style';
 import { lazy } from 'react';
 import { generatePath, Navigate, NavLink, Route } from 'react-router-dom';
 import { Router } from '../../constants/Router';
+import { MemberData } from './data';
 
 export const Stones = () => (
   <main className={styleBase}>
@@ -35,7 +36,7 @@ const styleContent = css`
 
 const List = () => (
   <ul>
-    {memberData.map(({ id, nameJa }) => (
+    {MemberData.map(({ id, nameJa }) => (
       <li key={id}>
         <NavLink
           to={generatePath(Router.StonesMember.To, { id })}
@@ -47,43 +48,5 @@ const List = () => (
     ))}
   </ul>
 );
-
-type MemberType = {
-  id: string;
-  nameJa: string;
-  nameEn: string;
-  family: string;
-};
-
-const memberData: MemberType[] = [
-  {
-    id: 'jagger',
-    nameJa: 'ミック・ジャガー',
-    nameEn: 'Mick Jagger',
-    family: 'Vocal',
-  },
-  {
-    id: 'richards',
-    nameJa: 'キース・リチャーズ',
-    nameEn: 'Keith Richards',
-    family: 'Guitar',
-  },
-  {
-    id: 'wood',
-    nameJa: 'ロン・ウッド',
-    nameEn: 'Ronnie Wood',
-    family: 'Guitar',
-  },
-  {
-    id: 'watts',
-    nameJa: 'チャーリー・ワッツ',
-    nameEn: 'Charlie Watts',
-    family: 'Drum',
-  },
-];
-
-export function getMemberById(id: string): MemberType | undefined {
-  return memberData.find((f) => f.id === id);
-}
 
 const Member = withSuspense(lazy(() => import('./Member').then(({ Member }) => ({ default: Member }))));
