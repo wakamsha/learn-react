@@ -3,7 +3,7 @@ import { Loadable } from './Loadable';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function request<REQ extends Record<string, unknown>, RES>({
+function request<RES>({
   method,
   path,
   send,
@@ -11,7 +11,7 @@ function request<REQ extends Record<string, unknown>, RES>({
 }: {
   method: Method;
   path: string;
-  send?: REQ;
+  send?: Record<string, unknown>;
   query?: Record<string, unknown>;
 }): Promise<RES> {
   const headers = {
@@ -76,7 +76,7 @@ export type IssueType = {
 };
 
 export function fetchIssues(page: number) {
-  return request<Record<string, unknown>, IssueType[]>({
+  return request<IssueType[]>({
     method: 'GET',
     path: '/repos/facebook/react/issues',
     query: {

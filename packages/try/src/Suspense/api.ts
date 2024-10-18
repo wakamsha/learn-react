@@ -12,7 +12,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function request<REQ extends Record<string, unknown>, RES>({
+function request<RES>({
   method,
   path,
   send,
@@ -20,7 +20,7 @@ function request<REQ extends Record<string, unknown>, RES>({
 }: {
   method: Method;
   path: string;
-  send?: REQ;
+  send?: Record<string, unknown>;
   query?: Record<string, unknown>;
 }): Promise<RES> {
   const headers = {
@@ -71,9 +71,9 @@ function wrapPromise<T>(promise: Promise<T>) {
       status = 'fulfilled';
       result = r;
     },
-    (error_: ErrorResult) => {
+    (error_: unknown) => {
       status = 'rejected';
-      error = error_;
+      error = error_ as ErrorResult;
     },
   );
 
@@ -116,7 +116,7 @@ type User = {
 };
 
 export function fetchUser(userId = 1) {
-  const promise = request<Record<string, unknown>, User>({
+  const promise = request<User>({
     method: 'GET',
     path: `/users/${userId}`,
   });

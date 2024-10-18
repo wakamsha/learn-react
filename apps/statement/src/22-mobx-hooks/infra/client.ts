@@ -13,7 +13,7 @@ export type ErrorResult = {
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-async function request<REQ extends Record<string, unknown>, RES>({
+async function request<RES>({
   method,
   path,
   token,
@@ -24,7 +24,7 @@ async function request<REQ extends Record<string, unknown>, RES>({
   method: Method;
   path: string;
   token?: string;
-  send?: REQ;
+  send?: Record<string, unknown>;
   query?: Record<string, unknown>;
   withCredentials: boolean;
 }) {
@@ -54,7 +54,7 @@ async function request<REQ extends Record<string, unknown>, RES>({
 }
 
 export async function requestGetUsers(): Promise<User[]> {
-  return request<Record<string, unknown>, User[]>({
+  return request<User[]>({
     method: 'GET',
     path: '/users',
 
@@ -63,7 +63,7 @@ export async function requestGetUsers(): Promise<User[]> {
 }
 
 export async function requestGetUser({ path }: { path: string }): Promise<User> {
-  return request<Record<string, unknown>, User>({
+  return request<User>({
     method: 'GET',
     path: `/users/${path}`,
 
@@ -72,7 +72,7 @@ export async function requestGetUser({ path }: { path: string }): Promise<User> 
 }
 
 export async function requestPostUser({ send }: { send: CreateUserRequest }): Promise<CreateUserResponse> {
-  return request<CreateUserRequest, CreateUserResponse>({
+  return request<CreateUserResponse>({
     method: 'POST',
     path: '/users',
 

@@ -30,7 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.5.0",
     "@stylelint/postcss-css-in-js": "0.38.0",
-    "@wakamsha/eslint-config": "3.0.3",
+    "@wakamsha/eslint-config": "4.0.0",
     "confusing-browser-globals": "1.0.11",
     "cspell": "8.14.4",
     "eslint": "8.57.1",

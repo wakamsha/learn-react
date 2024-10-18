@@ -99,7 +99,7 @@ function getRelativeLuminance(hexColor: string) {
  * @param value - #FFCC00 のような値
  */
 function parseHexColor(value: string) {
-  const [, red, green, blue] = value.match(/#(..)(..)(..)/) ?? [];
+  const [, red, green, blue] = /#(..)(..)(..)/.exec(value) ?? [];
 
   return {
     red: Number.parseInt(`0x${red}`, 16),
