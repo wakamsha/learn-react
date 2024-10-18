@@ -33,7 +33,7 @@ type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 /**
  * JSON Placeholder の任意のエンドポイントと REST で疎通します。
  */
-export async function request<REQ extends Record<string, unknown>, RES>({
+export async function request<RES>({
   method,
   path,
   token,
@@ -44,7 +44,7 @@ export async function request<REQ extends Record<string, unknown>, RES>({
   method: Method;
   path: string;
   token?: string;
-  send?: REQ;
+  send?: Record<string, unknown>;
   query?: Record<string, unknown>;
   withCredentials: boolean;
 }): Promise<RES> {

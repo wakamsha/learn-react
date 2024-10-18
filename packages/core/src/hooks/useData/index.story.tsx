@@ -88,7 +88,7 @@ type User = {
 };
 
 function fetchUser(userId: number) {
-  return request<Record<string, unknown>, User>({
+  return request<User>({
     method: 'GET',
     path: `/users/${userId}`,
 

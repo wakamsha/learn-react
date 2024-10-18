@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
-import { splitVendorChunkPlugin, type BuildOptions, type UserConfig } from 'vite';
+import { type BuildOptions, type UserConfig } from 'vite';
 
 type Props = {
   basePath: string;
@@ -45,6 +45,13 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
     root: path.resolve(basePath, './'),
     build: {
       sourcemap: true,
+      rollupOptions: {
+        output: {
+          // see: https://github.com/vitejs/vite/issues/12209#issuecomment-2220768850
+          manualChunks: (id: string) =>
+            id.includes('node_modules') ? id.toString().split('node_modules/')[1].split('/')[0].toString() : 'index',
+        },
+      },
       ...build,
     },
     server: {
@@ -61,7 +68,6 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
       },
     },
     plugins: [
-      splitVendorChunkPlugin(),
       react({
         babel: {
           parserOpts: {
