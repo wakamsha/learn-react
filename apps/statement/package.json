@@ -20,7 +20,7 @@
     "@emotion/css": "11.13.4",
     "@learn-react/core": "workspace:1.0.0",
     "constate": "3.3.2",
-    "mobx": "6.13.3",
+    "mobx": "6.13.5",
     "mobx-react": "9.1.1",
     "qs": "6.13.0",
     "react": "18.3.1",
