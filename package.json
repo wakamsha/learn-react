@@ -32,7 +32,7 @@
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@wakamsha/eslint-config": "4.0.0",
     "confusing-browser-globals": "1.0.11",
-    "cspell": "8.15.2",
+    "cspell": "8.15.3",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.0",
     "husky": "9.1.6",
