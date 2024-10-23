@@ -211,7 +211,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(event.key.toLowerCase()),
         );
 
-        if (index > -1) {
+        if (index !== -1) {
           moveFocus(index);
         }
       }

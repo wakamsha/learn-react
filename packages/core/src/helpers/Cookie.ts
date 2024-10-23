@@ -49,7 +49,7 @@ export function getCookie(cname: string): string | undefined {
       pair = pair.slice(1);
     }
     if (pair.startsWith(sensor)) {
-      return pair.slice(sensor.length, pair.length);
+      return pair.slice(sensor.length);
     }
   }
   return undefined;
