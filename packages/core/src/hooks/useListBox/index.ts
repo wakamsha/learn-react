@@ -184,7 +184,7 @@ export function useListBox(itemCount: number): Response {
           );
         });
 
-        if (index > -1) {
+        if (index !== -1) {
           moveFocus(index);
         }
       }

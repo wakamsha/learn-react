@@ -26,7 +26,6 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
         const rate = i / originString.length;
 
         // 明らかに全て number 型のみの四則演算なのにエラー判定される。
-        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         return [...acc, Math.random() * (1 - rate) + rate];
       }, []);
 
