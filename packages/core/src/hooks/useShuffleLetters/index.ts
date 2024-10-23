@@ -25,7 +25,6 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, dura
       const randomIndexes = [...Array(originString.length).keys()].reduce((acc: number[], i) => {
         const rate = i / originString.length;
 
-        // 明らかに全て number 型のみの四則演算なのにエラー判定される。
         return [...acc, Math.random() * (1 - rate) + rate];
       }, []);
 
