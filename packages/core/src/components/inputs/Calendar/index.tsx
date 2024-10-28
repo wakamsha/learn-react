@@ -127,8 +127,7 @@ const styleMenubar = css`
   > select {
     flex: 1 1 100%;
     text-align: center;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    appearance: none;
     background-color: transparent;
     border: none;
   }

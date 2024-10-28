@@ -31,6 +31,7 @@
     "@commitlint/cli": "19.5.0",
     "@stylelint/postcss-css-in-js": "0.38.0",
     "@wakamsha/eslint-config": "5.0.2",
+    "@wakamsha/stylelint-config": "1.0.0",
     "confusing-browser-globals": "1.0.11",
     "cspell": "8.15.4",
     "eslint": "9.13.0",
@@ -42,9 +43,6 @@
     "prettier": "3.3.3",
     "prettier-plugin-organize-imports": "4.1.0",
     "stylelint": "16.10.0",
-    "stylelint-config-recess-order": "5.1.1",
-    "stylelint-config-recommended": "14.0.1",
-    "stylelint-config-standard": "36.0.1",
     "typescript": "5.6.3"
   }
 }

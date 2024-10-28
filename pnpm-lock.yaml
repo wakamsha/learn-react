@@ -17,6 +17,9 @@ importers:
       '@wakamsha/eslint-config':
         specifier: 5.0.2
         version: 5.0.2(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.11.0(eslint@9.13.0(jiti@1.20.0))(typescript@5.6.3))(@typescript-eslint/utils@8.11.0(eslint@9.13.0(jiti@1.20.0))(typescript@5.6.3))(eslint@9.13.0(jiti@1.20.0))(typescript@5.6.3)(vitest@2.1.3(@types/node@20.17.1)(jsdom@25.0.1(canvas@2.11.2)))
+      '@wakamsha/stylelint-config':
+        specifier: 1.0.0
+        version: 1.0.0(stylelint@16.10.0(typescript@5.6.3))
       confusing-browser-globals:
         specifier: 1.0.11
         version: 1.0.11
@@ -50,15 +53,6 @@ importers:
       stylelint:
         specifier: 16.10.0
         version: 16.10.0(typescript@5.6.3)
-      stylelint-config-recess-order:
-        specifier: 5.1.1
-        version: 5.1.1(stylelint@16.10.0(typescript@5.6.3))
-      stylelint-config-recommended:
-        specifier: 14.0.1
-        version: 14.0.1(stylelint@16.10.0(typescript@5.6.3))
-      stylelint-config-standard:
-        specifier: 36.0.1
-        version: 36.0.1(stylelint@16.10.0(typescript@5.6.3))
       typescript:
         specifier: 5.6.3
         version: 5.6.3
@@ -1588,6 +1582,12 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  '@wakamsha/stylelint-config@1.0.0':
+    resolution: {integrity: sha512-vEqEv4Y9vvZo5WLD+mMbS9YlTCk03SHVBACODundg0197CusVL8I4G6RsrbehOoOMQGVmQrA/Ze29o9l5UP6yA==}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      stylelint: ^16.10.0
 
   JSONStream@1.3.5:
     resolution: {integrity: sha512-E+iruNOY8VV9s4JEbe1aNEm6MiszPRr/UfcHMz0TQh1BXSxHK+ASV1R6W4HpjBhSeS+54PIsAMCBmwD06LLsqQ==}
@@ -5833,6 +5833,13 @@ snapshots:
       - supports-color
       - vitest
 
+  '@wakamsha/stylelint-config@1.0.0(stylelint@16.10.0(typescript@5.6.3))':
+    dependencies:
+      stylelint: 16.10.0(typescript@5.6.3)
+      stylelint-config-recess-order: 5.1.1(stylelint@16.10.0(typescript@5.6.3))
+      stylelint-config-recommended: 14.0.1(stylelint@16.10.0(typescript@5.6.3))
+      stylelint-config-standard: 36.0.1(stylelint@16.10.0(typescript@5.6.3))
+
   JSONStream@1.3.5:
     dependencies:
       jsonparse: 1.3.1
@@ -6971,7 +6978,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   esutils@2.0.3: {}
 
@@ -7290,7 +7297,7 @@ snapshots:
   http-proxy-agent@7.0.2:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -7305,7 +7312,7 @@ snapshots:
   https-proxy-agent@7.0.5:
     dependencies:
       agent-base: 7.1.1
-      debug: 4.3.6
+      debug: 4.3.7
     transitivePeerDependencies:
       - supports-color
 
@@ -8856,7 +8863,7 @@ snapshots:
   vite-node@2.1.3(@types/node@20.17.1):
     dependencies:
       cac: 6.7.14
-      debug: 4.3.6
+      debug: 4.3.7
       pathe: 1.1.2
       vite: 5.4.10(@types/node@20.17.1)
     transitivePeerDependencies:
@@ -8889,7 +8896,7 @@ snapshots:
       '@vitest/spy': 2.1.3
       '@vitest/utils': 2.1.3
       chai: 5.1.1
-      debug: 4.3.6
+      debug: 4.3.7
       magic-string: 0.30.11
       pathe: 1.1.2
       std-env: 3.7.0

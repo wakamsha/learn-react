@@ -261,10 +261,7 @@ function getOptimizedPoint({
 
 const styleBase = css`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: ${ZIndex.Popover - 1};
   pointer-events: none;
   opacity: 0;
