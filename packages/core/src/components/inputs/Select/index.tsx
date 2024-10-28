@@ -157,8 +157,7 @@ const styleSelect = css`
   font-size: ${FontSize.Regular};
   line-height: ${LineHeight.Regular};
   color: ${cssVar('TextNeutral')};
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  appearance: none;
   background-color: transparent;
   border: none;
   outline: none;
@@ -166,7 +165,6 @@ const styleSelect = css`
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button,
   &::-webkit-search-cancel-button {
-    -webkit-appearance: none;
     appearance: none;
   }
 

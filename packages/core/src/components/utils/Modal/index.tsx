@@ -64,15 +64,11 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
 
 const styleBase = css`
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: ${ZIndex.Modal};
   overflow: auto;
   visibility: hidden;
   background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
-  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   opacity: 0;
   transition:

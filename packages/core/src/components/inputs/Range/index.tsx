@@ -94,7 +94,7 @@ const styleBase = css`
   width: 100%;
   height: ${diameter}px;
   margin: 0;
-  -webkit-appearance: none;
+  appearance: none;
   background-color: transparent;
   outline: none;
 
