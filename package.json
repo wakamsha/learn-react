@@ -33,7 +33,7 @@
     "@wakamsha/eslint-config": "5.0.2",
     "@wakamsha/stylelint-config": "1.0.0",
     "confusing-browser-globals": "1.0.11",
-    "cspell": "8.15.4",
+    "cspell": "8.15.5",
     "eslint": "9.13.0",
     "eslint-config-prettier": "9.1.0",
     "husky": "9.1.6",
