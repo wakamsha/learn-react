@@ -56,6 +56,7 @@ export default [
     },
   },
 
+  ...test.essentials,
   ...test.react,
 
   /* prettier */
