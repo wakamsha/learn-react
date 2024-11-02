@@ -1,9 +1,9 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "baseUrl": "./",
     "paths": {}
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*", "./vitest.setup.ts"]
 }
