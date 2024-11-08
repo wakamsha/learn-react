@@ -21,7 +21,7 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.0.1",
-    "@types/qs": "6.9.16",
+    "@types/qs": "6.9.17",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "jsdom": "25.0.1",
