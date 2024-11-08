@@ -82,8 +82,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/qs':
-        specifier: 6.9.16
-        version: 6.9.16
+        specifier: 6.9.17
+        version: 6.9.17
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -219,8 +219,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/qs':
-        specifier: 6.9.16
-        version: 6.9.16
+        specifier: 6.9.17
+        version: 6.9.17
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -296,8 +296,8 @@ importers:
         specifier: 16.0.1
         version: 16.0.1(@testing-library/dom@10.1.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/qs':
-        specifier: 6.9.16
-        version: 6.9.16
+        specifier: 6.9.17
+        version: 6.9.17
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -390,8 +390,8 @@ importers:
         specifier: 14.5.2
         version: 14.5.2(@testing-library/dom@10.1.0)
       '@types/qs':
-        specifier: 6.9.16
-        version: 6.9.16
+        specifier: 6.9.17
+        version: 6.9.17
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -1304,8 +1304,8 @@ packages:
   '@types/prop-types@15.7.5':
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
 
-  '@types/qs@6.9.16':
-    resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
+  '@types/qs@6.9.17':
+    resolution: {integrity: sha512-rX4/bPcfmvxHDv0XjfJELTTr+iB+tn032nPILqHm5wbthUUUuVtNGGqzhya9XUxjTP8Fpr0qYgSZZKxGY++svQ==}
 
   '@types/react-dom@18.3.1':
     resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
@@ -5307,7 +5307,7 @@ snapshots:
 
   '@types/prop-types@15.7.5': {}
 
-  '@types/qs@6.9.16': {}
+  '@types/qs@6.9.17': {}
 
   '@types/react-dom@18.3.1':
     dependencies:
