@@ -7,7 +7,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@emotion/css": "11.13.4",
+    "@emotion/css": "11.13.5",
     "@formkit/tempo": "0.1.2",
     "@learn-react/icon": "workspace:1.0.0",
     "constate": "3.3.2",
