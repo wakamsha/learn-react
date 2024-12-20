@@ -31,7 +31,7 @@
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.9.17",
-    "@types/react": "18.3.16",
+    "@types/react": "18.3.17",
     "@types/react-dom": "18.3.5",
     "npm-run-all2": "7.0.1",
     "typescript": "5.7.2",
