@@ -1,4 +1,4 @@
-import { Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from 'react-router';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from 'react-router';
 import type { Route } from './+types/root';
 import appStylesHref from './app.css?url';
 import { LoadingSplash } from './components/LoadingSplash';
@@ -22,6 +22,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => (
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href={appStylesHref} />
+      <Links />
       <Meta />
     </head>
     <body>
