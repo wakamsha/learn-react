@@ -12,6 +12,6 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "npm-run-all2": "7.0.2",
     "typescript": "5.7.2",
-    "vite": "6.0.5"
+    "vite": "6.0.6"
   }
 }
