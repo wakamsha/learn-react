@@ -5,7 +5,7 @@ type Props = {
    * スクロール操作の対象となるルート要素。
    * 未指定の場合は既定でブラウザのビューポート ( `window` )が使用されます。
    */
-  rootRef?: RefObject<Element>;
+  rootRef?: RefObject<Element | null>;
 
   /**
    * コンテナ要素のスクロールの停止位置を調整するのに使います ( px )。
@@ -65,7 +65,7 @@ type Callback = () => void;
  * ```
  */
 export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props) {
-  const callbackRef = useRef<Callback>();
+  const callbackRef = useRef<Callback>(undefined);
 
   const [to, setTo] = useState(Infinity);
 

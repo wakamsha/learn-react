@@ -34,9 +34,9 @@ type Props = {
 export const Tooltip = ({ children, targetId, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
   const baseRef = useRef<HTMLDivElement>(null);
 
-  const targetElmRef = useRef<HTMLElement>();
+  const targetElmRef = useRef<HTMLElement>(null);
 
-  const timerIdRef = useRef<number>();
+  const timerIdRef = useRef<number | undefined>(undefined);
 
   const [shown, setShown] = useState(false);
 

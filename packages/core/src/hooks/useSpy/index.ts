@@ -5,7 +5,7 @@ type Props = {
    * ターゲットが見えるかどうかを確認するためのビューポートとして使用される要素。
    * 未指定の場合は既定でブラウザのビューポート ( document.body ) が使用されます。
    */
-  rootRef?: RefObject<Element>;
+  rootRef?: RefObject<Element | null>;
 
   /**
    * ターゲット要素がコンテナ要素の境界を超えてからイベント発火するまでのオフセット値 ( px ) 。
@@ -41,8 +41,8 @@ type Callback = (element: HTMLElement, index: number) => void;
  * ```
  */
 export function useSpy({ rootRef, offset = 0 }: Props) {
-  const selectorRef = useRef<Selector>();
-  const callbackRef = useRef<Callback>();
+  const selectorRef = useRef<Selector>(null);
+  const callbackRef = useRef<Callback>(undefined);
 
   const spy = useMemo(
     () => (selector: Selector, callback?: Callback) => {

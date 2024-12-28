@@ -68,7 +68,7 @@ export const Navigation = () => {
  *
  * @param containerRef - スクロール操作するコンテナ要素
  */
-function useAdjustScroll(containerRef: RefObject<HTMLElement>) {
+function useAdjustScroll(containerRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;

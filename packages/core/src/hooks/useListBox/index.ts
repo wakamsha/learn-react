@@ -15,7 +15,7 @@ import {
 } from 'react';
 
 type TriggerProps = {
-  ref: RefObject<HTMLButtonElement>;
+  ref: RefObject<HTMLButtonElement | null>;
 } & Required<
   Pick<
     DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,

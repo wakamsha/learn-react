@@ -29,7 +29,11 @@ type Options = {
  *
  * @returns RefObject を返します。これを JSX に渡すと、その要素にフォーカス中のときのみ hotkeys が有効となります。
  */
-export function useHotkeys<T extends Element>(keys: string, callback: KeyHandler, options?: Options): RefObject<T> {
+export function useHotkeys<T extends Element>(
+  keys: string,
+  callback: KeyHandler,
+  options?: Options,
+): RefObject<T | null> {
   const { enabled = true, trigger = 'keydown' } = options ?? {};
 
   const ref = useRef<T>(null);

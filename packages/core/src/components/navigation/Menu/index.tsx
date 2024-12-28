@@ -15,7 +15,7 @@ import {
 } from 'react';
 
 type ButtonProps = {
-  ref: RefObject<HTMLButtonElement>;
+  ref: RefObject<HTMLButtonElement | null>;
 } & Pick<
   DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
   'onKeyDown' | 'onClick' | 'tabIndex' | 'role' | 'aria-haspopup' | 'aria-expanded'
