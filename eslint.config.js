@@ -30,9 +30,28 @@ export default [
     },
   },
 
-  ...typescript,
   {
     files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      'import/consistent-type-specifier-style': [
+        'error',
+        // React Router の Route Module Type は top-level import が必要。
+        // see: https://reactrouter.com/how-to/route-module-type-safety#2-include-the-generated-types-in-tsconfig
+        'prefer-top-level',
+      ],
+    },
+  },
+
+  {
+    files: ['**/react-router-ssr/**/routes/**/*', '**/react-router-ssr/**/root.*'],
+    rules: {
+      'import/no-default-export': ['off'],
+    },
+  },
+
+  ...typescript,
+  {
+    files: ['apps/react-router-ssr/**/*'],
     rules: {
       // React.Suspense で throw するため無効化する。
       '@typescript-eslint/no-throw-literal': ['off'],
@@ -58,6 +77,17 @@ export default [
 
   ...test.essentials,
   ...test.react,
+
+  {
+    rules: {
+      'jsx-a11y/label-has-associated-control': [
+        'error',
+        {
+          controlComponents: ['TextInput', 'TextArea'],
+        },
+      ],
+    },
+  },
 
   /* prettier */
   eslintConfigPrettier,

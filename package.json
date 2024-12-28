@@ -21,6 +21,7 @@
     "doc": "      pnpm -F '@learn-react/doc'",
     "esnext": "   pnpm -F '@learn-react/esnext'",
     "icon": "     pnpm -F '@learn-react/icon'",
+    "rr-ssr": "   pnpm -F '@learn-react/react-router-ssr'",
     "routing": "  pnpm -F '@learn-react/routing'",
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",

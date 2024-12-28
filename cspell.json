@@ -1,6 +1,7 @@
 {
   "ignorePaths": [
     "**/node_modules/**",
+    "./apps/react-router-ssr/**/data.ts",
     "./packages/icon/dist/*",
     "./packages/catalog/src/constants/StorySpec.ts",
     "./packages/catalog/src/constants/Stories.ts",
@@ -11,12 +12,18 @@
     "asyncable",
     "automerge",
     "builtins",
+    "Cclip",
+    "Cdefs",
     "cmaps",
     "codegen",
     "commitlint",
     "consolas",
     "constate",
     "contenteditable",
+    "cpath",
+    "Crect",
+    "csvg",
+    "reactrouter",
     "cvalue",
     "cyclomatic",
     "docgen",
@@ -27,6 +34,7 @@
     "haspopup",
     "hljs",
     "isactive",
+    "isbot",
     "linaria",
     "meiryo",
     "menlo",
@@ -71,6 +79,7 @@
     "nonblock",
     "nonwords",
     "stylelintrc",
-    "formkit"
+    "formkit",
+    "nodenv"
   ]
 }

@@ -6,12 +6,13 @@
 
 ### apps
 
-| Sub package                              | 概要                                                                                                                      | 備考                                                                                                                                              |
-| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`catalog`](/tree/main/apps/catalog)     | 当該プロジェクトにある様々な `Story` コンポーネントを import することで、一覧表示および動作確認が出来ます。               | https://learn-react.wakamsha.net/                                                                                                                 |
-| [`doc`](/tree/main/apps/doc)             | 各種サブパッケージ・コードベースの JSDoc コメントからドキュメントページを生成します。生成処理には TypDoc を使っています。 | https://typedoc.org/net/                                                                                                                          |
-| [`routing`](/tree/main/apps/routing)     | ReactRouter を用いたアプリケーションの実装デモを管理します。                                                              | https://reactrouter.com/                                                                                                                          |
-| [`statement`](/tree/main/apps/statement) | 様々な状態管理ライブラリと React を組み合わせたアプリケーションの実装デモを管理します。                                   | [MobX](https://mobx.js.org/)<br>[Unstated Next](https://github.com/jamiebuilds/unstated-next)<br>[Constate](https://github.com/diegohaz/constate) |
+| Sub package                                            | 概要                                                                                                                      | 備考                                                                                                                                              |
+| :----------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`catalog`](/tree/main/apps/catalog)                   | 当該プロジェクトにある様々な `Story` コンポーネントを import することで、一覧表示および動作確認が出来ます。               | https://learn-react.wakamsha.net/                                                                                                                 |
+| [`doc`](/tree/main/apps/doc)                           | 各種サブパッケージ・コードベースの JSDoc コメントからドキュメントページを生成します。生成処理には TypDoc を使っています。 | https://typedoc.org/net/                                                                                                                          |
+| [`react-router-ssr`](/tree/main/apps/react-router-ssr) | ReactRouter (ex-Remix)を用いた SSR アプリケーションの実装デモを管理します。                                               | https://reactrouter.com/                                                                                                                          |
+| [`routing`](/tree/main/apps/routing)                   | ReactRouter を用いたアプリケーションの実装デモを管理します。                                                              | https://reactrouter.com/                                                                                                                          |
+| [`statement`](/tree/main/apps/statement)               | 様々な状態管理ライブラリと React を組み合わせたアプリケーションの実装デモを管理します。                                   | [MobX](https://mobx.js.org/)<br>[Unstated Next](https://github.com/jamiebuilds/unstated-next)<br>[Constate](https://github.com/diegohaz/constate) |
 
 ### packages
 
@@ -80,7 +81,7 @@ pnpm prepare
 ### Run
 
 ```bash
-pnpm (catalog|esnext|routing|statement) start
+pnpm (catalog|esnext|rr-ssr|routing|statement) start
 # e.g. pnpm catalog start
 ```
 
@@ -95,13 +96,14 @@ pnpm (catalog|esnext|routing|statement) start
 - `@learn-react/catalog`
 - `@learn-react/doc`
 - `@learn-react/esnext`
+- `@learn-react/react-router-ssr`
 - `@learn-react/routing`
 - `@learn-react/statement`
 
 ### Build
 
 ```bash
-pnpm (catalog|doc|esnext|routing|statement) build
+pnpm (catalog|doc|esnext|rr-ssr|routing|statement) build
 # e.g. pnpm catalog build
 ```
 
