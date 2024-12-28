@@ -9,7 +9,7 @@ import { useCallback, useEffect, useRef, type RefObject } from 'react';
  *
  * @returns      フォーカストラップのスコープとなる DOM の RefObject.
  */
-export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<T> {
+export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<T | null> {
   const targetRef = useRef<T>(null);
 
   /**

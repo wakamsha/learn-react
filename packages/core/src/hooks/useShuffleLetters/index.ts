@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState, type RefObject } from 'react';
  *
  * @param duration - 文字列を表示し終わるまでの時間 (ms)
  */
-export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T>, duration = 800) {
+export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T | null>, duration = 800) {
   const [key, setKey] = useState(0);
 
   const [originString, setOriginString] = useState('');

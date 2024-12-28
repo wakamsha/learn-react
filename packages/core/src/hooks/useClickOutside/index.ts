@@ -18,7 +18,10 @@ import { useEffect, useRef, type RefObject } from 'react';
  * return <div ref={ref}>Inner area</div>;
  * ```
  */
-export function useClickOutside<T extends HTMLElement>(callback: (event: Event) => void, enabled = true): RefObject<T> {
+export function useClickOutside<T extends HTMLElement>(
+  callback: (event: Event) => void,
+  enabled = true,
+): RefObject<T | null> {
   const ref = useRef<T>(null);
 
   useEffect(() => {
