@@ -9,7 +9,7 @@
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
     "qs": "6.13.1",
-    "swr": "2.2.5"
+    "swr": "2.3.0"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
