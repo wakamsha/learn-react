@@ -79,6 +79,7 @@
     "nonblock",
     "nonwords",
     "stylelintrc",
-    "formkit"
+    "formkit",
+    "nodenv"
   ]
 }
