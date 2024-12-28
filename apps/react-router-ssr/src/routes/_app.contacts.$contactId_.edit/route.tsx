@@ -1,6 +1,6 @@
 import { redirect, useNavigate } from 'react-router';
 import { getContact, updateContact } from '../../data';
-import type { Route } from '../_app.contacts.$contactId_.edit/+types/route';
+import type { Route } from './+types/route';
 import { Template } from './Template';
 
 /**
