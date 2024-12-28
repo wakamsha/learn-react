@@ -1,0 +1,53 @@
+.base {
+  display: flex;
+  max-width: 40rem;
+}
+
+.image {
+  width: 12rem;
+  height: 12rem;
+  margin-right: 2rem;
+  object-fit: cover;
+  background: #c8c8c8;
+  border-radius: 1.5rem;
+}
+
+.title {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  &:focus {
+    color: hsl(224deg 98% 58%);
+    outline: none;
+  }
+}
+
+.twitter {
+  margin: 0;
+}
+
+.link {
+  display: flex;
+  font-size: 1.5rem;
+  color: #3992ff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.notes {
+  white-space: break-spaces;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
