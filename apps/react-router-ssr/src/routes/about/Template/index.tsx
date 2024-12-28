@@ -7,7 +7,9 @@ import styles from './styles.module.css';
  */
 export const About: FC = () => (
   <div className={styles.base}>
-    <Link to="/">← Go to demo</Link>
+    <Link viewTransition to="/">
+      ← Go to demo
+    </Link>
 
     <h1>About React Router Contacts</h1>
 

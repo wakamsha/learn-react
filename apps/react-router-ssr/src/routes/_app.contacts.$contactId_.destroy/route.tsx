@@ -1,6 +1,6 @@
 import { redirect } from 'react-router';
 import { deleteContact } from '../../data';
-import type { Route } from '../_app.contacts.$contactId_.destroy/+types/route';
+import type { Route } from './+types/route';
 
 /**
  * Deletes a contact.

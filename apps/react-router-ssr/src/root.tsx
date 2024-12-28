@@ -1,3 +1,4 @@
+import type { FC, ReactNode } from 'react';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from 'react-router';
 import type { Route } from './+types/root';
 import appStylesHref from './app.css?url';
@@ -9,6 +10,10 @@ import { ErrorPage } from './templates/ErrorPage';
  */
 export default () => <Outlet />;
 
+type LayoutProps = {
+  children: ReactNode;
+};
+
 /**
  * Layout for the app.
  *
@@ -16,7 +21,7 @@ export default () => <Outlet />;
  * It acts as your document's "app shell" for all route components, HydrateFallback, and ErrorBoundary
  * For more information, see https://reactrouter.com/explanation/special-files#layout-export
  */
-export const Layout = ({ children }: { children: React.ReactNode }) => (
+export const Layout: FC<LayoutProps> = ({ children }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />

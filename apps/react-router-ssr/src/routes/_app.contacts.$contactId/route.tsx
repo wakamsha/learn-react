@@ -1,5 +1,5 @@
 import { getContact, updateContact } from '../../data';
-import type { Route } from '../_app.contacts.$contactId/+types/route';
+import type { Route } from './+types/route';
 import { Template } from './Template';
 
 /**

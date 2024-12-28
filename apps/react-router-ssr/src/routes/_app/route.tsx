@@ -3,7 +3,7 @@ import type { FormEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { Outlet, useNavigation, useSubmit } from 'react-router';
 import { getContacts } from '../../data';
-import type { Route } from '../_app/+types/route';
+import type { Route } from './+types/route';
 import { Sidebar } from './Sidebar';
 import styles from './styles.module.css';
 
@@ -50,6 +50,7 @@ export default ({ loaderData: { contacts, q } }: Route.ComponentProps) => {
   };
 
   useEffect(() => {
+    console.info('query', q);
     setQuery(q ?? '');
   }, [q]);
 
