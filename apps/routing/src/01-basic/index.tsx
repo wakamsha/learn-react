@@ -1,69 +1,75 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/src/helpers/Style';
-import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
+import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router';
 import { Navigation } from './components/Navigation';
-import { Router } from './constants/Router';
-import { Expenses } from './pages/Expenses';
-import { Friends } from './pages/Friends';
-import { Friend } from './pages/Friends/Friend';
-import { Home } from './pages/Home';
-import { Invoice } from './pages/Invoice';
-import { Invoices } from './pages/Invoices';
+import { routes } from './routes';
+import { About } from './routes/About';
+import { Beatles } from './routes/Beatles';
+import { Home as BeatlesHome } from './routes/Beatles/Home';
+import { Member } from './routes/Beatles/Member';
+import { Home } from './routes/Home';
+import { Zeppelin } from './routes/Zeppelin';
+import { Member as ZeppelinMember } from './routes/Zeppelin/Member';
 
-/**
- * @see https://reactrouter.com/docs/en/v6/getting-started/tutorial
- */
 export const Basic = () => (
   <BrowserRouter>
-    <div>
-      <Routes>
-        <Route path={Router.Home} element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path={Router.Expenses} element={<Expenses />} />
-          <Route path={Router.Invoices} element={<Invoices />}>
-            <Route
-              index
-              element={
-                <main style={{ padding: '1rem' }}>
-                  <p>Select an invoice</p>
-                </main>
-              }
-            />
-            <Route path={Router.Invoice} element={<Invoice />} />
-          </Route>
-          <Route path={Router.Friends} element={<Friends />}>
-            {/*
-             * `/friends` リンクから 入れ子ページに遷移（表示）したい場合は、
-             * このように `Navigate` コンポーネントを element プロパティに渡せば OK。
-             * v5 でいう `Redirect` に相当。
-             */}
-            <Route index element={<Navigate replace to={generatePath(Router.Friend, { id: 'serval' })} />} />
-            <Route path={Router.Friend} element={<Friend />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
+    <Routes>
+      <Route path={routes.Home} element={<Layout />}>
+        <Route index element={<Home />} />
+
+        <Route path={routes.Beatles} element={<Beatles />}>
+          <Route index element={<BeatlesHome />} />
+          <Route path={routes.Beatle} element={<Member />} />
         </Route>
-      </Routes>
-    </div>
+
+        <Route path={routes.Zeppelin} element={<Zeppelin />}>
+          {/*
+           * `/zeppelin` リンクから 入れ子ページに遷移（表示）したい場合は、
+           * このように `Navigate` コンポーネントを element プロパティに渡す。
+           * この機能は v5 の `Redirect` に相当する。
+           */}
+          <Route
+            index
+            element={<Navigate replace to={generatePath(routes.ZeppelinMember, { member: 'robert-plant' })} />}
+          />
+          <Route path={routes.ZeppelinMember} element={<ZeppelinMember />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Route>
+
+      <Route path="/about" element={<About />} />
+    </Routes>
   </BrowserRouter>
 );
 
 const Layout = () => (
   <div className={styleBase}>
-    <nav>
+    <nav className={styleSidebar}>
       <Navigation />
     </nav>
-    <div className={styleContent}>
+    <main className={styleContent}>
       <Outlet />
-    </div>
+    </main>
   </div>
 );
 
 const styleBase = css`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-areas: 'sidebar content';
+  grid-template-columns: 240px 1fr;
+  width: 100%;
+  height: 100dvh;
+`;
+
+const styleSidebar = css`
+  grid-area: sidebar;
+  overflow: hidden;
+  border-right: 1px solid ${cssVar('LineLight')};
 `;
 
 const styleContent = css`
+  grid-area: content;
   padding: ${gutter(4)};
 `;
 
