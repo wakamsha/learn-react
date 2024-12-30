@@ -1,6 +1,9 @@
+import { css } from '@emotion/css';
+import { gutter } from '@learn-react/core/src/helpers/Style';
+
 export const Home = () => (
-  <main>
-    <h1>Route Objects Example</h1>
+  <div className={styleBase}>
+    <h1>03 Route Objects Example</h1>
 
     <p>
       This example demonstrates how to use React Router&lsquo;s &ldquo;route object&ldquo; API instead of the JSX API to
@@ -14,5 +17,11 @@ export const Home = () => (
       <code>&lt;Routes&gt;</code> uses internally to decide which <code>&lt;Route&gt;</code> to render. When you use
       this hook, you get back an element that will render your entire route hierarchy.
     </p>
-  </main>
+  </div>
 );
+
+const styleBase = css`
+  display: flex;
+  flex-direction: column;
+  gap: ${gutter(4)};
+`;

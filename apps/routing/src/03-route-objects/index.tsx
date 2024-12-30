@@ -1,15 +1,17 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/src/helpers/Style';
-import { BrowserRouter, Outlet, useRoutes, type RouteObject } from 'react-router-dom';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
+import { BrowserRouter, Outlet, useRoutes, type RouteObject } from 'react-router';
 import { Navigation } from './components/Navigation';
-import { About } from './pages/About';
-import { Friends } from './pages/Friends';
-import { Home } from './pages/Home';
+import { About } from './routes/About';
+import { Beatles } from './routes/Beatles';
+import { Home } from './routes/Home';
+import { Zeppelin } from './routes/Zeppelin';
 
 /**
  * `<Routes>` および `<Route>` の代わりに `useRoutes` フックでルーティングを定義する。
  *
- * @see https://reactrouter.com/docs/en/v6/examples/route-objects
+ * @deprecated
+ * `useRoutes` は v7 のドキュメントに記載されていないため、特別な理由がない限り使用しないこと。
  */
 export const RouteObjects = () => (
   // useRoutes は BrowserRouter 配下でしか使えないため、
@@ -30,18 +32,22 @@ const App = () => {
           element: <Home />,
         },
         {
-          path: '/about',
-          element: <About />,
+          path: '/beatles/*',
+          element: <Beatles />,
         },
         {
-          path: '/friends/*',
-          element: <Friends />,
+          path: '/zeppelin/*',
+          element: <Zeppelin />,
         },
         {
           path: '*',
           element: <NotFound />,
         },
       ],
+    },
+    {
+      path: '/about',
+      element: <About />,
     },
   ];
 
@@ -52,21 +58,31 @@ const App = () => {
 
 const Layout = () => (
   <div className={styleBase}>
-    <nav>
+    <nav className={styleSidebar}>
       <Navigation />
     </nav>
-    <div className={styleContent}>
+    <main className={styleContent}>
       <Outlet />
-    </div>
+    </main>
   </div>
 );
 
 const styleBase = css`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-areas: 'sidebar content';
+  grid-template-columns: 240px 1fr;
+  width: 100%;
+  height: 100dvh;
+`;
+
+const styleSidebar = css`
+  grid-area: sidebar;
+  overflow: hidden;
+  border-right: 1px solid ${cssVar('LineLight')};
 `;
 
 const styleContent = css`
+  grid-area: content;
   padding: ${gutter(4)};
 `;
 
