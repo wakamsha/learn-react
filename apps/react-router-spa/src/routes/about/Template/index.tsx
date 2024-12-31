@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { Link } from 'react-router';
+import { Paths } from '../../../routes';
 import styles from './styles.module.css';
 
 /**
@@ -7,7 +8,7 @@ import styles from './styles.module.css';
  */
 export const About: FC = () => (
   <div className={styles.base}>
-    <Link viewTransition to="/">
+    <Link viewTransition to={Paths.Home}>
       ← Go to demo
     </Link>
 

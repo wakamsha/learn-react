@@ -1,7 +1,6 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,

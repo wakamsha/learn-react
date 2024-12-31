@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "type-check": "tsc --noEmit",
-    "typegen:css": "tcm app",
+    "typegen:css": "tcm src",
     "typegen:rr": "react-router typegen",
     "dev:client": "react-router dev",
-    "dev": "run-p 'dev:client' 'typegen:rr --watch' 'typegen:css -w'",
+    "dev": "run-p 'dev:client' 'typegen:rr --watch' 'typegen:css -w' 'type-check --watch'",
     "build": "cross-env NODE_ENV=production react-router build",
     "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js"
   },

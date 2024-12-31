@@ -1,7 +1,8 @@
 import type { FC, FormEvent } from 'react';
-import { Form } from 'react-router';
+import { Form, generatePath } from 'react-router';
 import { Button } from '../../../../components/Button';
 import type { ContactRecord } from '../../../../data';
+import { Paths } from '../../../../routes';
 import { Favorite } from './Favorite';
 import styles from './styles.module.css';
 
@@ -56,7 +57,11 @@ export const Template: FC<Props> = ({ contact }) => {
         {contact.notes ? <p className={styles.notes}>{contact.notes}</p> : null}
 
         <div className={styles.controls}>
-          <Form action="edit">
+          <Form
+            action={generatePath(Paths.Contacts.ContactEdit, {
+              contactId: contact.id,
+            })}
+          >
             <Button>Edit</Button>
           </Form>
 

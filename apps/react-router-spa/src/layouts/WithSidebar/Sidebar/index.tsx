@@ -1,9 +1,10 @@
 import { clsx } from 'clsx';
 import type { ChangeEvent, FC, FormEvent } from 'react';
-import { Form, Link, NavLink } from 'react-router';
+import { Form, generatePath, Link, NavLink } from 'react-router';
 import { Button } from '../../../components/Button';
 import { TextInput } from '../../../components/TextInput';
 import type { ContactRecord } from '../../../data';
+import { Paths } from '../../../routes';
 import styles from './styles.module.css';
 
 type Props = {
@@ -34,7 +35,7 @@ export const Sidebar: FC<Props> = ({ contacts, query, searching = false, onQuery
   return (
     <div className={styles.base}>
       <h1 className={styles.title}>
-        <Link className={styles.titleLink} to="/about">
+        <Link className={styles.titleLink} to={Paths.About}>
           React Router Contacts
         </Link>
       </h1>
@@ -55,7 +56,7 @@ export const Sidebar: FC<Props> = ({ contacts, query, searching = false, onQuery
           <div aria-hidden hidden={!searching} className={styles.searchSpinner} />
         </Form>
 
-        <Form className={styles.form} action="/new" method="post">
+        <Form className={styles.form} action={Paths.New} method="post">
           <Button theme="primary" type="submit">
             New
           </Button>
@@ -74,7 +75,9 @@ export const Sidebar: FC<Props> = ({ contacts, query, searching = false, onQuery
                       isActive ? styles.contactLinkActive : isPending ? styles.contactLinkPending : '',
                     )
                   }
-                  to={`contacts/${contact.id}`}
+                  to={generatePath(Paths.Contacts.Contact, {
+                    contactId: contact.id,
+                  })}
                 >
                   {contact.first || contact.last ? (
                     <>

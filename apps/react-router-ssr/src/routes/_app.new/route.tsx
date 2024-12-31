@@ -2,7 +2,7 @@ import { redirect } from 'react-router';
 import { createEmptyContact } from '../../data';
 
 /**
- * Deletes a contact.
+ * Creates a new contact and redirects to the edit page.
  */
 export async function action() {
   console.info('Creating a new contact...');

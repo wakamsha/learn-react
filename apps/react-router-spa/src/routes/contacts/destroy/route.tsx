@@ -1,5 +1,6 @@
 import { redirect } from 'react-router';
 import { deleteContact } from '../../../data';
+import { Paths } from '../../../routes';
 import type { Route } from './+types/route';
 
 /**
@@ -8,5 +9,5 @@ import type { Route } from './+types/route';
 export async function clientAction({ params: { contactId } }: Route.ActionArgs) {
   await deleteContact(contactId);
 
-  return redirect('/');
+  return redirect(Paths.Home);
 }

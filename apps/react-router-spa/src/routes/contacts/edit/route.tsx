@@ -1,5 +1,6 @@
 import { generatePath, redirect, useNavigate } from 'react-router';
 import { getContact, updateContact } from '../../../data';
+import { Paths } from '../../../routes';
 import type { Route } from './+types/route';
 import { Template } from './Template';
 
@@ -46,7 +47,7 @@ export async function clientAction({ params: { contactId }, request }: Route.Act
   await updateContact(contactId, updates);
 
   return redirect(
-    generatePath('/contacts/:contactId', {
+    generatePath(Paths.Contacts.Contact, {
       contactId,
     }),
   );
