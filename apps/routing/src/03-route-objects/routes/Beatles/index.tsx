@@ -1,7 +1,7 @@
 import { css, cx } from '@emotion/css';
 import { FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { generatePath, NavLink, type RouteObject, useRoutes } from 'react-router';
+import { generatePath, Link, NavLink, type RouteObject, useRoutes } from 'react-router';
 import { data } from './data';
 import { Home } from './Home';
 import { Member } from './Member';
@@ -25,7 +25,9 @@ export const Beatles = () => {
 
   return (
     <div className={styleBase}>
-      <h1 className={styleTitle}>🍏 The Beatles</h1>
+      <h1 className={styleTitle}>
+        <Link to="/beatles">🍏 The Beatles</Link>
+      </h1>
 
       <ul className={styleNavigation}>
         {data.map((member) => (
