@@ -7,4 +7,7 @@ export default defineConfig({
     port: 3011,
     open: true,
   },
+  build: {
+    outDir: 'build/client',
+  },
 });

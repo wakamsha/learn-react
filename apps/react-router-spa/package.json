@@ -10,7 +10,7 @@
     "dev:client": "react-router dev",
     "dev": "run-p 'dev:client' 'typegen:rr --watch' 'typegen:css -w' 'type-check --watch'",
     "build": "cross-env NODE_ENV=production react-router build",
-    "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-router/node": "7.1.1",

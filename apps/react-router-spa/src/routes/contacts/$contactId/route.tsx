@@ -1,4 +1,4 @@
-import { getContact } from '../../../data';
+import { getContact, updateContact } from '../../../data';
 import type { Route } from './+types/route';
 import { Template } from './Template';
 
@@ -17,6 +17,17 @@ export async function clientLoader({ params: { contactId } }: Route.LoaderArgs) 
   return {
     contact,
   };
+}
+
+/**
+ * Updates the favorite status of a contact.
+ */
+export async function clientAction({ params, request }: Route.ActionArgs) {
+  const formData = await request.formData();
+
+  return updateContact(params.contactId, {
+    favorite: formData.get('favorite') === 'true',
+  });
 }
 
 /**
