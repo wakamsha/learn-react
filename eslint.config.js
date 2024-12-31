@@ -31,7 +31,7 @@ export default [
   },
 
   {
-    files: ['**/react-router-ssr/**/*'],
+    files: ['**/react-router-*/**/*'],
     rules: {
       'import/consistent-type-specifier-style': [
         'error',
@@ -43,7 +43,7 @@ export default [
   },
 
   {
-    files: ['**/react-router-ssr/**/routes/**/*', '**/react-router-ssr/**/root.*'],
+    files: ['**/react-router-*/**/{layouts,routes}/**/*', '**/react-router-*/**/{root,routes}.*'],
     rules: {
       'import/no-default-export': ['off'],
     },
