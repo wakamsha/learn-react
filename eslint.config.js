@@ -31,7 +31,7 @@ export default [
   },
 
   {
-    files: ['**/*.ts', '**/*.tsx'],
+    files: ['**/react-router-ssr/**/*'],
     rules: {
       'import/consistent-type-specifier-style': [
         'error',

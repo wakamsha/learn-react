@@ -11,7 +11,7 @@ import { NestRoutesDeep } from './02-nest-routes-deep';
 import { RouteObjects } from './03-route-objects';
 import { WithPageTransition } from './04-with-page-transition';
 
-type Type = 'basic' | 'nest-routes-deep' | 'route-objects' | 'with-page-transition';
+type Type = '1. basic' | '2. nest-routes-deep' | '3. route-objects' | '4. with-page-transition';
 
 const storageKey = 'ROUTING_TYPE';
 
@@ -19,7 +19,7 @@ function useTypeConfig() {
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [type, setType] = useState<Type>(
-    storage.getValue(storageKey) === '' ? 'basic' : (storage.getValue(storageKey) as Type),
+    storage.getValue(storageKey) === '' ? '1. basic' : (storage.getValue(storageKey) as Type),
   );
 
   useEffect(() => {
@@ -32,10 +32,10 @@ function useTypeConfig() {
 const TypeContainer = createContainer(useTypeConfig);
 
 const Components: Record<Type, FC> = {
-  basic: Basic,
-  'nest-routes-deep': NestRoutesDeep,
-  'route-objects': RouteObjects,
-  'with-page-transition': WithPageTransition,
+  '1. basic': Basic,
+  '2. nest-routes-deep': NestRoutesDeep,
+  '3. route-objects': RouteObjects,
+  '4. with-page-transition': WithPageTransition,
 };
 
 const BootLoader = () => {
@@ -51,6 +51,7 @@ const BootLoader = () => {
   return (
     <div className={styleBase}>
       <Component />
+
       <select className={styleSwitch} value={type} onChange={handleSwitch}>
         {Object.keys(Components).map((key) => (
           <option key={key} value={key}>
@@ -67,9 +68,9 @@ const styleBase = css`
 `;
 
 const styleSwitch = css`
-  position: absolute;
+  position: fixed;
+  right: ${gutter(4)};
   bottom: ${gutter(8)};
-  left: ${gutter(4)};
   padding: ${gutter(1)} ${gutter(2)};
   line-height: ${LineHeight.Regular};
 `;

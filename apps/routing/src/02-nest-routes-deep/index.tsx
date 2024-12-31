@@ -1,11 +1,13 @@
 import { css } from '@emotion/css';
-import { gutter } from '@learn-react/core/src/helpers/Style';
+import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type ReactNode } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import { Navigation } from './components/Navigation';
-import { Router } from './constants/Router';
-import { Friends } from './pages/Friends';
-import { Home } from './pages/Home';
+import { routes } from './routes';
+import { About } from './routes/About';
+import { Beatles } from './routes/Beatles';
+import { Home } from './routes/Home';
+import { Zeppelin } from './routes/Zeppelin';
 
 /**
  * 01 に下記の変更を加えたもの。
@@ -19,12 +21,14 @@ export const NestRoutesDeep = () => (
   <BrowserRouter>
     <Layout>
       <Routes>
-        <Route path={Router.Home} element={<Home />} />
-        {/*
-         * `/friends/serval` といった下層ページの URL に一致させるために
-         * パスに `*` を含める。
-         */}
-        <Route path={Router.Friends.Path} element={<Friends />} />
+        <Route path={routes.Home.Path} element={<Home />} />
+
+        <Route path={routes.About.Path} element={<About />} />
+
+        <Route path={routes.Beatles.Path} element={<Beatles />} />
+
+        <Route path={routes.Zeppelin.Path} element={<Zeppelin />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
@@ -37,19 +41,29 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => (
   <div className={styleBase}>
-    <nav>
+    <nav className={styleSidebar}>
       <Navigation />
     </nav>
-    <div className={styleContent}>{children}</div>
+    <main className={styleContent}>{children}</main>
   </div>
 );
 
 const styleBase = css`
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-areas: 'sidebar content';
+  grid-template-columns: 240px 1fr;
+  width: 100%;
+  height: 100dvh;
+`;
+
+const styleSidebar = css`
+  grid-area: sidebar;
+  overflow: hidden;
+  border-right: 1px solid ${cssVar('LineLight')};
 `;
 
 const styleContent = css`
+  grid-area: content;
   padding: ${gutter(4)};
 `;
 
