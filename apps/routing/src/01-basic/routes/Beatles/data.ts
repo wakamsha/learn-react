@@ -1,4 +1,50 @@
-export const data = [
+import { matchSorter } from 'match-sorter';
+
+type Member = {
+  id: string;
+  name: string;
+  birth_date: string;
+  avatar_url: string;
+  notes: string;
+};
+
+/**
+ * Get the Beatles members.
+ *
+ * @param query - An optional query to filter members by.
+ *
+ * @returns The Beatles members.
+ */
+export async function getBeatles(query?: string) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 500);
+  });
+
+  if (query) {
+    return matchSorter(data, query, {
+      keys: ['id', 'name'],
+    });
+  }
+
+  return data;
+}
+
+/**
+ * Get a Beatles member by ID.
+ *
+ * @param id - The ID of the Beatles member to fetch.
+ *
+ * @returns The Beatles member.
+ */
+export async function getBeatlesMember(id: string) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 500);
+  });
+
+  return data.find((member) => member.id === id);
+}
+
+const data: Member[] = [
   {
     id: 'john-lennon',
     name: 'John Lennon',

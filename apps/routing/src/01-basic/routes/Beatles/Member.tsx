@@ -1,20 +1,28 @@
 import { css } from '@emotion/css';
 import { BorderRadius } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { useParams } from 'react-router';
-import { data } from './data';
+import { useLoaderData, type Params } from 'react-router';
+import { getBeatlesMember } from './data';
+
+export async function clientLoader({ params: { member } }: { params: Params<'member'> }) {
+  const memberData = await getBeatlesMember(member ?? '');
+
+  if (!memberData) {
+    throw new Response('Not Found', {
+      status: 404,
+    });
+  }
+
+  return {
+    memberData,
+  };
+}
 
 /**
  * ビートルズメンバー詳細を表示するページコンポーネントです。
  */
 export const Member = () => {
-  const { member } = useParams<{ member: string }>();
-
-  const memberData = data.find((item) => item.id === member);
-
-  if (!memberData) {
-    return <h2>Not Found</h2>;
-  }
+  const { memberData } = useLoaderData<typeof clientLoader>();
 
   return (
     <div className={styleBase}>

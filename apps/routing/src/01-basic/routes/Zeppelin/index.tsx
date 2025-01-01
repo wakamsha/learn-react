@@ -1,35 +1,47 @@
 import { css, cx } from '@emotion/css';
 import { FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { generatePath, NavLink, Outlet } from 'react-router';
+import { generatePath, NavLink, Outlet, useLoaderData } from 'react-router';
 import { routes } from '../../routes';
-import { data } from './data';
+import { getZeppelin } from './data';
+
+export async function clientLoader() {
+  const zeppelin = await getZeppelin();
+
+  return {
+    zeppelin,
+  };
+}
 
 /**
  * ツェッペリン メンバー一覧を列挙するページコンポーネントです。
  */
-export const Zeppelin = () => (
-  <div className={styleBase}>
-    <h1 className={styleTitle}>🪽 Led Zeppelin</h1>
+export const Zeppelin = () => {
+  const { zeppelin } = useLoaderData<typeof clientLoader>();
 
-    <ul className={styleNavigation}>
-      {data.map((member) => (
-        <li key={member.id}>
-          <NavLink
-            to={generatePath(routes.ZeppelinMember, { member: member.id })}
-            className={({ isActive }) => cx(styleLink, isActive && styleLinkActive)}
-          >
-            {member.name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+  return (
+    <div className={styleBase}>
+      <h1 className={styleTitle}>🪽 Led Zeppelin</h1>
 
-    <div className={styleDetail}>
-      <Outlet />
+      <ul className={styleNavigation}>
+        {zeppelin.map((member) => (
+          <li key={member.id}>
+            <NavLink
+              to={generatePath(routes.ZeppelinMember, { member: member.id })}
+              className={({ isActive }) => cx(styleLink, isActive && styleLinkActive)}
+            >
+              {member.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+
+      <div className={styleDetail}>
+        <Outlet />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const styleBase = css`
   display: grid;
