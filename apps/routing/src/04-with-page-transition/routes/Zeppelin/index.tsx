@@ -2,9 +2,10 @@ import { css, cx } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { generatePath, Navigate, NavLink, Route } from 'react-router';
+import { generatePath, NavLink, Route } from 'react-router';
 import { routes as rootRoutes } from '../../routes';
 import { data } from './data';
+import { Home } from './Home';
 import { Member } from './Member';
 
 /**
@@ -35,12 +36,7 @@ export const Zeppelin = () => {
 
       <div className={styleDetail}>
         <PageTransition parentPath={rootRoutes.Zeppelin.To}>
-          {/*
-           * `/zeppelin` リンクから 子ページに直接遷移（表示）したい場合は、
-           * このように `Navigate` コンポーネントを element プロパティに渡す。
-           * この機能は v5 の `Redirect` に相当する。
-           */}
-          <Route index element={<Navigate replace to={generatePath(routes.To, { member: 'jimmy-page' })} />} />
+          <Route index element={<Home to={generatePath(routes.To, { member: 'jimmy-page' })} />} />
           <Route path={routes.Path} element={<Member />} />
         </PageTransition>
       </div>

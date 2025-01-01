@@ -1,14 +1,6 @@
 import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  generatePath,
-  Navigate,
-  Outlet,
-  Route,
-  RouterProvider,
-} from 'react-router';
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router';
 import { Navigation } from './components/Navigation';
 import { routes } from './routes';
 import { About } from './routes/About';
@@ -17,6 +9,7 @@ import { Home as BeatlesHome } from './routes/Beatles/Home';
 import { clientLoader as beatlesMemberLoader, Member } from './routes/Beatles/Member';
 import { Home } from './routes/Home';
 import { Zeppelin, clientLoader as zeppelinLoader } from './routes/Zeppelin';
+import { Home as ZeppelinHome } from './routes/Zeppelin/Home';
 import { Member as ZeppelinMember, clientLoader as zeppelinMemberLoader } from './routes/Zeppelin/Member';
 
 export const Basic = () => {
@@ -32,15 +25,7 @@ export const Basic = () => {
           </Route>
 
           <Route path={routes.Zeppelin} element={<Zeppelin />} loader={zeppelinLoader}>
-            {/*
-             * `/zeppelin` リンクから 入れ子ページに遷移（表示）したい場合は、
-             * このように `Navigate` コンポーネントを element プロパティに渡す。
-             * この機能は v5 の `Redirect` に相当する。
-             */}
-            <Route
-              index
-              element={<Navigate replace to={generatePath(routes.ZeppelinMember, { member: 'robert-plant' })} />}
-            />
+            <Route index element={<ZeppelinHome />} />
             <Route path={routes.ZeppelinMember} element={<ZeppelinMember />} loader={zeppelinMemberLoader} />
           </Route>
 
