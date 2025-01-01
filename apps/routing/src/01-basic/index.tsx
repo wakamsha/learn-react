@@ -6,7 +6,7 @@ import { routes } from './routes';
 import { About } from './routes/About';
 import { Beatles, clientLoader as beatlesLoader } from './routes/Beatles';
 import { Home as BeatlesHome } from './routes/Beatles/Home';
-import { clientLoader as beatlesMemberLoader, Member } from './routes/Beatles/Member';
+import { Member as BeatlesMember, clientLoader as beatlesMemberLoader } from './routes/Beatles/Member';
 import { Home } from './routes/Home';
 import { Zeppelin, clientLoader as zeppelinLoader } from './routes/Zeppelin';
 import { Home as ZeppelinHome } from './routes/Zeppelin/Home';
@@ -21,7 +21,7 @@ export const Basic = () => {
 
           <Route path={routes.Beatles} element={<Beatles />} loader={beatlesLoader}>
             <Route index element={<BeatlesHome />} />
-            <Route path={routes.Beatle} element={<Member />} loader={beatlesMemberLoader} />
+            <Route path={routes.Beatle} element={<BeatlesMember />} loader={beatlesMemberLoader} />
           </Route>
 
           <Route path={routes.Zeppelin} element={<Zeppelin />} loader={zeppelinLoader}>
