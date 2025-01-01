@@ -1,4 +1,50 @@
-export const data = [
+import { matchSorter } from 'match-sorter';
+
+type Member = {
+  id: string;
+  name: string;
+  role: string;
+  avatar_url: string;
+  notes: string;
+};
+
+/**
+ * Get the Zeppelin members.
+ *
+ * @param query - An optional query to filter members by.
+ *
+ * @returns Led Zeppelin members.
+ */
+export async function getZeppelin(query?: string) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 500);
+  });
+
+  if (query) {
+    return matchSorter(data, query, {
+      keys: ['id', 'name'],
+    });
+  }
+
+  return data;
+}
+
+/**
+ * Get a Zeppelin member by ID.
+ *
+ * @param id - The ID of the Zeppelin member to fetch.
+ *
+ * @returns The Zeppelin member.
+ */
+export async function getZeppelinMember(id: string) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 500);
+  });
+
+  return data.find((member) => member.id === id);
+}
+
+const data: Member[] = [
   {
     id: 'robert-plant',
     name: 'Robert Plant',

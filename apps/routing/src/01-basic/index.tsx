@@ -1,47 +1,59 @@
 import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { BrowserRouter, generatePath, Navigate, Outlet, Route, Routes } from 'react-router';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  generatePath,
+  Navigate,
+  Outlet,
+  Route,
+  RouterProvider,
+} from 'react-router';
 import { Navigation } from './components/Navigation';
 import { routes } from './routes';
 import { About } from './routes/About';
-import { Beatles } from './routes/Beatles';
+import { Beatles, clientLoader as beatlesLoader } from './routes/Beatles';
 import { Home as BeatlesHome } from './routes/Beatles/Home';
-import { Member } from './routes/Beatles/Member';
+import { clientLoader as beatlesMemberLoader, Member } from './routes/Beatles/Member';
 import { Home } from './routes/Home';
-import { Zeppelin } from './routes/Zeppelin';
-import { Member as ZeppelinMember } from './routes/Zeppelin/Member';
+import { Zeppelin, clientLoader as zeppelinLoader } from './routes/Zeppelin';
+import { Member as ZeppelinMember, clientLoader as zeppelinMemberLoader } from './routes/Zeppelin/Member';
 
-export const Basic = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path={routes.Home} element={<Layout />}>
-        <Route index element={<Home />} />
+export const Basic = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path={routes.Home} element={<Layout />}>
+          <Route index element={<Home />} />
 
-        <Route path={routes.Beatles} element={<Beatles />}>
-          <Route index element={<BeatlesHome />} />
-          <Route path={routes.Beatle} element={<Member />} />
+          <Route path={routes.Beatles} element={<Beatles />} loader={beatlesLoader}>
+            <Route index element={<BeatlesHome />} />
+            <Route path={routes.Beatle} element={<Member />} loader={beatlesMemberLoader} />
+          </Route>
+
+          <Route path={routes.Zeppelin} element={<Zeppelin />} loader={zeppelinLoader}>
+            {/*
+             * `/zeppelin` リンクから 入れ子ページに遷移（表示）したい場合は、
+             * このように `Navigate` コンポーネントを element プロパティに渡す。
+             * この機能は v5 の `Redirect` に相当する。
+             */}
+            <Route
+              index
+              element={<Navigate replace to={generatePath(routes.ZeppelinMember, { member: 'robert-plant' })} />}
+            />
+            <Route path={routes.ZeppelinMember} element={<ZeppelinMember />} loader={zeppelinMemberLoader} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Route>
 
-        <Route path={routes.Zeppelin} element={<Zeppelin />}>
-          {/*
-           * `/zeppelin` リンクから 入れ子ページに遷移（表示）したい場合は、
-           * このように `Navigate` コンポーネントを element プロパティに渡す。
-           * この機能は v5 の `Redirect` に相当する。
-           */}
-          <Route
-            index
-            element={<Navigate replace to={generatePath(routes.ZeppelinMember, { member: 'robert-plant' })} />}
-          />
-          <Route path={routes.ZeppelinMember} element={<ZeppelinMember />} />
-        </Route>
+        <Route path="/about" element={<About />} />
+      </>,
+    ),
+  );
 
-        <Route path="*" element={<NotFound />} />
-      </Route>
-
-      <Route path="/about" element={<About />} />
-    </Routes>
-  </BrowserRouter>
-);
+  return <RouterProvider router={router} />;
+};
 
 const Layout = () => (
   <div className={styleBase}>

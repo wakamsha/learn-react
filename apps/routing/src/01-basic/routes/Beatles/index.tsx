@@ -1,37 +1,49 @@
 import { css, cx } from '@emotion/css';
 import { FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { generatePath, Link, NavLink, Outlet } from 'react-router';
+import { generatePath, Link, NavLink, Outlet, useLoaderData } from 'react-router';
 import { routes } from '../../routes';
-import { data } from './data';
+import { getBeatles } from './data';
+
+export async function clientLoader() {
+  const beatles = await getBeatles();
+
+  return {
+    beatles,
+  };
+}
 
 /**
  * ビートルズメンバー一覧を列挙するページコンポーネントです。
  */
-export const Beatles = () => (
-  <div className={styleBase}>
-    <h1 className={styleTitle}>
-      <Link to={routes.Beatles}>🍏 The Beatles</Link>
-    </h1>
+export const Beatles = () => {
+  const data = useLoaderData<typeof clientLoader>();
 
-    <ul className={styleNavigation}>
-      {data.map((member) => (
-        <li key={member.id}>
-          <NavLink
-            to={generatePath(routes.Beatle, { member: member.id })}
-            className={({ isActive }) => cx(styleLink, isActive && styleLinkActive)}
-          >
-            {member.name}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+  return (
+    <div className={styleBase}>
+      <h1 className={styleTitle}>
+        <Link to={routes.Beatles}>🍏 The Beatles</Link>
+      </h1>
 
-    <div className={styleDetail}>
-      <Outlet />
+      <ul className={styleNavigation}>
+        {data.beatles.map((member) => (
+          <li key={member.id}>
+            <NavLink
+              to={generatePath(routes.Beatle, { member: member.id })}
+              className={({ isActive }) => cx(styleLink, isActive && styleLinkActive)}
+            >
+              {member.name}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+
+      <div className={styleDetail}>
+        <Outlet />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const styleBase = css`
   display: grid;
