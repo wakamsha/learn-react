@@ -4,14 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: [
-      '**/dist/**',
-      '**/vitest.setup.*',
-      '**/*.config.*',
-      'eslint-rules/*',
-      '**/bin/*',
-      '**/catalog/templates/*',
-    ],
+    ignores: ['**/dist/**', '**/vitest.setup.*', '**/*.config.*', '**/bin/*', '**/catalog/templates/*'],
   },
 
   ...essentials,
