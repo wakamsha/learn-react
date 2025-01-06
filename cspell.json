@@ -2,6 +2,7 @@
   "ignorePaths": [
     "**/node_modules/**",
     "./apps/react-router-*/**/data.ts",
+    "./apps/next-app/**/data.ts",
     "./packages/icon/dist/*",
     "./packages/catalog/src/constants/StorySpec.ts",
     "./packages/catalog/src/constants/Stories.ts",
@@ -81,6 +82,7 @@
     "nonwords",
     "stylelintrc",
     "formkit",
-    "nodenv"
+    "nodenv",
+    "turbopack"
   ]
 }

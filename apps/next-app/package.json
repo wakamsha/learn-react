@@ -1,0 +1,33 @@
+{
+  "name": "@learn-react/next-app",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "typegen:css": "tcm app",
+    "dev:next": "next dev --turbopack -p 3013",
+    "dev": "run-p 'dev:next' 'typegen:css -w' 'type-check --watch'",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "match-sorter": "8.0.0",
+    "next": "15.1.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sort-by": "1.2.0",
+    "tiny-invariant": "1.3.3",
+    "typescript": "5.7.2"
+  },
+  "devDependencies": {
+    "@learn-react/tsconfig": "workspace:*",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "@types/sort-by": "1.2.3",
+    "npm-run-all2": "7.0.2",
+    "typed-css-modules": "0.9.1"
+  }
+}

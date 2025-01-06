@@ -50,6 +50,14 @@ export default [
     },
   },
 
+  {
+    files: ['**/next-app/**/*.tsx'],
+    rules: {
+      'import/no-default-export': ['off'],
+      'unicorn/filename-case': ['off'],
+    },
+  },
+
   ...typescript,
   {
     files: ['apps/react-router-ssr/**/*'],
