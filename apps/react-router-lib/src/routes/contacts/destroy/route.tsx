@@ -5,7 +5,7 @@ import { Paths } from '../../../routes';
 /**
  * Delete a contact.
  */
-export async function clientAction({ params: { contactId } }: { params: Params<'contactId'> }) {
+export async function action({ params: { contactId } }: { params: Params<'contactId'> }) {
   if (!contactId) {
     throw new Response('Not Found', {
       status: 404,

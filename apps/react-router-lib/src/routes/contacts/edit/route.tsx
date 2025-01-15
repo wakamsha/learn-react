@@ -12,7 +12,7 @@ import styles from './styles.module.css';
 /**
  * Fetches contact data and returns it as a prop.
  */
-export async function clientLoader({ params: { contactId } }: { params: Params<'contactId'> }) {
+export async function loader({ params: { contactId } }: { params: Params<'contactId'> }) {
   if (!contactId) {
     throw new Response('Not Found', {
       status: 404,
@@ -38,13 +38,7 @@ export async function clientLoader({ params: { contactId } }: { params: Params<'
  * @remarks
  * After updating the contact, the user is redirected to the contact page.
  */
-export async function clientAction({
-  request,
-  params: { contactId },
-}: {
-  request: Request;
-  params: Params<'contactId'>;
-}) {
+export async function action({ request, params: { contactId } }: { request: Request; params: Params<'contactId'> }) {
   if (!contactId) {
     throw new Response('Not Found', {
       status: 404,
@@ -63,8 +57,8 @@ export async function clientAction({
 /**
  * The Edit Contact form.
  */
-export const Edit: FC = () => {
-  const { contact } = useLoaderData<typeof clientLoader>();
+export const Component: FC = () => {
+  const { contact } = useLoaderData<typeof loader>();
 
   const navigate = useNavigate();
 

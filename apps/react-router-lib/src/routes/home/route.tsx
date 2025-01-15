@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 /**
  * The Home page.
  */
-export const Home: FC = () => (
+export const Component: FC = () => (
   <>
     <DocumentTitle title="React Router Contacts" />
 

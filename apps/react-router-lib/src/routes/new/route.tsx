@@ -5,7 +5,7 @@ import { Paths } from '../../routes';
 /**
  * Creates a new contact and redirects to the edit page.
  */
-export async function clientAction() {
+export async function action() {
   console.info('Creating a new contact...');
 
   const contact = await createEmptyContact();

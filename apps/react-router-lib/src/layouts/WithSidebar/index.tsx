@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 /**
  * Fetches contacts data and returns it as a prop.
  */
-export async function clientLoader({ request }: LoaderFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const q = url.searchParams.get('q');
 
@@ -24,7 +24,7 @@ export async function clientLoader({ request }: LoaderFunctionArgs) {
  * Renders a sidebar layout.
  */
 export const WithSidebar = () => {
-  const { contacts, q } = useLoaderData<typeof clientLoader>();
+  const { contacts, q } = useLoaderData<typeof loader>();
 
   const navigation = useNavigation();
 

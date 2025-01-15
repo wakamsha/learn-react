@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 /**
  * Fetches contact data and returns it as a prop.
  */
-export async function clientLoader({ params: { contactId } }: { params: Params<'contactId'> }) {
+export async function loader({ params: { contactId } }: { params: Params<'contactId'> }) {
   if (!contactId) {
     throw new Response('Not Found', {
       status: 404,
@@ -33,13 +33,7 @@ export async function clientLoader({ params: { contactId } }: { params: Params<'
 /**
  * Updates the favorite status of a contact.
  */
-export async function clientAction({
-  request,
-  params: { contactId },
-}: {
-  request: Request;
-  params: Params<'contactId'>;
-}) {
+export async function action({ request, params: { contactId } }: { request: Request; params: Params<'contactId'> }) {
   if (!contactId) {
     throw new Response('Not Found', {
       status: 404,
@@ -56,8 +50,8 @@ export async function clientAction({
 /**
  * The contact page.
  */
-export const Contact: FC = () => {
-  const { contact } = useLoaderData<typeof clientLoader>();
+export const Component: FC = () => {
+  const { contact } = useLoaderData<typeof loader>();
 
   const handleDestroy = (event: FormEvent) => {
     // eslint-disable-next-line no-alert, no-restricted-globals

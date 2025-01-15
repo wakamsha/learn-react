@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 /**
  * The about page.
  */
-export const About: FC = () => (
+export const Component: FC = () => (
   <>
     <DocumentTitle title="About React Router Contacts" />
 
