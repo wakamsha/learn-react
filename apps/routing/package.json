@@ -7,10 +7,10 @@
   ],
   "type": "module",
   "scripts": {
-    "develop": "vite serve",
-    "type-check": "tsc --noEmit",
-    "start": "run-p \"type-check --watch\" \"develop\"",
-    "build": "pnpm type-check && vite build",
+    "typecheck": "tsc --noEmit",
+    "develop": "vite",
+    "start": "run-p 'typecheck --watch' 'develop'",
+    "build": "pnpm typecheck && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
