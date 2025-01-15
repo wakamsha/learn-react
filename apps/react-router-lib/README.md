@@ -2,7 +2,7 @@
 
 React Router をライブラリーとして用いた SPA の実装デモを管理します。
 
-- [React Router](https://reactrouter.com/6.28.0/start/tutorial#jsx-routes)
+- [Tutorial v6.28.0 | React Router](https://reactrouter.com/6.28.0/start/tutorial)
 
 ## Development
 
