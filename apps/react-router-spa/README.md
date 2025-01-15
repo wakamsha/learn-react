@@ -1,5 +1,7 @@
 # @learn-react/react-router-ssr
 
+React Router (ex-Remix) をフレームワークとして用いた SPA の実装デモを管理します。
+
 - [React Router Docs](https://reactrouter.com/home)
 
 ## Development

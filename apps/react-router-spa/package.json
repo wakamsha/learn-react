@@ -4,11 +4,11 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "type-check": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
     "typegen:css": "tcm src",
     "typegen:rr": "react-router typegen",
     "dev:client": "react-router dev",
-    "dev": "run-p 'dev:client' 'typegen:rr --watch' 'typegen:css -w' 'type-check --watch'",
+    "dev": "run-p 'typegen:rr --watch' 'typegen:css -w' 'dev:client' 'typecheck --watch'",
     "build": "cross-env NODE_ENV=production react-router build",
     "preview": "vite preview"
   },

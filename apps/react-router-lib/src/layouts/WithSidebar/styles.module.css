@@ -1,0 +1,26 @@
+.base {
+  display: grid;
+  grid-template-areas: 'sidebar detail';
+  grid-template-columns: 22em 1fr;
+  width: 100%;
+  height: 100dvh;
+}
+
+.sidebar {
+  display: block;
+  grid-area: sidebar;
+  overflow: hidden;
+}
+
+.detail {
+  display: block;
+  grid-area: detail;
+  padding: 2rem 4rem;
+  overflow-x: hidden;
+}
+
+.loading {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}
