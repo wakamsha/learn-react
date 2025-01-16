@@ -1,7 +1,16 @@
 import { clsx } from 'clsx';
-import { useEffect, useState, type FormEvent } from 'react';
-import { Outlet, useLoaderData, useNavigation, useSubmit, type LoaderFunctionArgs } from 'react-router';
+import { useEffect, useState, type FC, type FormEvent } from 'react';
+import {
+  isRouteErrorResponse,
+  Outlet,
+  useLoaderData,
+  useNavigation,
+  useRouteError,
+  useSubmit,
+  type LoaderFunctionArgs,
+} from 'react-router';
 import { getContacts } from '../../data';
+import { ErrorTemplate } from './error';
 import { Sidebar } from './Sidebar';
 import styles from './styles.module.css';
 
@@ -23,7 +32,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 /**
  * Renders a sidebar layout.
  */
-export const WithSidebar = () => {
+export const Component = () => {
   const { contacts, q } = useLoaderData<typeof loader>();
 
   const navigation = useNavigation();
@@ -67,4 +76,28 @@ export const WithSidebar = () => {
       </div>
     </div>
   );
+};
+
+/**
+ * Error boundary for the app.
+ *
+ * The top most error boundary for the app, rendered when your app throws an error
+ * For more information, see https://reactrouter.com/start/framework/route-module#errorboundary
+ */
+export const ErrorBoundary: FC = () => {
+  const error = useRouteError();
+
+  let message = 'Oops!';
+  let details = 'An unexpected error occurred.';
+  let stack: string | undefined;
+
+  if (isRouteErrorResponse(error)) {
+    message = error.status === 404 ? '404' : 'Error';
+    details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
+  } else if (import.meta.env.DEV && error && error instanceof Error) {
+    details = error.message;
+    stack = error.stack;
+  }
+
+  return <ErrorTemplate message={message} details={details} stack={stack} />;
 };

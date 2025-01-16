@@ -1,7 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router';
-import { loader as rootLoader, WithSidebar } from './layouts/WithSidebar';
+import { ErrorBoundary } from './layouts/WithSidebar/route';
 import { Paths } from './routes';
-import { Error } from './routes/error/route';
 
 /**
  * Renders the app.
@@ -10,7 +9,7 @@ export const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path={Paths.Home} element={<WithSidebar />} loader={rootLoader} errorElement={<Error />}>
+        <Route path={Paths.Home} lazy={() => import('./layouts/WithSidebar/route')} errorElement={<ErrorBoundary />}>
           <Route index lazy={() => import('./routes/home/route')} />
           <Route path={Paths.Contacts.Contact} lazy={() => import('./routes/contacts/contact/route')} />
           <Route path={Paths.Contacts.Edit} lazy={() => import('./routes/contacts/edit/route')} />

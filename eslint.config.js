@@ -4,7 +4,15 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: ['**/dist/**', '**/vitest.setup.*', '**/*.config.*', '**/bin/*', '**/catalog/templates/*'],
+    ignores: [
+      '**/dist/*',
+      '**/build/*',
+      '**/vitest.setup.*',
+      '**/*.config.*',
+      '**/bin/*',
+      '**/catalog/templates/*',
+      '**/.react-router/*',
+    ],
   },
 
   ...essentials,
