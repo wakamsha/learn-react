@@ -1,4 +1,6 @@
 pnpm-lock.yaml
 dist/
+build/
+.react-router/
 Stories.ts
 **/*.css.d.ts

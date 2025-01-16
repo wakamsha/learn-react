@@ -1,5 +1,5 @@
 import { useFetcher } from 'react-router';
-import { type ContactRecord } from '../../../../data';
+import { type ContactRecord } from '../../../../../data';
 import styles from './styles.module.css';
 
 type FavoriteProps = Pick<ContactRecord, 'favorite'>;
