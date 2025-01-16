@@ -20,6 +20,7 @@ export const Splitter = ({ orientation, grabbed, onMouseDown, onMouseUp, onDoubl
   <span
     role="separator"
     aria-orientation={orientation}
+    // eslint-disable-next-line @typescript-eslint/no-deprecated
     aria-grabbed={grabbed}
     className={styleBase}
     onMouseDown={onMouseDown}
