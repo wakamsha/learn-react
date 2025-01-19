@@ -22,7 +22,7 @@
     "constate": "3.3.2",
     "mobx": "6.13.5",
     "mobx-react": "9.2.0",
-    "qs": "6.13.1",
+    "qs": "6.14.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "7.1.3"
@@ -30,7 +30,7 @@
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/qs": "6.9.17",
+    "@types/qs": "6.9.18",
     "@types/react": "19.0.7",
     "@types/react-dom": "19.0.3",
     "npm-run-all2": "7.0.2",
