@@ -4,15 +4,15 @@ import { PageTransition } from '@learn-react/core/src/components/utils/PageTrans
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
-import { Router } from '../../@core/constants/Router';
-import { HomePage } from '../pages/HomePage';
-import { ListPage } from '../pages/ListPage';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { ProfilePage } from '../pages/profiles';
+import { Router } from '../@core/constants/Router';
+import { HomePage } from './pages/HomePage';
+import { ListPage } from './pages/ListPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { ProfilePage } from './pages/profiles';
 
 export const App = () => (
   <div className={styleBase}>
-    <Sidebar title="Unstated | Statement" items={linkItems} />
+    <Sidebar title="Constate | Statement" items={linkItems} />
     <div className={styleContent}>
       <PageTransition>
         <Route path={Router.paths.home} element={<HomePage />} />

@@ -3,12 +3,12 @@ import { Sidebar } from '@learn-react/core/src/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
-import { Router } from '../../@core/constants/Router';
-import { HomePage } from '../pages/Home';
-import { ListPage } from '../pages/ListPage';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { Profile } from '../pages/Profiles';
-import { UsersPage } from '../pages/Users';
+import { Router } from '../@core/constants/Router';
+import { HomePage } from './pages/Home';
+import { ListPage } from './pages/ListPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { Profile } from './pages/Profiles';
+import { UsersPage } from './pages/Users';
 
 export const App = () => (
   <div className={styleBase}>
