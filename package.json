@@ -36,7 +36,7 @@
     "@wakamsha/eslint-config": "6.0.2",
     "@wakamsha/stylelint-config": "2.0.2",
     "cspell": "8.17.3",
-    "eslint": "9.19.0",
+    "eslint": "9.20.0",
     "eslint-config-prettier": "9.1.0",
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
