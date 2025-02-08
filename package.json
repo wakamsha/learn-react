@@ -31,8 +31,8 @@
     "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.6.1",
-    "@commitlint/config-conventional": "19.6.0",
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
     "@wakamsha/eslint-config": "6.0.2",
     "@wakamsha/stylelint-config": "2.0.2",
     "cspell": "8.17.3",
