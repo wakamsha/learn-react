@@ -126,7 +126,7 @@ const styleButton = css`
 
   &::before,
   &::after {
-    display: 'block';
+    display: block;
     content: '';
     border: 1px solid white;
   }

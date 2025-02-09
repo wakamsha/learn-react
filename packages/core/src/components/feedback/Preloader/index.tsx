@@ -53,9 +53,9 @@ const styleBase = css`
 `;
 
 const stylePath = css`
+  stroke-linecap: round;
   stroke-dasharray: 1, 800;
   stroke-dashoffset: 0;
-  stroke-linecap: round;
   animation:
     dash-animation 1.5s ease-in-out infinite,
     color 6s ease-in-out infinite;

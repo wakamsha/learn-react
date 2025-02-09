@@ -84,10 +84,10 @@ const styleBase = css`
 
 const styleAnimation = css`
   opacity: 1;
+  transform: none;
   transition:
     transform ${Duration.Enter} ${enterDelay}ms ${Easing.Enter},
     opacity ${Duration.Enter} ${enterDelay}ms ${Easing.Enter};
-  transform: none;
 `;
 
 const styleEnter = css`

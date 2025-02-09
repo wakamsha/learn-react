@@ -95,8 +95,8 @@ const styleBase = css`
   height: ${diameter}px;
   margin: 0;
   appearance: none;
-  background-color: transparent;
   outline: none;
+  background-color: transparent;
 
   &::-webkit-slider-thumb {
     ${thumb}

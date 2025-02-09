@@ -76,9 +76,9 @@ export function visuallyHidden() {
     padding: 0;
     margin: 0;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: none;
+    clip: rect(0, 0, 0, 0);
   `;
 }
 

@@ -66,11 +66,11 @@ const styleBase = css`
   position: fixed;
   inset: 0;
   z-index: ${ZIndex.Modal};
-  overflow: auto;
   visibility: hidden;
+  overflow: auto;
   background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
-  backdrop-filter: blur(8px);
   opacity: 0;
+  backdrop-filter: blur(8px);
   transition:
     visibility ${Duration.Enter} ${Easing.Enter},
     opacity ${Duration.Enter} ${Easing.Enter};
@@ -95,8 +95,8 @@ const styleInner = css`
 
 const styleContent = css`
   margin: auto;
-  transition: transform ${Duration.Enter} ${Easing.Enter};
   transform: translate3d(0, -24px, 0);
+  transition: transform ${Duration.Enter} ${Easing.Enter};
 
   &[aria-hidden='false'] {
     transform: translate3d(0, 0, 0);

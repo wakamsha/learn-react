@@ -130,7 +130,6 @@ const styleTitle = css`
     padding: ${gutter(1)};
     font-size: ${FontSize.Medium};
     background-image: linear-gradient(-125deg, #0af, #0080ff, #f0f);
-    -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }

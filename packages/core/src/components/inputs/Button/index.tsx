@@ -207,11 +207,11 @@ const styleBase = css`
   padding: 5px ${gutter(6)};
   font-size: ${FontSize.Small};
   line-height: 1.2;
+  vertical-align: middle;
   color: white;
   text-align: center;
-  text-decoration: none;
   white-space: nowrap;
-  vertical-align: middle;
+  text-decoration: none;
   appearance: none;
   touch-action: manipulation;
   cursor: pointer;

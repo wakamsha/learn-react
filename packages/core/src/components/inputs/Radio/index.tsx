@@ -90,8 +90,8 @@ const styleSymbol = css`
   display: inline-block;
   background-color: ${cssVar('ThemePrimaryNeutral')};
   border-radius: ${BorderRadius.Circle};
-  transition: transform ${Duration.Fade};
   transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+  transition: transform ${Duration.Fade};
   ${square(12)}
 
   &[aria-checked='true'] {
