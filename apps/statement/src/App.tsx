@@ -7,6 +7,7 @@ import { MobxHooksApp } from './22-mobx-hooks';
 import { UnstatedBasicApp } from './31-unstated-basic';
 import { createContainer } from './31-unstated-basic/helpers/Unstated';
 import { ConstateBasicApp } from './41-constate-basic';
+import { JotaiBasicApp } from './51-jotai-basic';
 
 export const App = () => {
   const { type, updateType } = TypeContainer.useContainer();
@@ -24,6 +25,7 @@ export const App = () => {
         <option value="mobx">mobx</option>
         <option value="unstated-next">unstated-next</option>
         <option value="constate">constate</option>
+        <option value="jotai">Jotai</option>
       </select>
     </div>
   );
@@ -35,9 +37,10 @@ const Components: Frozen<Type, FC> = {
   mobx: MobxHooksApp,
   'unstated-next': UnstatedBasicApp,
   constate: ConstateBasicApp,
+  jotai: JotaiBasicApp,
 };
 
-type Type = 'mobx' | 'unstated-next' | 'constate';
+type Type = 'mobx' | 'unstated-next' | 'constate' | 'jotai';
 
 const storageKey = 'STATEMENT_TYPE';
 
