@@ -58,6 +58,7 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
       port,
       host: true,
       open: true,
+      cors: true,
     },
     resolve: {
       alias,
