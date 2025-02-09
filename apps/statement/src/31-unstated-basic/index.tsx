@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-import { App } from './bootstraps/App';
+import { App } from './App';
 
 export const UnstatedBasicApp = () => (
   <BrowserRouter>

@@ -4,19 +4,19 @@ import { PageTransition } from '@learn-react/core/src/components/utils/PageTrans
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ComponentProps } from 'react';
 import { Route } from 'react-router-dom';
-import { Router } from '../../@core/constants/Router';
-import { HomePage } from '../pages/HomePage';
-import { ListPage } from '../pages/ListPage';
-import { NotFoundPage } from '../pages/NotFoundPage';
-import { ProfilePage } from '../pages/profiles';
+import { Router } from '../@core/constants/Router';
+import { HomePage } from './pages/Home';
+import { ListPage } from './pages/ListPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { Profile } from './pages/profiles';
 
 export const App = () => (
-  <div className={styleBase}>
-    <Sidebar title="Constate | Statement" items={linkItems} />
-    <div className={styleContent}>
+  <div className={baseStyle}>
+    <Sidebar title="MobX Basic" items={linkItems} />
+    <div className={contentStyle}>
       <PageTransition>
         <Route path={Router.paths.home} element={<HomePage />} />
-        <Route path={`${Router.paths.profile}/*`} element={<ProfilePage />} />
+        <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
         <Route path={Router.paths.list} element={<ListPage />} />
         <Route element={<NotFoundPage />} />
       </PageTransition>
@@ -25,6 +25,10 @@ export const App = () => (
 );
 
 const linkItems: ComponentProps<typeof Sidebar>['items'] = [
+  {
+    label: 'Home',
+    to: Router.paths.home,
+  },
   {
     label: 'Profile',
     items: [
@@ -44,12 +48,12 @@ const linkItems: ComponentProps<typeof Sidebar>['items'] = [
   },
 ];
 
-const styleBase = css`
+const baseStyle = css`
   display: flex;
   width: 100%;
 `;
 
-const styleContent = css`
+const contentStyle = css`
   flex-grow: 1;
   height: 100dvh;
   padding: ${gutter(4)};
