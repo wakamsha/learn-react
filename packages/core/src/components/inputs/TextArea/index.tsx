@@ -120,9 +120,9 @@ const styleInput = css`
   color: ${cssVar('TextNeutral')};
   appearance: none;
   resize: none;
+  outline: none;
   background-color: transparent;
   border: none;
-  outline: none;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button,

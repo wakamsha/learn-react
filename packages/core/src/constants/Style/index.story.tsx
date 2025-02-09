@@ -132,6 +132,7 @@ const styleBase = css`
 const styleColorBox = css`
   min-height: 120px;
   padding: ${gutter(2)};
+  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
   word-break: break-word;
   box-shadow: ${cssVar('ShadowNeutral')};
 

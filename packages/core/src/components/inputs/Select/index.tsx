@@ -158,9 +158,9 @@ const styleSelect = css`
   line-height: ${LineHeight.Regular};
   color: ${cssVar('TextNeutral')};
   appearance: none;
+  outline: none;
   background-color: transparent;
   border: none;
-  outline: none;
 
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button,

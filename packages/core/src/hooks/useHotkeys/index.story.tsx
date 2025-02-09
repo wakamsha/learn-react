@@ -65,7 +65,6 @@ const styleTextArea = css`
 const styleKey = css`
   display: inline-flex;
   align-items: center;
-  justify-content: baseline;
   padding: ${gutter(0.5)} ${gutter(2)};
   margin: ${gutter(1)};
   background-color: ${Color.TextureInput};

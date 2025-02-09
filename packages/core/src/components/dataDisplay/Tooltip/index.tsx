@@ -276,6 +276,7 @@ const styleBase = css`
   top: 0;
   left: 0;
   z-index: ${ZIndex.Tooltip};
+  visibility: hidden;
   max-width: 200px;
   padding: ${gutter(2)};
   font-size: ${FontSize.Tiny};
@@ -283,7 +284,6 @@ const styleBase = css`
   color: white;
   word-break: break-all;
   pointer-events: none;
-  visibility: hidden;
   user-select: none;
   background-color: ${cssVar('ThemePrimaryNeutral')};
   border-radius: ${BorderRadius.Small};
