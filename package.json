@@ -33,10 +33,10 @@
   "devDependencies": {
     "@commitlint/cli": "19.7.1",
     "@commitlint/config-conventional": "19.7.1",
-    "@wakamsha/eslint-config": "6.0.2",
+    "@wakamsha/eslint-config": "6.0.3",
     "@wakamsha/stylelint-config": "3.1.0",
     "cspell": "8.17.3",
-    "eslint": "9.20.0",
+    "eslint": "9.20.1",
     "eslint-config-prettier": "10.0.1",
     "husky": "9.1.7",
     "lint-staged": "15.4.3",
