@@ -4,6 +4,18 @@ import { type ChangeEvent, Suspense, use, useState } from 'react';
 import { requestGetUser } from './api';
 import { type User } from './model';
 
+/**
+ * `Suspense` と `use` を使ったデータフェッチングのサンプル。
+ *
+ * データフェッチ関数の戻り値（ Promise ）を `use` でラップすることで、 `Suspense` と協調したデータ取得が可能です。
+ *
+ * @remarks
+ * `use` の引数に渡す Promise は原則としてサーバーコンポーネント内で生成することが推奨されます。
+ * クライアントコンポーネント内で生成するとレンダリングの度に新しい Promise が生成され、無限ループに陥ります。
+ * これを回避するには、 `useState` の初期値に関数を渡すことで初回のみ実行されるといったハックが必要です。
+ *
+ * @see {@link https://ja.react.dev/reference/react/use use}
+ */
 export const Story = () => {
   const [dataPromise, setDataPromise] = useState(() =>
     requestGetUser({
