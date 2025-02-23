@@ -60,6 +60,13 @@ function request<RES>({
   });
 }
 
+export async function requestGetUsers(): Promise<User[]> {
+  return request<User[]>({
+    method: 'GET',
+    path: '/users',
+  });
+}
+
 export async function requestGetUser({ path }: { path: string }): Promise<User> {
   return request<User>({
     method: 'GET',
