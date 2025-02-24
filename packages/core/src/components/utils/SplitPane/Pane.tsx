@@ -1,18 +1,19 @@
 import { css } from '@emotion/css';
-import { forwardRef, type ComponentProps, type ForwardedRef, type ReactNode } from 'react';
+import { type ComponentProps, type ReactNode, type RefObject } from 'react';
 import { type SplitPane } from '.';
 
 type ParentProps = ComponentProps<typeof SplitPane>;
 
 type Props = Required<Pick<ParentProps, 'orientation'>> & {
   children: ReactNode;
+  ref: RefObject<HTMLDivElement | null>;
   size?: `${number}px` | `${number}%`;
 };
 
 /**
  * コンテンツを表示する領域。
  */
-export const Pane = forwardRef(({ orientation, children, size }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+export const Pane = ({ orientation, children, ref, size }: Props) => {
   const style = {
     ...(orientation === 'horizontal' ? { width: size } : { height: size }),
     flex: size ? 'none' : 1,
@@ -23,7 +24,7 @@ export const Pane = forwardRef(({ orientation, children, size }: Props, ref: For
       {children}
     </div>
   );
-});
+};
 
 const styleBase = css`
   position: relative;
