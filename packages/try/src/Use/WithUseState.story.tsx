@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
+import { requestGetUser, type User } from '@learn-react/core/src/api/user';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ChangeEvent, Suspense, use, useState } from 'react';
-import { requestGetUser } from './api';
-import { type User } from './model';
 
 /**
  * `Suspense` と `use` を使ったデータフェッチングのサンプル。

@@ -1,8 +1,9 @@
 import { css } from '@emotion/css';
 import { Suspense, useState, useTransition, type ChangeEvent } from 'react';
 import { useData } from '.';
+import { request, type ErrorResult } from '../../api/common';
+import { type User } from '../../api/user';
 import { ErrorBoundary, type FallbackProps } from '../../components/utils/ErrorBoundary';
-import { request, type ErrorResult } from '../../helpers/Api';
 import { cssVar } from '../../helpers/Style';
 
 export const Story = () => {
@@ -60,31 +61,6 @@ const Presentation = ({ userId }: { userId: number }) => {
       <code>{JSON.stringify(result, null, 2)}</code>
     </pre>
   );
-};
-
-type User = {
-  id: number;
-  name: string;
-  username?: string;
-  email?: string;
-  address?: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone?: string;
-  website?: string;
-  company?: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-  job?: string;
 };
 
 function fetchUser(userId: number) {

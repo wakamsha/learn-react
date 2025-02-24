@@ -1,12 +1,13 @@
+import { requestGetUser } from '@learn-react/core/src/api/user';
 import { createContainer } from '@learn-react/core/src/helpers/Container';
 import { Component, Suspense, useState, type ReactNode } from 'react';
-import { fetchUser } from './api';
 import { Loader } from './components/Loader';
+import { wrapPromise } from './utils/wrapPromise';
 
 function useHook() {
   const [userId, setUserId] = useState(1);
 
-  const resource = fetchUser(userId);
+  const resource = wrapPromise(requestGetUser({ path: userId.toString() }));
 
   return {
     resource,
