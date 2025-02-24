@@ -1,19 +1,39 @@
 import { stringify } from 'qs';
-import { type CreateUserRequest, type CreateUserResponse, type User } from './model';
 
+/**
+ * Error.
+ */
 export type Error = {
+  /**
+   * Each error message which is related to the request.
+   */
   conditions: string[];
 };
 
+/**
+ * Error result.
+ */
 export type ErrorResult = {
+  /**
+   * Error code.
+   */
   code: number;
+  /**
+   * Error message.
+   */
   message: string;
+  /**
+   * Errors.
+   */
   errors: Error[];
 };
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-async function request<RES>({
+/**
+ * Request to the server.
+ */
+export async function request<RES>({
   method,
   path,
   token,
@@ -33,14 +53,18 @@ async function request<RES>({
     'Content-Type': 'application/json',
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
+
   const queryStrings = Object.keys(query).length > 0 ? `?${stringify(query)}` : '';
+
   const url = `https://jsonplaceholder.typicode.com${path}${queryStrings}`;
+
   const result = await fetch(url, {
     headers,
     method,
     credentials: withCredentials ? 'include' : 'omit',
     ...(send ? { body: JSON.stringify(send) } : {}),
   });
+
   if (!result.ok) {
     console.info('ここでエラー処理をしてください');
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -50,33 +74,6 @@ async function request<RES>({
       ...error,
     };
   }
+
   return result.json().then((response) => response as RES);
-}
-
-export async function requestGetUsers(): Promise<User[]> {
-  return request<User[]>({
-    method: 'GET',
-    path: '/users',
-
-    withCredentials: false,
-  });
-}
-
-export async function requestGetUser({ path }: { path: string }): Promise<User> {
-  return request<User>({
-    method: 'GET',
-    path: `/users/${path}`,
-
-    withCredentials: false,
-  });
-}
-
-export async function requestPostUser({ send }: { send: CreateUserRequest }): Promise<CreateUserResponse> {
-  return request<CreateUserResponse>({
-    method: 'POST',
-    path: '/users',
-
-    send,
-    withCredentials: false,
-  });
 }

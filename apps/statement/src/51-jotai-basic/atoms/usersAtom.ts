@@ -1,7 +1,6 @@
+import { requestGetUser, requestGetUsers, requestPostUser, type User } from '@learn-react/core/src/api/user';
 import { atom } from 'jotai';
 import { loadable } from 'jotai/utils';
-import { requestGetUser, requestGetUsers, requestPostUser } from '../infra/client';
-import { type User } from '../infra/model';
 
 function createUsersAtoms(initialItems: User[]) {
   const usersAtom = atom(initialItems);
@@ -18,7 +17,7 @@ function createUsersAtoms(initialItems: User[]) {
 
   const postUserAtom = atom(null, async (_, set, { name, job }: { name: string; job: string }) => {
     const response = await requestPostUser({ send: { name, job } });
-    set(usersAtom, (previous) => [...previous, response]);
+    set(usersAtom, (previous) => [...previous, response as unknown as User]);
   });
 
   const loadableUsersAtom = loadable(getAllUsersAtom);

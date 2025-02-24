@@ -1,6 +1,5 @@
+import { requestGetUsers, type User } from '@learn-react/core/src/api/user';
 import { Suspense, use } from 'react';
-import { requestGetUsers } from './api';
-import { type User } from './model';
 
 /**
  * `Suspense` と `use` を使ったデータフェッチングのサンプル。

@@ -1,6 +1,7 @@
 import { useCallback, useState, type ChangeEvent } from 'react';
 import { useTransaction } from '.';
-import { request } from '../../helpers/Api';
+import { request } from '../../api/common';
+import { type User } from '../../api/user';
 
 export const Story = () => {
   const [userId, setUserId] = useState(1);
@@ -33,31 +34,6 @@ export const Story = () => {
       </pre>
     </>
   );
-};
-
-type User = {
-  id: number;
-  name: string;
-  username?: string;
-  email?: string;
-  address?: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone?: string;
-  website?: string;
-  company?: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-  job?: string;
 };
 
 function useSubmit() {

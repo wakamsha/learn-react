@@ -1,8 +1,13 @@
+import {
+  type CreateUserResponse,
+  requestGetUser,
+  requestGetUsers,
+  requestPostUser,
+  type User,
+} from '@learn-react/core/src/api/user';
 import { useContext } from '@learn-react/core/src/hooks/useContext';
 import { action, makeObservable, observable, runInAction } from 'mobx';
 import { createContext } from 'react';
-import { requestGetUser, requestGetUsers, requestPostUser } from '../../../infra/client';
-import { type User } from '../../../infra/model';
 
 export class UsersStore {
   public static Context = createContext<UsersStore | null>(null);
@@ -12,7 +17,7 @@ export class UsersStore {
     return useContext(UsersStore.Context);
   }
 
-  public users: User[] = [];
+  public users: (User | CreateUserResponse)[] = [];
 
   public userId = 0;
 
