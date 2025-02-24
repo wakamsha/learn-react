@@ -2,12 +2,12 @@ import { css, cx } from '@emotion/css';
 import { FontSize, IconSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter, square } from '@learn-react/core/src/helpers/Style';
 import {
-  forwardRef,
   type AriaAttributes,
   type ButtonHTMLAttributes,
   type ForwardedRef,
   type MouseEvent,
   type ReactNode,
+  type RefObject,
 } from 'react';
 
 type Props = {
@@ -21,6 +21,7 @@ type Props = {
   active?: boolean;
 } & XOR<
   {
+    ref: RefObject<HTMLSpanElement | HTMLButtonElement | null>;
     tabIndex?: ButtonHTMLAttributes<HTMLButtonElement>['tabIndex'];
     onClick: (event: MouseEvent<HTMLButtonElement>) => void;
     /**
@@ -40,32 +41,37 @@ type Props = {
 /**
  * ツールバーに表示するためのシンプルなアクションボタン。
  */
-export const ToolbarButton = forwardRef(
-  (
-    { children, id, active = false, tabIndex, onClick, ariaHaspopup, ariaExpanded, noop }: Props,
-    ref: ForwardedRef<HTMLSpanElement | HTMLButtonElement>,
-  ) => {
-    const styleButton = cx(styleBase, active && styleActive);
+export const ToolbarButton = ({
+  children,
+  id,
+  active = false,
+  ref,
+  tabIndex,
+  onClick,
+  ariaHaspopup,
+  ariaExpanded,
+  noop,
+}: Props) => {
+  const styleButton = cx(styleBase, active && styleActive);
 
-    return noop ? (
-      <span ref={ref} id={id} className={styleButton}>
-        {children}
-      </span>
-    ) : (
-      <button
-        ref={ref as ForwardedRef<HTMLButtonElement>}
-        id={id}
-        className={styleButton}
-        tabIndex={tabIndex}
-        aria-haspopup={ariaHaspopup}
-        aria-expanded={ariaExpanded}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    );
-  },
-);
+  return noop ? (
+    <span ref={ref} id={id} className={styleButton}>
+      {children}
+    </span>
+  ) : (
+    <button
+      ref={ref as ForwardedRef<HTMLButtonElement>}
+      id={id}
+      className={styleButton}
+      tabIndex={tabIndex}
+      aria-haspopup={ariaHaspopup}
+      aria-expanded={ariaExpanded}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
 
 const styleBase = css`
   display: inline-flex;
