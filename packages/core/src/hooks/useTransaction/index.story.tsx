@@ -1,7 +1,6 @@
 import { useCallback, useState, type ChangeEvent } from 'react';
 import { useTransaction } from '.';
-import { request } from '../../api/common';
-import { type User } from '../../api/user';
+import { requestGetUser, type User } from '../../api/user';
 
 export const Story = () => {
   const [userId, setUserId] = useState(1);
@@ -41,12 +40,7 @@ function useSubmit() {
 
   const [onSubmit, submitStatus] = useTransaction(
     useCallback(async (userId: number) => {
-      const user = await request<User>({
-        method: 'GET',
-        path: `/users/${userId}`,
-
-        withCredentials: false,
-      });
+      const user = await requestGetUser({ path: userId.toString() });
 
       setUser(user);
     }, []),
