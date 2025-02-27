@@ -84,7 +84,7 @@ const Presentation = () => {
                 src={`/preview.html?storyId=${storyId}`}
                 title={[...storyKeys].reverse().join(' | ')}
                 style={deviceSizeValue}
-                sandbox="allow-scripts allow-popups-to-escape-sandbox"
+                sandbox="allow-scripts allow-popups-to-escape-sandbox allow-forms"
               />
             </div>
 
@@ -165,7 +165,8 @@ const styleViewportChanged = css`
   padding: ${gutter(4)};
   overflow: auto;
   background-color: ${cssVar('TextureBackdrop')};
-  background-image: linear-gradient(rgb(128 128 128 / 10%) 2px, transparent 2px),
+  background-image:
+    linear-gradient(rgb(128 128 128 / 10%) 2px, transparent 2px),
     linear-gradient(90deg, rgb(128 128 128 / 10%) 2px, transparent 2px),
     linear-gradient(rgb(128 128 128 / 10%) 1px, transparent 1px),
     linear-gradient(90deg, rgb(128 128 128 / 10%) 1px, transparent 1px);
