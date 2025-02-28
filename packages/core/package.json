@@ -28,7 +28,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "7.2.0",
-    "typescript": "5.7.3",
+    "typescript": "5.8.2",
     "user-agent-data-types": "0.4.2",
     "vite": "6.1.1",
     "vitest": "3.0.6"
@@ -37,6 +37,6 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-router-dom": "7.2.0",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   }
 }
