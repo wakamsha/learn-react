@@ -36,11 +36,11 @@ importers:
         specifier: 15.4.3
         version: 15.4.3
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.5.3
+        version: 3.5.3
       prettier-plugin-organize-imports:
         specifier: 4.1.0
-        version: 4.1.0(prettier@3.5.2)(typescript@5.8.2)
+        version: 4.1.0(prettier@3.5.3)(typescript@5.8.2)
       stylelint:
         specifier: 16.15.0
         version: 16.15.0(typescript@5.8.2)
@@ -551,8 +551,8 @@ importers:
         specifier: 11.0.1
         version: 11.0.1
       prettier:
-        specifier: 3.5.2
-        version: 3.5.2
+        specifier: 3.5.3
+        version: 3.5.3
       react:
         specifier: 19.0.0
         version: 19.0.0
@@ -4150,8 +4150,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.5.2:
-    resolution: {integrity: sha512-lc6npv5PH7hVqozBR7lkBNOGXV9vMwROAPlumdBkX0wTbbzPu/U1hk5yL8p2pt4Xoc+2mkT8t/sow2YrV/M5qg==}
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -8969,14 +8969,14 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-organize-imports@4.1.0(prettier@3.5.2)(typescript@5.8.2):
+  prettier-plugin-organize-imports@4.1.0(prettier@3.5.3)(typescript@5.8.2):
     dependencies:
-      prettier: 3.5.2
+      prettier: 3.5.3
       typescript: 5.8.2
 
   prettier@2.8.8: {}
 
-  prettier@3.5.2: {}
+  prettier@3.5.3: {}
 
   pretty-format@27.5.1:
     dependencies:
