@@ -8,10 +8,10 @@
   "type": "module",
   "engines": {
     "node": "22.14.0",
-    "pnpm": "10.6.1",
+    "pnpm": "10.6.3",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.6.3",
   "scripts": {
     "prepare": "husky",
     "postinstall": "pnpm builder build; pnpm icon build",
