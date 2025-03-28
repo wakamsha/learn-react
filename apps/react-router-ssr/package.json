@@ -13,9 +13,9 @@
     "start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js"
   },
   "dependencies": {
-    "@react-router/fs-routes": "7.4.0",
-    "@react-router/node": "7.4.0",
-    "@react-router/serve": "7.4.0",
+    "@react-router/fs-routes": "7.4.1",
+    "@react-router/node": "7.4.1",
+    "@react-router/serve": "7.4.1",
     "clsx": "2.1.1",
     "isbot": "5.1.25",
     "match-sorter": "8.0.0",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:*",
-    "@react-router/dev": "7.4.0",
+    "@react-router/dev": "7.4.1",
     "@types/node": "22.13.14",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
