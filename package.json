@@ -34,7 +34,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@wakamsha/eslint-config": "6.0.4",
-    "@wakamsha/stylelint-config": "3.1.0",
+    "@wakamsha/stylelint-config": "4.0.0",
     "cspell": "8.18.1",
     "eslint": "9.23.0",
     "eslint-config-prettier": "10.1.1",
