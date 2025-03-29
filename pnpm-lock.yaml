@@ -18,8 +18,8 @@ importers:
         specifier: 6.0.4
         version: 6.0.4(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.24.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(@typescript-eslint/utils@8.24.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)(vitest@3.0.9(@types/node@22.13.14)(jiti@2.4.2)(jsdom@26.0.0)(yaml@2.7.0))
       '@wakamsha/stylelint-config':
-        specifier: 3.1.0
-        version: 3.1.0(stylelint@16.17.0(typescript@5.8.2))
+        specifier: 4.0.0
+        version: 4.0.0(stylelint@16.17.0(typescript@5.8.2))
       cspell:
         specifier: 8.18.1
         version: 8.18.1
@@ -1944,8 +1944,8 @@ packages:
       typescript:
         optional: true
 
-  '@wakamsha/stylelint-config@3.1.0':
-    resolution: {integrity: sha512-Lgf8m0sk6z4iSN5pA5PGYMduluzpYgOKpN6cGe00NqZCvvKRdtlvP+XgwsD0AsMG2fgP8+S1t6d0od0Kj4UpAQ==}
+  '@wakamsha/stylelint-config@4.0.0':
+    resolution: {integrity: sha512-+06HeNmMHXFX0rj8vtmyD5MbZDaTTEjdHUNte8rZhVdCtNUmsh46P31uVl18O1Z8/ujLY5MEW4YTKItKIkwrDw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.13.0
@@ -4157,10 +4157,6 @@ packages:
 
   postcss@8.4.49:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
-    engines: {node: ^10 || ^12 || >=14}
-
-  postcss@8.5.1:
-    resolution: {integrity: sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.3:
@@ -6531,10 +6527,10 @@ snapshots:
       - supports-color
       - vitest
 
-  '@wakamsha/stylelint-config@3.1.0(stylelint@16.17.0(typescript@5.8.2))':
+  '@wakamsha/stylelint-config@4.0.0(stylelint@16.17.0(typescript@5.8.2))':
     dependencies:
-      postcss: 8.5.1
-      postcss-styled-syntax: 0.7.0(postcss@8.5.1)
+      postcss: 8.5.3
+      postcss-styled-syntax: 0.7.0(postcss@8.5.3)
       stylelint: 16.17.0(typescript@5.8.2)
       stylelint-config-recess-order: 6.0.0(stylelint@16.17.0(typescript@5.8.2))
       stylelint-config-standard: 37.0.0(stylelint@16.17.0(typescript@5.8.2))
@@ -8940,9 +8936,9 @@ snapshots:
     dependencies:
       postcss: 8.5.3
 
-  postcss-styled-syntax@0.7.0(postcss@8.5.1):
+  postcss-styled-syntax@0.7.0(postcss@8.5.3):
     dependencies:
-      postcss: 8.5.1
+      postcss: 8.5.3
       typescript: 5.8.2
 
   postcss-value-parser@4.2.0: {}
@@ -8950,12 +8946,6 @@ snapshots:
   postcss@8.4.49:
     dependencies:
       nanoid: 3.3.7
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
-
-  postcss@8.5.1:
-    dependencies:
-      nanoid: 3.3.8
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
