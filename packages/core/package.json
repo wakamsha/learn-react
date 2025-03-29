@@ -25,18 +25,18 @@
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "jsdom": "26.0.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-router-dom": "7.4.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-router-dom": "7.4.1",
     "typescript": "5.8.2",
     "user-agent-data-types": "0.4.2",
     "vite": "6.2.3",
     "vitest": "3.0.9"
   },
   "peerDependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-router-dom": "7.4.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-router-dom": "7.4.1",
     "typescript": "5.8.2"
   }
 }
