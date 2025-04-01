@@ -34,7 +34,7 @@
     "npm-run-all2": "7.0.2",
     "playwright": "1.51.1",
     "typescript": "5.8.2",
-    "vite": "6.2.3",
+    "vite": "6.2.4",
     "yargs": "17.7.2"
   }
 }
