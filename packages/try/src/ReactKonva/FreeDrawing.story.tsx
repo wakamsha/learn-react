@@ -1,6 +1,7 @@
 import { type KonvaEventObject } from 'konva/lib/Node';
 import { useRef, useState, type ChangeEvent, type FC } from 'react';
 import { Layer, Line, Stage, Text } from 'react-konva';
+import { serializePoints, type Point } from './utils/point';
 
 /**
  * @see {@link https://konvajs.org/docs/react/Free_Drawing.html Free Drawing}
@@ -23,7 +24,7 @@ export const Story: FC = () => {
 
     drawingRef.current = true;
 
-    setLines((previous) => [...previous, { tool, points: [position.x, position.y] }]);
+    setLines((previous) => [...previous, { tool, points: [position] }]);
   };
 
   const handleMouseMove = (event: KonvaEventObject<MouseEvent | TouchEvent>) => {
@@ -38,7 +39,7 @@ export const Story: FC = () => {
     const lastLine = lines.at(-1);
     if (!lastLine) return;
 
-    lastLine.points = [...lastLine.points, position.x, position.y];
+    lastLine.points = [...lastLine.points, position];
 
     lines.splice(-1, 1, lastLine);
 
@@ -77,7 +78,7 @@ export const Story: FC = () => {
           {lines.map((line, i) => (
             <Line
               key={i}
-              points={line.points}
+              points={serializePoints(line.points)}
               stroke="#df4b26"
               strokeWidth={5}
               tension={0.5}
@@ -98,5 +99,5 @@ type Tool = (typeof Tool)[number];
 
 type Line = {
   tool: Tool;
-  points: number[];
+  points: Point[];
 };

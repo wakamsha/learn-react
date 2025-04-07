@@ -1,5 +1,6 @@
 import { type FC } from 'react';
 import { Circle, Layer, Line, Rect, Stage, Text } from 'react-konva';
+import { serializePoints } from './utils/point';
 
 /**
  * @see {@link https://konvajs.org/docs/react/Shapes.html Shapes}
@@ -20,7 +21,11 @@ export const Story: FC = () => (
           closed
           x={20}
           y={200}
-          points={[0, 0, 100, 0, 100, 100]}
+          points={serializePoints([
+            { x: 0, y: 0 },
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+          ])}
           tension={0.5}
           stroke="black"
           fillLinearGradientStartPoint={{ x: -50, y: -50 }}
