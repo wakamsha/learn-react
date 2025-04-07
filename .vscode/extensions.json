@@ -15,7 +15,8 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "DavidAnson.vscode-markdownlint",
-    // スペルミス検出
+
+    // Utility
     "streetsidesoftware.code-spell-checker"
   ],
 

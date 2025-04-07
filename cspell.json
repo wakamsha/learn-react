@@ -81,6 +81,7 @@
     "nonwords",
     "stylelintrc",
     "formkit",
-    "nodenv"
+    "nodenv",
+    "konva"
   ]
 }
