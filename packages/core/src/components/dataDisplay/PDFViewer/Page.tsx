@@ -61,7 +61,7 @@ function useRenderTextLayer(page: PDFPageProxy, viewport: PageViewport) {
 
       Object.entries<TextStyle>(textContent.styles).forEach(([key, value]) => {
         if (value.fontFamily !== 'sans-serif') return;
-        textContent.styles[key].fontFamily = 'Noto Sans Japanese';
+        textContent.styles[key].fontFamily = textContent.styles[key].fontFamily.replace(/sans-serif/, 'serif');
       });
 
       const textLayer = new pdfjsLib.TextLayer({
@@ -83,6 +83,8 @@ const styleBase = css`
 `;
 
 const styleTextLayer = css`
+  --total-scale-factor: 1.3;
+
   position: absolute;
   inset: 0;
   overflow: hidden;
