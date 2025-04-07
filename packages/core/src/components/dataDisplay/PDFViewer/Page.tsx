@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 import * as pdfjsLib from 'pdfjs-dist';
 import { type PDFPageProxy, type TextStyle } from 'pdfjs-dist/types/src/display/api';
 import { type PageViewport } from 'pdfjs-dist/types/src/display/display_utils';
@@ -18,10 +18,12 @@ export const Page = ({ pdfPage, viewportForCanvas, viewportForTextLayer }: Props
   const canvasRef = useRenderCanvas(pdfPage, viewportForCanvas);
   const textLayerRef = useRenderTextLayer(pdfPage, viewportForTextLayer);
 
+  const cssVariableStyle = createCssVariableStyle(viewportForTextLayer.scale);
+
   return (
     <article className={styleBase}>
       <canvas ref={canvasRef} className={styleCanvas} />
-      <div ref={textLayerRef} className={styleTextLayer} />
+      <div ref={textLayerRef} className={cx(cssVariableStyle, styleTextLayer)} />
     </article>
   );
 };
@@ -83,8 +85,6 @@ const styleBase = css`
 `;
 
 const styleTextLayer = css`
-  --total-scale-factor: 1.3;
-
   position: absolute;
   inset: 0;
   overflow: hidden;
@@ -106,3 +106,9 @@ const styleTextLayer = css`
 const styleCanvas = css`
   box-shadow: ${cssVar('ShadowNeutral')};
 `;
+
+function createCssVariableStyle(totalScaleFactor: number) {
+  return css`
+    --total-scale-factor: ${totalScaleFactor};
+  `;
+}
