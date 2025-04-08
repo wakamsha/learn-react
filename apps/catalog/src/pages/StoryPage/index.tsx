@@ -85,7 +85,7 @@ const Presentation = () => {
                 src={`/preview.html?storyId=${storyId}`}
                 title={[...storyKeys].reverse().join(' | ')}
                 style={deviceSizeValue}
-                // sandbox="allow-scripts allow-same-origin allow-popups-to-escape-sandbox allow-forms"
+                sandbox="allow-scripts allow-same-origin allow-popups-to-escape-sandbox allow-forms"
               />
             </div>
 
