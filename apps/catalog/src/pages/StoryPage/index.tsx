@@ -77,6 +77,7 @@ const Presentation = () => {
             orientation={layoutConfig !== Layout.Zen ? layoutConfig : Layout.Horizontal}
           >
             <div className={cx(styleViewport, Object.values(deviceSizeValue).every(nonNull) && styleViewportChanged)}>
+              {/* eslint-disable-next-line react/iframe-missing-sandbox */}
               <iframe
                 // story page 切替時に前回の preview が一瞬だが残ってしまうのを回避するために
                 // 強制的に再マウントしてゼロからレンダリングさせている。
@@ -84,7 +85,7 @@ const Presentation = () => {
                 src={`/preview.html?storyId=${storyId}`}
                 title={[...storyKeys].reverse().join(' | ')}
                 style={deviceSizeValue}
-                sandbox="allow-scripts allow-popups-to-escape-sandbox allow-forms"
+                sandbox="allow-scripts allow-same-origin allow-popups-to-escape-sandbox allow-forms"
               />
             </div>
 
