@@ -392,8 +392,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/core
       constate:
-        specifier: 3.3.2
-        version: 3.3.2(react@19.1.0)
+        specifier: 3.3.3
+        version: 3.3.3(react@19.1.0)
       jotai:
         specifier: 2.12.2
         version: 2.12.2(@types/react@19.0.12)(react@19.1.0)
@@ -472,8 +472,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../icon
       constate:
-        specifier: 3.3.2
-        version: 3.3.2(react@19.1.0)
+        specifier: 3.3.3
+        version: 3.3.3(react@19.1.0)
       csx:
         specifier: 10.0.2
         version: 10.0.2
@@ -2319,10 +2319,10 @@ packages:
   confusing-browser-globals@1.0.11:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
 
-  constate@3.3.2:
-    resolution: {integrity: sha512-ZnEWiwU6QUTil41D5EGpA7pbqAPGvnR9kBjko8DzVIxpC60mdNKrP568tT5WLJPAxAOtJqJw60+h79ot/Uz1+Q==}
+  constate@3.3.3:
+    resolution: {integrity: sha512-J1P1K/GSB2Bn7uLU9AC9ddJb4PooiMHvektj8PK31Tj6nDWYjnmqVkOajzFp2oT7dpCjE2dL1VXVt/XrNwNwQA==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   content-disposition@0.5.4:
     resolution: {integrity: sha512-FveZTNuGw04cxlAiWbzi6zTAL/lhehaWbTtgluJh4/E95DqMwTmha3KZN1aAWA8cFIhHzMZUvLevkw5Rqk+tSQ==}
@@ -7003,7 +7003,7 @@ snapshots:
 
   confusing-browser-globals@1.0.11: {}
 
-  constate@3.3.2(react@19.1.0):
+  constate@3.3.3(react@19.1.0):
     dependencies:
       react: 19.1.0
 
