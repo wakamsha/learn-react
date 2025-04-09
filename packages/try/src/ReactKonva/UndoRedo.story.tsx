@@ -22,24 +22,6 @@ export const Story: FC = () => {
 
   const historyStep = useRef(0);
 
-  const handleUndo = () => {
-    if (historyStep.current === 0) return;
-
-    historyStep.current -= 1;
-    const previous = history.current[historyStep.current];
-
-    setPosition(previous);
-  };
-
-  const handleRedo = () => {
-    if (historyStep.current >= history.current.length - 1) return;
-
-    historyStep.current += 1;
-    const next = history.current[historyStep.current];
-
-    setPosition(next);
-  };
-
   const handleDragEnd = (event: KonvaEventObject<DragEvent>) => {
     // Remove all states after current step
     history.current = history.current.slice(0, historyStep.current + 1);
@@ -53,6 +35,22 @@ export const Story: FC = () => {
     history.current = [...history.current, position];
     historyStep.current += 1;
     setPosition(position);
+  };
+
+  const handleUndo = () => {
+    if (historyStep.current === 0) return;
+
+    historyStep.current -= 1;
+
+    setPosition(history.current[historyStep.current]);
+  };
+
+  const handleRedo = () => {
+    if (historyStep.current >= history.current.length - 1) return;
+
+    historyStep.current += 1;
+
+    setPosition(history.current[historyStep.current]);
   };
 
   return (
