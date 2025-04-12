@@ -132,9 +132,6 @@ importers:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
