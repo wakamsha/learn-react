@@ -20,8 +20,8 @@
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
     "@types/qs": "6.9.18",
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "19.1.1",
+    "@types/react-dom": "19.1.2",
     "jsdom": "26.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -29,8 +29,8 @@
     "vitest": "3.1.1"
   },
   "peerDependencies": {
-    "@types/react": "19.0.12",
-    "@types/react-dom": "19.0.4",
+    "@types/react": "19.1.1",
+    "@types/react-dom": "19.1.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "typescript": "5.8.3"
