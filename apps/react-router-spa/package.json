@@ -8,7 +8,7 @@
     "typegen:css": "tcm src",
     "typegen:rr": "react-router typegen",
     "dev:client": "react-router dev",
-    "dev": "run-p 'typegen:rr --watch' 'typegen:css -w' 'dev:client' 'typecheck --watch'",
+    "dev": "pnpm typegen:rr --watch & pnpm typegen:css -w & pnpm dev:client & pnpm typecheck --watch",
     "build": "cross-env NODE_ENV=production react-router build",
     "preview": "vite preview"
   },
@@ -32,7 +32,6 @@
     "@types/react-dom": "19.1.2",
     "@types/sort-by": "1.2.3",
     "cross-env": "7.0.3",
-    "npm-run-all2": "7.0.2",
     "typed-css-modules": "0.9.1",
     "typescript": "5.8.3",
     "vite": "6.2.6"

@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "license": "UNLICENSED",
   "scripts": {
-    "develop": "vite serve",
+    "develop": "vite",
     "type-check": "tsc --noEmit",
-    "start": "run-p \"develop\" \"type-check --watch\"",
+    "start": "pnpm develop & pnpm type-check --watch",
     "build": "pnpm type-check && vite build"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "npm-run-all2": "7.0.2",
     "typescript": "5.8.3",
     "vite": "6.2.6"
   }

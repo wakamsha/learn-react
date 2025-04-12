@@ -132,9 +132,6 @@ importers:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -190,9 +187,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: 4.3.4
         version: 4.3.4(vite@6.2.6(@types/node@22.14.1)(jiti@2.4.2)(yaml@2.7.1))
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -257,9 +251,6 @@ importers:
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -327,9 +318,6 @@ importers:
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -373,9 +361,6 @@ importers:
       '@types/react-dom':
         specifier: 19.1.2
         version: 19.1.2(@types/react@19.1.1)
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -431,9 +416,6 @@ importers:
       '@types/react-dom':
         specifier: 19.1.2
         version: 19.1.2(@types/react@19.1.1)
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
