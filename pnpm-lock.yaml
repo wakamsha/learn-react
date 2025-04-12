@@ -257,9 +257,6 @@ importers:
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
