@@ -42,7 +42,7 @@
     "lint-staged": "15.5.1",
     "prettier": "3.5.3",
     "prettier-plugin-organize-imports": "4.1.0",
-    "stylelint": "16.17.0",
+    "stylelint": "16.18.0",
     "typescript": "5.8.3"
   }
 }
