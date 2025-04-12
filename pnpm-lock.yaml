@@ -361,9 +361,6 @@ importers:
       '@types/react-dom':
         specifier: 19.1.2
         version: 19.1.2(@types/react@19.1.1)
-      npm-run-all2:
-        specifier: 7.0.2
-        version: 7.0.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
