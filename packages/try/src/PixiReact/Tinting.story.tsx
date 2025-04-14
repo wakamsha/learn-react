@@ -34,7 +34,6 @@ const BunnySprite: FC<BunnySpriteProps> = ({ texturePromise }) => {
 
   useExtend({
     Container,
-    Sprite,
   });
 
   useEffect(() => {
