@@ -86,6 +86,7 @@
     "konva",
     "pixi",
     "pixijs",
-    "qiita"
+    "qiita",
+    "pointerupoutside"
   ]
 }
