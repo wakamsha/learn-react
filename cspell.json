@@ -1,10 +1,11 @@
 {
   "ignorePaths": [
+    "*.svg",
     "**/node_modules/**",
+    "./**/build/*",
+    "./**/dist/*",
     "./apps/react-router-*/**/data.ts",
-    "./packages/icon/dist/*",
-    "./packages/catalog/src/constants/StorySpec.ts",
-    "./packages/catalog/src/constants/Stories.ts",
+    "./apps/catalog/src/constants/Stories.ts",
     "./pnpm-lock.yaml"
   ],
   "words": [
@@ -82,6 +83,10 @@
     "stylelintrc",
     "formkit",
     "nodenv",
-    "konva"
+    "konva",
+    "pixi",
+    "pixijs",
+    "qiita",
+    "pointerupoutside"
   ]
 }
