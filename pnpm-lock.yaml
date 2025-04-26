@@ -559,6 +559,9 @@ importers:
       '@pixi/react':
         specifier: 8.0.1
         version: 8.0.1(@types/react@19.1.2)(pixi.js@8.9.1)(react@19.1.0)
+      constate:
+        specifier: 3.3.3
+        version: 3.3.3(react@19.1.0)
       konva:
         specifier: 9.3.20
         version: 9.3.20
