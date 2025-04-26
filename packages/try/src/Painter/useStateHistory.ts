@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 
 type ReturnType<T> = {
   /**
-   * 場j帯の履歴を保持する配列。
+   * 状態の履歴を保持する配列。
    */
   history: T[];
   /**

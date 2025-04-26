@@ -1,7 +1,9 @@
 import { css, cx } from '@emotion/css';
+import constate from 'constate';
+import type Konva from 'konva';
 import { type KonvaEventObject } from 'konva/lib/Node';
-import { Suspense, use, useEffect, useRef, useState, type ChangeEvent, type FC } from 'react';
-import { Image, Layer, Line, Stage } from 'react-konva';
+import { Suspense, use, useCallback, useEffect, useRef, useState, type ChangeEvent, type FC } from 'react';
+import { Image, Layer, Line, Stage, type StageProps } from 'react-konva';
 import { loadImage } from '../ReactKonva/utils/image';
 import { serializePoints, type Point } from '../ReactKonva/utils/point';
 import { useStateHistory } from './useStateHistory';
@@ -9,7 +11,11 @@ import { useStateHistory } from './useStateHistory';
 export const Story: FC = () => {
   const imagePromise = loadImage('https://picsum.photos/480/360');
 
-  return <Presentation imagePromise={imagePromise} />;
+  return (
+    <StageProvider>
+      <Presentation imagePromise={imagePromise} />
+    </StageProvider>
+  );
 };
 
 type PresentationProps = {
@@ -19,14 +25,9 @@ type PresentationProps = {
 const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
   const [currentTool, setCurrentTool] = useState<Tool>('pen');
 
-  const [lines, setLines] = useState<Line[]>([]);
-
   const [strokeWidth, setStrokeWidth] = useState(5);
 
   const [color, setColor] = useState('#df4b26');
-
-  // Ref to track if the user is drawing
-  const drawingRef = useRef(false);
 
   const { history, historyIndex, pushState, undo, redo, reset } = useStateHistory<Line[]>([]);
 
@@ -42,40 +43,6 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
     setColor(target.value);
   };
 
-  const handlePointerDown = ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
-    const position = target.getStage()?.getPointerPosition();
-
-    if (!position) return;
-
-    drawingRef.current = true;
-
-    setLines((previous) => [...previous, { tool: currentTool, strokeWidth, color, points: [position] }]);
-  };
-
-  const handlePointerMove = ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
-    if (!drawingRef.current) return;
-
-    const stage = target.getStage();
-    if (!stage) return;
-
-    const position = stage.getPointerPosition();
-    if (!position) return;
-
-    const lastLine = lines.at(-1);
-    if (!lastLine) return;
-
-    lastLine.points = [...lastLine.points, position];
-
-    lines.splice(-1, 1, lastLine);
-
-    setLines([...lines]);
-  };
-
-  const handlePointerUp = () => {
-    drawingRef.current = false;
-    pushState(lines);
-  };
-
   const handleClickUndo = () => {
     undo();
   };
@@ -86,14 +53,9 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
 
   const handleReset = () => {
     reset();
-    // setLines([]);
   };
 
-  useEffect(() => {
-    if (historyIndex >= 0 && historyIndex < history.length) {
-      setLines(history[historyIndex]);
-    }
-  }, [historyIndex, history]);
+  const StageComponent = useStageComponent();
 
   return (
     <>
@@ -129,25 +91,19 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
       </div>
 
       <Suspense fallback={<div>Loading...</div>}>
-        <Stage
+        <StageComponent
           className={cx(styleStage, currentTool === 'pen' ? styleStageDrawing : styleErasing)}
           width={480}
           height={360}
-          onMouseDown={handlePointerDown}
-          onMousemove={handlePointerMove}
-          onMouseup={handlePointerUp}
-          onTouchStart={handlePointerDown}
-          onTouchMove={handlePointerMove}
-          onTouchEnd={handlePointerUp}
         >
           <Layer>
             <ImageViewer imagePromise={imagePromise} />
           </Layer>
 
           <Layer>
-            <DrawingBoard lines={lines} />
+            <DrawingBoard color={color} strokeWidth={strokeWidth} currentTool={currentTool} onLinesChange={pushState} />
           </Layer>
-        </Stage>
+        </StageComponent>
       </Suspense>
     </>
   );
@@ -192,22 +148,106 @@ const ImageViewer: FC<ImageViewerProps> = ({ imagePromise }) => {
 };
 
 type DrawingBoardProps = {
-  lines: Line[];
+  color: string;
+  strokeWidth: number;
+  currentTool: Tool;
+  onLinesChange: (lines: Line[]) => void;
 };
 
-const DrawingBoard: FC<DrawingBoardProps> = ({ lines }) => (
-  <>
-    {lines.map((line, index) => (
-      <Line
-        key={index}
-        points={serializePoints(line.points)}
-        stroke={line.color}
-        strokeWidth={line.strokeWidth}
-        tension={0.5}
-        lineCap="round"
-        lineJoin="round"
-        globalCompositeOperation={line.tool === 'eraser' ? 'destination-out' : 'source-over'}
-      />
-    ))}
-  </>
+const DrawingBoard: FC<DrawingBoardProps> = ({ color, strokeWidth, currentTool, onLinesChange }) => {
+  const { current: stage } = useStageRef();
+
+  // Ref to track if the user is drawing
+  const drawingRef = useRef(false);
+
+  const [lines, setLines] = useState<Line[]>([]);
+
+  const handlePointerDown = useCallback(
+    ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
+      const position = target.getStage()?.getPointerPosition();
+
+      if (!position) return;
+
+      drawingRef.current = true;
+
+      setLines((previous) => [...previous, { tool: currentTool, strokeWidth, color, points: [position] }]);
+    },
+    [color, currentTool, strokeWidth],
+  );
+
+  const handlePointerMove = useCallback(
+    ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
+      if (!drawingRef.current) return;
+
+      const stage = target.getStage();
+      if (!stage) return;
+
+      const position = stage.getPointerPosition();
+      if (!position) return;
+
+      const lastLine = lines.at(-1);
+      if (!lastLine) return;
+
+      lastLine.points = [...lastLine.points, position];
+
+      lines.splice(-1, 1, lastLine);
+
+      setLines([...lines]);
+    },
+    [lines],
+  );
+
+  const handlePointerUp = useCallback(() => {
+    drawingRef.current = false;
+    onLinesChange(lines);
+  }, [lines, onLinesChange]);
+
+  useEffect(() => {
+    if (!stage) return;
+
+    stage.on('mousedown touchstart', handlePointerDown);
+    stage.on('mousemove touchmove', handlePointerMove);
+    stage.on('mouseup touchend', handlePointerUp);
+
+    return () => {
+      stage.off('mousedown touchstart', handlePointerDown);
+      stage.off('mousemove touchmove', handlePointerMove);
+      stage.off('mouseup touchend', handlePointerUp);
+    };
+  }, [handlePointerDown, handlePointerMove, handlePointerUp, stage]);
+
+  return (
+    <>
+      {lines.map((line, index) => (
+        <Line
+          key={index}
+          points={serializePoints(line.points)}
+          stroke={line.color}
+          strokeWidth={line.strokeWidth}
+          tension={0.5}
+          lineCap="round"
+          lineJoin="round"
+          globalCompositeOperation={line.tool === 'eraser' ? 'destination-out' : 'source-over'}
+        />
+      ))}
+    </>
+  );
+};
+
+function useHook() {
+  const stageRef = useRef<Konva.Stage>(null);
+
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  const StageComponent = (props: StageProps) => <Stage {...props} ref={stageRef} />;
+
+  return {
+    stageRef,
+    StageComponent,
+  };
+}
+
+const [StageProvider, useStageRef, useStageComponent] = constate(
+  useHook,
+  (hook) => hook.stageRef,
+  (hook) => hook.StageComponent,
 );
