@@ -1,8 +1,8 @@
+import { useStateHistory } from '@learn-react/core/src/hooks/useStateHistory';
 import constate from 'constate';
 import { useEffect, useState } from 'react';
 import { type Point } from '../../ReactKonva/utils/point';
 import { type Tool } from '../constants';
-import { useStateHistory } from '../useStateHistory';
 
 type Line = {
   /**
@@ -59,7 +59,7 @@ const [LineHistoryProvider, useLines, usePushState, useUndo, useRedo, useReset, 
     run: hook.redo,
   }),
   (hook) => ({
-    enable: hook.historyIndex > 0,
+    enable: hook.history.length > 1,
     run: hook.reset,
   }),
   (hook) => hook.setLines,

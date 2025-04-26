@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { Suspense, useState, type ChangeEvent, type FC } from 'react';
+import { Suspense, useReducer, type ChangeEvent, type FC } from 'react';
 import { Layer } from 'react-konva';
 import { loadImage } from '../ReactKonva/utils/image';
 import { DrawingBoard } from './components/DrawingBoard';
@@ -25,11 +25,11 @@ type PresentationProps = {
 };
 
 const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
-  const [currentTool, setCurrentTool] = useState<Tool>('pen');
-
-  const [strokeWidth, setStrokeWidth] = useState(5);
-
-  const [color, setColor] = useState('#df4b26');
+  const [{ currentTool, strokeWidth, color }, dispatch] = useReducer(reducer, {
+    currentTool: 'pen',
+    strokeWidth: 5,
+    color: '#df4b26',
+  });
 
   const undo = useUndo();
 
@@ -38,15 +38,15 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
   const reset = useReset();
 
   const handleChangeTool = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    setCurrentTool(target.value as Tool);
+    dispatch({ type: 'tool', payload: target.value as Tool });
   };
 
   const handleChangeThickness = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    setStrokeWidth(Number(target.value));
+    dispatch({ type: 'strokeWidth', payload: Number(target.value) });
   };
 
   const handleChangeColor = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    setColor(target.value);
+    dispatch({ type: 'color', payload: target.value });
   };
 
   const handleClickUndo = () => {
@@ -104,7 +104,6 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
           <Layer>
             <ImageViewer imagePromise={imagePromise} />
           </Layer>
-
           <Layer>
             <DrawingBoard color={color} strokeWidth={strokeWidth} currentTool={currentTool} />
           </Layer>
@@ -113,6 +112,39 @@ const Presentation: FC<PresentationProps> = ({ imagePromise }) => {
     </>
   );
 };
+
+type Action =
+  | {
+      type: 'tool';
+      payload: Tool;
+    }
+  | {
+      type: 'strokeWidth';
+      payload: number;
+    }
+  | {
+      type: 'color';
+      payload: string;
+    };
+
+type State = {
+  currentTool: Tool;
+  strokeWidth: number;
+  color: string;
+};
+
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case 'tool':
+      return { ...state, currentTool: action.payload };
+    case 'strokeWidth':
+      return { ...state, strokeWidth: action.payload };
+    case 'color':
+      return { ...state, color: action.payload };
+    default:
+      return state;
+  }
+}
 
 const styleStage = css`
   width: fit-content;
