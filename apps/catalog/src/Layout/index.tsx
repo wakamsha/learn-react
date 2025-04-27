@@ -5,7 +5,7 @@ import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type IconName } from '@learn-react/icon';
 import { useEffect, useState, type ReactNode } from 'react';
 import { Navigation } from './Navigation';
-import { ThemeConfig } from './ThemeConfig';
+import { ThemeSwitch } from './ThemeSwitch';
 import { LayoutMode } from './constants';
 import { useLayoutConfig } from './useLayoutConfig';
 
@@ -48,7 +48,7 @@ export const Layout = ({ children }: Props) => {
       <div className={styleNavigationWrapper[layoutConfig]} aria-disabled={disabled}>
         <Navigation />
         <div className={styleThemeButtonWrapper[layoutConfig]}>
-          <ThemeConfig />
+          <ThemeSwitch />
         </div>
         <div className={styleToggleButtonWrapper[layoutConfig]}>
           <IconButton name={iconNames[layoutConfig]} variant="bare" onClick={handleClickToggle} />

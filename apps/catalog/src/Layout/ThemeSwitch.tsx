@@ -19,7 +19,7 @@ type MenuItem = {
 /**
  * ThemeConfig コンポーネントは、テーマの設定を行うためのコンポーネントです。
  */
-export const ThemeConfig = () => {
+export const ThemeSwitch = () => {
   const menuItems: MenuItem[] = [
     {
       icon: 'contrast',
@@ -126,7 +126,7 @@ const styleLabel = css`
  * テーマの設定値を定義した型。
  *
  * @remarks
- * - 'auto': システムのテーマ設定に従います。
+ * - 'auto': OS のテーマ設定に従います。
  * - 'light': 明るいテーマを適用します。
  * - 'dark': 暗いテーマを適用します。
  */
