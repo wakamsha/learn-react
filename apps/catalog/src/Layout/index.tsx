@@ -4,8 +4,9 @@ import { Duration, Easing } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type IconName } from '@learn-react/icon';
 import { useEffect, useState, type ReactNode } from 'react';
-import { Navigation } from '../Navigation';
-import { LayoutMode } from './ValueObject';
+import { Navigation } from './Navigation';
+import { ThemeConfig } from './ThemeConfig';
+import { LayoutMode } from './constants';
 import { useLayoutConfig } from './useLayoutConfig';
 
 type Props = {
@@ -46,6 +47,9 @@ export const Layout = ({ children }: Props) => {
     <div className={styleBase[layoutConfig]}>
       <div className={styleNavigationWrapper[layoutConfig]} aria-disabled={disabled}>
         <Navigation />
+        <div className={styleThemeButtonWrapper[layoutConfig]}>
+          <ThemeConfig />
+        </div>
         <div className={styleToggleButtonWrapper[layoutConfig]}>
           <IconButton name={iconNames[layoutConfig]} variant="bare" onClick={handleClickToggle} />
         </div>
@@ -120,11 +124,31 @@ const styleNavigationWrapper: Frozen<LayoutMode, string> = {
   ),
 };
 
+const styleThemeButtonWrapperBase = css`
+  position: fixed;
+  top: ${gutter(2)};
+  left: ${gutter(4)};
+  z-index: 2;
+`;
+
+const styleThemeButtonWrapper: Frozen<LayoutMode, string> = {
+  [LayoutMode.Neutral]: styleThemeButtonWrapperBase,
+  [LayoutMode.Zen]: cx(
+    styleThemeButtonWrapperBase,
+    css`
+      visibility: hidden;
+      ${`.${styleNavigationWrapper[LayoutMode.Zen]}[aria-disabled='false']:hover &`} {
+        visibility: visible;
+      }
+    `,
+  ),
+};
+
 const styleToggleButtonWrapperBase = css`
   position: fixed;
   top: ${gutter(2)};
-  z-index: 2;
-  transition: left ${Duration.Fade} ${Easing.Enter};
+  z-index: 3;
+  transition: left ${Duration.Fade} ${Easing.Enter} ${delayTime}ms;
 `;
 
 const styleToggleButtonWrapper: Frozen<LayoutMode, string> = {
@@ -138,6 +162,9 @@ const styleToggleButtonWrapper: Frozen<LayoutMode, string> = {
     styleToggleButtonWrapperBase,
     css`
       left: ${gutter(4)};
+      ${`.${styleNavigationWrapper[LayoutMode.Zen]}[aria-disabled='false']:hover &`} {
+        left: calc(${navigationWidth}px - ${gutter(4)} - 32px);
+      }
     `,
   ),
 };
