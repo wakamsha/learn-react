@@ -463,8 +463,8 @@ importers:
         specifier: 3.13.9
         version: 3.13.9
       pdfjs-dist:
-        specifier: 5.1.91
-        version: 5.1.91
+        specifier: 5.2.133
+        version: 5.2.133
       qs:
         specifier: 6.14.0
         version: 6.14.0
@@ -4099,9 +4099,9 @@ packages:
     resolution: {integrity: sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA==}
     engines: {node: '>= 14.16'}
 
-  pdfjs-dist@5.1.91:
-    resolution: {integrity: sha512-qSIADdagooJB4wWCBnrBJjRvASevmxL0BwafvOuKJG5uTQdYoFBrhrRYnucKNiSc9qS6JIk0hC5y1yktFljXkA==}
-    engines: {node: '>=20'}
+  pdfjs-dist@5.2.133:
+    resolution: {integrity: sha512-abE6ZWDxztt+gGFzfm4bX2ggfxUk9wsDEoFzIJm9LozaY3JdXR7jyLK4Bjs+XLXplCduuWS1wGhPC4tgTn/kzg==}
+    engines: {node: '>=20.16.0 || >=22.3.0'}
 
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
@@ -8978,7 +8978,7 @@ snapshots:
 
   pathval@2.0.0: {}
 
-  pdfjs-dist@5.1.91:
+  pdfjs-dist@5.2.133:
     optionalDependencies:
       '@napi-rs/canvas': 0.1.69
 
