@@ -96,56 +96,111 @@ export function textEllipsis() {
 /**
  * アプリケーション全体に Reset CSS を適用します。
  *
- * @see https://github.com/hankchizljaw/modern-css-reset/blob/master/dist/reset.min.css
+ * @remarks
+ * This Reset CSS is based-on "A (more) modern CSS reset" by Andy Bell
+ *
+ * @see https://piccalil.li/blog/a-more-modern-css-reset/
  */
 export function applyResetStyle() {
   injectGlobal`
+    /* Box sizing rules */
     *,
     *::before,
     *::after {
       box-sizing: border-box;
-      margin: 0;
     }
 
     html {
       overflow-x: hidden;
-      font-family: sans-serif;
-      -webkit-text-size-adjust: 100%;
-      -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
       scroll-behavior: smooth;
+
+      /* Prevent font size inflation */
+      text-size-adjust: none;
     }
 
+    /* Remove default margin in favour of better control in authored CSS */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    figure,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    dd {
+      margin: 0;
+    }
+
+    /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+    ul[role='list'],
+    ol[role='list'] {
+      list-style: none;
+    }
+
+    /* Set core body defaults */
     body {
       min-height: 100dvh;
-      text-rendering: optimizespeed;
       line-height: 1.5;
     }
 
-    a:not([class]) {
-      text-decoration-skip-ink: auto;
+    /* Set shorter line heights on headings and interactive elements */
+    h1,
+    h2,
+    h3,
+    h4,
+    button,
+    input,
+    label {
+      line-height: 1.1;
     }
 
+    /* Balance text wrapping on headings */
+    h1,
+    h2,
+    h3,
+    h4 {
+      text-wrap: balance;
+    }
+
+    /* A elements that don't have a class get default styles */
+    a:not([class]) {
+      text-decoration-skip-ink: auto;
+      color: currentcolor;
+    }
+
+    /* Make images easier to work with */
     img,
     picture {
       display: block;
       max-width: 100%;
     }
 
+    /* Inherit fonts for inputs and buttons */
     input,
     button,
     textarea,
     select {
-      font: inherit;
+      font-family: inherit;
+      font-size: inherit;
 
+      /* When the focus is not given by keyboard operation, the outline disappears. */
       &:focus:not(:focus-visible) {
-        /* キーボード操作"以外"でフォーカスされた際は outline を消す */
         outline: 0;
       }
     }
 
-    main {
-      display: block;
-      overflow-x: hidden;
+    /* Make sure textarea without a rows attribute are not tiny */
+    /* stylelint-disable-next-line no-descending-specificity */
+    textarea:not([rows]) {
+      min-height: 10em;
+    }
+
+    /* Anything that has been anchored to should have extra scroll margin */
+    :target {
+      scroll-margin-block: 5ex;
     }
   `;
 }
@@ -188,14 +243,23 @@ export function applyGlobalStyle() {
       font-display: swap;
     }
 
-    :root {
+    :root:is(.light) {
       ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.light]))}
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        color-scheme: dark;
+    :root:is(.dark) {
+      color-scheme: dark;
+      ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.dark]))}
+    }
 
+    /* OS Default */
+    :root:not(.light):not(.dark) {
+      @media (prefers-color-scheme: light) {
+        ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.light]))}
+      }
+
+      @media (prefers-color-scheme: dark) {
+        color-scheme: dark;
         ${Object.fromEntries(Object.entries({ ...Color, ...Shadow }).map(([key, value]) => [`--${key}`, value.dark]))}
       }
     }
@@ -203,26 +267,10 @@ export function applyGlobalStyle() {
     html,
     body {
       padding: 0;
-      margin: 0;
       font-family: ${FontFamily.Default};
       font-weight: 500;
       font-feature-settings: palt 1;
       background-color: ${cssVar('TextureBody')};
-    }
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    ul,
-    ol,
-    figure,
-    blockquote,
-    dl,
-    dd {
-      margin: 0;
     }
 
     ul,
@@ -230,7 +278,7 @@ export function applyGlobalStyle() {
       padding: 0;
       list-style: none;
     }
-    /* stylelint-disable-next-line no-descending-specificity */
+
     a {
       color: inherit;
       text-decoration: none;
@@ -240,5 +288,4 @@ export function applyGlobalStyle() {
       }
     }
   `;
-  /* eslint-enable @typescript-eslint/no-unsafe-argument */
 }
