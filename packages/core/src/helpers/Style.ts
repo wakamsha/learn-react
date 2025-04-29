@@ -269,7 +269,7 @@ export function applyGlobalStyle() {
       padding: 0;
       font-family: ${FontFamily.Default};
       font-weight: 500;
-      font-feature-settings: palt 1;
+      font-feature-settings: "palt" 1;
       background-color: ${cssVar('TextureBody')};
     }
 
