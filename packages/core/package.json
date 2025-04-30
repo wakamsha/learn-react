@@ -30,7 +30,7 @@
     "react-router-dom": "7.5.2",
     "typescript": "5.8.3",
     "user-agent-data-types": "0.4.2",
-    "vite": "6.3.3",
+    "vite": "6.3.4",
     "vitest": "3.1.2"
   },
   "peerDependencies": {
