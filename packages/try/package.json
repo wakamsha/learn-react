@@ -11,7 +11,7 @@
     "@pixi/react": "8.0.1",
     "constate": "3.3.3",
     "konva": "9.3.20",
-    "pixi.js": "8.9.1",
+    "pixi.js": "8.9.2",
     "qs": "6.14.0",
     "react-konva": "19.0.3",
     "react-konva-utils": "1.1.0",
