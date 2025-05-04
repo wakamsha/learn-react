@@ -115,11 +115,11 @@ importers:
   apps/doc:
     devDependencies:
       typedoc:
-        specifier: 0.28.3
-        version: 0.28.3(typescript@5.8.3)
+        specifier: 0.28.4
+        version: 0.28.4(typescript@5.8.3)
       typedoc-plugin-missing-exports:
         specifier: 4.0.0
-        version: 4.0.0(typedoc@0.28.3(typescript@5.8.3))
+        version: 4.0.0(typedoc@0.28.4(typescript@5.8.3))
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -4980,8 +4980,8 @@ packages:
     peerDependencies:
       typedoc: ^0.28.1
 
-  typedoc@0.28.3:
-    resolution: {integrity: sha512-5svOCTfXvVSh6zbZKSQluZhR8yN2tKpTeHZxlmWpE6N5vc3R8k/jhg9nnD6n5tN9/ObuQTojkONrOxFdUFUG9w==}
+  typedoc@0.28.4:
+    resolution: {integrity: sha512-xKvKpIywE1rnqqLgjkoq0F3wOqYaKO9nV6YkkSat6IxOWacUCc/7Es0hR3OPmkIqkPoEn7U3x+sYdG72rstZQA==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -10119,11 +10119,11 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.49)
       yargs: 17.7.2
 
-  typedoc-plugin-missing-exports@4.0.0(typedoc@0.28.3(typescript@5.8.3)):
+  typedoc-plugin-missing-exports@4.0.0(typedoc@0.28.4(typescript@5.8.3)):
     dependencies:
-      typedoc: 0.28.3(typescript@5.8.3)
+      typedoc: 0.28.4(typescript@5.8.3)
 
-  typedoc@0.28.3(typescript@5.8.3):
+  typedoc@0.28.4(typescript@5.8.3):
     dependencies:
       '@gerrit0/mini-shiki': 3.2.3
       lunr: 2.3.9
