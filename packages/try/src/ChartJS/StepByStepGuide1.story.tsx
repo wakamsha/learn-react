@@ -39,17 +39,6 @@ export const Story: FC = () => {
           },
         ],
       },
-      options: {
-        animation: false,
-        plugins: {
-          legend: {
-            display: false,
-          },
-          tooltip: {
-            enabled: false,
-          },
-        },
-      },
     });
 
     return () => {

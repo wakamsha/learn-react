@@ -53,17 +53,6 @@ const Presentation: FC<Props> = ({ dataPromise }) => {
           },
         ],
       },
-      // options: {
-      //   animation: false,
-      //   plugins: {
-      //     legend: {
-      //       display: false,
-      //     },
-      //     tooltip: {
-      //       enabled: false,
-      //     },
-      //   },
-      // },
     });
 
     return () => {
