@@ -27,7 +27,7 @@ export default defineConfig({
     // Music-related terms
     ...['beatle', 'bonham'],
     // OSS-related terms
-    ...['constate', 'formkit', 'isbot', 'konva', 'nodenv', 'pixi', 'pixijs', 'reactrouter', 'registerables'],
+    ...['constate', 'formkit', 'isbot', 'konva', 'nodenv', 'pixi', 'pixijs', 'reactrouter', 'chartjs', 'registerables'],
     // SVG-related terms
     ...['cdefs', 'cclip', 'crect', 'csvg', 'cpath', 'csvg'],
     // Font-related terms
