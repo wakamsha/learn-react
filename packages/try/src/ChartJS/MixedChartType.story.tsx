@@ -47,9 +47,6 @@ export const Story: FC = () => {
             position: 'bottom',
             align: 'end',
           },
-          tooltip: {
-            enabled: false,
-          },
         },
       },
     });
