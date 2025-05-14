@@ -9,6 +9,7 @@
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
     "@pixi/react": "8.0.1",
+    "chart.js": "4.4.9",
     "constate": "3.3.3",
     "konva": "9.3.20",
     "pixi.js": "8.9.2",
