@@ -13,7 +13,6 @@ export const Story: FC = () => {
   return (
     <>
       <h2>Real-world data with Chart.js</h2>
-
       <Suspense fallback={<div>Loading...</div>}>
         <Presentation dataPromise={dataPromise} />
       </Suspense>
@@ -45,7 +44,7 @@ const Presentation: FC<Props> = ({ dataPromise }) => {
 
   return (
     <>
-      <h2>Vertical Bar</h2>
+      <h2>Real-world data with Chart.js</h2>
       <Bar data={dataProps} />
     </>
   );

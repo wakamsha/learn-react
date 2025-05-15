@@ -12,7 +12,6 @@ export const Story: FC = () => {
   return (
     <>
       <h2>Real-world data with Chart.js</h2>
-
       <Suspense fallback={<div>Loading...</div>}>
         <Presentation dataPromise={dataPromise} />
       </Suspense>
