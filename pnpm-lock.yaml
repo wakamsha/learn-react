@@ -82,8 +82,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/qs':
-        specifier: 6.9.18
-        version: 6.9.18
+        specifier: 6.14.0
+        version: 6.14.0
       '@types/react':
         specifier: 19.1.4
         version: 19.1.4
@@ -408,8 +408,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/qs':
-        specifier: 6.9.18
-        version: 6.9.18
+        specifier: 6.14.0
+        version: 6.14.0
       '@types/react':
         specifier: 19.1.4
         version: 19.1.4
@@ -482,8 +482,8 @@ importers:
         specifier: 16.3.0
         version: 16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.5(@types/react@19.1.4))(@types/react@19.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@types/qs':
-        specifier: 6.9.18
-        version: 6.9.18
+        specifier: 6.14.0
+        version: 6.14.0
       '@types/react':
         specifier: 19.1.4
         version: 19.1.4
@@ -603,8 +603,8 @@ importers:
         specifier: 14.6.1
         version: 14.6.1(@testing-library/dom@10.1.0)
       '@types/qs':
-        specifier: 6.9.18
-        version: 6.9.18
+        specifier: 6.14.0
+        version: 6.14.0
       '@types/react':
         specifier: 19.1.4
         version: 19.1.4
@@ -1798,8 +1798,8 @@ packages:
   '@types/parse-json@4.0.0':
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
 
-  '@types/qs@6.9.18':
-    resolution: {integrity: sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA==}
+  '@types/qs@6.14.0':
+    resolution: {integrity: sha512-eOunJqu0K1923aExK6y8p6fsihYEn/BYuQ4g0CxAAgFc4b/ZLN4CrsRZ55srTdqoiLzU2B2evC+apEIxprEzkQ==}
 
   '@types/react-dom@19.1.5':
     resolution: {integrity: sha512-CMCjrWucUBZvohgZxkjd6S9h0nZxXjzus6yDfUb+xLxYM7VvjKNH1tQrE9GWLql1XoOP4/Ds3bwFqShHUYraGg==}
@@ -6614,7 +6614,7 @@ snapshots:
 
   '@types/parse-json@4.0.0': {}
 
-  '@types/qs@6.9.18': {}
+  '@types/qs@6.14.0': {}
 
   '@types/react-dom@19.1.5(@types/react@19.1.4)':
     dependencies:
