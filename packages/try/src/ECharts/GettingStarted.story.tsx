@@ -35,6 +35,23 @@ export const Story: FC = () => {
           name: 'sales',
           type: 'bar',
           data: [5, 20, 36, 10, 10, 20],
+          itemStyle: {
+            color: 'red',
+            opacity: 0.5,
+            formatter: 'This is a normal label.',
+          },
+          emphasis: {
+            itemStyle: {
+              // Color in emphasis state.
+              color: 'blue',
+              opacity: 1,
+            },
+            label: {
+              show: true,
+              // Text in emphasis.
+              formatter: 'This is a emphasis label.',
+            },
+          },
         },
       ],
     };
