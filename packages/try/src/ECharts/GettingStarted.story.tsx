@@ -46,6 +46,18 @@ export const Story: FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const resize = () => {
+      chartRef.current?.resize();
+    };
+
+    window.addEventListener('resize', resize);
+
+    return () => {
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
   return (
     <>
       <h2>Getting Started with ECharts</h2>
