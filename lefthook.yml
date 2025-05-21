@@ -1,0 +1,23 @@
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: pnpm commitlint --edit "$1"
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: spellcheck
+      glob: '*.{js,cjs,ts,tsx,md}'
+      run: pnpm cspell {staged_files}
+
+    - name: prettier
+      glob: '*.{js,cjs,ts,tsx,md,json,css,html,yml,yaml}'
+      run: pnpm prettier -c {staged_files}
+
+    - name: eslint
+      glob: '*.{js,cjs,ts,tsx}'
+      run: pnpm eslint {staged_files}
+
+    - name: stylelint
+      glob: '*.{ts,tsx,js}'
+      run: pnpm stylelint {staged_files}
