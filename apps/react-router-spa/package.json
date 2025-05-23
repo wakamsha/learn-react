@@ -28,7 +28,7 @@
     "@learn-react/tsconfig": "workspace:*",
     "@react-router/dev": "7.6.0",
     "@types/node": "22.15.21",
-    "@types/react": "19.1.4",
+    "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
     "@types/sort-by": "1.2.3",
     "cross-env": "7.0.3",
