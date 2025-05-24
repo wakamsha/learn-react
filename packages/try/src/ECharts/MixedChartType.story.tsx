@@ -14,7 +14,6 @@ type CustomTooltipParams = {
 };
 
 /**
- *
  * @see {@link https://echarts.apache.org/handbook/en/get-started/ Getting Started}
  */
 export const Story: FC = () => {

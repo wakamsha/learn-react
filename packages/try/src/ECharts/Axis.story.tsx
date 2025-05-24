@@ -7,7 +7,6 @@ import { useEffect, useRef, type FC } from 'react';
 use([BarChart, LineChart]);
 
 /**
- *
  * @see {@link https://echarts.apache.org/handbook/en/concepts/axis | ECharts Axis}
  */
 export const Story: FC = () => {

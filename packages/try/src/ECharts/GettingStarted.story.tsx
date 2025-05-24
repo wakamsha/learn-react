@@ -7,7 +7,6 @@ import { useEffect, useRef, type FC } from 'react';
 use([BarChart]);
 
 /**
- *
  * @see {@link https://echarts.apache.org/handbook/en/get-started/ Getting Started}
  */
 export const Story: FC = () => {

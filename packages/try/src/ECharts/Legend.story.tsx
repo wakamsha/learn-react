@@ -5,8 +5,8 @@ import { useEffect, useRef, type FC } from 'react';
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
 use([BarChart]);
+
 /**
- *
  * @see {@link https://echarts.apache.org/handbook/en/concepts/legend | ECharts Legend}
  */
 export const Story: FC = () => {
