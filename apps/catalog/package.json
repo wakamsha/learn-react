@@ -35,6 +35,6 @@
     "playwright": "1.52.0",
     "typescript": "5.8.3",
     "vite": "6.3.5",
-    "yargs": "17.7.2"
+    "yargs": "18.0.0"
   }
 }
