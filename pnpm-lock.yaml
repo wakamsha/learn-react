@@ -82,11 +82,11 @@ importers:
         specifier: 6.14.0
         version: 6.14.0
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       chokidar:
         specifier: 4.0.3
         version: 4.0.3
@@ -173,11 +173,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       '@types/sort-by':
         specifier: 1.2.3
         version: 1.2.3
@@ -237,11 +237,11 @@ importers:
         specifier: 22.15.31
         version: 22.15.31
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       '@types/sort-by':
         specifier: 1.2.3
         version: 1.2.3
@@ -304,11 +304,11 @@ importers:
         specifier: 22.15.31
         version: 22.15.31
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       '@types/sort-by':
         specifier: 1.2.3
         version: 1.2.3
@@ -353,11 +353,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -378,7 +378,7 @@ importers:
         version: 3.3.3(react@19.1.0)
       jotai:
         specifier: 2.12.5
-        version: 2.12.5(@types/react@19.1.6)(react@19.1.0)
+        version: 2.12.5(@types/react@19.1.8)(react@19.1.0)
       mobx:
         specifier: 6.13.7
         version: 6.13.7
@@ -408,11 +408,11 @@ importers:
         specifier: 6.14.0
         version: 6.14.0
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -477,16 +477,16 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@types/qs':
         specifier: 6.14.0
         version: 6.14.0
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       jsdom:
         specifier: 26.1.0
         version: 26.1.0
@@ -518,11 +518,11 @@ importers:
         specifier: workspace:1.0.0
         version: link:../tsconfig
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       cheerio:
         specifier: 1.0.0
         version: 1.0.0
@@ -558,7 +558,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.2
-        version: 8.0.2(@types/react@19.1.6)(pixi.js@8.10.1)(react@19.1.0)
+        version: 8.0.2(@types/react@19.1.8)(pixi.js@8.10.1)(react@19.1.0)
       chart.js:
         specifier: 4.4.9
         version: 4.4.9
@@ -581,11 +581,11 @@ importers:
         specifier: 5.3.0
         version: 5.3.0(chart.js@4.4.9)(react@19.1.0)
       react-konva:
-        specifier: 19.0.5
-        version: 19.0.5(@types/react@19.1.6)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: 19.0.6
+        version: 19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-konva-utils:
         specifier: 1.1.0
-        version: 1.1.0(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react-konva@19.0.5(@types/react@19.1.6)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.1.0(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react-konva@19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       swr:
         specifier: 2.3.3
         version: 2.3.3(react@19.1.0)
@@ -598,7 +598,7 @@ importers:
         version: 6.6.3
       '@testing-library/react':
         specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@testing-library/user-event':
         specifier: 14.6.1
         version: 14.6.1(@testing-library/dom@10.1.0)
@@ -606,11 +606,11 @@ importers:
         specifier: 6.14.0
         version: 6.14.0
       '@types/react':
-        specifier: 19.1.6
-        version: 19.1.6
+        specifier: 19.1.8
+        version: 19.1.8
       '@types/react-dom':
         specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.6)
+        version: 19.1.6(@types/react@19.1.8)
       jsdom:
         specifier: 26.1.0
         version: 26.1.0
@@ -1821,8 +1821,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
 
-  '@types/react@19.1.6':
-    resolution: {integrity: sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==}
+  '@types/react@19.1.8':
+    resolution: {integrity: sha512-AwAfQ2Wa5bCx9WP8nZL2uMZWod7J7/JSplxbTmBQ5ms6QpqNYm672H0Vu9ZVKVngQ+ii4R/byguVEUZQyeg44g==}
 
   '@types/sort-by@1.2.3':
     resolution: {integrity: sha512-Q8Pg7o2iHWFf7pR4jIGb+ntxwwL7a/WWLFNJj8jEN14tPQdfwZLCqK68q6mo1WONqa68OysEPuFvNA3uGm0crw==}
@@ -4372,8 +4372,8 @@ packages:
       react-dom: ^18.2.0 || ^19.0.0
       react-konva: ^18.2.10 || ^19.0.1
 
-  react-konva@19.0.5:
-    resolution: {integrity: sha512-Hu+nGXaWN9TtS2BHdXb4yKG0dV510HKubSdgeLYkynj2AeFq4Fwytr/czesCEPrMxXpTyWoY4px+vZHomJHlRQ==}
+  react-konva@19.0.6:
+    resolution: {integrity: sha512-6jsjU1QAStwP4AulaE2BqNlO3Oq+YwvC7OfeEfrj4RSr/CiACojYvdAuQ8Fm7XoALwQOGWf9fqeGvDWD4/c2Cg==}
     peerDependencies:
       konva: ^8.0.1 || ^7.2.5 || ^9.0.0
       react: ^18.3.1 || ^19.0.0
@@ -6226,9 +6226,9 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.2(@types/react@19.1.6)(pixi.js@8.10.1)(react@19.1.0)':
+  '@pixi/react@8.0.2(@types/react@19.1.8)(pixi.js@8.10.1)(react@19.1.0)':
     dependencies:
-      its-fine: 2.0.0(@types/react@19.1.6)(react@19.1.0)
+      its-fine: 2.0.0(@types/react@19.1.8)(react@19.1.0)
       pixi.js: 8.10.1
       react: 19.1.0
       react-reconciler: 0.31.0(react@19.1.0)
@@ -6436,15 +6436,15 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.6))(@types/react@19.1.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.1.0)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.1.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     optionalDependencies:
-      '@types/react': 19.1.6
-      '@types/react-dom': 19.1.6(@types/react@19.1.6)
+      '@types/react': 19.1.8
+      '@types/react-dom': 19.1.6(@types/react@19.1.8)
 
   '@testing-library/user-event@14.6.1(@testing-library/dom@10.1.0)':
     dependencies:
@@ -6512,19 +6512,19 @@ snapshots:
 
   '@types/qs@6.14.0': {}
 
-  '@types/react-dom@19.1.6(@types/react@19.1.6)':
+  '@types/react-dom@19.1.6(@types/react@19.1.8)':
     dependencies:
-      '@types/react': 19.1.6
+      '@types/react': 19.1.8
 
-  '@types/react-reconciler@0.28.9(@types/react@19.1.6)':
+  '@types/react-reconciler@0.28.9(@types/react@19.1.8)':
     dependencies:
-      '@types/react': 19.1.6
+      '@types/react': 19.1.8
 
-  '@types/react-reconciler@0.32.0(@types/react@19.1.6)':
+  '@types/react-reconciler@0.32.0(@types/react@19.1.8)':
     dependencies:
-      '@types/react': 19.1.6
+      '@types/react': 19.1.8
 
-  '@types/react@19.1.6':
+  '@types/react@19.1.8':
     dependencies:
       csstype: 3.1.1
 
@@ -8541,9 +8541,9 @@ snapshots:
       reflect.getprototypeof: 1.0.9
       set-function-name: 2.0.2
 
-  its-fine@2.0.0(@types/react@19.1.6)(react@19.1.0):
+  its-fine@2.0.0(@types/react@19.1.8)(react@19.1.0):
     dependencies:
-      '@types/react-reconciler': 0.28.9(@types/react@19.1.6)
+      '@types/react-reconciler': 0.28.9(@types/react@19.1.8)
       react: 19.1.0
     transitivePeerDependencies:
       - '@types/react'
@@ -8560,9 +8560,9 @@ snapshots:
 
   jiti@2.4.2: {}
 
-  jotai@2.12.5(@types/react@19.1.6)(react@19.1.0):
+  jotai@2.12.5(@types/react@19.1.8)(react@19.1.0):
     optionalDependencies:
-      '@types/react': 19.1.6
+      '@types/react': 19.1.8
       react: 19.1.0
 
   js-binary-schema-parser@2.0.3: {}
@@ -9270,18 +9270,18 @@ snapshots:
 
   react-is@17.0.2: {}
 
-  react-konva-utils@1.1.0(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react-konva@19.0.5(@types/react@19.1.6)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
+  react-konva-utils@1.1.0(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react-konva@19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0):
     dependencies:
       konva: 9.3.20
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      react-konva: 19.0.5(@types/react@19.1.6)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react-konva: 19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       use-image: 1.1.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
-  react-konva@19.0.5(@types/react@19.1.6)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  react-konva@19.0.6(@types/react@19.1.8)(konva@9.3.20)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
-      '@types/react-reconciler': 0.32.0(@types/react@19.1.6)
-      its-fine: 2.0.0(@types/react@19.1.6)(react@19.1.0)
+      '@types/react-reconciler': 0.32.0(@types/react@19.1.8)
+      its-fine: 2.0.0(@types/react@19.1.8)(react@19.1.0)
       konva: 9.3.20
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
