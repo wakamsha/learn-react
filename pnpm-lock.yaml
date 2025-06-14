@@ -148,8 +148,8 @@ importers:
         specifier: 5.1.28
         version: 5.1.28
       match-sorter:
-        specifier: 8.0.2
-        version: 8.0.2
+        specifier: 8.0.3
+        version: 8.0.3
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -209,8 +209,8 @@ importers:
         specifier: 5.1.28
         version: 5.1.28
       match-sorter:
-        specifier: 8.0.2
-        version: 8.0.2
+        specifier: 8.0.3
+        version: 8.0.3
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -276,8 +276,8 @@ importers:
         specifier: 5.1.28
         version: 5.1.28
       match-sorter:
-        specifier: 8.0.2
-        version: 8.0.2
+        specifier: 8.0.3
+        version: 8.0.3
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -334,8 +334,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../../packages/core
       match-sorter:
-        specifier: 8.0.2
-        version: 8.0.2
+        specifier: 8.0.3
+        version: 8.0.3
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -3801,8 +3801,8 @@ packages:
     resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
     hasBin: true
 
-  match-sorter@8.0.2:
-    resolution: {integrity: sha512-5mXYiqA0QKXQDVaXtuMb4JfQFu5z4rzpgPUi3b+7+psOV+Q85RqVRrs8+kCorzR38LHv6ftkpSbbP5qhuPu3SQ==}
+  match-sorter@8.0.3:
+    resolution: {integrity: sha512-BnR/YBS1iO94R3EcseKkb7kJ2w2su5CWmywHvFYv70HQ2syqca79JefoGocMK+G1NOdpV2kt0G3uQb5hcdFtIA==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -8778,7 +8778,7 @@ snapshots:
       punycode.js: 2.3.1
       uc.micro: 2.1.0
 
-  match-sorter@8.0.2:
+  match-sorter@8.0.3:
     dependencies:
       '@babel/runtime': 7.26.0
       remove-accents: 0.5.0
