@@ -47,7 +47,7 @@ export default defineConfig({
     // CSS-related terms
     ...['palt'],
     // DOM-related terms
-    ...['pointerupoutside'],
+    ...['closedby', 'pointerupoutside'],
     // Other terms
     ...['codegen', 'qiita', 'wakamsha'],
   ],
