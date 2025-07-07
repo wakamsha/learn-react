@@ -16,9 +16,7 @@ async function exec() {
     sortedTargetFiles.map(async (file) => {
       const content = readFileSync(file).toString('utf8');
       const source = await optimize(content);
-      const $ = load(source.data.toString(), {
-        decodeEntities: false,
-      });
+      const $ = load(source.data.toString());
 
       $('style,title,defs').remove();
       $('[id]:not(symbol)').removeAttr('id');
