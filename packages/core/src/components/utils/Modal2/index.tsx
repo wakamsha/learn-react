@@ -86,6 +86,7 @@ const styleBase = css`
 
   &::backdrop {
     background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
+    backdrop-filter: blur(8px);
 
     @media (prefers-color-scheme: dark) {
       background-color: ${hex2rgba(Color.TextureBackdrop.dark, 0.8)};
