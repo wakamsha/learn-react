@@ -10,18 +10,23 @@ type Props = {
    */
   open: boolean;
   /**
-   * Callback function to be called when the modal is dismissed by clicking outside of it or pressing the Escape key.
+   * Whether the modal can be dismissed by clicking outside of it or pressing the Escape key.
+   * If true, clicking outside the modal or pressing Escape will close it.
    */
-  onLightDismiss?: () => void;
+  lightDismiss?: boolean;
+  /**
+   * Callback function to be called when the modal is closed.
+   */
+  onClose: () => void;
 };
 
 /**
  * Modal component that uses the HTML dialog element.
  */
-export const Modal: FC<Props> = ({ children, open, onLightDismiss }) => {
+export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const closedBy = onLightDismiss ? 'any' : 'none';
+  const closedBy = lightDismiss ? 'any' : 'none';
 
   // dialog 要素の表示・非表示を制御する
   useEffect(() => {
@@ -47,14 +52,13 @@ export const Modal: FC<Props> = ({ children, open, onLightDismiss }) => {
 
   // Light dismiss 有効時の背景領域クリックや Escape キーでの閉じる処理を設定する
   useEffect(() => {
-    if (!dialogRef.current) return;
+    if (!lightDismiss || !dialogRef.current) return;
 
     const node = dialogRef.current;
 
     const handleCancel = (event: Event) => {
       if (event.target !== node) return;
-      event.preventDefault();
-      onLightDismiss?.();
+      onClose();
     };
 
     node.addEventListener('cancel', handleCancel);
@@ -62,7 +66,7 @@ export const Modal: FC<Props> = ({ children, open, onLightDismiss }) => {
     return () => {
       node.removeEventListener('cancel', handleCancel);
     };
-  }, [onLightDismiss]);
+  }, [lightDismiss, onClose]);
 
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
