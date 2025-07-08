@@ -10,24 +10,20 @@ type Props = {
    */
   open: boolean;
   /**
-   * Whether the modal can be dismissed by clicking outside of it or pressing the Escape key.
-   * If true, clicking outside the modal or pressing Escape will close it.
+   * Callback function to be called when the modal is dismissed by clicking outside of it or pressing the Escape key.
    */
-  lightDismiss?: boolean;
-  /**
-   * Callback function to be called when the modal is closed.
-   */
-  onClose: () => void;
+  onLightDismiss?: () => void;
 };
 
 /**
  * Modal component that uses the HTML dialog element.
  */
-export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose }) => {
+export const Modal: FC<Props> = ({ children, open, onLightDismiss }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const closedBy = lightDismiss ? 'any' : 'none';
+  const closedBy = onLightDismiss ? 'any' : 'none';
 
+  // dialog 要素の表示・非表示を制御する
   useEffect(() => {
     if (!dialogRef.current) return;
 
@@ -38,14 +34,27 @@ export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose
     }
   }, [open]);
 
+  // モーダル表示時にページ全体をスクロールロックする
   useEffect(() => {
-    if (!lightDismiss || !dialogRef.current) return;
+    document.documentElement.style.scrollbarGutter = open ? 'stable' : '';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+
+    return () => {
+      document.documentElement.style.scrollbarGutter = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [open]);
+
+  // Light dismiss 有効時の背景領域クリックや Escape キーでの閉じる処理を設定する
+  useEffect(() => {
+    if (!dialogRef.current) return;
 
     const node = dialogRef.current;
 
     const handleCancel = (event: Event) => {
       if (event.target !== node) return;
-      onClose();
+      event.preventDefault();
+      onLightDismiss?.();
     };
 
     node.addEventListener('cancel', handleCancel);
@@ -53,7 +62,7 @@ export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose
     return () => {
       node.removeEventListener('cancel', handleCancel);
     };
-  }, [lightDismiss, onClose]);
+  }, [onLightDismiss]);
 
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -73,7 +82,6 @@ const styleBase = css`
 
   &::backdrop {
     background-color: ${hex2rgba(Color.TextureBackdrop.light, 0.8)};
-    backdrop-filter: blur(8px);
 
     @media (prefers-color-scheme: dark) {
       background-color: ${hex2rgba(Color.TextureBackdrop.dark, 0.8)};

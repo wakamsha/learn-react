@@ -2,7 +2,6 @@ import { css } from '@emotion/css';
 import { useEffect, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Color, Duration, Easing, ZIndex } from '../../../constants/Style';
-import { isVisibleScrollbarOf, scrollbarSize } from '../../../helpers/Browser';
 import { gutter, hex2rgba } from '../../../helpers/Style';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
@@ -27,17 +26,12 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
 
   useEffect(() => {
     // モーダル表示時にページ全体をスクロールロックする。
-    if (visible && isVisibleScrollbarOf()) {
-      document.documentElement.style.overflow = 'hidden';
-      document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
-    } else {
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.paddingRight = '';
-    }
+    document.documentElement.style.scrollbarGutter = visible ? 'stable' : '';
+    document.documentElement.style.overflow = visible ? 'hidden' : '';
 
     return () => {
+      document.documentElement.style.scrollbarGutter = '';
       document.documentElement.style.overflow = '';
-      document.documentElement.style.paddingRight = '';
     };
   }, [visible]);
 

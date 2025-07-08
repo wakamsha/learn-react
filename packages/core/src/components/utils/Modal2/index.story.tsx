@@ -62,7 +62,7 @@ export const Story: FC = () => {
         </code>
       </pre>
 
-      <Modal open={visible1} lightDismiss={lightDismiss} onClose={handleToggle1}>
+      <Modal open={visible1} onLightDismiss={lightDismiss ? handleToggle1 : undefined}>
         <article className={styleCard}>
           <h1 className={styleHeading}>Hello!!</h1>
           <footer className={styleFooter}>
@@ -72,7 +72,7 @@ export const Story: FC = () => {
         </article>
       </Modal>
 
-      <Modal open={visible2} lightDismiss={lightDismiss} onClose={handleToggle2}>
+      <Modal open={visible2} onLightDismiss={lightDismiss ? handleToggle2 : undefined}>
         <article className={styleCard}>
           <h1 className={styleHeading}>ポラーノの広場</h1>
           <div className={styleBody}>
@@ -85,7 +85,7 @@ export const Story: FC = () => {
         </article>
       </Modal>
 
-      <Modal open={visible3} lightDismiss={lightDismiss} onClose={handleToggle3}>
+      <Modal open={visible3} onLightDismiss={lightDismiss ? handleToggle3 : undefined}>
         <Card maxWidth={400} maxHeight={`calc(100dvh - ${gutter(20)})`}>
           <Card.Header>
             <h1>ポラーノの広場</h1>
