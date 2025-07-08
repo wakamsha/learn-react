@@ -28,6 +28,7 @@ export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose
 
   const closedBy = lightDismiss ? 'any' : 'none';
 
+  // dialog 要素の表示・非表示を制御する
   useEffect(() => {
     if (!dialogRef.current) return;
 
@@ -38,6 +39,18 @@ export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose
     }
   }, [open]);
 
+  // モーダル表示時にページ全体をスクロールロックする
+  useEffect(() => {
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    document.documentElement.style.scrollbarGutter = open ? 'stable' : '';
+
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
+    };
+  }, [open]);
+
+  // Light dismiss 有効時の背景領域クリックや Escape キーでの閉じる処理を設定する
   useEffect(() => {
     if (!lightDismiss || !dialogRef.current) return;
 

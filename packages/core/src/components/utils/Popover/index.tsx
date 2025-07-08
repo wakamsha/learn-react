@@ -2,7 +2,7 @@ import { css, cx } from '@emotion/css';
 import { useEffect, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Duration, ZIndex } from '../../../constants/Style';
-import { isVisibleScrollbarOf, scrollbarSize } from '../../../helpers/Browser';
+import { isVisibleScrollbarOf } from '../../../helpers/Browser';
 import { useFocusTrap } from '../../../hooks/useFocusTrap';
 
 type Position = 'top' | 'right' | 'bottom' | 'left';
@@ -76,15 +76,15 @@ export const Popover = ({
     // ポップオーバー表示時にページ全体のスクロールを無効化する。
     if (visible && isVisibleScrollbarOf()) {
       document.documentElement.style.overflow = 'hidden';
-      document.documentElement.style.paddingRight = `${scrollbarSize()}px`;
+      document.documentElement.style.scrollbarGutter = 'stable';
     } else {
       document.documentElement.style.overflow = '';
-      document.documentElement.style.paddingRight = '';
+      document.documentElement.style.scrollbarGutter = '';
     }
 
     return () => {
       document.documentElement.style.overflow = '';
-      document.documentElement.style.paddingRight = '';
+      document.documentElement.style.scrollbarGutter = '';
     };
   }, [visible]);
 

@@ -1,5 +1,8 @@
 /**
  * web ブラウザの scrollbar のサイズ ( px ) を取得します。
+ *
+ * @deprecated
+ * 現在この関数はどこからも参照されていません。将来破棄される可能性があります。
  */
 export function scrollbarSize(): number {
   const outer = document.createElement('div');
