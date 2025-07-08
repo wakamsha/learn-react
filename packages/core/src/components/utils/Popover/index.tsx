@@ -75,16 +75,16 @@ export const Popover = ({
   useEffect(() => {
     // ポップオーバー表示時にページ全体のスクロールを無効化する。
     if (visible && isVisibleScrollbarOf()) {
-      document.documentElement.style.scrollbarGutter = 'stable';
       document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.scrollbarGutter = 'stable';
     } else {
-      document.documentElement.style.scrollbarGutter = '';
       document.documentElement.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
     }
 
     return () => {
-      document.documentElement.style.scrollbarGutter = '';
       document.documentElement.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
     };
   }, [visible]);
 

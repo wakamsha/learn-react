@@ -26,12 +26,12 @@ export const Modal = ({ children, visible, onClickOutside }: Props) => {
 
   useEffect(() => {
     // モーダル表示時にページ全体をスクロールロックする。
-    document.documentElement.style.scrollbarGutter = visible ? 'stable' : '';
     document.documentElement.style.overflow = visible ? 'hidden' : '';
+    document.documentElement.style.scrollbarGutter = visible ? 'stable' : '';
 
     return () => {
-      document.documentElement.style.scrollbarGutter = '';
       document.documentElement.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
     };
   }, [visible]);
 

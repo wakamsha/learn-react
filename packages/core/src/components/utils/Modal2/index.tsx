@@ -41,12 +41,12 @@ export const Modal: FC<Props> = ({ children, open, lightDismiss = false, onClose
 
   // モーダル表示時にページ全体をスクロールロックする
   useEffect(() => {
-    document.documentElement.style.scrollbarGutter = open ? 'stable' : '';
     document.documentElement.style.overflow = open ? 'hidden' : '';
+    document.documentElement.style.scrollbarGutter = open ? 'stable' : '';
 
     return () => {
-      document.documentElement.style.scrollbarGutter = '';
       document.documentElement.style.overflow = '';
+      document.documentElement.style.scrollbarGutter = '';
     };
   }, [open]);
 
