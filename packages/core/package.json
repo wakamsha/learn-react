@@ -27,7 +27,7 @@
     "jsdom": "26.1.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-router-dom": "7.7.0",
+    "react-router-dom": "7.7.1",
     "typescript": "5.8.3",
     "user-agent-data-types": "0.4.2",
     "vite": "7.0.6",
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-router-dom": "7.7.0",
+    "react-router-dom": "7.7.1",
     "typescript": "5.8.3"
   }
 }
