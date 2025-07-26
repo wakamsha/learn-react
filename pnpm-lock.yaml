@@ -557,8 +557,8 @@ importers:
         specifier: workspace:1.0.0
         version: link:../core
       '@pixi/react':
-        specifier: 8.0.2
-        version: 8.0.2(@types/react@19.1.8)(pixi.js@8.11.0)(react@19.1.0)
+        specifier: 8.0.3
+        version: 8.0.3(@types/react@19.1.8)(pixi.js@8.11.0)(react@19.1.0)
       chart.js:
         specifier: 4.5.0
         version: 4.5.0
@@ -1545,8 +1545,8 @@ packages:
   '@pixi/colord@2.9.6':
     resolution: {integrity: sha512-nezytU2pw587fQstUu1AsJZDVEynjskwOL+kibwcdxsMBFqPsFFNA7xl0ii/gXuDi6M0xj3mfRJj8pBSc2jCfA==}
 
-  '@pixi/react@8.0.2':
-    resolution: {integrity: sha512-A42Bw/1YlxxCXhb+nDIgzPpACx5dOh7Yi+ZfBMlZ1sBB/qc7qyX9k7bdDtrnMqz8OofyF2FXg9gPw9MISFsQTA==}
+  '@pixi/react@8.0.3':
+    resolution: {integrity: sha512-k0feY0Vj4WIWpaLaRQY8NBKlDqVCPPyEUu5EibQVqdtgdMx1brRWeJC+ruq7Im08vtZWx7iZwNGhgHNubO/OMQ==}
     peerDependencies:
       pixi.js: ^8.2.6
       react: '>=19.0.0'
@@ -6251,7 +6251,7 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.2(@types/react@19.1.8)(pixi.js@8.11.0)(react@19.1.0)':
+  '@pixi/react@8.0.3(@types/react@19.1.8)(pixi.js@8.11.0)(react@19.1.0)':
     dependencies:
       its-fine: 2.0.0(@types/react@19.1.8)(react@19.1.0)
       pixi.js: 8.11.0
