@@ -30,7 +30,7 @@
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "4.7.0",
     "typed-css-modules": "0.9.1",
-    "typescript": "5.8.3",
+    "typescript": "5.9.2",
     "vite": "7.0.6"
   }
 }
