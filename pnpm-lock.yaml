@@ -587,8 +587,8 @@ importers:
         specifier: 1.1.1
         version: 1.1.1(konva@9.3.22)(react-dom@19.1.1(react@19.1.1))(react-konva@19.0.7(@types/react@19.1.9)(konva@9.3.22)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react@19.1.1)
       swr:
-        specifier: 2.3.4
-        version: 2.3.4(react@19.1.1)
+        specifier: 2.3.5
+        version: 2.3.5(react@19.1.1)
     devDependencies:
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
@@ -4749,8 +4749,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  swr@2.3.4:
-    resolution: {integrity: sha512-bYd2lrhc+VarcpkgWclcUi92wYCpOgMws9Sd1hG1ntAu0NEy+14CbotuFjshBU2kt9rYj9TSmDcybpxpeTU1fg==}
+  swr@2.3.5:
+    resolution: {integrity: sha512-4e7pjTVulZTIL+b/S0RYFsgDcTcXPLUOvBPqyh9YdD+PkHeEMoaPwDmF9Kv6I1nnPg1OFKhiiEYpsYaaE2W2jA==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -9697,7 +9697,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.4.1
 
-  swr@2.3.4(react@19.1.1):
+  swr@2.3.5(react@19.1.1):
     dependencies:
       dequal: 2.0.3
       react: 19.1.1
