@@ -22,12 +22,12 @@
     "@testing-library/jest-dom": "6.6.4",
     "@testing-library/react": "16.3.0",
     "@types/qs": "6.14.0",
-    "@types/react": "19.1.9",
+    "@types/react": "19.1.10",
     "@types/react-dom": "19.1.7",
     "jsdom": "26.1.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "react-router-dom": "7.8.0",
+    "react-router-dom": "7.8.1",
     "typescript": "5.9.2",
     "user-agent-data-types": "0.4.2",
     "vite": "7.1.2",
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "react-router-dom": "7.8.0",
+    "react-router-dom": "7.8.1",
     "typescript": "5.9.2"
   }
 }
