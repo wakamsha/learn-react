@@ -9,7 +9,7 @@
     "build": "pnpm prepare && pnpm copy && pnpm docgen"
   },
   "devDependencies": {
-    "typedoc": "0.28.10",
+    "typedoc": "0.28.11",
     "typedoc-plugin-missing-exports": "4.1.0",
     "typescript": "5.9.2",
     "yargs": "18.0.0"

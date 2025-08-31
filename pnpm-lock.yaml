@@ -112,11 +112,11 @@ importers:
   apps/doc:
     devDependencies:
       typedoc:
-        specifier: 0.28.10
-        version: 0.28.10(typescript@5.9.2)
+        specifier: 0.28.11
+        version: 0.28.11(typescript@5.9.2)
       typedoc-plugin-missing-exports:
         specifier: 4.1.0
-        version: 4.1.0(typedoc@0.28.10(typescript@5.9.2))
+        version: 4.1.0(typedoc@0.28.11(typescript@5.9.2))
       typescript:
         specifier: 5.9.2
         version: 5.9.2
@@ -4912,8 +4912,8 @@ packages:
     peerDependencies:
       typedoc: ^0.28.1
 
-  typedoc@0.28.10:
-    resolution: {integrity: sha512-zYvpjS2bNJ30SoNYfHSRaFpBMZAsL7uwKbWwqoCNFWjcPnI3e/mPLh2SneH9mX7SJxtDpvDgvd9/iZxGbo7daw==}
+  typedoc@0.28.11:
+    resolution: {integrity: sha512-1FqgrrUYGNuE3kImAiEDgAVVVacxdO4ZVTKbiOVDGkoeSB4sNwQaDpa8mta+Lw5TEzBFmGXzsg0I1NLRIoaSFw==}
     engines: {node: '>= 18', pnpm: '>= 10'}
     hasBin: true
     peerDependencies:
@@ -5218,11 +5218,6 @@ packages:
   yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
-
-  yaml@2.8.0:
-    resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
-    engines: {node: '>= 14.6'}
-    hasBin: true
 
   yaml@2.8.1:
     resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
@@ -9916,18 +9911,18 @@ snapshots:
       postcss-modules-values: 4.0.0(postcss@8.4.49)
       yargs: 17.7.2
 
-  typedoc-plugin-missing-exports@4.1.0(typedoc@0.28.10(typescript@5.9.2)):
+  typedoc-plugin-missing-exports@4.1.0(typedoc@0.28.11(typescript@5.9.2)):
     dependencies:
-      typedoc: 0.28.10(typescript@5.9.2)
+      typedoc: 0.28.11(typescript@5.9.2)
 
-  typedoc@0.28.10(typescript@5.9.2):
+  typedoc@0.28.11(typescript@5.9.2):
     dependencies:
       '@gerrit0/mini-shiki': 3.9.0
       lunr: 2.3.9
       markdown-it: 14.1.0
       minimatch: 9.0.5
       typescript: 5.9.2
-      yaml: 2.8.0
+      yaml: 2.8.1
 
   typescript-eslint@8.24.0(eslint@9.34.0(jiti@2.4.2))(typescript@5.9.2):
     dependencies:
@@ -10226,8 +10221,6 @@ snapshots:
   yallist@3.1.1: {}
 
   yaml@1.10.2: {}
-
-  yaml@2.8.0: {}
 
   yaml@2.8.1: {}
 
