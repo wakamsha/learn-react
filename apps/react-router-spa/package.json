@@ -27,7 +27,7 @@
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:*",
     "@react-router/dev": "7.8.2",
-    "@types/node": "22.18.1",
+    "@types/node": "22.18.3",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
     "@types/sort-by": "1.2.3",
