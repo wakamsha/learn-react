@@ -560,8 +560,8 @@ importers:
         specifier: 8.0.3
         version: 8.0.3(@types/react@19.1.13)(pixi.js@8.13.2)(react@19.1.1)
       chart.js:
-        specifier: 4.5.0
-        version: 4.5.0
+        specifier: 4.5.1
+        version: 4.5.1
       constate:
         specifier: 3.3.3
         version: 3.3.3(react@19.1.1)
@@ -579,7 +579,7 @@ importers:
         version: 6.14.0
       react-chartjs-2:
         specifier: 5.3.0
-        version: 5.3.0(chart.js@4.5.0)(react@19.1.1)
+        version: 5.3.0(chart.js@4.5.1)(react@19.1.1)
       react-konva:
         specifier: 19.0.10
         version: 19.0.10(@types/react@19.1.13)(konva@9.3.22)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -2299,8 +2299,8 @@ packages:
     resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
 
-  chart.js@4.5.0:
-    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
+  chart.js@4.5.1:
+    resolution: {integrity: sha512-GIjfiT9dbmHRiYi6Nl2yFCq7kkwdkp1W/lp2J99rX0yo9tgJGn3lKQATztIjb5tVtevcBtIdICNWqlq5+E8/Pw==}
     engines: {pnpm: '>=8'}
 
   check-error@2.1.1:
@@ -7090,7 +7090,7 @@ snapshots:
 
   chalk@5.6.0: {}
 
-  chart.js@4.5.0:
+  chart.js@4.5.1:
     dependencies:
       '@kurkle/color': 0.3.4
 
@@ -9262,9 +9262,9 @@ snapshots:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  react-chartjs-2@5.3.0(chart.js@4.5.0)(react@19.1.1):
+  react-chartjs-2@5.3.0(chart.js@4.5.1)(react@19.1.1):
     dependencies:
-      chart.js: 4.5.0
+      chart.js: 4.5.1
       react: 19.1.1
 
   react-dom@19.1.1(react@19.1.1):
