@@ -383,8 +383,8 @@ importers:
         specifier: 6.13.7
         version: 6.13.7
       mobx-react:
-        specifier: 9.2.0
-        version: 9.2.0(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+        specifier: 9.2.1
+        version: 9.2.1(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       qs:
         specifier: 6.14.0
         version: 6.14.0
@@ -3894,8 +3894,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mobx-react-lite@4.1.0:
-    resolution: {integrity: sha512-QEP10dpHHBeQNv1pks3WnHRCem2Zp636lq54M2nKO2Sarr13pL4u6diQXf65yzXUn0mkk18SyIDCm9UOJYTi1w==}
+  mobx-react-lite@4.1.1:
+    resolution: {integrity: sha512-iUxiMpsvNraCKXU+yPotsOncNNmyeS2B5DKL+TL6Tar/xm+wwNJAubJmtRSeAoYawdZqwv8Z/+5nPRHeQxTiXg==}
     peerDependencies:
       mobx: ^6.9.0
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -3907,8 +3907,8 @@ packages:
       react-native:
         optional: true
 
-  mobx-react@9.2.0:
-    resolution: {integrity: sha512-dkGWCx+S0/1mfiuFfHRH8D9cplmwhxOV5CkXMp38u6rQGG2Pv3FWYztS0M7ncR6TyPRQKaTG/pnitInoYE9Vrw==}
+  mobx-react@9.2.1:
+    resolution: {integrity: sha512-WJNNm0FB2n0Z0u+jS1QHmmWyV8l2WiAj8V8I/96kbUEN2YbYCoKW+hbbqKKRUBqElu0llxM7nWKehvRIkhBVJw==}
     peerDependencies:
       mobx: ^6.9.0
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -8843,7 +8843,7 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mobx-react-lite@4.1.0(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  mobx-react-lite@4.1.1(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       mobx: 6.13.7
       react: 19.1.1
@@ -8851,10 +8851,10 @@ snapshots:
     optionalDependencies:
       react-dom: 19.1.1(react@19.1.1)
 
-  mobx-react@9.2.0(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+  mobx-react@9.2.1(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
       mobx: 6.13.7
-      mobx-react-lite: 4.1.0(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      mobx-react-lite: 4.1.1(mobx@6.13.7)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
     optionalDependencies:
       react-dom: 19.1.1(react@19.1.1)
