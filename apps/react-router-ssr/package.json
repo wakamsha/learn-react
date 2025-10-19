@@ -17,7 +17,7 @@
     "@react-router/node": "7.9.1",
     "@react-router/serve": "7.9.1",
     "clsx": "2.1.1",
-    "isbot": "5.1.30",
+    "isbot": "5.1.31",
     "match-sorter": "8.1.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
