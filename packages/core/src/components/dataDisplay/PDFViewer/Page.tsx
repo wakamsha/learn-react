@@ -44,7 +44,7 @@ function useRenderCanvas(page: PDFPageProxy, viewport: PageViewport) {
 
       const canvasContext = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-      await page.render({ viewport, canvasContext }).promise;
+      await page.render({ canvas, viewport, canvasContext }).promise;
     })();
   }, [canvasRef, page, viewport]);
 
