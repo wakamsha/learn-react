@@ -1,6 +1,7 @@
 // @ts-check
 import { essentials, jsdoc, react, test, typescript } from '@wakamsha/eslint-config';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import oxlint from 'eslint-plugin-oxlint';
 
 export default [
   {
@@ -12,6 +13,7 @@ export default [
       '**/bin/*',
       '**/catalog/templates/*',
       '**/.react-router/*',
+      '**/apps/catalog/**/Stories.ts',
     ],
   },
 
@@ -92,4 +94,7 @@ export default [
 
   /* prettier */
   eslintConfigPrettier,
+
+  /* oxlint */
+  ...oxlint.configs['flat/all'],
 ];

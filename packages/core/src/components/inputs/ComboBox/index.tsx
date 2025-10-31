@@ -48,7 +48,9 @@ export const ComboBox = <T extends string | number>({
 
     const selectedItem = options.find(({ label }) => label === event.target.value);
 
-    selectedItem && onChange(selectedItem);
+    if (selectedItem) {
+      onChange(selectedItem);
+    }
   };
 
   return (

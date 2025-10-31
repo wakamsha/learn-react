@@ -75,7 +75,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
 function getFocusableNodes(scopeElement: HTMLElement): HTMLElement[] {
   const nodes = scopeElement.querySelectorAll(focusableElements.join(','));
 
-  return Array(...nodes) as HTMLElement[];
+  return [...nodes] as HTMLElement[];
 }
 
 /**

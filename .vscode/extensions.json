@@ -15,6 +15,7 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "DavidAnson.vscode-markdownlint",
+    "oxc.oxc-vscode",
 
     // Utility
     "streetsidesoftware.code-spell-checker"

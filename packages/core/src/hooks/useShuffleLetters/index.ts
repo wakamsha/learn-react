@@ -57,7 +57,7 @@ export function useShuffleLetters<T extends HTMLElement>(ref: RefObject<T | null
           running = false;
         }
 
-        // eslint-disable-next-line no-param-reassign
+        // oxlint-disable-next-line no-param-reassign
         ref.current.innerHTML = letters;
 
         if (running) {

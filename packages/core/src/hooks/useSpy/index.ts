@@ -42,12 +42,12 @@ type Callback = (element: HTMLElement, index: number) => void;
  */
 export function useSpy({ rootRef, offset = 0 }: Props) {
   const selectorRef = useRef<Selector>(null);
-  const callbackRef = useRef<Callback>(undefined);
+  const callbackRef = useRef<Callback>(null);
 
   const spy = useMemo(
     () => (selector: Selector, callback?: Callback) => {
       selectorRef.current = selector;
-      callbackRef.current = callback;
+      callbackRef.current = callback ?? null;
     },
     [],
   );

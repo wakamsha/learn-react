@@ -39,6 +39,8 @@ export default defineConfig({
       'reactrouter',
       'chartjs',
       'registerables',
+      'oxlint',
+      'tsgolint',
     ],
     // SVG-related terms
     ...['cdefs', 'cclip', 'crect', 'csvg', 'cpath', 'csvg'],

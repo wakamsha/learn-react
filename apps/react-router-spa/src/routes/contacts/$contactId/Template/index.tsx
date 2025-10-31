@@ -15,7 +15,7 @@ type Props = {
  */
 export const Template: FC<Props> = ({ contact }) => {
   const handleDestroy = (event: FormEvent) => {
-    // eslint-disable-next-line no-alert, no-restricted-globals
+    // oxlint-disable-next-line no-alert, no-restricted-globals
     const response = confirm('Please confirm you want to delete this record.');
 
     if (!response) {

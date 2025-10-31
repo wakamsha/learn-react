@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unknown-property */
+// oxlint-disable no-unknown-property
 import { Application, useApplication, useExtend } from '@pixi/react';
 import { Assets, Container, Sprite, Text, type Texture, type Ticker } from 'pixi.js';
 import { Suspense, use, useEffect, useRef, type FC } from 'react';

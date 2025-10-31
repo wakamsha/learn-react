@@ -37,6 +37,13 @@ async function exec() {
   writeFileSync('./dist/index.tsx', template(result), 'utf8');
 }
 
+/**
+ * テンプレートを生成する。
+ *
+ * @param {any[]} src ソース情報
+ *
+ * @returns {string} 生成されたテンプレート文字列
+ */
 function template(src) {
   return `
 /* eslint-disable react/self-closing-comp */

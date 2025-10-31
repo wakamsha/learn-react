@@ -41,6 +41,7 @@ export const Tabs = <T extends string | number>({ value, options, onChange, size
               name={groupName}
               value={index}
               checked={option.value === value}
+              aria-selected={option.value === value}
               disabled={option.disabled}
               onChange={handleChange}
             />

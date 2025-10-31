@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 /**
  * catalog の `src/constants/Stories.ts` を生成するテンプレートです。
  *

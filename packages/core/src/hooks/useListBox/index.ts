@@ -179,7 +179,7 @@ export function useListBox(itemCount: number): Response {
         const index = itemRefs.findIndex((ref) => {
           const key = event.key.toLowerCase();
           return (
-            ref.current?.textContent?.toLowerCase().startsWith(key) ??
+            ref.current?.textContent.toLowerCase().startsWith(key) ??
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(key)
           );
         });

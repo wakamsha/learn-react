@@ -66,7 +66,7 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
       </div>
       <div
         className={`${styleAnimation} ${styleType[type]} ${html ? styleLeave : ''}`}
-        // eslint-disable-next-line react/no-danger
+        // oxlint-disable-next-line no-danger
         dangerouslySetInnerHTML={{ __html: html }}
       />
     </div>

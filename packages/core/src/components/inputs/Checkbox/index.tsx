@@ -28,7 +28,8 @@ export const Checkbox = ({ checked, value, disabled, indeterminate = false, onCh
   const ariaChecked = indeterminate ? 'mixed' : checked;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    !disabled && onChange?.(event);
+    if (disabled) return;
+    onChange?.(event);
   };
 
   useEffect(() => {
