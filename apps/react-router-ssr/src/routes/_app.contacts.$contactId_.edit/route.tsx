@@ -21,7 +21,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 /**
  * Sets the title of the page.
  */
-export function meta({ data: { contact } }: Route.MetaArgs) {
+export function meta({ contact }: Route.MetaArgs['loaderData']) {
   const baseTitle = 'Address Book | React Router Tutorial';
 
   return [
