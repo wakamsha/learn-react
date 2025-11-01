@@ -17,15 +17,15 @@
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
     "match-sorter": "8.1.0",
-    "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "react-router": "7.9.1"
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-router": "7.9.5"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "19.1.13",
-    "@types/react-dom": "19.1.9",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "typescript": "5.9.3",
     "vite": "7.1.12"
   }
