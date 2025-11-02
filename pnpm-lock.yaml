@@ -377,8 +377,8 @@ importers:
         specifier: 3.3.3
         version: 3.3.3(react@19.1.1)
       jotai:
-        specifier: 2.14.0
-        version: 2.14.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
+        specifier: 2.15.1
+        version: 2.15.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1)
       mobx:
         specifier: 6.13.7
         version: 6.13.7
@@ -3570,8 +3570,8 @@ packages:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
 
-  jotai@2.14.0:
-    resolution: {integrity: sha512-JQkNkTnqjk1BlSUjHfXi+pGG/573bVN104gp6CymhrWDseZGDReTNniWrLhJ+zXbM6pH+82+UNJ2vwYQUkQMWQ==}
+  jotai@2.15.1:
+    resolution: {integrity: sha512-yHT1HAZ3ba2Q8wgaUQ+xfBzEtcS8ie687I8XVCBinfg4bNniyqLIN+utPXWKQE93LMF5fPbQSVRZqgpcN5yd6Q==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@babel/core': '>=7.0.0'
@@ -8611,7 +8611,7 @@ snapshots:
 
   jiti@2.4.2: {}
 
-  jotai@2.14.0(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1):
+  jotai@2.15.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.1.13)(react@19.1.1):
     optionalDependencies:
       '@babel/core': 7.28.5
       '@babel/template': 7.27.2
