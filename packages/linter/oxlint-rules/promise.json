@@ -1,0 +1,26 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "plugins": ["promise"],
+  "rules": {
+    // Require returning inside each `then()` to create readable and reusable Promise chains.
+    // `React.Suspense`, which is a use case that does not assume a return value, can be rather confusing.
+    "promise/always-return": [
+      "off",
+      {
+        "ignoreLastCallback": true
+      }
+    ],
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "promise/catch-or-return": "error",
+
+    // Disallow nested `then()` or `catch()` statements.
+    // Disallowing nesting may actually increase complexity.
+    "promise/no-nesting": ["off"],
+    "promise/no-promise-in-callback": "warn",
+    "promise/no-callback-in-promise": "warn",
+    "promise/avoid-new": "off",
+    "promise/no-new-statics": "error",
+    "promise/valid-params": "warn"
+  }
+}

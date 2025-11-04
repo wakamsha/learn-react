@@ -1,0 +1,29 @@
+{
+  "name": "@learn-react/linter",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint.config": "./eslint.config.js",
+    "./stylelint.config": "./stylelint.config.js"
+  },
+  "dependencies": {
+    "@wakamsha/eslint-config": "7.1.2",
+    "@wakamsha/stylelint-config": "4.0.2",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-oxlint": "1.25.0"
+  },
+  "devDependencies": {
+    "eslint": "9.38.0",
+    "oxlint": "1.25.0",
+    "oxlint-tsgolint": "0.4.0",
+    "stylelint": "16.25.0"
+  },
+  "peerDependencies": {
+    "eslint": "9.38.0",
+    "oxlint": "1.25.0",
+    "oxlint-tsgolint": "0.4.0",
+    "stylelint": "16.25.0"
+  }
+}

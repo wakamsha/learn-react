@@ -1,0 +1,47 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "plugins": ["jsdoc"],
+  "rules": {
+    // for TypeScript
+    "jsdoc/check-access": "error",
+    "jsdoc/check-property-names": "error",
+    "jsdoc/check-tag-names": [
+      "error",
+      {
+        "definedTags": ["remarks", "typeParam"]
+      }
+    ],
+    "jsdoc/empty-tags": "error",
+    "jsdoc/implements-on-classes": "error",
+    "jsdoc/no-defaults": "error",
+    "jsdoc/require-param": [
+      "error",
+      {
+        "checkDestructuredRoots": false
+      }
+    ],
+    "jsdoc/require-param-description": "error",
+    "jsdoc/require-param-name": "error",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-property": "error",
+    "jsdoc/require-property-description": "error",
+    "jsdoc/require-property-name": "error",
+    "jsdoc/require-property-type": "off",
+    "jsdoc/require-returns": ["off"],
+    "jsdoc/require-returns-description": "error",
+    "jsdoc/require-returns-type": "off",
+    "jsdoc/require-yields": "error"
+  },
+
+  "overrides": [
+    {
+      // for JavaScript
+      "files": ["**/*.{js,cjs,mjs}"],
+      "rules": {
+        "jsdoc/require-param-type": ["error"],
+        "jsdoc/require-returns": ["error"],
+        "jsdoc/require-returns-type": ["error"]
+      }
+    }
+  ]
+}

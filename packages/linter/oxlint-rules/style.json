@@ -1,0 +1,70 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "func-names": ["error"],
+    "func-style": ["off", "expression"],
+    "id-length": ["off"],
+    "max-depth": ["off", 4],
+    "max-lines": [
+      "off",
+      {
+        "max": 300,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-lines-per-function": [
+      "off",
+      {
+        "max": 50,
+        "skipBlankLines": true,
+        "skipComments": true,
+        "IIFEs": true
+      }
+    ],
+    "max-nested-callbacks": ["off"],
+    "max-params": ["off", 3],
+    "new-cap": [
+      "error",
+      {
+        "newIsCap": true,
+        "newIsCapExceptions": [],
+        "capIsNew": false,
+        "capIsNewExceptions": ["Immutable.Map", "Immutable.Set", "Immutable.List"]
+      }
+    ],
+    "no-array-constructor": ["error"],
+    "no-bitwise": ["off"],
+    "no-continue": ["error"],
+    "no-lonely-if": ["error"],
+    "no-multi-assign": ["error"],
+    "no-negated-condition": "off",
+    "no-nested-ternary": "off",
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-ternary": ["off"],
+    "no-unneeded-ternary": [
+      "error",
+      {
+        "defaultAssignment": false
+      }
+    ],
+    "operator-assignment": ["error", "always"],
+    "prefer-exponentiation-operator": ["error"],
+    "prefer-object-spread": ["error"],
+    "sort-keys": [
+      "off",
+      "asc",
+      {
+        "caseSensitive": false,
+        "natural": true
+      }
+    ],
+    "sort-vars": ["off"],
+    "unicode-bom": ["error", "never"]
+  }
+}
