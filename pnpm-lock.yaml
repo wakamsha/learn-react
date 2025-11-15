@@ -558,7 +558,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.3
-        version: 8.0.3(@types/react@19.1.13)(pixi.js@8.14.0)(react@19.1.1)
+        version: 8.0.3(@types/react@19.1.13)(pixi.js@8.14.1)(react@19.1.1)
       chart.js:
         specifier: 4.5.1
         version: 4.5.1
@@ -572,8 +572,8 @@ importers:
         specifier: 10.0.9
         version: 10.0.9
       pixi.js:
-        specifier: 8.14.0
-        version: 8.14.0
+        specifier: 8.14.1
+        version: 8.14.1
       qs:
         specifier: 6.14.0
         version: 6.14.0
@@ -4213,8 +4213,8 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  pixi.js@8.14.0:
-    resolution: {integrity: sha512-ituDiEBb1Oqx56RYwTtC6MjPUhPfF/i15fpUv5oEqmzC/ce3SaSumulJcOjKG7+y0J0Ekl9Rl4XTxaUw+MVFZw==}
+  pixi.js@8.14.1:
+    resolution: {integrity: sha512-cwiY5VdzpbjoxW/n378bHBaPbZF8e81rYS36rfgUOSHyqLJ7AvC/YYUVfybnjJrT8/zVJ/gBIEpVSmt+A+FC6Q==}
 
   playwright-core@1.56.1:
     resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
@@ -6292,10 +6292,10 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.3(@types/react@19.1.13)(pixi.js@8.14.0)(react@19.1.1)':
+  '@pixi/react@8.0.3(@types/react@19.1.13)(pixi.js@8.14.1)(react@19.1.1)':
     dependencies:
       its-fine: 2.0.0(@types/react@19.1.13)(react@19.1.1)
-      pixi.js: 8.14.0
+      pixi.js: 8.14.1
       react: 19.1.1
       react-reconciler: 0.31.0(react@19.1.1)
     transitivePeerDependencies:
@@ -9165,7 +9165,7 @@ snapshots:
 
   pidtree@0.6.0: {}
 
-  pixi.js@8.14.0:
+  pixi.js@8.14.1:
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/css-font-loading-module': 0.0.12
