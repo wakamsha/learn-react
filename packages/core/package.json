@@ -31,7 +31,7 @@
     "typescript": "5.9.3",
     "user-agent-data-types": "0.4.2",
     "vite": "7.2.2",
-    "vitest": "4.0.8"
+    "vitest": "4.0.9"
   },
   "peerDependencies": {
     "react": "19.1.1",

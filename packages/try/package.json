@@ -33,7 +33,7 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "typescript": "5.9.3",
-    "vitest": "4.0.8"
+    "vitest": "4.0.9"
   },
   "peerDependencies": {
     "@types/react": "19.1.13",
