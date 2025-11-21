@@ -4,9 +4,10 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "lint:es": "oxlint && eslint './**/*.{js,cjs,ts,tsx}'",
+    "lint:es": "eslint",
+    "lint:oxc": "oxlint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
-    "lint": "pnpm lint:style & pnpm lint:es",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "test": "vitest"
   },
   "dependencies": {

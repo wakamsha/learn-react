@@ -14,10 +14,12 @@ pre-commit:
       glob: '*.{js,cjs,ts,tsx,md,json,css,html,yml,yaml}'
       run: pnpm prettier -c {staged_files}
 
-    - name: eslint
-      glob: '*.{js,cjs,ts,tsx}'
-      run: pnpm eslint {staged_files}
-
-    - name: stylelint
-      glob: '*.{ts,tsx,js}'
-      run: pnpm stylelint {staged_files}
+  commands:
+    core:
+      root: packages/core
+      glob: '*.{js,ts,tsx}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
+    try:
+      root: packages/try
+      glob: '*.{js,ts,tsx}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}

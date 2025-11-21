@@ -29,18 +29,9 @@ importers:
       eslint-config-prettier:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.1(jiti@2.4.2))
-      eslint-plugin-oxlint:
-        specifier: 1.24.0
-        version: 1.24.0
       lefthook:
         specifier: 1.13.6
         version: 1.13.6
-      oxlint:
-        specifier: 1.25.0
-        version: 1.25.0(oxlint-tsgolint@0.4.0)
-      oxlint-tsgolint:
-        specifier: 0.4.0
-        version: 0.4.0
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -478,6 +469,9 @@ importers:
         specifier: 1.3.0
         version: 1.3.0
     devDependencies:
+      '@learn-react/linter':
+        specifier: workspace:*
+        version: link:../linter
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
         version: link:../tsconfig
@@ -496,9 +490,18 @@ importers:
       '@types/react-dom':
         specifier: 19.1.9
         version: 19.1.9(@types/react@19.1.13)
+      eslint:
+        specifier: 9.38.0
+        version: 9.38.0(jiti@2.4.2)
       jsdom:
         specifier: 27.2.0
         version: 27.2.0(postcss@8.5.6)
+      oxlint:
+        specifier: 1.25.0
+        version: 1.25.0(oxlint-tsgolint@0.4.0)
+      oxlint-tsgolint:
+        specifier: 0.4.0
+        version: 0.4.0
       react:
         specifier: 19.1.1
         version: 19.1.1
@@ -508,6 +511,9 @@ importers:
       react-router-dom:
         specifier: 7.9.1
         version: 7.9.1(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      stylelint:
+        specifier: 16.25.0
+        version: 16.25.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -3059,9 +3065,6 @@ packages:
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
-
-  eslint-plugin-oxlint@1.24.0:
-    resolution: {integrity: sha512-eK41VTdYfq8HJH5tGxC6EMdfmCpzXbM5SAqyAU9HProtb5YRCxM9vT2PUfLbGw9EptUvPGF4o9cVUvK9hCCB1g==}
 
   eslint-plugin-oxlint@1.25.0:
     resolution: {integrity: sha512-grS4KdR9FAxoQC+wMkepeQHL4osMhoYfUI11Pot6Gitqr4wWi+JZrX0Shr8Bs9fjdWhEjtaZIV6cr4mbfytmyw==}
@@ -8337,10 +8340,6 @@ snapshots:
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.7.3
-
-  eslint-plugin-oxlint@1.24.0:
-    dependencies:
-      jsonc-parser: 3.3.1
 
   eslint-plugin-oxlint@1.25.0:
     dependencies:

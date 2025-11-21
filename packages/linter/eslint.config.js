@@ -18,6 +18,12 @@ export default [
   },
 
   ...essentials,
+  ...typescript,
+  ...react,
+  ...jsdoc,
+  ...test.essentials,
+  ...test.react,
+
   {
     rules: {
       'unicorn/filename-case': [
@@ -60,7 +66,6 @@ export default [
     },
   },
 
-  ...typescript,
   // {
   //   files: ['apps/react-router-ssr/**/*'],
   //   rules: {
@@ -69,14 +74,12 @@ export default [
   //   },
   // },
 
-  ...react,
   // {
   //   rules: {
   //     'jsx-a11y/no-autofocus': ['off'],
   //   },
   // },
 
-  ...jsdoc,
   // {
   //   files: ['apps/{routing,statement}/**/*', 'packages/try/**/*', '**/*.story.tsx'],
   //   rules: {
@@ -85,9 +88,6 @@ export default [
   //     'jsdoc/require-param-description': ['off'],
   //   },
   // },
-
-  ...test.essentials,
-  ...test.react,
 
   // {
   //   rules: {

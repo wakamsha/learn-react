@@ -27,8 +27,9 @@
     "routing": "  pnpm -F '@learn-react/routing'",
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",
-    "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}';    oxlint './**/*.{js,ts,tsx}';       eslint './**/*.{js,cjs,ts,tsx}';       stylelint './**/*.{ts,tsx}'",
-    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; oxlint './**/*.{js,ts,tsx}' --fix; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
+    "linter": "   pnpm -F '@learn-react/linter'",
+    "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}'    && oxlint './**/*.{js,ts,tsx}'       && eslint './**/*.{js,cjs,ts,tsx}'       && stylelint './**/*.{ts,tsx}'",
+    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w && oxlint './**/*.{js,ts,tsx}' --fix && eslint './**/*.{js,cjs,ts,tsx}' --fix && stylelint './**/*.{ts,tsx}' --fix"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
@@ -38,10 +39,7 @@
     "cspell": "9.3.2",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-oxlint": "1.24.0",
     "lefthook": "1.13.6",
-    "oxlint": "1.25.0",
-    "oxlint-tsgolint": "0.4.0",
     "prettier": "3.6.2",
     "prettier-plugin-organize-imports": "4.3.0",
     "stylelint": "16.26.0",

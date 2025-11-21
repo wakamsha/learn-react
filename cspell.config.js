@@ -1,3 +1,4 @@
+// oxlint-disable no-useless-spread
 import { defineConfig } from 'cspell';
 
 export default defineConfig({
@@ -40,6 +41,7 @@ export default defineConfig({
       'chartjs',
       'registerables',
       'oxlint',
+      'oxlintrc',
       'tsgolint',
     ],
     // SVG-related terms
