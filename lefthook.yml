@@ -15,6 +15,10 @@ pre-commit:
       run: pnpm prettier -c {staged_files}
 
   commands:
+    builder:
+      root: packages/builder
+      glob: '*.{js,ts}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
     core:
       root: packages/core
       glob: '*.{js,ts,tsx}'
