@@ -19,6 +19,10 @@ pre-commit:
       root: packages/core
       glob: '*.{js,ts,tsx}'
       run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
+    icon:
+      root: packages/icon
+      glob: '*.{js,ts,tsx}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
     try:
       root: packages/try
       glob: '*.{js,ts,tsx}'

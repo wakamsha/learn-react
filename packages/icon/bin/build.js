@@ -1,6 +1,6 @@
 // @ts-check
 import { load } from 'cheerio';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { glob } from 'glob';
 import { optimize } from 'svgo';
 
@@ -63,4 +63,4 @@ export const iconElements: IconElements = {
   `;
 }
 
-exec();
+await exec();
