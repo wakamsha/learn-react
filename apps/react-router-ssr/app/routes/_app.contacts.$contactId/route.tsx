@@ -1,3 +1,4 @@
+import { useLoaderData } from 'react-router';
 import { getContact, updateContact } from '../../data';
 import type { Route } from './+types/route';
 import { Template } from './Template';
@@ -31,20 +32,19 @@ export async function action({ params, request }: Route.ActionArgs) {
 }
 
 /**
- * Sets the title of the page.
- */
-export function meta({ contact }: Route.MetaArgs['loaderData']) {
-  const baseTitle = 'Address Book | React Router Tutorial';
-
-  return [
-    {
-      title:
-        contact.first || contact.last ? `${contact.first} ${contact.last} | ${baseTitle}` : `No Name | ${baseTitle}`,
-    },
-  ];
-}
-
-/**
  * Renders the contact page.
  */
-export default ({ loaderData: { contact } }: Route.ComponentProps) => <Template contact={contact} />;
+export default () => {
+  const { contact } = useLoaderData<typeof loader>();
+
+  const baseTitle = 'Address Book | React Router Tutorial';
+
+  return (
+    <>
+      <title>
+        {contact.first || contact.last ? `${contact.first} ${contact.last} | ${baseTitle}` : `No Name | ${baseTitle}`}
+      </title>
+      <Template contact={contact} />
+    </>
+  );
+};

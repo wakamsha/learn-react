@@ -38,7 +38,18 @@ pre-commit:
             glob: '*.{ts,tsx}'
             run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
           - name: style
-            glob: '*.{css}'
+            glob: '*.css'
+            run: pnpm lint:style {staged_files}
+
+    - name: rr-ssr
+      root: apps/react-router-ssr
+      group:
+        jobs:
+          - name: ts
+            glob: '*.{ts,tsx}'
+            run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
+          - name: style
+            glob: '*.css'
             run: pnpm lint:style {staged_files}
 
     - name: builder

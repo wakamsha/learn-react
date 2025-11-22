@@ -1,0 +1,32 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // eslint.config.js や tsconfig.base.json のようなパス解決ができないため、やむなく相対パスで参照しています。
+  "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"],
+
+  "overrides": [
+    {
+      "files": ["app/**/*"],
+      "rules": {
+        "import/consistent-type-specifier-style": [
+          "error",
+          // React Router の Route Module Type は top-level import が必要。
+          // see: https://reactrouter.com/how-to/route-module-type-safety#2-include-the-generated-types-in-tsconfig
+          "prefer-top-level"
+        ]
+      }
+    },
+    {
+      "files": ["app/**/{root,route,routes}.*"],
+      "rules": {
+        "import/no-default-export": ["off"]
+      }
+    },
+    {
+      "files": ["*.config.*"],
+      "rules": {
+        "unicorn/filename-case": ["off"]
+      }
+    }
+  ]
+}
