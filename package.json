@@ -28,8 +28,7 @@
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",
     "linter": "   pnpm -F '@learn-react/linter'",
-    "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}'    && oxlint './**/*.{js,ts,tsx}'       && eslint './**/*.{js,cjs,ts,tsx}'       && stylelint './**/*.{ts,tsx}'",
-    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w && oxlint './**/*.{js,ts,tsx}' --fix && eslint './**/*.{js,cjs,ts,tsx}' --fix && stylelint './**/*.{ts,tsx}' --fix"
+    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
