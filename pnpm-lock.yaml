@@ -75,6 +75,9 @@ importers:
       '@learn-react/builder':
         specifier: workspace:1.0.0
         version: link:../../packages/builder
+      '@learn-react/linter':
+        specifier: workspace:*
+        version: link:../../packages/linter
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
@@ -90,15 +93,27 @@ importers:
       chokidar:
         specifier: 4.0.3
         version: 4.0.3
+      eslint:
+        specifier: 9.38.0
+        version: 9.38.0(jiti@2.4.2)
       glob:
         specifier: 11.1.0
         version: 11.1.0
       npm-run-all2:
         specifier: 8.0.4
         version: 8.0.4
+      oxlint:
+        specifier: 1.25.0
+        version: 1.25.0(oxlint-tsgolint@0.4.0)
+      oxlint-tsgolint:
+        specifier: 0.4.0
+        version: 0.4.0
       playwright:
         specifier: 1.56.1
         version: 1.56.1
+      stylelint:
+        specifier: 16.25.0
+        version: 16.25.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3

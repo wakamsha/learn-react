@@ -55,5 +55,5 @@ function makeTree({ name, sourceCode, children }, prefix = '') {
  * @returns {string} - PascalCase に変換された文字列
  */
 function pascalCase(value) {
-  return `-${value.replace(/_/g, '-')}`.replace(/-(\w)/g, (_, m) => m.toUpperCase());
+  return `-${value.replaceAll('_', '-')}`.replaceAll(/-(\w)/g, (_, m) => m.toUpperCase());
 }

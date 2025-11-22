@@ -1,5 +1,5 @@
 // @ts-check
-import { exec } from 'child_process';
+import { exec } from 'node:child_process';
 import playwright from 'playwright';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -69,24 +69,26 @@ async function main() {
  * 指定のブラウザで対象となる全ての story のスクリーンショットを撮影します。
  *
  * @typedef {object} CaptureScreenshotsProps
- * @property {BrowserType} browserType
- * @property {string[]} storyIdList
+ * @property {BrowserType} browserType - ブラウザの種類
+ * @property {string[]} storyIdList - キャプチャする story の ID 一覧
  *
- * @param {CaptureScreenshotsProps} props
+ * @param {CaptureScreenshotsProps} props - パラメーターオブジェクト
  */
 async function captureScreenshotsPerBrowser({ browserType, storyIdList }) {
-  const browserIndex = browserTypes.findIndex((b) => b === browserType);
+  const browserIndex = browserTypes.indexOf(browserType);
   const browser = await playwright[browserType].launch({ headless: true });
   const page = await browser.newPage();
 
-  for (const storyId of storyIdList) {
-    await captureScreenshot({
-      storyId,
-      browserType,
-      page,
-      url: `${baseUrl}:${port + browserIndex}/preview.html`,
-    });
-  }
+  await Promise.all(
+    storyIdList.map((storyId) =>
+      captureScreenshot({
+        storyId,
+        browserType,
+        page,
+        url: `${baseUrl}:${port + browserIndex}/preview.html`,
+      }),
+    ),
+  );
 
   browser.close();
 }
@@ -96,11 +98,11 @@ async function captureScreenshotsPerBrowser({ browserType, storyIdList }) {
  *
  * @typedef {object} CaptureScreenshotProps
  * @property {string} storyId キャプチャする story の ID
- * @property {string} url
- * @property {BrowserType} browserType
+ * @property {string} url 接続先の URL
+ * @property {BrowserType} browserType - ブラウザの種類
  * @property {playwright.Page} page ブラウザのタブに相当する
  *
- * @param {CaptureScreenshotProps} props
+ * @param {CaptureScreenshotProps} props - パラメーターオブジェクト
  */
 async function captureScreenshot({ storyId, url, browserType, page }) {
   await page.goto(`${url}?storyId=${storyId}`, { waitUntil: 'load' });
@@ -120,10 +122,10 @@ async function captureScreenshot({ storyId, url, browserType, page }) {
  * @remarks
  * story の ID は、 catalog のナビゲーションリンクの `href` 値から抽出します。
  *
- * @param {string} url
+ * @param {string} url 接続先の URL
  * @param {string} selector catalog のナビゲーションを参照できるセレクター。
  *
- * @returns storyId の配列
+ * @returns {Promise<string[]>} -storyId の配列
  */
 async function getStoryIdList(url, selector) {
   const [browserType] = browserTypes;
@@ -138,10 +140,13 @@ async function getStoryIdList(url, selector) {
   const storyIdList = [];
 
   for (let i = 0; i < count; i++) {
+    // oxlint-disable-next-line no-await-in-loop
     const element = await locators.nth(i);
+    // oxlint-disable-next-line no-await-in-loop
     const href = await element.getAttribute('href');
 
     if (href === null) {
+      // oxlint-disable-next-line no-continue
       continue;
     }
 
@@ -157,13 +162,15 @@ async function getStoryIdList(url, selector) {
  * 指定の時間（秒）だけ待ちます。
  *
  * @param {number} sec 秒
+ *
+ * @returns {Promise<void>} 指定した時間だけ待機する Promise
  */
 function wait(sec) {
-  return new Promise((result) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      result(undefined);
+      resolve();
     }, sec * 1000);
   });
 }
 
-main();
+await main();
