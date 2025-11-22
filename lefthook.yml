@@ -27,7 +27,7 @@ pre-commit:
             glob: '*.{ts,tsx}'
             run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
           - name: style
-            glob: '*.{css}'
+            glob: '*.css'
             run: pnpm lint:style {staged_files}
 
     - name: rr-spa
@@ -51,6 +51,11 @@ pre-commit:
           - name: style
             glob: '*.css'
             run: pnpm lint:style {staged_files}
+
+    - name: routing
+      root: apps/routing
+      glob: '*.{js,ts,tsx}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
 
     - name: builder
       root: packages/builder
