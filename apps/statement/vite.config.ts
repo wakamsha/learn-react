@@ -5,6 +5,6 @@ export default defineConfig(({ mode }): UserConfig => {
   console.info({ mode });
 
   return createUserConfig({
-    basePath: __dirname,
+    basePath: import.meta.dirname,
   });
 });

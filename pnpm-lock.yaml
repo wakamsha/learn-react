@@ -464,6 +464,9 @@ importers:
       '@learn-react/builder':
         specifier: workspace:1.0.0
         version: link:../../packages/builder
+      '@learn-react/linter':
+        specifier: workspace:*
+        version: link:../../packages/linter
       '@learn-react/tsconfig':
         specifier: workspace:1.0.0
         version: link:../../packages/tsconfig
@@ -476,6 +479,15 @@ importers:
       '@types/react-dom':
         specifier: 19.1.9
         version: 19.1.9(@types/react@19.1.13)
+      eslint:
+        specifier: 9.38.0
+        version: 9.38.0(jiti@2.4.2)
+      oxlint:
+        specifier: 1.25.0
+        version: 1.25.0(oxlint-tsgolint@0.4.0)
+      stylelint:
+        specifier: 16.25.0
+        version: 16.25.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
