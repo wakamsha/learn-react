@@ -6,10 +6,10 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "typegen:css": "tcm src",
-    "lint:es": "eslint",
     "lint:oxc": "oxlint",
+    "lint:es": "eslint",
     "lint:style": "stylelint './**/*.css'",
-    "lint": "pnpm lint:es && pnpm lint:oxc && pnpm lint:style",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "develop": "vite",
     "start": "pnpm typegen:css -w & pnpm typecheck --watch & pnpm develop",
     "build": "pnpm typegen:css && pnpm typecheck && vite build",

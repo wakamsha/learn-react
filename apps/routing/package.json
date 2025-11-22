@@ -8,10 +8,10 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "lint:es": "eslint",
     "lint:oxc": "oxlint",
+    "lint:es": "eslint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
-    "lint": "pnpm lint:es && pnpm lint:oxc && pnpm lint:style",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "develop": "vite",
     "start": "pnpm typecheck --watch & pnpm develop",
     "build": "pnpm typecheck && vite build",

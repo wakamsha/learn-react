@@ -12,10 +12,10 @@
   "scripts": {
     "develop": "vite",
     "type-check": "tsc --noEmit",
-    "lint:es": "eslint",
     "lint:oxc": "oxlint",
+    "lint:es": "eslint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
-    "lint": "pnpm lint:es && pnpm lint:oxc && pnpm lint:style",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "start": "pnpm type-check --watch & pnpm develop",
     "build": "pnpm type-check && vite build",
     "preview": "vite preview"
