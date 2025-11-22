@@ -38,7 +38,7 @@
     "eslint": "9.38.0",
     "jsdom": "27.2.0",
     "oxlint": "1.29.0",
-    "oxlint-tsgolint": "0.4.0",
+    "oxlint-tsgolint": "0.8.1",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "stylelint": "16.25.0",
