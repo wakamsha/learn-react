@@ -65,9 +65,7 @@ export const Modal: FC<Props> = ({ children, open, onLightDismiss }) => {
   }, [onLightDismiss]);
 
   return (
-    // oxlint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    // oxlint-disable-next-line react/no-unknown-property
+    // oxlint-disable-next-line no-unknown-property
     <dialog ref={dialogRef} className={styleBase} closedby={closedBy}>
       {children}
     </dialog>
