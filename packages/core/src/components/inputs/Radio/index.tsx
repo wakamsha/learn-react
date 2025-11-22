@@ -19,7 +19,8 @@ type Props = {
  */
 export const Radio = ({ name, checked = false, disabled, value, onChange }: Props) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    !disabled && onChange?.(event);
+    if (disabled) return;
+    onChange?.(event);
   };
 
   return (

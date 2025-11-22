@@ -1,0 +1,6 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  // eslint.config.js や tsconfig.base.json のようなパス解決ができないため、やむなく相対パスで参照しています。
+  "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"]
+}

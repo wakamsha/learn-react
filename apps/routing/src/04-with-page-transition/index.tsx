@@ -1,3 +1,4 @@
+// oxlint-disable catch-or-return
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { withSuspense } from '@learn-react/core/src/helpers/Component';

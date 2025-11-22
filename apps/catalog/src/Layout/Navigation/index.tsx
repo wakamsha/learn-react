@@ -181,7 +181,7 @@ const styleCaptionSubPackage = css`
 `;
 
 type TreeProps = {
-  // eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
+  // oxlint-disable-next-line @typescript-eslint/consistent-indexed-object-style
   value: Record<string, { [key: string]: ValueOf<TreeProps['value']> }> | { Component: FC; sourceCode: string };
   basePath: string;
   query: RegExp;

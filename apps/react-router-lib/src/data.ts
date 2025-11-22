@@ -64,7 +64,7 @@ const fakeContacts = {
   },
 
   async destroy(id: string): Promise<null> {
-    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    // oxlint-disable-next-line no-dynamic-delete
     delete fakeContacts.records[id];
     return null;
   },

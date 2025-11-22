@@ -14,7 +14,9 @@ type Props = {
  */
 export const Item = ({ value, active, disabled, onClick }: Props) => {
   const handleClick = () => {
-    !disabled && value && onClick(value);
+    if (!disabled && value) {
+      onClick(value);
+    }
   };
 
   return (

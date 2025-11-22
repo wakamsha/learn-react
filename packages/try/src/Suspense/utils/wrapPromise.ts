@@ -12,6 +12,7 @@ export function wrapPromise<T>(promise: Promise<T>) {
       status = 'fulfilled';
       result = r;
     },
+    // oxlint-disable-next-line catch-error-name
     (error_: unknown) => {
       status = 'rejected';
       error = error_ as ErrorResult;

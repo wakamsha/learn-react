@@ -27,8 +27,8 @@
     "routing": "  pnpm -F '@learn-react/routing'",
     "statement": "pnpm -F '@learn-react/statement'",
     "try": "      pnpm -F '@learn-react/try'",
-    "lint": "  prettier -c './**/*.{js,cjs,ts,tsx,md}';    eslint './**/*.{js,cjs,ts,tsx}';       stylelint './**/*.{ts,tsx}'",
-    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w; eslint './**/*.{js,cjs,ts,tsx}' --fix; stylelint './**/*.{ts,tsx}' --fix"
+    "linter": "   pnpm -F '@learn-react/linter'",
+    "format": "prettier -c './**/*.{js,cjs,ts,tsx,md}' -w"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",

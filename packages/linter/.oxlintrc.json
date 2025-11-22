@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "promise", "unicorn", "react", "jsx-a11y", "jsdoc"],
+  "extends": [
+    "./oxlint-rules/best-practices.json",
+    "./oxlint-rules/errors.json",
+    "./oxlint-rules/es6.json",
+    "./oxlint-rules/style.json",
+    "./oxlint-rules/variables.json",
+    "./oxlint-rules/import.json",
+    "./oxlint-rules/promise.json",
+    "./oxlint-rules/unicorn.json",
+    "./oxlint-rules/jsdoc.json",
+    "./oxlint-rules/react.json",
+    "./oxlint-rules/typescript.json",
+    "./oxlint-rules/vitest.json"
+  ],
+  "categories": {
+    "correctness": "off"
+  },
+  "env": {
+    "builtin": true,
+    "es2024": true
+  },
+  "ignorePatterns": ["**/bin/*", "**/build/*", "**/dist/*", "**/node_modules/*"],
+
+  "rules": {
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        },
+        "ignore": "*.story.tsx$"
+      }
+    ]
+  },
+
+  "overrides": [
+    {
+      "files": ["**/*.config.*"],
+      "rules": {
+        "import/no-default-export": ["off"]
+      }
+    }
+  ]
+}

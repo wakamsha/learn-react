@@ -131,7 +131,7 @@ const BunnySprite: FC<BunnySpriteProps> = ({ assetsPromise }) => {
 
     const animate = () => {
       itemList.forEach((item, i) => {
-        // eslint-disable-next-line no-param-reassign
+        // oxlint-disable-next-line no-param-reassign
         item.rotation += 0.01 * (i % 2 ? 1 : -1);
       });
     };

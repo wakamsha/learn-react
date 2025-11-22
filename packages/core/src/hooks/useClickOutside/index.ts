@@ -26,7 +26,9 @@ export function useClickOutside<T extends HTMLElement>(
 
   useEffect(() => {
     const listener = (event: Event) => {
-      !ref.current?.contains(event.target as HTMLElement) && callback(event);
+      if (!ref.current?.contains(event.target as HTMLElement)) {
+        callback(event);
+      }
     };
 
     if (enabled) {

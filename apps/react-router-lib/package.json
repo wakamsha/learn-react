@@ -6,6 +6,10 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "typegen:css": "tcm src",
+    "lint:oxc": "oxlint",
+    "lint:es": "eslint",
+    "lint:style": "stylelint './**/*.css'",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "develop": "vite",
     "start": "pnpm typegen:css -w & pnpm typecheck --watch & pnpm develop",
     "build": "pnpm typegen:css && pnpm typecheck && vite build",
@@ -24,11 +28,15 @@
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:*",
+    "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:*",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "5.1.1",
+    "eslint": "9.38.0",
+    "oxlint": "1.25.0",
+    "stylelint": "16.25.0",
     "typed-css-modules": "0.9.1",
     "typescript": "5.9.3",
     "vite": "7.2.4"

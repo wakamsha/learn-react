@@ -4,3 +4,5 @@ build/
 .react-router/
 Stories.ts
 **/*.css.d.ts
+Dockerfile
+Dockerfile.*

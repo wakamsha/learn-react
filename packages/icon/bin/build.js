@@ -1,6 +1,6 @@
 // @ts-check
 import { load } from 'cheerio';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { glob } from 'glob';
 import { optimize } from 'svgo';
 
@@ -37,6 +37,13 @@ async function exec() {
   writeFileSync('./dist/index.tsx', template(result), 'utf8');
 }
 
+/**
+ * テンプレートを生成する。
+ *
+ * @param {any[]} src ソース情報
+ *
+ * @returns {string} 生成されたテンプレート文字列
+ */
 function template(src) {
   return `
 /* eslint-disable react/self-closing-comp */
@@ -56,4 +63,4 @@ export const iconElements: IconElements = {
   `;
 }
 
-exec();
+await exec();

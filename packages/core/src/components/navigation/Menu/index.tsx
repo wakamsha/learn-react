@@ -207,7 +207,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       if (/[\w!"#$%&'()*+,./:;<=>?@[\\-~]/.test(event.key)) {
         const index = itemRefs.findIndex(
           (ref) =>
-            ref.current?.textContent?.toLowerCase().startsWith(event.key.toLowerCase()) ??
+            ref.current?.textContent.toLowerCase().startsWith(event.key.toLowerCase()) ??
             ref.current?.getAttribute('aria-label')?.toLowerCase().startsWith(event.key.toLowerCase()),
         );
 

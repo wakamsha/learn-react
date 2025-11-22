@@ -8,6 +8,10 @@
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "lint:oxc": "oxlint",
+    "lint:es": "eslint",
+    "lint:style": "stylelint './**/*.{ts,tsx}'",
+    "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "develop": "vite",
     "start": "pnpm typecheck --watch & pnpm develop",
     "build": "pnpm typecheck && vite build",
@@ -23,9 +27,13 @@
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
+    "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
+    "eslint": "9.38.0",
+    "oxlint": "1.25.0",
+    "stylelint": "16.25.0",
     "typescript": "5.9.3",
     "vite": "7.2.4"
   }

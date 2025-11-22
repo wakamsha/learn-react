@@ -60,7 +60,8 @@ export const Select = <T extends string | number>({
   const value = propValue ?? (selectedIndex !== undefined ? flattenedOptions[selectedIndex].value : undefined);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    !disabled && onChange(flattenedOptions[event.target.selectedIndex], event.target.selectedIndex);
+    if (disabled) return;
+    onChange(flattenedOptions[event.target.selectedIndex], event.target.selectedIndex);
   };
 
   return (

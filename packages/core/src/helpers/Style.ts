@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
 import { Color, FontFamily, Shadow } from '../constants/Style';
@@ -102,6 +103,7 @@ export function textEllipsis() {
  * @see https://piccalil.li/blog/a-more-modern-css-reset/
  */
 export function applyResetStyle() {
+  // oxlint-disable-next-line no-unused-expressions
   injectGlobal`
     /* Box sizing rules */
     *,
@@ -209,7 +211,7 @@ export function applyResetStyle() {
  * アプリケーション全体にベースとなるスタイルを適用します。
  */
 export function applyGlobalStyle() {
-  /* eslint-disable @typescript-eslint/no-unsafe-argument */
+  // oxlint-disable-next-line no-unused-expressions
   injectGlobal`
     @font-face {
       font-family: 'Noto Sans Japanese';

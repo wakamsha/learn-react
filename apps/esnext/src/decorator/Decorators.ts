@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable func-names */
-/* eslint-disable no-param-reassign */
+// oxlint-disable func-names
+// oxlint-disable no-param-reassign
 
 /**
  * 関数デコレータ
@@ -21,7 +21,7 @@ export function outputLog(target: any, propKey: string, descriptor: PropertyDesc
     const key = `${target.constructor.name}#${propKey}`;
     console.info(`${key}: start`);
     console.time(key);
-    // eslint-disable-next-line prefer-rest-params
+    // oxlint-disable-next-line prefer-rest-params
     const returnValue = Reflect.apply(origin, this, arguments);
     if (returnValue) {
       return returnValue.then((returnValue_: any) => {

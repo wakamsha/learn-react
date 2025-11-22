@@ -1,0 +1,144 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "array-callback-return": [
+      "error",
+      {
+        "allowImplicit": true
+      }
+    ],
+    "block-scoped-var": ["error"],
+    "class-methods-use-this": ["off"],
+    "curly": "off",
+    "default-case": ["off"],
+    "default-case-last": ["error"],
+    "default-param-last": ["error"],
+    "eqeqeq": [
+      "error",
+      "always",
+      {
+        "null": "ignore"
+      }
+    ],
+    "grouped-accessor-pairs": ["error"],
+    "guard-for-in": ["error"],
+    "max-classes-per-file": ["off", 1],
+    "no-alert": ["error"],
+    "no-caller": ["error"],
+    "no-constructor-return": ["error"],
+    "no-div-regex": ["off"],
+    "no-else-return": [
+      "error",
+      {
+        "allowElseIf": false
+      }
+    ],
+    "no-empty-function": [
+      "error",
+      {
+        "allow": ["arrowFunctions", "functions", "methods", "constructors"]
+      }
+    ],
+    "no-empty-pattern": ["error"],
+    "no-empty-static-block": ["error"],
+    "no-eq-null": ["off"],
+    "no-eval": ["error"],
+    "no-extend-native": ["error"],
+    "no-extra-bind": ["error"],
+    "no-extra-label": ["error"],
+    "no-fallthrough": ["error"],
+    "no-global-assign": [
+      "error",
+      {
+        "exceptions": []
+      }
+    ],
+    "no-iterator": ["error"],
+    "no-labels": [
+      "error",
+      {
+        "allowLoop": false,
+        "allowSwitch": false
+      }
+    ],
+    "no-lone-blocks": ["error"],
+    "no-magic-numbers": [
+      "off",
+      {
+        "ignore": [],
+        "ignoreArrayIndexes": true,
+        "enforceConst": true,
+        "detectObjects": false
+      }
+    ],
+    "no-multi-str": ["error"],
+    "no-new": ["error"],
+    "no-new-func": ["error"],
+    "no-new-wrappers": ["error"],
+    "no-nonoctal-decimal-escape": ["error"],
+    "no-object-constructor": ["error"],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "acc",
+          "accumulator",
+          "e",
+          "ctx",
+          "context",
+          "req",
+          "request",
+          "res",
+          "response",
+          "$scope",
+          "staticContext"
+        ]
+      }
+    ],
+    "no-proto": ["error"],
+    "no-return-assign": ["error", "always"],
+    "no-script-url": ["error"],
+    "no-self-assign": [
+      "error",
+      {
+        "props": true
+      }
+    ],
+    "no-self-compare": ["error"],
+    "no-throw-literal": ["error"],
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-unused-labels": ["error"],
+    "no-useless-call": ["off"],
+    "no-useless-catch": ["error"],
+    "no-useless-concat": ["error"],
+    "no-useless-escape": ["error"],
+    "no-void": ["error"],
+    "no-warning-comments": [
+      "off",
+      {
+        "terms": ["todo", "fixme", "xxx"],
+        "location": "start"
+      }
+    ],
+    "no-with": ["error"],
+    "prefer-promise-reject-errors": [
+      "off",
+      {
+        "allowEmptyReject": true
+      }
+    ],
+    "prefer-object-has-own": ["error"],
+    "radix": ["error"],
+    "require-await": ["off"],
+    "vars-on-top": ["error"],
+    "yoda": ["error"]
+  }
+}

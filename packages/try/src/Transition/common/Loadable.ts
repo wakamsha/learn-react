@@ -51,7 +51,7 @@ export class Loadable<T> {
    * `new Loadable` の代わりに使用することで
    * `Loadable` の内部に生成された Promise も一緒に取得します。
    *
-   * @param promise
+   * @param promise - 取得するデータの Promise オブジェクト
    *
    * @returns       Loadable インスタンスとその内部の Promise オブジェクト。
    */

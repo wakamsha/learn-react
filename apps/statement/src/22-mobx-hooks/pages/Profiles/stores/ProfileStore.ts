@@ -6,7 +6,7 @@ export class ProfileStore {
   public static Context = createContext<ProfileStore | null>(null);
 
   public static useStore() {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // oxlint-disable-next-line react-hooks/rules-of-hooks
     return useContext(ProfileStore.Context);
   }
 

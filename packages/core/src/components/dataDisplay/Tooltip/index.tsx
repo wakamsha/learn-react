@@ -36,7 +36,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
 
   const targetElmRef = useRef<HTMLElement>(null);
 
-  const timerIdRef = useRef<number | undefined>(undefined);
+  const timerIdRef = useRef<number>(null);
 
   const [shown, setShown] = useState(false);
 
@@ -67,13 +67,13 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
 
   const handleMouseLeave = useCallback(() => {
     hide();
-    window.clearTimeout(timerIdRef.current);
-    timerIdRef.current = undefined;
+    window.clearTimeout(timerIdRef.current ?? undefined);
+    timerIdRef.current = null;
     targetElmRef.current?.removeEventListener('mouseleave', handleMouseLeave);
   }, []);
 
   const schedule = useCallback(() => {
-    window.clearTimeout(timerIdRef.current);
+    window.clearTimeout(timerIdRef.current ?? undefined);
 
     const targetElement = targetElmRef.current;
 
@@ -86,7 +86,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
   }, [handleMouseLeave, show]);
 
   useEffect(() => {
-    // eslint-disable-next-line unicorn/prefer-query-selector
+    // oxlint-disable-next-line prefer-query-selector
     const targetElm = document.getElementById(targetId);
 
     if (!targetElm) return;
@@ -97,7 +97,9 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     // target 非活性状態変更時に mouseleave イベントを実行し、当要素を確実に非表示とする。
     const observer: MutationObserver = new MutationObserver((records) => {
       records.forEach((record) => {
-        (record.target as HTMLButtonElement).disabled && handleMouseLeave();
+        if ((record.target as HTMLButtonElement).disabled) {
+          handleMouseLeave();
+        }
       });
     });
 

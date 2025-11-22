@@ -21,7 +21,7 @@ jobs:
       - name: Initialize
         uses: ./.github/actions/restore-node
       - name: Run Lint
-        run: pnpm lint
+        run: pnpm -r typegen:rr && pnpm catalog generate && pnpm -r lint
 
   test:
     runs-on: ubuntu-latest

@@ -1,7 +1,7 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "types": ["vite/client"],
+    "types": ["vite/client"]
   },
-  "include": ["./src/**/*", "../../packages/core/src/*.d.ts"]
+  "include": ["./src/**/*", "../../packages/core/src/*.d.ts", "*.config.*"]
 }

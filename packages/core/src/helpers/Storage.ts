@@ -76,12 +76,12 @@ class CookieStorage implements Storage {
     return getCookie(key) ?? '';
   }
 
-  public setValue(key: string, value: string) {
-    setCookie({ cname: key, cvalue: value });
+  public async setValue(key: string, value: string) {
+    await setCookie({ cname: key, cvalue: value });
   }
 
-  public removeValue(key: string) {
-    destroyCookie(key);
+  public async removeValue(key: string) {
+    await destroyCookie(key);
   }
 }
 

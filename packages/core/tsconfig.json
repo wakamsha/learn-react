@@ -5,5 +5,5 @@
     "baseUrl": "./",
     "paths": {}
   },
-  "include": ["./src/**/*", "./vitest.setup.ts"]
+  "include": ["./src/**/*", "./vitest.*"]
 }

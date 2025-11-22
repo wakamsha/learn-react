@@ -57,7 +57,7 @@ export const Popover = ({
 
     if (!visible) return;
 
-    // eslint-disable-next-line unicorn/prefer-query-selector
+    // oxlint-disable-next-line prefer-query-selector
     const targetElement = document.getElementById(targetId);
     if (!targetElement) return;
 

@@ -2,7 +2,7 @@ import { BarChart, LineChart } from 'echarts/charts';
 import { init, use, type ECharts } from 'echarts/core';
 import { useEffect, useRef, type FC } from 'react';
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
+// oxlint-disable-next-line rules-of-hooks
 use([BarChart, LineChart]);
 
 type CustomTooltipParams = {

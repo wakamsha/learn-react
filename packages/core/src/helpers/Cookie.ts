@@ -9,7 +9,7 @@ type Cookie = {
  * Cookie に任意の値を保存します。
  * 指定したキーが既に存在する場合は、新しい値で上書きします。
  */
-export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
+export async function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
   const segments: Record<string, string> = {};
   segments[cname] = cvalue;
   segments.path = '/';
@@ -29,9 +29,7 @@ export function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }:
     segments.expires = expireAt.toUTCString();
   }
 
-  document.cookie = Object.keys(segments)
-    .map((key) => (segments[key] === '' ? `${key}=` : `${key}=${segments[key]}`))
-    .join('; ');
+  await Promise.all(Object.entries(segments).map(([key, value]) => cookieStore.set(key, value)));
 }
 
 /**
@@ -60,6 +58,6 @@ export function getCookie(cname: string): string | undefined {
  *
  * @param cname - 削除したい値のキー
  */
-export function destroyCookie(cname: string) {
-  setCookie({ cname, cvalue: '', expireAt: new Date(0) });
+export async function destroyCookie(cname: string) {
+  await setCookie({ cname, cvalue: '', expireAt: new Date(0) });
 }

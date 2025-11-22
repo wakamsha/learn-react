@@ -1,0 +1,261 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "init-declarations": "off",
+    "no-delete-var": "error",
+    "no-label-var": "error",
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "isFinite",
+        "message": "Use Number.isFinite instead."
+      },
+      {
+        "name": "isNaN",
+        "message": "Use Number.isNaN instead."
+      },
+      {
+        "name": "addEventListener",
+        "message": "Use window.addEventListener instead."
+      },
+      {
+        "name": "blur",
+        "message": "Use window.blur instead."
+      },
+      {
+        "name": "close",
+        "message": "Use window.close instead."
+      },
+      {
+        "name": "closed",
+        "message": "Use window.closed instead."
+      },
+      {
+        "name": "confirm",
+        "message": "Use window.confirm instead."
+      },
+      {
+        "name": "defaultStatus",
+        "message": "Use window.defaultStatus instead."
+      },
+      {
+        "name": "defaultstatus",
+        "message": "Use window.defaultstatus instead."
+      },
+      {
+        "name": "event",
+        "message": "Use window.event instead."
+      },
+      {
+        "name": "external",
+        "message": "Use window.external instead."
+      },
+      {
+        "name": "find",
+        "message": "Use window.find instead."
+      },
+      {
+        "name": "focus",
+        "message": "Use window.focus instead."
+      },
+      {
+        "name": "frameElement",
+        "message": "Use window.frameElement instead."
+      },
+      {
+        "name": "frames",
+        "message": "Use window.frames instead."
+      },
+      {
+        "name": "history",
+        "message": "Use window.history instead."
+      },
+      {
+        "name": "innerHeight",
+        "message": "Use window.innerHeight instead."
+      },
+      {
+        "name": "innerWidth",
+        "message": "Use window.innerWidth instead."
+      },
+      {
+        "name": "length",
+        "message": "Use window.length instead."
+      },
+      {
+        "name": "location",
+        "message": "Use window.location instead."
+      },
+      {
+        "name": "locationbar",
+        "message": "Use window.locationbar instead."
+      },
+      {
+        "name": "menubar",
+        "message": "Use window.menubar instead."
+      },
+      {
+        "name": "moveBy",
+        "message": "Use window.moveBy instead."
+      },
+      {
+        "name": "moveTo",
+        "message": "Use window.moveTo instead."
+      },
+      {
+        "name": "name",
+        "message": "Use window.name instead."
+      },
+      {
+        "name": "onblur",
+        "message": "Use window.onblur instead."
+      },
+      {
+        "name": "onerror",
+        "message": "Use window.onerror instead."
+      },
+      {
+        "name": "onfocus",
+        "message": "Use window.onfocus instead."
+      },
+      {
+        "name": "onload",
+        "message": "Use window.onload instead."
+      },
+      {
+        "name": "onresize",
+        "message": "Use window.onresize instead."
+      },
+      {
+        "name": "onunload",
+        "message": "Use window.onunload instead."
+      },
+      {
+        "name": "open",
+        "message": "Use window.open instead."
+      },
+      {
+        "name": "opener",
+        "message": "Use window.opener instead."
+      },
+      {
+        "name": "opera",
+        "message": "Use window.opera instead."
+      },
+      {
+        "name": "outerHeight",
+        "message": "Use window.outerHeight instead."
+      },
+      {
+        "name": "outerWidth",
+        "message": "Use window.outerWidth instead."
+      },
+      {
+        "name": "pageXOffset",
+        "message": "Use window.pageXOffset instead."
+      },
+      {
+        "name": "pageYOffset",
+        "message": "Use window.pageYOffset instead."
+      },
+      {
+        "name": "parent",
+        "message": "Use window.parent instead."
+      },
+      {
+        "name": "print",
+        "message": "Use window.print instead."
+      },
+      {
+        "name": "removeEventListener",
+        "message": "Use window.removeEventListener instead."
+      },
+      {
+        "name": "resizeBy",
+        "message": "Use window.resizeBy instead."
+      },
+      {
+        "name": "resizeTo",
+        "message": "Use window.resizeTo instead."
+      },
+      {
+        "name": "screen",
+        "message": "Use window.screen instead."
+      },
+      {
+        "name": "screenLeft",
+        "message": "Use window.screenLeft instead."
+      },
+      {
+        "name": "screenTop",
+        "message": "Use window.screenTop instead."
+      },
+      {
+        "name": "screenX",
+        "message": "Use window.screenX instead."
+      },
+      {
+        "name": "screenY",
+        "message": "Use window.screenY instead."
+      },
+      {
+        "name": "scroll",
+        "message": "Use window.scroll instead."
+      },
+      {
+        "name": "scrollbars",
+        "message": "Use window.scrollbars instead."
+      },
+      {
+        "name": "scrollBy",
+        "message": "Use window.scrollBy instead."
+      },
+      {
+        "name": "scrollTo",
+        "message": "Use window.scrollTo instead."
+      },
+      {
+        "name": "scrollX",
+        "message": "Use window.scrollX instead."
+      },
+      {
+        "name": "scrollY",
+        "message": "Use window.scrollY instead."
+      },
+      {
+        "name": "self",
+        "message": "Use window.self instead."
+      },
+      {
+        "name": "status",
+        "message": "Use window.status instead."
+      },
+      {
+        "name": "statusbar",
+        "message": "Use window.statusbar instead."
+      },
+      {
+        "name": "stop",
+        "message": "Use window.stop instead."
+      },
+      {
+        "name": "toolbar",
+        "message": "Use window.toolbar instead."
+      },
+      {
+        "name": "top",
+        "message": "Use window.top instead."
+      }
+    ],
+    "no-shadow-restricted-names": "error",
+    "no-undefined": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true
+      }
+    ]
+  }
+}

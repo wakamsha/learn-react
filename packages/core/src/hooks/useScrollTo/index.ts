@@ -65,7 +65,7 @@ type Callback = () => void;
  * ```
  */
 export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props) {
-  const callbackRef = useRef<Callback>(undefined);
+  const callbackRef = useRef<Callback>(null);
 
   const [to, setTo] = useState(Infinity);
 
@@ -87,7 +87,7 @@ export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props)
       });
 
       setTo(to);
-      callbackRef.current = callback;
+      callbackRef.current = callback ?? null;
     },
     [behavior, rootRef, offset],
   );

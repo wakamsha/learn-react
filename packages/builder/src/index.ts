@@ -64,9 +64,7 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
       alias,
     },
     optimizeDeps: {
-      esbuildOptions: {
-        ...(build.target ? { target: build.target } : {}),
-      },
+      esbuildOptions: build.target ? { target: build.target } : {},
     },
     plugins: [
       react({
