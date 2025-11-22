@@ -30,6 +30,17 @@ pre-commit:
             glob: '*.{css}'
             run: pnpm lint:style {staged_files}
 
+    - name: rr-spa
+      root: apps/react-router-spa
+      group:
+        jobs:
+          - name: ts
+            glob: '*.{ts,tsx}'
+            run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
+          - name: style
+            glob: '*.{css}'
+            run: pnpm lint:style {staged_files}
+
     - name: builder
       root: packages/builder
       glob: '*.{js,ts}'

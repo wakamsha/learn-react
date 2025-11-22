@@ -1,4 +1,4 @@
-import { generatePath, redirect, useNavigate } from 'react-router';
+import { generatePath, redirect, useLoaderData, useNavigate } from 'react-router';
 import { getContact, updateContact } from '../../../data';
 import { Paths } from '../../../routes';
 import type { Route } from './+types/route';
@@ -17,20 +17,6 @@ export async function clientLoader({ params }: Route.LoaderArgs) {
   return {
     contact,
   };
-}
-
-/**
- * Sets the title of the page.
- */
-export function meta({ contact }: Route.MetaArgs['loaderData']) {
-  const baseTitle = 'Address Book | React Router Tutorial';
-
-  return [
-    {
-      title:
-        contact.first || contact.last ? `${contact.first} ${contact.last} | ${baseTitle}` : `No Name | ${baseTitle}`,
-    },
-  ];
 }
 
 /**
@@ -56,12 +42,23 @@ export async function clientAction({ params: { contactId }, request }: Route.Act
 /**
  * Renders the edit contact page.
  */
-export default ({ loaderData: { contact } }: Route.ComponentProps) => {
+export default () => {
+  const { contact } = useLoaderData<typeof clientLoader>();
+
+  const baseTitle = 'Address Book | React Router Tutorial';
+
   const navigate = useNavigate();
 
   const handleCancel = async () => {
     await navigate(-1);
   };
 
-  return <Template contact={contact} onCancel={handleCancel} />;
+  return (
+    <>
+      <title>
+        {contact.first || contact.last ? `${contact.first} ${contact.last} | ${baseTitle}` : `No Name | ${baseTitle}`}
+      </title>
+      <Template contact={contact} onCancel={handleCancel} />
+    </>
+  );
 };
