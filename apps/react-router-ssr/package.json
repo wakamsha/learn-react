@@ -33,7 +33,7 @@
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:*",
     "@react-router/dev": "7.9.6",
-    "@types/node": "22.19.1",
+    "@types/node": "24.10.1",
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "@types/sort-by": "1.2.3",
