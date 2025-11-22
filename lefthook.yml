@@ -14,25 +14,38 @@ pre-commit:
       glob: '*.{js,cjs,ts,tsx,md,json,css,html,yml,yaml}'
       run: pnpm prettier -c {staged_files}
 
-  commands:
-    catalog:
+    - name: catalog
+      root: apps/catalog
+      glob: '*.{js,ts,tsx}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
+
+    - name: rr-lib
+      root: apps/react-router-lib
+      group:
+        jobs:
+          - name: ts
+            glob: '*.{ts,tsx}'
+            run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
+          - name: style
+            glob: '*.{css}'
+            run: pnpm lint:style {staged_files}
+
+    - name: builder
+      root: packages/builder
+      glob: '*.{js,ts}'
+      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
+
+    - name: core
       root: packages/core
       glob: '*.{js,ts,tsx}'
       run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
 
-    builder:
-      root: packages/builder
-      glob: '*.{js,ts}'
-      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
-    core:
-      root: packages/core
-      glob: '*.{js,ts,tsx}'
-      run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}
-    icon:
+    - name: icon
       root: packages/icon
       glob: '*.{js,ts,tsx}'
       run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files}
-    try:
+
+    - name: try
       root: packages/try
       glob: '*.{js,ts,tsx}'
       run: pnpm lint:oxc {staged_files} && pnpm lint:es {staged_files} && pnpm lint:style {staged_files}

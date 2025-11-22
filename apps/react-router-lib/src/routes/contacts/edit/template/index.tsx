@@ -17,24 +17,24 @@ type Props = {
  */
 export const Template: FC<Props> = ({ contact, onCancel }) => (
   <Form key={contact.id} className={styles.base} method="post">
-    <p className={styles['form-group']}>
-      <span className={styles['label-display']}>Name</span>
-      <div className={styles['form-item']}>
+    <p className={styles.formGroup}>
+      <span className={styles.labelDisplay}>Name</span>
+      <div className={styles.formItem}>
         <TextInput aria-label="First name" defaultValue={contact.first} name="first" placeholder="First" />
         <TextInput aria-label="Last name" defaultValue={contact.last} name="last" placeholder="Last" />
       </div>
     </p>
 
-    <label className={styles['form-group']}>
-      <span className={styles['label-display']}>Twitter</span>
-      <div className={styles['form-item']}>
+    <label className={styles.formGroup}>
+      <span className={styles.labelDisplay}>Twitter</span>
+      <div className={styles.formItem}>
         <TextInput name="twitter" defaultValue={contact.twitter} placeholder="@jack" />
       </div>
     </label>
 
-    <label className={styles['form-group']}>
-      <span className={styles['label-display']}>Avatar URL</span>
-      <div className={styles['form-item']}>
+    <label className={styles.formGroup}>
+      <span className={styles.labelDisplay}>Avatar URL</span>
+      <div className={styles.formItem}>
         <TextInput
           aria-label="Avatar URL"
           defaultValue={contact.avatar}
@@ -45,14 +45,14 @@ export const Template: FC<Props> = ({ contact, onCancel }) => (
     </label>
 
     {}
-    <label className={styles['form-group']}>
-      <span className={styles['label-display']}>Notes</span>
-      <div className={styles['form-item']}>
+    <label className={styles.formGroup}>
+      <span className={styles.labelDisplay}>Notes</span>
+      <div className={styles.formItem}>
         <TextArea defaultValue={contact.notes} name="notes" rows={6} />
       </div>
     </label>
 
-    <p className={clsx(styles['form-group'], styles.controls)}>
+    <p className={clsx(styles.formGroup, styles.controls)}>
       <Button>Save</Button>
       <Button type="button" onClick={onCancel}>
         Cancel

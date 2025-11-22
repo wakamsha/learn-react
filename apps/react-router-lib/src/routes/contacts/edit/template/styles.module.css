@@ -5,17 +5,17 @@
   max-width: 40rem;
 }
 
-.form-group {
+.formGroup {
   display: flex;
   padding: 0;
   margin: 0;
 }
 
-.label-display {
+.labelDisplay {
   width: 8rem;
 }
 
-.form-item {
+.formItem {
   display: flex;
   flex-grow: 1;
   gap: 1rem;

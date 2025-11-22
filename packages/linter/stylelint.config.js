@@ -5,6 +5,6 @@ export default {
   },
   'css-modules': {
     extends: ['@wakamsha/stylelint-config/essentials', '@wakamsha/stylelint-config/css-modules'],
-    ignoreFiles: ['**/node_modules/**'],
+    ignoreFiles: ['**/node_modules/**', '**/*.{js,ts,tsx}', '**/dist/**'],
   },
 };
