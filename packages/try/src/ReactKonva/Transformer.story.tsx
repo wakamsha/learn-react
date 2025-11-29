@@ -73,7 +73,7 @@ export const Story: FC = () => {
 type RectangleProps = {
   shape: ShapeProps;
   selected: boolean;
-  onSelect: (event: KonvaEventObject<MouseEvent>) => void;
+  onSelect: (event: KonvaEventObject<TouchEvent | MouseEvent>) => void;
   onChange: (newAttributes: ShapeProps) => void;
 };
 
@@ -82,7 +82,7 @@ const Rectangle: FC<RectangleProps> = ({ shape, selected, onSelect, onChange }) 
 
   const transformerRef = useRef<Konva.Transformer>(null);
 
-  const handleSelect = (event: KonvaEventObject<MouseEvent>) => {
+  const handleSelect = (event: KonvaEventObject<TouchEvent | MouseEvent>) => {
     onSelect(event);
   };
 
