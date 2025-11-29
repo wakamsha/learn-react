@@ -37,7 +37,7 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-router-dom": "7.9.6",
-    "stylelint": "16.25.0",
+    "stylelint": "16.26.1",
     "typescript": "5.9.3",
     "user-agent-data-types": "0.4.2",
     "vite": "7.2.4",
