@@ -12,7 +12,7 @@
     "@wakamsha/eslint-config": "7.1.2",
     "@wakamsha/stylelint-config": "4.0.2",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-oxlint": "1.29.0"
+    "eslint-plugin-oxlint": "1.30.0"
   },
   "devDependencies": {
     "eslint": "9.39.1",
