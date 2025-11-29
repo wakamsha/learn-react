@@ -43,7 +43,7 @@
     "react-dom": "19.2.0",
     "stylelint": "16.25.0",
     "typescript": "5.9.3",
-    "vitest": "4.0.13"
+    "vitest": "4.0.14"
   },
   "peerDependencies": {
     "@types/react": "19.2.6",
