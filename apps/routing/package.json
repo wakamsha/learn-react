@@ -29,7 +29,7 @@
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "19.2.6",
+    "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.1",
     "oxlint": "1.30.0",
