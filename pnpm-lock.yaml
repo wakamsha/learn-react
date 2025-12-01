@@ -29,9 +29,6 @@ importers:
       prettier-plugin-organize-imports:
         specifier: 4.3.0
         version: 4.3.0(prettier@3.7.3)(typescript@5.9.3)
-      stylelint:
-        specifier: 16.26.1
-        version: 16.26.1(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
