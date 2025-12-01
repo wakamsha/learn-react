@@ -107,7 +107,7 @@ const styleBase = css`
   display: grid;
   flex-shrink: 0;
   grid-template-rows: auto auto 1fr;
-  grid-gap: ${gutter(4)};
+  gap: ${gutter(4)};
   height: 100dvh;
   overflow-y: auto;
   background-color: ${cssVar('TextureBody')};

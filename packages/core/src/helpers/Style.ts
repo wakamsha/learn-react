@@ -79,7 +79,7 @@ export function visuallyHidden() {
     overflow: hidden;
     white-space: nowrap;
     border: none;
-    clip: rect(0, 0, 0, 0);
+    clip-path: rect(0 0 0 0);
   `;
 }
 
