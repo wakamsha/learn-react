@@ -12,7 +12,7 @@
   "scripts": {
     "develop": "vite",
     "type-check": "tsc --noEmit",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint:es": "eslint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
     "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
