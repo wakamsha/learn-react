@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "lint:es": "eslint",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint": "pnpm lint:oxc && pnpm lint:es",
     "build": "tsc --declaration"
   },
