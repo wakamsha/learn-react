@@ -12,7 +12,7 @@ pre-commit:
       run: pnpm cspell {staged_files}
 
     - name: prettier
-      glob: '*.{js,cjs,ts,tsx,md,json,css,html,yml,yaml}'
+      glob: '*.{js,cjs,ts,tsx,md,json,css,html}'
       run: pnpm prettier -c {staged_files}
 
     # apps-related workspaces

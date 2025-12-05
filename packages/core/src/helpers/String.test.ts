@@ -1,3 +1,4 @@
+// oxlint-disable valid-title
 import { count, isValidEmail } from './String';
 
 describe('String.ts', () => {

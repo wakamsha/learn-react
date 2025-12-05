@@ -69,6 +69,7 @@ const reducer = (state: State, action: Action): State => {
       return { ...state, name: action.payload.name };
     case 'job':
       return { ...state, job: action.payload.job };
+    // oxlint-disable-next-line switch-exhaustiveness-check
     default:
       return state;
   }

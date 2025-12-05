@@ -10,7 +10,7 @@
     "generate": "node ./bin/build",
     "format": "prettier -c -w ./dist/*",
     "lint:es": "eslint",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint": "pnpm lint:oxc && pnpm lint:es",
     "build": "pnpm reset; pnpm generate; pnpm format"
   },
@@ -23,6 +23,7 @@
     "eslint": "9.39.1",
     "glob": "13.0.0",
     "oxlint": "1.30.0",
+    "oxlint-tsgolint": "0.8.3",
     "prettier": "3.7.4",
     "react": "19.2.0",
     "react-dom": "19.2.0",

@@ -1,3 +1,4 @@
+// oxlint-disable valid-title
 import { nonNull } from './Type';
 
 describe('Type.ts', () => {

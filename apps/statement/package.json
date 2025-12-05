@@ -12,7 +12,7 @@
   "scripts": {
     "develop": "vite",
     "type-check": "tsc --noEmit",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint:es": "eslint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
     "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
@@ -41,6 +41,7 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.1",
     "oxlint": "1.30.0",
+    "oxlint-tsgolint": "0.8.3",
     "stylelint": "16.26.1",
     "typescript": "5.9.3",
     "vite": "7.2.6"

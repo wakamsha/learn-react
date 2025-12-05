@@ -9,7 +9,7 @@
     "type-check": "tsc --noEmit",
     "start": "run-p 'generate --watch' 'type-check --watch' 'develop {@}' --",
     "build": "pnpm generate && pnpm type-check && vite build",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint:es": "eslint",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
     "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",

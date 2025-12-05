@@ -90,7 +90,7 @@ async function captureScreenshotsPerBrowser({ browserType, storyIdList }) {
     ),
   );
 
-  browser.close();
+  await browser.close();
 }
 
 /**
@@ -153,7 +153,7 @@ async function getStoryIdList(url, selector) {
     storyIdList.push(href?.replace(/\//, ''));
   }
 
-  browser.close();
+  await browser.close();
 
   return storyIdList;
 }

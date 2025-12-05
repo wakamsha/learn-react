@@ -15,7 +15,7 @@ async function exec() {
   const result = await Promise.all(
     sortedTargetFiles.map(async (file) => {
       const content = readFileSync(file).toString('utf8');
-      const source = await optimize(content);
+      const source = optimize(content);
       const $ = load(source.data.toString());
 
       $('style,title,defs').remove();

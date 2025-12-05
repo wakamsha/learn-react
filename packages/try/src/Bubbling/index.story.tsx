@@ -19,6 +19,7 @@ export const Story = () => {
   return (
     <>
       <h2>Bubbling Test</h2>
+      {/* oxlint-disable-next-line prefer-tag-over-role */}
       <div role="button" className={styleOuter} onClick={handleClickOuter}>
         <p>Outer</p>
 
