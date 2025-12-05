@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit",
     "typegen:css": "tcm src",
     "typegen:rr": "react-router typegen",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint:es": "eslint",
     "lint:style": "stylelint './**/*.css'",
     "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
