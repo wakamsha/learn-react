@@ -141,6 +141,7 @@ function reducer(state: State, action: Action): State {
       return { ...state, strokeWidth: action.payload };
     case 'color':
       return { ...state, color: action.payload };
+    // oxlint-disable-next-line switch-exhaustiveness-check
     default:
       return state;
   }
