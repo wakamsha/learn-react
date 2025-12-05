@@ -196,6 +196,9 @@ importers:
       oxlint:
         specifier: 1.30.0
         version: 1.30.0(oxlint-tsgolint@0.8.3)
+      oxlint-tsgolint:
+        specifier: 0.8.3
+        version: 0.8.3
       stylelint:
         specifier: 16.26.1
         version: 16.26.1(typescript@5.9.3)
@@ -412,6 +415,9 @@ importers:
       oxlint:
         specifier: 1.30.0
         version: 1.30.0(oxlint-tsgolint@0.8.3)
+      oxlint-tsgolint:
+        specifier: 0.8.3
+        version: 0.8.3
       stylelint:
         specifier: 16.26.1
         version: 16.26.1(typescript@5.9.3)
@@ -479,6 +485,9 @@ importers:
       oxlint:
         specifier: 1.30.0
         version: 1.30.0(oxlint-tsgolint@0.8.3)
+      oxlint-tsgolint:
+        specifier: 0.8.3
+        version: 0.8.3
       stylelint:
         specifier: 16.26.1
         version: 16.26.1(typescript@5.9.3)
