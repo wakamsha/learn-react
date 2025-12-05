@@ -35,6 +35,6 @@
     "oxlint": "1.30.0",
     "stylelint": "16.26.1",
     "typescript": "5.9.3",
-    "vite": "7.2.4"
+    "vite": "7.2.6"
   }
 }
