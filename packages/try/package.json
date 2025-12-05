@@ -11,7 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@cubejs-client/core": "1.5.10",
+    "@cubejs-client/core": "1.5.12",
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
     "@pixi/react": "8.0.4",
