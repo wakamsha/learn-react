@@ -6,7 +6,7 @@
   "scripts": {
     "type-check": "tsc --noEmit",
     "lint:es": "eslint",
-    "lint:oxc": "oxlint",
+    "lint:oxc": "oxlint --type-aware",
     "lint:style": "stylelint './**/*.{ts,tsx}'",
     "lint": "pnpm lint:oxc && pnpm lint:es && pnpm lint:style",
     "test": "vitest"
