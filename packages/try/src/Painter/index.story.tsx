@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components */
 import { css, cx } from '@emotion/css';
 import { Suspense, useReducer, type ChangeEvent, type FC } from 'react';
 import { Layer } from 'react-konva';

@@ -54,6 +54,7 @@ const MouseTrail: FC<MouseTrailProps> = ({ texturePromise }) => {
 
     let mousePosition: Point | null = null;
 
+    // eslint-disable-next-line react-hooks/immutability
     stage.hitArea = screen;
 
     stage.on('mousemove', ({ global }) => {

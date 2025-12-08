@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/refs */
 import { type KonvaEventObject } from 'konva/lib/Node';
 import { type FC, useRef, useState } from 'react';
 import { Layer, Rect, Stage } from 'react-konva';

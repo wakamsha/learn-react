@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/purity */
 import { Suspense, useState } from 'react';
 
 export const Story = () => {
