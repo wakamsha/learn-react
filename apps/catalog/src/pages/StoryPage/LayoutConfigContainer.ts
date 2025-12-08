@@ -9,6 +9,7 @@ function useHook() {
   const storage = useRef(new StorageProxy('localStorage'));
 
   const [layoutConfig, setLayoutConfig] = useState<Layout>(
+    // eslint-disable-next-line react-hooks/refs
     storage.current.getValue(storageKey) === '' ? Layout.Horizontal : (storage.current.getValue(storageKey) as Layout),
   );
 
