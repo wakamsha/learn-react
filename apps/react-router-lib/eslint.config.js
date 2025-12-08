@@ -1,2 +1,13 @@
 // @ts-check
-export { default } from '@learn-react/linter/eslint.config';
+import baseConfig from '@learn-react/linter/eslint.config';
+
+export default [
+  ...baseConfig,
+
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'react-hooks/set-state-in-effect': ['off'],
+    },
+  },
+];
