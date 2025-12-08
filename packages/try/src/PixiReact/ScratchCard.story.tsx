@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/immutability */
 // oxlint-disable no-unknown-property
 import { Application, useApplication, useExtend } from '@pixi/react';
 import { Assets, type FederatedPointerEvent, Graphics, Point, RenderTexture, Sprite, type Texture } from 'pixi.js';

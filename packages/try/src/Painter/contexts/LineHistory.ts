@@ -30,6 +30,7 @@ function useHook() {
 
   useEffect(() => {
     if (historyIndex >= 0 && historyIndex < history.length) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLines(history[historyIndex]);
     }
   }, [historyIndex, history]);

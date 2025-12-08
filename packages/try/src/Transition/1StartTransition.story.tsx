@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/globals */
 import { startTransition, Suspense, useState } from 'react';
 
 export const Story = () => {
