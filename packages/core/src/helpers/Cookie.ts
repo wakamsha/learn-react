@@ -10,9 +10,7 @@ type Cookie = {
  * 指定したキーが既に存在する場合は、新しい値で上書きします。
  */
 export async function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.net' }: Cookie) {
-  const segments: Record<string, string> = {};
-  segments[cname] = cvalue;
-  segments.path = '/';
+  const segments: Record<string, string> = { [cname]: cvalue, path: '/' };
 
   if (domain) {
     segments.domain =

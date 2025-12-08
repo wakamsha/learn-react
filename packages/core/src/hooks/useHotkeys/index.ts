@@ -19,7 +19,7 @@ type Options = {
 /**
  * キーボードショートカットを定義します。
  *
- * @param keys -
+ * @param keys
  * リッスンするキーストローク。単一または修飾キーとの組み合わせを指定します。
  * 詳細は [hotkey-js の README](https://github.com/jaywcjlove/hotkeys/#defining-shortcuts) を参照ください。
  *

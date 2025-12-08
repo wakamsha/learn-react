@@ -12,4 +12,13 @@ export default [
       'jsdoc/require-param-description': ['off'],
     },
   },
+
+  {
+    files: ['**/*.tsx'],
+    rules: {
+      'react-hooks/immutability': ['off'],
+      'react-hooks/refs': ['off'],
+      'react-hooks/set-state-in-effect': ['off'],
+    },
+  },
 ];

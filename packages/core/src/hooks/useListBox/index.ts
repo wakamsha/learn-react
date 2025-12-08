@@ -198,6 +198,7 @@ export function useListBox(itemCount: number): Response {
       // リストボックスが開いたら全てのメニュー項目を活性化する。
       toggleItemsActivity(false);
       // リストボックスが開いたら最初のメニュー項目にフォーカスインする。
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       moveFocus(0);
     } else {
       // リストボックスが閉じたら全てのメニュー項目を非活性化する。
