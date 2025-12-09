@@ -1,0 +1,23 @@
+name: Check @learn-react/routing
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "apps/routing/**"
+
+jobs:
+  check_routing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build
+        run: pnpm builder build && pnpm routing build
+
+      - name: Lint
+        run: pnpm routing lint

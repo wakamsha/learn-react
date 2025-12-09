@@ -1,0 +1,23 @@
+name: Check @learn-react/react-router-ssr
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "apps/react-router-ssr/**"
+
+jobs:
+  check_react_router_ssr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build
+        run: pnpm builder build && pnpm rr-ssr build
+
+      - name: Lint
+        run: pnpm rr-ssr lint

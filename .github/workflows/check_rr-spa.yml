@@ -1,0 +1,23 @@
+name: Check @learn-react/react-router-spa
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "apps/react-router-spa/**"
+
+jobs:
+  check_react_router_spa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build
+        run: pnpm builder build && pnpm rr-spa build
+
+      - name: Lint
+        run: pnpm rr-spa lint

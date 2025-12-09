@@ -1,0 +1,26 @@
+name: Check @learn-react/core
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "packages/core/**"
+
+jobs:
+  check_core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build icon
+        run: pnpm icon build
+
+      - name: Lint
+        run: pnpm core lint
+
+      - name: Test
+        run: pnpm core test
