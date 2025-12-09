@@ -1,0 +1,23 @@
+name: Check @learn-react/statement
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "apps/statement/**"
+
+jobs:
+  check_routing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build
+        run: pnpm builder build && pnpm statement build
+
+      - name: Lint
+        run: pnpm statement lint

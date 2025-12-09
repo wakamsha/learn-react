@@ -1,0 +1,23 @@
+name: Check @learn-react/react-router-lib
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "apps/react-router-lib/**"
+
+jobs:
+  check_react_router_lib:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Build
+        run: pnpm builder build && pnpm rr-lib build
+
+      - name: Lint
+        run: pnpm rr-lib lint

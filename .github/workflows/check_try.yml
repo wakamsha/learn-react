@@ -1,0 +1,23 @@
+name: Check @learn-react/try
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "packages/try/**"
+
+jobs:
+  check_try:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Initialize
+        uses: ./.github/actions/restore-node
+
+      - name: Lint
+        run: pnpm try lint
+
+      - name: Test
+        run: pnpm try test
