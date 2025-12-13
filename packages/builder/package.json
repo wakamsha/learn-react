@@ -17,7 +17,7 @@
   "devDependencies": {
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.3",
     "eslint": "9.39.1",
     "oxlint": "1.31.0",
     "oxlint-tsgolint": "0.8.3",
@@ -25,7 +25,7 @@
     "vite": "7.2.6"
   },
   "peerDependencies": {
-    "@types/node": "24.10.1",
+    "@types/node": "24.10.3",
     "vite": "7.2.6"
   }
 }
