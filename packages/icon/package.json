@@ -25,16 +25,16 @@
     "oxlint": "1.32.0",
     "oxlint-tsgolint": "0.8.6",
     "prettier": "3.7.4",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "svgo": "4.0.0",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "typescript": "5.9.3"
   }
 }

@@ -34,8 +34,8 @@
     "jsdom": "27.3.0",
     "oxlint": "1.32.0",
     "oxlint-tsgolint": "0.8.6",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-router-dom": "7.10.1",
     "stylelint": "16.26.1",
     "typescript": "5.9.3",
@@ -44,8 +44,8 @@
     "vitest": "4.0.15"
   },
   "peerDependencies": {
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "react-router-dom": "7.10.1",
     "typescript": "5.9.3"
   }
