@@ -37,7 +37,7 @@
     "@types/react-dom": "19.2.3",
     "@types/sort-by": "1.2.3",
     "cross-env": "10.1.0",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "oxlint": "1.32.0",
     "oxlint-tsgolint": "0.8.6",
     "stylelint": "16.26.1",
