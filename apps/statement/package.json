@@ -44,6 +44,6 @@
     "oxlint-tsgolint": "0.8.3",
     "stylelint": "16.26.1",
     "typescript": "5.9.3",
-    "vite": "7.2.6"
+    "vite": "7.2.7"
   }
 }
