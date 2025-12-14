@@ -1,26 +1,18 @@
-name: Restore Node.js env
-description: Node.js によるタスクランナー基盤を復元する
+name: Setup Node.js Environment
+description: Sets up Node.js environment with pnpm
 
 runs:
-  using: 'composite'
+  using: composite
   steps:
-    - name: Setup node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version-file: ./.node-version
-
     - name: Setup pnpm
       uses: pnpm/action-setup@v4.2.0
 
-    - name: cache node_modules
-      uses: actions/cache@v4
+    - name: Setup node version
+      uses: actions/setup-node@v6
       with:
-        path: |
-          ./node_modules
-          ./apps/*/node_modules
-          ./packages/*/node_modules
-        key: node-${{ hashFiles('**/pnpm-lock.yaml') }}
+        node-version-file: ./.node-version
+        cache: pnpm
 
-    - name: install node_modules
+    - name: install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile
