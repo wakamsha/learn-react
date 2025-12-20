@@ -40,8 +40,8 @@
     "stylelint": "16.26.1",
     "typescript": "5.9.3",
     "user-agent-data-types": "0.4.2",
-    "vite": "7.2.7",
-    "vitest": "4.0.15"
+    "vite": "7.3.0",
+    "vitest": "4.0.16"
   },
   "peerDependencies": {
     "react": "19.2.3",
