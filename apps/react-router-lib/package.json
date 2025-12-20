@@ -35,7 +35,7 @@
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "5.1.2",
     "eslint": "9.39.2",
-    "oxlint": "1.32.0",
+    "oxlint": "1.34.0",
     "oxlint-tsgolint": "0.9.0",
     "stylelint": "16.26.1",
     "typed-css-modules": "0.9.1",
