@@ -19,7 +19,7 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/node": "24.10.4",
     "eslint": "9.39.2",
-    "oxlint": "1.35.0",
+    "oxlint": "1.36.0",
     "oxlint-tsgolint": "0.10.1",
     "typescript": "5.9.3",
     "vite": "7.3.0"
