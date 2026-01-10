@@ -25,14 +25,14 @@
     "highlight.js": "11.11.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-router-dom": "7.11.0"
+    "react-router-dom": "7.12.0"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.14.0",
-    "@types/react": "19.2.7",
+    "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "chokidar": "5.0.0",
     "eslint": "9.39.2",

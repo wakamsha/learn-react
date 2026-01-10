@@ -33,7 +33,7 @@
     "@learn-react/tsconfig": "workspace:*",
     "@react-router/dev": "7.11.0",
     "@types/node": "24.10.6",
-    "@types/react": "19.2.7",
+    "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@types/sort-by": "1.2.3",
     "cross-env": "10.1.0",
