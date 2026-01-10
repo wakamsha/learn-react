@@ -23,7 +23,7 @@
     "eslint": "9.39.2",
     "glob": "13.0.0",
     "oxlint": "1.38.0",
-    "oxlint-tsgolint": "0.10.1",
+    "oxlint-tsgolint": "0.11.0",
     "prettier": "3.7.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
