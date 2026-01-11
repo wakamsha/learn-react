@@ -535,8 +535,8 @@ importers:
         specifier: 11.13.5
         version: 11.13.5
       '@formkit/tempo':
-        specifier: 0.1.2
-        version: 0.1.2
+        specifier: 1.0.0
+        version: 1.0.0
       '@learn-react/icon':
         specifier: workspace:1.0.0
         version: link:../icon
@@ -1712,8 +1712,8 @@ packages:
       '@exodus/crypto':
         optional: true
 
-  '@formkit/tempo@0.1.2':
-    resolution: {integrity: sha512-jNPPbjL8oj7hK3eHX++CwbR6X4GKQt+x00/q4yeXkwynXHGKL27dylYhpEgwrmediPP4y7s0XtN1if/M/JYujg==}
+  '@formkit/tempo@1.0.0':
+    resolution: {integrity: sha512-2jhR8jnWFt4ajtbpHL2ZvJJ+ofj/XpAumb1OLmsY7U5iwCjGKuk0wqLR7dGsZfyvJeivfWLD9vzj9cdkUUWzyg==}
 
   '@gerrit0/mini-shiki@3.17.0':
     resolution: {integrity: sha512-Bpf6WuFar20ZXL6qU6VpVl4bVQfyyYiX+6O4xrns4nkU3Mr8paeupDbS1HENpcLOYj7pN4Rkd/yCaPA0vQwKww==}
@@ -6571,7 +6571,7 @@ snapshots:
 
   '@exodus/bytes@1.6.0': {}
 
-  '@formkit/tempo@0.1.2': {}
+  '@formkit/tempo@1.0.0': {}
 
   '@gerrit0/mini-shiki@3.17.0':
     dependencies:
