@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@emotion/css": "11.13.5",
-    "@formkit/tempo": "0.1.2",
+    "@formkit/tempo": "1.0.0",
     "@learn-react/icon": "workspace:1.0.0",
     "constate": "3.3.3",
     "csx": "10.0.2",
