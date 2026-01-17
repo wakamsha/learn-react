@@ -24,11 +24,11 @@ importers:
         specifier: 2.0.15
         version: 2.0.15
       prettier:
-        specifier: 3.7.4
-        version: 3.7.4
+        specifier: 3.8.0
+        version: 3.8.0
       prettier-plugin-organize-imports:
         specifier: 4.3.0
-        version: 4.3.0(prettier@3.7.4)(typescript@5.9.3)
+        version: 4.3.0(prettier@3.8.0)(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -647,8 +647,8 @@ importers:
         specifier: 0.11.1
         version: 0.11.1
       prettier:
-        specifier: 3.7.4
-        version: 3.7.4
+        specifier: 3.8.0
+        version: 3.8.0
       react:
         specifier: 19.2.3
         version: 19.2.3
@@ -666,7 +666,7 @@ importers:
     dependencies:
       '@wakamsha/eslint-config':
         specifier: 7.2.0
-        version: 7.2.0(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(@typescript-eslint/utils@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4))(typescript@5.9.3)(vitest@4.0.17(@types/node@24.10.9)(jiti@2.4.2)(jsdom@27.4.0(postcss@8.5.6))(yaml@2.8.2))
+        version: 7.2.0(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(@typescript-eslint/utils@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0))(typescript@5.9.3)(vitest@4.0.17(@types/node@24.10.9)(jiti@2.4.2)(jsdom@27.4.0(postcss@8.5.6))(yaml@2.8.2))
       '@wakamsha/oxlint-config':
         specifier: 1.0.2
         version: 1.0.2(oxlint@1.38.0)
@@ -4710,6 +4710,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.8.0:
+    resolution: {integrity: sha512-yEPsovQfpxYfgWNhCfECjG5AQaO+K3dp6XERmOepyPDVqcJm+bjyCVO3pmU+nAPe0N5dDvekfGezt/EIiRe1TA==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-format@27.5.1:
     resolution: {integrity: sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
@@ -7255,7 +7260,7 @@ snapshots:
       '@vitest/pretty-format': 4.0.17
       tinyrainbow: 3.0.3
 
-  '@wakamsha/eslint-config@7.2.0(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(@typescript-eslint/utils@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4))(typescript@5.9.3)(vitest@4.0.17(@types/node@24.10.9)(jiti@2.4.2)(jsdom@27.4.0(postcss@8.5.6))(yaml@2.8.2))':
+  '@wakamsha/eslint-config@7.2.0(@testing-library/dom@10.1.0)(@typescript-eslint/parser@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(@typescript-eslint/utils@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0))(typescript@5.9.3)(vitest@4.0.17(@types/node@24.10.9)(jiti@2.4.2)(jsdom@27.4.0(postcss@8.5.6))(yaml@2.8.2))':
     dependencies:
       '@vitest/eslint-plugin': 1.1.21(@typescript-eslint/utils@8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3))(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)(vitest@4.0.17(@types/node@24.10.9)(jiti@2.4.2)(jsdom@27.4.0(postcss@8.5.6))(yaml@2.8.2))
       confusing-browser-globals: 1.0.11
@@ -7269,7 +7274,7 @@ snapshots:
       eslint-plugin-promise: 7.2.1(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-react: 7.37.3(eslint@9.39.2(jiti@2.4.2))
       eslint-plugin-react-hooks: 7.0.1(eslint@9.39.2(jiti@2.4.2))
-      eslint-plugin-storybook: 10.1.4(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4))(typescript@5.9.3)
+      eslint-plugin-storybook: 10.1.4(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0))(typescript@5.9.3)
       eslint-plugin-testing-library: 7.1.1(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)
       eslint-plugin-unicorn: 62.0.0(eslint@9.39.2(jiti@2.4.2))
       globals: 16.0.0
@@ -8431,11 +8436,11 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-storybook@10.1.4(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4))(typescript@5.9.3):
+  eslint-plugin-storybook@10.1.4(eslint@9.39.2(jiti@2.4.2))(storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0))(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/utils': 8.24.0(eslint@9.39.2(jiti@2.4.2))(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.4.2)
-      storybook: 9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4)
+      storybook: 9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -9737,12 +9742,14 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-organize-imports@4.3.0(prettier@3.7.4)(typescript@5.9.3):
+  prettier-plugin-organize-imports@4.3.0(prettier@3.8.0)(typescript@5.9.3):
     dependencies:
-      prettier: 3.7.4
+      prettier: 3.8.0
       typescript: 5.9.3
 
   prettier@3.7.4: {}
+
+  prettier@3.8.0: {}
 
   pretty-format@27.5.1:
     dependencies:
@@ -10131,7 +10138,7 @@ snapshots:
 
   std-env@3.10.0: {}
 
-  storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.7.4):
+  storybook@9.0.6(@testing-library/dom@10.1.0)(prettier@3.8.0):
     dependencies:
       '@storybook/global': 5.0.0
       '@testing-library/jest-dom': 6.9.1
@@ -10145,7 +10152,7 @@ snapshots:
       semver: 7.7.3
       ws: 8.18.3
     optionalDependencies:
-      prettier: 3.7.4
+      prettier: 3.8.0
     transitivePeerDependencies:
       - '@testing-library/dom'
       - bufferutil
