@@ -30,7 +30,7 @@
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@testing-library/jest-dom": "6.9.1",
-    "@testing-library/react": "16.3.1",
+    "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
     "@types/qs": "6.14.0",
     "@types/react": "19.2.8",
