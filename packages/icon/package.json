@@ -19,7 +19,7 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
-    "cheerio": "1.1.2",
+    "cheerio": "1.2.0",
     "eslint": "9.39.2",
     "glob": "13.0.0",
     "oxlint": "1.39.0",
