@@ -30,14 +30,14 @@
     "qs": "6.14.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "react-router-dom": "7.12.0"
+    "react-router-dom": "7.13.0"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/qs": "6.14.0",
-    "@types/react": "19.2.8",
+    "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.2",
     "oxlint": "1.39.0",
