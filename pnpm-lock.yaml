@@ -693,8 +693,8 @@ importers:
   packages/try:
     dependencies:
       '@cubejs-client/core':
-        specifier: 1.6.4
-        version: 1.6.4
+        specifier: 1.6.6
+        version: 1.6.6
       '@emotion/css':
         specifier: 11.13.5
         version: 11.13.5
@@ -1319,8 +1319,8 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^7.1.1
 
-  '@cubejs-client/core@1.6.4':
-    resolution: {integrity: sha512-LHl5cvJI89Ibc9pTYm2BRdmlo/mItyaQxwZIH1R8Lm5sUBsEwBDMJZhLYmXKRE/IeWIxazI/b/CpBkfAlWHvIw==}
+  '@cubejs-client/core@1.6.6':
+    resolution: {integrity: sha512-JWEVQaaS7y6Y3Nhe4Lcjl8coP5eXIgYZQTb2WMlLdMluSGM4mWOSFpAis77lAPV+nybFvRf9ri+PjCGqGJXH5g==}
 
   '@emnapi/core@1.4.0':
     resolution: {integrity: sha512-H+N/FqT07NmLmt6OFFtDfwe8PNygprzBikrEMyQfgqSmT0vzE515Pz7R8izwB9q/zsH/MA64AKoul3sA6/CzVg==}
@@ -6322,7 +6322,7 @@ snapshots:
     dependencies:
       postcss-selector-parser: 7.1.1
 
-  '@cubejs-client/core@1.6.4':
+  '@cubejs-client/core@1.6.6':
     dependencies:
       core-js: 3.42.0
       cross-fetch: 3.2.0
