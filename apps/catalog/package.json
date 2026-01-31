@@ -39,7 +39,7 @@
     "glob": "13.0.0",
     "npm-run-all2": "8.0.4",
     "oxlint": "1.41.0",
-    "oxlint-tsgolint": "0.11.1",
+    "oxlint-tsgolint": "0.11.4",
     "playwright": "1.58.0",
     "stylelint": "17.0.0",
     "typescript": "5.9.3",
