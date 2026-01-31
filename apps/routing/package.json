@@ -21,15 +21,15 @@
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
     "match-sorter": "8.2.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-router": "7.13.0"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.2",
     "oxlint": "1.41.0",
