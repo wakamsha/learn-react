@@ -36,7 +36,7 @@
     "@types/react-dom": "19.2.3",
     "chokidar": "5.0.0",
     "eslint": "9.39.2",
-    "glob": "13.0.0",
+    "glob": "13.0.1",
     "npm-run-all2": "8.0.4",
     "oxlint": "1.41.0",
     "oxlint-tsgolint": "0.11.4",
