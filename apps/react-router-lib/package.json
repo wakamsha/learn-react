@@ -30,7 +30,7 @@
     "@learn-react/builder": "workspace:*",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:*",
-    "@types/react": "19.2.13",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "5.1.3",
