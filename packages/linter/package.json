@@ -17,12 +17,12 @@
   },
   "devDependencies": {
     "eslint": "9.39.2",
-    "oxlint": "1.41.0",
+    "oxlint": "1.47.0",
     "stylelint": "17.3.0"
   },
   "peerDependencies": {
     "eslint": "9.39.2",
-    "oxlint": "1.41.0",
+    "oxlint": "1.47.0",
     "stylelint": "17.3.0"
   }
 }
