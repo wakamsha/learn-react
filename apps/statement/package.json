@@ -41,7 +41,7 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.2",
     "oxlint": "1.41.0",
-    "oxlint-tsgolint": "0.11.5",
+    "oxlint-tsgolint": "0.13.0",
     "stylelint": "17.3.0",
     "typescript": "5.9.3",
     "vite": "7.3.1"
