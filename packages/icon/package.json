@@ -20,7 +20,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "cheerio": "1.2.0",
-    "eslint": "9.39.2",
+    "eslint": "10.0.0",
     "glob": "13.0.3",
     "oxlint": "1.41.0",
     "oxlint-tsgolint": "0.13.0",

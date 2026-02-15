@@ -31,7 +31,7 @@
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "eslint": "9.39.2",
+    "eslint": "10.0.0",
     "oxlint": "1.41.0",
     "oxlint-tsgolint": "0.13.0",
     "stylelint": "17.3.0",
