@@ -9,7 +9,7 @@
     "./stylelint.config": "./stylelint.config.js"
   },
   "dependencies": {
-    "@wakamsha/eslint-config": "7.2.2",
+    "@wakamsha/eslint-config": "7.3.0",
     "@wakamsha/oxlint-config": "1.0.3",
     "@wakamsha/stylelint-config": "4.0.5",
     "eslint-config-prettier": "10.1.8",
