@@ -15,8 +15,8 @@ importers:
         specifier: 20.4.2
         version: 20.4.2
       '@wakamsha/stylelint-config':
-        specifier: 4.0.5
-        version: 4.0.5(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
+        specifier: 4.1.0
+        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
       cspell:
         specifier: 9.6.4
         version: 9.6.4
@@ -671,8 +671,8 @@ importers:
         specifier: 1.0.3
         version: 1.0.3(oxlint-tsgolint@0.14.2)(oxlint@1.49.0(oxlint-tsgolint@0.14.2))
       '@wakamsha/stylelint-config':
-        specifier: 4.0.5
-        version: 4.0.5(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
+        specifier: 4.1.0
+        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
       eslint-config-prettier:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.3(jiti@2.4.2))
@@ -2638,8 +2638,8 @@ packages:
       oxlint: ^1.31.0
       oxlint-tsgolint: ^0.8.3 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.14.0
 
-  '@wakamsha/stylelint-config@4.0.5':
-    resolution: {integrity: sha512-57DU5tPsnaFBRs7cWlIHBrIm0Cx/tgMEBYjIwi/nHM0HuOyP/QZvmTYDJNb4MgGjT5cvQ0lxwv0zKJtPRDH8qg==}
+  '@wakamsha/stylelint-config@4.1.0':
+    resolution: {integrity: sha512-aDNWTjMv0mkShM6wBqhtaNmB9Kf6WHktSmOX/SUpom8ll1GUAyEMt7KJhbtd+tHM/QWaz1Ho/hAumMI7JJ5RsQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: ^16.13.0 || ^17.0.0
@@ -7632,7 +7632,7 @@ snapshots:
       oxlint: 1.49.0(oxlint-tsgolint@0.14.2)
       oxlint-tsgolint: 0.14.2
 
-  '@wakamsha/stylelint-config@4.0.5(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))':
+  '@wakamsha/stylelint-config@4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))':
     dependencies:
       postcss: 8.5.6
       postcss-styled-syntax: 0.7.0(postcss@8.5.6)
