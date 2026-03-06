@@ -36,7 +36,7 @@
     "@vitejs/plugin-react": "5.1.4",
     "eslint": "9.39.3",
     "oxlint": "1.51.0",
-    "oxlint-tsgolint": "0.14.2",
+    "oxlint-tsgolint": "0.16.0",
     "stylelint": "17.3.0",
     "typed-css-modules": "0.9.1",
     "typescript": "5.9.3",
