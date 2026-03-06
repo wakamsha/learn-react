@@ -16,7 +16,7 @@ importers:
         version: 20.4.2
       '@wakamsha/stylelint-config':
         specifier: 4.1.0
-        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
+        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3))
       cspell:
         specifier: 9.7.0
         version: 9.7.0
@@ -100,8 +100,8 @@ importers:
         specifier: 1.58.2
         version: 1.58.2
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -200,8 +200,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -279,8 +279,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -361,8 +361,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typed-css-modules:
         specifier: 0.9.1
         version: 0.9.1
@@ -419,8 +419,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -489,8 +489,8 @@ importers:
         specifier: 0.16.0
         version: 0.16.0
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -602,8 +602,8 @@ importers:
         specifier: 7.13.1
         version: 7.13.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -672,7 +672,7 @@ importers:
         version: 1.0.3(oxlint@1.51.0)
       '@wakamsha/stylelint-config':
         specifier: 4.1.0
-        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
+        version: 4.1.0(stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3))
       eslint-config-prettier:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.3(jiti@2.4.2))
@@ -687,8 +687,8 @@ importers:
         specifier: 1.51.0
         version: 1.51.0(oxlint-tsgolint@0.16.0)
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
 
   packages/try:
     dependencies:
@@ -778,8 +778,8 @@ importers:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
       stylelint:
-        specifier: 17.3.0
-        version: 17.3.0(typescript@5.9.3)
+        specifier: 17.4.0
+        version: 17.4.0(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
         version: 5.9.3
@@ -2751,10 +2751,6 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  balanced-match@3.0.1:
-    resolution: {integrity: sha512-vjtV3hiLqYDNRoiAv0zC4QaGAMPomEoq83PRmYIofPswwZurCeWR5LByXm7SyoL0Zh5+2z0+HC7jG8gSZJUh0w==}
-    engines: {node: '>= 16'}
-
   balanced-match@4.0.2:
     resolution: {integrity: sha512-x0K50QvKQ97fdEz2kPehIerj+YTeptKF9hyYkKf6egnwmMWAkADiO0QCzSp0R5xN8FTZgYaBfSaue46Ej62nMg==}
     engines: {node: 20 || >=22}
@@ -3091,9 +3087,9 @@ packages:
     engines: {node: '>=20.18'}
     hasBin: true
 
-  css-functions-list@3.2.3:
-    resolution: {integrity: sha512-IQOkD3hbR5KrN93MtcYuad6YPuTSUhntLHDuLEbFWE+ff2/XSZNdZG+LcbbIW5AXKg/WFIfYItIzVoHngHXZzA==}
-    engines: {node: '>=12 || >=16'}
+  css-functions-list@3.3.3:
+    resolution: {integrity: sha512-8HFEBPKhOpJPEPu70wJJetjKta86Gw9+CCyCnB3sui2qQfOvRyqBy4IKLKKAwdMpWb2lHXWk9Wb4Z6AmaUT1Pg==}
+    engines: {node: '>=12'}
 
   css-select@5.1.0:
     resolution: {integrity: sha512-nwoRF1rvRRnnCqqY7updORDsuqKzqYJ28+oSMaJMMgOauh3fvwHqMS7EZpIPqK8GL+g9mKxF1vP/ZjSeNjEVHg==}
@@ -4233,9 +4229,6 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  known-css-properties@0.37.0:
-    resolution: {integrity: sha512-JCDrsP4Z1Sb9JwG0aJ8Eo2r7k4Ou5MwmThS/6lcIe1ICyb7UBJKGRIUUdqc2ASdE/42lgz6zFUnzAIhtXnBVrQ==}
-
   konva@10.2.0:
     resolution: {integrity: sha512-JBoz0Xjbf49UPxCZegZ4WseqOzJ+C4AUDOtJ9eBve5RS5Fcq/u8TdBD5fDl/uPFInpC3a9uycm0sRyZpF4hheg==}
 
@@ -5319,8 +5312,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
 
-  stylelint@17.3.0:
-    resolution: {integrity: sha512-1POV91lcEMhj6SLVaOeA0KlS9yattS+qq+cyWqP/nYzWco7K5jznpGH1ExngvPlTM9QF1Kjd2bmuzJu9TH2OcA==}
+  stylelint@17.4.0:
+    resolution: {integrity: sha512-3kQ2/cHv3Zt8OBg+h2B8XCx9evEABQIrv4hh3uXahGz/ZEHrTR80zxBiK2NfXNaSoyBzxO1pjsz1Vhdzwn5XSw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -7519,13 +7512,13 @@ snapshots:
     dependencies:
       oxlint: 1.51.0(oxlint-tsgolint@0.16.0)
 
-  '@wakamsha/stylelint-config@4.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))':
+  '@wakamsha/stylelint-config@4.1.0(stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3))':
     dependencies:
       postcss: 8.5.6
       postcss-styled-syntax: 0.7.0(postcss@8.5.6)
-      stylelint: 17.3.0(typescript@5.9.3)
-      stylelint-config-recess-order: 7.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3))
-      stylelint-config-standard: 40.0.0(stylelint@17.3.0(typescript@5.9.3))
+      stylelint: 17.4.0(typescript@5.9.3)
+      stylelint-config-recess-order: 7.1.0(stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3))
+      stylelint-config-standard: 40.0.0(stylelint@17.4.0(typescript@5.9.3))
     transitivePeerDependencies:
       - stylelint-order
 
@@ -7693,8 +7686,6 @@ snapshots:
       resolve: 1.22.8
 
   balanced-match@1.0.2: {}
-
-  balanced-match@3.0.1: {}
 
   balanced-match@4.0.2:
     dependencies:
@@ -8115,7 +8106,7 @@ snapshots:
       semver: 7.7.4
       tinyglobby: 0.2.15
 
-  css-functions-list@3.2.3: {}
+  css-functions-list@3.3.3: {}
 
   css-select@5.1.0:
     dependencies:
@@ -9429,8 +9420,6 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  known-css-properties@0.37.0: {}
-
   konva@10.2.0: {}
 
   language-subtag-registry@0.3.23: {}
@@ -10479,27 +10468,27 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  stylelint-config-recess-order@7.1.0(stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)))(stylelint@17.3.0(typescript@5.9.3)):
+  stylelint-config-recess-order@7.1.0(stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.3.0(typescript@5.9.3)
-      stylelint-order: 6.0.4(stylelint@17.3.0(typescript@5.9.3))
+      stylelint: 17.4.0(typescript@5.9.3)
+      stylelint-order: 6.0.4(stylelint@17.4.0(typescript@5.9.3))
 
-  stylelint-config-recommended@18.0.0(stylelint@17.3.0(typescript@5.9.3)):
+  stylelint-config-recommended@18.0.0(stylelint@17.4.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.3.0(typescript@5.9.3)
+      stylelint: 17.4.0(typescript@5.9.3)
 
-  stylelint-config-standard@40.0.0(stylelint@17.3.0(typescript@5.9.3)):
+  stylelint-config-standard@40.0.0(stylelint@17.4.0(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.3.0(typescript@5.9.3)
-      stylelint-config-recommended: 18.0.0(stylelint@17.3.0(typescript@5.9.3))
+      stylelint: 17.4.0(typescript@5.9.3)
+      stylelint-config-recommended: 18.0.0(stylelint@17.4.0(typescript@5.9.3))
 
-  stylelint-order@6.0.4(stylelint@17.3.0(typescript@5.9.3)):
+  stylelint-order@6.0.4(stylelint@17.4.0(typescript@5.9.3)):
     dependencies:
       postcss: 8.5.6
       postcss-sorting: 8.0.2(postcss@8.5.6)
-      stylelint: 17.3.0(typescript@5.9.3)
+      stylelint: 17.4.0(typescript@5.9.3)
 
-  stylelint@17.3.0(typescript@5.9.3):
+  stylelint@17.4.0(typescript@5.9.3):
     dependencies:
       '@csstools/css-calc': 3.1.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
@@ -10508,10 +10497,9 @@ snapshots:
       '@csstools/media-query-list-parser': 5.0.0(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/selector-resolve-nested': 4.0.0(postcss-selector-parser@7.1.1)
       '@csstools/selector-specificity': 6.0.0(postcss-selector-parser@7.1.1)
-      balanced-match: 3.0.1
       colord: 2.9.3
       cosmiconfig: 9.0.0(typescript@5.9.3)
-      css-functions-list: 3.2.3
+      css-functions-list: 3.3.3
       css-tree: 3.1.0
       debug: 4.4.3
       fast-glob: 3.3.3
@@ -10525,7 +10513,6 @@ snapshots:
       import-meta-resolve: 4.2.0
       imurmurhash: 0.1.4
       is-plain-object: 5.0.0
-      known-css-properties: 0.37.0
       mathml-tag-names: 4.0.0
       meow: 14.0.0
       micromatch: 4.0.8
