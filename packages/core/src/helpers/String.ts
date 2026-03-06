@@ -6,7 +6,7 @@
  * @returns 有効かどうか。
  */
 export function isValidEmail(value: string): boolean {
-  return !!/^[\w!#$%&'*+./=?\\^`{|}~-]+@[\dA-Za-z-]+(?:\.[\dA-Za-z-]+)*$/.test(value);
+  return /^[\w!#$%&'*+./=?\\^`{|}~-]+@[\dA-Za-z-]+(?:\.[\dA-Za-z-]+)*$/.test(value);
 }
 
 /**
