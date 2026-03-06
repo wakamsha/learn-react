@@ -39,7 +39,7 @@
     "@types/sort-by": "1.2.3",
     "cross-env": "10.1.0",
     "eslint": "9.39.3",
-    "oxlint": "1.49.0",
+    "oxlint": "1.51.0",
     "oxlint-tsgolint": "0.14.2",
     "stylelint": "17.3.0",
     "typed-css-modules": "0.9.1",
