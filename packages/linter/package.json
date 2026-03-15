@@ -16,12 +16,12 @@
     "eslint-plugin-oxlint": "1.51.0"
   },
   "devDependencies": {
-    "eslint": "9.39.4",
+    "eslint": "10.0.3",
     "oxlint": "1.55.0",
     "stylelint": "17.4.0"
   },
   "peerDependencies": {
-    "eslint": "9.39.4",
+    "eslint": "10.0.3",
     "oxlint": "1.55.0",
     "stylelint": "17.4.0"
   }
