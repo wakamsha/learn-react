@@ -677,8 +677,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-oxlint:
-        specifier: 1.58.0
-        version: 1.58.0(oxlint@1.59.0)
+        specifier: 1.59.0
+        version: 1.59.0(oxlint@1.59.0)
     devDependencies:
       eslint:
         specifier: 9.39.4
@@ -3502,10 +3502,10 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-oxlint@1.58.0:
-    resolution: {integrity: sha512-L3aZSg0x2fL0dXyOgoK8A1QUbnfGzXt6bX4AFD7Scauw6zVUBOZrES5eRTzLLGgeVg0el5lvqHGl1WFAGo14DA==}
+  eslint-plugin-oxlint@1.59.0:
+    resolution: {integrity: sha512-g0DR+xSsnUdyaMc2KAXvBVGWz5V4GwlAE1PM+ocKxl2Eg7YgOjkRLLbxgJ3bhYOhRLhD8F0X4DjJu2FSDvrvAg==}
     peerDependencies:
-      oxlint: ~1.58.0
+      oxlint: ~1.59.0
 
   eslint-plugin-promise@7.2.1:
     resolution: {integrity: sha512-SWKjd+EuvWkYaS+uN2csvj0KoP43YTu7+phKQ5v+xw6+A0gutVX2yqCeCkC3uLCJFiPfR2dD8Es5L7yUsmvEaA==}
@@ -8689,7 +8689,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.7.4
 
-  eslint-plugin-oxlint@1.58.0(oxlint@1.59.0):
+  eslint-plugin-oxlint@1.59.0(oxlint@1.59.0):
     dependencies:
       jsonc-parser: 3.3.1
       oxlint: 1.59.0(oxlint-tsgolint@0.18.1)
