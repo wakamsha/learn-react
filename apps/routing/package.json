@@ -20,7 +20,7 @@
   "dependencies": {
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
-    "match-sorter": "8.2.0",
+    "match-sorter": "8.3.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-router": "7.14.1"
