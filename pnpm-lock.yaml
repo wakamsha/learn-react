@@ -677,8 +677,8 @@ importers:
         specifier: 10.1.8
         version: 10.1.8(eslint@9.39.4(jiti@2.4.2))
       eslint-plugin-oxlint:
-        specifier: 1.59.0
-        version: 1.59.0(oxlint@1.60.0)
+        specifier: 1.60.0
+        version: 1.60.0(oxlint@1.60.0)
     devDependencies:
       eslint:
         specifier: 9.39.4
@@ -3502,10 +3502,10 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-oxlint@1.59.0:
-    resolution: {integrity: sha512-g0DR+xSsnUdyaMc2KAXvBVGWz5V4GwlAE1PM+ocKxl2Eg7YgOjkRLLbxgJ3bhYOhRLhD8F0X4DjJu2FSDvrvAg==}
+  eslint-plugin-oxlint@1.60.0:
+    resolution: {integrity: sha512-9RUD23k7ablez1qg7JWnyPYPOlbucDDqaDr+qNUi0TbIQCPqIPCLzfllgqKF9lOxlg+l17H8hISErmarvm2J1w==}
     peerDependencies:
-      oxlint: ~1.59.0
+      oxlint: ~1.60.0
 
   eslint-plugin-promise@7.2.1:
     resolution: {integrity: sha512-SWKjd+EuvWkYaS+uN2csvj0KoP43YTu7+phKQ5v+xw6+A0gutVX2yqCeCkC3uLCJFiPfR2dD8Es5L7yUsmvEaA==}
@@ -8688,7 +8688,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.7.4
 
-  eslint-plugin-oxlint@1.59.0(oxlint@1.60.0):
+  eslint-plugin-oxlint@1.60.0(oxlint@1.60.0):
     dependencies:
       jsonc-parser: 3.3.1
       oxlint: 1.60.0(oxlint-tsgolint@0.21.1)
@@ -10023,9 +10023,9 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss-sorting@8.0.2(postcss@8.5.8):
+  postcss-sorting@8.0.2(postcss@8.5.10):
     dependencies:
-      postcss: 8.5.8
+      postcss: 8.5.10
 
   postcss-styled-syntax@0.7.0(postcss@8.5.6):
     dependencies:
@@ -10584,8 +10584,8 @@ snapshots:
 
   stylelint-order@6.0.4(stylelint@17.8.0(typescript@5.9.3)):
     dependencies:
-      postcss: 8.5.8
-      postcss-sorting: 8.0.2(postcss@8.5.8)
+      postcss: 8.5.10
+      postcss-sorting: 8.0.2(postcss@8.5.10)
       stylelint: 17.8.0(typescript@5.9.3)
 
   stylelint@17.8.0(typescript@5.9.3):
