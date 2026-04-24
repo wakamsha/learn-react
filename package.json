@@ -8,10 +8,10 @@
   "type": "module",
   "engines": {
     "node": "24.15.0",
-    "pnpm": "10.33.0",
+    "pnpm": "10.33.2",
     "npm": "please use pnpm instead"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "prepare": "lefthook install",
     "postinstall": "pnpm builder build; pnpm icon build",
