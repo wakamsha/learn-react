@@ -34,7 +34,7 @@
     "eslint": "9.39.4",
     "oxlint": "1.61.0",
     "oxlint-tsgolint": "0.22.0",
-    "stylelint": "17.8.0",
+    "stylelint": "17.9.0",
     "typescript": "5.9.3",
     "vite": "7.3.2"
   }
