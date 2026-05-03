@@ -40,7 +40,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "oxlint": "1.61.0",
+    "oxlint": "1.62.0",
     "oxlint-tsgolint": "0.22.1",
     "stylelint": "17.9.1",
     "typescript": "5.9.3",

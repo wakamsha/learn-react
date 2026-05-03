@@ -22,7 +22,7 @@
     "cheerio": "1.2.0",
     "eslint": "9.39.4",
     "glob": "13.0.6",
-    "oxlint": "1.61.0",
+    "oxlint": "1.62.0",
     "oxlint-tsgolint": "0.22.1",
     "prettier": "3.8.3",
     "react": "19.2.5",
