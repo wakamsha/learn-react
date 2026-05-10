@@ -25,7 +25,7 @@
     "@learn-react/core": "workspace:1.0.0",
     "constate": "3.3.3",
     "jotai": "2.19.1",
-    "mobx": "6.15.0",
+    "mobx": "6.15.3",
     "mobx-react": "9.2.1",
     "qs": "6.15.1",
     "react": "19.2.5",
