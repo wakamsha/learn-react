@@ -1,3 +1,8 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+
+allowBuilds:
+  core-js: false
+  esbuild: true
+  lefthook: true
