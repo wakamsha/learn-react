@@ -66,14 +66,6 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
     optimizeDeps: {
       esbuildOptions: build.target ? { target: build.target } : {},
     },
-    plugins: [
-      react({
-        babel: {
-          parserOpts: {
-            plugins: ['decorators-legacy', 'classProperties'],
-          },
-        },
-      }),
-    ],
+    plugins: [react()],
   };
 }

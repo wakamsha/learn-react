@@ -1,7 +1,8 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
   "compilerOptions": {
-    "outDir": "./dist",
+    "rootDir": "src",
+    "outDir": "dist",
     "module": "ESNext",
     "sourceMap": false
   },
