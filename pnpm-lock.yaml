@@ -443,11 +443,11 @@ importers:
         specifier: 2.20.1
         version: 2.20.1(@babel/core@7.29.0)(@babel/template@7.28.6)(@types/react@19.2.17)(react@19.2.7)
       mobx:
-        specifier: 6.15.4
-        version: 6.15.4
+        specifier: 6.16.1
+        version: 6.16.1
       mobx-react:
         specifier: 9.2.2
-        version: 9.2.2(mobx@6.15.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 9.2.2(mobx@6.16.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       qs:
         specifier: 6.15.2
         version: 6.15.2
@@ -4683,8 +4683,8 @@ packages:
       react-native:
         optional: true
 
-  mobx@6.15.4:
-    resolution: {integrity: sha512-do+2UsEKRVT70W/QqP2F2sju2x4p2xZo+5/azXqKjXgTk2jfmzsLjzwW0YI8CBEjy4ZUdU8EunXocXXwJdCrtw==}
+  mobx@6.16.1:
+    resolution: {integrity: sha512-syNcDdX3KT+Jq3je6eGjBhuc24Z68td2VG0zNFqRswaE433D9SNH5VRy/xrGbJsUixfppLLccXhAW9JSf6n+SQ==}
 
   morgan@1.10.1:
     resolution: {integrity: sha512-223dMRJtI/l25dJKWpgij2cMtywuG/WiUKXdvwfbhGKBhy1puASqXwFzmWZ7+K73vUPoR7SS2Qz2cI/g9MKw0A==}
@@ -9925,23 +9925,23 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mobx-react-lite@4.1.1(mobx@6.15.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  mobx-react-lite@4.1.1(mobx@6.16.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
-      mobx: 6.15.4
+      mobx: 6.16.1
       react: 19.2.7
       use-sync-external-store: 1.6.0(react@19.2.7)
     optionalDependencies:
       react-dom: 19.2.7(react@19.2.7)
 
-  mobx-react@9.2.2(mobx@6.15.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  mobx-react@9.2.2(mobx@6.16.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
-      mobx: 6.15.4
-      mobx-react-lite: 4.1.1(mobx@6.15.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      mobx: 6.16.1
+      mobx-react-lite: 4.1.1(mobx@6.16.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react: 19.2.7
     optionalDependencies:
       react-dom: 19.2.7(react@19.2.7)
 
-  mobx@6.15.4: {}
+  mobx@6.16.1: {}
 
   morgan@1.10.1:
     dependencies:
