@@ -18,7 +18,7 @@
   "dependencies": {
     "@learn-react/core": "workspace:*",
     "clsx": "2.1.1",
-    "isbot": "5.1.42",
+    "isbot": "5.1.43",
     "match-sorter": "8.3.0",
     "react": "19.2.7",
     "react-dom": "19.2.7",
