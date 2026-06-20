@@ -11,18 +11,18 @@
   "dependencies": {
     "@wakamsha/eslint-config": "7.3.0",
     "@wakamsha/oxlint-config": "1.0.3",
-    "@wakamsha/stylelint-config": "4.1.0",
+    "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-oxlint": "1.67.0"
   },
   "devDependencies": {
     "eslint": "9.39.4",
     "oxlint": "1.67.0",
-    "stylelint": "17.12.0"
+    "stylelint": "17.13.0"
   },
   "peerDependencies": {
     "eslint": "9.39.4",
     "oxlint": "1.67.0",
-    "stylelint": "17.12.0"
+    "stylelint": "17.13.0"
   }
 }
