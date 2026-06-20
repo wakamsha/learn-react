@@ -703,7 +703,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.5
-        version: 8.0.5(@types/react@19.2.17)(pixi.js@8.18.1)(react@19.2.7)
+        version: 8.0.5(@types/react@19.2.17)(pixi.js@8.19.0)(react@19.2.7)
       chart.js:
         specifier: 4.5.1
         version: 4.5.1
@@ -717,8 +717,8 @@ importers:
         specifier: 10.3.0
         version: 10.3.0
       pixi.js:
-        specifier: 8.18.1
-        version: 8.18.1
+        specifier: 8.19.0
+        version: 8.19.0
       qs:
         specifier: 6.15.2
         version: 6.15.2
@@ -4853,8 +4853,8 @@ packages:
   parse-statements@1.0.11:
     resolution: {integrity: sha512-HlsyYdMBnbPQ9Jr/VgJ1YF4scnldvJpJxCVx6KgqPL4dxppsWrJHCIIxQXMJrqGnsRkNPATbeMJ8Yxu7JMsYcA==}
 
-  parse-svg-path@0.1.2:
-    resolution: {integrity: sha512-JyPSBnkTJ0AI8GGJLfMXvKq42cj5c006fnLz6fXy6zfoVjJizi8BNTpu8on8ziI1cKy9d9DGNuY17Ce7wuejpQ==}
+  parse-svg-path@0.2.0:
+    resolution: {integrity: sha512-Tf7FFIrguPKQwzD4pWnYkR2VOv3raoHeKED80Bm+BYHI3KxC8KsgsGC5+fSMzAGDA6UEk4bHvmi+RsjmL3khpg==}
 
   parse5-htmlparser2-tree-adapter@7.1.0:
     resolution: {integrity: sha512-ruw5xyKs6lrpo9x9rCZqZZnIUntICjQAd0Wsmp396Ul9lN/h+ifgVV1x1gZHi8euej6wTfpqX8j+BFQxF0NS/g==}
@@ -4928,8 +4928,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pixi.js@8.18.1:
-    resolution: {integrity: sha512-6LUPWYgulZhp/w4kam2XHXB0QedISZIqrJbRdHLLQ3csn5a38uzKxAp6B5j6s89QFYaIJbg95kvgTRcbgpO1ow==}
+  pixi.js@8.19.0:
+    resolution: {integrity: sha512-pq1O6emA/GFjjeF+8d3Pb5t7knD8FsnfWGqQcRjYjsqFZ7QdzG1XgjLDUu0DFJRbafjV5+g8iNLFBx0b9649lg==}
 
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
@@ -7190,10 +7190,10 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.5(@types/react@19.2.17)(pixi.js@8.18.1)(react@19.2.7)':
+  '@pixi/react@8.0.5(@types/react@19.2.17)(pixi.js@8.19.0)(react@19.2.7)':
     dependencies:
       its-fine: 2.0.0(@types/react@19.2.17)(react@19.2.7)
-      pixi.js: 8.18.1
+      pixi.js: 8.19.0
       react: 19.2.7
       react-reconciler: 0.31.0(react@19.2.7)
     transitivePeerDependencies:
@@ -10125,7 +10125,7 @@ snapshots:
 
   parse-statements@1.0.11: {}
 
-  parse-svg-path@0.1.2: {}
+  parse-svg-path@0.2.0: {}
 
   parse5-htmlparser2-tree-adapter@7.1.0:
     dependencies:
@@ -10184,7 +10184,7 @@ snapshots:
 
   pidtree@1.0.0: {}
 
-  pixi.js@8.18.1:
+  pixi.js@8.19.0:
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/earcut': 3.0.0
@@ -10194,7 +10194,7 @@ snapshots:
       eventemitter3: 5.0.1
       gifuct-js: 2.1.2
       ismobilejs: 1.1.1
-      parse-svg-path: 0.1.2
+      parse-svg-path: 0.2.0
       tiny-lru: 11.4.7
 
   pkg-types@2.3.0:
