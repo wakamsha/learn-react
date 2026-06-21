@@ -17,13 +17,13 @@ type Props = {
  */
 export const Template: FC<Props> = ({ contact, onCancel }) => (
   <Form key={contact.id} className={styles.base} method="post">
-    <p className={styles.formGroup}>
+    <div className={styles.formGroup}>
       <span className={styles.labelDisplay}>Name</span>
       <div className={styles.formItem}>
         <TextInput aria-label="First name" defaultValue={contact.first} name="first" placeholder="First" />
         <TextInput aria-label="Last name" defaultValue={contact.last} name="last" placeholder="Last" />
       </div>
-    </p>
+    </div>
 
     <label className={styles.formGroup}>
       <span className={styles.labelDisplay}>Twitter</span>
@@ -51,11 +51,11 @@ export const Template: FC<Props> = ({ contact, onCancel }) => (
       </div>
     </label>
 
-    <p className={clsx(styles.formGroup, styles.controls)}>
+    <div className={clsx(styles.formGroup, styles.controls)}>
       <Button>Save</Button>
       <Button type="button" theme="secondary" onClick={onCancel}>
         Cancel
       </Button>
-    </p>
+    </div>
   </Form>
 );
