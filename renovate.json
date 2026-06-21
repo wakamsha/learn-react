@@ -24,27 +24,31 @@
     },
     {
       "groupName": "React families",
-      "matchPackagePatterns": ["^react", "^@types/react"]
+      "matchPackageNames": ["/^react(-dom)?$/", "/^@types/react(-dom)?$/"]
+    },
+    {
+      "groupName": "React Router families",
+      "matchPackageNames": ["/^react-router$/", "/^@react-router//"]
     },
     {
       "groupName": "ESLint families",
-      "matchPackagePatterns": ["eslint"]
+      "matchPackageNames": ["/eslint$/"]
     },
     {
       "groupName": "Prettier families",
-      "matchPackagePatterns": ["^prettier"]
+      "matchPackageNames": ["/prettier$/"]
     },
     {
       "groupName": "Stylelint families",
-      "matchPackagePatterns": ["stylelint"]
+      "matchPackageNames": ["/stylelint$/"]
     },
     {
       "groupName": "Vite families",
-      "matchPackagePatterns": ["vite", "^@vitejs"]
+      "matchPackageNames": ["/^vite$/", "/^@vitejs//", "/^vite-/"]
     },
     {
       "groupName": "Commitlint families",
-      "matchPackagePatterns": ["@commitlint"]
+      "matchPackageNames": ["/^@commitlint/"]
     }
   ]
 }
