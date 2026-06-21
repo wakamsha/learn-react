@@ -1,3 +1,4 @@
+// oxlint-disable react/no-multi-comp
 import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { type ReactNode } from 'react';

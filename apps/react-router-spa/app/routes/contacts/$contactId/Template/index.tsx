@@ -1,4 +1,4 @@
-import type { FC, FormEvent } from 'react';
+import type { FC, SubmitEvent } from 'react';
 import { Form, generatePath } from 'react-router';
 import { Button } from '../../../../components/Button';
 import type { ContactRecord } from '../../../../data';
@@ -14,7 +14,7 @@ type Props = {
  * The contact page.
  */
 export const Template: FC<Props> = ({ contact }) => {
-  const handleDestroy = (event: FormEvent) => {
+  const handleDestroy = (event: SubmitEvent) => {
     // oxlint-disable-next-line no-alert, no-restricted-globals
     const response = confirm('Please confirm you want to delete this record.');
 

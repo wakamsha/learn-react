@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import type { FormEvent } from 'react';
+import type { SubmitEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { Outlet, useNavigation, useSubmit } from 'react-router';
 import { getContacts } from '../../data';
@@ -41,7 +41,7 @@ export default ({ loaderData: { contacts, q } }: Route.ComponentProps) => {
     setQuery(query);
   };
 
-  const handleFormChange = async (event: FormEvent<HTMLFormElement>) => {
+  const handleFormChange = async (event: SubmitEvent<HTMLFormElement>) => {
     const isFirstSearch = q === null;
 
     await submit(event.currentTarget, {

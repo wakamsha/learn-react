@@ -3,6 +3,7 @@
 
   // eslint.config.js や tsconfig.base.json のようなパス解決ができないため、やむなく相対パスで参照しています。
   "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"],
+  "ignorePatterns": ["**/*.css.d.ts"],
 
   "overrides": [
     {
@@ -13,13 +14,21 @@
           // React Router の Route Module Type は top-level import が必要。
           // see: https://reactrouter.com/how-to/route-module-type-safety#2-include-the-generated-types-in-tsconfig
           "prefer-top-level"
+        ],
+        "jsx-a11y/label-has-associated-control": [
+          "error",
+          {
+            "controlComponents": ["TextInput", "TextArea"]
+          }
         ]
       }
     },
     {
       "files": ["app/**/{root,route,routes}.*"],
       "rules": {
-        "import/no-default-export": ["off"]
+        "import/no-default-export": ["off"],
+        "react/only-export-components": ["off"],
+        "typescript/only-throw-error": ["off"]
       }
     },
     {
