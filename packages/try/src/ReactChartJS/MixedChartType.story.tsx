@@ -46,7 +46,7 @@ export const Story: FC = () => {
   const printDatasetAtEvent = (dataset: InteractionItem[]) => {
     if (dataset.length === 0) return;
 
-    const { datasetIndex } = dataset[0];
+    const [{ datasetIndex }] = dataset;
 
     console.info(data.datasets[datasetIndex].label);
   };
@@ -54,7 +54,7 @@ export const Story: FC = () => {
   const printElementAtEvent = (element: InteractionItem[]) => {
     if (element.length === 0) return;
 
-    const { datasetIndex, index } = element[0];
+    const [{ datasetIndex, index }] = element;
 
     console.info(data.labels?.[index], data.datasets[datasetIndex].data[index]);
   };

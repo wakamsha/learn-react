@@ -35,7 +35,7 @@ export const Story: FC = () => {
           type: 'cross',
         },
         formatter: (params: CustomTooltipParams[]) => {
-          const { axisValue } = params[0];
+          const [{ axisValue }] = params;
           const tooltipHtml = params
             .map((param) => {
               const value = param.seriesName === 'CVR_A' ? `${param.value}%` : param.value;

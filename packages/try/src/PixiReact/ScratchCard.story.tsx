@@ -44,6 +44,7 @@ const ScratchCard: FC<ScratchCardProps> = ({ assetsPromise }) => {
   });
 
   useEffect(() => {
+    // oxlint-disable-next-line unicorn/no-array-fill-with-reference-type
     const brush = new Graphics().circle(0, 0, 20).fill({ color: 0xff_ff_ff });
 
     // Create a line that will interpolate the drawn points

@@ -39,12 +39,15 @@ export class Loadable<T> {
 
   public getOrThrow() {
     switch (this.#state.status) {
-      case 'pending':
+      case 'pending': {
         throw this.#state.promise;
-      case 'fulfilled':
+      }
+      case 'fulfilled': {
         return this.#state.data;
-      case 'rejected':
+      }
+      case 'rejected': {
         throw this.#state.error;
+      }
     }
   }
 }

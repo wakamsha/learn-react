@@ -63,13 +63,16 @@ type Action =
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'name':
+    case 'name': {
       return { ...state, name: action.payload.name };
-    case 'job':
+    }
+    case 'job': {
       return { ...state, job: action.payload.job };
+    }
     // oxlint-disable-next-line switch-exhaustiveness-check
-    default:
+    default: {
       return state;
+    }
   }
 };
 
@@ -80,6 +83,7 @@ function useSubmit() {
     async ({ name, job }: State) => {
       await postUser({ name, job });
     },
+    // oxlint-disable-next-line promise/prefer-await-to-callbacks
     (error) => {
       console.error('😓😓😓', error.message);
     },
