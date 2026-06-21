@@ -32,15 +32,15 @@
     },
     {
       "groupName": "ESLint families",
-      "matchPackagePatterns": ["eslint"]
+      "matchPackageNames": ["/eslint$/"]
     },
     {
       "groupName": "Prettier families",
-      "matchPackagePatterns": ["^prettier"]
+      "matchPackageNames": ["/prettier$/"]
     },
     {
       "groupName": "Stylelint families",
-      "matchPackagePatterns": ["stylelint"]
+      "matchPackageNames": ["/stylelint$/"]
     },
     {
       "groupName": "Vite families",
@@ -48,7 +48,7 @@
     },
     {
       "groupName": "Commitlint families",
-      "matchPackagePatterns": ["@commitlint"]
+      "matchPackageNames": ["/^@commitlint/"]
     }
   ]
 }
