@@ -99,6 +99,7 @@ function getRelativeLuminance(hexColor: string) {
  * @param value - #FFCC00 のような値
  */
 function parseHexColor(value: string) {
+  // oxlint-disable-next-line prefer-named-capture-group
   const [, red, green, blue] = /#(..)(..)(..)/.exec(value) ?? [];
 
   return {

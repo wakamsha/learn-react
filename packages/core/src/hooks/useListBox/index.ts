@@ -140,33 +140,40 @@ export function useListBox(itemCount: number): Response {
     (event: KeyboardEvent<HTMLElement>) => {
       if (Object.values(KeyMaps).includes(event.key)) {
         switch (event.key) {
-          case KeyMaps.Escape:
+          case KeyMaps.Escape: {
             setActive(false);
             triggerRef.current?.focus();
             break;
-          case KeyMaps.Tab:
+          }
+          case KeyMaps.Tab: {
             setActive(false);
             break;
-          case KeyMaps.Enter:
+          }
+          case KeyMaps.Enter: {
             if (!['BUTTON', 'INPUT', 'A'].includes(event.currentTarget.nodeName)) {
               event.currentTarget.click();
             }
             setActive(false);
             break;
-          case KeyMaps.Space:
+          }
+          case KeyMaps.Space: {
             event.currentTarget.click();
             setActive(false);
             break;
+          }
         }
 
         const newFocusIndex = (() => {
           switch (event.key) {
-            case KeyMaps.ArrowUp:
+            case KeyMaps.ArrowUp: {
               return focusIndex + (focusIndex > 0 ? -1 : itemRefs.length - 1);
-            case KeyMaps.ArrowDown:
+            }
+            case KeyMaps.ArrowDown: {
               return focusIndex + (focusIndex < itemRefs.length - 1 ? 1 : (itemRefs.length - 1) * -1);
-            default:
+            }
+            default: {
               return focusIndex;
+            }
           }
         })();
         moveFocus(newFocusIndex);
@@ -218,8 +225,9 @@ export function useListBox(itemCount: number): Response {
         !(event.target instanceof Element) ||
         event.target.closest('[role="menu"]') instanceof Element ||
         event.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === triggerRef.current
-      )
+      ) {
         return;
+      }
 
       setActive((active) => !active);
     };
@@ -260,6 +268,7 @@ export function useListBox(itemCount: number): Response {
       'aria-expanded': active,
     },
     itemProps: [...Array(itemCount).keys()].map((index) => ({
+      // eslint-disable-next-line react-hooks/refs
       onKeyDown: handleItemKeyDown,
       tabIndex: -1,
       role: 'menuitem',

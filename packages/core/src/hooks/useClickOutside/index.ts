@@ -3,7 +3,7 @@ import { useEffect, useRef, type RefObject } from 'react';
 /**
  * ある要素の領域外をクリックしたイベントを検知します。
  *
- * @param callback - 領域外をクリックした時に発火するコールバック関数
+ * @param handler - 領域外をクリックした時に発火するコールバック関数
  *
  * @param enabled  - 有効化フラグ ( default: true )
  *
@@ -19,7 +19,7 @@ import { useEffect, useRef, type RefObject } from 'react';
  * ```
  */
 export function useClickOutside<T extends HTMLElement>(
-  callback: (event: Event) => void,
+  handler: (event: Event) => void,
   enabled = true,
 ): RefObject<T | null> {
   const ref = useRef<T>(null);
@@ -27,7 +27,7 @@ export function useClickOutside<T extends HTMLElement>(
   useEffect(() => {
     const listener = (event: Event) => {
       if (!ref.current?.contains(event.target as HTMLElement)) {
-        callback(event);
+        handler(event);
       }
     };
 
@@ -40,7 +40,7 @@ export function useClickOutside<T extends HTMLElement>(
       document.removeEventListener('click', listener);
       document.removeEventListener('touchstart', listener);
     };
-  }, [callback, enabled]);
+  }, [handler, enabled]);
 
   return ref;
 }

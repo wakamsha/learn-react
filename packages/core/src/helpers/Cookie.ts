@@ -27,7 +27,7 @@ export async function setCookie({ cname, cvalue, expireAt, domain = '.wakamsha.n
     segments.expires = expireAt.toUTCString();
   }
 
-  await Promise.all(Object.entries(segments).map(([key, value]) => cookieStore.set(key, value)));
+  await Promise.all(Object.entries(segments).map(async ([key, value]) => cookieStore.set(key, value)));
 }
 
 /**

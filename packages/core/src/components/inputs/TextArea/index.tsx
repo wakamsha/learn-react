@@ -69,6 +69,7 @@ export const TextArea = ({
         placeholder={placeholder}
         readOnly={readonly}
         tabIndex={tabIndex}
+        // oxlint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         onChange={handleChange}
       />

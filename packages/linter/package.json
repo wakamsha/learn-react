@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@wakamsha/eslint-config": "9.0.0",
-    "@wakamsha/oxlint-config": "2.2.1",
+    "@wakamsha/oxlint-config": "2.2.2",
     "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-oxlint": "1.70.0"

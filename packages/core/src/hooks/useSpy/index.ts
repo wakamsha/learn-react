@@ -17,7 +17,7 @@ type Props = {
 
 type Selector = string | ((container: Element | Document) => ArrayLike<Element>);
 
-type Callback = (element: HTMLElement, index: number) => void;
+type Handler = (element: HTMLElement, index: number) => void;
 
 /**
  * コンテナ要素のスクロール位置を監視し、
@@ -42,12 +42,12 @@ type Callback = (element: HTMLElement, index: number) => void;
  */
 export function useSpy({ rootRef, offset = 0 }: Props) {
   const selectorRef = useRef<Selector>(null);
-  const callbackRef = useRef<Callback>(null);
+  const handlerRef = useRef<Handler>(null);
 
   const spy = useMemo(
-    () => (selector: Selector, callback?: Callback) => {
+    () => (selector: Selector, handler?: Handler) => {
       selectorRef.current = selector;
-      callbackRef.current = callback ?? null;
+      handlerRef.current = handler ?? null;
     },
     [],
   );
@@ -59,7 +59,7 @@ export function useSpy({ rootRef, offset = 0 }: Props) {
     if (!selector) return;
 
     const onScroll = () => {
-      if (!callbackRef.current) return;
+      if (!handlerRef.current) return;
 
       const targets = typeof selector === 'string' ? root.querySelectorAll(selector) : selector(root);
 
@@ -69,7 +69,7 @@ export function useSpy({ rootRef, offset = 0 }: Props) {
       if (!newTarget || newTarget === target) return;
 
       target = newTarget;
-      callbackRef.current(newTarget, index);
+      handlerRef.current(newTarget, index);
     };
 
     root.addEventListener('scroll', onScroll);

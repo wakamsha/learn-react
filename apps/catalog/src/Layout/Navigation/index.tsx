@@ -26,7 +26,7 @@ export const Navigation = () => {
   useAdjustScroll(bodyRef);
 
   return (
-    <div role="complementary" className={styleBase}>
+    <div className={styleBase}>
       <header className={styleMasthead}>
         <img src={Logo as string} alt="React Logo" className={styleLogo} />
         <h1 className={styleTitle}>
@@ -34,7 +34,7 @@ export const Navigation = () => {
         </h1>
       </header>
 
-      <div role="form" className={styleForm}>
+      <div className={styleForm}>
         <TextField
           clearable
           autoFocus

@@ -1,13 +1,13 @@
-// @ts-nocheck
 import { watch } from 'chokidar';
 import { glob } from 'glob';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import path from 'node:path';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import { template as storiesTemplate } from '../templates/stories.js';
 
-const __dirname = dirname(new URL(import.meta.url).pathname);
+// oxlint-disable-next-line no-underscore-dangle
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const { watch: watchFlag } = await yargs(hideBin(process.argv))
   .option('watch', {
@@ -17,8 +17,8 @@ const { watch: watchFlag } = await yargs(hideBin(process.argv))
   })
   .parseAsync();
 
-const targetFiles = await glob(resolve(__dirname, '../../../**/*.story.tsx'), { ignore: 'node_modules/**' });
-const sortedTargetFiles = targetFiles.sort((a, b) => {
+const targetFiles = await glob(path.resolve(__dirname, '../../../**/*.story.tsx'), { ignore: 'node_modules/**' });
+const sortedTargetFiles = targetFiles.toSorted((a, b) => {
   const nameA = a.toLowerCase();
   const nameB = b.toLowerCase();
   return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
@@ -47,7 +47,7 @@ function addTree(filePath, fileLocations, acc) {
   }
 
   if (restLocations.length > 0) {
-    addTree(filePath, restLocations, component.children || (component.children = []));
+    addTree(filePath, restLocations, component.children ?? (component.children = []));
   }
 
   return acc;
@@ -64,7 +64,11 @@ function exec() {
     [],
   );
 
-  writeFileSync(resolve(__dirname, '../src/constants/Stories.ts'), storiesTemplate(importPaths, storyTreeMap), 'utf8');
+  writeFileSync(
+    path.resolve(__dirname, '../src/constants/Stories.ts'),
+    storiesTemplate(importPaths, storyTreeMap),
+    'utf8',
+  );
 }
 
 exec();

@@ -46,7 +46,9 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
       // 3. アニメーション分の時間を置いたのち下記を実行する。
       //   3-a. アニメーション用 CSS クラスを外す。
       //   3-b. 遷移元の HTML 要素を消去する。
+      // eslint-disable-next-line react-hooks/set-state-in-render
       setId(propId);
+      // eslint-disable-next-line react-hooks/set-state-in-render
       setHtml(nextElm.current.innerHTML);
 
       nextElm.current.classList.add(styleEnter);

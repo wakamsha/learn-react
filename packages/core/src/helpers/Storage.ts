@@ -20,14 +20,17 @@ export class StorageProxy {
 
   constructor(storageType: StorageType) {
     switch (storageType) {
-      case 'cookieStorage':
+      case 'cookieStorage': {
         this.storage = new CookieStorage();
         return;
-      case 'sessionStorage':
+      }
+      case 'sessionStorage': {
         this.storage = new SessionStorage();
         return;
-      case 'localStorage':
+      }
+      case 'localStorage': {
         this.storage = this.isAvailableLocalStorage() ? new LocalStorage() : new CookieStorage();
+      }
     }
   }
 

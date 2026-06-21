@@ -50,6 +50,7 @@ export class ErrorBoundary<ERROR extends Record<string, unknown>> extends Compon
     const { onReset } = this.props;
     onReset?.();
 
+    // oxlint-disable-next-line react/no-set-state
     this.setState({ error: undefined });
   }
 

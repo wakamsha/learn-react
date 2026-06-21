@@ -1,4 +1,3 @@
-// @ts-check
 import { exec } from 'node:child_process';
 import playwright from 'playwright';
 import yargs from 'yargs';
@@ -52,7 +51,7 @@ async function main() {
   console.info({ Browsers: browserTypes, Found: `${storyIdList.length} stories` });
 
   await Promise.all(
-    browserTypes.map((browserType) =>
+    browserTypes.map(async (browserType) =>
       captureScreenshotsPerBrowser({
         browserType,
         storyIdList,
@@ -80,7 +79,7 @@ async function captureScreenshotsPerBrowser({ browserType, storyIdList }) {
   const page = await browser.newPage();
 
   await Promise.all(
-    storyIdList.map((storyId) =>
+    storyIdList.map(async (storyId) =>
       captureScreenshot({
         storyId,
         browserType,
@@ -134,14 +133,13 @@ async function getStoryIdList(url, selector) {
 
   await page.goto(url);
 
-  const locators = await page.locator(selector);
+  const locators = page.locator(selector);
   const count = await locators.count();
 
   const storyIdList = [];
 
   for (let i = 0; i < count; i++) {
-    // oxlint-disable-next-line no-await-in-loop
-    const element = await locators.nth(i);
+    const element = locators.nth(i);
     // oxlint-disable-next-line no-await-in-loop
     const href = await element.getAttribute('href');
 
@@ -165,7 +163,7 @@ async function getStoryIdList(url, selector) {
  *
  * @returns {Promise<void>} 指定した時間だけ待機する Promise
  */
-function wait(sec) {
+async function wait(sec) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve();

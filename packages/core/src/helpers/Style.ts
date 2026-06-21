@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { css, injectGlobal } from '@emotion/css';
 import { color } from 'csx';
 import { Color, FontFamily, Shadow } from '../constants/Style';

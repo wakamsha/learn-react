@@ -197,10 +197,12 @@ export const SplitPane = ({
     if (!container.current) return 0;
     const ratio = Number(size.replace('%', '')) / 100;
     switch (orientation) {
-      case 'horizontal':
+      case 'horizontal': {
         return container.current.clientWidth * ratio;
-      case 'vertical':
+      }
+      case 'vertical': {
         return container.current.clientHeight * ratio;
+      }
     }
   };
 

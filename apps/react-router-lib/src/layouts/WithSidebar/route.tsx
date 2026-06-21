@@ -1,4 +1,3 @@
-// oxlint-disable react/no-multi-comp
 import { clsx } from 'clsx';
 import { useEffect, useState, type FC, type SubmitEvent } from 'react';
 import {

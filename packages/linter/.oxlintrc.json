@@ -7,16 +7,5 @@
     "./node_modules/@wakamsha/oxlint-config/configs/react.json",
     "./node_modules/@wakamsha/oxlint-config/configs/typescript.json",
     "./node_modules/@wakamsha/oxlint-config/configs/test/essentials.json"
-  ],
-  "rules": {
-    "unicorn/no-nested-ternary": ["off"]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.{ts,tsx,cts,mts}"],
-      "rules": {
-        "typescript/strict-void-return": ["off"]
-      }
-    }
   ]
 }

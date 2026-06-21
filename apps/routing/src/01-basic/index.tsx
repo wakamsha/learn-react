@@ -1,4 +1,3 @@
-// oxlint-disable react/no-multi-comp
 import { css } from '@emotion/css';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router';

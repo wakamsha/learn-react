@@ -6,5 +6,6 @@ allowBuilds:
   core-js: false
   esbuild: true
   lefthook: true
+  unrs-resolver: false
 minimumReleaseAgeExclude:
-  - '@wakamsha/oxlint-config@2.2.0'
+  - '@wakamsha/oxlint-config@2.2.2'
