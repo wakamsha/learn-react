@@ -24,7 +24,11 @@
     },
     {
       "groupName": "React families",
-      "matchPackagePatterns": ["^react", "^@types/react"]
+      "matchPackageNames": ["/^react(-dom)?$/", "/^@types/react(-dom)?$/"]
+    },
+    {
+      "groupName": "React Router families",
+      "matchPackageNames": ["/^react-router$/", "/^@react-router//"]
     },
     {
       "groupName": "ESLint families",
@@ -40,7 +44,7 @@
     },
     {
       "groupName": "Vite families",
-      "matchPackagePatterns": ["vite", "^@vitejs"]
+      "matchPackageNames": ["/^vite$/", "/^@vitejs//", "/^vite-/"]
     },
     {
       "groupName": "Commitlint families",
