@@ -1,4 +1,4 @@
-/* eslint-disable react/hook-use-state */
+/* oxlint-disable react/hook-use-state */
 import { css } from '@emotion/css';
 import { LineHeight } from '@learn-react/core/src/constants/Style';
 import { createContainer } from '@learn-react/core/src/helpers/Container';
@@ -34,6 +34,7 @@ const TypeContainer = createContainer(useTypeConfig);
 const Components: Record<Type, FC> = {
   '1. basic': Basic,
   '2. nest-routes-deep': NestRoutesDeep,
+  // oxlint-disable typescript/no-deprecated
   '3. route-objects': RouteObjects,
   '4. with-page-transition': WithPageTransition,
 };

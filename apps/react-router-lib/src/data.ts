@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/require-await */
+/* oxlint-disable typescript/require-await */
 ////////////////////////////////////////////////////////////////////////////////
 // 🛑 Nothing in here has anything to do with React Router, it's just a fake database
 ////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ const fakeContacts = {
   async getAll(): Promise<ContactRecord[]> {
     return Object.keys(fakeContacts.records)
       .map((key) => fakeContacts.records[key])
-      .sort(sortBy('-createdAt', 'last'));
+      .toSorted(sortBy('-createdAt', 'last'));
   },
 
   async get(id: string): Promise<ContactRecord | null> {
@@ -88,7 +88,7 @@ export async function getContacts(query?: string | null) {
       keys: ['first', 'last'],
     });
   }
-  return contacts.sort(sortBy('last', 'createdAt'));
+  return contacts.toSorted(sortBy('last', 'createdAt'));
 }
 
 /**
@@ -316,7 +316,7 @@ export async function deleteContact(id: string) {
     twitter: '@jenseng',
   },
 ].forEach((contact) => {
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  // oxlint-disable-next-line typescript/no-floating-promises
   fakeContacts.create({
     ...contact,
     id: `${contact.first.toLowerCase()}-${contact.last.toLocaleLowerCase()}`,

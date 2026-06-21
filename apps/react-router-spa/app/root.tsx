@@ -1,3 +1,4 @@
+// oxlint-disable react/no-multi-comp
 import type { FC, ReactNode } from 'react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import type { Route } from './+types/root';
@@ -51,7 +52,7 @@ export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
     details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
-    stack = error.stack;
+    ({ stack } = error);
   }
 
   return <ErrorPage message={message} details={details} stack={stack} />;

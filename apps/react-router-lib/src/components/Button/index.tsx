@@ -24,12 +24,15 @@ type Props = {
 export const Button: FC<Props> = ({ children, theme = 'primary', type = 'submit', id, disabled = false, onClick }) => {
   const styleTheme = (() => {
     switch (theme) {
-      case 'primary':
+      case 'primary': {
         return styles.themePrimary;
-      case 'secondary':
+      }
+      case 'secondary': {
         return styles.themeSecondary;
-      case 'danger':
+      }
+      case 'danger': {
         return styles.themeDanger;
+      }
     }
   })();
 

@@ -1,5 +1,6 @@
+// oxlint-disable react/no-multi-comp
 import { clsx } from 'clsx';
-import { useEffect, useState, type FC, type FormEvent } from 'react';
+import { useEffect, useState, type FC, type SubmitEvent } from 'react';
 import {
   isRouteErrorResponse,
   Outlet,
@@ -47,7 +48,7 @@ export const Component = () => {
     setQuery(query);
   };
 
-  const handleFormChange = async (event: FormEvent<HTMLFormElement>) => {
+  const handleFormChange = async (event: SubmitEvent<HTMLFormElement>) => {
     const isFirstSearch = q === null;
 
     await submit(event.currentTarget, {
@@ -96,7 +97,7 @@ export const ErrorBoundary: FC = () => {
     details = error.status === 404 ? 'The requested page could not be found.' : error.statusText || details;
   } else if (import.meta.env.DEV && error && error instanceof Error) {
     details = error.message;
-    stack = error.stack;
+    ({ stack } = error);
   }
 
   return <ErrorTemplate message={message} details={details} stack={stack} />;

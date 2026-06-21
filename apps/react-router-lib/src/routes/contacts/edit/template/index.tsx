@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 type Props = {
   contact: ContactRecord;
-  onCancel: () => void;
+  onCancel: () => unknown;
 };
 
 /**
@@ -44,7 +44,6 @@ export const Template: FC<Props> = ({ contact, onCancel }) => (
       </div>
     </label>
 
-    {}
     <label className={styles.formGroup}>
       <span className={styles.labelDisplay}>Notes</span>
       <div className={styles.formItem}>

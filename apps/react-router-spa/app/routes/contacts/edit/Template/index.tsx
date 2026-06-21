@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 type Props = {
   contact: ContactRecord;
-  onCancel: () => void;
+  onCancel: () => unknown;
 };
 
 /**

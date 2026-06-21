@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { type ChangeEvent, type FC, type FormEvent } from 'react';
+import { type ChangeEvent, type FC, type SubmitEvent } from 'react';
 import { Form, generatePath, Link, NavLink } from 'react-router';
 import { Button } from '../../../components/Button';
 import { TextInput } from '../../../components/TextInput';
@@ -17,7 +17,7 @@ type Props = {
    */
   searching?: boolean;
   onQueryChange: (query: string) => void;
-  onSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  onSubmit: (event: SubmitEvent<HTMLFormElement>) => unknown;
 };
 
 /**
@@ -28,7 +28,7 @@ export const Sidebar: FC<Props> = ({ contacts, query, searching = false, onQuery
     onQueryChange(event.target.value);
   };
 
-  const handleFormChange = (event: FormEvent<HTMLFormElement>) => {
+  const handleFormChange = (event: SubmitEvent<HTMLFormElement>) => {
     onSubmit(event);
   };
 
@@ -41,20 +41,22 @@ export const Sidebar: FC<Props> = ({ contacts, query, searching = false, onQuery
       </h1>
 
       <div className={styles.formWrapper}>
-        <Form className={styles.form} id="search-form" role="search" onChange={handleFormChange}>
-          <TextInput
-            aria-label="Search contacts"
-            id="q"
-            loading={searching}
-            name="q"
-            defaultValue={query}
-            placeholder="Search"
-            type="search"
-            value={query}
-            onChange={handleQueryChange}
-          />
-          <div aria-hidden hidden={!searching} className={styles.searchSpinner} />
-        </Form>
+        <search>
+          <Form className={styles.form} id="search-form" onChange={handleFormChange}>
+            <TextInput
+              aria-label="Search contacts"
+              id="q"
+              loading={searching}
+              name="q"
+              defaultValue={query}
+              placeholder="Search"
+              type="search"
+              value={query}
+              onChange={handleQueryChange}
+            />
+            <div aria-hidden hidden={!searching} className={styles.searchSpinner} />
+          </Form>
+        </search>
 
         <Form className={styles.form} action={Paths.New} method="post">
           <Button theme="primary" type="submit">

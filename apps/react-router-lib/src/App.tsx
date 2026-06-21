@@ -1,3 +1,4 @@
+// oxlint-disable typescript/promise-function-async
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router';
 import { ErrorBoundary } from './layouts/WithSidebar/route';
 import { Paths } from './routes';
