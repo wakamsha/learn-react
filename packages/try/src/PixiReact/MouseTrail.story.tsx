@@ -40,6 +40,7 @@ const MouseTrail: FC<MouseTrailProps> = ({ texturePromise }) => {
     MeshRope,
   });
 
+  // eslint-disable-next-line react-hooks/immutability
   useEffect(() => {
     // historySize determines how long the trail will be.
     const historySize = 20;

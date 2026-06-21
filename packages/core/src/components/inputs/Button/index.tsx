@@ -101,12 +101,15 @@ export const Button = ({
 
 function getVariantStyle(variant: Variant, theme: Theme) {
   switch (variant) {
-    case 'solid':
+    case 'solid': {
       return styleSolid[theme];
-    case 'ghost':
+    }
+    case 'ghost': {
       return styleGhost[theme];
-    case 'bare':
+    }
+    case 'bare': {
       return styleBare[theme];
+    }
   }
 }
 

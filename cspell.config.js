@@ -43,6 +43,7 @@ export default defineConfig({
       'oxlint',
       'oxlintrc',
       'tsgolint',
+      'unrs',
     ],
     // SVG-related terms
     ...['cdefs', 'cclip', 'crect', 'csvg', 'cpath', 'csvg'],

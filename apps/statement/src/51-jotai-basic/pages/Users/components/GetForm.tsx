@@ -1,11 +1,11 @@
 import { useAtom } from 'jotai';
-import { loadableUsersAtom } from '../../../atoms/usersAtom';
+import { unwrappedUsersAtom } from '../../../atoms/usersAtom';
 
 export const GetForm = () => {
   console.info('Get Form');
 
   // const { load, loadStatus } = useLoad();
-  const [value] = useAtom(loadableUsersAtom);
+  const [value] = useAtom(unwrappedUsersAtom);
   console.info('value', value);
 
   return (

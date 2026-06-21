@@ -104,8 +104,9 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
         !(event.target instanceof Element) ||
         event.target.closest('[role="menu"]') instanceof Element ||
         event.target.closest('[aria-haspopup="true"][aria-expanded="true"]') === buttonRef.current
-      )
+      ) {
         return;
+      }
       setOpened(false);
     };
 
@@ -169,14 +170,16 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
     (event: KeyboardEvent<HTMLElement>) => {
       if (['Tab', 'Shift', 'Enter', 'Escape', 'ArrowUp', 'ArrowDown', ' '].includes(event.key)) {
         switch (event.key) {
-          case 'Escape':
+          case 'Escape': {
             setOpened(false);
             buttonRef.current?.focus();
             break;
-          case 'Tab':
+          }
+          case 'Tab': {
             setOpened(false);
             break;
-          case 'Enter':
+          }
+          case 'Enter': {
             if (!['BUTTON', 'INPUT', 'A'].includes(event.currentTarget.nodeName)) {
               event.currentTarget.click();
             }
@@ -184,12 +187,14 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
               setOpened(false);
             }
             break;
-          case ' ':
+          }
+          case ' ': {
             event.currentTarget.click();
             if (autoHide) {
               setOpened(false);
             }
             break;
+          }
         }
 
         let newFocusIndex = currentFocusIndex.current;

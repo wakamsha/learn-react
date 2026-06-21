@@ -186,26 +186,30 @@ function getOptimizedPoint({
   let position = positionProp;
 
   switch (position) {
-    case 'top':
+    case 'top': {
       if (clearance.top < 0 && clearance.bottom > clearance.top) {
         position = 'bottom';
       }
       break;
-    case 'right':
+    }
+    case 'right': {
       if (clearance.right < 0 && clearance.left > clearance.right) {
         position = 'left';
       }
       break;
-    case 'bottom':
+    }
+    case 'bottom': {
       if (clearance.bottom < 0 && clearance.top > clearance.bottom) {
         position = 'top';
       }
       break;
-    case 'left':
+    }
+    case 'left': {
       if (clearance.left < 0 && clearance.right > clearance.left) {
         position = 'right';
       }
       break;
+    }
   }
 
   let top = 0;
@@ -213,17 +217,20 @@ function getOptimizedPoint({
 
   switch (position) {
     case 'top':
-    case 'bottom':
+    case 'bottom': {
       switch (alignment) {
-        case 'start':
+        case 'start': {
           left = targetRect.left - anchorRect.left;
           break;
-        case 'end':
+        }
+        case 'end': {
           left = targetRect.left - anchorRect.left + (targetRect.width - tooltipRect.width);
           break;
-        case 'center':
+        }
+        case 'center': {
           left = targetRect.left - anchorRect.left + (targetRect.width - tooltipRect.width) / 2;
           break;
+        }
       }
 
       if (left < 0 && anchorRect.left + left < 0 && tooltipRect.width < window.innerWidth) {
@@ -232,19 +239,23 @@ function getOptimizedPoint({
         left = window.innerWidth - tooltipRect.width;
       }
       break;
+    }
 
     case 'left':
-    case 'right':
+    case 'right': {
       switch (alignment) {
-        case 'start':
+        case 'start': {
           top = targetRect.top - anchorRect.top;
           break;
-        case 'end':
+        }
+        case 'end': {
           top = targetRect.top - anchorRect.top + (targetRect.height - tooltipRect.height);
           break;
-        case 'center':
+        }
+        case 'center': {
           top = targetRect.top - anchorRect.top + (targetRect.height - tooltipRect.height) / 2;
           break;
+        }
       }
 
       if (top < 0 && anchorRect.top + top < 0) {
@@ -253,21 +264,26 @@ function getOptimizedPoint({
         top = window.innerHeight - tooltipRect.height;
       }
       break;
+    }
   }
 
   switch (position) {
-    case 'top':
+    case 'top': {
       top = targetRect.top - tooltipRect.height - anchorRect.top - offset;
       break;
-    case 'right':
+    }
+    case 'right': {
       left = targetRect.right - anchorRect.left + offset;
       break;
-    case 'bottom':
+    }
+    case 'bottom': {
       top = targetRect.bottom - anchorRect.top + offset;
       break;
-    case 'left':
+    }
+    case 'left': {
       left = targetRect.left - tooltipRect.width - anchorRect.left - offset;
       break;
+    }
   }
 
   return { top, left };

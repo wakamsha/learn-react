@@ -31,7 +31,7 @@ type Selector = string | ((container: Element) => Element | null);
 /**
  * スクロール処理完了時に呼び出すコールバック関数。
  */
-type Callback = () => void;
+type Handler = () => void;
 
 /**
  * コンテナ要素のスクロールを外部から操作するのに使います。
@@ -65,12 +65,12 @@ type Callback = () => void;
  * ```
  */
 export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props) {
-  const callbackRef = useRef<Callback>(null);
+  const callbackRef = useRef<Handler>(null);
 
   const [to, setTo] = useState(Infinity);
 
   const scrollTo = useCallback(
-    (selector: Selector, callback?: Callback) => {
+    (selector: Selector, handler?: Handler) => {
       const root = rootRef?.current ?? window;
 
       const target =
@@ -87,7 +87,7 @@ export function useScrollTo({ rootRef, offset = 0, behavior = 'smooth' }: Props)
       });
 
       setTo(to);
-      callbackRef.current = callback ?? null;
+      callbackRef.current = handler ?? null;
     },
     [behavior, rootRef, offset],
   );

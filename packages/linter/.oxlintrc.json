@@ -9,14 +9,6 @@
     "./node_modules/@wakamsha/oxlint-config/configs/test/essentials.json"
   ],
   "rules": {
-    "unicorn/no-nested-ternary": ["off"]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.{ts,tsx,cts,mts}"],
-      "rules": {
-        "typescript/strict-void-return": ["off"]
-      }
-    }
-  ]
+    "unicorn/number-literal-case": ["off"]
+  }
 }

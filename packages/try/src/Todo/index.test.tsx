@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { TodoApp } from '.';
 
-describe('Todo', () => {
-  test('should add todo items', async () => {
+describe('todo', () => {
+  it('should add todo items', async () => {
     const user = userEvent.setup();
 
     render(<TodoApp />);
@@ -19,7 +19,7 @@ describe('Todo', () => {
     expect(removeButtons).toHaveLength(2);
   });
 
-  test('should remove todo items', async () => {
+  it('should remove todo items', async () => {
     const user = userEvent.setup();
 
     render(<TodoApp />);

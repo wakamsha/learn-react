@@ -17,10 +17,9 @@ type Props = Required<Pick<ParentProps, 'orientation'>> & {
  * Pane を分割する境界線を表現します。
  */
 export const Splitter = ({ orientation, grabbed, onMouseDown, onMouseUp, onDoubleClick }: Props) => (
-  <span
-    role="separator"
+  <hr
     aria-orientation={orientation}
-    // eslint-disable-next-line @typescript-eslint/no-deprecated
+    // oxlint-disable-next-line typescript/no-deprecated
     aria-grabbed={grabbed}
     className={styleBase}
     onMouseDown={onMouseDown}
@@ -36,6 +35,7 @@ const styleBase = css`
   z-index: 1;
   flex: 0 0 auto;
   background: radial-gradient(at center center, rgb(0 0 0 / 24%) 0%, transparent 70%, transparent 100%) no-repeat;
+  border: none;
   transition: background-position ${Duration.Fade} linear 0.2s;
 
   &[aria-orientation='horizontal'] {

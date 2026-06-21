@@ -1,5 +1,5 @@
 // oxlint-disable typescript/promise-function-async
-// oxlint-disable catch-or-return react/no-multi-comp promise/prefer-await-to-then
+// oxlint-disable catch-or-return promise/prefer-await-to-then
 import { css } from '@emotion/css';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { withSuspense } from '@learn-react/core/src/helpers/Component';

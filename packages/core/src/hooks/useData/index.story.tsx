@@ -63,7 +63,7 @@ const Presentation = ({ userId }: { userId: number }) => {
   );
 };
 
-function fetchUser(userId: number) {
+async function fetchUser(userId: number) {
   return request<User>({
     method: 'GET',
     path: `/users/${userId}`,

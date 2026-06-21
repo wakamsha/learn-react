@@ -26,9 +26,7 @@
     {
       "files": ["app/**/{root,route,routes}.*"],
       "rules": {
-        "import/no-default-export": ["off"],
-        "react/only-export-components": ["off"],
-        "typescript/only-throw-error": ["off"]
+        "import/no-default-export": ["off"]
       }
     },
     {

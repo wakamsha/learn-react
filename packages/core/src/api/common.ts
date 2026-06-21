@@ -67,8 +67,9 @@ export async function request<RES>({
 
   if (!result.ok) {
     console.info('ここでエラー処理をしてください');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    // oxlint-disable-next-line typescript/no-unsafe-assignment
     const error = await result.json();
+    // oxlint-disable-next-line no-throw-literal
     throw {
       code: result.status,
       ...error,

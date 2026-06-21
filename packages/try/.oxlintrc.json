@@ -2,5 +2,11 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
 
   // eslint.config.js や tsconfig.base.json のようなパス解決ができないため、やむなく相対パスで参照しています。
-  "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"]
+  "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"],
+  "rules": {
+    "no-throw-literal": ["off"],
+    "jsx-a11y/no-noninteractive-element-interactions": ["off"],
+    "promise/prefer-await-to-then": ["off"],
+    "promise/prefer-await-to-callbacks": ["off"]
+  }
 }

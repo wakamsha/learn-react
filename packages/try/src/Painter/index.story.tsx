@@ -136,15 +136,19 @@ type State = {
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case 'tool':
+    case 'tool': {
       return { ...state, currentTool: action.payload };
-    case 'strokeWidth':
+    }
+    case 'strokeWidth': {
       return { ...state, strokeWidth: action.payload };
-    case 'color':
+    }
+    case 'color': {
       return { ...state, color: action.payload };
+    }
     // oxlint-disable-next-line switch-exhaustiveness-check
-    default:
+    default: {
       return state;
+    }
   }
 }
 

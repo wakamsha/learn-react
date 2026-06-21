@@ -44,7 +44,7 @@ const Presentation = () => {
 
   return (
     <>
-      <DocumentTitle title={[...storyKeys].reverse().join(' | ')} baseTitle="Catalog | Learn React" />
+      <DocumentTitle title={[...storyKeys].toReversed().join(' | ')} baseTitle="Catalog | Learn React" />
 
       <div className={styleBase}>
         <header className={styleHeader}>
@@ -82,7 +82,7 @@ const Presentation = () => {
                 // 強制的に再マウントしてゼロからレンダリングさせている。
                 key={storyId}
                 src={`/preview.html?storyId=${storyId}`}
-                title={[...storyKeys].reverse().join(' | ')}
+                title={[...storyKeys].toReversed().join(' | ')}
                 style={deviceSizeValue}
                 // oxlint-disable-next-line iframe-missing-sandbox
                 sandbox="allow-scripts allow-same-origin allow-popups-to-escape-sandbox allow-forms"

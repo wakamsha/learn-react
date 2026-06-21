@@ -24,7 +24,12 @@ export const Story = () => {
         <p>
           ID: <code>{userId}</code>
         </p>
-        <button disabled={submitRunning} onClick={() => onSubmit(userId)}>
+        <button
+          disabled={submitRunning}
+          onClick={async () => {
+            await onSubmit(userId);
+          }}
+        >
           GET
         </button>
       </form>

@@ -23,7 +23,7 @@ type Options = {
  * リッスンするキーストローク。単一または修飾キーとの組み合わせを指定します。
  * 詳細は [hotkey-js の README](https://github.com/jaywcjlove/hotkeys/#defining-shortcuts) を参照ください。
  *
- * @param callback - 指定のキーストロークが入力されたときに実行する関数。
+ * @param handler - 指定のキーストロークが入力されたときに実行する関数。
  *
  * @param options  - 振る舞いをカスタマイズするオプション。
  *
@@ -31,34 +31,34 @@ type Options = {
  */
 export function useHotkeys<T extends Element>(
   keys: string,
-  callback: KeyHandler,
+  handler: KeyHandler,
   options?: Options,
 ): RefObject<T | null> {
   const { enabled = true, trigger = 'keydown' } = options ?? {};
 
   const ref = useRef<T>(null);
 
-  const handler = useCallback(
+  const callback = useCallback(
     (keyboardEvent: KeyboardEvent, hotkeysEvent: HotkeysEvent) => {
       if (ref.current === null || document.activeElement === ref.current) {
-        callback(keyboardEvent, hotkeysEvent);
+        handler(keyboardEvent, hotkeysEvent);
       }
     },
-    [callback],
+    [handler],
   );
 
   useEffect(() => {
     if (!enabled) {
-      hotkeys.unbind(keys, handler);
+      hotkeys.unbind(keys, callback);
       return;
     }
 
-    hotkeys(keys, { keydown: trigger === 'keydown', keyup: trigger === 'keyup' }, handler);
+    hotkeys(keys, { keydown: trigger === 'keydown', keyup: trigger === 'keyup' }, callback);
 
     return () => {
-      hotkeys.unbind(keys, handler);
+      hotkeys.unbind(keys, callback);
     };
-  }, [enabled, handler, keys, trigger]);
+  }, [enabled, callback, keys, trigger]);
 
   return ref;
 }

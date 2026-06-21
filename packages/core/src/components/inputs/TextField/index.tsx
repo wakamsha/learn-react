@@ -82,6 +82,7 @@ export const TextField = ({
         </span>
       ) : null}
       <input
+        // oxlint-disable-next-line jsx-a11y/no-autofocus
         autoFocus={autoFocus}
         id={id}
         className={styleInput}

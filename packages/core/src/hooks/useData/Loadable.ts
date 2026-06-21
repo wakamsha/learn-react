@@ -33,6 +33,7 @@ export class Loadable<T> {
   constructor(promise: Promise<T>) {
     this.#state = {
       status: 'pending',
+      // oxlint-disable-next-line promise/prefer-await-to-then
       promise: promise.then(
         (data) => {
           this.#state = {
@@ -41,6 +42,7 @@ export class Loadable<T> {
           };
           return data;
         },
+        // oxlint-disable-next-line promise/prefer-await-to-callbacks
         (error: unknown) => {
           this.#state = {
             error,
@@ -77,12 +79,15 @@ export class Loadable<T> {
    */
   getOrThrow() {
     switch (this.#state.status) {
-      case 'pending':
+      case 'pending': {
         throw this.#state.promise;
-      case 'fulfilled':
+      }
+      case 'fulfilled': {
         return this.#state.data;
-      case 'rejected':
+      }
+      case 'rejected': {
         throw this.#state.error;
+      }
     }
   }
 }

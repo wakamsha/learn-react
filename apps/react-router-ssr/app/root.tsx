@@ -1,4 +1,3 @@
-// oxlint-disable react/no-multi-comp
 import type { FC, ReactNode } from 'react';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, isRouteErrorResponse } from 'react-router';
 import type { Route } from './+types/root';

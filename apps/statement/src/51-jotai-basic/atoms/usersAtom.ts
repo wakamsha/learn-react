@@ -1,6 +1,6 @@
 import { requestGetUser, requestGetUsers, requestPostUser, type User } from '@learn-react/core/src/api/user';
 import { atom } from 'jotai';
-import { loadable } from 'jotai/utils';
+import { unwrap } from 'jotai/utils';
 
 function createUsersAtoms(initialItems: User[]) {
   const usersAtom = atom(initialItems);
@@ -20,11 +20,11 @@ function createUsersAtoms(initialItems: User[]) {
     set(usersAtom, (previous) => [...previous, response as unknown as User]);
   });
 
-  const loadableUsersAtom = loadable(getAllUsersAtom);
+  const unwrappedUsersAtom = unwrap(getAllUsersAtom);
 
-  return { usersAtom, getAllUsersAtom, getUserAtom, postUserAtom, loadableUsersAtom };
+  return { usersAtom, getAllUsersAtom, getUserAtom, postUserAtom, unwrappedUsersAtom };
 }
 
-const { usersAtom, getAllUsersAtom, getUserAtom, postUserAtom, loadableUsersAtom } = createUsersAtoms([]);
+const { usersAtom, getAllUsersAtom, getUserAtom, postUserAtom, unwrappedUsersAtom } = createUsersAtoms([]);
 
-export { getAllUsersAtom, getUserAtom, loadableUsersAtom, postUserAtom, usersAtom };
+export { getAllUsersAtom, getUserAtom, postUserAtom, unwrappedUsersAtom, usersAtom };
