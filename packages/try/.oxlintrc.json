@@ -5,7 +5,6 @@
   "extends": ["./node_modules/@learn-react/linter/.oxlintrc.json"],
   "rules": {
     "no-throw-literal": ["off"],
-    "jsx-a11y/no-noninteractive-element-interactions": ["off"],
     "promise/prefer-await-to-then": ["off"],
     "promise/prefer-await-to-callbacks": ["off"]
   }

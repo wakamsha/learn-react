@@ -1,0 +1,5 @@
+{
+  "extends": "@learn-react/tsconfig/tsconfig.base",
+  "include": ["./*.config.*", "./types/**/*.d.ts"],
+  "exclude": ["node_modules"]
+}

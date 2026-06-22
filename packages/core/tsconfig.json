@@ -4,5 +4,5 @@
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "paths": {}
   },
-  "include": ["./src/**/*", "./vitest.*"]
+  "include": ["./src/**/*", "./vitest.*", "./**/*.config.*"]
 }

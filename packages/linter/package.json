@@ -6,16 +6,22 @@
   "type": "module",
   "exports": {
     "./eslint.config": "./eslint.config.js",
-    "./stylelint.config": "./stylelint.config.js"
+    "./stylelint.config": "./stylelint.config.js",
+    "./oxlint.config": {
+      "types": "./types/oxlint-config.d.ts",
+      "default": "./oxlint.config.js",
+      ".oxlintrc.json": "./.oxlintrc.json"
+    }
   },
   "dependencies": {
     "@wakamsha/eslint-config": "9.0.0",
-    "@wakamsha/oxlint-config": "2.2.2",
+    "@wakamsha/oxlint-config": "2.2.5",
     "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-oxlint": "1.70.0"
   },
   "devDependencies": {
+    "@learn-react/tsconfig": "workspace:*",
     "eslint": "9.39.4",
     "oxlint": "1.70.0",
     "stylelint": "17.13.0"
