@@ -1,12 +1,12 @@
-// @ts-check
 import { load } from 'cheerio';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { glob } from 'glob';
 import { optimize } from 'svgo';
 
 async function exec() {
   const targetFiles = await glob('src/*.svg', { ignore: 'node_modules/**' });
-  const sortedTargetFiles = targetFiles.sort((a, b) => {
+  const sortedTargetFiles = targetFiles.toSorted((a, b) => {
     const nameA = a.toLowerCase();
     const nameB = b.toLowerCase();
     return nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
@@ -14,9 +14,10 @@ async function exec() {
 
   const result = await Promise.all(
     sortedTargetFiles.map(async (file) => {
-      const content = readFileSync(file).toString('utf8');
+      const buffer = await readFile(file);
+      const content = buffer.toString('utf8');
       const source = optimize(content);
-      const $ = load(source.data.toString());
+      const $ = load(source.data);
 
       $('style,title,defs').remove();
       $('[id]:not(symbol)').removeAttr('id');
@@ -58,7 +59,7 @@ export type IconName = ${src.map(({ key }) => `'${key}'`).join(' | ')};
 export type IconElements = Readonly<{ [name in IconName]: JSX.Element }>;
 
 export const iconElements: IconElements = {
-  ${src.map(({ key, value }) => `'${key}': (${value})`)}
+  ${src.map(({ key, value }) => `'${key}': (${value})`).join(',\n  ')}
 };
   `;
 }

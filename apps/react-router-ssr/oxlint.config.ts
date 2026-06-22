@@ -1,0 +1,39 @@
+import baseConfig from '@learn-react/linter/oxlint.config';
+import { defineConfig } from 'oxlint';
+
+export default defineConfig({
+  extends: [baseConfig],
+  ignorePatterns: ['**/*.css.d.ts'],
+
+  overrides: [
+    {
+      files: ['app/**/*'],
+      rules: {
+        'import/consistent-type-specifier-style': [
+          'error',
+          // React Router の Route Module Type は top-level import が必要。
+          // see: https://reactrouter.com/how-to/route-module-type-safety#2-include-the-generated-types-in-tsconfig
+          'prefer-top-level',
+        ],
+        'jsx-a11y/label-has-associated-control': [
+          'error',
+          {
+            controlComponents: ['TextInput', 'TextArea'],
+          },
+        ],
+      },
+    },
+    {
+      files: ['app/**/{root,route,routes}.*'],
+      rules: {
+        'import/no-default-export': ['off'],
+      },
+    },
+    {
+      files: ['*.config.*'],
+      rules: {
+        'unicorn/filename-case': ['off'],
+      },
+    },
+  ],
+});

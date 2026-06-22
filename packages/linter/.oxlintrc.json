@@ -7,8 +7,5 @@
     "./node_modules/@wakamsha/oxlint-config/configs/react.json",
     "./node_modules/@wakamsha/oxlint-config/configs/typescript.json",
     "./node_modules/@wakamsha/oxlint-config/configs/test/essentials.json"
-  ],
-  "rules": {
-    "unicorn/number-literal-case": ["off"]
-  }
+  ]
 }

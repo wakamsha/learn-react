@@ -49,7 +49,7 @@ export function createUserConfig({ basePath, port = 3000, define = {}, build = {
         output: {
           // see: https://github.com/vitejs/vite/issues/12209#issuecomment-2220768850
           manualChunks: (id: string) =>
-            id.includes('node_modules') ? id.toString().split('node_modules/')[1].split('/')[0].toString() : 'index',
+            id.includes('node_modules') ? id.split('node_modules/')[1].split('/')[0] : 'index',
         },
       },
       ...build,
