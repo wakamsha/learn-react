@@ -1,8 +1,7 @@
 import { css } from '@emotion/css';
 import * as pdfjsLib from 'pdfjs-dist';
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import { type PDFPageProxy } from 'pdfjs-dist/types/src/display/api';
-import { useEffect, useState, type ComponentProps } from 'react';
+import { useEffect, useRef, useState, type ComponentProps } from 'react';
 import { gutter } from '../../../helpers/Style';
 import { Page } from './Page';
 
@@ -23,9 +22,9 @@ export const PdfViewer = ({ src }: Props) => {
 
   return (
     <ol className={styleBase}>
-      {pdfPages.map(({ pdfPage, viewportForCanvas, viewportForTextLayer }, index) => (
+      {pdfPages.map(({ pdfPage, viewport }, index) => (
         <li key={index}>
-          <Page pdfPage={pdfPage} viewportForCanvas={viewportForCanvas} viewportForTextLayer={viewportForTextLayer} />
+          <Page pdfPage={pdfPage} viewport={viewport} />
         </li>
       ))}
     </ol>
@@ -37,28 +36,54 @@ const pageWidth = 794;
 
 function useLoadPdfPages(src: string) {
   const [pdfPages, setPdfPages] = useState<PageProps[]>([]);
+  const requestIdRef = useRef(0);
 
   useEffect(() => {
+    requestIdRef.current += 1;
+    const requestId = requestIdRef.current;
+
+    setPdfPages([]);
+
+    const loadingTask = pdfjsLib.getDocument({ url: src, cMapUrl: 'cmaps/', cMapPacked: true });
+
     (async () => {
-      const pdf = await pdfjsLib.getDocument({ url: src, cMapUrl: 'cmaps/', cMapPacked: true }).promise;
+      try {
+        const pdf = await loadingTask.promise;
+        if (requestId !== requestIdRef.current) return;
 
-      const loadPdfPages = await Promise.all(
-        [...Array(pdf.numPages).keys()].map(async (i) => getPageProps(await pdf.getPage(i + 1), pageWidth)),
-      );
+        const nextPages = await Promise.all(
+          [...Array(pdf.numPages).keys()].map(async (i) => {
+            const pdfPage = await pdf.getPage(i + 1);
+            const baseViewport = pdfPage.getViewport({ scale: 1 });
 
-      setPdfPages(loadPdfPages);
+            return {
+              pdfPage,
+              viewport: pdfPage.getViewport({ scale: pageWidth / baseViewport.width }),
+            };
+          }),
+        );
+
+        if (requestId !== requestIdRef.current) return;
+
+        setPdfPages(nextPages);
+      } catch (error) {
+        if (requestId !== requestIdRef.current) return;
+
+        if (typeof globalThis.reportError === 'function') {
+          globalThis.reportError(error);
+          return;
+        }
+
+        throw error;
+      }
     })();
+
+    return () => {
+      requestIdRef.current += 1;
+    };
   }, [src]);
 
   return pdfPages;
-}
-
-function getPageProps(from: PDFPageProxy, width: number) {
-  return {
-    pdfPage: from,
-    viewportForCanvas: from.getViewport({ scale: (width * 2) / from.getViewport({ scale: 1 }).width }),
-    viewportForTextLayer: from.getViewport({ scale: width / from.getViewport({ scale: 1 }).width }),
-  };
 }
 
 const styleBase = css`
