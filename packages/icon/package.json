@@ -24,7 +24,7 @@
     "glob": "13.0.6",
     "oxlint": "1.70.0",
     "oxlint-tsgolint": "0.23.0",
-    "prettier": "3.8.4",
+    "prettier": "3.8.5",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "svgo": "4.0.1",
