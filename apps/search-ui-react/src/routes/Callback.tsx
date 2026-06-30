@@ -1,17 +1,24 @@
 import { ChangeEvent, FC, Suspense, use, useState } from 'react';
 import { ContactRecord, getContacts } from '../data';
+import { useDebouncedCallback } from '../hooks/useDebouncedCallback';
 
-export const Home: FC = () => {
+export const Callback: FC = () => {
   const [dataPromise, setDataPromise] = useState(() => getContacts());
 
+  const [query, setQuery] = useState('');
+
   const handleQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setDataPromise(getContacts(event.target.value));
+    setQuery(event.target.value);
   };
+
+  const debouncedSubmit = useDebouncedCallback(async () => {
+    setDataPromise(getContacts(query));
+  }, 300);
 
   return (
     <div>
-      <form>
-        <input name="query" onChange={handleQueryChange} />
+      <form onChange={debouncedSubmit}>
+        <input name="query" value={query} onChange={handleQueryChange} />
       </form>
 
       <Suspense fallback={<div>Loading...</div>}>
