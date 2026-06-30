@@ -34,7 +34,7 @@
     "@types/react-dom": "19.2.3",
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "6.0.2",
-    "eslint": "9.39.4",
+    "eslint": "10.6.0",
     "oxlint": "1.70.0",
     "oxlint-tsgolint": "0.23.0",
     "stylelint": "17.13.0",
