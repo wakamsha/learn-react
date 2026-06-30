@@ -1,7 +1,17 @@
-import { ChangeEvent, FC, Suspense, use, useState } from 'react';
-import { ContactRecord, getContacts } from '../data';
+import { type ChangeEvent, type FC, Suspense, use, useState } from 'react';
+import { type ContactRecord, getContacts } from '../data';
 import { useDebouncedCallback } from '../hooks/useDebouncedCallback';
 
+/**
+ * React の標準機能を活用したインクリメンタルサーチ UI のデモ。
+ *
+ * use と Suspense を組み合わせることで useEffect を使用せずに非同期データを取得し、結果を表示することができる。
+ *
+ * また、自作した useDebouncedCallback フックを使用して、入力値の変更が一定時間続いた場合にのみサーバーにリクエストを送信するようにしている。
+ * これにより、ユーザーが入力中にサーバーへのリクエストが過剰に送信されることを防ぎ、パフォーマンスの向上につながる。
+ *
+ * このように、React の標準機能を活用することで、シンプルかつ効率的なインクリメンタルサーチ UI を実装することができる。
+ */
 export const Callback: FC = () => {
   const [dataPromise, setDataPromise] = useState(() => getContacts());
 
@@ -11,7 +21,7 @@ export const Callback: FC = () => {
     setQuery(event.target.value);
   };
 
-  const debouncedSubmit = useDebouncedCallback(async () => {
+  const debouncedSubmit = useDebouncedCallback(() => {
     setDataPromise(getContacts(query));
   }, 300);
 

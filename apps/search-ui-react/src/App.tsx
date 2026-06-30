@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import { createBrowserRouter, NavLink, Outlet, RouterProvider } from 'react-router';
 import { Callback } from './routes/Callback';
+import { Transition } from './routes/Transition';
 import { Value } from './routes/Value';
 
 export const App: FC = () => {
@@ -16,6 +17,10 @@ export const App: FC = () => {
         {
           path: '/value',
           Component: Value,
+        },
+        {
+          path: '/transition',
+          Component: Transition,
         },
       ],
     },
@@ -33,6 +38,7 @@ const Layout: FC = () => (
     <nav style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
       <NavLink to="/callback">Callback</NavLink>
       <NavLink to="/value">Value</NavLink>
+      <NavLink to="/transition">Transition</NavLink>
     </nav>
     <Outlet />
   </main>
