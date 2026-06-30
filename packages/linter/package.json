@@ -24,11 +24,11 @@
     "@learn-react/tsconfig": "workspace:*",
     "eslint": "9.39.4",
     "oxlint": "1.70.0",
-    "stylelint": "17.13.0"
+    "stylelint": "17.14.0"
   },
   "peerDependencies": {
     "eslint": "9.39.4",
     "oxlint": "1.70.0",
-    "stylelint": "17.13.0"
+    "stylelint": "17.14.0"
   }
 }
