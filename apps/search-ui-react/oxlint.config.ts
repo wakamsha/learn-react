@@ -3,7 +3,6 @@ import { defineConfig } from 'oxlint';
 
 export default defineConfig({
   extends: [baseConfig],
-  ignorePatterns: ['**/*.css.d.ts'],
   overrides: [
     {
       files: ['src/**/*'],

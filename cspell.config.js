@@ -21,6 +21,7 @@ export default defineConfig({
     './**/build/*',
     './**/dist/*',
     './apps/react-router-*/**/data.ts',
+    './apps/search-ui-*/**/data.ts',
     './apps/catalog/src/constants/Stories.ts',
     './pnpm-lock.yaml',
   ],

@@ -1,0 +1,7 @@
+{
+  "extends": "@learn-react/tsconfig/tsconfig.base",
+  "compilerOptions": {
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": ["./src/**/*", "./*.config.*", "./vitest.*"]
+}
