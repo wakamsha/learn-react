@@ -668,8 +668,8 @@ importers:
         specifier: 9.0.0
         version: 9.0.0(@testing-library/dom@10.4.1)(@typescript-eslint/eslint-plugin@8.61.1(@typescript-eslint/parser@8.61.1(eslint@9.39.4(jiti@2.6.1))(typescript@6.0.3))(eslint@9.39.4(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/parser@8.61.1(eslint@9.39.4(jiti@2.6.1))(typescript@6.0.3))(eslint@9.39.4(jiti@2.6.1))(storybook@10.4.6(@testing-library/dom@10.4.1)(@types/react@19.2.17)(prettier@3.9.4)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(typescript@6.0.3)(vitest@4.1.9(@types/node@24.13.2)(jsdom@29.1.1)(vite@8.0.16(@types/node@24.13.2)(esbuild@0.28.1)(jiti@2.6.1)(yaml@2.9.0)))
       '@wakamsha/oxlint-config':
-        specifier: 2.2.5
-        version: 2.2.5(oxlint-tsgolint@0.23.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0))
+        specifier: 2.2.6
+        version: 2.2.6(oxlint-tsgolint@0.23.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0))
       '@wakamsha/stylelint-config':
         specifier: 4.1.1
         version: 4.1.1(stylelint-order@8.1.1(stylelint@17.13.0(typescript@6.0.3)))(stylelint@17.13.0(typescript@6.0.3))
@@ -2713,8 +2713,8 @@ packages:
       typescript:
         optional: true
 
-  '@wakamsha/oxlint-config@2.2.5':
-    resolution: {integrity: sha512-YkZLwtWj5QvSpSaid4cFvs7jf7crgCxFSh/1LYn6QJOT2mSxVvnSbpbZN8NsV+AlIRId+e4CH/GB4aqqXwX5Fw==}
+  '@wakamsha/oxlint-config@2.2.6':
+    resolution: {integrity: sha512-stDOZWQ5Oj2BvWNCdKAf9QUiVe6kiJNczmUKNCs1lIXMhx0GviTuTHsJ12h26ZesMmKSwnigypo/GrWS4WV/6Q==}
     engines: {node: ^22.18.0 || >=24.0.0}
     peerDependencies:
       oxlint: ^1.70.0
@@ -7770,7 +7770,7 @@ snapshots:
       - ts-declaration-location
       - vitest
 
-  '@wakamsha/oxlint-config@2.2.5(oxlint-tsgolint@0.23.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0))':
+  '@wakamsha/oxlint-config@2.2.6(oxlint-tsgolint@0.23.0)(oxlint@1.70.0(oxlint-tsgolint@0.23.0))':
     dependencies:
       oxlint: 1.70.0(oxlint-tsgolint@0.23.0)
       oxlint-tsgolint: 0.23.0
