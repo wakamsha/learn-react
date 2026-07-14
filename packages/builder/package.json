@@ -18,7 +18,7 @@
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
     "@types/node": "24.13.3",
-    "eslint": "9.39.4",
+    "eslint": "9.39.5",
     "oxlint": "1.70.0",
     "oxlint-tsgolint": "0.23.0",
     "typescript": "6.0.3",
