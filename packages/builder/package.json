@@ -20,7 +20,7 @@
     "@types/node": "24.13.3",
     "eslint": "9.39.5",
     "oxlint": "1.70.0",
-    "oxlint-tsgolint": "0.23.0",
+    "oxlint-tsgolint": "0.25.0",
     "typescript": "6.0.3",
     "vite": "8.1.5"
   },
