@@ -39,8 +39,8 @@
     "jsdom": "29.1.1",
     "oxlint": "1.70.0",
     "oxlint-tsgolint": "0.23.0",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "stylelint": "17.14.1",
     "typescript": "6.0.3",
     "vitest": "4.1.10"
@@ -48,8 +48,8 @@
   "peerDependencies": {
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "typescript": "6.0.3"
   }
 }
