@@ -12,7 +12,7 @@
     "build": "tsc --declaration"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "6.0.4"
+    "@vitejs/plugin-react": "6.0.5"
   },
   "devDependencies": {
     "@learn-react/linter": "workspace:*",
@@ -22,10 +22,10 @@
     "oxlint": "1.70.0",
     "oxlint-tsgolint": "0.23.0",
     "typescript": "6.0.3",
-    "vite": "8.1.5"
+    "vite": "8.2.0"
   },
   "peerDependencies": {
     "@types/node": "24.13.3",
-    "vite": "8.1.5"
+    "vite": "8.2.0"
   }
 }
