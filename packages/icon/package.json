@@ -17,8 +17,8 @@
   "devDependencies": {
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "cheerio": "1.2.0",
     "eslint": "9.39.5",
     "glob": "13.0.6",
@@ -31,8 +31,8 @@
     "typescript": "6.0.3"
   },
   "peerDependencies": {
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "typescript": "6.0.3"
