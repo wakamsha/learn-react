@@ -136,7 +136,7 @@ function getAnchorElement(tooltipElement: HTMLDivElement): HTMLElement {
     if (pos === 'absolute' || pos === 'relative' || pos === 'fixed') {
       return parent as HTMLElement;
     }
-    parent = parent.parentNode as HTMLElement;
+    parent = parent.parentNode;
   }
 
   return parent as HTMLElement;
@@ -154,7 +154,7 @@ function getWrapperElement(srcDOM: Element): HTMLElement {
       return wrappingElement as HTMLElement;
     }
 
-    wrappingElement = wrappingElement.parentNode as HTMLElement;
+    wrappingElement = wrappingElement.parentNode;
   }
 
   return wrappingElement as HTMLElement;

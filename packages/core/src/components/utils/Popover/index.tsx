@@ -122,7 +122,7 @@ function getAnchorElement(popoverElement: HTMLElement): HTMLElement {
     if (pos === 'absolute' || pos === 'relative' || pos === 'fixed') {
       return anchorElement as HTMLElement;
     }
-    anchorElement = anchorElement.parentNode as HTMLElement;
+    anchorElement = anchorElement.parentNode;
   }
 
   return anchorElement as HTMLElement;
@@ -140,7 +140,7 @@ function getWrapperElement(srcDOM: Element): HTMLElement {
       return wrappingElement as HTMLElement;
     }
 
-    wrappingElement = wrappingElement.parentNode as HTMLElement;
+    wrappingElement = wrappingElement.parentNode;
   }
 
   return wrappingElement as HTMLElement;

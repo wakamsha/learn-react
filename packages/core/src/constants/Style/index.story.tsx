@@ -116,7 +116,7 @@ function parseHexColor(value: string) {
  */
 function getRGBForCalculateLuminance(color: number) {
   const ratio = color / 255;
-  if (ratio <= 0.039_28) {
+  if (ratio <= 0.03928) {
     return ratio / 12.92;
   }
 
