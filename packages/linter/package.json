@@ -23,12 +23,12 @@
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:*",
     "eslint": "9.39.5",
-    "oxlint": "1.70.0",
+    "oxlint": "1.76.0",
     "stylelint": "17.14.1"
   },
   "peerDependencies": {
     "eslint": "9.39.5",
-    "oxlint": "1.70.0",
+    "oxlint": "1.76.0",
     "stylelint": "17.14.1"
   }
 }
