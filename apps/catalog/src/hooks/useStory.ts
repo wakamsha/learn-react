@@ -43,20 +43,23 @@ type StoryData = {
  * ```
  */
 export function useStory(storyKeys: string[]): StoryData {
+  // oxlint-disable-next-line typescript/no-unsafe-assignment
   const { Component, sourceCode } = useMemo(() => {
     let snapShot: any = stories;
 
     for (const storyKey of storyKeys) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-member-access
       if (!snapShot[storyKey]) {
         break;
       }
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line typescript/no-unsafe-assignment, typescript/no-unsafe-member-access
       snapShot = snapShot[storyKey];
     }
 
-    return snapShot as unknown as StoryData;
+    // oxlint-disable-next-line typescript/no-unsafe-return
+    return snapShot;
   }, [storyKeys]);
 
+  // oxlint-disable-next-line typescript/no-unsafe-assignment
   return { Component, sourceCode };
 }

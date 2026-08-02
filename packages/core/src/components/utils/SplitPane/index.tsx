@@ -130,8 +130,8 @@ export const SplitPane = ({
     const positionDelta = position - current;
     let sizeDelta = positionDelta * (primary === 'first' ? 1 : -1);
 
-    const pane1Order = Number.parseInt(window.getComputedStyle(ref1).order, 10);
-    const pane2Order = Number.parseInt(window.getComputedStyle(ref2).order, 10);
+    const pane1Order = Math.trunc(Number(window.getComputedStyle(ref1).order));
+    const pane2Order = Math.trunc(Number(window.getComputedStyle(ref2).order));
     if (pane1Order > pane2Order) {
       sizeDelta = -sizeDelta;
     }

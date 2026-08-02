@@ -18,7 +18,7 @@ export default defineConfig(({ mode }): UserConfig => {
       // Top-level await をサポートしているブラウザを対象にする。
       // PDF.js の worker が Top-level await を使用しているため、この設定が必要。
       target: 'esnext',
-      rollupOptions: {
+      rolldownOptions: {
         input: {
           index: path.resolve(import.meta.dirname, 'index.html'),
           preview: path.resolve(import.meta.dirname, 'preview.html'),
