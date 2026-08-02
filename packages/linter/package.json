@@ -18,7 +18,7 @@
     "@wakamsha/oxlint-config": "2.3.0",
     "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-oxlint": "1.70.0"
+    "eslint-plugin-oxlint": "1.76.0"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:*",
