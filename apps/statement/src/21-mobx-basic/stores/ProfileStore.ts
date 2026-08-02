@@ -1,13 +1,12 @@
-import { action, makeObservable, observable } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 
 export class ProfileStore {
-  @observable public name = '';
+  public name = '';
 
   constructor() {
-    makeObservable(this);
+    makeAutoObservable(this);
   }
 
-  @action
   public setName(name: string) {
     this.name = name;
   }
