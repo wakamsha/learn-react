@@ -443,11 +443,11 @@ importers:
         specifier: 2.20.2
         version: 2.20.2(@babel/core@7.29.7(supports-color@10.2.2))(@babel/template@7.29.7)(@types/react@19.2.18)(react@19.2.8)
       mobx:
-        specifier: 6.16.1
-        version: 6.16.1
+        specifier: 7.0.0
+        version: 7.0.0
       mobx-react:
         specifier: 9.2.2
-        version: 9.2.2(mobx@6.16.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 9.2.2(mobx@7.0.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       qs:
         specifier: 6.15.3
         version: 6.15.3
@@ -4683,8 +4683,8 @@ packages:
       react-native:
         optional: true
 
-  mobx@6.16.1:
-    resolution: {integrity: sha512-syNcDdX3KT+Jq3je6eGjBhuc24Z68td2VG0zNFqRswaE433D9SNH5VRy/xrGbJsUixfppLLccXhAW9JSf6n+SQ==}
+  mobx@7.0.0:
+    resolution: {integrity: sha512-J+hR/wq6RdBnB4QXQRqGrWL9vOOLKaYhXh0ooxLAW4AE72av10Y5+xiaxohUYmPZiUswfpxMjQooYqpWkv+Fxg==}
 
   morgan@1.11.0:
     resolution: {integrity: sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==}
@@ -9927,23 +9927,23 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mobx-react-lite@4.1.1(mobx@6.16.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+  mobx-react-lite@4.1.1(mobx@7.0.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
-      mobx: 6.16.1
+      mobx: 7.0.0
       react: 19.2.8
       use-sync-external-store: 1.6.0(react@19.2.8)
     optionalDependencies:
       react-dom: 19.2.8(react@19.2.8)
 
-  mobx-react@9.2.2(mobx@6.16.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
+  mobx-react@9.2.2(mobx@7.0.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
     dependencies:
-      mobx: 6.16.1
-      mobx-react-lite: 4.1.1(mobx@6.16.1)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      mobx: 7.0.0
+      mobx-react-lite: 4.1.1(mobx@7.0.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
     optionalDependencies:
       react-dom: 19.2.8(react@19.2.8)
 
-  mobx@6.16.1: {}
+  mobx@7.0.0: {}
 
   morgan@1.11.0(supports-color@10.2.2):
     dependencies:
@@ -10894,7 +10894,7 @@ snapshots:
 
   stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
-      '@csstools/css-calc': 3.2.1(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
+      '@csstools/css-calc': 3.3.0(@csstools/css-parser-algorithms@4.0.0(@csstools/css-tokenizer@4.0.0))(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-syntax-patches-for-csstree': 1.1.7(css-tree@3.2.1)
       '@csstools/css-tokenizer': 4.0.0
