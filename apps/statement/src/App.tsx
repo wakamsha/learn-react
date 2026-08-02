@@ -1,4 +1,3 @@
-/* eslint-disable react/hook-use-state */
 import { css } from '@emotion/css';
 import { StorageProxy } from '@learn-react/core/src/helpers/Storage';
 import { gutter } from '@learn-react/core/src/helpers/Style';
@@ -45,6 +44,7 @@ type Type = 'mobx' | 'unstated-next' | 'constate' | 'jotai';
 const storageKey = 'STATEMENT_TYPE';
 
 function useTypeConfig() {
+  // oxlint-disable-next-line react/hook-use-state
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [type, setType] = useState<Type>(
