@@ -1,11 +1,11 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "extends": [
-    "./node_modules/@wakamsha/oxlint-config/configs/essentials.json",
-    "./node_modules/@wakamsha/oxlint-config/configs/jsdoc.json",
-    "./node_modules/@wakamsha/oxlint-config/configs/node.json",
-    "./node_modules/@wakamsha/oxlint-config/configs/react.json",
-    "./node_modules/@wakamsha/oxlint-config/configs/typescript.json",
-    "./node_modules/@wakamsha/oxlint-config/configs/test/essentials.json"
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/essentials.json",
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/jsdoc.json",
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/node.json",
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/react.json",
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/typescript.json",
+    "./node_modules/@wakamsha/oxlint-config/dist/configs/test/essentials.json"
   ]
 }
