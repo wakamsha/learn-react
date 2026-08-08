@@ -38,7 +38,7 @@
     "eslint": "9.39.5",
     "glob": "13.0.6",
     "npm-run-all2": "9.0.3",
-    "oxlint": "1.76.0",
+    "oxlint": "1.77.0",
     "oxlint-tsgolint": "7.0.2001",
     "playwright": "1.62.1",
     "stylelint": "17.14.1",
