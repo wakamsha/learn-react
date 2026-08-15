@@ -8,4 +8,5 @@ allowBuilds:
   lefthook: true
   unrs-resolver: false
 minimumReleaseAgeExclude:
+  - '@wakamsha/eslint-config'
   - '@wakamsha/oxlint-config'
