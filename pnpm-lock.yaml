@@ -668,8 +668,8 @@ importers:
         specifier: 9.0.1
         version: 9.0.1(@testing-library/dom@10.4.1)(@typescript-eslint/eslint-plugin@8.66.0(@typescript-eslint/parser@8.66.0(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(@typescript-eslint/parser@8.66.0(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint@9.39.5(jiti@2.6.1)(supports-color@10.2.2))(storybook@10.5.7(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8))(supports-color@10.2.2)(typescript@6.0.3)(vitest@4.1.10(@types/node@24.13.3)(jsdom@30.0.1)(vite@8.2.1(@types/node@24.13.3)(esbuild@0.28.1)(jiti@2.6.1)(yaml@2.9.0)))
       '@wakamsha/oxlint-config':
-        specifier: 3.0.0
-        version: 3.0.0(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
+        specifier: 3.0.1
+        version: 3.0.1(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))
       '@wakamsha/stylelint-config':
         specifier: 4.1.1
         version: 4.1.1(stylelint-order@8.1.1(stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3)))(stylelint@17.14.1(supports-color@10.2.2)(typescript@6.0.3))
@@ -2711,8 +2711,8 @@ packages:
       typescript:
         optional: true
 
-  '@wakamsha/oxlint-config@3.0.0':
-    resolution: {integrity: sha512-H1GBq6P+RFMf1KgIe3faPc8d0o4D0uqIjfLNKTBEuUZ2C8hEaGIWvLkzQ7V1bwwbHMsyhgsaxioIqffBED0zGA==}
+  '@wakamsha/oxlint-config@3.0.1':
+    resolution: {integrity: sha512-g5d9N/lBQx3Ateez5IeGqsS2K3N2DJRgX1t1EeGPql6fD+pUVpJCmAHukQVzqB0ebb3C4iv0FUX9B187ATLNLA==}
     engines: {node: ^22.18.0 || >=24.0.0}
     peerDependencies:
       oxlint: ^1.70.0
@@ -7746,7 +7746,7 @@ snapshots:
       - ts-declaration-location
       - vitest
 
-  '@wakamsha/oxlint-config@3.0.0(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))':
+  '@wakamsha/oxlint-config@3.0.1(oxlint-tsgolint@7.0.2001)(oxlint@1.78.0(oxlint-tsgolint@7.0.2001))':
     dependencies:
       oxlint: 1.78.0(oxlint-tsgolint@7.0.2001)
       oxlint-tsgolint: 7.0.2001
