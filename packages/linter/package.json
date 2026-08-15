@@ -14,7 +14,7 @@
     }
   },
   "dependencies": {
-    "@wakamsha/eslint-config": "9.0.0",
+    "@wakamsha/eslint-config": "9.0.1",
     "@wakamsha/oxlint-config": "3.0.0",
     "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
