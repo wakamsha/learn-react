@@ -22,7 +22,7 @@
     "@learn-react/core": "workspace:1.0.0",
     "@learn-react/icon": "workspace:1.0.0",
     "@learn-react/try": "workspace:1.0.0",
-    "highlight.js": "11.11.1",
+    "highlight.js": "11.12.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-router-dom": "7.18.2"
