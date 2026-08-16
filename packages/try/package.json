@@ -18,7 +18,7 @@
     "chart.js": "4.5.1",
     "constate": "4.0.0",
     "echarts": "6.1.0",
-    "konva": "10.3.0",
+    "konva": "10.3.1",
     "pixi.js": "8.19.0",
     "qs": "6.15.3",
     "react-chartjs-2": "5.3.1",
