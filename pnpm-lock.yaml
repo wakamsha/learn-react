@@ -443,11 +443,11 @@ importers:
         specifier: 2.20.2
         version: 2.20.2(@babel/core@7.29.7(supports-color@10.2.2))(@babel/template@7.29.7)(@types/react@19.2.18)(react@19.2.8)
       mobx:
-        specifier: 7.0.0
-        version: 7.0.0
+        specifier: 7.0.3
+        version: 7.0.3
       mobx-react:
         specifier: 10.0.0
-        version: 10.0.0(mobx@7.0.0)(react@19.2.8)
+        version: 10.0.0(mobx@7.0.3)(react@19.2.8)
       qs:
         specifier: 6.15.3
         version: 6.15.3
@@ -4665,8 +4665,8 @@ packages:
       mobx: ^7.0.0
       react: ^18 || ^19
 
-  mobx@7.0.0:
-    resolution: {integrity: sha512-J+hR/wq6RdBnB4QXQRqGrWL9vOOLKaYhXh0ooxLAW4AE72av10Y5+xiaxohUYmPZiUswfpxMjQooYqpWkv+Fxg==}
+  mobx@7.0.3:
+    resolution: {integrity: sha512-KopyyzqZ8xT1fqxFNl8ItKKMpGifRe2ySaNAHs80/cx0mL1bpJtJ46S+FSyzXKRjW0TODWj5zwq/Y9hUdJUy4w==}
 
   morgan@1.11.0:
     resolution: {integrity: sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==}
@@ -9866,18 +9866,18 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mobx-react-lite@5.0.0(mobx@7.0.0)(react@19.2.8):
+  mobx-react-lite@5.0.0(mobx@7.0.3)(react@19.2.8):
     dependencies:
-      mobx: 7.0.0
+      mobx: 7.0.3
       react: 19.2.8
 
-  mobx-react@10.0.0(mobx@7.0.0)(react@19.2.8):
+  mobx-react@10.0.0(mobx@7.0.3)(react@19.2.8):
     dependencies:
-      mobx: 7.0.0
-      mobx-react-lite: 5.0.0(mobx@7.0.0)(react@19.2.8)
+      mobx: 7.0.3
+      mobx-react-lite: 5.0.0(mobx@7.0.3)(react@19.2.8)
       react: 19.2.8
 
-  mobx@7.0.0: {}
+  mobx@7.0.3: {}
 
   morgan@1.11.0(supports-color@10.2.2):
     dependencies:
