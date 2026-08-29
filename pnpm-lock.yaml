@@ -547,8 +547,8 @@ importers:
         specifier: 10.0.2
         version: 10.0.2
       hotkeys-js:
-        specifier: 4.0.5
-        version: 4.0.5
+        specifier: 4.0.7
+        version: 4.0.7
       pdfjs-dist:
         specifier: 6.2.108
         version: 6.2.108
@@ -4016,8 +4016,8 @@ packages:
   hookified@2.2.0:
     resolution: {integrity: sha512-p/LgFzRN5FeoD3DLS6bkUapeye6E4SI6yJs6KetENd18S+FBthqYq2amJUWpt5z0EQwwHemidjY5OqJGEKm5uA==}
 
-  hotkeys-js@4.0.5:
-    resolution: {integrity: sha512-Os0VaEH8gvOSzwZnEDU2yn7G868OfFiLydUHIe2uln7Fi9Ii1xhOCoPGu27RkZYWYqM93gC4xoyONCZE9iiwLw==}
+  hotkeys-js@4.0.7:
+    resolution: {integrity: sha512-/NET0IaevsVdHmr5fCf3gvAQYxfLPxW5gBIforvwDpHvHsf7gyDo/BJyrU75f3gArXHDzS5QwAxeByIoB6IapA==}
 
   html-encoding-sniffer@6.0.0:
     resolution: {integrity: sha512-CV9TW3Y3f8/wT0BRFc1/KAVQ3TUHiXmaAb6VW9vtiMFf7SLoMd1PdAc4W3KFOFETBJUb90KatHqlsZMWV+R9Gg==}
@@ -9332,7 +9332,7 @@ snapshots:
 
   hookified@2.2.0: {}
 
-  hotkeys-js@4.0.5: {}
+  hotkeys-js@4.0.7: {}
 
   html-encoding-sniffer@6.0.0:
     dependencies:
