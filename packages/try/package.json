@@ -34,7 +34,7 @@
     "@testing-library/user-event": "14.6.6",
     "@types/qs": "6.15.1",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.5",
     "eslint": "9.39.5",
     "jsdom": "30.0.1",
     "oxlint": "1.78.0",
@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.5",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "typescript": "6.0.3"

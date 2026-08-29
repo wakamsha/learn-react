@@ -31,7 +31,7 @@
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:*",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.5",
     "@types/sort-by": "1.2.3",
     "@vitejs/plugin-react": "6.1.0",
     "eslint": "9.39.5",
