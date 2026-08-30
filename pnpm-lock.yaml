@@ -706,7 +706,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.5
-        version: 8.0.5(@types/react@19.2.18)(pixi.js@8.20.0)(react@19.2.8)
+        version: 8.0.5(@types/react@19.2.18)(pixi.js@8.20.1)(react@19.2.8)
       chart.js:
         specifier: 4.5.1
         version: 4.5.1
@@ -720,8 +720,8 @@ importers:
         specifier: 10.3.2
         version: 10.3.2
       pixi.js:
-        specifier: 8.20.0
-        version: 8.20.0
+        specifier: 8.20.1
+        version: 8.20.1
       qs:
         specifier: 6.15.3
         version: 6.15.3
@@ -2739,10 +2739,9 @@ packages:
   '@webgpu/types@0.1.71':
     resolution: {integrity: sha512-mMy8/ODcKhab808co15eW+yN+HgXoQxRQHTiBV9Mrvl1r0ufnid7YOcI+gi4eUWSWl9ezD6TW2KXccrL8HCh2A==}
 
-  '@xmldom/xmldom@0.8.13':
-    resolution: {integrity: sha512-KRYzxepc14G/CEpEGc3Yn+JKaAeT63smlDr+vjB8jRfgTBBI9wRj/nkQEO+ucV8p8I9bfKLWp37uHgFrbntPvw==}
+  '@xmldom/xmldom@0.8.15':
+    resolution: {integrity: sha512-/5NV/vDALVFDXgLmfsy9TRCBlKwO2LNBFzpzvb9iIj+jR+eSc6DLYYvVOdivT/jm7MtU6TebYuRmzEOI7w40UA==}
     engines: {node: '>=10.0.0'}
-    deprecated: this version has critical issues, please update to the latest version
 
   accepts@2.0.0:
     resolution: {integrity: sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng==}
@@ -4936,8 +4935,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pixi.js@8.20.0:
-    resolution: {integrity: sha512-WL7+yhxgNnI87AbucMR2X7yXmi/XhhYA25w2wV1QaNv6WMByM02kSX2ryreSq38OavHytFD0zY0bX6Nqgj/WAA==}
+  pixi.js@8.20.1:
+    resolution: {integrity: sha512-akLVBMLvQbaEViqsmVraK0Njer1q4Q4lm4iNKuzvBiFrV8q+6/+HluJN3sWIwO663IBeQtUUS/CaXFJZs6ffXQ==}
 
   pkg-types@2.3.1:
     resolution: {integrity: sha512-y+ichcgc2LrADuhLNAx8DFjVfgz91pRxfZdI3UDhxHvcVEZsenLO+7XaU5vOp0u/7V/wZ+plyuQxtrDlZJ+yeg==}
@@ -7222,10 +7221,10 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.5(@types/react@19.2.18)(pixi.js@8.20.0)(react@19.2.8)':
+  '@pixi/react@8.0.5(@types/react@19.2.18)(pixi.js@8.20.1)(react@19.2.8)':
     dependencies:
       its-fine: 2.0.0(@types/react@19.2.18)(react@19.2.8)
-      pixi.js: 8.20.0
+      pixi.js: 8.20.1
       react: 19.2.8
       react-reconciler: 0.31.0(react@19.2.8)
     transitivePeerDependencies:
@@ -7790,7 +7789,7 @@ snapshots:
 
   '@webgpu/types@0.1.71': {}
 
-  '@xmldom/xmldom@0.8.13': {}
+  '@xmldom/xmldom@0.8.15': {}
 
   accepts@2.0.0:
     dependencies:
@@ -10199,12 +10198,12 @@ snapshots:
 
   pidtree@1.0.0: {}
 
-  pixi.js@8.20.0:
+  pixi.js@8.20.1:
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/earcut': 3.0.0
       '@webgpu/types': 0.1.71
-      '@xmldom/xmldom': 0.8.13
+      '@xmldom/xmldom': 0.8.15
       earcut: 3.2.3
       eventemitter3: 5.0.4
       gifuct-js: 2.1.2
