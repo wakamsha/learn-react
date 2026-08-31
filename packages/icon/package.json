@@ -27,7 +27,7 @@
     "prettier": "3.9.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "svgo": "4.0.2",
+    "svgo": "4.1.0",
     "typescript": "6.0.3"
   },
   "peerDependencies": {
