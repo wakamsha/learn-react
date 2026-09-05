@@ -18,17 +18,17 @@
     "@wakamsha/oxlint-config": "3.0.1",
     "@wakamsha/stylelint-config": "4.1.1",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-oxlint": "1.78.0"
+    "eslint-plugin-oxlint": "1.81.0"
   },
   "devDependencies": {
     "@learn-react/tsconfig": "workspace:*",
     "eslint": "9.39.5",
-    "oxlint": "1.78.0",
+    "oxlint": "1.81.0",
     "stylelint": "17.14.1"
   },
   "peerDependencies": {
     "eslint": "9.39.5",
-    "oxlint": "1.78.0",
+    "oxlint": "1.81.0",
     "stylelint": "17.14.1"
   }
 }
