@@ -1,7 +1,4 @@
 {
   "extends": "@learn-react/tsconfig/tsconfig.base",
-  "compilerOptions": {
-    "types": ["vitest/globals", "@testing-library/jest-dom/vitest"]
-  },
-  "include": ["./src/**/*", "../core/src/*.d.ts", "vitest.*"]
+  "include": ["./src/**/*", "../core/src/*.d.ts"]
 }

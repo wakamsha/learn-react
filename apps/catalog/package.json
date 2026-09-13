@@ -20,6 +20,7 @@
   "dependencies": {
     "@emotion/css": "11.13.5",
     "@learn-react/core": "workspace:1.0.0",
+    "@learn-react/features": "workspace:*",
     "@learn-react/icon": "workspace:1.0.0",
     "@learn-react/try": "workspace:1.0.0",
     "highlight.js": "11.12.0",
