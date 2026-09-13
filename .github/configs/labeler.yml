@@ -6,6 +6,10 @@ core:
   - changed-files:
       - any-glob-to-any-file: 'packages/core/**'
 
+features:
+  - changed-files:
+      - any-glob-to-any-file: 'packages/features/**'
+
 try:
   - changed-files:
       - any-glob-to-any-file: 'packages/try/**'
