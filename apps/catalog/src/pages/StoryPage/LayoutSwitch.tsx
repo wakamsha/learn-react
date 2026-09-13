@@ -16,7 +16,12 @@ import { Layout } from './ValueObject';
 export const LayoutSwitch = () => {
   const { layoutConfig, setLayoutConfig } = LayoutConfigContainer.useContainer();
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(Object.keys(Layout).length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: { ref, tabIndex, 'aria-expanded': ariaExpanded, 'aria-haspopup': ariaHaspopup, onClick },
+  } = useListBox(Object.keys(Layout).length);
 
   const id = useId();
 
@@ -28,12 +33,12 @@ export const LayoutSwitch = () => {
   return (
     <>
       <ToolbarButton
-        ref={triggerProps.ref}
+        ref={ref}
         id={id}
-        tabIndex={triggerProps.tabIndex}
-        ariaExpanded={triggerProps['aria-expanded']}
-        ariaHaspopup={triggerProps['aria-haspopup']}
-        onClick={triggerProps.onClick}
+        tabIndex={tabIndex}
+        ariaExpanded={ariaExpanded}
+        ariaHaspopup={ariaHaspopup}
+        onClick={onClick}
       >
         <Icon name="dashboard" />
       </ToolbarButton>

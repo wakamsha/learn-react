@@ -1,5 +1,5 @@
 import { css, cx } from '@emotion/css';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BorderRadius, Duration, FontSize } from '../../../constants/Style';
 import { cssVar, gutter, square } from '../../../helpers/Style';
@@ -30,9 +30,7 @@ type Props = {
  * サンプルアプリケーションのページリンク一覧を表示します。
  */
 export const Sidebar = ({ title, width = 272, items }: Props) => {
-  const location = useLocation();
-
-  const [pathname, setPathname] = useState(location.pathname);
+  const { pathname } = useLocation();
 
   const [keyword, setKeyword] = useState('');
 
@@ -45,10 +43,6 @@ export const Sidebar = ({ title, width = 272, items }: Props) => {
       .flat()
       .filter((label) => label.match(query));
   }, [items, keyword]);
-
-  useEffect(() => {
-    setPathname(location.pathname);
-  }, [location]);
 
   return (
     <div role="complementary" className={styleBase} style={{ width, gridAutoColumns: `calc(${width}px - 1px)` }}>

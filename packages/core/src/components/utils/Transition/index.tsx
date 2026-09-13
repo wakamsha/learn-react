@@ -1,3 +1,4 @@
+// oxlint-disable react/refs
 import { css } from '@emotion/css';
 import { useMemo, useRef, useState, type ReactNode } from 'react';
 import { Duration, Easing } from '../../../constants/Style';

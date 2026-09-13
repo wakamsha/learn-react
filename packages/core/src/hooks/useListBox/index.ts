@@ -78,7 +78,10 @@ export function useListBox(itemCount: number): Response {
   const itemRefs = useMemo(() => [...Array(itemCount).keys()].map(() => createRef<HTMLElement>()), [itemCount]);
 
   // キーボードイベントかどうかを判定する。
-  const isKeyboardEvent = (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key;
+  const isKeyboardEvent = useCallback(
+    (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key,
+    [],
+  );
 
   /** メニュー項目のフォーカスを移動する。 */
   const moveFocus = useCallback(
@@ -132,7 +135,7 @@ export function useListBox(itemCount: number): Response {
 
       setActive((active) => !active);
     },
-    [active, moveFocus],
+    [active, moveFocus, isKeyboardEvent],
   );
 
   /** メニュー項目で発火するキーボードイベントに応じて実施する処理を定義する。 */

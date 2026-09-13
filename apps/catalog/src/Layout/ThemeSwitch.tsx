@@ -40,7 +40,7 @@ export const ThemeSwitch = () => {
 
   const storageKey = 'THEME';
 
-  // eslint-disable-next-line react/hook-use-state
+  // oxlint-disable-next-line react/hook-use-state
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [currentItem, setCurrentItem] = useState<MenuItem>(() => {
@@ -50,7 +50,12 @@ export const ThemeSwitch = () => {
 
   const id = useId();
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: { ref, tabIndex, 'aria-expanded': ariaExpanded, 'aria-haspopup': ariaHaspopup, onClick, onKeyDown },
+  } = useListBox(menuItems.length);
 
   const handleSelect = (item: MenuItem) => {
     setCurrentItem(item);
@@ -71,15 +76,15 @@ export const ThemeSwitch = () => {
   return (
     <>
       <IconButton
-        ref={triggerProps.ref}
+        ref={ref}
         id={id}
         name={currentItem.icon}
         variant="bare"
-        tabIndex={triggerProps.tabIndex}
-        ariaHaspopup={triggerProps['aria-haspopup']}
-        ariaExpanded={triggerProps['aria-expanded']}
-        onClick={triggerProps.onClick}
-        onKeyDown={triggerProps.onKeyDown}
+        tabIndex={tabIndex}
+        ariaHaspopup={ariaHaspopup}
+        ariaExpanded={ariaExpanded}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
       />
 
       <Tooltip targetId={id} alignment="start">

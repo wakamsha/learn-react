@@ -24,6 +24,17 @@ export const Layout = ({ children }: Props) => {
 
   const [disabled, setDisabled] = useState(false);
 
+  const [previousLayoutConfig, setPreviousLayoutConfig] = useState(layoutConfig);
+
+  // layoutMode を `zen` にした際に強制的に閉じるための処理。
+  // DOM を非活性化 ( pointer-events: none ) することで、ポインタのホバー状態を擬似的に無効化する。
+  if (layoutConfig !== previousLayoutConfig) {
+    setPreviousLayoutConfig(layoutConfig);
+    if (layoutConfig === LayoutMode.Zen) {
+      setDisabled(true);
+    }
+  }
+
   const iconNames: Frozen<LayoutMode, IconName> = {
     [LayoutMode.Neutral]: 'arrow-left',
     [LayoutMode.Zen]: 'list',
@@ -35,12 +46,14 @@ export const Layout = ({ children }: Props) => {
 
   useEffect(() => {
     if (layoutConfig !== LayoutMode.Zen) return;
-    // layoutMode を `zen` にした際に強制的に閉じるための処理。
-    // DOM を非活性化 ( pointer-events: none ) することで、ポインタのホバー状態を擬似的に無効化する。
-    setDisabled(true);
-    window.setTimeout(() => {
+
+    const timer = window.setTimeout(() => {
       setDisabled(false);
     }, delayTime * 2);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
   }, [layoutConfig]);
 
   return (

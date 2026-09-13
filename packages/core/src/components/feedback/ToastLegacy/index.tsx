@@ -54,7 +54,7 @@ export type Toast = {
 const Provider = ({ children, limit = 1 }: ProviderProps) => {
   const [queue, setQueue] = useState<Toast[]>([]);
 
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const toasts = queue.slice(0, limit);
 
   const addToast = useCallback(({ message, icon, theme }: Pick<Toast, 'message' | 'icon' | 'theme'>) => {
     setQueue((toasts) => [...toasts, { id: Date.now(), message, icon, theme }]);
@@ -63,12 +63,6 @@ const Provider = ({ children, limit = 1 }: ProviderProps) => {
   const removeToast = useCallback((id: number) => {
     setQueue((toasts) => toasts.filter((toast) => toast.id !== id));
   }, []);
-
-  useEffect(() => {
-    if (toasts.length <= limit) {
-      setToasts(queue.slice(0, limit));
-    }
-  }, [limit, toasts.length, queue]);
 
   return (
     // oxlint-disable-next-line react/jsx-no-constructed-context-values

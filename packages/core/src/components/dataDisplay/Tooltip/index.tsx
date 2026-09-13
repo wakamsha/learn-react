@@ -71,6 +71,7 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     timerIdRef.current = null;
     // oxlint-disable-next-line react/immutability
     targetElmRef.current?.removeEventListener('mouseleave', handleMouseLeave);
+    // oxlint-disable-next-line react/memo-dependencies
   }, [hide]);
 
   const schedule = useCallback(() => {
