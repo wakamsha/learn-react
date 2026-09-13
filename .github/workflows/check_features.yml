@@ -1,14 +1,14 @@
-name: Check @learn-react/try
+name: Check @learn-react/features
 
 on:
   pull_request:
     branches:
       - "*"
     paths:
-      - "packages/try/**"
+      - "packages/features/**"
 
 jobs:
-  check_try:
+  check_features:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -17,4 +17,7 @@ jobs:
         uses: ./.github/actions/restore-node
 
       - name: Lint
-        run: pnpm try lint
+        run: pnpm features lint
+
+      - name: Test
+        run: pnpm features test
