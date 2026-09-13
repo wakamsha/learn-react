@@ -1,4 +1,4 @@
-# Transition2
+# useTransition
 
 > `useTransition` の使い方を学ぶ。
 
