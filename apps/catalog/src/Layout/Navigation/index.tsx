@@ -165,6 +165,7 @@ const styleCaptionSubPackage = css`
   display: flex;
   align-items: center;
   margin: 0 0 ${gutter(4)};
+  font-family: ${FontFamily.Monospace};
   font-weight: bold;
   color: ${cssVar('TextSub')};
   text-transform: uppercase;
@@ -238,6 +239,8 @@ const styleTreeCaption = css`
   gap: ${gutter(1)};
   align-items: center;
   margin: ${gutter(2)} 0;
+  font-family: ${FontFamily.Monospace};
+  font-size: ${FontSize.Small};
   font-weight: bold;
   color: ${cssVar('TextSub')};
 
