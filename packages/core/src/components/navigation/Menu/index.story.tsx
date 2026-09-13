@@ -7,7 +7,20 @@ import { cssVar, gutter } from '../../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { buttonProps, itemProps, opened, setOpened } = useDropdownMenu(menuItems.length);
+  const {
+    buttonProps: {
+      ref,
+      tabIndex,
+      role,
+      'aria-haspopup': ariaHaspopup,
+      'aria-expanded': ariaExpanded,
+      onKeyDown,
+      onClick,
+    },
+    itemProps,
+    opened,
+    setOpened,
+  } = useDropdownMenu(menuItems.length);
 
   const [value, setValue] = useState('');
 
@@ -20,13 +33,13 @@ export const Story = () => {
     <>
       <h2>Basic</h2>
       <button
-        ref={buttonProps.ref}
-        tabIndex={buttonProps.tabIndex}
-        role={buttonProps.role}
-        aria-haspopup={buttonProps['aria-haspopup']}
-        aria-expanded={buttonProps['aria-expanded']}
-        onKeyDown={buttonProps.onKeyDown}
-        onClick={buttonProps.onClick}
+        ref={ref}
+        tabIndex={tabIndex}
+        role={role}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
       >
         Button
       </button>

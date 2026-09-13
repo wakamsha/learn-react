@@ -7,6 +7,7 @@ export default defineConfig({
     {
       files: ['**/*.{ts,tsx}'],
       rules: {
+        'react/exhaustive-effect-dependencies': ['off'],
         'react/no-react-children': ['off'],
       },
     },

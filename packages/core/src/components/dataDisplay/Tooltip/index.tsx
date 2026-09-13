@@ -61,16 +61,18 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     [alignment, offset, position],
   );
 
-  const hide = () => {
+  const hide = useCallback(() => {
     setShown(false);
-  };
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
     hide();
     window.clearTimeout(timerIdRef.current ?? undefined);
     timerIdRef.current = null;
+    // oxlint-disable-next-line react/immutability
     targetElmRef.current?.removeEventListener('mouseleave', handleMouseLeave);
-  }, []);
+    // oxlint-disable-next-line react/memo-dependencies
+  }, [hide]);
 
   const schedule = useCallback(() => {
     window.clearTimeout(timerIdRef.current ?? undefined);

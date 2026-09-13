@@ -8,7 +8,12 @@ import { cssVar, gutter } from '../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: { ref, tabIndex, 'aria-haspopup': ariaHaspopup, 'aria-expanded': ariaExpanded, onKeyDown, onClick },
+  } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
 
@@ -24,13 +29,13 @@ export const Story = () => {
       </pre>
       <hr />
       <IconButton
-        ref={triggerProps.ref}
+        ref={ref}
         name="list"
-        tabIndex={triggerProps.tabIndex}
-        ariaHaspopup={triggerProps['aria-haspopup']}
-        ariaExpanded={triggerProps['aria-expanded']}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
+        tabIndex={tabIndex}
+        ariaHaspopup={ariaHaspopup}
+        ariaExpanded={ariaExpanded}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
       />
       <ul className={styleMenu} role="menu" aria-hidden={!active}>
         {menuItems.map((item, index) => (

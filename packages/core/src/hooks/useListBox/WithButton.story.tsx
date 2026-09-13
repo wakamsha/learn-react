@@ -9,7 +9,12 @@ import { cssVar, gutter } from '../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: { ref, tabIndex, 'aria-haspopup': ariaHaspopup, 'aria-expanded': ariaExpanded, onKeyDown, onClick },
+  } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
 
@@ -27,12 +32,12 @@ export const Story = () => {
       <hr />
 
       <Button
-        ref={triggerProps.ref}
-        tabIndex={triggerProps.tabIndex}
-        ariaHaspopup={triggerProps['aria-haspopup']}
-        ariaExpanded={triggerProps['aria-expanded']}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
+        ref={ref}
+        tabIndex={tabIndex}
+        ariaHaspopup={ariaHaspopup}
+        ariaExpanded={ariaExpanded}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
       >
         Open
         <Icon name="angle-bottom" />

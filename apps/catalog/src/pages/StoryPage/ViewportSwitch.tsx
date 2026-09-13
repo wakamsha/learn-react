@@ -21,7 +21,12 @@ type Props = {
 export const ViewportSwitch = ({ onChange }: Props) => {
   const [selectedKey, setSelectedKey] = useState<keyof typeof DeviceSize>('unset');
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(Object.keys(DeviceSize).length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: { ref, tabIndex, 'aria-expanded': ariaExpanded, 'aria-haspopup': ariaHaspopup, onClick },
+  } = useListBox(Object.keys(DeviceSize).length);
 
   const id = useId();
 
@@ -34,13 +39,13 @@ export const ViewportSwitch = ({ onChange }: Props) => {
   return (
     <>
       <ToolbarButton
-        ref={triggerProps.ref}
+        ref={ref}
         id={id}
-        tabIndex={triggerProps.tabIndex}
-        ariaExpanded={triggerProps['aria-expanded']}
-        ariaHaspopup={triggerProps['aria-haspopup']}
+        tabIndex={tabIndex}
+        ariaExpanded={ariaExpanded}
+        ariaHaspopup={ariaHaspopup}
         active={selectedKey !== 'unset'}
-        onClick={triggerProps.onClick}
+        onClick={onClick}
       >
         <Icon name="devices" />
       </ToolbarButton>

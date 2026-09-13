@@ -8,7 +8,20 @@ import { cssVar, gutter } from '../../helpers/Style';
 export const Story = () => {
   const menuItems = ['foo', 'bar', 'baz', 'hello', 'world', 'aaa', 'bbb'];
 
-  const { itemProps, active, setActive, triggerProps } = useListBox(menuItems.length);
+  const {
+    itemProps,
+    active,
+    setActive,
+    triggerProps: {
+      ref,
+      tabIndex,
+      role,
+      'aria-haspopup': ariaHaspopup,
+      'aria-expanded': ariaExpanded,
+      onKeyDown,
+      onClick,
+    },
+  } = useListBox(menuItems.length);
 
   const [value, setValue] = useState('');
 
@@ -26,14 +39,14 @@ export const Story = () => {
       </pre>
       <hr />
       <button
-        ref={triggerProps.ref}
+        ref={ref}
         id={id}
-        tabIndex={triggerProps.tabIndex}
-        role={triggerProps.role}
-        aria-haspopup={triggerProps['aria-haspopup']}
-        aria-expanded={triggerProps['aria-expanded']}
-        onKeyDown={triggerProps.onKeyDown}
-        onClick={triggerProps.onClick}
+        tabIndex={tabIndex}
+        role={role}
+        aria-haspopup={ariaHaspopup}
+        aria-expanded={ariaExpanded}
+        onKeyDown={onKeyDown}
+        onClick={onClick}
       >
         Open
       </button>

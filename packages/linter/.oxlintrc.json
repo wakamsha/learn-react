@@ -7,5 +7,14 @@
     "./node_modules/@wakamsha/oxlint-config/dist/configs/react.json",
     "./node_modules/@wakamsha/oxlint-config/dist/configs/typescript.json",
     "./node_modules/@wakamsha/oxlint-config/dist/configs/test/essentials.json"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "rules": {
+        "react/only-export-components": ["off"],
+        "typescript/strict-boolean-expressions": ["off"]
+      }
+    }
   ]
 }

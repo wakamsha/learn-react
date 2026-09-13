@@ -36,13 +36,17 @@ const pageWidth = 794;
 
 function useLoadPdfPages(src: string) {
   const [pdfPages, setPdfPages] = useState<PageProps[]>([]);
+  const [previousSrc, setPreviousSrc] = useState(src);
   const requestIdRef = useRef(0);
+
+  if (src !== previousSrc) {
+    setPreviousSrc(src);
+    setPdfPages([]);
+  }
 
   useEffect(() => {
     requestIdRef.current += 1;
     const requestId = requestIdRef.current;
-
-    setPdfPages([]);
 
     const loadingTask = pdfjsLib.getDocument({ url: src, cMapUrl: 'cmaps/', cMapPacked: true });
 

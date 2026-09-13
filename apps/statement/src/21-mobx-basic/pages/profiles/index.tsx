@@ -1,5 +1,5 @@
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
-import { createContext, useMemo, useRef } from 'react';
+import { createContext } from 'react';
 import { Navigate, Route } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileStore } from '../../stores/ProfileStore';
@@ -59,27 +59,25 @@ import { ProfileShowPage } from './ShowPage';
 /**
  * FC と ContextAPI を使ったモダンなパターン
  */
-export const Profile = () => {
-  const store = useRef(new ProfileStore());
+export const Profile = () => (
+  <>
+    <h1>Profile</h1>
+    <Context.Provider value={store}>
+      <PageTransition>
+        <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
+        <Route
+          path={Router.paths.profileShow}
+          element={<Context.Consumer>{(store) => <ProfileShowPage store={store} />}</Context.Consumer>}
+        />
+        <Route
+          path={Router.paths.profileEdit}
+          element={<Context.Consumer>{(store) => <ProfileEditPage store={store} />}</Context.Consumer>}
+        />
+      </PageTransition>
+    </Context.Provider>
+  </>
+);
 
-  const Context = useMemo(() => createContext(store), [store]);
+const store = new ProfileStore();
 
-  return (
-    <>
-      <h1>Profile</h1>
-      <Context.Provider value={store}>
-        <PageTransition>
-          <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
-          <Route
-            path={Router.paths.profileShow}
-            element={<Context.Consumer>{(store) => <ProfileShowPage store={store.current} />}</Context.Consumer>}
-          />
-          <Route
-            path={Router.paths.profileEdit}
-            element={<Context.Consumer>{(store) => <ProfileEditPage store={store.current} />}</Context.Consumer>}
-          />
-        </PageTransition>
-      </Context.Provider>
-    </>
-  );
-};
+const Context = createContext(store);

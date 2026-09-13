@@ -70,7 +70,10 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
   const itemRefs = useMemo(() => [...Array(itemCount).keys()].map(() => createRef<HTMLElement>()), [itemCount]);
 
   // キーボードイベントかどうかを判定する。
-  const isKeyboardEvent = (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key;
+  const isKeyboardEvent = useCallback(
+    (event: KeyboardEvent | MouseEvent): event is KeyboardEvent => !!(event as KeyboardEvent).key,
+    [],
+  );
 
   // メニュー項目のフォーカスを移動する。
   const moveFocus = useCallback(
@@ -162,7 +165,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
 
       setOpened((state) => !state);
     },
-    [moveFocus, opened, onClickDisableFocusFirstItem],
+    [moveFocus, opened, onClickDisableFocusFirstItem, isKeyboardEvent],
   );
 
   // メニュー項目で発火するキーボードイベントに基づいて実施する処理を定義する。
