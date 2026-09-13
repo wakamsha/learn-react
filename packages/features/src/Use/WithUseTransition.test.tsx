@@ -45,73 +45,58 @@ const { users } = vi.hoisted(() => {
         bs: 'cloud services',
       },
     },
-    '3': {
-      id: 3,
-      name: 'Alice Johnson',
-      username: 'alice',
-      email: 'alice@example.org',
-      phone: '555-019-2831',
-      website: 'example.org',
-      address: {
-        street: 'Broadway',
-        suite: 'Suite 300',
-        city: 'Chicago',
-        zipcode: '60601',
-        geo: { lat: '41.8781', lng: '-87.6298' },
-      },
-      company: {
-        name: 'Gamma Corp',
-        catchPhrase: 'Build the future',
-        bs: 'digital products',
-      },
-    },
   };
 
   return { users };
 });
 
+// Story が実ネットワークへ到達しないようモック化する。
 vi.mock(import('@learn-react/core/src/api/user'), () => ({
-  requestGetUser: vi.fn<typeof requestGetUser>(({ path }: { path: string }) => {
-    const user = users[path] ?? users['1'];
-    const promise = Promise.resolve(user) as Promise<User> & { status?: string; value?: User };
-    promise.status = 'fulfilled';
-    promise.value = user;
-    return promise;
-  }),
+  requestGetUser: vi.fn<typeof requestGetUser>(({ path }) => Promise.resolve(users[path] ?? users['1'])),
 }));
 
 describe('withUseTransition', () => {
-  it('初回のデータ読み込み完了後に User 1 の情報が表示される', async () => {
-    render(<WithUseTransitionStory delayTime={0} />);
+  it('初期表示では Suspense のフォールバックが表示される', () => {
+    render(<WithUseTransitionStory />);
 
-    expect(screen.getByText(/John Doe/)).toBeInTheDocument();
-    expect(screen.getByText(/john/)).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  it('useTransition が有効な場合、ユーザー切り替え後にデータが更新される', async () => {
+  it('useTransition の有効・無効を切り替えられる', async () => {
     const user = userEvent.setup();
-    render(<WithUseTransitionStory delayTime={0} />);
+    render(<WithUseTransitionStory />);
 
-    expect(screen.getByText(/John Doe/)).toBeInTheDocument();
+    const checkbox = screen.getByRole('checkbox');
+
+    expect(checkbox).toBeChecked();
+
+    await user.click(checkbox);
+
+    expect(checkbox).not.toBeChecked();
+  });
+
+  it('useTransition が有効なときにユーザーを切り替えると Pending インジケータが表示される', async () => {
+    const user = userEvent.setup();
+    render(<WithUseTransitionStory />);
 
     const select = screen.getByRole('combobox');
     await user.selectOptions(select, '2');
 
-    expect(screen.getByText(/Jane Smith/)).toBeInTheDocument();
+    // トランジション中は isPending が真になり、フォールバックへ切り替えず Pending を表示する
+    expect(screen.getByText('Pending...')).toBeInTheDocument();
   });
 
-  it('useTransition を無効にした場合、ユーザー切り替え時に直接データ更新が行われる', async () => {
+  it('useTransition が無効なときにユーザーを切り替えても Pending インジケータは表示されない', async () => {
     const user = userEvent.setup();
-    render(<WithUseTransitionStory delayTime={0} />);
-
-    expect(screen.getByText(/John Doe/)).toBeInTheDocument();
+    render(<WithUseTransitionStory />);
 
     const checkbox = screen.getByRole('checkbox');
     await user.click(checkbox);
 
     const select = screen.getByRole('combobox');
-    await user.selectOptions(select, '3');
+    await user.selectOptions(select, '2');
 
-    expect(screen.getByText(/Alice Johnson/)).toBeInTheDocument();
+    // トランジションを使わない更新なので isPending は偽のまま
+    expect(screen.queryByText('Pending...')).not.toBeInTheDocument();
   });
 });
