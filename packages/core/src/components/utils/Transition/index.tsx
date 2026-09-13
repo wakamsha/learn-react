@@ -37,6 +37,8 @@ export const Transition = ({ id: propId, children, type = 'horizontal' }: Props)
   // 実行タイミングの関係上やむなく useMemo を使用。
   // useEffect だとアニメーション開始前の状態が描画されてしまうためカッコ悪く、
   // useLayoutEffect だと要素が多く描画コストの高い画面へ遷移する際に一瞬だが動作が硬直してしまう。
+
+  // oxlint-disable-next-line react/void-use-memo
   useMemo(() => {
     if (id !== propId && !html && nextElm.current) {
       // 以下はトランジション処理の大まかな流れ。

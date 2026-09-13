@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import { useEffect, useState, type FC, type SubmitEvent } from 'react';
+import { useState, type FC, type SubmitEvent } from 'react';
 import {
   isRouteErrorResponse,
   Outlet,
@@ -41,6 +41,14 @@ export const Component = () => {
 
   const [query, setQuery] = useState(q ?? '');
 
+  const [previousQuery, setPreviousQuery] = useState(q);
+
+  // Reset the input when `q` changes outside of typing (e.g. browser navigation).
+  if (q !== previousQuery) {
+    setPreviousQuery(q);
+    setQuery(q ?? '');
+  }
+
   const searching = navigation.location && new URLSearchParams(navigation.location.search).has('q');
 
   const handleQueryChange = (query: string) => {
@@ -54,10 +62,6 @@ export const Component = () => {
       replace: !isFirstSearch,
     });
   };
-
-  useEffect(() => {
-    setQuery(q ?? '');
-  }, [q]);
 
   return (
     <div className={styles.base}>

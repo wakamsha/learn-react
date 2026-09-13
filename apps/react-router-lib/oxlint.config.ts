@@ -16,5 +16,17 @@ export default defineConfig({
         ],
       },
     },
+    {
+      files: ['src/**/route.tsx'],
+      rules: {
+        'typescript/only-throw-error': ['off'],
+      },
+    },
+    {
+      files: ['src/App.tsx'],
+      rules: {
+        'react/todo': ['off'],
+      },
+    },
   ],
 });
