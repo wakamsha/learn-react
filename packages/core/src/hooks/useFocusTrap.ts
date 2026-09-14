@@ -60,7 +60,7 @@ export function useFocusTrap<T extends HTMLElement>(active: boolean): RefObject<
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [onKeyDown, retainFocus, active]);
+  }, [onKeyDown, active]);
 
   return targetRef;
 }

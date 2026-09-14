@@ -1,5 +1,5 @@
 import { type KonvaEventObject } from 'konva/lib/Node';
-import { type FC, useCallback, useEffect, useRef } from 'react';
+import { type FC, useEffect, useEffectEvent, useRef } from 'react';
 import { Line } from 'react-konva';
 import { serializePoints } from '../../ReactKonva/utils/point';
 import { type Tool } from '../constants';
@@ -34,56 +34,48 @@ export const DrawingBoard: FC<Props> = ({ color, strokeWidth, currentTool }) => 
   const updateLines = useUpdateLines();
   const pushState = usePushState();
 
-  const handlePointerDown = useCallback(
-    ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
-      const position = target.getStage()?.getPointerPosition();
+  const onPointerDown = useEffectEvent(({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
+    const position = target.getStage()?.getPointerPosition();
 
-      if (!position) return;
+    if (!position) return;
 
-      drawingRef.current = true;
+    drawingRef.current = true;
 
-      updateLines([...lines, { tool: currentTool, strokeWidth, color, points: [position] }]);
-    },
-    [color, currentTool, lines, strokeWidth, updateLines],
-  );
+    updateLines([...lines, { tool: currentTool, strokeWidth, color, points: [position] }]);
+  });
 
-  const handlePointerMove = useCallback(
-    ({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
-      if (!drawingRef.current) return;
+  const onPointerMove = useEffectEvent(({ target }: KonvaEventObject<MouseEvent | TouchEvent>) => {
+    if (!drawingRef.current) return;
 
-      const position = target.getStage()?.getPointerPosition();
-      if (!position) return;
+    const position = target.getStage()?.getPointerPosition();
+    if (!position) return;
 
-      const lastLine = lines.at(-1);
-      if (!lastLine) return;
+    updateLines((previous) => {
+      const lastLine = previous.at(-1);
+      if (!lastLine) return previous;
 
-      lastLine.points = [...lastLine.points, position];
+      return [...previous.slice(0, -1), { ...lastLine, points: [...lastLine.points, position] }];
+    });
+  });
 
-      lines.splice(-1, 1, lastLine);
-
-      updateLines([...lines]);
-    },
-    [lines, updateLines],
-  );
-
-  const handlePointerUp = useCallback(() => {
+  const onPointerUp = useEffectEvent(() => {
     drawingRef.current = false;
     pushState(lines);
-  }, [lines, pushState]);
+  });
 
   useEffect(() => {
     if (!stage) return;
 
-    stage.on('mousedown touchstart', handlePointerDown);
-    stage.on('mousemove touchmove', handlePointerMove);
-    stage.on('mouseup touchend', handlePointerUp);
+    stage.on('mousedown touchstart', onPointerDown);
+    stage.on('mousemove touchmove', onPointerMove);
+    stage.on('mouseup touchend', onPointerUp);
 
     return () => {
-      stage.off('mousedown touchstart', handlePointerDown);
-      stage.off('mousemove touchmove', handlePointerMove);
-      stage.off('mouseup touchend', handlePointerUp);
+      stage.off('mousedown touchstart', onPointerDown);
+      stage.off('mousemove touchmove', onPointerMove);
+      stage.off('mouseup touchend', onPointerUp);
     };
-  }, [handlePointerDown, handlePointerMove, handlePointerUp, stage]);
+  }, [stage]);
 
   return (
     <>

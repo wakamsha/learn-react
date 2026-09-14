@@ -2,6 +2,7 @@ import {
   createRef,
   useCallback,
   useEffect,
+  useEffectEvent,
   useMemo,
   useRef,
   useState,
@@ -84,6 +85,14 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
     [itemRefs],
   );
 
+  const focusFirstItem = useEffectEvent(() => {
+    if (opened && !onClickDisableFocusFirstItem) {
+      moveFocus(0);
+    } else if (!opened) {
+      clickedOpen.current = false;
+    }
+  });
+
   // メニューが開いたら最初の項目にフォーカスインする。
   useEffect(() => {
     if (firstRun.current) {
@@ -91,11 +100,7 @@ export function useDropdownMenu(itemCount: number, options?: DropdownMenuOptions
       return;
     }
 
-    if (opened && !onClickDisableFocusFirstItem) {
-      moveFocus(0);
-    } else if (!opened) {
-      clickedOpen.current = false;
-    }
+    focusFirstItem();
   }, [moveFocus, opened, onClickDisableFocusFirstItem]);
 
   // すべてのクリックイベントをリッスンし、クリック対象がメニュー領域外であれば強制的に閉じる。
