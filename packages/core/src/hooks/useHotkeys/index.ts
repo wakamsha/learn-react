@@ -1,5 +1,5 @@
 import hotkeys, { type HotkeysEvent, type KeyHandler } from 'hotkeys-js';
-import { useCallback, useEffect, useRef, type RefObject } from 'react';
+import { useEffect, useEffectEvent, useRef, type RefObject } from 'react';
 
 type Options = {
   /**
@@ -38,27 +38,24 @@ export function useHotkeys<T extends Element>(
 
   const ref = useRef<T>(null);
 
-  const callback = useCallback(
-    (keyboardEvent: KeyboardEvent, hotkeysEvent: HotkeysEvent) => {
-      if (ref.current === null || document.activeElement === ref.current) {
-        handler(keyboardEvent, hotkeysEvent);
-      }
-    },
-    [handler],
-  );
+  const method = useEffectEvent((keyboardEvent: KeyboardEvent, hotkeysEvent: HotkeysEvent) => {
+    if (ref.current === null || document.activeElement === ref.current) {
+      handler(keyboardEvent, hotkeysEvent);
+    }
+  });
 
   useEffect(() => {
     if (!enabled) {
-      hotkeys.unbind(keys, callback);
+      hotkeys.unbind(keys, method);
       return;
     }
 
-    hotkeys(keys, { keydown: trigger === 'keydown', keyup: trigger === 'keyup' }, callback);
+    hotkeys(keys, { keydown: trigger === 'keydown', keyup: trigger === 'keyup' }, method);
 
     return () => {
-      hotkeys.unbind(keys, callback);
+      hotkeys.unbind(keys, method);
     };
-  }, [enabled, callback, keys, trigger]);
+  }, [enabled, keys, trigger]);
 
   return ref;
 }

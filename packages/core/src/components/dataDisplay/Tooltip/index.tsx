@@ -1,5 +1,5 @@
 import { css } from '@emotion/css';
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useEffectEvent, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { BorderRadius, Duration, FontSize, LineHeight, ZIndex } from '../../../constants/Style';
 import { cssVar, gutter } from '../../../helpers/Style';
@@ -34,58 +34,41 @@ type Props = {
 export const Tooltip = ({ children, targetId, position = 'bottom', alignment = 'center', offset = 0 }: Props) => {
   const baseRef = useRef<HTMLDivElement>(null);
 
-  const targetElmRef = useRef<HTMLElement>(null);
-
   const timerIdRef = useRef<number>(null);
 
   const [shown, setShown] = useState(false);
 
   const [point, setPoint] = useState<Partial<Point>>({});
 
-  const show = useCallback(
-    (targetElement: HTMLElement) => {
-      if (!baseRef.current) return;
+  const showTooltip = useEffectEvent((targetElement: HTMLElement) => {
+    if (!baseRef.current || targetElement.hasAttribute('disabled')) return;
 
-      setPoint(
-        getOptimizedPoint({
-          position,
-          alignment,
-          offset,
-          targetElement,
-          tooltipElement: baseRef.current,
-        }),
-      );
+    setPoint(
+      getOptimizedPoint({
+        position,
+        alignment,
+        offset,
+        targetElement,
+        tooltipElement: baseRef.current,
+      }),
+    );
 
-      setShown(true);
-    },
-    [alignment, offset, position],
-  );
+    setShown(true);
+  });
 
-  const hide = useCallback(() => {
+  const hideTooltip = useEffectEvent(() => {
     setShown(false);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    hide();
     window.clearTimeout(timerIdRef.current ?? undefined);
     timerIdRef.current = null;
-    // oxlint-disable-next-line react/immutability
-    targetElmRef.current?.removeEventListener('mouseleave', handleMouseLeave);
-    // oxlint-disable-next-line react/memo-dependencies
-  }, [hide]);
+  });
 
-  const schedule = useCallback(() => {
+  const schedule = useEffectEvent((targetElement: HTMLElement) => {
     window.clearTimeout(timerIdRef.current ?? undefined);
 
-    const targetElement = targetElmRef.current;
-
-    if (!targetElement) return;
-
     timerIdRef.current = window.setTimeout(() => {
-      show(targetElement);
+      showTooltip(targetElement);
     }, 300);
-    targetElement.addEventListener('mouseleave', handleMouseLeave);
-  }, [handleMouseLeave, show]);
+  });
 
   useEffect(() => {
     // oxlint-disable-next-line prefer-query-selector
@@ -93,14 +76,21 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
 
     if (!targetElm) return;
 
-    targetElmRef.current = targetElm;
-    targetElm.addEventListener('mouseenter', schedule);
+    const handleMouseEnter = () => {
+      schedule(targetElm);
+    };
+    const handleMouseLeave = () => {
+      hideTooltip();
+    };
+
+    targetElm.addEventListener('mouseenter', handleMouseEnter);
+    targetElm.addEventListener('mouseleave', handleMouseLeave);
 
     // target 非活性状態変更時に mouseleave イベントを実行し、当要素を確実に非表示とする。
-    const observer: MutationObserver = new MutationObserver((records) => {
+    const observer = new MutationObserver((records) => {
       records.forEach((record) => {
         if ((record.target as HTMLButtonElement).disabled) {
-          handleMouseLeave();
+          hideTooltip();
         }
       });
     });
@@ -111,10 +101,13 @@ export const Tooltip = ({ children, targetId, position = 'bottom', alignment = '
     });
 
     return () => {
-      targetElm.removeEventListener('mouseenter', schedule);
+      targetElm.removeEventListener('mouseenter', handleMouseEnter);
+      targetElm.removeEventListener('mouseleave', handleMouseLeave);
       observer.disconnect();
+      window.clearTimeout(timerIdRef.current ?? undefined);
+      timerIdRef.current = null;
     };
-  }, [targetId, schedule, handleMouseLeave]);
+  }, [targetId]);
 
   return createPortal(
     <div ref={baseRef} role="tooltip" className={styleBase} style={point} aria-hidden={!shown}>

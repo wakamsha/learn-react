@@ -2,6 +2,7 @@ import {
   createRef,
   useCallback,
   useEffect,
+  useEffectEvent,
   useMemo,
   useRef,
   useState,
@@ -97,18 +98,15 @@ export function useListBox(itemCount: number): Response {
    *
    * リストボックスが非表示のときは非活性にしておくことで、誤って選択イベントが発火するのを防げる。
    */
-  const toggleItemsActivity = useCallback(
-    (disabled: boolean) => {
-      itemRefs.forEach((itemRef) => {
-        if (disabled) {
-          itemRef.current?.setAttribute('disabled', 'true');
-        } else {
-          itemRef.current?.removeAttribute('disabled');
-        }
-      });
-    },
-    [itemRefs],
-  );
+  const toggleItemsActivity = useEffectEvent((disabled: boolean) => {
+    itemRefs.forEach((itemRef) => {
+      if (disabled) {
+        itemRef.current?.setAttribute('disabled', 'true');
+      } else {
+        itemRef.current?.removeAttribute('disabled');
+      }
+    });
+  });
 
   const handleTrigger = useCallback(
     (event: KeyboardEvent<HTMLButtonElement> | MouseEvent<HTMLButtonElement>) => {
@@ -217,7 +215,7 @@ export function useListBox(itemCount: number): Response {
         toggleItemsActivity(true);
       });
     }
-  }, [moveFocus, active, toggleItemsActivity]);
+  }, [moveFocus, active]);
 
   // すべてのクリックイベントをリッスンし、クリック対象がメニュー領域外であれば強制的に閉じる。
   useEffect(() => {

@@ -92,7 +92,7 @@ const Presentation = () => {
             {layoutConfig !== Layout.Zen ? (
               <aside className={styleCodeBlock}>
                 <div className={styleCodeBlockBody}>
-                  <CodeBlock>{sourceCode}</CodeBlock>
+                  <CodeBlock key={storyId}>{sourceCode}</CodeBlock>
                 </div>
               </aside>
             ) : null}
