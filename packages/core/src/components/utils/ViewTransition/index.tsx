@@ -6,7 +6,18 @@ type Props = {
 };
 
 /**
- * ビュー遷移を適用するコンポーネントです。
+ * React 標準の ViewTransition をラップしたコンポーネントです。
+ *
+ * アニメーション付きのビュー遷移を提供します。
+ *
+ * @see {@link https://react.dev/reference/react/ViewTransition ViewTransition - React}
+ *
+ * @example
+ * ```tsx
+ * <ViewTransition>
+ *   <YourComponent />
+ * </ViewTransition>
+ * ```
  */
 export const ViewTransition = ({ children }: Props) => {
   const className = 'viewTransition';
