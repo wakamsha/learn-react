@@ -1,31 +1,29 @@
 // oxlint-disable typescript/promise-function-async
 // oxlint-disable catch-or-return promise/prefer-await-to-then
 import { css } from '@emotion/css';
-import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
+import { ViewTransition } from '@learn-react/core/src/components/utils/ViewTransition';
 import { withSuspense } from '@learn-react/core/src/helpers/Component';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { lazy, type ReactNode } from 'react';
-import { BrowserRouter, Route } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router';
 import { Navigation } from './components/Navigation';
 import { routes } from './routes';
 
 /**
- * 02 に `<PageTransition>` を適用したもの。
+ * 02 に `<ViewTransition>` を適用したもの。
  */
 export const WithPageTransition = () => (
   <BrowserRouter>
     <Layout>
-      <PageTransition>
-        <Route path={routes.Home.Path} element={<Home />} />
-
-        <Route path={routes.About.Path} element={<About />} />
-
-        <Route path={routes.Beatles.Path} element={<Beatles />} />
-
-        <Route path={routes.Zeppelin.Path} element={<Zeppelin />} />
-
-        <Route path="*" element={<NotFound />} />
-      </PageTransition>
+      <ViewTransition>
+        <Routes>
+          <Route path={routes.Home.Path} element={<Home />} />
+          <Route path={routes.About.Path} element={<About />} />
+          <Route path={routes.Beatles.Path} element={<Beatles />} />
+          <Route path={routes.Zeppelin.Path} element={<Zeppelin />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ViewTransition>
     </Layout>
   </BrowserRouter>
 );

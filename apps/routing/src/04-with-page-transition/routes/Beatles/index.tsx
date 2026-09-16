@@ -1,8 +1,7 @@
 import { css, cx } from '@emotion/css';
-import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
-import { generatePath, Link, NavLink, Route } from 'react-router';
+import { generatePath, Link, NavLink, Route, Routes } from 'react-router';
 import { routes as rootRoutes } from '../../routes';
 import { data } from './data';
 import { Home } from './Home';
@@ -37,10 +36,10 @@ export const Beatles = () => {
       </ul>
 
       <div className={styleDetail}>
-        <PageTransition parentPath={rootRoutes.Beatles.To}>
+        <Routes>
           <Route index element={<Home />} />
           <Route path={routes.Path} element={<Member />} />
-        </PageTransition>
+        </Routes>
       </div>
     </div>
   );

@@ -2,11 +2,11 @@
  * @file catalog アプリケーションのエントリポイント。
  */
 
-import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
+import { ViewTransition } from '@learn-react/core/src/components/utils/ViewTransition';
 import { applyGlobalStyle, applyResetStyle } from '@learn-react/core/src/helpers/Style';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 import { IndexPage } from './pages/IndexPage';
 import { StoryPage } from './pages/StoryPage';
@@ -15,10 +15,12 @@ const App = () => (
   <StrictMode>
     <BrowserRouter>
       <Layout>
-        <PageTransition>
-          <Route path="/" element={<IndexPage />} />
-          <Route path=":storyId" element={<StoryPage />} />
-        </PageTransition>
+        <ViewTransition>
+          <Routes>
+            <Route path="/" element={<IndexPage />} />
+            <Route path=":storyId" element={<StoryPage />} />
+          </Routes>
+        </ViewTransition>
       </Layout>
     </BrowserRouter>
   </StrictMode>
