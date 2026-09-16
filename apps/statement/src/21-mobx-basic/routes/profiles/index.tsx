@@ -1,6 +1,6 @@
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { createContext } from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileStore } from '../../stores/ProfileStore';
 import { ProfileEditPage } from './EditPage';
@@ -64,15 +64,17 @@ export const Profile = () => (
     <h1>Profile</h1>
     <Context.Provider value={store}>
       <PageTransition>
-        <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
-        <Route
-          path={Router.paths.profileShow}
-          element={<Context.Consumer>{(store) => <ProfileShowPage store={store} />}</Context.Consumer>}
-        />
-        <Route
-          path={Router.paths.profileEdit}
-          element={<Context.Consumer>{(store) => <ProfileEditPage store={store} />}</Context.Consumer>}
-        />
+        <Routes>
+          <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
+          <Route
+            path={Router.paths.profileShow}
+            element={<Context.Consumer>{(store) => <ProfileShowPage store={store} />}</Context.Consumer>}
+          />
+          <Route
+            path={Router.paths.profileEdit}
+            element={<Context.Consumer>{(store) => <ProfileEditPage store={store} />}</Context.Consumer>}
+          />
+        </Routes>
       </PageTransition>
     </Context.Provider>
   </>

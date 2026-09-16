@@ -1,7 +1,6 @@
-/* eslint-disable react/hook-use-state */
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { useState } from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Router } from '../../../@core/constants/Router';
 import { ProfileEditPage } from './EditPage';
 import { ProfileShowPage } from './ShowPage';
@@ -38,17 +37,20 @@ import { ProfileStore } from './stores/ProfileStore';
 /**
  * グローバルストアと同様に Static な Context を使用するパターン
  */
-export const Profile = () => {
+export const ProfilePage = () => {
+  // oxlint-disable-next-line react/hook-use-state
   const [store] = useState(() => new ProfileStore());
 
   return (
     <>
       <h1>Profile</h1>
       <ProfileStore.Context.Provider value={store}>
-        <PageTransition>
-          <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
-          <Route path={Router.paths.profileShow} element={<ProfileShowPage />} />
-          <Route path={Router.paths.profileEdit} element={<ProfileEditPage />} />
+        <PageTransition parentPath={Router.paths.profile}>
+          <Routes>
+            <Route index element={<Navigate replace to={Router.paths.profileEdit} />} />
+            <Route path={Router.paths.profileShow} element={<ProfileShowPage />} />
+            <Route path={Router.paths.profileEdit} element={<ProfileEditPage />} />
+          </Routes>
         </PageTransition>
       </ProfileStore.Context.Provider>
     </>

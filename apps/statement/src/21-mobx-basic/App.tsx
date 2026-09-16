@@ -3,22 +3,24 @@ import { Sidebar } from '@learn-react/core/src/components/navigation/Sidebar';
 import { PageTransition } from '@learn-react/core/src/components/utils/PageTransition';
 import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ComponentProps } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { Router } from '../@core/constants/Router';
-import { HomePage } from './pages/Home';
-import { ListPage } from './pages/ListPage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { Profile } from './pages/profiles';
+import { HomePage } from './routes/Home';
+import { ListPage } from './routes/ListPage';
+import { NotFoundPage } from './routes/NotFoundPage';
+import { Profile } from './routes/profiles';
 
 export const App = () => (
   <div className={baseStyle}>
     <Sidebar title="MobX Basic" items={linkItems} />
     <div className={contentStyle}>
       <PageTransition>
-        <Route path={Router.paths.home} element={<HomePage />} />
-        <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
-        <Route path={Router.paths.list} element={<ListPage />} />
-        <Route element={<NotFoundPage />} />
+        <Routes>
+          <Route path={Router.paths.home} element={<HomePage />} />
+          <Route path={`${Router.paths.profile}/*`} element={<Profile />} />
+          <Route path={Router.paths.list} element={<ListPage />} />
+          <Route element={<NotFoundPage />} />
+        </Routes>
       </PageTransition>
     </div>
   </div>
