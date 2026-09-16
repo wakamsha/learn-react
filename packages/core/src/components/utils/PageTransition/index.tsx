@@ -38,14 +38,29 @@ type Props = {
  * ```
  */
 export const PageTransition = ({ children, parentPath = '' }: Props) => {
+  const currentPathname = useCurrentPathname(children.props.children, parentPath);
+
+  return <Transition id={currentPathname}>{children}</Transition>;
+};
+
+/**
+ * 現在の URL に一致するルートの `pathnameBase` を返します。
+ *
+ * @param children - `<Routes>` の子要素
+ *
+ * @param parentPath - 親ルートの URL パス
+ *
+ * @returns 現在の URL に一致するルートの `pathnameBase`
+ */
+function useCurrentPathname(children: ReactNode, parentPath = '') {
   const location = useLocation();
 
-  const routes = createRoutesFromChildren(children.props.children).map((route) => ({
+  const routes = createRoutesFromChildren(children).map((route) => ({
     ...route,
     ...(route.path && parentPath ? { path: `${parentPath}${route.path}` } : {}),
   }));
 
   const matchedRoute = matchRoutes(routes, location)?.[0] ?? { pathnameBase: '' };
 
-  return <Transition id={matchedRoute.pathnameBase}>{children}</Transition>;
-};
+  return matchedRoute.pathnameBase;
+}
