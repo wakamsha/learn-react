@@ -4,11 +4,11 @@ import { gutter } from '@learn-react/core/src/helpers/Style';
 import { type ComponentProps } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Router } from '../@core/constants/Router';
-import { HomePage } from './pages/HomePage';
-import { ListPage } from './pages/ListPage';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { ProfilePage } from './pages/profiles';
-import { UsersPage } from './pages/Users';
+import { HomePage } from './routes/HomePage';
+import { ListPage } from './routes/ListPage';
+import { NotFoundPage } from './routes/NotFoundPage';
+import { ProfilePage } from './routes/profiles';
+import { UsersPage } from './routes/Users';
 
 export const App = () => (
   <div className={styleBase}>

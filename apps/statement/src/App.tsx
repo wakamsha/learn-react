@@ -20,11 +20,13 @@ export const App = () => {
   return (
     <div className={styleBase}>
       <Component />
+
       <select className={styleSwitch} value={type} onChange={handleSwitch}>
-        <option value="mobx">mobx</option>
-        <option value="unstated-next">unstated-next</option>
-        <option value="constate">constate</option>
-        <option value="jotai">Jotai</option>
+        {Object.keys(Components).map((key) => (
+          <option key={key} value={key}>
+            {key}
+          </option>
+        ))}
       </select>
     </div>
   );
@@ -33,13 +35,13 @@ export const App = () => {
 export const TypeContainer = createContainer(useTypeConfig);
 
 const Components: Frozen<Type, FC> = {
-  mobx: MobxHooksApp,
+  'mobx hooks': MobxHooksApp,
   'unstated-next': UnstatedBasicApp,
   constate: ConstateBasicApp,
   jotai: JotaiBasicApp,
 };
 
-type Type = 'mobx' | 'unstated-next' | 'constate' | 'jotai';
+type Type = 'mobx hooks' | 'unstated-next' | 'constate' | 'jotai';
 
 const storageKey = 'STATEMENT_TYPE';
 
@@ -48,7 +50,7 @@ function useTypeConfig() {
   const [storage] = useState(() => new StorageProxy('localStorage'));
 
   const [type, setType] = useState<Type>(
-    storage.getValue(storageKey) === '' ? 'mobx' : (storage.getValue(storageKey) as Type),
+    storage.getValue(storageKey) === '' ? 'mobx hooks' : (storage.getValue(storageKey) as Type),
   );
 
   useEffect(() => {
