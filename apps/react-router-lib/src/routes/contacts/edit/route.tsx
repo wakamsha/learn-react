@@ -1,4 +1,3 @@
-import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { type FC } from 'react';
 import { generatePath, redirect, useLoaderData, useNavigate, type Params } from 'react-router';
 import { getContact, updateContact } from '../../../data';
@@ -64,7 +63,7 @@ export const Component: FC = () => {
 
   return (
     <>
-      <DocumentTitle title={`Edit ${contact.first} ${contact.last}`} />
+      <title>{`Edit ${contact.first} ${contact.last}`}</title>
 
       <Template contact={contact} onCancel={handleCancel} />
     </>

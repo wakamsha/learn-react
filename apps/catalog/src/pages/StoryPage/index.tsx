@@ -1,7 +1,6 @@
 import { css, cx } from '@emotion/css';
 import { Icon } from '@learn-react/core/src/components/dataDisplay/Icon';
 import { Tooltip } from '@learn-react/core/src/components/dataDisplay/Tooltip';
-import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { SplitPane } from '@learn-react/core/src/components/utils/SplitPane';
 import { Duration, Easing, FontFamily, FontSize, LineHeight } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter, textEllipsis } from '@learn-react/core/src/helpers/Style';
@@ -44,7 +43,7 @@ const Presentation = () => {
 
   return (
     <>
-      <DocumentTitle title={[...storyKeys].toReversed().join(' | ')} baseTitle="Catalog | Learn React" />
+      <title>{`${[...storyKeys].toReversed().join(' | ')} | Catalog | Learn React`}</title>
 
       <div className={styleBase}>
         <header className={styleHeader}>
