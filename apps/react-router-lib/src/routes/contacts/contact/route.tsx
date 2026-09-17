@@ -1,4 +1,3 @@
-import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { type FC } from 'react';
 import { useLoaderData, type Params } from 'react-router';
 import { getContact, updateContact } from '../../../data';
@@ -52,7 +51,7 @@ export const Component: FC = () => {
 
   return (
     <>
-      <DocumentTitle title={`${contact.first ?? ''} ${contact.last ?? ''}`} />
+      <title>{`${contact.first ?? ''} ${contact.last ?? ''}`}</title>
 
       <Template contact={contact} />
     </>

@@ -1,4 +1,3 @@
-import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { type FC } from 'react';
 import { Template } from './template';
 
@@ -7,7 +6,7 @@ import { Template } from './template';
  */
 export const Component: FC = () => (
   <>
-    <DocumentTitle title="React Router Contacts" />
+    <title>React Router Contacts</title>
 
     <Template />
   </>

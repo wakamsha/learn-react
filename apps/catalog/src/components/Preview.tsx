@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-import { DocumentTitle } from '@learn-react/core/src/components/utils/DocumentTitle';
 import { BorderRadius, FontFamily, FontSize } from '@learn-react/core/src/constants/Style';
 import { cssVar, gutter } from '@learn-react/core/src/helpers/Style';
 import { useStory } from '../hooks/useStory';
@@ -16,7 +15,7 @@ export const Preview = () => {
 
   return (
     <>
-      <DocumentTitle title={storyKeys.toReversed().join(' | ')} baseTitle="Catalog | Learn React" />
+      <title>{`${storyKeys.toReversed().join(' | ')} | Catalog | Learn React`}</title>
 
       <article className={stylePreview}>
         <Component />
