@@ -39,7 +39,7 @@
     "cross-env": "10.1.0",
     "eslint": "9.39.5",
     "oxlint": "1.82.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "stylelint": "17.15.0",
     "typed-css-modules": "0.9.1",
     "typescript": "6.0.3",

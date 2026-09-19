@@ -33,7 +33,7 @@
     "eslint": "9.39.5",
     "jsdom": "30.0.1",
     "oxlint": "1.82.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-router-dom": "7.18.3",
