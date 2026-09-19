@@ -3,7 +3,7 @@ packages:
   - 'packages/*'
 
 overrides:
-  '@types/node': 24.13.4
+  '@types/node': 24.13.6
 
 allowBuilds:
   core-js: false
