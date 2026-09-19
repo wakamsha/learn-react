@@ -29,7 +29,7 @@
     "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "oxlint": "1.82.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "stylelint": "17.15.0",
