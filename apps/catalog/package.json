@@ -32,7 +32,7 @@
     "@learn-react/builder": "workspace:1.0.0",
     "@learn-react/linter": "workspace:*",
     "@learn-react/tsconfig": "workspace:1.0.0",
-    "@types/node": "24.13.4",
+    "@types/node": "24.13.6",
     "@types/qs": "6.15.1",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
