@@ -19,7 +19,7 @@
     "konva": "10.5.0",
     "pixi.js": "8.20.1",
     "react-chartjs-2": "5.3.1",
-    "react-konva": "19.2.7",
+    "react-konva": "19.3.0",
     "react-konva-utils": "2.0.0"
   },
   "devDependencies": {
