@@ -949,7 +949,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.5
-        version: 8.0.5(@types/react@19.3.0)(pixi.js@8.20.1)(react@19.3.0)
+        version: 8.0.5(@types/react@19.3.0)(pixi.js@8.21.0)(react@19.3.0)
       chart.js:
         specifier: 4.5.1
         version: 4.5.1
@@ -960,8 +960,8 @@ importers:
         specifier: 10.5.0
         version: 10.5.0
       pixi.js:
-        specifier: 8.20.1
-        version: 8.20.1
+        specifier: 8.21.0
+        version: 8.21.0
       react-chartjs-2:
         specifier: 5.3.1
         version: 5.3.1(chart.js@4.5.1)(react@19.3.0)
@@ -4602,8 +4602,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pixi.js@8.20.1:
-    resolution: {integrity: sha512-akLVBMLvQbaEViqsmVraK0Njer1q4Q4lm4iNKuzvBiFrV8q+6/+HluJN3sWIwO663IBeQtUUS/CaXFJZs6ffXQ==}
+  pixi.js@8.21.0:
+    resolution: {integrity: sha512-GJ/KqBtUuWDBPMQu2D0ZHsRCYOcWRjjKrpyC+3jPQI5JTqHMC5dH8l9sSyvoUT4qJidvRzs1fwFWRWceno2Ltw==}
 
   pkg-types@2.3.3:
     resolution: {integrity: sha512-j/lCFdcppV0JxWpCEITdbDltBxPP6cHT+yNJ6Go2OgoSA9518X847X9z0p6LtA4Nc16+eQzCZjRrWanTGvHJ5w==}
@@ -6577,10 +6577,10 @@ snapshots:
 
   '@pixi/colord@2.9.6': {}
 
-  '@pixi/react@8.0.5(@types/react@19.3.0)(pixi.js@8.20.1)(react@19.3.0)':
+  '@pixi/react@8.0.5(@types/react@19.3.0)(pixi.js@8.21.0)(react@19.3.0)':
     dependencies:
       its-fine: 2.0.0(@types/react@19.3.0)(react@19.3.0)
-      pixi.js: 8.20.1
+      pixi.js: 8.21.0
       react: 19.3.0
       react-reconciler: 0.31.0(react@19.3.0)
     transitivePeerDependencies:
@@ -9396,7 +9396,7 @@ snapshots:
 
   pidtree@1.0.0: {}
 
-  pixi.js@8.20.1:
+  pixi.js@8.21.0:
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/earcut': 3.0.0
