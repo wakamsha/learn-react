@@ -37,7 +37,7 @@
     "@wakamsha/stylelint-config": "4.1.1",
     "cspell": "10.3.6",
     "lefthook": "2.2.1",
-    "prettier": "3.9.9",
+    "prettier": "3.9.10",
     "prettier-plugin-organize-imports": "4.3.0",
     "typescript": "6.0.3"
   }
