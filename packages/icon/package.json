@@ -28,13 +28,13 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "svgo": "4.1.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "peerDependencies": {
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   }
 }
