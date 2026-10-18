@@ -31,6 +31,10 @@
       "matchPackageNames": ["/^react-router$/", "/^@react-router//"]
     },
     {
+      "groupName": "Oxc families",
+      "matchPackageNames": ["/^oxlint$/", "/^oxlint-tsgolint$/"]
+    },
+    {
       "groupName": "ESLint families",
       "matchPackageNames": ["/eslint$/"]
     },
