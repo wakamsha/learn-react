@@ -7,7 +7,7 @@ import { type FC, use, useEffect, useRef } from 'react';
  * @see {@link https://pixijs.com/8.x/examples/basic/mesh-plane Mesh Plane | PixiJS}
  */
 export const Story: FC = () => {
-  const texturePromise = Assets.load('https://pixijs.com/assets/bg_grass.jpg');
+  const texturePromise = Assets.load<Texture>('https://pixijs.com/assets/bg_grass.jpg');
 
   return (
     <>

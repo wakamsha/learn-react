@@ -9,7 +9,7 @@ import { Suspense, use, useRef, useState, type FC } from 'react';
  * @see {@link https://react.pixijs.io/getting-started/ Getting Started | PixiJS React}
  */
 export const Story: FC = () => {
-  const texturePromise = Assets.load('https://pixijs.com/assets/bunny.png');
+  const texturePromise = Assets.load<Texture>('https://pixijs.com/assets/bunny.png');
 
   useExtend({
     Text,

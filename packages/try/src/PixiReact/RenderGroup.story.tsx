@@ -7,7 +7,7 @@ import { type FC, use, useEffect, useRef } from 'react';
  * @see {@link https://pixijs.com/8.x/examples/basic/render-group Render Group | PixiJS}
  */
 export const Story: FC = () => {
-  const texturePromise = Assets.load(`https://pixijs.com/assets/tree.png`);
+  const texturePromise = Assets.load<Texture>(`https://pixijs.com/assets/tree.png`);
 
   return (
     <>
