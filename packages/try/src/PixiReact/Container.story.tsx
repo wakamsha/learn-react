@@ -7,7 +7,7 @@ import { Suspense, use, useEffect, useRef, type FC } from 'react';
  * @see {@link https://pixijs.com/8.x/examples/basic/container Container | PixiJS}
  */
 export const Story: FC = () => {
-  const texturePromise = Assets.load('https://pixijs.com/assets/bunny.png');
+  const texturePromise = Assets.load<Texture>('https://pixijs.com/assets/bunny.png');
 
   useExtend({
     Text,

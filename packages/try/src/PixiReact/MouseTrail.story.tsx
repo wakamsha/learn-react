@@ -7,7 +7,7 @@ import { type FC, use, useEffect } from 'react';
  * @see {@link https://pixijs.com/8.x/examples/advanced/mouse-trail Mouse Trail | PixiJS}
  */
 export const Story: FC = () => {
-  const texturePromise = Assets.load('https://pixijs.com/assets/trail.png');
+  const texturePromise = Assets.load<Texture>('https://pixijs.com/assets/trail.png');
 
   return (
     <>
@@ -40,7 +40,6 @@ const MouseTrail: FC<MouseTrailProps> = ({ texturePromise }) => {
     MeshRope,
   });
 
-  // eslint-disable-next-line react-hooks/immutability
   useEffect(() => {
     // historySize determines how long the trail will be.
     const historySize = 20;
@@ -55,7 +54,7 @@ const MouseTrail: FC<MouseTrailProps> = ({ texturePromise }) => {
 
     let mousePosition: Point | null = null;
 
-    // eslint-disable-next-line react-hooks/immutability
+    // oxlint-disable-next-line react-hooks/immutability
     stage.hitArea = screen;
 
     stage.on('mousemove', ({ global }) => {

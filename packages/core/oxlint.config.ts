@@ -9,6 +9,7 @@ export default defineConfig({
       rules: {
         'react/exhaustive-effect-dependencies': ['off'],
         'react/no-react-children': ['off'],
+        'react/purity': ['off'], // Calendar コンポーネントのサンプルにて `new Date()` を使うため無効化する。
       },
     },
   ],
