@@ -957,8 +957,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(react@19.3.0)
       konva:
-        specifier: 10.7.1
-        version: 10.7.1
+        specifier: 10.9.0
+        version: 10.9.0
       pixi.js:
         specifier: 8.22.0
         version: 8.22.0
@@ -967,10 +967,10 @@ importers:
         version: 5.3.1(chart.js@4.5.1)(react@19.3.0)
       react-konva:
         specifier: 19.3.2
-        version: 19.3.2(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        version: 19.3.2(@types/react@19.3.0)(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react-konva-utils:
         specifier: 2.1.0
-        version: 2.1.0(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react-konva@19.3.2(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
+        version: 2.1.0(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react-konva@19.3.2(@types/react@19.3.0)(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)
     devDependencies:
       '@learn-react/linter':
         specifier: workspace:*
@@ -4064,8 +4064,8 @@ packages:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
     engines: {node: '>=0.10.0'}
 
-  konva@10.7.1:
-    resolution: {integrity: sha512-z/JyXPaT6tWBSEcaT70mdfN3oNQ6U6rDxlH9OkRdxlJaf23DOqfMPGptQWVvXlWfKMJQWEa+PNe9ru3zQR7ifw==}
+  konva@10.9.0:
+    resolution: {integrity: sha512-3NOOlcbimFDp4+/DfXGTBkfn3cn3VP1BESPySQ6ayCzgMA9JSMGJNNxeIKw5jpHL6SAl6gHsrv10DUEjNRL0Qg==}
     peerDependencies:
       canvas: ^3.0.0
       skia-canvas: ^3.0.0
@@ -8814,7 +8814,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  konva@10.7.1: {}
+  konva@10.9.0: {}
 
   language-subtag-registry@0.3.23: {}
 
@@ -9436,19 +9436,19 @@ snapshots:
 
   react-is@17.0.2: {}
 
-  react-konva-utils@2.1.0(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react-konva@19.3.2(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
+  react-konva-utils@2.1.0(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react-konva@19.3.2(@types/react@19.3.0)(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0):
     dependencies:
-      konva: 10.7.1
+      konva: 10.9.0
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
-      react-konva: 19.3.2(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      react-konva: 19.3.2(@types/react@19.3.0)(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       use-image: 1.1.4(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
-  react-konva@19.3.2(@types/react@19.3.0)(konva@10.7.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  react-konva@19.3.2(@types/react@19.3.0)(konva@10.9.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       '@types/react-reconciler': 0.34.0(@types/react@19.3.0)
       its-fine: 2.1.1(@types/react@19.3.0)(react@19.3.0)
-      konva: 10.7.1
+      konva: 10.9.0
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
       react-reconciler: 0.34.0(react@19.3.0)
