@@ -32,7 +32,7 @@
     },
     {
       "groupName": "Oxc families",
-      "matchPackageNames": ["/^oxlint$/", "/^oxlint-tsgolint$/"]
+      "matchPackageNames": ["/(^|[/-])oxlint(-|$)/"]
     },
     {
       "groupName": "ESLint families",
