@@ -39,7 +39,7 @@
     "chokidar": "5.0.0",
     "eslint": "9.39.5",
     "glob": "13.0.6",
-    "npm-run-all2": "9.0.3",
+    "npm-run-all2": "9.0.4",
     "oxlint": "1.88.0",
     "oxlint-tsgolint": "7.0.2004",
     "playwright": "1.64.1",
