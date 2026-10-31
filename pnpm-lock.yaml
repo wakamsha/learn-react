@@ -619,8 +619,8 @@ importers:
         specifier: 7.0.6
         version: 7.0.6
       mobx-react:
-        specifier: 10.0.2
-        version: 10.0.2(mobx@7.0.6)(react@19.3.1)
+        specifier: 10.0.3
+        version: 10.0.3(mobx@7.0.6)(react@19.3.1)
       qs:
         specifier: 6.16.1
         version: 6.16.1
@@ -4313,14 +4313,14 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mobx-react-lite@5.1.0:
-    resolution: {integrity: sha512-++LQTCRr4FJCWuaEvYl5gCtGBwOpOwrnWjm9uhCUDI5nmkzLR8eT1jgMeYfJ8wc88YOYyC/ygjw2KpYPBYGsww==}
+  mobx-react-lite@5.1.2:
+    resolution: {integrity: sha512-40ZukD+RmKT1up5J1rHcPU8wJSB++Wf37lkV6wIHdQtRTt9wCYf9swfYUbfcW+Mz94xImQBwQ7jAr0aP0KeATA==}
     peerDependencies:
       mobx: ^7.0.0
       react: ^18 || ^19
 
-  mobx-react@10.0.2:
-    resolution: {integrity: sha512-DOYZQjgRsYpAujJtnWV6uod7ra53HWK4PXl02FjILFvMRmIGbdrDVxJ3g1+3PoOxMODfopwe1KWtiE8nk/oaDA==}
+  mobx-react@10.0.3:
+    resolution: {integrity: sha512-RScxD1PRJh1jtmQqiKWDHIG78xhi3eI8iwSmR9HPKx2Czfa+gK+d86pFTYEhdhl+DdMW2vi+7dPzcSEPjrH1DA==}
     peerDependencies:
       mobx: ^7.0.0
       react: ^18 || ^19
@@ -8951,15 +8951,15 @@ snapshots:
 
   mkdirp@3.0.1: {}
 
-  mobx-react-lite@5.1.0(mobx@7.0.6)(react@19.3.1):
+  mobx-react-lite@5.1.2(mobx@7.0.6)(react@19.3.1):
     dependencies:
       mobx: 7.0.6
       react: 19.3.1
 
-  mobx-react@10.0.2(mobx@7.0.6)(react@19.3.1):
+  mobx-react@10.0.3(mobx@7.0.6)(react@19.3.1):
     dependencies:
       mobx: 7.0.6
-      mobx-react-lite: 5.1.0(mobx@7.0.6)(react@19.3.1)
+      mobx-react-lite: 5.1.2(mobx@7.0.6)(react@19.3.1)
       react: 19.3.1
 
   mobx@7.0.6: {}
