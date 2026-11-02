@@ -21,7 +21,7 @@
     "@types/react-dom": "19.3.0",
     "cheerio": "1.2.0",
     "eslint": "9.39.5",
-    "glob": "13.0.6",
+    "glob": "14.0.3",
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "prettier": "3.9.10",
