@@ -711,8 +711,8 @@ importers:
         specifier: 11.13.5
         version: 11.13.5(supports-color@10.2.2)
       '@formkit/tempo':
-        specifier: 1.1.0
-        version: 1.1.0
+        specifier: 1.1.1
+        version: 1.1.1
       '@learn-react/icon':
         specifier: workspace:1.0.0
         version: link:../icon
@@ -1577,8 +1577,8 @@ packages:
       '@noble/hashes':
         optional: true
 
-  '@formkit/tempo@1.1.0':
-    resolution: {integrity: sha512-LF36zxNFvNO+U2uS2RX5h0SJZuL4z/JpDHbMOgumhv+re6k/Jpt9S9mZuEMLaLUtpDZlRZZE3UkIiwSS+Forig==}
+  '@formkit/tempo@1.1.1':
+    resolution: {integrity: sha512-ONW1H43AfTbIgDALg89xzG0PAQZvMMM1l3z4Oq7ZXJ+GlTK486ni0MqDHiqa8oExWcGkqE8en9Mo8YXu4AGULQ==}
 
   '@gerrit0/mini-shiki@3.23.0':
     resolution: {integrity: sha512-bEMORlG0cqdjVyCEuU0cDQbORWX+kYCeo0kV1lbxF5bt4r7SID2l9bqsxJEM0zndaxpOUT7riCyIVEuqq/Ynxg==}
@@ -6237,7 +6237,7 @@ snapshots:
 
   '@exodus/bytes@1.16.0': {}
 
-  '@formkit/tempo@1.1.0': {}
+  '@formkit/tempo@1.1.1': {}
 
   '@gerrit0/mini-shiki@3.23.0':
     dependencies:
