@@ -613,8 +613,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0(react@19.3.1)
       jotai:
-        specifier: 3.0.1
-        version: 3.0.1(@types/react@19.3.0)(react@19.3.1)
+        specifier: 3.0.2
+        version: 3.0.2(@types/react@19.3.0)(react@19.3.1)
       mobx:
         specifier: 7.1.6
         version: 7.1.6
@@ -3952,8 +3952,8 @@ packages:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
 
-  jotai@3.0.1:
-    resolution: {integrity: sha512-6tS7wY9otdiNp26Wqb/1ds3OuVJVoV+tJlN4hpLrYmfFf/t9bauVt+zKBNSpS5qSl5h6GieVQ+OknVraZX+udQ==}
+  jotai@3.0.2:
+    resolution: {integrity: sha512-1h+H6BQN+D048zv8hRGVeNxghxRLFZCB+l2WhFe7RhRiF0JlC8516G2BtRUXhPvMQTGB9OHst2N/BW9aNpp5aA==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       '@types/react': '>=18.0.0'
@@ -8674,7 +8674,7 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai@3.0.1(@types/react@19.3.0)(react@19.3.1):
+  jotai@3.0.2(@types/react@19.3.0)(react@19.3.1):
     optionalDependencies:
       '@types/react': 19.3.0
       react: 19.3.1
