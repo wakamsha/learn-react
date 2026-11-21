@@ -30,7 +30,7 @@
     "qs": "6.17.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-router-dom": "7.18.5"
+    "react-router-dom": "7.18.6"
   },
   "devDependencies": {
     "@learn-react/builder": "workspace:1.0.0",
