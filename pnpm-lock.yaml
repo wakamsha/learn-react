@@ -958,7 +958,7 @@ importers:
         version: link:../core
       '@pixi/react':
         specifier: 8.0.5
-        version: 8.0.5(@types/react@19.3.0)(pixi.js@8.22.0)(react@19.3.1)
+        version: 8.0.5(@types/react@19.3.0)(pixi.js@8.23.0)(react@19.3.1)
       chart.js:
         specifier: 4.6.1
         version: 4.6.1
@@ -969,8 +969,8 @@ importers:
         specifier: 10.10.0
         version: 10.10.0(@napi-rs/canvas@1.2.0)
       pixi.js:
-        specifier: 8.22.0
-        version: 8.22.0
+        specifier: 8.23.0
+        version: 8.23.0
       react-chartjs-2:
         specifier: 5.3.1
         version: 5.3.1(chart.js@4.6.1)(react@19.3.1)
@@ -1893,9 +1893,6 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@pixi/colord@2.9.6':
-    resolution: {integrity: sha512-nezytU2pw587fQstUu1AsJZDVEynjskwOL+kibwcdxsMBFqPsFFNA7xl0ii/gXuDi6M0xj3mfRJj8pBSc2jCfA==}
-
   '@pixi/react@8.0.5':
     resolution: {integrity: sha512-Z1VRdnv9Gh+lTLzNKjpS7GaTNDjUxRVJNtIdtK2i0sCpigvjx5mvJ72EPLhBFgepB6j3ZCkL0YBb6BqgTGbhGA==}
     peerDependencies:
@@ -2760,6 +2757,9 @@ packages:
 
   colord@2.10.0:
     resolution: {integrity: sha512-AidJptpBJmjTclAp9BkLwJi0T93fo5epJnbaZslpg6QVzpHjAiveF55mE9AcUJiGMqRHgMDY8soMsQtuNYMHfw==}
+
+  colord@2.14.0:
+    resolution: {integrity: sha512-eSdMel9EBvdFxnchObp7gljRoqYQLr+zXhaxjkym7syVphw1FIhfQwgsA5Bv3jArflZPJEa1rmQtGpa7NRc7Rw==}
 
   commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
@@ -4575,8 +4575,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  pixi.js@8.22.0:
-    resolution: {integrity: sha512-QbTANHMZ751MIjLiLSUSM8a7LNMWwMIf0KbRCqlW+SPS9hNLfSVS+cl1O2SEp9g1K/wyLzj/OJHv+1TUfiPr/w==}
+  pixi.js@8.23.0:
+    resolution: {integrity: sha512-RkWSwo+mAR0d7MKnJ20IjKkWGPdFh1C0adBRYYLa+SGdxTfbrr6RnQyZZRwjBaG/bDAIQqgBcTBbiNsN6iKFVQ==}
 
   pkg-types@2.3.3:
     resolution: {integrity: sha512-j/lCFdcppV0JxWpCEITdbDltBxPP6cHT+yNJ6Go2OgoSA9518X847X9z0p6LtA4Nc16+eQzCZjRrWanTGvHJ5w==}
@@ -6453,12 +6453,10 @@ snapshots:
   '@oxlint/binding-win32-x64-msvc@1.90.0':
     optional: true
 
-  '@pixi/colord@2.9.6': {}
-
-  '@pixi/react@8.0.5(@types/react@19.3.0)(pixi.js@8.22.0)(react@19.3.1)':
+  '@pixi/react@8.0.5(@types/react@19.3.0)(pixi.js@8.23.0)(react@19.3.1)':
     dependencies:
       its-fine: 2.1.1(@types/react@19.3.0)(react@19.3.1)
-      pixi.js: 8.22.0
+      pixi.js: 8.23.0
       react: 19.3.1
       react-reconciler: 0.31.0(react@19.3.1)
     transitivePeerDependencies:
@@ -7293,6 +7291,8 @@ snapshots:
   color-name@1.1.4: {}
 
   colord@2.10.0: {}
+
+  colord@2.14.0: {}
 
   commander@11.1.0: {}
 
@@ -9233,12 +9233,12 @@ snapshots:
 
   pidtree@1.0.0: {}
 
-  pixi.js@8.22.0:
+  pixi.js@8.23.0:
     dependencies:
-      '@pixi/colord': 2.9.6
       '@types/earcut': 3.0.0
       '@webgpu/types': 0.1.74
       '@xmldom/xmldom': 0.8.15
+      colord: 2.14.0
       earcut: 3.2.4
       eventemitter3: 5.0.4
       gifuct-js: 2.1.2
